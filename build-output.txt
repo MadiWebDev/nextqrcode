@@ -1,0 +1,156 @@
+▲ Next.js 16.3.8 (Turbopack)
+✓ Running next.config.ts took 64ms
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 4 errors:
+./src/components/TypeSelector.tsx:5:1
+Error: Export Linkedin doesn't exist in target module
+  [90m 3 |[0m [36mimport[0m { [33mAnimatePresence[0m, motion } [36mfrom[0m [32m'framer-motion'[0m;
+  [90m 4 |[0m [36mimport[0m { [33mSearch[0m, [33mChevronDown[0m, [33mChevronUp[0m, [33mGlobe[0m } [36mfrom[0m [32m'lucide-react'[0m;
+[31m[1m>[0m [90m 5 |[0m [36mimport[0m {
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 6 |[0m   [33mType[0m, [33mFileText[0m, [33mMusic[0m, [33mMessageCircle[0m, [33mPhone[0m, [33mMessageSquare[0m, [33mMail[0m, [33mMapPin[0m, [33mWifi[0m, [33mUser[0m, [33mSh...[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 7 |[0m   [33mSmartphone[0m, [33mTicketPercent[0m, [33mCalendar[0m, [33mBriefcase[0m, [33mCode[0m, [33mShoppingCart[0m, [33mSparkles[0m, [33mTruck[0m, [33mLan...[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 8 |[0m   [33mNavigation[0m, [33mSend[0m, [33mMonitor[0m, [33mUsers[0m, [33mYoutube[0m, [33mLinkedin[0m, [33mMusic2[0m, [33mCreditCard[0m, [33mIndianRupee[0m, [33mBi...[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 9 |[0m } [36mfrom[0m [32m'lucide-react'[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m [36mimport[0m { [33mInput[0m } [36mfrom[0m [32m'@/components/ui/input'[0m;
+  [90m11 |[0m [36mimport[0m { [33mTabs[0m, [33mTabsContent[0m, [33mTabsList[0m, [33mTabsTrigger[0m } [36mfrom[0m [32m'@/components/ui/tabs'[0m;
+  [90m12 |[0m [36mimport[0m [36mtype[0m { [33mQRType[0m } [36mfrom[0m [32m'@/types'[0m;
+
+The export Linkedin was not found in module [project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-client] (ecmascript).
+Did you mean to import Link?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/TypeSelector.tsx [Client Component Browser]
+    ./src/components/LandingGenerator.tsx [Client Component Browser]
+    ./src/components/LandingGenerator.tsx [Server Component]
+    ./src/app/upi-qr-code-generator/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/TypeSelector.tsx [Client Component SSR]
+    ./src/components/LandingGenerator.tsx [Client Component SSR]
+    ./src/components/LandingGenerator.tsx [Server Component]
+    ./src/app/upi-qr-code-generator/page.tsx [Server Component]
+
+
+./src/components/TypeSelector.tsx:5:1
+Error: Export Linkedin doesn't exist in target module
+  [90m 3 |[0m [36mimport[0m { [33mAnimatePresence[0m, motion } [36mfrom[0m [32m'framer-motion'[0m;
+  [90m 4 |[0m [36mimport[0m { [33mSearch[0m, [33mChevronDown[0m, [33mChevronUp[0m, [33mGlobe[0m } [36mfrom[0m [32m'lucide-react'[0m;
+[31m[1m>[0m [90m 5 |[0m [36mimport[0m {
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 6 |[0m   [33mType[0m, [33mFileText[0m, [33mMusic[0m, [33mMessageCircle[0m, [33mPhone[0m, [33mMessageSquare[0m, [33mMail[0m, [33mMapPin[0m, [33mWifi[0m, [33mUser[0m, [33mSh...[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 7 |[0m   [33mSmartphone[0m, [33mTicketPercent[0m, [33mCalendar[0m, [33mBriefcase[0m, [33mCode[0m, [33mShoppingCart[0m, [33mSparkles[0m, [33mTruck[0m, [33mLan...[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 8 |[0m   [33mNavigation[0m, [33mSend[0m, [33mMonitor[0m, [33mUsers[0m, [33mYoutube[0m, [33mLinkedin[0m, [33mMusic2[0m, [33mCreditCard[0m, [33mIndianRupee[0m, [33mBi...[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 9 |[0m } [36mfrom[0m [32m'lucide-react'[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m [36mimport[0m { [33mInput[0m } [36mfrom[0m [32m'@/components/ui/input'[0m;
+  [90m11 |[0m [36mimport[0m { [33mTabs[0m, [33mTabsContent[0m, [33mTabsList[0m, [33mTabsTrigger[0m } [36mfrom[0m [32m'@/components/ui/tabs'[0m;
+  [90m12 |[0m [36mimport[0m [36mtype[0m { [33mQRType[0m } [36mfrom[0m [32m'@/types'[0m;
+
+The export Linkedin was not found in module [project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-ssr] (ecmascript).
+Did you mean to import Link?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/TypeSelector.tsx [Client Component Browser]
+    ./src/components/LandingGenerator.tsx [Client Component Browser]
+    ./src/components/LandingGenerator.tsx [Server Component]
+    ./src/app/upi-qr-code-generator/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/TypeSelector.tsx [Client Component SSR]
+    ./src/components/LandingGenerator.tsx [Client Component SSR]
+    ./src/components/LandingGenerator.tsx [Server Component]
+    ./src/app/upi-qr-code-generator/page.tsx [Server Component]
+
+
+./src/components/TypeSelector.tsx:5:1
+Error: Export Youtube doesn't exist in target module
+  [90m 3 |[0m [36mimport[0m { [33mAnimatePresence[0m, motion } [36mfrom[0m [32m'framer-motion'[0m;
+  [90m 4 |[0m [36mimport[0m { [33mSearch[0m, [33mChevronDown[0m, [33mChevronUp[0m, [33mGlobe[0m } [36mfrom[0m [32m'lucide-react'[0m;
+[31m[1m>[0m [90m 5 |[0m [36mimport[0m {
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 6 |[0m   [33mType[0m, [33mFileText[0m, [33mMusic[0m, [33mMessageCircle[0m, [33mPhone[0m, [33mMessageSquare[0m, [33mMail[0m, [33mMapPin[0m, [33mWifi[0m, [33mUser[0m, [33mSh...[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 7 |[0m   [33mSmartphone[0m, [33mTicketPercent[0m, [33mCalendar[0m, [33mBriefcase[0m, [33mCode[0m, [33mShoppingCart[0m, [33mSparkles[0m, [33mTruck[0m, [33mLan...[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 8 |[0m   [33mNavigation[0m, [33mSend[0m, [33mMonitor[0m, [33mUsers[0m, [33mYoutube[0m, [33mLinkedin[0m, [33mMusic2[0m, [33mCreditCard[0m, [33mIndianRupee[0m, [33mBi...[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 9 |[0m } [36mfrom[0m [32m'lucide-react'[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m [36mimport[0m { [33mInput[0m } [36mfrom[0m [32m'@/components/ui/input'[0m;
+  [90m11 |[0m [36mimport[0m { [33mTabs[0m, [33mTabsContent[0m, [33mTabsList[0m, [33mTabsTrigger[0m } [36mfrom[0m [32m'@/components/ui/tabs'[0m;
+  [90m12 |[0m [36mimport[0m [36mtype[0m { [33mQRType[0m } [36mfrom[0m [32m'@/types'[0m;
+
+The export Youtube was not found in module [project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-client] (ecmascript).
+Did you mean to import Route?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/TypeSelector.tsx [Client Component Browser]
+    ./src/components/LandingGenerator.tsx [Client Component Browser]
+    ./src/components/LandingGenerator.tsx [Server Component]
+    ./src/app/upi-qr-code-generator/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/TypeSelector.tsx [Client Component SSR]
+    ./src/components/LandingGenerator.tsx [Client Component SSR]
+    ./src/components/LandingGenerator.tsx [Server Component]
+    ./src/app/upi-qr-code-generator/page.tsx [Server Component]
+
+
+./src/components/TypeSelector.tsx:5:1
+Error: Export Youtube doesn't exist in target module
+  [90m 3 |[0m [36mimport[0m { [33mAnimatePresence[0m, motion } [36mfrom[0m [32m'framer-motion'[0m;
+  [90m 4 |[0m [36mimport[0m { [33mSearch[0m, [33mChevronDown[0m, [33mChevronUp[0m, [33mGlobe[0m } [36mfrom[0m [32m'lucide-react'[0m;
+[31m[1m>[0m [90m 5 |[0m [36mimport[0m {
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 6 |[0m   [33mType[0m, [33mFileText[0m, [33mMusic[0m, [33mMessageCircle[0m, [33mPhone[0m, [33mMessageSquare[0m, [33mMail[0m, [33mMapPin[0m, [33mWifi[0m, [33mUser[0m, [33mSh...[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 7 |[0m   [33mSmartphone[0m, [33mTicketPercent[0m, [33mCalendar[0m, [33mBriefcase[0m, [33mCode[0m, [33mShoppingCart[0m, [33mSparkles[0m, [33mTruck[0m, [33mLan...[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 8 |[0m   [33mNavigation[0m, [33mSend[0m, [33mMonitor[0m, [33mUsers[0m, [33mYoutube[0m, [33mLinkedin[0m, [33mMusic2[0m, [33mCreditCard[0m, [33mIndianRupee[0m, [33mBi...[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 9 |[0m } [36mfrom[0m [32m'lucide-react'[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m [36mimport[0m { [33mInput[0m } [36mfrom[0m [32m'@/components/ui/input'[0m;
+  [90m11 |[0m [36mimport[0m { [33mTabs[0m, [33mTabsContent[0m, [33mTabsList[0m, [33mTabsTrigger[0m } [36mfrom[0m [32m'@/components/ui/tabs'[0m;
+  [90m12 |[0m [36mimport[0m [36mtype[0m { [33mQRType[0m } [36mfrom[0m [32m'@/types'[0m;
+
+The export Youtube was not found in module [project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-ssr] (ecmascript).
+Did you mean to import Route?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/TypeSelector.tsx [Client Component Browser]
+    ./src/components/LandingGenerator.tsx [Client Component Browser]
+    ./src/components/LandingGenerator.tsx [Server Component]
+    ./src/app/upi-qr-code-generator/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/TypeSelector.tsx [Client Component SSR]
+    ./src/components/LandingGenerator.tsx [Client Component SSR]
+    ./src/components/LandingGenerator.tsx [Server Component]
+    ./src/app/upi-qr-code-generator/page.tsx [Server Component]
+
+
+    at <unknown> (./src/components/TypeSelector.tsx:5:1)
+    at <unknown> (./src/components/TypeSelector.tsx:5:1)
+    at <unknown> (./src/components/TypeSelector.tsx:5:1)
+    at <unknown> (./src/components/TypeSelector.tsx:5:1)
+BUILD_EXIT_CODE=1 
