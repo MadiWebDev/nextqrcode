@@ -118,13 +118,24 @@ function ChartTooltipContent({
   color,
   nameKey,
   labelKey,
-}: React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
-  React.ComponentProps<"div"> & {
+}: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+React.ComponentProps<"div"> & {
+    active?: boolean
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    payload?: any[]
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    label?: any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    labelFormatter?: (label: any, payload: any[]) => React.ReactNode
+    labelClassName?: string
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    formatter?: (value: any, name: any, item: any, index: any, payload: any) => React.ReactNode
+    color?: string
+    nameKey?: string
+    labelKey?: string
     hideLabel?: boolean
     hideIndicator?: boolean
     indicator?: "line" | "dot" | "dashed"
-    nameKey?: string
-    labelKey?: string
   }) {
   const { config } = useChart()
 
@@ -184,7 +195,8 @@ function ChartTooltipContent({
           .map((item, index) => {
             const key = `${nameKey || item.name || item.dataKey || "value"}`
             const itemConfig = getPayloadConfigFromPayload(config, item, key)
-            const indicatorColor = color || item.payload.fill || item.color
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const indicatorColor = color || (item as any).payload?.fill || item.color
 
             return (
               <div
@@ -258,8 +270,10 @@ function ChartLegendContent({
   payload,
   verticalAlign = "bottom",
   nameKey,
-}: React.ComponentProps<"div"> &
-  Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
+}: React.ComponentProps<"div"> & {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    payload?: any[]
+    verticalAlign?: "top" | "bottom" | "middle"
     hideIcon?: boolean
     nameKey?: string
   }) {

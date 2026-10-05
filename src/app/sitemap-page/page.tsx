@@ -1,21 +1,22 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { getAllArticles } from '@/lib/articles';
 
 export const metadata: Metadata = {
-  title: 'Sitemap — QR Studio',
-  description: 'Full sitemap of QR Studio. Browse all QR code generators, guides, and legal pages.',
+  title: 'Full Site Index & Directory — QR Studio',
+  description: 'Full sitemap of QR Studio. Browse all 15 optical engineering tools, generators, technical guides, and standards.',
   alternates: { canonical: 'https://qrstudio.app/sitemap-page' },
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true },
 };
 
 function SitemapSection({ heading, links }: { heading: string; links: { label: string; href: string }[] }) {
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-4 text-foreground">{heading}</h2>
+      <h2 className="text-xl font-bold mb-3 text-foreground">{heading}</h2>
       <ul className="space-y-1.5 columns-1 sm:columns-2">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="text-primary hover:underline text-sm">
+            <Link href={link.href} className="text-primary hover:underline text-xs sm:text-sm">
               {link.label}
             </Link>
           </li>
@@ -26,89 +27,67 @@ function SitemapSection({ heading, links }: { heading: string; links: { label: s
 }
 
 export default function SitemapPage() {
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://qrstudio.app/' },
-      { '@type': 'ListItem', position: 2, name: 'Sitemap', item: 'https://qrstudio.app/sitemap-page' },
-    ],
-  };
+  const articles = getAllArticles();
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-
-      {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
-        <ol className="flex items-center gap-1.5">
-          <li><a href="/" className="hover:text-foreground transition-colors">Home</a></li>
-          <li aria-hidden="true">›</li>
-          <li aria-current="page" className="text-foreground">Sitemap</li>
-        </ol>
-      </nav>
-
       <header>
-        <h1 className="text-3xl font-extrabold tracking-tight">Sitemap</h1>
+        <h1 className="text-3xl font-extrabold tracking-tight">QR Studio Directory & Sitemap</h1>
         <p className="text-muted-foreground mt-2 text-sm">
-          A complete listing of all pages and tools available on QR Studio.
+          A complete index of all 15 client-side QR and barcode engineering tools, generators, and research articles.
         </p>
       </header>
 
       <SitemapSection
-        heading="Tools"
+        heading="Diagnostics & Specialized Engineering Tools"
         links={[
-          { label: 'Home — QR Code Generator', href: '/' },
-          { label: 'QR Size Calculator', href: '/qr-size-calculator' },
-          { label: 'WiFi Sign Generator', href: '/wifi-sign-generator' },
-          { label: 'Barcode Generator', href: '/barcode-generator' },
-          { label: 'UTM Builder', href: '/utm-builder' },
-          { label: 'QR Safety Checker', href: '/qr-safety-checker' },
-          { label: 'Medical ID QR', href: '/medical-id-qr' },
-          { label: 'Pet Tag QR', href: '/pet-tag-qr' },
-          { label: 'Pakistan Payment QR', href: '/pakistan-payment-qr' },
-          { label: 'Bulk vCard QR', href: '/bulk-vcard-qr' },
+          { label: 'QR Size & Scan-Distance Calculator', href: '/qr-size-calculator' },
+          { label: 'QR Safety & Phishing Checker', href: '/qr-safety-checker' },
+          { label: 'Printed-QR Quality & Contrast Tester', href: '/printed-qr-tester' },
+          { label: 'Error-Correction & Damage Simulator', href: '/error-correction-simulator' },
+          { label: 'Large-Data QR Splitter & Reassembly Scanner', href: '/qr-splitter-scanner' },
+          { label: 'Animated-QR Offline File Transfer', href: '/animated-qr-transfer' },
+          { label: 'Emergency Medical ID QR Card', href: '/medical-id-qr' },
+          { label: 'Printable WiFi Signs (RTL Urdu & Arabic)', href: '/wifi-sign-generator' },
+          { label: 'Regional Payment QR (Raast, JazzCash, Easypaisa, UPI)', href: '/pakistan-payment-qr' },
+          { label: 'Avery Sticker Sheet Layout Printer', href: '/qr-sticker-sheet-printer' },
+          { label: 'Pet Tag & Lost-and-Found QR', href: '/pet-tag-qr' },
+          { label: 'Bulk vCard QR from CSV', href: '/bulk-vcard-qr' },
+          { label: 'UTM Campaign QR Builder', href: '/utm-builder' },
+          { label: 'QR Placement by Material Checklist', href: '/qr-placement-guide' },
+          { label: '1D Barcode Generator with Checksum Validation', href: '/barcode-generator' },
         ]}
       />
 
       <SitemapSection
-        heading="QR Code Generators"
+        heading="Core Static QR Generators"
         links={[
-          { label: 'URL QR Code Generator', href: '/url-qr-code-generator' },
-          { label: 'WiFi QR Code Generator', href: '/wifi-qr-code-generator' },
-          { label: 'vCard QR Code Generator', href: '/vcard-qr-code-generator' },
-          { label: 'WhatsApp QR Code Generator', href: '/whatsapp-qr-code-generator' },
-          { label: 'UPI QR Code Generator', href: '/upi-qr-code-generator' },
-          { label: 'Bitcoin QR Code Generator', href: '/bitcoin-qr-code-generator' },
+          { label: 'Free URL QR Code Generator', href: '/url-qr-code-generator' },
+          { label: 'Instant WiFi QR Code Generator', href: '/wifi-qr-code-generator' },
+          { label: 'Digital vCard 3.0 Generator', href: '/vcard-qr-code-generator' },
+          { label: 'Direct WhatsApp Link QR', href: '/whatsapp-qr-code-generator' },
+          { label: 'UPI Payment QR Generator', href: '/upi-qr-code-generator' },
+          { label: 'Bitcoin & Crypto Address QR', href: '/bitcoin-qr-code-generator' },
         ]}
       />
 
       <SitemapSection
-        heading="Resources"
-        links={[
-          { label: 'Blog', href: '/blog' },
-          { label: 'Sitemap', href: '/sitemap-page' },
-        ]}
+        heading="Technical Research & Engineering Guides"
+        links={articles.map((a) => ({
+          label: a.title,
+          href: `/blog/${a.slug}`,
+        }))}
       />
 
       <SitemapSection
-        heading="Legal & Info"
+        heading="Trust & Compliance"
         links={[
-          { label: 'Privacy Policy', href: '/privacy' },
-          { label: 'Cookie Policy', href: '/cookie-policy' },
+          { label: 'About the Engineering Team', href: '/about' },
+          { label: 'Contact & Support Desk', href: '/contact' },
+          { label: 'Privacy Policy (Zero-Data Stored)', href: '/privacy' },
+          { label: 'Cookie Policy & Consent Platform', href: '/cookie-policy' },
           { label: 'Terms of Service', href: '/terms' },
-          { label: 'Disclaimer', href: '/disclaimer' },
-        ]}
-      />
-
-      <SitemapSection
-        heading="Company"
-        links={[
-          { label: 'About', href: '/about' },
-          { label: 'Contact', href: '/contact' },
+          { label: 'Medical & Regional Payment Disclaimer', href: '/disclaimer' },
         ]}
       />
     </div>

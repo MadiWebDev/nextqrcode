@@ -1,36 +1,81 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { getAllArticles } from '@/lib/articles';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { AdSlot } from '@/components/AdSlot';
+import { BookOpen, Calendar, Clock, ArrowRight, UserCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'QR Code Resources & Blog — QR Studio',
-  description: 'Guides, tutorials, and best practices for creating and using QR codes. Covering printing, sizing, error correction, WiFi QR codes, and more.',
+  title: 'QR Code Engineering & Standards Hub — Guides & Research',
+  description: 'Deep-dive engineering guides, Reed-Solomon math, ISO/IEC 18004 standards, printing guidelines, and mobile scan diagnostics from QR Studio.',
   alternates: { canonical: 'https://qrstudio.app/blog' },
 };
 
-const ARTICLES = [
-  { slug: 'how-qr-codes-work', title: 'How QR Codes Work: The Complete Technical Guide', teaser: 'QR codes store data in a two-dimensional matrix of black and white modules. Learn how the encoding algorithm works, what finder patterns are, and why error correction makes codes scannable even when damaged.' },
-  { slug: 'qr-code-sizes-for-printing', title: 'QR Code Sizes for Printing: The Definitive Guide', teaser: 'The right print size depends on scan distance, data density, and substrate material. We cover minimum sizes for business cards, A4 flyers, posters, and product packaging — with real-world test results.' },
-  { slug: 'static-vs-dynamic-qr-codes', title: 'Static vs Dynamic QR Codes: Which Should You Use?', teaser: 'Static QR codes encode data directly and last forever for free. Dynamic QR codes use a short-link redirect you can change after printing. We compare cost, use cases, and privacy implications.' },
-  { slug: 'how-to-make-wifi-qr-code', title: 'How to Make a WiFi QR Code (Step by Step)', teaser: 'A WiFi QR code lets guests connect to your network with a single scan — no password sharing needed. Follow these steps to create one for your home, café, office, or hotel.' },
-  { slug: 'qr-code-error-correction', title: 'QR Code Error Correction: What It Is and Why It Matters', teaser: 'QR codes have four error-correction levels (L, M, Q, H) that let them remain scannable even when partially obscured or damaged. Understand how to choose the right level for your use case.' },
-  { slug: 'qr-codes-for-restaurants', title: 'Best QR Code Practices for Restaurants and Cafes', teaser: 'From contactless menus to review links and table-side ordering, QR codes have transformed the hospitality industry. Learn the best formats, placement strategies, and design tips for food-service businesses.' },
-];
+export default function BlogIndexPage() {
+  const articles = getAllArticles();
 
-export default function BlogPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight mb-2">QR Code Resources</h1>
-        <p className="text-muted-foreground text-lg">Guides, tutorials, and best practices from the QR Studio team.</p>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <Breadcrumbs items={[{ label: 'Resources & Guides', href: '/blog' }]} />
+
+      <header className="mb-10 text-center sm:text-left">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
+          <BookOpen className="w-3.5 h-3.5" />
+          <span>Technical Knowledge Base</span>
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+          QR Code Standards, Optics & Guides
+        </h1>
+        <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
+          Comprehensive, peer-reviewed engineering analyses covering optical camera physics, Galois Field error correction, commercial print substrates, and international payment protocols.
+        </p>
       </header>
-      <div className="grid gap-6 sm:grid-cols-2">
-        {ARTICLES.map(article => (
-          <article key={article.slug} className="border border-border/60 rounded-xl p-5 bg-card hover:shadow-md transition-shadow">
-            <h2 className="font-bold text-base mb-2 leading-snug">
-              <Link href={`/blog/${article.slug}`} className="hover:text-primary transition-colors">{article.title}</Link>
-            </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-3">{article.teaser}</p>
-            <Link href={`/blog/${article.slug}`} className="text-xs font-medium text-primary hover:underline" aria-label={`Read more about ${article.title}`}>Read more →</Link>
+
+      {/* Top Banner AdSlot */}
+      <AdSlot id="blog-index-top" format="horizontal-banner" />
+
+      {/* Articles Grid */}
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-8">
+        {articles.map((article) => (
+          <article
+            key={article.slug}
+            className="flex flex-col justify-between border border-border/70 rounded-2xl p-6 bg-card hover:shadow-lg transition-all hover:border-primary/40 group"
+          >
+            <div>
+              <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
+                <span className="px-2 py-0.5 rounded-md bg-muted font-medium text-foreground/80">
+                  {article.category}
+                </span>
+                <span className="flex items-center gap-1">
+                  <Clock className="w-3 h-3" />
+                  {article.readTime}
+                </span>
+              </div>
+
+              <h2 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors leading-snug mb-3">
+                <Link href={`/blog/${article.slug}`}>
+                  {article.title}
+                </Link>
+              </h2>
+
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-4">
+                {article.description}
+              </p>
+            </div>
+
+            <div className="pt-4 border-t border-border/50 flex items-center justify-between">
+              <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                <UserCheck className="w-3 h-3 text-primary" />
+                <span className="truncate max-w-[120px]">{article.author}</span>
+              </div>
+              <Link
+                href={`/blog/${article.slug}`}
+                className="inline-flex items-center gap-1 text-xs font-semibold text-primary group-hover:translate-x-0.5 transition-transform"
+              >
+                <span>Read Guide</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </article>
         ))}
       </div>

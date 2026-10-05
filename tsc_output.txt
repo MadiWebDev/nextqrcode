@@ -1,0 +1,22 @@
+src/components/ui/alert-dialog.tsx(2,39): error TS2307: Cannot find module '@radix-ui/react-alert-dialog' or its corresponding type declarations.
+src/components/ui/aspect-ratio.tsx(3,39): error TS2307: Cannot find module '@radix-ui/react-aspect-ratio' or its corresponding type declarations.
+src/components/ui/avatar.tsx(2,34): error TS2307: Cannot find module '@radix-ui/react-avatar' or its corresponding type declarations.
+src/components/ui/calendar.tsx(91,9): error TS2353: Object literal may only specify known properties, and 'table' does not exist in type 'Partial<ClassNames>'.
+src/components/ui/chart.tsx(109,3): error TS2339: Property 'payload' does not exist on type 'Omit<Props<ValueType, NameType>, PropertiesReadFromContext> & { active?: boolean | undefined; allowEscapeViewBox?: AllowInDimension | undefined; ... 24 more ...; wrapperStyle?: CSSProperties | undefined; } & ClassAttributes<...> & HTMLAttributes<...> & { ...; }'.
+src/components/ui/chart.tsx(114,3): error TS2339: Property 'label' does not exist on type 'Omit<Props<ValueType, NameType>, PropertiesReadFromContext> & { active?: boolean | undefined; allowEscapeViewBox?: AllowInDimension | undefined; ... 24 more ...; wrapperStyle?: CSSProperties | undefined; } & ClassAttributes<...> & HTMLAttributes<...> & { ...; }'.
+src/components/ui/chart.tsx(183,20): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/components/ui/chart.tsx(184,17): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/components/ui/chart.tsx(184,23): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/components/ui/chart.tsx(262,39): error TS2344: Type '"verticalAlign" | "payload"' does not satisfy the constraint '"children" | "content" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | ... 169 more ... | "portal"'.
+  Type '"payload"' is not assignable to type '"children" | "content" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | ... 169 more ... | "portal"'.
+src/components/ui/chart.tsx(268,17): error TS2339: Property 'length' does not exist on type '{}'.
+src/components/ui/chart.tsx(281,10): error TS2339: Property 'filter' does not exist on type '{}'.
+src/components/ui/chart.tsx(281,18): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/components/ui/chart.tsx(282,15): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/components/ui/context-menu.tsx(4,39): error TS2307: Cannot find module '@radix-ui/react-context-menu' or its corresponding type declarations.
+src/components/ui/hover-card.tsx(4,37): error TS2307: Cannot find module '@radix-ui/react-hover-card' or its corresponding type declarations.
+src/components/ui/menubar.tsx(2,35): error TS2307: Cannot find module '@radix-ui/react-menubar' or its corresponding type declarations.
+src/components/ui/navigation-menu.tsx(2,42): error TS2307: Cannot find module '@radix-ui/react-navigation-menu' or its corresponding type declarations.
+src/components/ui/popover.tsx(4,35): error TS2307: Cannot find module '@radix-ui/react-popover' or its corresponding type declarations.
+src/components/ui/progress.tsx(2,36): error TS2307: Cannot find module '@radix-ui/react-progress' or its corresponding type declarations.
+src/components/ui/scroll-area.tsx(4,38): error TS2307: Cannot find module '@radix-ui/react-scroll-area' or its corresponding type declarations.

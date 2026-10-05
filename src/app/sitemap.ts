@@ -1,38 +1,90 @@
 import type { MetadataRoute } from 'next';
+import { getAllArticles } from '@/lib/articles';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://qrstudio.app';
   const now = new Date();
-  const pages = [
-    { url: base, priority: 1.0 },
-    { url: `${base}/url-qr-code-generator`, priority: 0.9 },
-    { url: `${base}/wifi-qr-code-generator`, priority: 0.9 },
-    { url: `${base}/vcard-qr-code-generator`, priority: 0.9 },
-    { url: `${base}/whatsapp-qr-code-generator`, priority: 0.9 },
-    { url: `${base}/upi-qr-code-generator`, priority: 0.9 },
-    { url: `${base}/bitcoin-qr-code-generator`, priority: 0.9 },
-    { url: `${base}/blog`, priority: 0.7 },
-    { url: `${base}/about`, priority: 0.5 },
-    { url: `${base}/privacy`, priority: 0.3 },
-    { url: `${base}/terms`, priority: 0.3 },
-    { url: `${base}/contact`, priority: 0.4 },
-    { url: `${base}/cookie-policy`, priority: 0.3 },
-    { url: `${base}/disclaimer`, priority: 0.3 },
-    { url: `${base}/sitemap-page`, priority: 0.3 },
-    { url: `${base}/qr-size-calculator`, priority: 0.8 },
-    { url: `${base}/wifi-sign-generator`, priority: 0.8 },
-    { url: `${base}/barcode-generator`, priority: 0.8 },
-    { url: `${base}/utm-builder`, priority: 0.8 },
-    { url: `${base}/qr-safety-checker`, priority: 0.8 },
-    { url: `${base}/medical-id-qr`, priority: 0.8 },
-    { url: `${base}/pet-tag-qr`, priority: 0.8 },
-    { url: `${base}/pakistan-payment-qr`, priority: 0.8 },
-    { url: `${base}/bulk-vcard-qr`, priority: 0.8 },
+
+  const coreTools = [
+    '/qr-size-calculator',
+    '/qr-safety-checker',
+    '/printed-qr-tester',
+    '/error-correction-simulator',
+    '/qr-splitter-scanner',
+    '/animated-qr-transfer',
+    '/medical-id-qr',
+    '/wifi-sign-generator',
+    '/pakistan-payment-qr',
+    '/regional-payment-qr',
+    '/qr-sticker-sheet-printer',
+    '/pet-tag-qr',
+    '/bulk-vcard-qr',
+    '/bulk-vcard-generator',
+    '/utm-builder',
+    '/qr-placement-guide',
+    '/barcode-generator',
   ];
-  return pages.map(p => ({
-    url: p.url,
+
+  const standardGenerators = [
+    '/url-qr-code-generator',
+    '/wifi-qr-code-generator',
+    '/vcard-qr-code-generator',
+    '/whatsapp-qr-code-generator',
+    '/upi-qr-code-generator',
+    '/bitcoin-qr-code-generator',
+  ];
+
+  const trustPages = [
+    '/about',
+    '/contact',
+    '/privacy',
+    '/terms',
+    '/cookie-policy',
+    '/disclaimer',
+    '/sitemap-page',
+    '/blog',
+  ];
+
+  const articles = getAllArticles();
+
+  const toolEntries: MetadataRoute.Sitemap = coreTools.map((path) => ({
+    url: `${base}${path}`,
     lastModified: now,
-    changeFrequency: 'monthly' as const,
-    priority: p.priority,
+    changeFrequency: 'weekly',
+    priority: 0.9,
   }));
+
+  const generatorEntries: MetadataRoute.Sitemap = standardGenerators.map((path) => ({
+    url: `${base}${path}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
+
+  const articleEntries: MetadataRoute.Sitemap = articles.map((art) => ({
+    url: `${base}/blog/${art.slug}`,
+    lastModified: new Date(art.updatedAt),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
+
+  const trustEntries: MetadataRoute.Sitemap = trustPages.map((path) => ({
+    url: `${base}${path}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.5,
+  }));
+
+  return [
+    {
+      url: base,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    ...toolEntries,
+    ...generatorEntries,
+    ...articleEntries,
+    ...trustEntries,
+  ];
 }
