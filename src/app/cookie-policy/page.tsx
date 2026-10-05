@@ -4,11 +4,11 @@ export const metadata: Metadata = {
   title: 'Cookie Policy — QR Studio',
   description:
     'Learn what cookies QR Studio uses, why, and how to manage or delete them in your browser.',
-  alternates: { canonical: 'https://qrstudio.app/cookie-policy' },
+  alternates: { canonical: 'https://freeqrcode.tools/cookie-policy' },
   openGraph: {
     title: 'Cookie Policy — QR Studio',
     description: 'Learn what cookies QR Studio uses, why, and how to manage or delete them in your browser.',
-    url: 'https://qrstudio.app/cookie-policy',
+    url: 'https://freeqrcode.tools/cookie-policy',
   },
 };
 
@@ -17,8 +17,8 @@ export default function CookiePolicyPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://qrstudio.app/' },
-      { '@type': 'ListItem', position: 2, name: 'Cookie Policy', item: 'https://qrstudio.app/cookie-policy' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freeqrcode.tools/' },
+      { '@type': 'ListItem', position: 2, name: 'Cookie Policy', item: 'https://freeqrcode.tools/cookie-policy' },
     ],
   };
 
@@ -144,7 +144,7 @@ export default function CookiePolicyPage() {
             <h3 className="text-xl font-semibold mb-3 text-foreground">Google Chrome</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Open Settings → Privacy and security → Cookies and other site data. You can delete
-              all cookies, or use the search field to remove cookies from qrstudio.app specifically.
+              all cookies, or use the search field to remove cookies from freeqrcode.tools specifically.
               For localStorage, open DevTools (F12) → Application → Local Storage.{' '}
               <a
                 href="https://support.google.com/chrome/answer/95647"
@@ -161,7 +161,7 @@ export default function CookiePolicyPage() {
             <h3 className="text-xl font-semibold mb-3 text-foreground">Mozilla Firefox</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Open Settings → Privacy &amp; Security → Cookies and Site Data → Manage Data. Search for
-              qrstudio.app and remove its data. For localStorage, use DevTools (F12) →
+              freeqrcode.tools and remove its data. For localStorage, use DevTools (F12) →
               Storage → Local Storage.{' '}
               <a
                 href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox"
@@ -177,7 +177,7 @@ export default function CookiePolicyPage() {
           <div>
             <h3 className="text-xl font-semibold mb-3 text-foreground">Apple Safari</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Open Preferences → Privacy → Manage Website Data. Search for qrstudio.app and click
+              Open Preferences → Privacy → Manage Website Data. Search for freeqrcode.tools and click
               Remove. On iOS: Settings → Safari → Advanced → Website Data.{' '}
               <a
                 href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac"
@@ -194,7 +194,7 @@ export default function CookiePolicyPage() {
             <h3 className="text-xl font-semibold mb-3 text-foreground">Microsoft Edge</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Open Settings → Cookies and site permissions → Manage and delete cookies and site data.
-              Click &quot;See all cookies and site data&quot; and filter by qrstudio.app.{' '}
+              Click &quot;See all cookies and site data&quot; and filter by freeqrcode.tools.{' '}
               <a
                 href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09"
                 className="text-primary hover:underline"
@@ -253,8 +253,8 @@ export default function CookiePolicyPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Contact</h2>
         <p className="text-muted-foreground leading-relaxed">
           Questions about this Cookie Policy:{' '}
-          <a href="mailto:privacy@qrstudio.app" className="text-primary hover:underline">
-            privacy@qrstudio.app
+          <a href="mailto:privacy@freeqrcode.tools" className="text-primary hover:underline">
+            privacy@freeqrcode.tools
           </a>
         </p>
       </section>

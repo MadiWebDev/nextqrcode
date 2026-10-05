@@ -4,7 +4,7 @@ import { LandingGenerator } from '@/components/LandingGenerator';
 export const metadata: Metadata = {
   title: 'Free Bitcoin QR Code Generator — Crypto Payments Made Easy',
   description: 'Generate a Bitcoin payment QR code from a wallet address with an optional amount and label. Compatible with all major Bitcoin wallets. Download PNG or SVG.',
-  alternates: { canonical: 'https://qrstudio.app/bitcoin-qr-code-generator' },
+  alternates: { canonical: 'https://freeqrcode.tools/bitcoin-qr-code-generator' },
 };
 
 export default function BitcoinLandingPage() {

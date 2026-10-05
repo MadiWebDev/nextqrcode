@@ -7,7 +7,7 @@
 - **Dev command**: `npm run dev`
 - **Lint command**: `npm run lint`
 - **No test runner configured** — verification is via build + lint pass
-- **Domain placeholder**: `https://qrstudio.app`
+- **Domain placeholder**: `https://freeqrcode.tools`
 - **Author byline**: `codexengr`
 - **No new npm packages** — use only what is already in package.json
 - **Tailwind v4** — uses `@import "tailwindcss"` in globals.css, NOT a tailwind.config.js. All design tokens are CSS custom properties (oklch values). Do NOT add a tailwind.config.js.
@@ -33,8 +33,8 @@ Every non-home page must export:
 export const metadata: Metadata = {
   title: '...',
   description: '...',
-  alternates: { canonical: 'https://qrstudio.app/...' },
-  openGraph: { title: '...', description: '...', url: 'https://qrstudio.app/...' },
+  alternates: { canonical: 'https://freeqrcode.tools/...' },
+  openGraph: { title: '...', description: '...', url: 'https://freeqrcode.tools/...' },
 };
 ```
 
@@ -137,7 +137,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   ```tsx
   title: 'About QR Studio — Privacy-First QR Code Tools by codexengr',
   description: 'Learn about QR Studio: a free, privacy-first QR code tool suite built by codexengr. All processing is in your browser — no sign-up, no data collection.',
-  alternates: { canonical: 'https://qrstudio.app/about' },
+  alternates: { canonical: 'https://freeqrcode.tools/about' },
   openGraph: { ... }
   ```
 
@@ -158,7 +158,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   **ContactForm** (`src/components/ContactForm.tsx`):
   - `'use client'`
   - Schema (zod): `name` (min 2), `email` (valid email), `subject` (min 5), `message` (min 20, max 2000)
-  - On submit: `window.location.href = mailto:contact@qrstudio.app?subject=...&body=...` with encoded values (mailto fallback, no server needed). Then call `toast.success('Message sent — we'll reply within 48 hours.')` from `sonner`.
+  - On submit: `window.location.href = mailto:contact@freeqrcode.tools?subject=...&body=...` with encoded values (mailto fallback, no server needed). Then call `toast.success('Message sent — we'll reply within 48 hours.')` from `sonner`.
   - Show field-level error messages using `<p className="text-sm text-destructive mt-1">`.
   - Submit button: `<Button type="submit" disabled={isSubmitting}>Send Message</Button>` with a `Loader2` spinner icon when submitting.
   - Form layout: `space-y-5`. Each field: label (`<label className="text-sm font-medium text-foreground">`), input/textarea, error.
@@ -169,14 +169,14 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   - Intro paragraph: what kinds of questions/feedback are welcome (bugs, feature requests, payment spec questions, accessibility reports, general feedback).
   - Section "Response Time": typically within 48 hours on business days.
   - Section "Before You Write": check the FAQ on the About page, check the blog for guides.
-  - Section "Direct Email Addresses": table with General / Privacy / Security and their respective `@qrstudio.app` addresses.
+  - Section "Direct Email Addresses": table with General / Privacy / Security and their respective `@freeqrcode.tools` addresses.
   - Section "What to Include": for bug reports — browser, OS, QR type, steps to reproduce. For feature requests — describe the use case, not just the feature.
 
   **Metadata**:
   ```tsx
   title: 'Contact QR Studio — Bug Reports, Feature Requests & Feedback',
   description: 'Get in touch with the QR Studio team. Report bugs, request features, or ask questions about QR codes, payment specs, or privacy.',
-  alternates: { canonical: 'https://qrstudio.app/contact' },
+  alternates: { canonical: 'https://freeqrcode.tools/contact' },
   ```
 
   **JSON-LD**: BreadcrumbList: Home → Contact.
@@ -202,13 +202,13 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   8. **Data Retention** — log data 30 days, localStorage client-side only (user controls via browser settings).
   9. **Children's Privacy** — not directed at under-13s.
   10. **Changes to This Policy** — how we notify users.
-  11. **Contact** — privacy@qrstudio.app.
+  11. **Contact** — privacy@freeqrcode.tools.
 
   **Metadata**:
   ```tsx
   title: 'Privacy Policy — QR Studio',
   description: 'QR Studio privacy policy. Learn how we handle your data, our use of Google AdSense, your GDPR rights, and cookie usage.',
-  alternates: { canonical: 'https://qrstudio.app/privacy' },
+  alternates: { canonical: 'https://freeqrcode.tools/privacy' },
   ```
 
   **JSON-LD**: BreadcrumbList: Home → Privacy Policy.
@@ -234,7 +234,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   3. **How to Control Cookies** — per-browser instructions (Chrome, Firefox, Safari, Edge) — each as an H3 with step-by-step. Link to each browser's cookie settings help page.
   4. **Opting Out of Advertising Cookies** — link to [Google Ad Settings](https://adssettings.google.com), [NAI opt-out](https://optout.networkadvertising.org), [DAA opt-out](https://optout.aboutads.info).
   5. **Changes** — how policy changes are communicated.
-  6. **Contact** — privacy@qrstudio.app.
+  6. **Contact** — privacy@freeqrcode.tools.
 
   **Table styling**: `w-full text-sm border-collapse`. `<th>`: `text-left font-semibold p-2 border-b border-border`. `<td>`: `p-2 border-b border-border/50 text-muted-foreground`. Wrap in `overflow-x-auto` div.
 
@@ -242,7 +242,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   ```tsx
   title: 'Cookie Policy — QR Studio',
   description: 'Full cookie policy for QR Studio. Learn which cookies we use, why, and how to control or disable them.',
-  alternates: { canonical: 'https://qrstudio.app/cookie-policy' },
+  alternates: { canonical: 'https://freeqrcode.tools/cookie-policy' },
   ```
 
   **JSON-LD**: BreadcrumbList: Home → Cookie Policy.
@@ -265,13 +265,13 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   5. **External Links** — we are not responsible for content or privacy practices of external sites linked from this site.
   6. **Affiliate / Advertising Disclosure** — this site may display Google AdSense advertisements. We do not personally endorse advertised products or services.
   7. **Changes** — disclaimer may be updated; continued use constitutes acceptance.
-  8. **Contact** — legal@qrstudio.app.
+  8. **Contact** — legal@freeqrcode.tools.
 
   **Metadata**:
   ```tsx
   title: 'Disclaimer — QR Studio',
   description: 'Read the QR Studio disclaimer covering medical ID tools, payment QR codes, external links, and advertising.',
-  alternates: { canonical: 'https://qrstudio.app/disclaimer' },
+  alternates: { canonical: 'https://freeqrcode.tools/disclaimer' },
   ```
 
   **JSON-LD**: BreadcrumbList: Home → Disclaimer.
@@ -296,13 +296,13 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   7. **Third-Party Services** — site may embed Google AdSense ads; Google's terms and privacy policy govern those interactions.
   8. **Governing Law** — laws of Pakistan (Islamabad Capital Territory) without regard to conflict of law provisions. Disputes resolved in the courts of Islamabad.
   9. **Changes to Terms** — we may revise terms at any time; continued use = acceptance.
-  10. **Contact** — legal@qrstudio.app.
+  10. **Contact** — legal@freeqrcode.tools.
 
   **Metadata**:
   ```tsx
   title: 'Terms of Service — QR Studio',
   description: 'QR Studio terms of service. Read our acceptable use policy, intellectual property terms, liability limits, and governing law.',
-  alternates: { canonical: 'https://qrstudio.app/terms' },
+  alternates: { canonical: 'https://freeqrcode.tools/terms' },
   ```
 
   **JSON-LD**: BreadcrumbList: Home → Terms of Service.
@@ -329,7 +329,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   ```tsx
   title: 'Sitemap — QR Studio',
   description: 'Browse all pages and tools on QR Studio.',
-  alternates: { canonical: 'https://qrstudio.app/sitemap-page' },
+  alternates: { canonical: 'https://freeqrcode.tools/sitemap-page' },
   robots: { index: false, follow: true },  // HTML sitemaps need not be indexed
   ```
 
@@ -393,7 +393,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
     { userAgent: '*', allow: '/', disallow: ['/api/'] },
     { userAgent: 'Mediapartners-Google', allow: '/' },  // allows AdSense crawler
   ],
-  sitemap: 'https://qrstudio.app/sitemap.xml',
+  sitemap: 'https://freeqrcode.tools/sitemap.xml',
   ```
 
   Note: Next.js `MetadataRoute.Robots` accepts `rules` as either a single object or an array; use the array form here.

@@ -4,12 +4,12 @@ export const metadata: Metadata = {
   title: 'Disclaimer — QR Studio',
   description:
     'QR Studio disclaimer. Our tools are for informational purposes. Medical ID QR codes are not a substitute for professional medical advice.',
-  alternates: { canonical: 'https://qrstudio.app/disclaimer' },
+  alternates: { canonical: 'https://freeqrcode.tools/disclaimer' },
   openGraph: {
     title: 'Disclaimer — QR Studio',
     description:
       'QR Studio disclaimer covering medical ID tools, payment QR codes, external links, and advertising.',
-    url: 'https://qrstudio.app/disclaimer',
+    url: 'https://freeqrcode.tools/disclaimer',
   },
 };
 
@@ -18,8 +18,8 @@ export default function DisclaimerPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://qrstudio.app/' },
-      { '@type': 'ListItem', position: 2, name: 'Disclaimer', item: 'https://qrstudio.app/disclaimer' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freeqrcode.tools/' },
+      { '@type': 'ListItem', position: 2, name: 'Disclaimer', item: 'https://freeqrcode.tools/disclaimer' },
     ],
   };
 
@@ -51,7 +51,7 @@ export default function DisclaimerPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">General Disclaimer</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            The information and tools provided on QR Studio (qrstudio.app) are for informational
+            The information and tools provided on QR Studio (freeqrcode.tools) are for informational
             and practical purposes only. All tools are provided &quot;as is&quot; and &quot;as available&quot; without
             any warranty of accuracy, completeness, fitness for a particular purpose, or
             non-infringement. Your use of any tool on this site is entirely at your own risk.
@@ -174,8 +174,8 @@ export default function DisclaimerPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Contact</h2>
         <p className="text-muted-foreground leading-relaxed">
           Legal enquiries:{' '}
-          <a href="mailto:legal@qrstudio.app" className="text-primary hover:underline">
-            legal@qrstudio.app
+          <a href="mailto:legal@freeqrcode.tools" className="text-primary hover:underline">
+            legal@freeqrcode.tools
           </a>
         </p>
       </section>

@@ -24,7 +24,7 @@ export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.label,
-      item: `https://qrstudio.app${item.href === '/' ? '' : item.href}`,
+      item: `https://freeqrcode.tools${item.href === '/' ? '' : item.href}`,
     })),
   };
 

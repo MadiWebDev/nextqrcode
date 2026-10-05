@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'Contact QR Studio — Get in Touch',
   description:
     'Contact the QR Studio team. Report bugs, request features, or ask questions. We respond within 48 hours.',
-  alternates: { canonical: 'https://qrstudio.app/contact' },
+  alternates: { canonical: 'https://freeqrcode.tools/contact' },
   openGraph: {
     title: 'Contact QR Studio — Get in Touch',
     description:
       'Contact the QR Studio team. Report bugs, request features, or ask questions. We respond within 48 hours.',
-    url: 'https://qrstudio.app/contact',
+    url: 'https://freeqrcode.tools/contact',
   },
 };
 
@@ -19,8 +19,8 @@ export default function ContactPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://qrstudio.app/' },
-      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://qrstudio.app/contact' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freeqrcode.tools/' },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://freeqrcode.tools/contact' },
     ],
   };
 
@@ -114,32 +114,32 @@ export default function ContactPage() {
               <tr>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">General questions &amp; feature requests</td>
                 <td className="p-2 border-b border-border/50">
-                  <a href="mailto:contact@qrstudio.app" className="text-primary hover:underline">
-                    contact@qrstudio.app
+                  <a href="mailto:contact@freeqrcode.tools" className="text-primary hover:underline">
+                    contact@freeqrcode.tools
                   </a>
                 </td>
               </tr>
               <tr>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Privacy &amp; GDPR requests</td>
                 <td className="p-2 border-b border-border/50">
-                  <a href="mailto:privacy@qrstudio.app" className="text-primary hover:underline">
-                    privacy@qrstudio.app
+                  <a href="mailto:privacy@freeqrcode.tools" className="text-primary hover:underline">
+                    privacy@freeqrcode.tools
                   </a>
                 </td>
               </tr>
               <tr>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Security vulnerabilities</td>
                 <td className="p-2 border-b border-border/50">
-                  <a href="mailto:security@qrstudio.app" className="text-primary hover:underline">
-                    security@qrstudio.app
+                  <a href="mailto:security@freeqrcode.tools" className="text-primary hover:underline">
+                    security@freeqrcode.tools
                   </a>
                 </td>
               </tr>
               <tr>
                 <td className="p-2 text-muted-foreground">Legal &amp; terms enquiries</td>
                 <td className="p-2">
-                  <a href="mailto:legal@qrstudio.app" className="text-primary hover:underline">
-                    legal@qrstudio.app
+                  <a href="mailto:legal@freeqrcode.tools" className="text-primary hover:underline">
+                    legal@freeqrcode.tools
                   </a>
                 </td>
               </tr>

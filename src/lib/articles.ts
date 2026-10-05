@@ -1,3 +1,5 @@
+import { NEW_ARTICLES } from './pages/index';
+
 export interface Article {
   slug: string;
   title: string;
@@ -591,8 +593,8 @@ FN:Hammad Tariq
 ORG:QR Studio
 TITLE:Lead Systems Architect
 TEL;TYPE=WORK,VOICE:+1234567890
-EMAIL;TYPE=PREF,INTERNET:contact@qrstudio.app
-URL:https://qrstudio.app
+EMAIL;TYPE=PREF,INTERNET:contact@freeqrcode.tools
+URL:https://freeqrcode.tools
 ADR;TYPE=WORK:;;Main Street;Karachi;;;Pakistan
 END:VCARD
 \`\`\`
@@ -718,10 +720,12 @@ Micro QR codes conserve massive physical space through three architectural chang
   }
 ];
 
+const ALL_ARTICLES: Article[] = [...ARTICLES, ...NEW_ARTICLES];
+
 export function getArticleBySlug(slug: string): Article | undefined {
-  return ARTICLES.find((a) => a.slug === slug);
+  return ALL_ARTICLES.find((a) => a.slug === slug);
 }
 
 export function getAllArticles(): Article[] {
-  return ARTICLES;
+  return ALL_ARTICLES;
 }

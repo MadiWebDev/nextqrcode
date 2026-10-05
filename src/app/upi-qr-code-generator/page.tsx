@@ -4,7 +4,7 @@ import { LandingGenerator } from '@/components/LandingGenerator';
 export const metadata: Metadata = {
   title: 'Free UPI QR Code Generator — Accept Payments Instantly',
   description: 'Create a UPI payment QR code that lets customers pay you directly through BHIM, Google Pay, PhonePe, Paytm, and any other UPI app. Set a fixed amount or leave it open.',
-  alternates: { canonical: 'https://qrstudio.app/upi-qr-code-generator' },
+  alternates: { canonical: 'https://freeqrcode.tools/upi-qr-code-generator' },
 };
 
 export default function UpiLandingPage() {

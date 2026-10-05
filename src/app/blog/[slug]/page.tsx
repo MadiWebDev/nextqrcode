@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${article.title} — QR Studio`,
     description: article.description,
     alternates: {
-      canonical: `https://qrstudio.app/blog/${article.slug}`,
+      canonical: `https://freeqrcode.tools/blog/${article.slug}`,
     },
     openGraph: {
       title: article.title,
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt,
       authors: [article.author],
-      url: `https://qrstudio.app/blog/${article.slug}`,
+      url: `https://freeqrcode.tools/blog/${article.slug}`,
     },
   };
 }
@@ -65,7 +65,7 @@ export default async function ArticlePage({ params }: Props) {
     publisher: {
       '@type': 'Organization',
       name: 'QR Studio',
-      url: 'https://qrstudio.app',
+      url: 'https://freeqrcode.tools',
     },
   };
 

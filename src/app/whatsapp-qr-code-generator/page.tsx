@@ -4,7 +4,7 @@ import { LandingGenerator } from '@/components/LandingGenerator';
 export const metadata: Metadata = {
   title: 'Free WhatsApp QR Code Generator — Start Conversations Instantly',
   description: 'Generate a WhatsApp QR code that opens a chat to your number with an optional pre-filled message. Ideal for customer support, shops, restaurants, and personal promotion.',
-  alternates: { canonical: 'https://qrstudio.app/whatsapp-qr-code-generator' },
+  alternates: { canonical: 'https://freeqrcode.tools/whatsapp-qr-code-generator' },
 };
 
 export default function WhatsappLandingPage() {

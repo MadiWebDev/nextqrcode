@@ -4,7 +4,7 @@ import { LandingGenerator } from '@/components/LandingGenerator';
 export const metadata: Metadata = {
   title: 'Free vCard QR Code Generator — Digital Business Card',
   description: 'Create a vCard QR code that saves your full contact details directly into the scanner\'s address book. Replace paper business cards with a stylish, sustainable digital alternative.',
-  alternates: { canonical: 'https://qrstudio.app/vcard-qr-code-generator' },
+  alternates: { canonical: 'https://freeqrcode.tools/vcard-qr-code-generator' },
 };
 
 export default function VcardLandingPage() {

@@ -4,7 +4,7 @@ import { LandingGenerator } from '@/components/LandingGenerator';
 export const metadata: Metadata = {
   title: 'Free WiFi QR Code Generator — Share Your Network Instantly',
   description: 'Create a WiFi QR code that connects guests to your network in one scan — no password typing, no errors. Download PNG, SVG, or PDF for free.',
-  alternates: { canonical: 'https://qrstudio.app/wifi-qr-code-generator' },
+  alternates: { canonical: 'https://freeqrcode.tools/wifi-qr-code-generator' },
 };
 
 export default function WifiLandingPage() {

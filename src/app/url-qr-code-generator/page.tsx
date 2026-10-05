@@ -4,7 +4,7 @@ import { LandingGenerator } from '@/components/LandingGenerator';
 export const metadata: Metadata = {
   title: 'Free URL QR Code Generator — Link Anything with a QR Code',
   description: 'Turn any website URL into a scannable QR code in seconds. Perfect for marketing materials, business cards, and product packaging. Download in PNG, SVG, or PDF format for free.',
-  alternates: { canonical: 'https://qrstudio.app/url-qr-code-generator' },
+  alternates: { canonical: 'https://freeqrcode.tools/url-qr-code-generator' },
 };
 
 export default function UrlLandingPage() {

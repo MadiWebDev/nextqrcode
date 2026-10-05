@@ -5,7 +5,7 @@ import { getAllArticles } from '@/lib/articles';
 export const metadata: Metadata = {
   title: 'Full Site Index & Directory — QR Studio',
   description: 'Full sitemap of QR Studio. Browse all 15 optical engineering tools, generators, technical guides, and standards.',
-  alternates: { canonical: 'https://qrstudio.app/sitemap-page' },
+  alternates: { canonical: 'https://freeqrcode.tools/sitemap-page' },
   robots: { index: true, follow: true },
 };
 

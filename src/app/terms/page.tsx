@@ -4,12 +4,12 @@ export const metadata: Metadata = {
   title: 'Terms of Service — QR Studio',
   description:
     'QR Studio terms of service. Read our acceptable use policy, intellectual property rights, and limitation of liability.',
-  alternates: { canonical: 'https://qrstudio.app/terms' },
+  alternates: { canonical: 'https://freeqrcode.tools/terms' },
   openGraph: {
     title: 'Terms of Service — QR Studio',
     description:
       'QR Studio terms of service: acceptable use, intellectual property, liability limits, and governing law.',
-    url: 'https://qrstudio.app/terms',
+    url: 'https://freeqrcode.tools/terms',
   },
 };
 
@@ -18,8 +18,8 @@ export default function TermsPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://qrstudio.app/' },
-      { '@type': 'ListItem', position: 2, name: 'Terms of Service', item: 'https://qrstudio.app/terms' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freeqrcode.tools/' },
+      { '@type': 'ListItem', position: 2, name: 'Terms of Service', item: 'https://freeqrcode.tools/terms' },
     ],
   };
 
@@ -50,7 +50,7 @@ export default function TermsPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Agreement to Terms</h2>
         <p className="text-muted-foreground leading-relaxed">
-          By accessing or using QR Studio (qrstudio.app), you agree to be bound by these Terms of
+          By accessing or using QR Studio (freeqrcode.tools), you agree to be bound by these Terms of
           Service and our <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
           If you do not agree to these terms, please do not use the service. These terms apply to
           all visitors and users of the service. QR Studio is provided by codexengr, an independent
@@ -219,8 +219,8 @@ export default function TermsPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Contact</h2>
         <p className="text-muted-foreground leading-relaxed">
           Legal enquiries:{' '}
-          <a href="mailto:legal@qrstudio.app" className="text-primary hover:underline">
-            legal@qrstudio.app
+          <a href="mailto:legal@freeqrcode.tools" className="text-primary hover:underline">
+            legal@freeqrcode.tools
           </a>
         </p>
       </section>

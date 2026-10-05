@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: '*', allow: '/', disallow: ['/api/'] },
       { userAgent: 'Mediapartners-Google', allow: '/' },
     ],
-    sitemap: 'https://qrstudio.app/sitemap.xml',
+    sitemap: 'https://freeqrcode.tools/sitemap.xml',
   };
 }

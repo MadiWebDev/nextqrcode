@@ -4,12 +4,12 @@ export const metadata: Metadata = {
   title: 'Privacy Policy — QR Studio',
   description:
     'QR Studio privacy policy. We generate all QR codes in your browser — no data is sent to servers. Learn how we use cookies and Google AdSense.',
-  alternates: { canonical: 'https://qrstudio.app/privacy' },
+  alternates: { canonical: 'https://freeqrcode.tools/privacy' },
   openGraph: {
     title: 'Privacy Policy — QR Studio',
     description:
       'QR Studio privacy policy. We generate all QR codes in your browser — no data is sent to servers.',
-    url: 'https://qrstudio.app/privacy',
+    url: 'https://freeqrcode.tools/privacy',
   },
 };
 
@@ -18,8 +18,8 @@ export default function PrivacyPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://qrstudio.app/' },
-      { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: 'https://qrstudio.app/privacy' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freeqrcode.tools/' },
+      { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: 'https://freeqrcode.tools/privacy' },
     ],
   };
 
@@ -53,11 +53,11 @@ export default function PrivacyPage() {
           <p>
             QR Studio (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is a free, browser-based QR code generation service
             operated by codexengr. This Privacy Policy explains what information we collect when you
-            use qrstudio.app, how we use it, and your rights under applicable data protection laws
+            use freeqrcode.tools, how we use it, and your rights under applicable data protection laws
             including the EU General Data Protection Regulation (GDPR).
           </p>
           <p>
-            This policy applies to all pages and tools on qrstudio.app. By using the site, you
+            This policy applies to all pages and tools on freeqrcode.tools. By using the site, you
             agree to the practices described here. If you do not agree, please stop using the site
             and clear any locally stored data using your browser settings.
           </p>
@@ -222,8 +222,8 @@ export default function PrivacyPage() {
           </ul>
           <p>
             To exercise any of these rights, contact{' '}
-            <a href="mailto:privacy@qrstudio.app" className="text-primary hover:underline">
-              privacy@qrstudio.app
+            <a href="mailto:privacy@freeqrcode.tools" className="text-primary hover:underline">
+              privacy@freeqrcode.tools
             </a>
             . Because we collect minimal data, many requests can be fulfilled immediately.
           </p>
@@ -248,8 +248,8 @@ export default function PrivacyPage() {
           QR Studio is not directed at children under 13. We do not knowingly collect any
           information from children. If you believe a child has submitted personal information via
           our contact form, please notify us at{' '}
-          <a href="mailto:privacy@qrstudio.app" className="text-primary hover:underline">
-            privacy@qrstudio.app
+          <a href="mailto:privacy@freeqrcode.tools" className="text-primary hover:underline">
+            privacy@freeqrcode.tools
           </a>{' '}
           and we will delete it promptly.
         </p>
@@ -271,8 +271,8 @@ export default function PrivacyPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Contact</h2>
         <p className="text-muted-foreground leading-relaxed">
           Privacy-related questions:{' '}
-          <a href="mailto:privacy@qrstudio.app" className="text-primary hover:underline">
-            privacy@qrstudio.app
+          <a href="mailto:privacy@freeqrcode.tools" className="text-primary hover:underline">
+            privacy@freeqrcode.tools
           </a>
         </p>
       </section>

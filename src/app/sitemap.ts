@@ -16,7 +16,7 @@ import { getAllCountries } from '@/data/countries';
 import { getAllPaymentSchemes } from '@/data/payments';
 import { getAllLabelSheets } from '@/data/labels';
 
-const BASE = 'https://qrstudio.app';
+const BASE = 'https://freeqrcode.tools';
 
 /** Helper: build a sitemap entry */
 function entry(

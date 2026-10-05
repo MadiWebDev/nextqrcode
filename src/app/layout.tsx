@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     template: '%s | QR Studio',
   },
   description: 'Create beautiful, custom QR codes for free. 40+ types, custom colors, logo upload. Download PNG, SVG, PDF instantly. No sign-up needed.',
-  metadataBase: new URL('https://qrstudio.app'),
+  metadataBase: new URL('https://freeqrcode.tools'),
   openGraph: {
     type: 'website',
     siteName: 'QR Studio',
-    url: 'https://qrstudio.app',
+    url: 'https://freeqrcode.tools',
   },
   twitter: {
     card: 'summary_large_image',

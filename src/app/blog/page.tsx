@@ -8,7 +8,7 @@ import { BookOpen, Calendar, Clock, ArrowRight, UserCheck } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'QR Code Engineering & Standards Hub — Guides & Research',
   description: 'Deep-dive engineering guides, Reed-Solomon math, ISO/IEC 18004 standards, printing guidelines, and mobile scan diagnostics from QR Studio.',
-  alternates: { canonical: 'https://qrstudio.app/blog' },
+  alternates: { canonical: 'https://freeqrcode.tools/blog' },
 };
 
 export default function BlogIndexPage() {

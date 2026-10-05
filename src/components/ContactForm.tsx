@@ -52,7 +52,7 @@ export function ContactForm() {
   function onSubmit(data: ContactFormValues) {
     const subjectLine = `[QR Studio] ${subjectLabels[data.subject]} from ${data.name}`;
     const body = `Name: ${data.name}\nEmail: ${data.email}\nSubject: ${subjectLabels[data.subject]}\n\n${data.message}`;
-    const mailtoUrl = `mailto:contact@qrstudio.app?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl = `mailto:contact@freeqrcode.tools?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(body)}`;
     window.open(mailtoUrl, '_blank');
     toast.success('Message opened in your mail client!');
     reset();

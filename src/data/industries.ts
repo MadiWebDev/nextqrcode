@@ -143,7 +143,7 @@ A complete retail QR inventory system touches every stage of the product journey
 
 ### Sequential Numbering and Label Format
 
-Sequential asset tags should use a prefix-number format: `[STORE_CODE]-[CATEGORY]-[SEQUENCE]`. For example, a clothing retailer in Store #42 might tag garments as `STR42-APL-00001` through `STR42-APL-05000`. This hierarchical structure allows regional managers to identify any asset's originating store and category from the code alone, without database lookup.
+Sequential asset tags should use a prefix-number format: '[STORE_CODE]-[CATEGORY]-[SEQUENCE]'. For example, a clothing retailer in Store #42 might tag garments as 'STR42-APL-00001' through 'STR42-APL-05000'. This hierarchical structure allows regional managers to identify any asset's originating store and category from the code alone, without database lookup.
 
 For label printing, Avery 5163 (2×4 inch) sheets are optimal for stockroom bin labels due to their generous surface area. Avery 5160 (1×2.625 inch, 30 per sheet) works well for individual SKU tags on smaller items.
     `,
@@ -191,9 +191,9 @@ QR code loyalty enrollment eliminates all of this friction. A customer scans the
 
 Effective loyalty program QR codes require three engineering decisions:
 
-**Store-Level Attribution:** Append a unique store location parameter (e.g., `?loc=STORE42`) to distinguish enrollments from each physical location. This allows marketing teams to identify which stores have the highest enrollment rates and replicate successful practices across the chain.
+**Store-Level Attribution:** Append a unique store location parameter (e.g., '?loc=STORE42') to distinguish enrollments from each physical location. This allows marketing teams to identify which stores have the highest enrollment rates and replicate successful practices across the chain.
 
-**Campaign UTM Tracking:** Add UTM parameters (`utm_source=qr`, `utm_medium=print`, `utm_campaign=loyalty-2026`) to every loyalty QR code. When the enrollment completes and the thank-you page fires a Google Analytics event, the conversion is automatically attributed to the QR channel and campaign.
+**Campaign UTM Tracking:** Add UTM parameters ('utm_source=qr', 'utm_medium=print', 'utm_campaign=loyalty-2026') to every loyalty QR code. When the enrollment completes and the thank-you page fires a Google Analytics event, the conversion is automatically attributed to the QR channel and campaign.
 
 **Referral Code Embedding:** For word-of-mouth loyalty campaigns, encode a member referral code into the QR. When a new customer enrolls through that code, both the referrer and the new member receive bonus points — creating a viral loop.
 
@@ -254,11 +254,11 @@ QR code patient wristbands replace unreliable verbal identification with a rapid
 
 A hospital patient wristband QR code must balance information density with scannability. The recommended payload structure for clinical environments:
 
-**Option A — Minimal (MRN Only):** Encodes only the Medical Record Number as a URL: `https://ehr.hospital.com/patient?mrn=0123456789`. When scanned by a clinical workstation or mobile device, the EHR system retrieves the full patient record via the FHIR R4 Patient resource endpoint. This approach is preferred for maximum security — no PHI is stored in the QR code itself.
+**Option A — Minimal (MRN Only):** Encodes only the Medical Record Number as a URL: 'https://ehr.hospital.com/patient?mrn=0123456789'. When scanned by a clinical workstation or mobile device, the EHR system retrieves the full patient record via the FHIR R4 Patient resource endpoint. This approach is preferred for maximum security — no PHI is stored in the QR code itself.
 
 **Option B — Embedded Critical Data:** For environments without reliable network connectivity (e.g., rural clinics, emergency transport), the wristband may encode a compact vCard-like structure containing: patient full name, date of birth, ABO blood type, allergy flags (coded as SNOMED CT identifiers), and the admitting physician's contact information. This approach must comply with HIPAA physical safeguards for printed PHI.
 
-**Option C — HL7 FHIR URL:** Encodes a standards-compliant FHIR Patient resource URL (`https://fhir.hospital.org/Patient/[id]`), allowing any FHIR-compatible application to retrieve the patient's complete clinical data including medication lists, allergy records, and recent lab values.
+**Option C — HL7 FHIR URL:** Encodes a standards-compliant FHIR Patient resource URL ('https://fhir.hospital.org/Patient/[id]'), allowing any FHIR-compatible application to retrieve the patient's complete clinical data including medication lists, allergy records, and recent lab values.
 
 ### Print Specifications for Clinical Environments
 
@@ -315,7 +315,7 @@ QR code asset tags on medical equipment create an instant, location-agnostic bri
 
 Each medical device receives a durable polyester or anodized aluminum QR asset tag encoding:
 
-1. **Asset Identification URL:** `https://biomed.hospital.com/asset/EM-00412` — links directly to the equipment record in the CMMS (Computerized Maintenance Management System).
+1. **Asset Identification URL:** 'https://biomed.hospital.com/asset/EM-00412' — links directly to the equipment record in the CMMS (Computerized Maintenance Management System).
 2. **Critical Alert Flag:** If the equipment is under a service hold or safety bulletin, the CMMS page instantly displays a red alert banner.
 3. **Last PM Date:** Visible on the CMMS page without login, allowing nursing staff to confirm the device was recently serviced.
 4. **Next Scheduled PM Date:** Color-coded to indicate overdue (red), due within 30 days (yellow), or current (green).
@@ -374,9 +374,9 @@ Unlike traditional GS1-128 linear barcodes (which encode a limited character set
 
 A logistics shipment QR code typically encodes one of two payload formats:
 
-**Format A — Carrier Tracking URL:** `https://track.carrier.com/AWB/123456789012`. When delivery drivers or receiving staff scan the code with any standard smartphone, the browser immediately displays the live tracking page. This format requires no proprietary scanning hardware and works with any consumer device.
+**Format A — Carrier Tracking URL:** 'https://track.carrier.com/AWB/123456789012'. When delivery drivers or receiving staff scan the code with any standard smartphone, the browser immediately displays the live tracking page. This format requires no proprietary scanning hardware and works with any consumer device.
 
-**Format B — GS1 DataMatrix / QR Composite:** Encodes structured GS1 Application Identifiers (AIs) including `(00)` SSCC (Serial Shipping Container Code), `(420)` destination postal code, `(421)` destination country + postal code, and `(422)` country of origin. Requires a GS1-compliant barcode scanner for full structured data parsing, but provides machine-readable data for automated sortation systems.
+**Format B — GS1 DataMatrix / QR Composite:** Encodes structured GS1 Application Identifiers (AIs) including '(00)' SSCC (Serial Shipping Container Code), '(420)' destination postal code, '(421)' destination country + postal code, and '(422)' country of origin. Requires a GS1-compliant barcode scanner for full structured data parsing, but provides machine-readable data for automated sortation systems.
 
 ### Implementation Across the Shipment Journey
 
@@ -433,7 +433,7 @@ Best-practice restaurant QR codes in 2026 link to lightweight, mobile-first resp
 
 The most significant operational upgrade from generic to table-specific QR codes is automatic table identification at the point of order. When a customer scans the QR code from Table 12 and places an order through the digital menu, the table number is automatically transmitted to the kitchen display system alongside the order — eliminating the "which table ordered this?" confusion that plagues open-seating restaurants.
 
-Implementation: Each table receives a unique QR code encoding `https://menu.restaurant.com?table=12`. The web application reads the `table` parameter from the URL and pre-fills the table selection field on the ordering form.
+Implementation: Each table receives a unique QR code encoding 'https://menu.restaurant.com?table=12'. The web application reads the 'table' parameter from the URL and pre-fills the table selection field on the ordering form.
 
 Additionally, table-specific codes enable granular analytics: restaurant managers can identify which tables have the highest scan rates (high traffic positions) vs. low scan rates (dark corners needing better lighting or signage), and optimize seating rotation accordingly.
 
@@ -493,3 +493,4 @@ export const APPROVED_INDUSTRIES = [
 ] as const;
 
 export type ApprovedIndustry = (typeof APPROVED_INDUSTRIES)[number];
+

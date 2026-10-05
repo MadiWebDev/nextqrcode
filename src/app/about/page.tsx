@@ -4,12 +4,12 @@ export const metadata: Metadata = {
   title: 'About QR Studio — Built by codexengr | Free Browser-Based QR Tools',
   description:
     'QR Studio is a free, privacy-first QR code generator built by codexengr. 40+ QR types, no sign-up, no server uploads. Learn our story and mission.',
-  alternates: { canonical: 'https://qrstudio.app/about' },
+  alternates: { canonical: 'https://freeqrcode.tools/about' },
   openGraph: {
     title: 'About QR Studio — Built by codexengr | Free Browser-Based QR Tools',
     description:
       'QR Studio is a free, privacy-first QR code generator built by codexengr. 40+ QR types, no sign-up, no server uploads.',
-    url: 'https://qrstudio.app/about',
+    url: 'https://freeqrcode.tools/about',
   },
 };
 
@@ -56,8 +56,8 @@ export default function AboutPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://qrstudio.app/' },
-      { '@type': 'ListItem', position: 2, name: 'About', item: 'https://qrstudio.app/about' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freeqrcode.tools/' },
+      { '@type': 'ListItem', position: 2, name: 'About', item: 'https://freeqrcode.tools/about' },
     ],
   };
 

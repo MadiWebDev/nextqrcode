@@ -22,7 +22,7 @@ import {
 } from 'lucide-react';
 
 export default function ErrorCorrectionSimulatorPage() {
-  const [text, setText] = useState('https://qrstudio.app');
+  const [text, setText] = useState('https://freeqrcode.tools');
   const [eccLevel, setEccLevel] = useState<'L' | 'M' | 'Q' | 'H'>('H');
   const [brushSize, setBrushSize] = useState<number>(20);
   const [brushColor, setBrushColor] = useState<'white' | 'black' | 'red'>('white');

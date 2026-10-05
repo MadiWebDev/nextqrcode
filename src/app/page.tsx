@@ -43,12 +43,12 @@ export const metadata: Metadata = {
   title: 'Free QR Code Generator & Optical Engineering Suite — QR Studio',
   description:
     'Generate beautiful, professional QR codes & barcodes 100% in your browser. 40+ types, instant vector SVG/PDF download, distance calculator, safety inspector, and offline file transfer. Zero tracking.',
-  alternates: { canonical: 'https://qrstudio.app' },
+  alternates: { canonical: 'https://freeqrcode.tools' },
   openGraph: {
     title: 'Free QR Code Generator & Optical Engineering Suite — QR Studio',
     description:
       'High-precision client-side QR studio: 40+ symbologies, print sizing calculator, anti-quishing safety checker, and air-gapped data transfer. No sign-up.',
-    url: 'https://qrstudio.app',
+    url: 'https://freeqrcode.tools',
     type: 'website',
   },
 };
@@ -254,12 +254,12 @@ export default function HomePage() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'QR Studio',
-    url: 'https://qrstudio.app',
+    url: 'https://freeqrcode.tools',
     description:
       'Professional browser-based QR code generator and optical engineering platform.',
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://qrstudio.app/sitemap-page?q={search_term_string}',
+      target: 'https://freeqrcode.tools/sitemap-page?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   };
@@ -270,7 +270,7 @@ export default function HomePage() {
     name: 'QR Studio',
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Web Browser',
-    url: 'https://qrstudio.app',
+    url: 'https://freeqrcode.tools',
     description:
       'Free online QR code generator suite with 40+ code types, optical size calculator, safety checker, and print-ready exports.',
     offers: {

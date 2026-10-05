@@ -39,7 +39,7 @@ const SHEET_PRESETS: SheetPreset[] = [
 export default function QRStickerSheetPrinterPage() {
   const [selectedPresetId, setSelectedPresetId] = useState('avery-5160');
   const [mode, setMode] = useState<'single' | 'sequential'>('single');
-  const [basePayload, setBasePayload] = useState('https://qrstudio.app');
+  const [basePayload, setBasePayload] = useState('https://freeqrcode.tools');
   const [labelTitle, setLabelTitle] = useState('SCAN ME');
   const [prefix, setPrefix] = useState('ASSET-');
   const [startNum, setStartNum] = useState(1);
