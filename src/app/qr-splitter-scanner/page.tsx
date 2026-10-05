@@ -110,7 +110,7 @@ export default function QRSplitterScannerPage() {
   };
 
   const parseAndAddChunk = (str: string) => {
-    const match = str.match(/^\[PART:(\d+)\/(\d+)\]:(.*)$/s);
+    const match = str.match(/^\[PART:(\d+)\/(\d+)\]:([\s\S]*)$/);
     if (!match) return;
 
     const partNum = parseInt(match[1], 10);

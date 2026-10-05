@@ -145,7 +145,7 @@ export default function AnimatedQRTransferPage() {
         const code = jsQR(imgData.data, canvas.width, canvas.height);
 
         if (code && code.data) {
-          const match = code.data.match(/^\[FRAME:(\d+)\/(\d+)\]:(.*)$/s);
+          const match = code.data.match(/^\[FRAME:(\d+)\/(\d+)\]:([\s\S]*)$/);
           if (match) {
             const frameNum = parseInt(match[1], 10);
             const total = parseInt(match[2], 10);
