@@ -4,6 +4,8 @@ import { Toaster } from 'sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { OnboardingTour } from '@/components/OnboardingTour';
 import { AppHeader } from '@/components/AppHeader';
+import { AppFooter } from '@/components/AppFooter';
+import { CookieConsent } from '@/components/CookieConsent';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -45,9 +47,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <main id="main-content">
                 {children}
               </main>
+              <AppFooter />
             </div>
             <Toaster position="bottom-right" richColors />
             <OnboardingTour />
+            <CookieConsent />
           </TooltipProvider>
         </ThemeProvider>
       </body>

@@ -16,6 +16,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/privacy`, priority: 0.3 },
     { url: `${base}/terms`, priority: 0.3 },
     { url: `${base}/contact`, priority: 0.4 },
+    { url: `${base}/cookie-policy`, priority: 0.3 },
+    { url: `${base}/disclaimer`, priority: 0.3 },
+    { url: `${base}/sitemap-page`, priority: 0.3 },
+    { url: `${base}/qr-size-calculator`, priority: 0.8 },
+    { url: `${base}/wifi-sign-generator`, priority: 0.8 },
+    { url: `${base}/barcode-generator`, priority: 0.8 },
+    { url: `${base}/utm-builder`, priority: 0.8 },
+    { url: `${base}/qr-safety-checker`, priority: 0.8 },
+    { url: `${base}/medical-id-qr`, priority: 0.8 },
+    { url: `${base}/pet-tag-qr`, priority: 0.8 },
+    { url: `${base}/pakistan-payment-qr`, priority: 0.8 },
+    { url: `${base}/bulk-vcard-qr`, priority: 0.8 },
   ];
-  return pages.map(p => ({ url: p.url, lastModified: now, changeFrequency: 'monthly' as const, priority: p.priority }));
+  return pages.map(p => ({
+    url: p.url,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: p.priority,
+  }));
 }
