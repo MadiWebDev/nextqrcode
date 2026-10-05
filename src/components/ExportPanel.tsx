@@ -116,8 +116,8 @@ export function ExportPanel({ qrText, canvasRef, type, state }: ExportPanelProps
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="default" size="sm" disabled={disabled} className="flex items-center gap-1.5 col-span-2 sm:col-span-1" aria-label="Download QR code">
-              <Download className="w-3.5 h-3.5" /><span className="text-xs">Download</span><ChevronDown className="w-3 h-3 ml-auto" />
+            <Button variant="default" size="sm" disabled={disabled} className="w-full flex items-center justify-center gap-1.5" aria-label="Download QR code">
+              <Download className="w-3.5 h-3.5 shrink-0" /><span className="text-xs">Download</span><ChevronDown className="w-3 h-3 shrink-0" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-44">
@@ -131,8 +131,8 @@ export function ExportPanel({ qrText, canvasRef, type, state }: ExportPanelProps
         </DropdownMenu>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="sm" disabled={disabled} className="flex items-center gap-1.5" aria-label="Copy QR code">
-              <Copy className="w-3.5 h-3.5" /><span className="text-xs">Copy</span><ChevronDown className="w-3 h-3 ml-auto" />
+            <Button variant="outline" size="sm" disabled={disabled} className="w-full flex items-center justify-center gap-1.5" aria-label="Copy QR code">
+              <Copy className="w-3.5 h-3.5 shrink-0" /><span className="text-xs">Copy</span><ChevronDown className="w-3 h-3 shrink-0" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-44">
@@ -141,15 +141,15 @@ export function ExportPanel({ qrText, canvasRef, type, state }: ExportPanelProps
             <DropdownMenuItem onClick={() => handleCopy('embed')}>Copy Embed HTML</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <Button variant="outline" size="sm" onClick={handlePrint} disabled={disabled} className="flex items-center gap-1.5" aria-label="Print QR code">
-          <Printer className="w-3.5 h-3.5" /><span className="text-xs">Print</span>
+        <Button variant="outline" size="sm" onClick={handlePrint} disabled={disabled} className="w-full flex items-center justify-center gap-1.5" aria-label="Print QR code">
+          <Printer className="w-3.5 h-3.5 shrink-0" /><span className="text-xs">Print</span>
         </Button>
-        <Button variant="outline" size="sm" onClick={handleShare} disabled={disabled} className="flex items-center gap-1.5" aria-label="Share QR code">
-          <Share2 className="w-3.5 h-3.5" /><span className="text-xs">Share</span>
+        <Button variant="outline" size="sm" onClick={handleShare} disabled={disabled} className="w-full flex items-center justify-center gap-1.5" aria-label="Share QR code">
+          <Share2 className="w-3.5 h-3.5 shrink-0" /><span className="text-xs">Share</span>
         </Button>
       </div>
-      <Button variant="ghost" size="sm" onClick={handleShareableLink} className="w-full flex items-center gap-1.5 text-muted-foreground" aria-label="Copy shareable link">
-        <Link className="w-3.5 h-3.5" /><span className="text-xs">Copy shareable link</span>
+      <Button variant="ghost" size="sm" onClick={handleShareableLink} className="w-full flex items-center justify-center gap-1.5 text-muted-foreground" aria-label="Copy shareable link">
+        <Link className="w-3.5 h-3.5 shrink-0" /><span className="text-xs">Copy shareable link</span>
       </Button>
       <Dialog open={shareDialogOpen} onOpenChange={setShareDialogOpen}>
         <DialogContent className="sm:max-w-md">

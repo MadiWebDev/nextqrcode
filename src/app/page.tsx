@@ -26,10 +26,18 @@ import {
   Lock,
   Globe2,
   FileCheck,
-  Cpu,
-  Search,
+  Tag,
+  Smartphone,
+  Building2,
+  Ruler,
+  Library,
+  GitCompare,
+  HelpCircle,
 } from 'lucide-react';
 import { getAllArticles } from '@/lib/articles';
+import { getAllCountries } from '@/data/countries';
+import { getAllPaymentSchemes } from '@/data/payments';
+import { getAllLabelSheets } from '@/data/labels';
 
 export const metadata: Metadata = {
   title: 'Free QR Code Generator & Optical Engineering Suite — QR Studio',
@@ -92,7 +100,7 @@ const FEATURED_TOOLS = [
     href: '/animated-qr-transfer',
     icon: Radio,
     category: 'Air-Gap Stream',
-    accent: 'from-rose-500/10 to-red-500/10 text-rose-600 dark:text-rose-400',
+    accent: 'from-rose-500/10 to-red-500/10 text-rose-600 dark:text-red-400',
   },
   {
     title: 'Emergency Medical ID QR Card',
@@ -168,15 +176,87 @@ const FEATURED_TOOLS = [
   },
 ];
 
+/** Programmatic content hub cards shown below tools */
+const CONTENT_HUBS = [
+  {
+    title: 'Label & Sticker Sheet Library',
+    desc: 'Print-ready QR sheet generators for 30+ Avery, Herma, Dymo, Brother, and Zebra label formats. Exact margin calibration, zero-drift layout.',
+    href: '/qr-labels',
+    icon: Tag,
+    count: 'label sheets',
+    accent: 'bg-violet-500/10 text-violet-600 dark:text-violet-400',
+  },
+  {
+    title: 'WhatsApp QR by Country',
+    desc: 'Country-specific WhatsApp QR generators with calling code auto-detection, carrier prefix validation, and local regulatory notes.',
+    href: '/whatsapp-qr',
+    icon: Globe2,
+    count: 'countries',
+    accent: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+  },
+  {
+    title: 'Payment QR Scheme Library',
+    desc: 'Official spec generators for Pix, UPI, Raast, SGQR, Swiss QR-Bill, SEPA, PromptPay, and 25+ more payment networks.',
+    href: '/payment-qr',
+    icon: CreditCard,
+    count: 'payment schemes',
+    accent: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
+  },
+  {
+    title: 'Device & OS Scanning Guides',
+    desc: 'Tested troubleshooting guides for iPhone iOS 18, Android Pixel, Samsung Galaxy, Huawei HarmonyOS, Windows 11, and industrial Zebra scanners.',
+    href: '/scan-guide',
+    icon: Smartphone,
+    count: 'device guides',
+    accent: 'bg-sky-500/10 text-sky-600 dark:text-sky-400',
+  },
+  {
+    title: 'Industry Use-Case Generators',
+    desc: 'Pre-configured QR generators for Retail, Healthcare, Logistics, Hospitality, Education, Manufacturing, and 4 more industries.',
+    href: '/industries',
+    icon: Building2,
+    count: 'use-case pages',
+    accent: 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
+  },
+  {
+    title: 'Size & Distance Calculator Hub',
+    desc: 'Pre-filled QR size calculators for 20 specific use cases: business cards, banners, wine labels, pill bottles, museum placards, and more.',
+    href: '/qr-size-guide',
+    icon: Ruler,
+    count: 'size guides',
+    accent: 'bg-teal-500/10 text-teal-600 dark:text-teal-400',
+  },
+  {
+    title: 'QR & Barcode Glossary',
+    desc: 'Technical reference: Reed-Solomon, Galois Field, finder patterns, EMVCo TLV, Micro QR, Data Matrix, PDF417, and 25+ more defined with math.',
+    href: '/glossary',
+    icon: Library,
+    count: 'terms defined',
+    accent: 'bg-rose-500/10 text-rose-600 dark:text-rose-400',
+  },
+  {
+    title: 'Format Comparisons',
+    desc: 'Data-driven comparisons: QR vs NFC, static vs dynamic, SVG vs PNG vs PDF, iPhone vs Android scanner, UPI vs Raast vs PromptPay.',
+    href: '/compare',
+    icon: GitCompare,
+    count: 'comparisons',
+    accent: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400',
+  },
+];
+
 export default function HomePage() {
   const articles = getAllArticles().slice(0, 6);
+  const countries = getAllCountries();
+  const payments = getAllPaymentSchemes();
+  const labels = getAllLabelSheets();
 
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'QR Studio',
     url: 'https://qrstudio.app',
-    description: 'Professional browser-based QR code generator and optical engineering platform.',
+    description:
+      'Professional browser-based QR code generator and optical engineering platform.',
     potentialAction: {
       '@type': 'SearchAction',
       target: 'https://qrstudio.app/sitemap-page?q={search_term_string}',
@@ -184,11 +264,42 @@ export default function HomePage() {
     },
   };
 
+  const softwareSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'QR Studio',
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Web Browser',
+    url: 'https://qrstudio.app',
+    description:
+      'Free online QR code generator suite with 40+ code types, optical size calculator, safety checker, and print-ready exports.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: [
+      'QR Code Generator (40+ types)',
+      'QR Size & Distance Calculator',
+      'QR Safety & Phishing Checker',
+      'Print-Ready SVG & PDF Export',
+      'Label Sheet Grid Layout',
+      'WhatsApp Country-Specific QR',
+      'Payment QR (UPI, Raast, Pix, SGQR)',
+      'Offline Animated File Transfer',
+      'Error Correction Damage Simulator',
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
       />
 
       {/* Main Interactive Studio Hero */}
@@ -238,7 +349,7 @@ export default function HomePage() {
             </div>
             <h4 className="font-bold text-sm text-foreground">International Protocols</h4>
             <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-              Complies with ISO/IEC 18004, EMVCo Raast, UPI, and native RTL Urdu/Arabic scripts.
+              Complies with ISO/IEC 18004, EMVCo, UPI, and native RTL Urdu/Arabic scripts.
             </p>
           </div>
         </div>
@@ -256,7 +367,8 @@ export default function HomePage() {
               Specialized Optical & QR Tool Cluster
             </h2>
             <p className="text-muted-foreground text-xs sm:text-sm mt-1 max-w-2xl">
-              Every tool operates 100% client-side with zero cloud dependency. Designed for prepress designers, cybersecurity engineers, and international merchants.
+              Every tool operates 100% client-side with zero cloud dependency. Designed for prepress
+              designers, cybersecurity engineers, and international merchants.
             </p>
           </div>
           <Link
@@ -291,9 +403,7 @@ export default function HomePage() {
                   <h3 className="font-bold text-base text-foreground group-hover:text-primary transition-colors leading-snug">
                     {t.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
-                    {t.desc}
-                  </p>
+                  <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{t.desc}</p>
                 </div>
                 <div className="pt-4 mt-3 border-t border-border/40 flex items-center gap-1 text-xs font-semibold text-primary">
                   <span>Open Tool</span>
@@ -304,6 +414,149 @@ export default function HomePage() {
           })}
         </div>
       </section>
+
+      {/* ── Programmatic Content Hub Grid ── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-border/60">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 mb-2">
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              <span>Specialized Knowledge Hubs</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              Deep-Dive Reference Libraries
+            </h2>
+            <p className="text-muted-foreground text-xs sm:text-sm mt-1 max-w-2xl">
+              Structured data libraries with working generators, calculators, and technical guides
+              for every dimension of QR code deployment.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {CONTENT_HUBS.map((hub) => {
+            const Icon = hub.icon;
+            // Resolve live counts from data
+            const count =
+              hub.href === '/qr-labels'
+                ? labels.length
+                : hub.href === '/whatsapp-qr'
+                  ? countries.length
+                  : hub.href === '/payment-qr'
+                    ? payments.length
+                    : null;
+
+            return (
+              <Link
+                key={hub.href}
+                href={hub.href}
+                className="group border border-border/70 hover:border-primary/40 rounded-2xl p-5 bg-card hover:shadow-md transition-all"
+              >
+                <div className={`w-10 h-10 rounded-xl ${hub.accent} flex items-center justify-center mb-3`}>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-bold text-sm text-foreground group-hover:text-primary transition-colors leading-snug mb-1">
+                  {hub.title}
+                </h3>
+                {count !== null && (
+                  <p className="text-[10px] font-bold text-primary mb-1">
+                    {count} {hub.count}
+                  </p>
+                )}
+                <p className="text-xs text-muted-foreground leading-relaxed">{hub.desc}</p>
+                <div className="mt-3 flex items-center gap-1 text-xs font-semibold text-primary">
+                  <span>Explore</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ── Featured Country Quick-Links ── */}
+      {countries.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border/60">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
+            <div>
+              <h2 className="text-xl font-extrabold tracking-tight text-foreground">
+                WhatsApp QR Generators by Country
+              </h2>
+              <p className="text-muted-foreground text-xs mt-1">
+                Country-validated QR codes with correct calling codes, carrier prefixes, and local regulatory notes.
+              </p>
+            </div>
+            <Link
+              href="/whatsapp-qr"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline shrink-0"
+            >
+              All {countries.length} countries <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {countries.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/whatsapp-qr/${c.slug}`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/70 bg-card hover:border-primary/50 hover:bg-primary/5 transition-all text-xs font-medium text-foreground"
+              >
+                <span>{c.isoCode}</span>
+                <span className="text-muted-foreground">{c.callingCode}</span>
+                <span className="font-semibold">{c.name}</span>
+              </Link>
+            ))}
+            <Link
+              href="/whatsapp-qr"
+              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-dashed border-border/70 text-xs text-muted-foreground hover:text-primary hover:border-primary/40 transition-all"
+            >
+              +40 more <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {/* ── Payment QR Quick-Links ── */}
+      {payments.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-border/60">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
+            <div>
+              <h2 className="text-xl font-extrabold tracking-tight text-foreground">
+                Official Payment QR Standards
+              </h2>
+              <p className="text-muted-foreground text-xs mt-1">
+                Spec-compliant payment QR generators for global instant payment networks — Pix, UPI, Raast, SGQR, and more.
+              </p>
+            </div>
+            <Link
+              href="/payment-qr"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline shrink-0"
+            >
+              All {payments.length} schemes <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {payments.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/payment-qr/${p.slug}`}
+                className="group border border-border/70 hover:border-primary/40 rounded-xl p-4 bg-card hover:shadow-sm transition-all"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-bold text-sm text-foreground group-hover:text-primary transition-colors leading-tight">
+                    {p.name}
+                  </span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
+                    {p.currency}
+                  </span>
+                </div>
+                <p className="text-[11px] text-muted-foreground">
+                  {p.governingBody} · {p.country}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Cornerstone Guides & Research */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border/60">
@@ -358,6 +611,83 @@ export default function HomePage() {
             </article>
           ))}
         </div>
+      </section>
+
+      {/* FAQ Section — addresses common questions for SEO */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border/60">
+        <h2 className="text-xl font-extrabold tracking-tight text-foreground mb-6 flex items-center gap-2">
+          <HelpCircle className="w-5 h-5 text-primary" />
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          {[
+            {
+              q: 'Is QR Studio really free with no hidden subscriptions?',
+              a: 'Yes. QR Studio generates all QR codes directly in your browser with zero server communication. Static QR codes generated here never expire, cannot be disabled, and require no account or subscription. The code you download is permanently yours.',
+            },
+            {
+              q: 'What is the difference between static and dynamic QR codes?',
+              a: 'A static QR code encodes data directly into the module matrix and works permanently offline. A dynamic QR code encodes a proxy redirect URL that depends on an external server staying active — if the vendor shuts down or you stop paying, all printed codes break. QR Studio only generates static, permanent codes.',
+            },
+            {
+              q: 'What file formats can I download?',
+              a: 'You can download lossless vector SVG (infinite scaling), print-ready PDF, high-resolution PNG (up to 4K), HD PNG, JPEG, or copy the raw data URI and embed HTML snippet. SVG and PDF are recommended for commercial printing.',
+            },
+            {
+              q: 'Can I add my logo to a QR code?',
+              a: 'Yes. Upload any PNG or SVG logo via the customization panel. QR Studio automatically switches to Error Correction Level H (30% recovery) and validates that your logo covers less than 20% of the symbol area, preserving full scannability.',
+            },
+            {
+              q: 'Which payment QR standards are supported?',
+              a: 'QR Studio generates spec-compliant payment codes for UPI (India), Raast (Pakistan), Pix BR Code (Brazil), SGQR (Singapore), Swiss QR-Bill, SEPA EPC QR Code, and more. Each generator validates fields per the official governing body specification.',
+            },
+          ].map((item, i) => (
+            <details key={i} className="border border-border/60 rounded-xl bg-card">
+              <summary className="px-5 py-4 cursor-pointer text-sm font-semibold text-foreground hover:text-primary transition-colors list-none flex items-center justify-between">
+                {item.q}
+                <ArrowRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+              </summary>
+              <div className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed">{item.a}</div>
+            </details>
+          ))}
+        </div>
+        {/* FAQ Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                {
+                  '@type': 'Question',
+                  name: 'Is QR Studio really free with no hidden subscriptions?',
+                  acceptedAnswer: { '@type': 'Answer', text: 'Yes. QR Studio generates all QR codes directly in your browser. Static codes never expire and require no account or subscription.' },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'What is the difference between static and dynamic QR codes?',
+                  acceptedAnswer: { '@type': 'Answer', text: 'Static QR codes encode data directly and work permanently offline. Dynamic codes depend on an external redirect server — if the vendor shuts down or you stop paying, all printed codes break.' },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'What file formats can I download?',
+                  acceptedAnswer: { '@type': 'Answer', text: 'Vector SVG, print-ready PDF, high-resolution PNG (up to 4K), JPEG, and data URI embed code. SVG and PDF are recommended for commercial printing.' },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Can I add my logo to a QR code?',
+                  acceptedAnswer: { '@type': 'Answer', text: 'Yes. Upload any PNG or SVG logo. QR Studio automatically switches to Error Correction Level H and validates that the logo covers less than 20% of the symbol area.' },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Which payment QR standards are supported?',
+                  acceptedAnswer: { '@type': 'Answer', text: 'UPI (India), Raast (Pakistan), Pix BR Code (Brazil), SGQR (Singapore), Swiss QR-Bill, SEPA EPC QR Code, and more — each validated per official governing body specification.' },
+                },
+              ],
+            }),
+          }}
+        />
       </section>
 
       {/* AdSlot before footer */}
