@@ -63,7 +63,7 @@ Water utility assets are buried, submerged, or exposed outdoors for decades. Use
     `,
     [
       { question: 'Can utility QR labels survive submersion?', answer: 'Stainless steel with laser-engraved QR codes survives full submersion indefinitely. Standard adhesive labels do not.' },
-      { question: 'Do field crews need mobile data to scan utility QR codes?', answer: 'Offline functionality is essential in remote utility environments. Cache the asset register on the crew's mobile device and sync on return.' },
+      { question: 'Do field crews need mobile data to scan utility QR codes?', answer: 'Offline functionality is essential in remote utility environments. Cache the asset register on the crews mobile device and sync on return.' },
     ]
   ),
   art(

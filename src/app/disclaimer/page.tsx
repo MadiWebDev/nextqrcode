@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Disclaimer — QR Studio',
+  title: 'Disclaimer — QR Code Tools',
   description:
-    'QR Studio disclaimer. Our tools are for informational purposes. Medical ID QR codes are not a substitute for professional medical advice.',
+    'QR Code Tools disclaimer. Our tools are for informational purposes. Medical ID QR codes are not a substitute for professional medical advice.',
   alternates: { canonical: 'https://freeqrcode.tools/disclaimer' },
   openGraph: {
-    title: 'Disclaimer — QR Studio',
+    title: 'Disclaimer — QR Code Tools',
     description:
-      'QR Studio disclaimer covering medical ID tools, payment QR codes, external links, and advertising.',
+      'QR Code Tools disclaimer covering medical ID tools, payment QR codes, external links, and advertising.',
     url: 'https://freeqrcode.tools/disclaimer',
   },
 };
@@ -51,7 +51,7 @@ export default function DisclaimerPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">General Disclaimer</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            The information and tools provided on QR Studio (freeqrcode.tools) are for informational
+            The information and tools provided on QR Code Tools (freeqrcode.tools) are for informational
             and practical purposes only. All tools are provided &quot;as is&quot; and &quot;as available&quot; without
             any warranty of accuracy, completeness, fitness for a particular purpose, or
             non-infringement. Your use of any tool on this site is entirely at your own risk.
@@ -78,7 +78,7 @@ export default function DisclaimerPage() {
           </p>
           <p>
             Users are solely responsible for the accuracy, completeness, and currency of the medical
-            information they encode. QR Studio makes no representations regarding whether emergency
+            information they encode. QR Code Tools makes no representations regarding whether emergency
             medical personnel in any jurisdiction will use, recognise, or have the ability to read
             QR-based medical ID information.
           </p>
@@ -95,8 +95,8 @@ export default function DisclaimerPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Payment QR Codes</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            Payment QR codes generated on QR Studio (UPI, Raast, JazzCash, Easypaisa) follow
-            publicly available format specifications for each payment scheme. However, QR Studio
+            Payment QR codes generated on QR Code Tools (UPI, Raast, JazzCash, Easypaisa) follow
+            publicly available format specifications for each payment scheme. However, QR Code Tools
             is not an official application, is not affiliated with, endorsed by, or certified by
             NPCI (National Payments Corporation of India), the State Bank of Pakistan, Jazz
             (Veon), Telenor Pakistan, or any other payment operator or financial regulator.
@@ -105,7 +105,7 @@ export default function DisclaimerPage() {
             We do not guarantee that all receiving apps, point-of-sale terminals, or banking
             applications will correctly parse every field in a generated payment QR code.
             <strong className="text-foreground"> Always verify payment amounts and recipient
-            details before completing any transaction.</strong> QR Studio is not responsible for
+            details before completing any transaction.</strong> QR Code Tools is not responsible for
             payment errors, incorrect transfers, or financial losses arising from the use of
             payment QR codes generated on this site.
           </p>
@@ -116,7 +116,7 @@ export default function DisclaimerPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">QR Code Scannability</h2>
         <p className="text-muted-foreground leading-relaxed">
-          QR Studio does not guarantee that every generated QR code will be scannable in all
+          QR Code Tools does not guarantee that every generated QR code will be scannable in all
           environments, lighting conditions, or by all QR scanning apps. Factors outside our
           control — including print quality, surface texture, material reflectivity, camera
           quality, and environmental lighting — can affect scannability. The user is responsible
@@ -129,7 +129,7 @@ export default function DisclaimerPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">External Links</h2>
         <p className="text-muted-foreground leading-relaxed">
-          QR Studio may contain links to third-party websites for reference and convenience. These
+          QR Code Tools may contain links to third-party websites for reference and convenience. These
           links do not constitute an endorsement of those sites&apos; content, products, or services.
           We do not control and are not responsible for the privacy practices, content accuracy, or
           availability of any external site. You access external links at your own risk.
@@ -140,7 +140,7 @@ export default function DisclaimerPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">No Warranty</h2>
         <p className="text-muted-foreground leading-relaxed">
-          To the maximum extent permitted by applicable law, QR Studio and its operator (codexengr)
+          To the maximum extent permitted by applicable law, QR Code Tools and its operator (codexengr)
           expressly disclaim all warranties, express or implied, including but not limited to implied
           warranties of merchantability, fitness for a particular purpose, and non-infringement. We
           do not warrant that the service will be uninterrupted, error-free, or free of harmful
@@ -154,7 +154,7 @@ export default function DisclaimerPage() {
         <p className="text-muted-foreground leading-relaxed">
           This site may display Google AdSense advertisements. We do not personally endorse
           advertised products or services. Advertisements are served by Google and are not
-          hand-selected by QR Studio. Ad placement is designed to clearly separate advertising
+          hand-selected by QR Code Tools. Ad placement is designed to clearly separate advertising
           content from tool interfaces.
         </p>
       </section>
@@ -164,7 +164,7 @@ export default function DisclaimerPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Changes to This Disclaimer</h2>
         <p className="text-muted-foreground leading-relaxed">
           We may update this disclaimer at any time. Changes will be reflected in the &quot;Last
-          updated&quot; date above. Continued use of QR Studio after a change constitutes acceptance
+          updated&quot; date above. Continued use of QR Code Tools after a change constitutes acceptance
           of the updated disclaimer.
         </p>
       </section>

@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy — QR Studio',
+  title: 'Cookie Policy — QR Code Tools',
   description:
-    'Learn what cookies QR Studio uses, why, and how to manage or delete them in your browser.',
+    'Learn what cookies QR Code Tools uses, why, and how to manage or delete them in your browser.',
   alternates: { canonical: 'https://freeqrcode.tools/cookie-policy' },
   openGraph: {
-    title: 'Cookie Policy — QR Studio',
-    description: 'Learn what cookies QR Studio uses, why, and how to manage or delete them in your browser.',
+    title: 'Cookie Policy — QR Code Tools',
+    description: 'Learn what cookies QR Code Tools uses, why, and how to manage or delete them in your browser.',
     url: 'https://freeqrcode.tools/cookie-policy',
   },
 };
@@ -57,11 +57,11 @@ export default function CookiePolicyPage() {
             owners.
           </p>
           <p>
-            QR Studio uses browser <strong className="text-foreground">localStorage</strong> for
+            QR Code Tools uses browser <strong className="text-foreground">localStorage</strong> for
             essential preferences rather than traditional cookies. localStorage stores data directly
             on your device and is never transmitted to any server during normal browsing. The
             distinction matters: localStorage data stays local unless JavaScript code explicitly
-            sends it elsewhere — and no QR Studio code does that. Third-party advertising and
+            sends it elsewhere — and no QR Code Tools code does that. Third-party advertising and
             analytics platforms (Google) may set traditional cookies if you give consent via the
             banner at the bottom of the page.
           </p>
@@ -88,14 +88,14 @@ export default function CookiePolicyPage() {
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Necessary</td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Stores your cookie consent choice</td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Persistent (localStorage)</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">QR Studio</td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">QR Code Tools</td>
               </tr>
               <tr>
                 <td className="p-2 border-b border-border/50 font-mono text-xs">qrs_theme</td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Necessary</td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Stores your colour theme preference</td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Persistent (localStorage)</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">QR Studio</td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">QR Code Tools</td>
               </tr>
               <tr>
                 <td className="p-2 border-b border-border/50 font-mono text-xs">_ga</td>

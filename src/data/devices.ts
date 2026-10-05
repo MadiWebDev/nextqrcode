@@ -1,5 +1,5 @@
 /**
- * QR Studio — Device & OS Scanning Guide Data
+ * QR Code Tools — Device & OS Scanning Guide Data
  *
  * Tested troubleshooting guides for 12 device/OS combinations.
  * Each entry contains unique content — tested failure modes,
@@ -471,9 +471,9 @@ For GS1-compliant QR codes (used in pharmaceutical track-and-trace, fresh food, 
           'Yes. The SE4770 and SE4850 imagers support all 40 QR code versions at all four error correction levels. The maximum reliable scanning distance for a Version 40 symbol (177×177 modules) depends on the physical print size — a Version 40 symbol printed at 1mm per module (177mm = 17.7cm) is readable from up to 80cm.',
       },
       {
-        question: 'Do Zebra TC series devices work with the QR Studio generated codes?',
+        question: 'Do Zebra TC series devices work with the QR Code Tools generated codes?',
         answer:
-          'Yes. QR Studio generates standards-compliant ISO/IEC 18004 QR codes that are fully compatible with Zebra hardware imagers and DataWedge. Use Error Correction Level Q or H for any codes that will be scanned in industrial environments with physical label wear.',
+          'Yes. QR Code Tools generates standards-compliant ISO/IEC 18004 QR codes that are fully compatible with Zebra hardware imagers and DataWedge. Use Error Correction Level Q or H for any codes that will be scanned in industrial environments with physical label wear.',
       },
     ],
     publishedAt: '2026-10-25',

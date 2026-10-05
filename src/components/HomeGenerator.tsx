@@ -34,6 +34,7 @@ import type {
 } from '@/types';
 import { DEFAULT_CUSTOMIZATION } from '@/lib/defaults';
 import { generateQRData, getTypeConfig } from '@/lib/qr-helpers';
+import { templates } from '@/lib/templates';
 
 /* -------------------------------------------------------------------------- */
 /*  Constants                                                                 */
@@ -204,13 +205,30 @@ export function HomeGenerator() {
     [setStoredType],
   );
 
+  // Apply template colors to the customization options.
+  const applyTemplateColors = useCallback((t: TemplateName) => {
+    const tpl = templates[t];
+    setCustomization((prev) => ({
+      ...prev,
+      fgColor: tpl.qrColor,
+      eyeColor: tpl.qrColor,
+    }));
+  }, []);
+
   const setTemplate = useCallback(
     (t: TemplateName) => {
       setTemplateState(t);
       setStoredTemplate(t);
+      applyTemplateColors(t);
     },
-    [setStoredTemplate],
+    [setStoredTemplate, applyTemplateColors],
   );
+
+  // Sync stored template on first render.
+  useEffect(() => {
+    applyTemplateColors(storedTemplate);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleReset = useCallback(() => setQrData({}), []);
 

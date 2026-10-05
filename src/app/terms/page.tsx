@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — QR Studio',
+  title: 'Terms of Service — QR Code Tools',
   description:
-    'QR Studio terms of service. Read our acceptable use policy, intellectual property rights, and limitation of liability.',
+    'QR Code Tools terms of service. Read our acceptable use policy, intellectual property rights, and limitation of liability.',
   alternates: { canonical: 'https://freeqrcode.tools/terms' },
   openGraph: {
-    title: 'Terms of Service — QR Studio',
+    title: 'Terms of Service — QR Code Tools',
     description:
-      'QR Studio terms of service: acceptable use, intellectual property, liability limits, and governing law.',
+      'QR Code Tools terms of service: acceptable use, intellectual property, liability limits, and governing law.',
     url: 'https://freeqrcode.tools/terms',
   },
 };
@@ -50,10 +50,10 @@ export default function TermsPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Agreement to Terms</h2>
         <p className="text-muted-foreground leading-relaxed">
-          By accessing or using QR Studio (freeqrcode.tools), you agree to be bound by these Terms of
+          By accessing or using QR Code Tools (freeqrcode.tools), you agree to be bound by these Terms of
           Service and our <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
           If you do not agree to these terms, please do not use the service. These terms apply to
-          all visitors and users of the service. QR Studio is provided by codexengr, an independent
+          all visitors and users of the service. QR Code Tools is provided by codexengr, an independent
           developer.
         </p>
       </section>
@@ -62,7 +62,7 @@ export default function TermsPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Description of Service</h2>
         <p className="text-muted-foreground leading-relaxed">
-          QR Studio provides a free, browser-based QR code generation toolset. All QR code
+          QR Code Tools provides a free, browser-based QR code generation toolset. All QR code
           generation happens entirely in your browser — no account is required, no input data is
           transmitted to or stored on our servers. The service includes QR code generators for 40+
           types, customisation options, download in multiple formats, and a suite of specialist
@@ -76,7 +76,7 @@ export default function TermsPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Use of the Service</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            You are permitted to use QR Studio for personal, commercial, and non-commercial purposes,
+            You are permitted to use QR Code Tools for personal, commercial, and non-commercial purposes,
             free of charge. There is no restriction on the volume of QR codes you generate for
             legitimate purposes.
           </p>
@@ -86,7 +86,7 @@ export default function TermsPage() {
             <li>Creating phishing QR codes designed to deceive users into revealing credentials or payment information</li>
             <li>Distributing QR codes that deliver malware, ransomware, or other harmful software</li>
             <li>Using the service to impersonate another person, organisation, or brand in a misleading way</li>
-            <li>Automated scraping or bulk downloading of the QR Studio application code or assets</li>
+            <li>Automated scraping or bulk downloading of the QR Code Tools application code or assets</li>
             <li>Attempting to circumvent any rate limiting, security measure, or access control on the service</li>
             <li>Encoding content that infringes the intellectual property rights of any third party</li>
           </ul>
@@ -103,15 +103,15 @@ export default function TermsPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Intellectual Property</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            QR codes you generate using QR Studio belong entirely to you. We claim no rights over
+            QR codes you generate using QR Code Tools belong entirely to you. We claim no rights over
             the output of the QR generation tools. You are free to use, reproduce, modify, and
             distribute generated QR codes without restriction.
           </p>
           <p>
-            The QR Studio name, logo, site design, and all original written content on this site
-            are the intellectual property of QR Studio / codexengr. You may not copy, reproduce,
-            or resell the QR Studio platform, interface, or branding without express written
-            permission. You may link to QR Studio from your own website without permission.
+            The QR Code Tools name, logo, site design, and all original written content on this site
+            are the intellectual property of QR Code Tools / codexengr. You may not copy, reproduce,
+            or resell the QR Code Tools platform, interface, or branding without express written
+            permission. You may link to QR Code Tools from your own website without permission.
           </p>
           <p>
             You grant us no rights or licence to the data you input into QR generator tools. Your
@@ -162,7 +162,7 @@ export default function TermsPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Limitation of Liability</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            To the maximum extent permitted by applicable law, QR Studio and codexengr shall not
+            To the maximum extent permitted by applicable law, QR Code Tools and codexengr shall not
             be liable for any direct, indirect, incidental, special, consequential, or punitive
             damages arising from or related to your use of the service, even if we have been
             advised of the possibility of such damages.
@@ -184,7 +184,7 @@ export default function TermsPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Third-Party Services</h2>
         <p className="text-muted-foreground leading-relaxed">
-          QR Studio may display Google AdSense advertisements. The display of these ads is governed
+          QR Code Tools may display Google AdSense advertisements. The display of these ads is governed
           by Google&apos;s own terms and privacy policies. We do not endorse the content of third-party
           advertisements. Google&apos;s use of advertising cookies is subject to your cookie consent
           choice. See the <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a> and{' '}
@@ -209,7 +209,7 @@ export default function TermsPage() {
         <p className="text-muted-foreground leading-relaxed">
           We may revise these Terms of Service at any time. Changes will be effective immediately
           upon posting to this page with an updated &quot;Last updated&quot; date. Your continued use of
-          QR Studio after any change constitutes acceptance of the revised terms. If you disagree
+          QR Code Tools after any change constitutes acceptance of the revised terms. If you disagree
           with any revision, your remedy is to stop using the service.
         </p>
       </section>

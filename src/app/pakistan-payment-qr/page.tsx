@@ -87,8 +87,8 @@ export default function RegionalPaymentQRPage() {
       answer: 'Yes. EMVCo Raast QR codes are cross-compatible across all SBP-certified applications including Nayapay, Sadapay, HBL, Meezan, Bank Alfalah, Easypaisa, and JazzCash.',
     },
     {
-      question: 'Does QR Studio charge any transaction or payment processing fees?',
-      answer: 'Zero fees. QR Studio is not a payment gateway and never touches transaction funds. We generate open standard payload strings directly inside your browser.',
+      question: 'Does QR Code Tools charge any transaction or payment processing fees?',
+      answer: 'Zero fees. QR Code Tools is not a payment gateway and never touches transaction funds. We generate open standard payload strings directly inside your browser.',
     },
   ];
 
@@ -213,7 +213,7 @@ export default function RegionalPaymentQRPage() {
             <div className="rounded-xl bg-amber-500/10 border border-amber-500/20 p-3 text-xs text-amber-900 dark:text-amber-300 flex items-start gap-2">
               <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
               <span>
-                Disclaimer: Verify your IBAN, till, or UPI ID with a small test scan before printing checkout displays. QR Studio is an open generator and is not affiliated with the State Bank of Pakistan or NPCI.
+                Disclaimer: Verify your IBAN, till, or UPI ID with a small test scan before printing checkout displays. QR Code Tools is an open generator and is not affiliated with the State Bank of Pakistan or NPCI.
               </span>
             </div>
           </Card>

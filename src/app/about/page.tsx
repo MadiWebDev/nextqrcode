@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About QR Studio — Built by codexengr | Free Browser-Based QR Tools',
+  title: 'About QR Code Tools — Built by codexengr | Free Browser-Based QR Tools',
   description:
-    'QR Studio is a free, privacy-first QR code generator built by codexengr. 40+ QR types, no sign-up, no server uploads. Learn our story and mission.',
+    'QR Code Tools is a free, privacy-first QR code generator built by codexengr. 40+ QR types, no sign-up, no server uploads. Learn our story and mission.',
   alternates: { canonical: 'https://freeqrcode.tools/about' },
   openGraph: {
-    title: 'About QR Studio — Built by codexengr | Free Browser-Based QR Tools',
+    title: 'About QR Code Tools — Built by codexengr | Free Browser-Based QR Tools',
     description:
-      'QR Studio is a free, privacy-first QR code generator built by codexengr. 40+ QR types, no sign-up, no server uploads.',
+      'QR Code Tools is a free, privacy-first QR code generator built by codexengr. 40+ QR types, no sign-up, no server uploads.',
     url: 'https://freeqrcode.tools/about',
   },
 };
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   const faqItems = [
     {
-      question: 'Is QR Studio really free?',
+      question: 'Is QR Code Tools really free?',
       answer:
         'Yes, completely free forever. No sign-up, no premium tier, no watermarks. Every feature — custom colours, logo upload, SVG/PDF download — is available to everyone at no cost.',
     },
@@ -26,7 +26,7 @@ export default function AboutPage() {
         'Never. All QR codes are generated entirely in your browser using JavaScript. No data ever reaches our servers. Your WiFi passwords, contact details, payment references, and medical information stay on your device.',
     },
     {
-      question: 'Can I use QR Studio QR codes commercially?',
+      question: 'Can I use QR Code Tools QR codes commercially?',
       answer:
         'Absolutely. QR codes you generate belong entirely to you. Use them on business cards, product packaging, restaurant menus, event materials, or anywhere else you need without restriction.',
     },
@@ -36,9 +36,9 @@ export default function AboutPage() {
         'A good rule of thumb is a minimum of 2 cm × 2 cm for indoor scanning at arm\'s length. For billboards or large-format print, use our QR Size Calculator to compute the exact dimensions based on your viewing distance and error-correction level.',
     },
     {
-      question: 'Does QR Studio work offline?',
+      question: 'Does QR Code Tools work offline?',
       answer:
-        'After your first visit, QR Studio is fully functional offline. All QR generation logic is bundled into the page — there are no external API calls required at generation time.',
+        'After your first visit, QR Code Tools is fully functional offline. All QR generation logic is bundled into the page — there are no external API calls required at generation time.',
     },
   ];
 
@@ -83,7 +83,7 @@ export default function AboutPage() {
 
       {/* H1 */}
       <header>
-        <h1 className="text-3xl font-extrabold tracking-tight">About QR Studio</h1>
+        <h1 className="text-3xl font-extrabold tracking-tight">About QR Code Tools</h1>
       </header>
 
       {/* Author bio card */}
@@ -95,7 +95,7 @@ export default function AboutPage() {
           <p className="font-semibold text-foreground text-lg">codexengr</p>
           <p className="text-sm text-muted-foreground mb-2">Developer &amp; Designer</p>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            I build tools that respect your privacy. QR Studio started as a personal project after
+            I build tools that respect your privacy. QR Code Tools started as a personal project after
             frustration with paywalled generators that upload your data to servers you don&apos;t control.
             The goal was simple: every feature, free, in the browser, forever.
           </p>
@@ -107,7 +107,7 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Our Story</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            QR Studio began out of genuine frustration. Every QR generator I tried in 2023 fell into
+            QR Code Tools began out of genuine frustration. Every QR generator I tried in 2023 fell into
             one of three traps: a hard paywall for basic features like SVG export or transparent
             backgrounds, a mandatory sign-up that was really just an email harvesting exercise, or —
             most concerning — server-side generation that sent every WiFi password, personal contact,
@@ -122,7 +122,7 @@ export default function AboutPage() {
             export — is handled by the browser. No server receives any input data, ever.
           </p>
           <p>
-            Since that first version, QR Studio has grown to cover 40+ QR types and serve users
+            Since that first version, QR Code Tools has grown to cover 40+ QR types and serve users
             internationally. The tools now include region-specific payment formats (UPI for India;
             Raast, JazzCash, and Easypaisa for Pakistan), multilingual WiFi sign generators with RTL
             support for Urdu and Arabic, bulk vCard generation for teams, and specialised formats like
@@ -138,7 +138,7 @@ export default function AboutPage() {
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
             The web works best when powerful tools are freely accessible to everyone — not gated
-            behind subscriptions or monetised through surveillance. QR Studio&apos;s mission is to
+            behind subscriptions or monetised through surveillance. QR Code Tools&apos;s mission is to
             maintain a genuinely free, genuinely private QR toolset that professionals, small
             businesses, students, and individuals can rely on without compromising their data.
           </p>
@@ -156,7 +156,7 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">How It Works — Technology</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            QR Studio is built on Next.js 16 App Router with React 19 and TypeScript. The UI layer
+            QR Code Tools is built on Next.js 16 App Router with React 19 and TypeScript. The UI layer
             uses Tailwind CSS v4 (with CSS custom-property design tokens) and shadcn/ui for accessible,
             composable components. All QR generation uses the open-source <code>qrcode</code> npm
             package, running entirely inside a browser JavaScript context — not on any server.
@@ -230,7 +230,7 @@ export default function AboutPage() {
             accessibility standards like WCAG 2.2 AA.
           </p>
           <p>
-            QR Studio is maintained as a solo project. Feedback, bug reports, and feature requests
+            QR Code Tools is maintained as a solo project. Feedback, bug reports, and feature requests
             are welcomed — see the <a href="/contact" className="text-primary hover:underline">Contact page</a> for
             how to get in touch.
           </p>

@@ -1,5 +1,5 @@
 /**
- * QR Studio — QR Code Size & Distance Guide Data
+ * QR Code Tools — QR Code Size & Distance Guide Data
  *
  * 20 use-case-specific size guides, each with pre-filled calculator parameters,
  * engineering math, and 400+ words of unique content.

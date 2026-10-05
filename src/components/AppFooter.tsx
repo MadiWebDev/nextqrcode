@@ -75,7 +75,7 @@ export function AppFooter() {
       </div>
       <div className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
         <p>
-          © 2026 QR Studio · All decoding and encoding executes 100% client-side · Zero server telemetry.
+          © 2026 QR Code Tools · All decoding and encoding executes 100% client-side · Zero server telemetry.
         </p>
         <p className="mt-1 space-x-3">
           <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>

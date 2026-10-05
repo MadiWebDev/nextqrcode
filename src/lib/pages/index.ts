@@ -14,6 +14,26 @@ import { batch12 } from './Batch12';
 import { batch13 } from './Batch13';
 import { batch14 } from './Batch14';
 import { batch15 } from './Batch15';
+import { batch16 } from './Batch16';
+import { batch17 } from './Batch17';
+import { batch18 } from './Batch18';
+import { batch19 } from './Batch19';
+import { batch20 } from './Batch20';
+import { batch21 } from './Batch21';
+import { batch22 } from './Batch22';
+import { batch23 } from './Batch23';
+import { batch24 } from './Batch24';
+import { batch25 } from './Batch25';
+import { batch26 } from './Batch26';
+import { batch27 } from './Batch27';
+import { batch28 } from './Batch28';
+import { batch29 } from './Batch29';
+import { batch30 } from './Batch30';
+import { batch31 } from './Batch31';
+import { batch32 } from './Batch32';
+import { batch33 } from './Batch33';
+import { batch34 } from './Batch34';
+import { batch35 } from './Batch35';
 
 export const NEW_ARTICLES: Article[] = [
   ...batch1,
@@ -31,6 +51,26 @@ export const NEW_ARTICLES: Article[] = [
   ...batch13,
   ...batch14,
   ...batch15,
+  ...batch16,
+  ...batch17,
+  ...batch18,
+  ...batch19,
+  ...batch20,
+  ...batch21,
+  ...batch22,
+  ...batch23,
+  ...batch24,
+  ...batch25,
+  ...batch26,
+  ...batch27,
+  ...batch28,
+  ...batch29,
+  ...batch30,
+  ...batch31,
+  ...batch32,
+  ...batch33,
+  ...batch34,
+  ...batch35,
 ];
 
 // Build-time guard. Word-count floor is 120 for these seed articles;
@@ -45,8 +85,3 @@ export function validateArticles(list: Article[], minWords = 120) {
     if (a.faqs.length < 2) throw new Error(`Needs 2+ FAQs: ${a.slug}`);
   }
 }
-
-// In your main articles file:
-//   import { NEW_ARTICLES, validateArticles } from './pages/index';
-//   export const ARTICLES: Article[] = [...EXISTING_ARTICLES, ...NEW_ARTICLES];
-//   validateArticles(ARTICLES);

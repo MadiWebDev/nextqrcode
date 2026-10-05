@@ -1,5 +1,5 @@
 /**
- * QR Studio — Industry × Use-Case Page Data
+ * QR Code Tools — Industry × Use-Case Page Data
  *
  * Each entry represents a distinct search intent combining an industry vertical
  * with a specific QR code deployment use case. All 40 combinations are

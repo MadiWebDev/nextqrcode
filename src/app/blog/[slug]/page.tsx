@@ -22,11 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = getArticleBySlug(slug);
 
   if (!article) {
-    return { title: 'Article Not Found | QR Studio' };
+    return { title: 'Article Not Found | QR Code Tools' };
   }
 
   return {
-    title: `${article.title} — QR Studio`,
+    title: `${article.title} — QR Code Tools`,
     description: article.description,
     alternates: {
       canonical: `https://freeqrcode.tools/blog/${article.slug}`,
@@ -64,7 +64,7 @@ export default async function ArticlePage({ params }: Props) {
     dateModified: article.updatedAt,
     publisher: {
       '@type': 'Organization',
-      name: 'QR Studio',
+      name: 'QR Code Tools',
       url: 'https://freeqrcode.tools',
     },
   };

@@ -209,7 +209,7 @@ Any data you send to a cloud API is received by a third party. For WiFi password
 
 ### 2. Browser-Based Client-Side Generation
 
-JavaScript libraries (qrcode.js, qrcode-generator, nayuki) render the QR entirely in the browser. The payload never leaves your device. Our QR Studio generator works this way.
+JavaScript libraries (qrcode.js, qrcode-generator, nayuki) render the QR entirely in the browser. The payload never leaves your device. Our QR Code Tools generator works this way.
 
 ### 3. Command-Line and Local Tools
 

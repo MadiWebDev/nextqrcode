@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
+import { updateGoogleConsent } from '@/lib/gtag';
+
 const CONSENT_KEY = 'qrs_cookie_consent';
 
 export function CookieConsent() {
@@ -14,6 +16,9 @@ export function CookieConsent() {
     const stored = localStorage.getItem(CONSENT_KEY);
     if (stored === null) {
       setVisible(true);
+    } else {
+      // Sync Google Consent Mode with saved preference
+      updateGoogleConsent(stored === 'accepted');
     }
     // Trigger slide-up animation after mount
     requestAnimationFrame(() => setMounted(true));
@@ -21,11 +26,13 @@ export function CookieConsent() {
 
   function accept() {
     localStorage.setItem(CONSENT_KEY, 'accepted');
+    updateGoogleConsent(true);
     setVisible(false);
   }
 
   function reject() {
     localStorage.setItem(CONSENT_KEY, 'rejected');
+    updateGoogleConsent(false);
     setVisible(false);
   }
 

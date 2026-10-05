@@ -1,5 +1,5 @@
 /**
- * QR Studio — Template Gallery Data
+ * QR Code Tools — Template Gallery Data
  *
  * 20 distinct QR code design templates, each with a unique aesthetic,
  * industry target, and use-case advice.

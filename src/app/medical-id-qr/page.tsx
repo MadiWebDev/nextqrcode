@@ -143,7 +143,7 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
   const faqs = [
     {
       question: 'Is my medical information stored on your servers?',
-      answer: 'No. QR Studio stores zero health data. All medical fields are baked directly into the static QR code matrix inside your browser. No database, server, or cloud storage ever sees your personal information.',
+      answer: 'No. QR Code Tools stores zero health data. All medical fields are baked directly into the static QR code matrix inside your browser. No database, server, or cloud storage ever sees your personal information.',
     },
     {
       question: 'Can paramedics and EMTs scan this code without cell reception?',
@@ -346,7 +346,7 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
           Medical Liability and User Responsibility Notice
         </h3>
         <p className="text-base leading-relaxed text-xs text-muted-foreground italic">
-          Disclaimer: This medical ID card generator is provided for informational and emergency aid convenience only. QR Studio is not a medical provider and assumes no liability for inaccurate data entry, scanner failure, or medical decisions made by first responders. Always review printed cards for complete legibility before wallet placement.
+          Disclaimer: This medical ID card generator is provided for informational and emergency aid convenience only. QR Code Tools is not a medical provider and assumes no liability for inaccurate data entry, scanner failure, or medical decisions made by first responders. Always review printed cards for complete legibility before wallet placement.
         </p>
       </article>
 

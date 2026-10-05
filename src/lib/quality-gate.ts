@@ -1,5 +1,5 @@
 /**
- * QR Studio — Programmatic Page Quality Gate
+ * QR Code Tools — Programmatic Page Quality Gate
  *
  * Automated enforcement layer that blocks publishing for pages failing
  * thin-content, cannibalization, schema, or internal-linking requirements.

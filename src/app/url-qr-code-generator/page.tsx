@@ -20,7 +20,7 @@ export default function UrlLandingPage() {
           'Click Download and choose PNG for digital use or SVG for print-quality output.',
         ],
         faqs: [
-          { q: 'What is the difference between a static and a dynamic URL QR code?', a: 'A static QR code encodes the URL directly. It cannot be changed after printing. A dynamic QR code points to a short link that you can redirect later. QR Studio currently generates static codes, which are free forever and require no account.' },
+          { q: 'What is the difference between a static and a dynamic URL QR code?', a: 'A static QR code encodes the URL directly. It cannot be changed after printing. A dynamic QR code points to a short link that you can redirect later. QR Code Tools currently generates static codes, which are free forever and require no account.' },
           { q: 'How small can a URL QR code be and still scan reliably?', a: 'For a standard URL, a printed size of 2 cm × 2 cm typically scans well at 25–30 cm distance. Shorter URLs produce simpler QR codes that can be printed even smaller.' },
           { q: 'Can I use https redirect links like bit.ly in a URL QR code?', a: 'Yes. Any valid URL works — short links, UTM-tagged links, deep links, and standard https addresses all encode correctly.' },
         ],

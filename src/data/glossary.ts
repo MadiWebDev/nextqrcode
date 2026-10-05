@@ -1,5 +1,5 @@
 /**
- * QR Studio — Glossary Entry Data
+ * QR Code Tools — Glossary Entry Data
  *
  * 30 technical QR/barcode terms with 300+ words of unique content each.
  * Pages at /glossary/[slug] require:

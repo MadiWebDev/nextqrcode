@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { getAllArticles } from '@/lib/articles';
 
 export const metadata: Metadata = {
-  title: 'Full Site Index & Directory — QR Studio',
-  description: 'Full sitemap of QR Studio. Browse all 15 optical engineering tools, generators, technical guides, and standards.',
+  title: 'Full Site Index & Directory — QR Code Tools',
+  description: 'Full sitemap of QR Code Tools. Browse all 15 optical engineering tools, generators, technical guides, and standards.',
   alternates: { canonical: 'https://freeqrcode.tools/sitemap-page' },
   robots: { index: true, follow: true },
 };
@@ -32,7 +32,7 @@ export default function SitemapPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
       <header>
-        <h1 className="text-3xl font-extrabold tracking-tight">QR Studio Directory & Sitemap</h1>
+        <h1 className="text-3xl font-extrabold tracking-tight">QR Code Tools Directory & Sitemap</h1>
         <p className="text-muted-foreground mt-2 text-sm">
           A complete index of all 15 client-side QR and barcode engineering tools, generators, and research articles.
         </p>

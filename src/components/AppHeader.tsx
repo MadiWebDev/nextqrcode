@@ -71,7 +71,7 @@ export function AppHeader() {
             <QrCode className="w-4 h-4 text-primary-foreground" />
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-bold text-lg tracking-tight">QR Studio</span>
+            <span className="font-bold text-lg tracking-tight">QR Code Tools</span>
             <span className="text-xs text-muted-foreground hidden sm:inline">100% Client-Side Suite</span>
           </div>
         </Link>

@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import { ContactForm } from '@/components/ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Contact QR Studio — Get in Touch',
+  title: 'Contact QR Code Tools — Get in Touch',
   description:
-    'Contact the QR Studio team. Report bugs, request features, or ask questions. We respond within 48 hours.',
+    'Contact the QR Code Tools team. Report bugs, request features, or ask questions. We respond within 48 hours.',
   alternates: { canonical: 'https://freeqrcode.tools/contact' },
   openGraph: {
-    title: 'Contact QR Studio — Get in Touch',
+    title: 'Contact QR Code Tools — Get in Touch',
     description:
-      'Contact the QR Studio team. Report bugs, request features, or ask questions. We respond within 48 hours.',
+      'Contact the QR Code Tools team. Report bugs, request features, or ask questions. We respond within 48 hours.',
     url: 'https://freeqrcode.tools/contact',
   },
 };
@@ -41,14 +41,14 @@ export default function ContactPage() {
       </nav>
 
       <header>
-        <h1 className="text-3xl font-extrabold tracking-tight">Contact QR Studio</h1>
+        <h1 className="text-3xl font-extrabold tracking-tight">Contact QR Code Tools</h1>
       </header>
 
       {/* Intro */}
       <section className="space-y-4 text-muted-foreground leading-relaxed">
         <p>
           Whether you&apos;ve spotted a bug, want to suggest a new QR type, have a question about a
-          regional payment format, or just want to say hello — this is the right place. QR Studio is
+          regional payment format, or just want to say hello — this is the right place. QR Code Tools is
           a solo project, so every message comes directly to the developer and every piece of
           feedback genuinely shapes what gets built next.
         </p>

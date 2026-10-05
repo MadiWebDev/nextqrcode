@@ -20,7 +20,7 @@ export default function VcardLandingPage() {
           'Download your QR code, print it on your business cards, or share it digitally.',
         ],
         faqs: [
-          { q: 'What contact fields does the vCard QR code support?', a: 'The QR Studio vCard type supports name, phone number, email address, and organisation. For a more detailed contact record with multiple numbers, address, and social links, try the Business Card type.' },
+          { q: 'What contact fields does the vCard QR code support?', a: 'The QR Code Tools vCard type supports name, phone number, email address, and organisation. For a more detailed contact record with multiple numbers, address, and social links, try the Business Card type.' },
           { q: 'How does a recipient save my details from a vCard QR code?', a: 'When scanned with the native camera app on iOS or Android, the phone prompts the user to create a new contact. It pre-fills all the fields you encoded, and the user just taps Save.' },
           { q: 'Does a vCard QR code expire?', a: 'No. Static QR codes do not expire. The contact details are stored inside the QR code pattern itself and will work as long as the printed code is readable.' },
         ],

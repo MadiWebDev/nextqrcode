@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — QR Studio',
+  title: 'Privacy Policy — QR Code Tools',
   description:
-    'QR Studio privacy policy. We generate all QR codes in your browser — no data is sent to servers. Learn how we use cookies and Google AdSense.',
+    'QR Code Tools privacy policy. We generate all QR codes in your browser — no data is sent to servers. Learn how we use cookies and Google AdSense.',
   alternates: { canonical: 'https://freeqrcode.tools/privacy' },
   openGraph: {
-    title: 'Privacy Policy — QR Studio',
+    title: 'Privacy Policy — QR Code Tools',
     description:
-      'QR Studio privacy policy. We generate all QR codes in your browser — no data is sent to servers.',
+      'QR Code Tools privacy policy. We generate all QR codes in your browser — no data is sent to servers.',
     url: 'https://freeqrcode.tools/privacy',
   },
 };
@@ -51,7 +51,7 @@ export default function PrivacyPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Introduction</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            QR Studio (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is a free, browser-based QR code generation service
+            QR Code Tools (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is a free, browser-based QR code generation service
             operated by codexengr. This Privacy Policy explains what information we collect when you
             use freeqrcode.tools, how we use it, and your rights under applicable data protection laws
             including the EU General Data Protection Regulation (GDPR).
@@ -104,7 +104,7 @@ export default function PrivacyPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Cookies and Local Storage</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            QR Studio uses browser localStorage (not cookies) for essential preferences. The keys
+            QR Code Tools uses browser localStorage (not cookies) for essential preferences. The keys
             <code className="mx-1 px-1 py-0.5 rounded bg-muted text-sm">qrs_theme</code> (your
             colour scheme preference) and
             <code className="mx-1 px-1 py-0.5 rounded bg-muted text-sm">qrs_cookie_consent</code>{' '}
@@ -126,7 +126,7 @@ export default function PrivacyPage() {
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
             We participate in Google AdSense to display advertisements that help fund the free
-            operation of QR Studio. Google may use cookies and web beacons to serve ads based on
+            operation of QR Code Tools. Google may use cookies and web beacons to serve ads based on
             your prior visits to this website or other websites. This is subject to your cookie
             consent choice made via the banner.
           </p>
@@ -245,7 +245,7 @@ export default function PrivacyPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Children&apos;s Privacy</h2>
         <p className="text-muted-foreground leading-relaxed">
-          QR Studio is not directed at children under 13. We do not knowingly collect any
+          QR Code Tools is not directed at children under 13. We do not knowingly collect any
           information from children. If you believe a child has submitted personal information via
           our contact form, please notify us at{' '}
           <a href="mailto:privacy@freeqrcode.tools" className="text-primary hover:underline">
@@ -260,7 +260,7 @@ export default function PrivacyPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Changes to This Policy</h2>
         <p className="text-muted-foreground leading-relaxed">
           We may update this Privacy Policy from time to time. When we do, we will update the &quot;Last
-          updated&quot; date at the top of this page. Continued use of QR Studio after a policy change
+          updated&quot; date at the top of this page. Continued use of QR Code Tools after a policy change
           constitutes acceptance of the updated terms. We will not make material changes without
           providing reasonable notice via the site.
         </p>

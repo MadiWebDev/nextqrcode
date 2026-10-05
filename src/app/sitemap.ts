@@ -1,5 +1,5 @@
 /**
- * QR Studio — Sitemap Index
+ * QR Code Tools — Sitemap Index
  *
  * Architecture:
  *  • /sitemap.xml → this file, returns all entries (Next.js single sitemap)

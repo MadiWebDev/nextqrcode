@@ -40,14 +40,14 @@ import { getAllPaymentSchemes } from '@/data/payments';
 import { getAllLabelSheets } from '@/data/labels';
 
 export const metadata: Metadata = {
-  title: 'Free QR Code Generator & Optical Engineering Suite — QR Studio',
+  title: 'Free QR Code Generator & Optical Engineering Suite — QR Code Tools',
   description:
     'Generate beautiful, professional QR codes & barcodes 100% in your browser. 40+ types, instant vector SVG/PDF download, distance calculator, safety inspector, and offline file transfer. Zero tracking.',
   alternates: { canonical: 'https://freeqrcode.tools' },
   openGraph: {
-    title: 'Free QR Code Generator & Optical Engineering Suite — QR Studio',
+    title: 'Free QR Code Generator & Optical Engineering Suite — QR Code Tools',
     description:
-      'High-precision client-side QR studio: 40+ symbologies, print sizing calculator, anti-quishing safety checker, and air-gapped data transfer. No sign-up.',
+      'High-precision client-side QR tools suite: 40+ symbologies, print sizing calculator, anti-quishing safety checker, and air-gapped data transfer. No sign-up.',
     url: 'https://freeqrcode.tools',
     type: 'website',
   },
@@ -253,7 +253,7 @@ export default function HomePage() {
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'QR Studio',
+    name: 'QR Code Tools',
     url: 'https://freeqrcode.tools',
     description:
       'Professional browser-based QR code generator and optical engineering platform.',
@@ -267,7 +267,7 @@ export default function HomePage() {
   const softwareSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'QR Studio',
+    name: 'QR Code Tools',
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Web Browser',
     url: 'https://freeqrcode.tools',
@@ -627,12 +627,12 @@ export default function HomePage() {
         <div className="space-y-4">
           {[
             {
-              q: 'Is QR Studio really free with no hidden subscriptions?',
-              a: 'Yes. QR Studio generates all QR codes directly in your browser with zero server communication. Static QR codes generated here never expire, cannot be disabled, and require no account or subscription. The code you download is permanently yours.',
+              q: 'Is QR Code Tools really free with no hidden subscriptions?',
+              a: 'Yes. QR Code Tools generates all QR codes directly in your browser with zero server communication. Static QR codes generated here never expire, cannot be disabled, and require no account or subscription. The code you download is permanently yours.',
             },
             {
               q: 'What is the difference between static and dynamic QR codes?',
-              a: 'A static QR code encodes data directly into the module matrix and works permanently offline. A dynamic QR code encodes a proxy redirect URL that depends on an external server staying active — if the vendor shuts down or you stop paying, all printed codes break. QR Studio only generates static, permanent codes.',
+              a: 'A static QR code encodes data directly into the module matrix and works permanently offline. A dynamic QR code encodes a proxy redirect URL that depends on an external server staying active — if the vendor shuts down or you stop paying, all printed codes break. QR Code Tools only generates static, permanent codes.',
             },
             {
               q: 'What file formats can I download?',
@@ -640,11 +640,11 @@ export default function HomePage() {
             },
             {
               q: 'Can I add my logo to a QR code?',
-              a: 'Yes. Upload any PNG or SVG logo via the customization panel. QR Studio automatically switches to Error Correction Level H (30% recovery) and validates that your logo covers less than 20% of the symbol area, preserving full scannability.',
+              a: 'Yes. Upload any PNG or SVG logo via the customization panel. QR Code Tools automatically switches to Error Correction Level H (30% recovery) and validates that your logo covers less than 20% of the symbol area, preserving full scannability.',
             },
             {
               q: 'Which payment QR standards are supported?',
-              a: 'QR Studio generates spec-compliant payment codes for UPI (India), Raast (Pakistan), Pix BR Code (Brazil), SGQR (Singapore), Swiss QR-Bill, SEPA EPC QR Code, and more. Each generator validates fields per the official governing body specification.',
+              a: 'QR Code Tools generates spec-compliant payment codes for UPI (India), Raast (Pakistan), Pix BR Code (Brazil), SGQR (Singapore), Swiss QR-Bill, SEPA EPC QR Code, and more. Each generator validates fields per the official governing body specification.',
             },
           ].map((item, i) => (
             <details key={i} className="border border-border/60 rounded-xl bg-card">
@@ -666,8 +666,8 @@ export default function HomePage() {
               mainEntity: [
                 {
                   '@type': 'Question',
-                  name: 'Is QR Studio really free with no hidden subscriptions?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'Yes. QR Studio generates all QR codes directly in your browser. Static codes never expire and require no account or subscription.' },
+                  name: 'Is QR Code Tools really free with no hidden subscriptions?',
+                  acceptedAnswer: { '@type': 'Answer', text: 'Yes. QR Code Tools generates all QR codes directly in your browser. Static codes never expire and require no account or subscription.' },
                 },
                 {
                   '@type': 'Question',
@@ -682,7 +682,7 @@ export default function HomePage() {
                 {
                   '@type': 'Question',
                   name: 'Can I add my logo to a QR code?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'Yes. Upload any PNG or SVG logo. QR Studio automatically switches to Error Correction Level H and validates that the logo covers less than 20% of the symbol area.' },
+                  acceptedAnswer: { '@type': 'Answer', text: 'Yes. Upload any PNG or SVG logo. QR Code Tools automatically switches to Error Correction Level H and validates that the logo covers less than 20% of the symbol area.' },
                 },
                 {
                   '@type': 'Question',

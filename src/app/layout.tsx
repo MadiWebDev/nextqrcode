@@ -6,18 +6,23 @@ import { OnboardingTour } from '@/components/OnboardingTour';
 import { AppHeader } from '@/components/AppHeader';
 import { AppFooter } from '@/components/AppFooter';
 import { CookieConsent } from '@/components/CookieConsent';
+import { GoogleAnalytics } from '@/components/GoogleAnalytics';
+import { GoogleAdSense } from '@/components/GoogleAdSense';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Free QR Code Generator — QR Studio',
-    template: '%s | QR Studio',
+    default: 'Free QR Code Generator — QR Code Tools',
+    template: '%s | QR Code Tools',
   },
   description: 'Create beautiful, custom QR codes for free. 40+ types, custom colors, logo upload. Download PNG, SVG, PDF instantly. No sign-up needed.',
   metadataBase: new URL('https://freeqrcode.tools'),
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
   openGraph: {
     type: 'website',
-    siteName: 'QR Studio',
+    siteName: 'QR Code Tools',
     url: 'https://freeqrcode.tools',
   },
   twitter: {
@@ -32,6 +37,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <GoogleAdSense />
+      </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TooltipProvider delayDuration={300}>
@@ -52,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Toaster position="bottom-right" richColors />
             <OnboardingTour />
             <CookieConsent />
+            <GoogleAnalytics />
           </TooltipProvider>
         </ThemeProvider>
       </body>

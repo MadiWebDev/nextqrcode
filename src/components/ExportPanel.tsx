@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import type { QRType, QRState, CustomizationOptions } from '@/types';
 import { drawCustomQR } from '@/lib/canvas-qr';
 import QRCodeLib from 'qrcode';
+import { trackQRDownloaded, trackQRCopied } from '@/lib/gtag';
 
 interface ExportPanelProps {
   qrText: string;
@@ -36,23 +37,40 @@ export function ExportPanel({ qrText, canvasRef, type, state }: ExportPanelProps
     if (!canvas || !qrText) { toast.error('No QR code to download. Fill in the required fields first.'); return; }
     try {
       switch (format) {
-        case 'png': canvas.toBlob(blob => downloadBlob(blob, `qrcode-${type}.png`)); toast.success('PNG downloaded'); break;
+        case 'png':
+          canvas.toBlob(blob => downloadBlob(blob, `qrcode-${type}.png`));
+          trackQRDownloaded('png', type);
+          toast.success('PNG downloaded');
+          break;
         case 'png-hd': {
           const hdCanvas = document.createElement('canvas');
           await drawCustomQR(hdCanvas, qrText, { ...state.customization, outputSize: state.customization.outputSize * 4 });
-          hdCanvas.toBlob(blob => downloadBlob(blob, `qrcode-${type}-hd.png`)); toast.success('HD PNG downloaded'); break;
+          hdCanvas.toBlob(blob => downloadBlob(blob, `qrcode-${type}-hd.png`));
+          trackQRDownloaded('png-hd', type);
+          toast.success('HD PNG downloaded');
+          break;
         }
         case 'svg': {
           const svgStr = await QRCodeLib.toString(qrText, { type: 'svg', errorCorrectionLevel: state.customization.ecLevel, margin: 2, color: { dark: state.customization.fgColor, light: state.customization.transparent ? '#00000000' : state.customization.bgColor } });
-          downloadBlob(new Blob([svgStr], { type: 'image/svg+xml' }), `qrcode-${type}.svg`); toast.success('SVG downloaded'); break;
+          downloadBlob(new Blob([svgStr], { type: 'image/svg+xml' }), `qrcode-${type}.svg`);
+          trackQRDownloaded('svg', type);
+          toast.success('SVG downloaded');
+          break;
         }
-        case 'jpeg': canvas.toBlob(blob => downloadBlob(blob, `qrcode-${type}.jpg`), 'image/jpeg', 0.92); toast.success('JPEG downloaded'); break;
+        case 'jpeg':
+          canvas.toBlob(blob => downloadBlob(blob, `qrcode-${type}.jpg`), 'image/jpeg', 0.92);
+          trackQRDownloaded('jpeg', type);
+          toast.success('JPEG downloaded');
+          break;
         case 'pdf': {
           const dataUrl = canvas.toDataURL('image/png');
           const w = window.open('', '_blank');
           if (!w) { toast.error('Pop-up blocked. Allow pop-ups and try again.'); return; }
           w.document.write(`<!DOCTYPE html><html><head><title>QR Code PDF</title><style>*{margin:0;padding:0;box-sizing:border-box}body{display:flex;align-items:center;justify-content:center;min-height:100vh;background:#fff}.page{width:210mm;min-height:297mm;display:flex;align-items:center;justify-content:center}img{width:80mm;height:80mm;object-fit:contain}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body><div class="page"><img src="${dataUrl}" alt="QR Code"/></div><script>window.onload=()=>{setTimeout(()=>{window.print();window.close();},300);}<\/script></body></html>`);
-          w.document.close(); toast.success('PDF print dialog opened'); break;
+          w.document.close();
+          trackQRDownloaded('pdf', type);
+          toast.success('PDF print dialog opened');
+          break;
         }
       }
     } catch { toast.error('Download failed. Please try again.'); }
@@ -69,12 +87,15 @@ export function ExportPanel({ qrText, canvasRef, type, state }: ExportPanelProps
             resolve();
           });
         });
+        trackQRCopied(type);
         toast.success('Image copied to clipboard');
       } else if (mode === 'datauri') {
         await navigator.clipboard.writeText(canvas.toDataURL('image/png'));
+        trackQRCopied(type);
         toast.success('Data URI copied to clipboard');
       } else if (mode === 'embed') {
         await navigator.clipboard.writeText(`<img src="${canvas.toDataURL('image/png')}" alt="QR Code" style="max-width:100%;height:auto;" />`);
+        trackQRCopied(type);
         toast.success('Embed HTML copied to clipboard');
       }
     } catch { toast.error('Copy failed. Check browser permissions.'); }
@@ -95,7 +116,7 @@ export function ExportPanel({ qrText, canvasRef, type, state }: ExportPanelProps
     const dataUrl = canvas.toDataURL('image/png');
     const w = window.open('', '_blank');
     if (!w) { toast.error('Pop-up blocked.'); return; }
-    w.document.write(`<!DOCTYPE html><html><head><title>Print QR Code</title><style>body{margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:system-ui}.qr{text-align:center;padding:40px}img{max-width:400px;width:100%;height:auto}p{margin-top:16px;font-size:14px;color:#666}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body><div class="qr"><img src="${dataUrl}" alt="QR Code"/><p>Generated with QR Studio</p></div><script>window.onload=()=>{setTimeout(()=>{window.print();window.close();},200);}<\/script></body></html>`);
+    w.document.write(`<!DOCTYPE html><html><head><title>Print QR Code</title><style>body{margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:system-ui}.qr{text-align:center;padding:40px}img{max-width:400px;width:100%;height:auto}p{margin-top:16px;font-size:14px;color:#666}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body><div class="qr"><img src="${dataUrl}" alt="QR Code"/><p>Generated with QR Code Tools</p></div><script>window.onload=()=>{setTimeout(()=>{window.print();window.close();},200);}<\/script></body></html>`);
     w.document.close();
   };
 

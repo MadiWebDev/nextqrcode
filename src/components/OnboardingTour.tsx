@@ -42,7 +42,7 @@ export function OnboardingTour() {
   return (
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-md" aria-describedby="onboarding-desc">
-        <DialogTitle className="sr-only">Welcome to QR Studio</DialogTitle>
+        <DialogTitle className="sr-only">Welcome to QR Code Tools</DialogTitle>
         <div className="overflow-hidden">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div key={step} custom={direction} variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25, ease: 'easeInOut' }} className="text-center py-4 px-2">
