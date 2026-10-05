@@ -46,7 +46,17 @@ export const qrTypeConfigs: QRTypeConfig[] = [
 export function generateQRData(type: QRType, data: QRData): string {
   switch (type) {
     case 'text': return data['text'] ?? '';
-    case 'url': case 'pdf': case 'audio': case 'video': case 'image': return data['url'] ?? '';
+    case 'url': case 'pdf': return data['url'] ?? '';
+    case 'audio':
+    case 'video':
+    case 'image': {
+      const rawUrl = data['url'] ?? '';
+      if (!rawUrl) return '';
+      if (data['usePremiumViewer'] === 'false') return rawUrl;
+      const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://freeqrcode.tools';
+      const mediaTitle = encodeURIComponent(data['title'] || `${type.toUpperCase()} File`);
+      return `${siteUrl}/view?type=${type}&url=${encodeURIComponent(rawUrl)}&title=${mediaTitle}`;
+    }
     case 'whatsapp':
       if (!data['phone']) return '';
       return `https://wa.me/${data['phone'].replace(/\D/g, '')}${data['message'] ? `?text=${encodeURIComponent(data['message'])}` : ''}`;
@@ -62,6 +72,7 @@ export function generateQRData(type: QRType, data: QRData): string {
       if (!data['ssid']) return '';
       return `WIFI:T:${data['encryption'] || 'WPA'};S:${data['ssid']};${data['encryption'] !== 'nopass' ? `P:${data['password'] ?? ''};` : ''};`;
     case 'vcard':
+      if (data['cardUrl']) return data['cardUrl'];
       if (!data['name']) return '';
       return `MECARD:N:${data['name']};${data['phone'] ? `TEL:${data['phone']};` : ''}${data['email'] ? `EMAIL:${data['email']};` : ''}${data['org'] ? `ORG:${data['org']};` : ''};;`;
     case 'social': {
@@ -99,6 +110,7 @@ export function generateQRData(type: QRType, data: QRData): string {
       return dates ? `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(data['title'])}&dates=${dates}&details=${encodeURIComponent(data['description'] ?? '')}&location=${encodeURIComponent(data['location'] ?? '')}` : `Event: ${data['title']}`;
     }
     case 'business_card': {
+      if (data['cardUrl']) return data['cardUrl'];
       const parts: string[] = [];
       if (data['name']) parts.push(data['name']);
       if (data['title']) parts.push(data['title']);
