@@ -152,7 +152,7 @@ QR on each piece of plant links to the operator manual, pre-start checklist, and
 Construction labels face mud, water, and UV. Use self-laminating outdoor-rated labels on metalised stock. Replace on a regular schedule.
     `,
     [
-      { question: 'Can a QR induction replace a formal site briefing?', answer: 'For visitors and short-term contractors, yes in many cases. Check your jurisdiction's safety regulations for mandatory in-person requirements.' },
+      { question: 'Can a QR induction replace a formal site briefing?', answer: "For visitors and short-term contractors, yes in many cases. Check your jurisdiction's safety regulations for mandatory in-person requirements." },
       { question: 'What happens if a worker loses connectivity on site?', answer: 'Cache the induction and drawing content as an offline-capable PWA. The most recent version loads without signal.' },
     ]
   ),

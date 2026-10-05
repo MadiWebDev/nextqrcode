@@ -415,6 +415,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Mid-Page Compliant Ad Slot ── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+        <AdSlot id="home-mid" format="horizontal-banner" />
+      </div>
+
       {/* ── Programmatic Content Hub Grid ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-border/60">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
