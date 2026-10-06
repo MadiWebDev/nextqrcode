@@ -10,7 +10,7 @@ export const qrTypeConfigs: QRTypeConfig[] = [
   { type: 'sms', label: 'SMS', icon: 'MessageSquare', description: 'Send an SMS message', category: 'popular', fields: [{ name: 'number', label: 'Phone Number', type: 'tel', placeholder: '+1234567890', required: true }, { name: 'message', label: 'Message', type: 'textarea', placeholder: 'Your message here...', required: false, rows: 2 }] },
   { type: 'email', label: 'Email', icon: 'Mail', description: 'Send an email with pre-filled fields', category: 'popular', fields: [{ name: 'email', label: 'Email Address', type: 'email', placeholder: 'someone@example.com', required: true }, { name: 'subject', label: 'Subject', type: 'text', placeholder: 'Subject line...', required: false }, { name: 'body', label: 'Message Body', type: 'textarea', placeholder: 'Your message...', required: false, rows: 3 }] },
   { type: 'address', label: 'Address', icon: 'MapPin', description: 'Show a location on Google Maps', category: 'utilities', fields: [{ name: 'address', label: 'Physical Address', type: 'textarea', placeholder: '123 Main St, City, Country', required: true, rows: 2 }] },
-  { type: 'wifi', label: 'WiFi', icon: 'Wifi', description: 'Connect to a WiFi network automatically', category: 'popular', fields: [{ name: 'ssid', label: 'Network Name (SSID)', type: 'text', placeholder: 'MyWiFiNetwork', required: true }, { name: 'password', label: 'Password', type: 'text', placeholder: 'wifipassword', required: false }, { name: 'encryption', label: 'Encryption', type: 'select', placeholder: '', required: true, options: [{ label: 'WPA/WPA2', value: 'WPA' }, { label: 'WEP', value: 'WEP' }, { label: 'None', value: 'nopass' }] }] },
+  { type: 'wifi', label: 'WiFi', icon: 'Wifi', description: 'Connect to a WiFi network automatically', category: 'popular', fields: [{ name: 'ssid', label: 'Network Name (SSID)', type: 'text', placeholder: 'MyWiFiNetwork', required: true }, { name: 'password', label: 'Password', type: 'text', placeholder: 'wifipassword', required: false }, { name: 'encryption', label: 'Encryption', type: 'select', placeholder: '', required: true, options: [{ label: 'WPA/WPA2', value: 'WPA' }, { label: 'WEP', value: 'WEP' }, { label: 'None', value: 'nopass' }] }, { name: 'hidden', label: 'Hidden Network', type: 'select', placeholder: '', required: false, options: [{ label: 'No (Broadcasted)', value: 'false' }, { label: 'Yes (Hidden Network)', value: 'true' }] }] },
   { type: 'vcard', label: 'vCard', icon: 'User', description: 'Share contact information', category: 'popular', fields: [{ name: 'name', label: 'Full Name', type: 'text', placeholder: 'John Doe', required: true }, { name: 'phone', label: 'Phone Number', type: 'tel', placeholder: '+1234567890', required: false }, { name: 'email', label: 'Email', type: 'email', placeholder: 'john@example.com', required: false }, { name: 'org', label: 'Organisation', type: 'text', placeholder: 'Company Inc.', required: false }] },
   { type: 'social', label: 'Social Media', icon: 'Share2', description: 'Link to a social media profile', category: 'social', fields: [{ name: 'platform', label: 'Platform', type: 'select', required: true, options: [{ label: 'Twitter / X', value: 'twitter' }, { label: 'Instagram', value: 'instagram' }, { label: 'Facebook', value: 'facebook' }, { label: 'LinkedIn', value: 'linkedin' }, { label: 'TikTok', value: 'tiktok' }] }, { name: 'username', label: 'Username', type: 'text', placeholder: '@username or profile URL', required: true }] },
   { type: 'video', label: 'Video', icon: 'Video', description: 'Link to a video file or platform', category: 'utilities', fields: [{ name: 'url', label: 'Video URL', type: 'url', placeholder: 'https://youtube.com/watch?v=...', required: true }] },
@@ -68,9 +68,16 @@ export function generateQRData(type: QRType, data: QRData): string {
       if (!data['email']) return '';
       return `mailto:${data['email']}${data['subject'] || data['body'] ? `?${data['subject'] ? `subject=${encodeURIComponent(data['subject'])}` : ''}${data['body'] ? `${data['subject'] ? '&' : ''}body=${encodeURIComponent(data['body'])}` : ''}` : ''}`;
     case 'address': return data['address'] ? `https://maps.google.com/?q=${encodeURIComponent(data['address'])}` : '';
-    case 'wifi':
+    case 'wifi': {
       if (!data['ssid']) return '';
-      return `WIFI:T:${data['encryption'] || 'WPA'};S:${data['ssid']};${data['encryption'] !== 'nopass' ? `P:${data['password'] ?? ''};` : ''};`;
+      const escapeStr = (str: string) => str.replace(/([\\;:",])/g, '\\$1');
+      const ssid = escapeStr(data['ssid']);
+      const enc = data['encryption'] || 'WPA';
+      const pass = enc !== 'nopass' ? escapeStr(data['password'] ?? '') : '';
+      const hiddenTag = data['hidden'] === 'true' ? 'H:true;' : '';
+      const passTag = enc !== 'nopass' ? `P:${pass};` : '';
+      return `WIFI:S:${ssid};T:${enc};${passTag}${hiddenTag};`;
+    }
     case 'vcard':
       if (data['cardUrl']) return data['cardUrl'];
       if (!data['name']) return '';
