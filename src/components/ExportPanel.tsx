@@ -31,9 +31,9 @@ function downloadBlob(blob: Blob | null, filename: string): void {
 export function ExportPanel({ qrText, canvasRef, type, state }: ExportPanelProps) {
   const [shareDialogOpen, setShareDialogOpen] = useState(false);
   const [shareUrl, setShareUrl] = useState('');
-  const canvas = canvasRef.current;
 
   const handleDownload = async (format: string) => {
+    const canvas = canvasRef.current;
     if (!canvas || !qrText) { toast.error('No QR code to download. Fill in the required fields first.'); return; }
     try {
       switch (format) {
@@ -77,6 +77,7 @@ export function ExportPanel({ qrText, canvasRef, type, state }: ExportPanelProps
   };
 
   const handleCopy = async (mode: string) => {
+    const canvas = canvasRef.current;
     if (!canvas || !qrText) { toast.error('No QR code to copy.'); return; }
     try {
       if (mode === 'image') {
@@ -102,6 +103,7 @@ export function ExportPanel({ qrText, canvasRef, type, state }: ExportPanelProps
   };
 
   const handleShare = async () => {
+    const canvas = canvasRef.current;
     if (!canvas || !qrText) { toast.error('No QR code to share.'); return; }
     try {
       const blob = await new Promise<Blob | null>(resolve => canvas.toBlob(resolve));
@@ -112,6 +114,7 @@ export function ExportPanel({ qrText, canvasRef, type, state }: ExportPanelProps
   };
 
   const handlePrint = () => {
+    const canvas = canvasRef.current;
     if (!canvas || !qrText) { toast.error('No QR code to print.'); return; }
     const dataUrl = canvas.toDataURL('image/png');
     const w = window.open('', '_blank');
