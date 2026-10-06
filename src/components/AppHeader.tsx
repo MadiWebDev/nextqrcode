@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { QrCode, Menu, X, ChevronDown, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Button } from '@/components/ui/button';
 import {
@@ -67,9 +68,14 @@ export function AppHeader() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg shadow-primary/20">
-            <QrCode className="w-4 h-4 text-primary-foreground" />
-          </div>
+          <Image
+            src="/logo.png"
+            alt="QR Code Tools logo"
+            width={50}
+            height={50}
+            className="rounded-lg"
+            priority
+          />
           <div className="flex items-baseline gap-2">
             <span className="font-bold text-lg tracking-tight">QR Code Tools</span>
             <span className="text-xs text-muted-foreground hidden sm:inline">100% Client-Side Suite</span>

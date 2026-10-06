@@ -1,6 +1,6 @@
 {
-  "name": "QR Code Tools",
-  "short_name": "QR Tools",
+  "name": "QR Code Generator Tools",
+  "short_name": "QR Code Tools",
   "description": "Create beautiful, custom QR codes for free. 40+ types, custom colors, logo upload. Download PNG, SVG, PDF instantly. No sign-up needed.",
   "start_url": "/",
   "display": "standalone",

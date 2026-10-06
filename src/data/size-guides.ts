@@ -120,7 +120,7 @@ Always send QR codes to the print shop as vector SVG or lossless PDF. Never send
     status: 'approved',
     publishedAt: '2026-11-01',
     updatedAt: '2026-11-01',
-    author: 'Hammad Tariq, QR Systems Engineer',
+    author: 'CodexEngr, QR Systems Engineer',
     batchNumber: 4,
   },
   {
@@ -202,7 +202,7 @@ Restaurant overhead lighting — particularly Edison-style pendant bulbs and tra
     status: 'approved',
     publishedAt: '2026-11-01',
     updatedAt: '2026-11-01',
-    author: 'Hammad Tariq, QR Systems Engineer',
+    author: 'CodexEngr, QR Systems Engineer',
     batchNumber: 4,
   },
   {
@@ -283,7 +283,7 @@ Never use a raw 200-character URL on a billboard QR code — the increased modul
     status: 'approved',
     publishedAt: '2026-11-01',
     updatedAt: '2026-11-01',
-    author: 'Hammad Tariq, QR Systems Engineer',
+    author: 'CodexEngr, QR Systems Engineer',
     batchNumber: 4,
   },
   {
@@ -360,7 +360,7 @@ For QR codes on pharmaceutical labels:
     status: 'approved',
     publishedAt: '2026-11-01',
     updatedAt: '2026-11-01',
-    author: 'Hammad Tariq, QR Systems Engineer',
+    author: 'CodexEngr, QR Systems Engineer',
     batchNumber: 4,
   },
   {
@@ -438,7 +438,7 @@ From December 2023, all EU wines must list full ingredient and nutritional infor
     status: 'approved',
     publishedAt: '2026-11-01',
     updatedAt: '2026-11-01',
-    author: 'Hammad Tariq, QR Systems Engineer',
+    author: 'CodexEngr, QR Systems Engineer',
     batchNumber: 4,
   },
 ];

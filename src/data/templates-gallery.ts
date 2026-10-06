@@ -90,7 +90,7 @@ Pair this template with a short, clean URL under 50 characters. The minimalist a
     status: 'approved',
     publishedAt: '2026-11-05',
     updatedAt: '2026-11-05',
-    author: 'Hammad Tariq, QR Systems Engineer',
+    author: 'CodexEngr, QR Systems Engineer',
     batchNumber: 3,
   },
   {
@@ -137,7 +137,7 @@ Annual report applications: print at minimum 25mm × 25mm in the inside back cov
     status: 'approved',
     publishedAt: '2026-11-05',
     updatedAt: '2026-11-05',
-    author: 'Hammad Tariq, QR Systems Engineer',
+    author: 'CodexEngr, QR Systems Engineer',
     batchNumber: 3,
   },
   {
@@ -183,7 +183,7 @@ Counterfeiting protection note: the visual distinction of a branded gold foil QR
     status: 'approved',
     publishedAt: '2026-11-05',
     updatedAt: '2026-11-05',
-    author: 'Hammad Tariq, QR Systems Engineer',
+    author: 'CodexEngr, QR Systems Engineer',
     batchNumber: 3,
   },
   {
@@ -229,7 +229,7 @@ For extreme environments (outdoor scaffolding, chemical plants, food processing 
     status: 'approved',
     publishedAt: '2026-11-05',
     updatedAt: '2026-11-05',
-    author: 'Hammad Tariq, QR Systems Engineer',
+    author: 'CodexEngr, QR Systems Engineer',
     batchNumber: 3,
   },
   {
@@ -274,7 +274,7 @@ Clinical implementation: this template should be used exclusively with Error Cor
     status: 'approved',
     publishedAt: '2026-11-05',
     updatedAt: '2026-11-05',
-    author: 'Hammad Tariq, QR Systems Engineer',
+    author: 'CodexEngr, QR Systems Engineer',
     batchNumber: 3,
   },
 ];
