@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import QRCode from 'qrcode';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { AdSlot } from '@/components/AdSlot';
+import { WifiDetector } from '@/components/WifiDetector';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -18,6 +19,7 @@ import {
   Sparkles,
   Eye,
 } from 'lucide-react';
+
 
 const LANGUAGE_PRESETS = {
   en: { label: 'English', text: 'Scan to connect to WiFi', dir: 'ltr' },
@@ -95,10 +97,21 @@ export default function WifiSignGeneratorPage() {
         </p>
       </header>
 
+      {/* ── Current WiFi detector ─────────────────────────────────────────── */}
+      <WifiDetector
+        onFill={({ ssid: s, password: p, encryption: e, hidden: h }) => {
+          setSsid(s);
+          setPassword(p);
+          setAuthType((e === 'WEP' ? 'WEP' : e === 'nopass' ? 'nopass' : 'WPA') as 'WPA' | 'WEP' | 'nopass');
+          setIsHidden(h === 'true');
+        }}
+      />
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Inputs (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           <Card className="p-6 border-border/80 shadow-xs space-y-4">
+
             <h2 className="text-base font-bold flex items-center gap-2">
               <Wifi className="w-4 h-4 text-primary" />
               <span>WiFi Network Credentials</span>
