@@ -34,7 +34,10 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   icons: {
-    icon: '/qrcodelogo.png',
+    icon: [
+      { url: '/qrcodelogo.png', type: 'image/png' },
+    ],
+    shortcut: '/qrcodelogo.png',
     apple: '/qrcodelogo.png',
   },
 };

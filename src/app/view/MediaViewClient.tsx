@@ -163,31 +163,36 @@ export function MediaViewClient() {
           {/* IMAGE VIEWER */}
           {type === 'image' && (
             <div className="flex flex-col items-center">
-              <div className="relative max-h-[65vh] w-full flex items-center justify-center rounded-2xl overflow-hidden bg-black/40">
+              {/* Full-width image — click opens the website */}
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full rounded-2xl overflow-hidden cursor-pointer group"
+                title="Open image website"
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={url}
                   alt={title}
-                  className="max-h-[60vh] w-auto max-w-full object-contain rounded-xl shadow-lg transition-transform hover:scale-[1.01]"
+                  className="w-full h-auto object-cover rounded-2xl shadow-lg transition-transform duration-300 group-hover:scale-[1.02]"
                 />
-              </div>
+                {/* Hover overlay hint */}
+                <div className="absolute inset-0 rounded-2xl bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
+                  <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 text-white text-xs font-medium backdrop-blur-sm">
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    Open website
+                  </span>
+                </div>
+              </a>
               <div className="mt-4 flex gap-2 w-full justify-center">
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-medium text-white transition border border-white/10"
-                >
-                  <Maximize2 className="w-3.5 h-3.5" />
-                  <span>Full Screen</span>
-                </a>
                 <a
                   href={url}
                   download
                   className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary hover:bg-primary/90 text-xs font-semibold text-primary-foreground transition shadow-md shadow-primary/20"
                 >
                   <Download className="w-3.5 h-3.5" />
-                  <span>Download HD</span>
+                  <span>Download</span>
                 </a>
               </div>
             </div>

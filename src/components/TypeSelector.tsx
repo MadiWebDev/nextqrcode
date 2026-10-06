@@ -105,7 +105,8 @@ const CATEGORY_LABELS: Record<string, string> = {
   utilities: "Utilities",
 };
 
-const GRID_COLUMNS = 3;
+const GRID_COLUMNS_SM = 2;
+const GRID_COLUMNS_MD = 3;
 const MAX_RECENT = 5;
 
 type TypeConfig = (typeof qrTypeConfigs)[number];
@@ -136,7 +137,7 @@ function TypeCard({ config, isSelected, isTabStop, onSelect }: TypeCardProps) {
       title={config.description}
       onClick={() => onSelect(config.type)}
       className={[
-        "group relative flex min-h-[76px] cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border p-2.5 text-center",
+        "group relative flex min-h-[68px] sm:min-h-[76px] cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border p-2 sm:p-2.5 text-center",
         "transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         isSelected
           ? "border-primary/40 bg-primary/10"
@@ -208,11 +209,18 @@ function TypeGrid({ types, selected, onSelect, label }: TypeGridProps) {
     const current = buttons.indexOf(document.activeElement as HTMLButtonElement);
     if (current === -1) return;
 
+    // Detect the actual column count from the rendered grid
+    const cols =
+      gridRef.current
+        ? Math.round(gridRef.current.offsetWidth /
+            (gridRef.current.querySelector<HTMLButtonElement>("[data-type-btn]")?.offsetWidth ?? 1))
+        : GRID_COLUMNS_MD;
+    const safeCol = Math.max(GRID_COLUMNS_SM, Math.min(GRID_COLUMNS_MD, cols));
     const keyMap: Record<string, number> = {
       ArrowRight: current + 1,
       ArrowLeft: current - 1,
-      ArrowDown: current + GRID_COLUMNS,
-      ArrowUp: current - GRID_COLUMNS,
+      ArrowDown: current + safeCol,
+      ArrowUp: current - safeCol,
       Home: 0,
       End: buttons.length - 1,
     };
@@ -228,7 +236,7 @@ function TypeGrid({ types, selected, onSelect, label }: TypeGridProps) {
       role="group"
       aria-label={label}
       onKeyDown={onKeyDown}
-      className="grid grid-cols-3 gap-2"
+      className="grid grid-cols-2 min-[480px]:grid-cols-3 gap-2"
     >
       {configs.map((cfg, i) => (
         <TypeCard
@@ -446,12 +454,12 @@ export function TypeSelector({ selected, onChange }: TypeSelectorProps) {
                   )}
 
                   <Tabs value={activeTab} onValueChange={setActiveTab}>
-                    <TabsList className="flex h-auto w-full flex-wrap gap-1 rounded-lg bg-muted/60 p-1">
+                    <TabsList className="grid grid-cols-3 sm:grid-cols-5 h-auto w-full overflow-x-auto flex-nowrap gap-1 rounded-lg bg-muted/60 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                       {Object.entries(QR_CATEGORIES).map(([cat, types]) => (
                         <TabsTrigger
                           key={cat}
                           value={cat}
-                          className="min-w-0 flex-1 gap-1 px-2.5 py-1 text-xs"
+                          className="shrink-0 gap-1 px-2.5 py-1 text-xs"
                         >
                           {CATEGORY_LABELS[cat] ?? cat}
                           <span className="text-[10px] text-muted-foreground">
