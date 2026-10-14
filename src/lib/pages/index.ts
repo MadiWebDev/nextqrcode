@@ -34,6 +34,16 @@ import { batch32 } from './Batch32';
 import { batch33 } from './Batch33';
 import { batch34 } from './Batch34';
 import { batch35 } from './Batch35';
+import { batch36 } from './Batch36';
+import { batch37 } from './Batch37';
+import { batch38 } from './Batch38';
+import { batch39 } from './Batch39';
+import { batch40 } from './Batch40';
+import { batch41 } from './Batch41';
+import { batch42 } from './Batch42';
+import { batch43 } from './Batch43';
+import { batch44 } from './Batch44';
+import { batch45 } from './Batch45';
 
 export const NEW_ARTICLES: Article[] = [
   ...batch1,
@@ -71,6 +81,16 @@ export const NEW_ARTICLES: Article[] = [
   ...batch33,
   ...batch34,
   ...batch35,
+  ...batch36,
+  ...batch37,
+  ...batch38,
+  ...batch39,
+  ...batch40,
+  ...batch41,
+  ...batch42,
+  ...batch43,
+  ...batch44,
+  ...batch45,
 ];
 
 // Build-time guard. Word-count floor is 120 for these seed articles;
