@@ -44,6 +44,30 @@ import { batch42 } from './Batch42';
 import { batch43 } from './Batch43';
 import { batch44 } from './Batch44';
 import { batch45 } from './Batch45';
+import { batch46 } from './Batch46';
+import { batch47 } from './Batch47';
+import { batch48 } from './Batch48';
+import { batch49 } from './Batch49';
+import { batch50 } from './Batch50';
+import { batch51 } from './Batch51';
+import { batch52 } from './Batch52';
+import { batch53 } from './Batch53';
+import { batch54 } from './Batch54';
+import { batch55 } from './Batch55';
+import { batch56 } from './Batch56';
+import { batch57 } from './Batch57';
+import { batch58 } from './Batch58';
+import { batch59 } from './Batch59';
+import { batch60 } from './Batch60';
+import { batch61 } from './Batch61';
+import { batch62 } from './Batch62';
+import { batch63 } from './Batch63';
+import { batch64 } from './Batch64';
+import { batch65 } from './Batch65';
+import { batch66 } from './Batch66';
+import { batch67 } from './Batch67';
+import { batch68 } from './Batch68';
+import { batch69 } from './Batch69';
 
 export const NEW_ARTICLES: Article[] = [
   ...batch1,
@@ -91,6 +115,30 @@ export const NEW_ARTICLES: Article[] = [
   ...batch43,
   ...batch44,
   ...batch45,
+  ...batch46,
+  ...batch47,
+  ...batch48,
+  ...batch49,
+  ...batch50,
+  ...batch51,
+  ...batch52,
+  ...batch53,
+  ...batch54,
+  ...batch55,
+  ...batch56,
+  ...batch57,
+  ...batch58,
+  ...batch59,
+  ...batch60,
+  ...batch61,
+  ...batch62,
+  ...batch63,
+  ...batch64,
+  ...batch65,
+  ...batch66,
+  ...batch67,
+  ...batch68,
+  ...batch69,
 ];
 
 // Build-time guard. Word-count floor is 120 for these seed articles;
