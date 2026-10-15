@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from 'sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -71,6 +72,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <GoogleAnalytics />
           </TooltipProvider>
         </ThemeProvider>
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="gJtIVr71KPTGk3DOKkCTKA"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
