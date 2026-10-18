@@ -28,16 +28,19 @@ export function CookieConsent() {
     return () => cancelAnimationFrame(frame);
   }, []);
 
-  function accept() {
-    localStorage.setItem(CONSENT_KEY, 'accepted');
-    updateGoogleConsent(true);
+  function persist(choice: 'accepted' | 'rejected') {
+    localStorage.setItem(CONSENT_KEY, choice);
+    updateGoogleConsent(choice === 'accepted');
+    window.dispatchEvent(new CustomEvent('qrs:consent-changed', { detail: choice }));
     setVisible(false);
   }
 
+  function accept() {
+    persist('accepted');
+  }
+
   function reject() {
-    localStorage.setItem(CONSENT_KEY, 'rejected');
-    updateGoogleConsent(false);
-    setVisible(false);
+    persist('rejected');
   }
 
   if (!visible) return null;

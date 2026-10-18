@@ -55,3 +55,40 @@ The user asked for zero questions — the best default is chosen and recorded he
   h2/h3/body styles, `<time dateTime>`, link styles, per-page metadata + BreadcrumbList JSON-LD).
 - **Reason:** Master spec rule 1: repo files win for code conventions. These rules are already
   applied across existing pages; Phase 1 codifies them into the design system.
+
+## Phase 1
+
+### D1.1 — Brand: "QR Studio" via config/site.ts
+- **Decision:** Product brand = "QR Studio", operator = codexengr, canonical URL default
+  `https://freeqrcode.tools` (override via `NEXT_PUBLIC_SITE_URL`); all in `src/config/site.ts`.
+- **Reason:** Matches the repo's established identity (footer, prior plan); centralizes the
+  previously scattered brand/domain literals (D0.5).
+
+### D1.2 — Typography: Space Grotesk display + Inter body via next/font
+- **Decision:** Google Fonts loaded with `next/font` (`display: swap`), CSS variables.
+- **Alternatives:** System font stack (zero network dependency).
+- **Reason:** Distinctive but professional; `next/font` self-hosts at build time (no runtime
+  Google request, no CLS). Connectivity to fonts.googleapis.com verified in-sandbox.
+
+### D1.3 — Page-level canonical literals left in place
+- **Decision:** Hardcoded `https://freeqrcode.tools` in page metadata/JSON-LD stays; only
+  infrastructure (layout, sitemap, robots, qr-helpers, cards API) now reads `siteConfig.url`.
+- **Reason:** Literals equal the config default (behavior-neutral); the 20 page files get
+  regenerated metadata from the content model in Phase 5 anyway.
+
+### D1.4 — AdSense loader gated on consent + flag now; full policy in Phase 7
+- **Decision:** `GoogleAdSense` renders only when ads flag on + client ID set + consent granted.
+  Third-party ahrefs analytics moved behind the same consent gate (`ConsentScripts`).
+- **Reason:** Privacy architecture belongs in Phase 1; placement/eligibility rules are Phase 7.
+
+### D1.5 — PWA: manifest route + minimal offline service worker
+- **Decision:** `src/app/manifest.ts` (replaces `public/manifest.json`); `public/sw.js`
+  cache-first for assets, network-first for navigations, never caches `/api/*` or `/r/*`;
+  registered only in production.
+- **Reason:** Offline shell for the static generator per spec; kept minimal and best-effort.
+
+### D1.6 — error.tsx must be a client component
+- **Decision:** Added `'use client'` to `src/app/error.tsx` after the build failed
+  ("Ecmascript file had an error").
+- **Reason:** Next.js requires error boundaries to be client components; the cryptic build
+  error was exactly this.

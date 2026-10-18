@@ -1,4 +1,5 @@
 import type { QRType, QRData, QRTypeConfig, ECLevel } from '@/types';
+import { siteConfig } from '@/config/site';
 
 export const qrTypeConfigs: QRTypeConfig[] = [
   {
@@ -925,8 +926,7 @@ export function generateQRData(type: QRType, data: QRData): string {
       const rawUrl = data['url'] ?? '';
       if (!rawUrl) return '';
       if (data['usePremiumViewer'] === 'false') return rawUrl;
-      const siteUrl =
-        typeof window !== 'undefined' ? window.location.origin : 'https://freeqrcode.tools';
+      const siteUrl = typeof window !== 'undefined' ? window.location.origin : siteConfig.url;
       const mediaTitle = encodeURIComponent(data['title'] || `${type.toUpperCase()} File`);
       return `${siteUrl}/view?type=${type}&url=${encodeURIComponent(rawUrl)}&title=${mediaTitle}`;
     }

@@ -11,12 +11,13 @@
  *  • hreflang only added for truly translated pages (not keyword variations).
  */
 import type { MetadataRoute } from 'next';
+import { siteConfig } from '@/config/site';
 import { getAllArticles } from '@/lib/articles';
 import { getAllCountries } from '@/data/countries';
 import { getAllPaymentSchemes } from '@/data/payments';
 import { getAllLabelSheets } from '@/data/labels';
 
-const BASE = 'https://freeqrcode.tools';
+const BASE = siteConfig.url;
 
 /** Helper: build a sitemap entry */
 function entry(
