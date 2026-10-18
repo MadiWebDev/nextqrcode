@@ -42,26 +42,36 @@ export const DEVICE_GUIDES: DeviceScanGuide[] = [
     commonFailureModes: [
       {
         symptom: 'Camera app opens but no banner appears',
-        cause: 'QR code scanning may be disabled in Settings, or the QR code has insufficient contrast (< 4:1 ratio)',
+        cause:
+          'QR code scanning may be disabled in Settings, or the QR code has insufficient contrast (< 4:1 ratio)',
         fix: 'Go to Settings → Camera → enable "Scan QR Codes". Then verify QR code contrast using our Printed QR Tester tool.',
       },
       {
         symptom: 'Banner appears but tapping it does nothing',
-        cause: 'The encoded URL uses a non-standard scheme (e.g., custom app deep-link) not installed on the device',
+        cause:
+          'The encoded URL uses a non-standard scheme (e.g., custom app deep-link) not installed on the device',
         fix: 'Install the target app first, or use our QR Safety Checker to decode the raw URL and open it manually in Safari.',
       },
       {
         symptom: 'QR code fails to scan in bright sunlight',
-        cause: 'Camera auto-exposure overexposes the white modules, reducing contrast differential below threshold',
+        cause:
+          'Camera auto-exposure overexposes the white modules, reducing contrast differential below threshold',
         fix: 'Shade the QR code from direct sunlight, or tilt the device 15° to reduce specular reflection. Use a matte-laminated label instead of glossy.',
       },
       {
         symptom: 'Dense QR code (Version 20+) fails to scan',
-        cause: 'High module density requires precise focus; iPhone 16 camera minimum focus distance is ~10cm',
+        cause:
+          'High module density requires precise focus; iPhone 16 camera minimum focus distance is ~10cm',
         fix: 'Hold device at 15–20cm from the code. Ensure camera lens is clean. Consider reducing payload size or upgrading to a larger print size.',
       },
     ],
-    testedWith: ['QR Version 1–10 (all EC levels)', 'Wi-Fi SSID QR', 'vCard 3.0', 'Pix BR Code EMVCo', 'UPI deep-link'],
+    testedWith: [
+      'QR Version 1–10 (all EC levels)',
+      'Wi-Fi SSID QR',
+      'vCard 3.0',
+      'Pix BR Code EMVCo',
+      'UPI deep-link',
+    ],
     performanceNotes:
       'iPhone 16 with iOS 18 is among the fastest native QR scanners tested. The 48MP main sensor and Apple Vision Pro imaging pipeline decode Version 1–10 codes in 80–120ms from 20cm. The 2× optical zoom Telephoto lens enables reliable scanning from 1–3m for billboard and trade show codes. The 0.5× Ultra-Wide lens can scan extremely large-format codes (50cm+) from close range.',
     title: 'How to Scan QR Codes on iPhone 16 (iOS 18): Complete Guide & Troubleshooting',
@@ -153,13 +163,20 @@ Custom URL schemes (e.g., myapp://) open the associated app if installed, or dis
       },
       {
         symptom: 'Pixel camera struggles with small QR codes on packaging',
-        cause: 'Small module size (< 0.35mm) may be below the sensor\'s effective resolution at typical scan distance',
+        cause:
+          "Small module size (< 0.35mm) may be below the sensor's effective resolution at typical scan distance",
         fix: 'Bring the phone closer (5–10cm) and ensure Macro Focus is enabled in Camera settings. Clean the lens with a microfiber cloth.',
       },
     ],
-    testedWith: ['QR Version 1–15 (all EC levels)', 'WiFi QR', 'EMVCo PromptPay', 'vCard 3.0 and 4.0', 'Bitcoin Lightning LNURL'],
+    testedWith: [
+      'QR Version 1–15 (all EC levels)',
+      'WiFi QR',
+      'EMVCo PromptPay',
+      'vCard 3.0 and 4.0',
+      'Bitcoin Lightning LNURL',
+    ],
     performanceNotes:
-      'Pixel 9 running Android 15 with Google Camera 9.x delivers excellent QR decoding performance. The Tensor G4 chip\'s dedicated imaging signal processor handles real-time QR detection natively. Google Lens integration provides rich contextual actions beyond simple URL opening — product search, translation of text in QR-linked documents, and smart suggestions.',
+      "Pixel 9 running Android 15 with Google Camera 9.x delivers excellent QR decoding performance. The Tensor G4 chip's dedicated imaging signal processor handles real-time QR detection natively. Google Lens integration provides rich contextual actions beyond simple URL opening — product search, translation of text in QR-linked documents, and smart suggestions.",
     title: 'How to Scan QR Codes on Google Pixel 9 (Android 15): Guide & Troubleshooting',
     metaDescription:
       'Complete guide to scanning QR codes on Google Pixel 9 with Android 15. Google Camera, Google Lens, Quick Settings tile, and failure troubleshooting with tested fixes.',
@@ -195,7 +212,7 @@ The Pixel 9 Pro's 5× optical zoom telephoto camera enables reliable QR scanning
       {
         question: 'Does the Pixel 9 QR scanner work without internet connection?',
         answer:
-          'Yes. The QR code detection and decoding pipeline runs entirely on-device using Android\'s ML Kit. An internet connection is only required if the encoded URL needs to be loaded in a browser or if Google Lens\' search features are used.',
+          "Yes. The QR code detection and decoding pipeline runs entirely on-device using Android's ML Kit. An internet connection is only required if the encoded URL needs to be loaded in a browser or if Google Lens' search features are used.",
       },
       {
         question: 'Can I use the Pixel 9 to scan QR codes in other apps?',
@@ -221,7 +238,8 @@ The Pixel 9 Pro's 5× optical zoom telephoto camera enables reliable QR scanning
     commonFailureModes: [
       {
         symptom: 'Camera app detects the QR code but Bixby Vision opens instead of the URL',
-        cause: 'Bixby Vision is intercepting the QR scan with product search instead of direct URL launch',
+        cause:
+          'Bixby Vision is intercepting the QR scan with product search instead of direct URL launch',
         fix: 'Go to Camera → Settings → Shooting Methods → disable "Bixby Vision suggestions". The QR scanner will then launch URLs directly.',
       },
       {
@@ -235,7 +253,13 @@ The Pixel 9 Pro's 5× optical zoom telephoto camera enables reliable QR scanning
         fix: 'Hold S Pen away from the camera lens field of view when scanning. Use the alternative Bixby Vision or Quick Panel scanner instead.',
       },
     ],
-    testedWith: ['QR Version 1–20', 'Samsung Pay QR', 'vCard 3.0', 'WiFi QR WPA3', 'GS1 DataMatrix'],
+    testedWith: [
+      'QR Version 1–20',
+      'Samsung Pay QR',
+      'vCard 3.0',
+      'WiFi QR WPA3',
+      'GS1 DataMatrix',
+    ],
     performanceNotes:
       'Galaxy S24 Ultra with 200MP main sensor offers exceptional close-range QR scanning capability — the 200MP mode can resolve individual modules as small as 0.2mm from 5cm distance. However, in Auto mode the camera bins pixels to 12MP for faster processing. One UI 6.1 adds a floating QR result bubble that stays on screen for 10 seconds, useful in dim restaurant environments.',
     title: 'Scan QR Codes on Samsung Galaxy S24 (Android 14 One UI 6.1): Complete Guide',
@@ -271,14 +295,15 @@ Galaxy S24 devices with Samsung Pay configured can scan payment QR codes directl
     `,
     faqs: [
       {
-        question: 'How do I enable QR code scanning if it was disabled by my employer\'s MDM policy?',
+        question:
+          "How do I enable QR code scanning if it was disabled by my employer's MDM policy?",
         answer:
           'Samsung Knox MDM can restrict QR scanning as a security policy. Contact your IT department to have the restriction lifted, or use a personal device for QR scanning tasks that are outside corporate scope.',
       },
       {
         question: 'Does the Samsung Galaxy S24 scan QR codes in Samsung DeX mode?',
         answer:
-          'In Samsung DeX (desktop mode connected to a monitor), the phone\'s camera still scans QR codes through the Camera app, but the result opens on the connected display. The Quick Panel QR Scanner also works in DeX mode.',
+          "In Samsung DeX (desktop mode connected to a monitor), the phone's camera still scans QR codes through the Camera app, but the result opens on the connected display. The Quick Panel QR Scanner also works in DeX mode.",
       },
     ],
     publishedAt: '2026-10-25',
@@ -299,23 +324,32 @@ Galaxy S24 devices with Samsung Pay configured can scan payment QR codes directl
     commonFailureModes: [
       {
         symptom: 'QR code detected but URL fails to open (Google services required)',
-        cause: 'Huawei devices post-2019 lack Google Play Services (GMS). URLs requiring Google account authentication or Google Maps deep-links fail.',
+        cause:
+          'Huawei devices post-2019 lack Google Play Services (GMS). URLs requiring Google account authentication or Google Maps deep-links fail.',
         fix: 'Use HUAWEI AppGallery browsers (Huawei Browser) which handle standard https:// URLs. For Google Maps coordinates, open in Huawei Maps instead.',
       },
       {
         symptom: 'Payment QR code not processed',
-        cause: 'Chinese payment QR codes (WeChat Pay, Alipay) require the payment app installed. International EMVCo codes may work via supported banking apps from AppGallery.',
+        cause:
+          'Chinese payment QR codes (WeChat Pay, Alipay) require the payment app installed. International EMVCo codes may work via supported banking apps from AppGallery.',
         fix: 'Install the appropriate payment app from Huawei AppGallery. For international payment QR codes, use banking apps available in AppGallery for your region.',
       },
       {
         symptom: 'WiFi QR code scanned but "Join Network" prompt does not appear',
-        cause: 'HarmonyOS 4 parses WIFI: URI scheme natively, but may require the WLAN settings app to handle the join action',
+        cause:
+          'HarmonyOS 4 parses WIFI: URI scheme natively, but may require the WLAN settings app to handle the join action',
         fix: 'After scanning, tap the notification. If no action prompt appears, manually note the SSID/password from the decoded result and join via Settings → WiFi.',
       },
     ],
-    testedWith: ['QR Version 1–15', 'WIFI: URI', 'vCard 3.0', 'Static URL', 'Chinese payment QR (WeChat)'],
+    testedWith: [
+      'QR Version 1–15',
+      'WIFI: URI',
+      'vCard 3.0',
+      'Static URL',
+      'Chinese payment QR (WeChat)',
+    ],
     performanceNotes:
-      'HarmonyOS 4 Super Scan performs comparably to Android flagship devices for standard QR codes. Huawei\'s Leica-tuned cameras (on P and Mate series) provide excellent low-light performance. The key limitation is ecosystem: any QR code linking to Google services (Google Forms, Google Drive, YouTube without a third-party app) requires workarounds. Standard static URLs and contact/WiFi QR codes work flawlessly.',
+      "HarmonyOS 4 Super Scan performs comparably to Android flagship devices for standard QR codes. Huawei's Leica-tuned cameras (on P and Mate series) provide excellent low-light performance. The key limitation is ecosystem: any QR code linking to Google services (Google Forms, Google Drive, YouTube without a third-party app) requires workarounds. Standard static URLs and contact/WiFi QR codes work flawlessly.",
     title: 'Scan QR Codes on Huawei HarmonyOS 4 (No GMS): Complete Guide',
     metaDescription:
       'How to scan QR codes on Huawei phones with HarmonyOS 4 without Google services. Super Scan, Control Center shortcut, GMS limitation workarounds, and payment QR fixes.',
@@ -368,7 +402,7 @@ Huawei AppGallery hosts over 4,000 apps including region-specific banking apps, 
       {
         question: 'How does HarmonyOS 4 handle payment QR codes from international banks?',
         answer:
-          'EMVCo-standard payment QR codes (UPI, Pix, SGQR) are handled by the respective banking app, not the OS. If your bank\'s app is available in Huawei AppGallery, payment QR scanning works normally. Contact your bank to confirm HarmonyOS compatibility.',
+          "EMVCo-standard payment QR codes (UPI, Pix, SGQR) are handled by the respective banking app, not the OS. If your bank's app is available in Huawei AppGallery, payment QR scanning works normally. Contact your bank to confirm HarmonyOS compatibility.",
       },
     ],
     publishedAt: '2026-10-25',
@@ -394,7 +428,8 @@ Huawei AppGallery hosts over 4,000 apps including region-specific banking apps, 
       },
       {
         symptom: 'Scanner reads QR but sends garbled text to application',
-        cause: 'DataWedge keystroke output plugin is sending scan result as simulated keystrokes; special characters in QR payload may be misinterpreted by keyboard locale',
+        cause:
+          'DataWedge keystroke output plugin is sending scan result as simulated keystrokes; special characters in QR payload may be misinterpreted by keyboard locale',
         fix: 'Switch DataWedge output from "Keystroke Output" to "Intent Output" and have your app consume scan intents directly for reliable Unicode handling.',
       },
       {

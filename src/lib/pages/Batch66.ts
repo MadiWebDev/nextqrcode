@@ -55,15 +55,19 @@ This requires no publisher involvement and personalises the textbook to the teac
     [
       {
         question: 'How long should QR links in published textbooks remain active?',
-        answer: 'Publishers should maintain QR-linked URLs for the entire commercial lifespan of the textbook edition — typically 7–10 years. Using stable, owned domain URLs (not third-party platforms that may deprecate content) is essential. A URL that worked when the book was published but fails 3 years later is a significant customer service problem. Build content longevity into QR URL planning at the editorial stage.',
+        answer:
+          'Publishers should maintain QR-linked URLs for the entire commercial lifespan of the textbook edition — typically 7–10 years. Using stable, owned domain URLs (not third-party platforms that may deprecate content) is essential. A URL that worked when the book was published but fails 3 years later is a significant customer service problem. Build content longevity into QR URL planning at the editorial stage.',
       },
       {
         question: 'Can QR codes in textbooks work in low-tech classrooms with limited devices?',
-        answer: 'QR codes require a smartphone or tablet to scan. In classrooms with limited device access, QR textbook links are less effective. The teacher can project the QR destination for the whole class, or provide the URLs as typed text for students to access via shared computers. Design QR content as a supplement to the print, not a required step in understanding.',
+        answer:
+          'QR codes require a smartphone or tablet to scan. In classrooms with limited device access, QR textbook links are less effective. The teacher can project the QR destination for the whole class, or provide the URLs as typed text for students to access via shared computers. Design QR content as a supplement to the print, not a required step in understanding.',
       },
       {
-        question: 'Are QR-linked textbook resources accessible for students with visual impairments?',
-        answer: 'Students with visual impairments who use screen readers may not be able to scan QR codes independently. Provide the URL as text alongside the QR for keyboard/screen reader access. Ensure linked videos have accurate captions and audio descriptions. Interactive simulations should have keyboard navigation. Accessibility requirements apply to digital content linked from textbooks just as for any educational material.',
+        question:
+          'Are QR-linked textbook resources accessible for students with visual impairments?',
+        answer:
+          'Students with visual impairments who use screen readers may not be able to scan QR codes independently. Provide the URL as text alongside the QR for keyboard/screen reader access. Ensure linked videos have accurate captions and audio descriptions. Interactive simulations should have keyboard navigation. Accessibility requirements apply to digital content linked from textbooks just as for any educational material.',
       },
     ]
   ),
@@ -101,11 +105,13 @@ For activity-based learning, set up question stations around the room. Each stat
     [
       {
         question: 'Can QR classroom quizzes work on school devices that restrict internet access?',
-        answer: 'If the school\'s content filter blocks quiz platforms (Kahoot, Quizlet), the QR links will fail. Work with the school\'s IT team to whitelist educational quiz platforms as a category. Google Forms hosted on the school\'s Google Workspace domain are typically unfiltered. For fully offline environments, QR codes can link to locally hosted resources on the school\'s intranet, though this requires additional setup.',
+        answer:
+          "If the school's content filter blocks quiz platforms (Kahoot, Quizlet), the QR links will fail. Work with the school's IT team to whitelist educational quiz platforms as a category. Google Forms hosted on the school's Google Workspace domain are typically unfiltered. For fully offline environments, QR codes can link to locally hosted resources on the school's intranet, though this requires additional setup.",
       },
       {
         question: 'How do we prevent students from sharing quiz QR codes with absent classmates?',
-        answer: 'For assessments, use time-limited quiz links that expire after the lesson. Google Forms can be set to close after a specific date and time. Kahoot games are one-session only — the PIN expires when the game ends. For low-stakes learning activities, sharing is less problematic and may even extend learning beyond the classroom.',
+        answer:
+          'For assessments, use time-limited quiz links that expire after the lesson. Google Forms can be set to close after a specific date and time. Kahoot games are one-session only — the PIN expires when the game ends. For low-stakes learning activities, sharing is less problematic and may even extend learning beyond the classroom.',
       },
     ]
   ),
@@ -162,15 +168,19 @@ Automated QR attendance data enables academic support teams to:
     [
       {
         question: 'Is rotating QR attendance foolproof against students registering remotely?',
-        answer: 'Highly resistant but not fully foolproof. A real-time video call showing the screen could allow remote registration — determined circumvention is possible. For high-stakes attendance (visa compliance, repeat cases), cross-reference with other evidence. For routine academic attendance, rotating QR provides sufficient deterrence for the majority of cases.',
+        answer:
+          'Highly resistant but not fully foolproof. A real-time video call showing the screen could allow remote registration — determined circumvention is possible. For high-stakes attendance (visa compliance, repeat cases), cross-reference with other evidence. For routine academic attendance, rotating QR provides sufficient deterrence for the majority of cases.',
       },
       {
-        question: 'How do we handle QR attendance for students with accessibility needs who cannot use a phone?',
-        answer: 'Students with disabilities that prevent smartphone use (motor impairment, visual impairment) should have an agreed alternative attendance recording method with disability services. This could be a manual register with the lecturer, a smart card tap-in at the entrance, or an automated exception in the attendance system based on their disclosed need. Discuss with disability services during the QR system design phase.',
+        question:
+          'How do we handle QR attendance for students with accessibility needs who cannot use a phone?',
+        answer:
+          'Students with disabilities that prevent smartphone use (motor impairment, visual impairment) should have an agreed alternative attendance recording method with disability services. This could be a manual register with the lecturer, a smart card tap-in at the entrance, or an automated exception in the attendance system based on their disclosed need. Discuss with disability services during the QR system design phase.',
       },
       {
         question: 'Can QR attendance data be shared with parents for undergraduate students?',
-        answer: 'In the UK, adult students (18+) are GDPR data subjects whose data is governed by their own rights, not parental rights. Universities cannot share individual attendance records with parents without the student\'s explicit consent, regardless of who is paying tuition fees. Summary attendance information may be shared with parents under a signed consent agreement made at enrolment.',
+        answer:
+          "In the UK, adult students (18+) are GDPR data subjects whose data is governed by their own rights, not parental rights. Universities cannot share individual attendance records with parents without the student's explicit consent, regardless of who is paying tuition fees. Summary attendance information may be shared with parents under a signed consent agreement made at enrolment.",
       },
     ]
   ),
@@ -212,11 +222,13 @@ For e-learning content built in Articulate Storyline or Adobe Captivate, QR code
     [
       {
         question: 'Can QR codes in e-learning workbooks track completion data?',
-        answer: 'QR scans can be tracked via redirect analytics (how many scanned) but not LMS completion tracking (whether the learner completed the linked activity). LMS completion tracking requires the learner to interact with content within the LMS\'s SCORM or xAPI wrapper. Use QR analytics for access data and LMS analytics for completion and assessment data.',
+        answer:
+          "QR scans can be tracked via redirect analytics (how many scanned) but not LMS completion tracking (whether the learner completed the linked activity). LMS completion tracking requires the learner to interact with content within the LMS's SCORM or xAPI wrapper. Use QR analytics for access data and LMS analytics for completion and assessment data.",
       },
       {
         question: 'How do we keep QR links in printed study materials current for a 2-year course?',
-        answer: 'Use dynamic QR codes via a redirect service you control. When the LMS URL changes (new academic year, platform migration), update the redirect rather than reprinting the workbooks. Plan for platform changes when designing the QR URL structure — use stable, owned redirect domains rather than direct LMS URLs that may change with each cohort.',
+        answer:
+          'Use dynamic QR codes via a redirect service you control. When the LMS URL changes (new academic year, platform migration), update the redirect rather than reprinting the workbooks. Plan for platform changes when designing the QR URL structure — use stable, owned redirect domains rather than direct LMS URLs that may change with each cohort.',
       },
     ]
   ),
@@ -261,12 +273,15 @@ The highest-value behaviour is consistency — always displaying the materials Q
     `,
     [
       {
-        question: 'Can a QR code share lecture slides before the lecture starts to help students prepare?',
-        answer: 'Yes — displaying a pre-lecture QR in the lecture theatre or posting it to the VLE in advance allows students to access slides before the session. This supports note-taking, benefits students with learning differences who process material better with advance exposure, and enables accessibility accommodations. Consider whether advance access to slides may reduce attendance motivation for some student groups.',
+        question:
+          'Can a QR code share lecture slides before the lecture starts to help students prepare?',
+        answer:
+          'Yes — displaying a pre-lecture QR in the lecture theatre or posting it to the VLE in advance allows students to access slides before the session. This supports note-taking, benefits students with learning differences who process material better with advance exposure, and enables accessibility accommodations. Consider whether advance access to slides may reduce attendance motivation for some student groups.',
       },
       {
         question: 'What is the best format for lecture materials accessible via QR?',
-        answer: 'PDF for slides — universally readable, maintains formatting across all devices, no formatting issues. Google Slides or PowerPoint share links work but require login for some institutional configurations. For extensive reading lists, a formatted web page or Google Doc is more user-friendly than a PDF with hyperlinks that do not work in print format.',
+        answer:
+          'PDF for slides — universally readable, maintains formatting across all devices, no formatting issues. Google Slides or PowerPoint share links work but require login for some institutional configurations. For extensive reading lists, a formatted web page or Google Doc is more user-friendly than a PDF with hyperlinks that do not work in print format.',
       },
     ]
   ),

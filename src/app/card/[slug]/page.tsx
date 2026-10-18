@@ -41,7 +41,9 @@ export async function generateMetadata({
   }
 
   const title = `${card.name} | ${card.title || 'Digital Business Card'}`;
-  const description = card.bio || `Connect with ${card.name} at ${card.company || 'QR Code Tools'}. Save contact directly to your phone.`;
+  const description =
+    card.bio ||
+    `Connect with ${card.name} at ${card.company || 'QR Code Tools'}. Save contact directly to your phone.`;
 
   return {
     title,
@@ -60,11 +62,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function CardPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function CardPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const card = await fetchCard(slug);
 

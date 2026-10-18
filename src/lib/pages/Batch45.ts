@@ -32,8 +32,17 @@ A QR on the equipment links to the maintenance guide: cleaning procedures, stora
 For smart sports equipment (connected sensors, smart balls, wearable monitors), a QR links to the platform for syncing and reviewing performance data. The QR is the most reliable cross-platform entry point for connecting physical equipment to its digital ecosystem.
     `,
     [
-      { question: 'Can a QR authentication check be beaten by counterfeiters?', answer: 'A static QR can be copied. Cryptographic QR schemes (NTAG424 NFC hybrid, or one-time-use tokens) are significantly harder to counterfeit. For very high-value equipment, NFC with a cryptographic chip is more robust than QR alone.' },
-      { question: 'Should sports equipment QR codes be placed where they will be exposed to sweat and outdoor conditions?', answer: 'No. Place QRs in protected locations: inside the tongue of footwear, inside the shaft of a racket, or on the inside of a carry bag pocket. Outdoor-exposed QRs must use weatherproof materials and UV-resistant printing.' },
+      {
+        question: 'Can a QR authentication check be beaten by counterfeiters?',
+        answer:
+          'A static QR can be copied. Cryptographic QR schemes (NTAG424 NFC hybrid, or one-time-use tokens) are significantly harder to counterfeit. For very high-value equipment, NFC with a cryptographic chip is more robust than QR alone.',
+      },
+      {
+        question:
+          'Should sports equipment QR codes be placed where they will be exposed to sweat and outdoor conditions?',
+        answer:
+          'No. Place QRs in protected locations: inside the tongue of footwear, inside the shaft of a racket, or on the inside of a carry bag pocket. Outdoor-exposed QRs must use weatherproof materials and UV-resistant printing.',
+      },
     ]
   ),
   art(
@@ -66,8 +75,16 @@ A QR on the price card links to the price match guarantee page and current promo
 A QR at the entrance to the free-from, vegan, or kosher aisle links to the store's online shopping filtered by that dietary category. Shoppers new to a dietary requirement get a comprehensive product list; habitual shoppers discover new products in their category.
     `,
     [
-      { question: 'Are QR codes on supermarket shelf edges effective for most shoppers?', answer: 'Scan rates are higher in premium and health food sections where shoppers are more research-oriented. Mainstream FMCG shelf edges show lower scan rates (1–3%) but high volume. Recipe and nutritional detail QRs consistently outperform generic "learn more" QRs.' },
-      { question: 'Who manages the content behind supermarket shelf-edge QR codes?', answer: 'Typically a joint responsibility: the retailer manages the placement infrastructure (shelf labels, retailer app integration), and the supplier provides the product-specific content. Contractual clarity on content responsibility prevents broken or outdated links at scale.' },
+      {
+        question: 'Are QR codes on supermarket shelf edges effective for most shoppers?',
+        answer:
+          'Scan rates are higher in premium and health food sections where shoppers are more research-oriented. Mainstream FMCG shelf edges show lower scan rates (1–3%) but high volume. Recipe and nutritional detail QRs consistently outperform generic "learn more" QRs.',
+      },
+      {
+        question: 'Who manages the content behind supermarket shelf-edge QR codes?',
+        answer:
+          'Typically a joint responsibility: the retailer manages the placement infrastructure (shelf labels, retailer app integration), and the supplier provides the product-specific content. Contractual clarity on content responsibility prevents broken or outdated links at scale.',
+      },
     ]
   ),
   art(
@@ -106,8 +123,16 @@ A QR on the ATM receipt links to: balance check, transaction query, report a pro
 A QR on an out-of-service ATM links to the nearest alternative ATMs on a live map and the bank's ATM availability service status. Customers who arrive at a non-functional ATM are guided immediately to an alternative rather than leaving frustrated.
     `,
     [
-      { question: 'Is cardless QR ATM withdrawal secure?', answer: 'Yes, when implemented correctly. The withdrawal requires authentication in the banking app (biometrics or PIN) and a time-limited QR session (typically 2–3 minutes). The security is at least equivalent to card-based withdrawal and removes card skimming risk.' },
-      { question: 'Can I use a cardless QR withdrawal to send cash to a family member?', answer: 'Some banks support "share cash" functionality: generate a withdrawal QR in your app and share the code with a family member who scans it at the ATM. The amount is debited from your account; the cash is collected by them. Check your specific bank\'s cardless withdrawal product features.' },
+      {
+        question: 'Is cardless QR ATM withdrawal secure?',
+        answer:
+          'Yes, when implemented correctly. The withdrawal requires authentication in the banking app (biometrics or PIN) and a time-limited QR session (typically 2–3 minutes). The security is at least equivalent to card-based withdrawal and removes card skimming risk.',
+      },
+      {
+        question: 'Can I use a cardless QR withdrawal to send cash to a family member?',
+        answer:
+          'Some banks support "share cash" functionality: generate a withdrawal QR in your app and share the code with a family member who scans it at the ATM. The amount is debited from your account; the cash is collected by them. Check your specific bank\'s cardless withdrawal product features.',
+      },
     ]
   ),
   art(
@@ -147,8 +172,18 @@ A QR in campaign updates and backer communications links to the social media fee
 A QR in backer update emails links to the fulfilment progress page: current production stage, estimated delivery date, and quality photos. Backers who are kept informed with regular QR-linked updates have significantly lower refund request rates.
     `,
     [
-      { question: 'Should a crowdfunding campaign QR link to the platform page or to the creator\'s own website?', answer: 'Directly to the campaign page on the crowdfunding platform — it has the backing mechanics, social proof (backer count and amount raised), and the "back this project" CTA already built in. An intermediate website page adds a step and reduces conversion.' },
-      { question: 'Can a QR code on a product prototype at a live demo event drive significant backer numbers?', answer: 'Yes. Live demo QRs convert at among the highest rates of any channel — the prospect has just experienced the product in person, which is the strongest possible social proof. Always have the QR prominently available at the moment of demonstration.' },
+      {
+        question:
+          "Should a crowdfunding campaign QR link to the platform page or to the creator's own website?",
+        answer:
+          'Directly to the campaign page on the crowdfunding platform — it has the backing mechanics, social proof (backer count and amount raised), and the "back this project" CTA already built in. An intermediate website page adds a step and reduces conversion.',
+      },
+      {
+        question:
+          'Can a QR code on a product prototype at a live demo event drive significant backer numbers?',
+        answer:
+          'Yes. Live demo QRs convert at among the highest rates of any channel — the prospect has just experienced the product in person, which is the strongest possible social proof. Always have the QR prominently available at the moment of demonstration.',
+      },
     ]
   ),
   art(
@@ -181,8 +216,16 @@ A dynamic QR on a sticker or branded surface rotates its destination daily or we
 A QR embedded in street art or location-specific murals links to content specific to that location: the story behind the artwork, the artist's profile, and related creative work. Location-bound QR art creates a reason to visit a specific place — an analogue of a geofenced digital experience.
     `,
     [
-      { question: 'Are QR codes on stickers in public spaces legal in the UK?', answer: 'Flyposting (adhering stickers or posters to public property without permission) is illegal. QR stickers on your own property, at events with permission, or on commercial displays with permission are legal. Always obtain permission for the surface before placing a QR sticker.' },
-      { question: 'What makes a sticker QR get scanned by passersby?', answer: 'Visual intrigue (unusual design, hint of mystery), clear CTA ("scan to unlock"), and placement at eye level in a low-distraction environment. Sticker QRs competing with advertising clutter in a busy area scan less than a single QR in a calm, focused context.' },
+      {
+        question: 'Are QR codes on stickers in public spaces legal in the UK?',
+        answer:
+          'Flyposting (adhering stickers or posters to public property without permission) is illegal. QR stickers on your own property, at events with permission, or on commercial displays with permission are legal. Always obtain permission for the surface before placing a QR sticker.',
+      },
+      {
+        question: 'What makes a sticker QR get scanned by passersby?',
+        answer:
+          'Visual intrigue (unusual design, hint of mystery), clear CTA ("scan to unlock"), and placement at eye level in a low-distraction environment. Sticker QRs competing with advertising clutter in a busy area scan less than a single QR in a calm, focused context.',
+      },
     ]
   ),
   art(
@@ -233,8 +276,16 @@ The three functions: analytics, updatability, and URL shortening (reducing QR co
 **Best for:** Businesses with technical resources, high QR volume, or strong data sovereignty requirements. The right choice for most serious QR deployments at scale.
     `,
     [
-      { question: 'What happens to my QR codes if my URL shortener service shuts down?', answer: 'All your printed QRs immediately stop working if the redirect service shuts down. This is the single most important risk in using a third-party shortener. Mitigate by: using a self-hosted solution, exporting your redirect data regularly as a backup, or using a custom domain (so you can migrate redirects to a different service without reprinting QRs).' },
-      { question: 'Do URL shortener redirects affect QR code SEO?', answer: 'Directly, no — QR codes are not indexed by search engines. Indirectly, the destination page\'s SEO is unaffected by a 301 redirect via a shortener in most practical implementations.' },
+      {
+        question: 'What happens to my QR codes if my URL shortener service shuts down?',
+        answer:
+          'All your printed QRs immediately stop working if the redirect service shuts down. This is the single most important risk in using a third-party shortener. Mitigate by: using a self-hosted solution, exporting your redirect data regularly as a backup, or using a custom domain (so you can migrate redirects to a different service without reprinting QRs).',
+      },
+      {
+        question: 'Do URL shortener redirects affect QR code SEO?',
+        answer:
+          "Directly, no — QR codes are not indexed by search engines. Indirectly, the destination page's SEO is unaffected by a 301 redirect via a shortener in most practical implementations.",
+      },
     ]
   ),
   art(
@@ -271,8 +322,17 @@ Emerging print technologies combine lenticular (depth-shifting) and holographic 
 Spatial computing platforms recognise QR codes in the physical environment and overlay digital content directly at the code's location without a separate scan action. The QR becomes an anchor for AR spatial content — walking past a QR in a spatial computing device activates the associated experience automatically.
     `,
     [
-      { question: 'Will QR codes eventually be replaced by a superior technology?', answer: 'QR codes have survived 30 years of "replacement" predictions. Their advantages — open standard, zero cost to produce, universal device support — are durable. The most likely evolution is QR becoming more capable (GS1 Digital Link, cryptographic signing) rather than being replaced. NFC is the closest competitor for short-range applications but QR retains the distance and cost advantages.' },
-      { question: 'When will GS1 Digital Link QR replace the standard 1D barcode at retail checkouts?', answer: 'GS1\'s "Sunrise 2027" programme targeted 2027 for retail checkout systems to be able to scan GS1 Digital Link QR codes. This is a capability target, not a replacement mandate. Full retail transition to QR-first barcoding will be a gradual process spanning the late 2020s and early 2030s.' },
+      {
+        question: 'Will QR codes eventually be replaced by a superior technology?',
+        answer:
+          'QR codes have survived 30 years of "replacement" predictions. Their advantages — open standard, zero cost to produce, universal device support — are durable. The most likely evolution is QR becoming more capable (GS1 Digital Link, cryptographic signing) rather than being replaced. NFC is the closest competitor for short-range applications but QR retains the distance and cost advantages.',
+      },
+      {
+        question:
+          'When will GS1 Digital Link QR replace the standard 1D barcode at retail checkouts?',
+        answer:
+          'GS1\'s "Sunrise 2027" programme targeted 2027 for retail checkout systems to be able to scan GS1 Digital Link QR codes. This is a capability target, not a replacement mandate. Full retail transition to QR-first barcoding will be a gradual process spanning the late 2020s and early 2030s.',
+      },
     ]
   ),
   art(
@@ -317,8 +377,16 @@ Outdoor QR campaigns should use placement-specific UTM parameters (\`utm_content
 Digital screens (DOOH) can display rotating QR codes, time-specific campaigns, and daypart targeting. A QR displayed on a DOOH panel can change destination by time of day (morning commute vs evening leisure) using dynamic QR with redirect-layer time-based routing.
     `,
     [
-      { question: 'Should I put a QR code on a motorway billboard?', answer: 'No. Motorway billboards are viewed at 70+ mph from 50+ metres. The scan distance requirement makes the QR impractically large, and attempting to scan while driving is dangerous. Outdoor QR belongs on pedestrian-speed or stationary-viewer formats only.' },
-      { question: 'What is the typical scan rate for a bus shelter QR in a UK high street?', answer: 'Well-positioned bus shelter QR campaigns with compelling CTAs in high footfall locations typically achieve 0.3–1.5% scan rates of estimated daily footfall impressions. A small percentage of a large number can still be significant volume — a stop with 10,000 daily impressions at 0.5% is 50 scans per day.' },
+      {
+        question: 'Should I put a QR code on a motorway billboard?',
+        answer:
+          'No. Motorway billboards are viewed at 70+ mph from 50+ metres. The scan distance requirement makes the QR impractically large, and attempting to scan while driving is dangerous. Outdoor QR belongs on pedestrian-speed or stationary-viewer formats only.',
+      },
+      {
+        question: 'What is the typical scan rate for a bus shelter QR in a UK high street?',
+        answer:
+          'Well-positioned bus shelter QR campaigns with compelling CTAs in high footfall locations typically achieve 0.3–1.5% scan rates of estimated daily footfall impressions. A small percentage of a large number can still be significant volume — a stop with 10,000 daily impressions at 0.5% is 50 scans per day.',
+      },
     ]
   ),
   art(
@@ -351,8 +419,17 @@ QR order data feeds directly into the EPOS system, which coordinates kitchen pro
 A QR on the event closing slides or delegate packs links to the catering feedback form: food quality, service speed, dietary accommodation, and overall satisfaction. Post-event catering feedback via QR achieves higher response rates and more structured data than verbal feedback or email surveys.
     `,
     [
-      { question: 'Can a QR pre-order system handle dietary requirements for 500 delegates at a corporate event?', answer: 'Yes. Enterprise catering management platforms (Catercloud, Nourish, Fooditude) support QR-linked pre-ordering at scale with allergen management integrated into production. For events of this size, pre-ordering is not just convenient — it is the only reliable way to manage dietary complexity.' },
-      { question: 'Should event catering QR codes be reused between events?', answer: 'No. Each event should have a unique QR linked to that event\'s ordering system. Reusing QRs risks routing delegates from a future event to a past event\'s order system, causing confusion and incorrect orders.' },
+      {
+        question:
+          'Can a QR pre-order system handle dietary requirements for 500 delegates at a corporate event?',
+        answer:
+          'Yes. Enterprise catering management platforms (Catercloud, Nourish, Fooditude) support QR-linked pre-ordering at scale with allergen management integrated into production. For events of this size, pre-ordering is not just convenient — it is the only reliable way to manage dietary complexity.',
+      },
+      {
+        question: 'Should event catering QR codes be reused between events?',
+        answer:
+          "No. Each event should have a unique QR linked to that event's ordering system. Reusing QRs risks routing delegates from a future event to a past event's order system, causing confusion and incorrect orders.",
+      },
     ]
   ),
   art(
@@ -393,8 +470,16 @@ Humanitarian QR deployments must function in low-connectivity environments:
 - Printed QR distribution cards must be readable after water exposure (weather-resistant materials).
     `,
     [
-      { question: 'Do disaster-affected populations have smartphones to scan QR codes?', answer: 'Smartphone penetration is significant even in low-income contexts, and shared-phone usage extends QR access further. QR is one access method among several in humanitarian operations — it is not assumed to be universal and is used alongside non-digital processes for populations without device access.' },
-      { question: 'How is displaced person QR data protected in a humanitarian context?', answer: 'ICRC and UNHCR have strict data protection frameworks for displaced person data. QR-collected registration data must be encrypted in transit and at rest, access-controlled, not shared with government authorities without legal basis, and subject to data minimisation principles.' },
+      {
+        question: 'Do disaster-affected populations have smartphones to scan QR codes?',
+        answer:
+          'Smartphone penetration is significant even in low-income contexts, and shared-phone usage extends QR access further. QR is one access method among several in humanitarian operations — it is not assumed to be universal and is used alongside non-digital processes for populations without device access.',
+      },
+      {
+        question: 'How is displaced person QR data protected in a humanitarian context?',
+        answer:
+          'ICRC and UNHCR have strict data protection frameworks for displaced person data. QR-collected registration data must be encrypted in transit and at rest, access-controlled, not shared with government authorities without legal basis, and subject to data minimisation principles.',
+      },
     ]
   ),
 ];

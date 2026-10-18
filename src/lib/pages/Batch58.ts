@@ -71,15 +71,19 @@ After donating, the confirmation page should include:
     [
       {
         question: 'Do QR code donations qualify for Gift Aid in the UK?',
-        answer: 'Yes, if the donation platform captures a Gift Aid declaration during the checkout flow. The platform collects the donor\'s name, UK address, and confirmation that they are a UK taxpayer. The charity then claims Gift Aid from HMRC. The QR itself is simply the access mechanism — it does not affect Gift Aid eligibility.',
+        answer:
+          "Yes, if the donation platform captures a Gift Aid declaration during the checkout flow. The platform collects the donor's name, UK address, and confirmation that they are a UK taxpayer. The charity then claims Gift Aid from HMRC. The QR itself is simply the access mechanism — it does not affect Gift Aid eligibility.",
       },
       {
         question: 'Can a charity use a QR code on a collection tin for cash alternatives?',
-        answer: 'Yes, and this is increasingly common as cash carrying declines. A QR on the collection tin offers a card/digital payment alternative for donors who carry no cash. Position it at eye level on the tin with a clear message: "Prefer to pay by card? Scan here." This captures donations from donors who would otherwise walk past.',
+        answer:
+          'Yes, and this is increasingly common as cash carrying declines. A QR on the collection tin offers a card/digital payment alternative for donors who carry no cash. Position it at eye level on the tin with a clear message: "Prefer to pay by card? Scan here." This captures donations from donors who would otherwise walk past.',
       },
       {
-        question: 'What is the minimum donation that makes a QR donation worthwhile given platform fees?',
-        answer: 'Platform fees typically take 1.5–2% plus a fixed charge per transaction. For most platforms, donations above £2 are cost-positive after fees. For very small donations (50p, £1), some fixed fees make the net receipt negligible. Design suggested donation amounts on the QR landing page to guide donors towards meaningful amounts — £5, £10, £20 are effective anchor points.',
+        question:
+          'What is the minimum donation that makes a QR donation worthwhile given platform fees?',
+        answer:
+          'Platform fees typically take 1.5–2% plus a fixed charge per transaction. For most platforms, donations above £2 are cost-positive after fees. For very small donations (50p, £1), some fixed fees make the net receipt negligible. Design suggested donation amounts on the QR landing page to guide donors towards meaningful amounts — £5, £10, £20 are effective anchor points.',
       },
     ]
   ),
@@ -145,11 +149,14 @@ Volunteers' personal data requires the same careful handling as donor data:
     [
       {
         question: 'Can QR codes help with ongoing volunteer scheduling after initial sign-up?',
-        answer: 'Yes. Once volunteers are registered, send a QR-linked monthly availability form where they indicate which upcoming shifts they can cover. This is easier than email-based scheduling and feeds into a simple rota management system. Tools like When I Work, TeamUp, or a Google Sheet with automated reminders work well for small charities.',
+        answer:
+          'Yes. Once volunteers are registered, send a QR-linked monthly availability form where they indicate which upcoming shifts they can cover. This is easier than email-based scheduling and feeds into a simple rota management system. Tools like When I Work, TeamUp, or a Google Sheet with automated reminders work well for small charities.',
       },
       {
-        question: 'How do we track which recruitment channels bring in the most volunteer sign-ups?',
-        answer: 'Create unique QR codes per channel — one for event booths, one for posters, one for leaflets. Each links to the same registration form but with a different UTM source parameter in the URL. Compare sign-up volume and quality (completion rate, engagement) by source to focus recruitment effort on the most productive channels.',
+        question:
+          'How do we track which recruitment channels bring in the most volunteer sign-ups?',
+        answer:
+          'Create unique QR codes per channel — one for event booths, one for posters, one for leaflets. Each links to the same registration form but with a different UTM source parameter in the URL. Compare sign-up volume and quality (completion rate, engagement) by source to focus recruitment effort on the most productive channels.',
       },
     ]
   ),
@@ -216,11 +223,13 @@ A personalised QR in a major donor impact report shows sophistication and demons
     [
       {
         question: 'Are QR codes more effective in direct mail appeals than standard URLs?',
-        answer: 'Yes for most demographics. QR codes reduce the friction of typing a long URL — especially for mobile-first donors who prefer scanning to typing. Include both the QR and a short typed URL for maximum accessibility. Charities report 15–35% higher response rates on direct mail pieces that include a QR alongside the URL compared to URL only.',
+        answer:
+          'Yes for most demographics. QR codes reduce the friction of typing a long URL — especially for mobile-first donors who prefer scanning to typing. Include both the QR and a short typed URL for maximum accessibility. Charities report 15–35% higher response rates on direct mail pieces that include a QR alongside the URL compared to URL only.',
       },
       {
         question: 'Should each fundraising campaign have its own dedicated QR code?',
-        answer: 'Yes. A unique QR per campaign (or per channel within a campaign) enables accurate attribution. If you use one QR code for all campaigns, you cannot tell which campaign drove which donations. Separate QR codes per campaign, per material type, and per distribution channel provide the granularity needed for proper fundraising analytics.',
+        answer:
+          'Yes. A unique QR per campaign (or per channel within a campaign) enables accurate attribution. If you use one QR code for all campaigns, you cannot tell which campaign drove which donations. Separate QR codes per campaign, per material type, and per distribution channel provide the granularity needed for proper fundraising analytics.',
       },
     ]
   ),
@@ -272,11 +281,14 @@ This level of personalisation increases retention of high-value donors significa
     [
       {
         question: 'How do we handle consent for using beneficiary stories and QR-linked videos?',
-        answer: 'Obtain explicit written consent before filming, naming, or linking to any beneficiary content. The consent should specify: the purpose (fundraising communications, impact reports), the formats (print, video, digital), the distribution channels, and the duration. Retain consent records securely. For vulnerable adults or children, follow enhanced consent procedures and involve a welfare officer.',
+        answer:
+          'Obtain explicit written consent before filming, naming, or linking to any beneficiary content. The consent should specify: the purpose (fundraising communications, impact reports), the formats (print, video, digital), the distribution channels, and the duration. Retain consent records securely. For vulnerable adults or children, follow enhanced consent procedures and involve a welfare officer.',
       },
       {
-        question: 'Can QR codes in impact reports drive additional donations beyond the report itself?',
-        answer: 'Yes. Include a "Donate" QR on the back page of the impact report or on each case study page. Donors reading an impactful story are at their highest motivation point. A QR linking directly to the donation page at that moment captures giving intent that would otherwise be lost before the donor reaches a computer.',
+        question:
+          'Can QR codes in impact reports drive additional donations beyond the report itself?',
+        answer:
+          'Yes. Include a "Donate" QR on the back page of the impact report or on each case study page. Donors reading an impactful story are at their highest motivation point. A QR linking directly to the donation page at that moment captures giving intent that would otherwise be lost before the donor reaches a computer.',
       },
     ]
   ),
@@ -350,15 +362,19 @@ This data feeds the next campaign's planning — allocating budget to the highes
     [
       {
         question: 'How long should a QR donation campaign run to get meaningful data?',
-        answer: 'A minimum of 4 weeks provides enough data for analysis. Direct mail campaigns peak in scans within the first 2 weeks of delivery. Event-based QR codes produce their scans on the event day. Poster and outdoor campaigns need 4–8 weeks to accumulate meaningful data as they rely on repeated exposure over time.',
+        answer:
+          'A minimum of 4 weeks provides enough data for analysis. Direct mail campaigns peak in scans within the first 2 weeks of delivery. Event-based QR codes produce their scans on the event day. Poster and outdoor campaigns need 4–8 weeks to accumulate meaningful data as they rely on repeated exposure over time.',
       },
       {
         question: 'What should we do if our QR donation campaign underperforms?',
-        answer: 'Diagnose the bottleneck. Check scan count first — if low, the issue is visibility or placement. If scans are good but donations are low, the issue is the landing page or the ask itself. Fix the most probable cause and test the updated version with a small additional run before adjusting the entire campaign. Document findings for future planning.',
+        answer:
+          'Diagnose the bottleneck. Check scan count first — if low, the issue is visibility or placement. If scans are good but donations are low, the issue is the landing page or the ask itself. Fix the most probable cause and test the updated version with a small additional run before adjusting the entire campaign. Document findings for future planning.',
       },
       {
-        question: 'Can QR donation codes be used at third-party events the charity does not organise?',
-        answer: 'Yes. Supply partner event organisers with printed materials (table cards, programme inserts) containing your donation QR. Ensure the QR links to your official donation page, not a temporary landing page that could expire. Brief the event team on the QR and its purpose so they can encourage guests to scan during relevant moments.',
+        question:
+          'Can QR donation codes be used at third-party events the charity does not organise?',
+        answer:
+          'Yes. Supply partner event organisers with printed materials (table cards, programme inserts) containing your donation QR. Ensure the QR links to your official donation page, not a temporary landing page that could expire. Brief the event team on the QR and its purpose so they can encourage guests to scan during relevant moments.',
       },
     ]
   ),

@@ -28,8 +28,17 @@ A QR links to a branded microsite maintained by the advertiser for the magazine'
 A QR on the back page or sample copy links to the digital subscription sign-up. Readers who engage with a borrowed or sample copy convert to subscribers in one scan.
     `,
     [
-      { question: 'Can a QR in a trade publication track which advertiser drives the most engagement?', answer: 'Yes. Each ad QR carries a unique URL. Scan and conversion events are attributed per advertiser and per issue.' },
-      { question: 'Should QR links in trade magazines expire after each issue?', answer: 'Only if the content is genuinely time-sensitive. Evergreen content should remain accessible indefinitely as the archive value is high.' },
+      {
+        question:
+          'Can a QR in a trade publication track which advertiser drives the most engagement?',
+        answer:
+          'Yes. Each ad QR carries a unique URL. Scan and conversion events are attributed per advertiser and per issue.',
+      },
+      {
+        question: 'Should QR links in trade magazines expire after each issue?',
+        answer:
+          'Only if the content is genuinely time-sensitive. Evergreen content should remain accessible indefinitely as the archive value is high.',
+      },
     ]
   ),
   art(
@@ -58,8 +67,16 @@ A QR on the discharge sheet links to species-specific post-treatment care: wound
 A QR on the vet's receipt links to the insurance claim submission page pre-populated with the practice details and visit date. Simplifies a process that most owners find confusing.
     `,
     [
-      { question: 'Should veterinary patient records be accessible via QR without login?', answer: 'No. Pet health records are personal data. The QR triggers an authenticated login to the client portal.' },
-      { question: 'Can a QR aftercare guide be generic across all species?', answer: 'No. Dog, cat, rabbit, and reptile aftercare differs significantly. Link to species-specific pages for each discharge.' },
+      {
+        question: 'Should veterinary patient records be accessible via QR without login?',
+        answer:
+          'No. Pet health records are personal data. The QR triggers an authenticated login to the client portal.',
+      },
+      {
+        question: 'Can a QR aftercare guide be generic across all species?',
+        answer:
+          'No. Dog, cat, rabbit, and reptile aftercare differs significantly. Link to species-specific pages for each discharge.',
+      },
     ]
   ),
   art(
@@ -88,8 +105,16 @@ A QR on each inverter cabinet links to the inverter's historical performance log
 After a thermal drone survey, the inspection report links each identified hotspot to the panel's QR record. Technicians scan on-site to confirm the correct panel and log the corrective action.
     `,
     [
-      { question: 'Can O&M technicians work offline in a remote solar farm?', answer: 'Yes if the QR app caches the asset register and allows offline fault logging with sync when connectivity returns.' },
-      { question: 'What QR label material survives outdoor solar farm conditions?', answer: 'UV-stabilised metalised polyester or anodised aluminium labels rated for 25+ years outdoor exposure.' },
+      {
+        question: 'Can O&M technicians work offline in a remote solar farm?',
+        answer:
+          'Yes if the QR app caches the asset register and allows offline fault logging with sync when connectivity returns.',
+      },
+      {
+        question: 'What QR label material survives outdoor solar farm conditions?',
+        answer:
+          'UV-stabilised metalised polyester or anodised aluminium labels rated for 25+ years outdoor exposure.',
+      },
     ]
   ),
   art(
@@ -118,8 +143,16 @@ A QR in the project folder links to each contractor's profile: company details, 
 After completion, QR stickers inside cupboards or behind switch plates record what is behind the wall: pipe diameter, cable size, insulation type. Future renovations start with accurate information.
     `,
     [
-      { question: 'Should QR renovation records be stored locally or in the cloud?', answer: 'Cloud storage ensures longevity and access from any device. Export a local PDF backup as well, in case the hosting service closes.' },
-      { question: 'How long should renovation QR records be kept?', answer: 'For the life of the property. Warranty documents have value for 10+ years, and material records are useful in any future renovation.' },
+      {
+        question: 'Should QR renovation records be stored locally or in the cloud?',
+        answer:
+          'Cloud storage ensures longevity and access from any device. Export a local PDF backup as well, in case the hosting service closes.',
+      },
+      {
+        question: 'How long should renovation QR records be kept?',
+        answer:
+          'For the life of the property. Warranty documents have value for 10+ years, and material records are useful in any future renovation.',
+      },
     ]
   ),
   art(
@@ -148,8 +181,16 @@ A QR links to the neighbourhood group sign-up: WhatsApp, Nextdoor, or a communit
 A QR allows community members to submit their own notice for review: lost pets, skill swaps, items for sale, or volunteer opportunities. Approved notices appear on the digital board and on the physical one.
     `,
     [
-      { question: 'Should a community board QR require login to view?', answer: 'No. Public community information should be freely accessible. Require login only for submitting notices or joining the neighbour network.' },
-      { question: 'Who maintains the linked community page?', answer: 'A volunteer administrator or the local council. Establish clear ownership before printing the QR so updates happen reliably.' },
+      {
+        question: 'Should a community board QR require login to view?',
+        answer:
+          'No. Public community information should be freely accessible. Require login only for submitting notices or joining the neighbour network.',
+      },
+      {
+        question: 'Who maintains the linked community page?',
+        answer:
+          'A volunteer administrator or the local council. Establish clear ownership before printing the QR so updates happen reliably.',
+      },
     ]
   ),
   art(
@@ -178,8 +219,16 @@ A "notify me when I'm next in your city" QR captures email and postcode. The bra
 For high-demand pop-ups, a QR at the queue entrance links to a virtual queue registration. Customers leave and receive a notification when it is their turn, reducing queue anxiety.
     `,
     [
-      { question: 'Can a QR update product availability in real time?', answer: 'Yes if the server-side inventory system feeds the product page. Each scan shows current stock, not a snapshot from when the sign was printed.' },
-      { question: 'How long should pop-up QR links stay active?', answer: 'Keep them active for at least 12 months. Customers might return to the page or share the link long after the pop-up ends.' },
+      {
+        question: 'Can a QR update product availability in real time?',
+        answer:
+          'Yes if the server-side inventory system feeds the product page. Each scan shows current stock, not a snapshot from when the sign was printed.',
+      },
+      {
+        question: 'How long should pop-up QR links stay active?',
+        answer:
+          'Keep them active for at least 12 months. Customers might return to the page or share the link long after the pop-up ends.',
+      },
     ]
   ),
   art(
@@ -208,15 +257,23 @@ A QR beside a nesting site sign links to conservation status information: protec
 A QR links to the local conservation group's volunteer sign-up. Visitors who care about the coast find an immediate way to get involved.
     `,
     [
-      { question: 'Should marine conservation QR pages work offline on the beach?', answer: 'Yes. Beaches have poor or no signal. Implement as a PWA so visitors cache the species guide at the car park or cafe before walking to the beach.' },
-      { question: 'How is litter data collected via QR useful to researchers?', answer: 'Standardised citizen science reports reveal litter hotspots, seasonal trends, and dominant litter types that inform clean-up planning and policy.' },
+      {
+        question: 'Should marine conservation QR pages work offline on the beach?',
+        answer:
+          'Yes. Beaches have poor or no signal. Implement as a PWA so visitors cache the species guide at the car park or cafe before walking to the beach.',
+      },
+      {
+        question: 'How is litter data collected via QR useful to researchers?',
+        answer:
+          'Standardised citizen science reports reveal litter hotspots, seasonal trends, and dominant litter types that inform clean-up planning and policy.',
+      },
     ]
   ),
   art(
     'qr-code-for-real-estate-virtual-staging',
     'QR Codes for Virtual Staging: Scan to Furnish an Empty Property',
     'qr code real estate virtual staging',
-    'Use QR codes at property viewings to show virtually staged rooms on a buyer\'s phone.',
+    "Use QR codes at property viewings to show virtually staged rooms on a buyer's phone.",
     'Business & Regional',
     '5 min read',
     '2027-02-27',
@@ -238,8 +295,16 @@ Link to two or three staging styles: modern, traditional, and Scandinavian. Buye
 Off-plan developments use QR codes at the sales office to show individual unit types furnished. Buyers purchase before the building is complete, relying on the virtual staging for their decision.
     `,
     [
-      { question: 'Does virtual staging via QR require a dedicated app?', answer: 'No. Web-based AR using WebXR works in the phone browser without installation. A 360-degree photo viewer also works well without AR hardware.' },
-      { question: 'Can a buyer download the virtually staged images?', answer: 'Yes if you provide a download option on the page. This helps them share with family members who were not at the viewing.' },
+      {
+        question: 'Does virtual staging via QR require a dedicated app?',
+        answer:
+          'No. Web-based AR using WebXR works in the phone browser without installation. A 360-degree photo viewer also works well without AR hardware.',
+      },
+      {
+        question: 'Can a buyer download the virtually staged images?',
+        answer:
+          'Yes if you provide a download option on the page. This helps them share with family members who were not at the viewing.',
+      },
     ]
   ),
   art(
@@ -268,8 +333,16 @@ A QR on the donation box or on a classroom display links to the school's fundrai
 A QR links to a Gift Aid declaration form for eligible UK donors. Parents who are taxpayers can increase the value of their donation by 25% with minimal effort.
     `,
     [
-      { question: 'Can parents make donations anonymously via QR?', answer: 'Yes. Most fundraising platforms allow anonymous contributions. For Gift Aid you need a name and contact, which can still be kept private from other parents.' },
-      { question: 'Is a QR raffle legal for school fundraising?', answer: 'Small-scale prize draws for school benefit are generally permitted under lottery regulations in most countries. Check local rules before launching.' },
+      {
+        question: 'Can parents make donations anonymously via QR?',
+        answer:
+          'Yes. Most fundraising platforms allow anonymous contributions. For Gift Aid you need a name and contact, which can still be kept private from other parents.',
+      },
+      {
+        question: 'Is a QR raffle legal for school fundraising?',
+        answer:
+          'Small-scale prize draws for school benefit are generally permitted under lottery regulations in most countries. Check local rules before launching.',
+      },
     ]
   ),
   art(
@@ -298,8 +371,16 @@ A QR on the report's thank-you page links directly to the donation portal, pre-f
 A QR links to the archive of previous reports. Donors who want to track progress over multiple years access them without visiting the full website.
     `,
     [
-      { question: 'Should beneficiary story QRs require the beneficiary\'s consent?', answer: 'Yes, always. Obtain and document explicit informed consent before featuring anyone in published materials, including QR-linked video.' },
-      { question: 'Can a QR in a printed impact report increase donations?', answer: 'Yes. Donors who can engage with real stories and interactive data are more emotionally connected and more likely to give again.' },
+      {
+        question: "Should beneficiary story QRs require the beneficiary's consent?",
+        answer:
+          'Yes, always. Obtain and document explicit informed consent before featuring anyone in published materials, including QR-linked video.',
+      },
+      {
+        question: 'Can a QR in a printed impact report increase donations?',
+        answer:
+          'Yes. Donors who can engage with real stories and interactive data are more emotionally connected and more likely to give again.',
+      },
     ]
   ),
 ];

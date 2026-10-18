@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { ContactForm } from '@/components/ContactForm';
 
 export const metadata: Metadata = {
@@ -20,7 +21,12 @@ export default function ContactPage() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freeqrcode.tools/' },
-      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://freeqrcode.tools/contact' },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Contact',
+        item: 'https://freeqrcode.tools/contact',
+      },
     ],
   };
 
@@ -34,9 +40,15 @@ export default function ContactPage() {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
         <ol className="flex items-center gap-1.5">
-          <li><a href="/" className="hover:text-foreground transition-colors">Home</a></li>
+          <li>
+            <Link href="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
+          </li>
           <li aria-hidden="true">›</li>
-          <li aria-current="page" className="text-foreground">Contact</li>
+          <li aria-current="page" className="text-foreground">
+            Contact
+          </li>
         </ol>
       </nav>
 
@@ -48,9 +60,9 @@ export default function ContactPage() {
       <section className="space-y-4 text-muted-foreground leading-relaxed">
         <p>
           Whether you&apos;ve spotted a bug, want to suggest a new QR type, have a question about a
-          regional payment format, or just want to say hello — this is the right place. QR Code Tools is
-          a solo project, so every message comes directly to the developer and every piece of
-          feedback genuinely shapes what gets built next.
+          regional payment format, or just want to say hello — this is the right place. QR Code
+          Tools is a solo project, so every message comes directly to the developer and every piece
+          of feedback genuinely shapes what gets built next.
         </p>
         <p>
           You&apos;re welcome to ask about anything on the site: how a specific QR type works, why a
@@ -68,8 +80,8 @@ export default function ContactPage() {
           Messages are typically answered within 48 hours on weekdays (Monday to Friday, Pakistan
           Standard Time). During busy periods response may take a little longer, but every message
           gets a reply. If you need to report a security vulnerability, please use the security
-          address below and mark your message &apos;Security&apos; in the subject line — these are treated
-          as urgent.
+          address below and mark your message &apos;Security&apos; in the subject line — these are
+          treated as urgent.
         </p>
       </section>
 
@@ -81,12 +93,19 @@ export default function ContactPage() {
         </p>
         <ul className="list-disc list-inside space-y-1.5 text-muted-foreground text-sm">
           <li>
-            The <a href="/about" className="text-primary hover:underline">About page FAQ</a> covers
-            the most common questions about privacy, data storage, offline use, and commercial rights.
+            The{' '}
+            <Link href="/about" className="text-primary hover:underline">
+              About page FAQ
+            </Link>{' '}
+            covers the most common questions about privacy, data storage, offline use, and
+            commercial rights.
           </li>
           <li>
-            The <a href="/blog" className="text-primary hover:underline">Blog</a> has step-by-step
-            guides for individual QR types and printing best practices.
+            The{' '}
+            <Link href="/blog" className="text-primary hover:underline">
+              Blog
+            </Link>{' '}
+            has step-by-step guides for individual QR types and printing best practices.
           </li>
           <li>
             Each tool page includes a dedicated FAQ section that answers usage questions specific to
@@ -107,30 +126,47 @@ export default function ContactPage() {
             <thead>
               <tr>
                 <th className="text-left font-semibold p-2 border-b border-border">Enquiry type</th>
-                <th className="text-left font-semibold p-2 border-b border-border">Email address</th>
+                <th className="text-left font-semibold p-2 border-b border-border">
+                  Email address
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">General questions &amp; feature requests</td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  General questions &amp; feature requests
+                </td>
                 <td className="p-2 border-b border-border/50">
-                  <a href="mailto:contact@freeqrcode.tools" className="text-primary hover:underline">
+                  <a
+                    href="mailto:contact@freeqrcode.tools"
+                    className="text-primary hover:underline"
+                  >
                     contact@freeqrcode.tools
                   </a>
                 </td>
               </tr>
               <tr>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">Privacy &amp; GDPR requests</td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  Privacy &amp; GDPR requests
+                </td>
                 <td className="p-2 border-b border-border/50">
-                  <a href="mailto:privacy@freeqrcode.tools" className="text-primary hover:underline">
+                  <a
+                    href="mailto:privacy@freeqrcode.tools"
+                    className="text-primary hover:underline"
+                  >
                     privacy@freeqrcode.tools
                   </a>
                 </td>
               </tr>
               <tr>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">Security vulnerabilities</td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  Security vulnerabilities
+                </td>
                 <td className="p-2 border-b border-border/50">
-                  <a href="mailto:security@freeqrcode.tools" className="text-primary hover:underline">
+                  <a
+                    href="mailto:security@freeqrcode.tools"
+                    className="text-primary hover:underline"
+                  >
                     security@freeqrcode.tools
                   </a>
                 </td>

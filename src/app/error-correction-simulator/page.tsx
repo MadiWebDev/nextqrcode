@@ -21,11 +21,13 @@ import {
   Info,
 } from 'lucide-react';
 
+type BrushColor = 'white' | 'black' | 'red';
+
 export default function ErrorCorrectionSimulatorPage() {
   const [text, setText] = useState('https://freeqrcode.tools');
   const [eccLevel, setEccLevel] = useState<'L' | 'M' | 'Q' | 'H'>('H');
   const [brushSize, setBrushSize] = useState<number>(20);
-  const [brushColor, setBrushColor] = useState<'white' | 'black' | 'red'>('white');
+  const [brushColor, setBrushColor] = useState<BrushColor>('white');
   const [isDrawing, setIsDrawing] = useState(false);
   const [isDecodable, setIsDecodable] = useState(true);
   const [damagedPercent, setDamagedPercent] = useState(0);
@@ -40,45 +42,6 @@ export default function ErrorCorrectionSimulatorPage() {
     Q: 25,
     H: 30,
   };
-
-  // Generate base QR code onto the canvas
-  const renderQRCode = async () => {
-    try {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-
-      const size = 360;
-      canvas.width = size;
-      canvas.height = size;
-
-      await QRCode.toCanvas(canvas, text, {
-        errorCorrectionLevel: eccLevel,
-        width: size,
-        margin: 2,
-        color: {
-          dark: '#000000',
-          light: '#ffffff',
-        },
-      });
-
-      // Save a pristine copy in an offscreen canvas
-      const base = document.createElement('canvas');
-      base.width = size;
-      base.height = size;
-      const bCtx = base.getContext('2d');
-      bCtx?.drawImage(canvas, 0, 0);
-      baseCanvasRef.current = base;
-
-      testReadability();
-      setDamagedPercent(0);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  useEffect(() => {
-    renderQRCode();
-  }, [text, eccLevel]);
 
   // Run jsQR on the active canvas
   const testReadability = () => {
@@ -112,6 +75,46 @@ export default function ErrorCorrectionSimulatorPage() {
     }
   };
 
+  // Generate base QR code onto the canvas. All state updates happen inside the
+  // async QR-generation callbacks — never synchronously in the calling effect.
+  const renderQRCode = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const size = 360;
+    canvas.width = size;
+    canvas.height = size;
+
+    QRCode.toCanvas(canvas, text, {
+      errorCorrectionLevel: eccLevel,
+      width: size,
+      margin: 2,
+      color: {
+        dark: '#000000',
+        light: '#ffffff',
+      },
+    })
+      .then(() => {
+        // Save a pristine copy in an offscreen canvas
+        const base = document.createElement('canvas');
+        base.width = size;
+        base.height = size;
+        const bCtx = base.getContext('2d');
+        bCtx?.drawImage(canvas, 0, 0);
+        baseCanvasRef.current = base;
+
+        testReadability();
+        setDamagedPercent(0);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  useEffect(() => {
+    renderQRCode();
+  }, [text, eccLevel]);
+
   // Drawing / Scratching mechanics
   const draw = (e: React.MouseEvent<HTMLCanvasElement>) => {
     if (!isDrawing) return;
@@ -124,7 +127,8 @@ export default function ErrorCorrectionSimulatorPage() {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    ctx.fillStyle = brushColor === 'white' ? '#ffffff' : brushColor === 'black' ? '#000000' : '#dc2626';
+    ctx.fillStyle =
+      brushColor === 'white' ? '#ffffff' : brushColor === 'black' ? '#000000' : '#dc2626';
     ctx.beginPath();
     ctx.arc(x, y, brushSize / 2, 0, Math.PI * 2);
     ctx.fill();
@@ -139,15 +143,18 @@ export default function ErrorCorrectionSimulatorPage() {
   const faqs = [
     {
       question: 'How does Reed-Solomon error correction work in QR codes?',
-      answer: 'Reed-Solomon is a mathematical error-correcting algorithm that operates in Galois Fields (GF(2^8)). It generates redundant polynomial check bytes that can reconstruct both missing modules (erasures) and corrupted bits without losing data.',
+      answer:
+        'Reed-Solomon is a mathematical error-correcting algorithm that operates in Galois Fields (GF(2^8)). It generates redundant polynomial check bytes that can reconstruct both missing modules (erasures) and corrupted bits without losing data.',
     },
     {
       question: 'Why can I scratch out almost a third of the QR code and it still scans?',
-      answer: 'At Error Correction Level H (High), 30% of the code’s total data capacity is allocated purely to recovery parity bytes. As long as the three corner finder patterns remain intact, the math reconstructs the obliterated data modules.',
+      answer:
+        'At Error Correction Level H (High), 30% of the code’s total data capacity is allocated purely to recovery parity bytes. As long as the three corner finder patterns remain intact, the math reconstructs the obliterated data modules.',
     },
     {
       question: 'What happens if a corner finder pattern is damaged?',
-      answer: 'Finder patterns are the optical anchors that orient the code in 3D space. While Reed-Solomon can restore data modules, destroying the corner finder squares prevents the camera from detecting the matrix geometry, causing instant scan failure.',
+      answer:
+        'Finder patterns are the optical anchors that orient the code in 3D space. While Reed-Solomon can restore data modules, destroying the corner finder squares prevents the camera from detecting the matrix geometry, causing instant scan failure.',
     },
   ];
 
@@ -169,7 +176,8 @@ export default function ErrorCorrectionSimulatorPage() {
           QR Code Error-Correction & Damage Simulator
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Scratch, obliterate, and test real-time Reed-Solomon error recovery. Experience firsthand how Level L (7%), M (15%), Q (25%), and H (30%) survive physical damage and tears.
+          Scratch, obliterate, and test real-time Reed-Solomon error recovery. Experience firsthand
+          how Level L (7%), M (15%), Q (25%), and H (30%) survive physical damage and tears.
         </p>
       </header>
 
@@ -178,7 +186,10 @@ export default function ErrorCorrectionSimulatorPage() {
         <div className="lg:col-span-7 space-y-6">
           <Card className="p-6 border-border/80 shadow-xs space-y-5">
             <div>
-              <Label htmlFor="sim-text" className="text-xs font-semibold uppercase text-muted-foreground">
+              <Label
+                htmlFor="sim-text"
+                className="text-xs font-semibold uppercase text-muted-foreground"
+              >
                 QR Payload Content:
               </Label>
               <Input
@@ -241,9 +252,11 @@ export default function ErrorCorrectionSimulatorPage() {
                     <button
                       key={b.id}
                       type="button"
-                      onClick={() => setBrushColor(b.id as any)}
+                      onClick={() => setBrushColor(b.id as BrushColor)}
                       className={`px-3 py-1 text-xs rounded-lg border font-medium transition-all ${
-                        brushColor === b.id ? 'ring-2 ring-primary ring-offset-1 font-bold' : 'opacity-80'
+                        brushColor === b.id
+                          ? 'ring-2 ring-primary ring-offset-1 font-bold'
+                          : 'opacity-80'
                       } ${b.color}`}
                     >
                       {b.label}
@@ -279,7 +292,8 @@ export default function ErrorCorrectionSimulatorPage() {
                 />
               </div>
               <p className="text-[11px] text-muted-foreground mt-2">
-                Click and drag your mouse across the QR code to simulate physical scratches or stains.
+                Click and drag your mouse across the QR code to simulate physical scratches or
+                stains.
               </p>
             </div>
           </Card>
@@ -359,25 +373,40 @@ export default function ErrorCorrectionSimulatorPage() {
           The Mathematics of Reed-Solomon Error Correction in 2D Symbology
         </h2>
         <p className="text-base leading-relaxed">
-          The defining feature of QR codes over traditional linear barcodes is their incredible resilience to physical wear and tear. When a barcode on a warehouse box is ripped or scratched horizontally, the scanner cannot read the bars. In contrast, QR codes use <strong>Galois Field GF(2^8) Reed-Solomon polynomial math</strong> to reconstruct corrupted data bytes on the fly.
+          The defining feature of QR codes over traditional linear barcodes is their incredible
+          resilience to physical wear and tear. When a barcode on a warehouse box is ripped or
+          scratched horizontally, the scanner cannot read the bars. In contrast, QR codes use{' '}
+          <strong>Galois Field GF(2^8) Reed-Solomon polynomial math</strong> to reconstruct
+          corrupted data bytes on the fly.
         </p>
 
-        <h3 className="text-xl font-semibold text-foreground">
-          Erasures vs Random Errors
-        </h3>
+        <h3 className="text-xl font-semibold text-foreground">Erasures vs Random Errors</h3>
         <p className="text-base leading-relaxed">
           In coding theory, there are two distinct categories of data loss:
         </p>
         <ul className="list-disc pl-6 space-y-2 text-sm">
-          <li><strong>Erasures:</strong> Corrupted areas where the decoder knows the location of the damage (such as a ripped corner or an embedded corporate logo). Reed-Solomon can correct up to $R$ erasure codewords, where $R$ is the number of parity check codewords.</li>
-          <li><strong>Random Errors:</strong> Corrupted modules where the location is unknown (such as random sensor noise or faint ink splatter). Reed-Solomon requires 2 parity codewords to correct 1 unknown error ($\lfloor R/2 \rfloor$).</li>
+          <li>
+            <strong>Erasures:</strong> Corrupted areas where the decoder knows the location of the
+            damage (such as a ripped corner or an embedded corporate logo). Reed-Solomon can correct
+            up to $R$ erasure codewords, where $R$ is the number of parity check codewords.
+          </li>
+          <li>
+            <strong>Random Errors:</strong> Corrupted modules where the location is unknown (such as
+            random sensor noise or faint ink splatter). Reed-Solomon requires 2 parity codewords to
+            correct 1 unknown error ($\lfloor R/2 \rfloor$).
+          </li>
         </ul>
 
         <h3 className="text-xl font-semibold text-foreground">
           Why Finder Patterns Are the Single Point of Failure
         </h3>
         <p className="text-base leading-relaxed">
-          As you test in the simulator above, you will notice that scratching out modules in the middle of the code allows it to remain scannable up to 30% damage at Level H. However, if you scratch out just one of the three <strong>corner finder pattern squares</strong>, the code immediately fails. This is because the camera relies on the three 1:1:3:1:1 geometric patterns to determine perspective, tilt, and the exact coordinate grid before Reed-Solomon decoding even begins.
+          As you test in the simulator above, you will notice that scratching out modules in the
+          middle of the code allows it to remain scannable up to 30% damage at Level H. However, if
+          you scratch out just one of the three <strong>corner finder pattern squares</strong>, the
+          code immediately fails. This is because the camera relies on the three 1:1:3:1:1 geometric
+          patterns to determine perspective, tilt, and the exact coordinate grid before Reed-Solomon
+          decoding even begins.
         </p>
       </article>
 

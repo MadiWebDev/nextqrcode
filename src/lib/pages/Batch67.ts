@@ -66,16 +66,20 @@ Unlike paper punch cards, digital QR stamp data reveals:
     `,
     [
       {
-        question: 'How do customers who do not have a smartphone participate in a QR loyalty scheme?',
-        answer: 'Provide a phone-number-based alternative — the customer gives their phone number at the counter, and the staff logs a stamp against their account. A physical loyalty card with a unique ID number (that the staff logs) is another option. Always offer a non-smartphone path for digital loyalty schemes to avoid excluding older or less tech-enabled customers.',
+        question:
+          'How do customers who do not have a smartphone participate in a QR loyalty scheme?',
+        answer:
+          'Provide a phone-number-based alternative — the customer gives their phone number at the counter, and the staff logs a stamp against their account. A physical loyalty card with a unique ID number (that the staff logs) is another option. Always offer a non-smartphone path for digital loyalty schemes to avoid excluding older or less tech-enabled customers.',
       },
       {
         question: 'Can QR loyalty stamp cards integrate with a point-of-sale system?',
-        answer: 'Many loyalty platforms offer POS integration with Shopify, Square, Lightspeed, and others. Integration means stamp issuance happens automatically at checkout without a separate scan step. This is the ideal implementation for high-volume retail — the loyalty stamp is issued at the same moment as the payment confirmation, removing any added counter time.',
+        answer:
+          'Many loyalty platforms offer POS integration with Shopify, Square, Lightspeed, and others. Integration means stamp issuance happens automatically at checkout without a separate scan step. This is the ideal implementation for high-volume retail — the loyalty stamp is issued at the same moment as the payment confirmation, removing any added counter time.',
       },
       {
         question: 'What is a reasonable reward threshold for a QR stamp loyalty scheme?',
-        answer: 'Research across loyalty schemes shows the sweet spot is 8–12 stamps for a free item of moderate value. Fewer stamps (5–6) feel too easy and reduce perceived value; more (15+) feel unattainable and reduce participation. Match the threshold to your average transaction value — coffee shops commonly use 9 stamps for a free coffee, representing roughly 10% cashback on spend.',
+        answer:
+          'Research across loyalty schemes shows the sweet spot is 8–12 stamps for a free item of moderate value. Fewer stamps (5–6) feel too easy and reduce perceived value; more (15+) feel unattainable and reduce participation. Match the threshold to your average transaction value — coffee shops commonly use 9 stamps for a free coffee, representing roughly 10% cashback on spend.',
       },
     ]
   ),
@@ -130,11 +134,13 @@ Alternatively, for app-less implementations: the customer gives their phone numb
     [
       {
         question: 'How do we prevent customers from gaming a points system via QR loyalty?',
-        answer: 'Link point accrual to verified transactions — each QR scan is linked to a till receipt. Points are awarded when a transaction is confirmed, not on scan alone. Set limits on points per transaction and flag unusual point accumulation patterns (multiple transactions in seconds, far above average basket size). Regular audits of points ledger anomalies catch systematic fraud early.',
+        answer:
+          'Link point accrual to verified transactions — each QR scan is linked to a till receipt. Points are awarded when a transaction is confirmed, not on scan alone. Set limits on points per transaction and flag unusual point accumulation patterns (multiple transactions in seconds, far above average basket size). Regular audits of points ledger anomalies catch systematic fraud early.',
       },
       {
         question: 'What is the typical cost of running a QR points rewards programme?',
-        answer: 'Platform costs range from £50–£500/month depending on business size and features. The liability cost of outstanding points (the value of points issued but not yet redeemed) must be accounted for on the balance sheet. Industry average redemption rates are 50–70% of issued points — the remaining 30–50% represent breakage income. Total programme cost is typically 1–3% of programme-enrolled customer revenue.',
+        answer:
+          'Platform costs range from £50–£500/month depending on business size and features. The liability cost of outstanding points (the value of points issued but not yet redeemed) must be accounted for on the balance sheet. Industry average redemption rates are 50–70% of issued points — the remaining 30–50% represent breakage income. Total programme cost is typically 1–3% of programme-enrolled customer revenue.',
       },
     ]
   ),
@@ -193,15 +199,18 @@ This real-time feedback is significantly more engaging than a paper or PDF loyal
     [
       {
         question: 'Can a small business create a wallet loyalty pass without a developer?',
-        answer: 'Yes via platforms like Loopy Loyalty, Stamp Me, or PassKit — these provide no-code wallet pass builders where you configure the design and fields in a web interface. No API integration or coding required. The platform handles all the Apple/Google Wallet certification and pass issuance. Setup typically takes under an hour.',
+        answer:
+          'Yes via platforms like Loopy Loyalty, Stamp Me, or PassKit — these provide no-code wallet pass builders where you configure the design and fields in a web interface. No API integration or coding required. The platform handles all the Apple/Google Wallet certification and pass issuance. Setup typically takes under an hour.',
       },
       {
         question: 'Do digital wallet loyalty passes work without internet at the point of sale?',
-        answer: 'The QR code displayed on the wallet pass is static — it displays without internet. The till-side scanner reads the QR, and the back-end system records the transaction (which requires internet at the till, not on the customer\'s device). If the till loses internet, implement an offline queue that syncs when connection is restored.',
+        answer:
+          "The QR code displayed on the wallet pass is static — it displays without internet. The till-side scanner reads the QR, and the back-end system records the transaction (which requires internet at the till, not on the customer's device). If the till loses internet, implement an offline queue that syncs when connection is restored.",
       },
       {
-        question: 'Can we update a customer\'s pass tier or design without them re-adding the pass?',
-        answer: 'Yes. Pass fields including tier, points balance, colour, and even the displayed QR can be updated remotely via the pass management API. The customer does not need to do anything — the pass updates automatically on their device. This makes tier upgrades and promotional period design changes seamless from the customer\'s perspective.',
+        question: "Can we update a customer's pass tier or design without them re-adding the pass?",
+        answer:
+          "Yes. Pass fields including tier, points balance, colour, and even the displayed QR can be updated remotely via the pass management API. The customer does not need to do anything — the pass updates automatically on their device. This makes tier upgrades and promotional period design changes seamless from the customer's perspective.",
       },
     ]
   ),
@@ -253,11 +262,14 @@ For most SMEs, a wallet pass + web portal solution delivers the best ROI for loy
     [
       {
         question: 'Can a web-based loyalty system send push notifications like an app?',
-        answer: 'Web push notifications (via browser notification API) can be sent to users who have opted in. They are less prominent than app notifications but work without a native app. Apple Wallet passes support location-triggered notifications. A combination of web push and wallet pass notifications covers most of the notification surface that a native app provides.',
+        answer:
+          'Web push notifications (via browser notification API) can be sent to users who have opted in. They are less prominent than app notifications but work without a native app. Apple Wallet passes support location-triggered notifications. A combination of web push and wallet pass notifications covers most of the notification surface that a native app provides.',
       },
       {
-        question: 'What loyalty features genuinely require a native app versus what can be done in browser?',
-        answer: 'Native app exclusive (or strongly favoured): in-app ordering, mobile payment, NFC tap-to-pay, access to device camera for AR features. Browser/wallet alternatives work for: QR display, points balance, reward redemption, push notifications (partial). If your loyalty programme does not include in-app ordering or payment, a native app is likely unnecessary.',
+        question:
+          'What loyalty features genuinely require a native app versus what can be done in browser?',
+        answer:
+          'Native app exclusive (or strongly favoured): in-app ordering, mobile payment, NFC tap-to-pay, access to device camera for AR features. Browser/wallet alternatives work for: QR display, points balance, reward redemption, push notifications (partial). If your loyalty programme does not include in-app ordering or payment, a native app is likely unnecessary.',
       },
     ]
   ),
@@ -315,15 +327,19 @@ Target: 30–50% of regular customers enrolled in the first 3 months. Enrolled c
     [
       {
         question: 'Can we offer a double-stamp promotion via a QR loyalty system?',
-        answer: 'Yes. Most QR loyalty platforms allow promotional periods where scans count double. Enable double-stamp mode in the platform dashboard for a specific date range. The system automatically awards two stamps per visit during the promotion. This is an effective tactic for quiet periods — a Tuesday double-stamp day drives midweek traffic with a clear, easily communicated mechanic.',
+        answer:
+          'Yes. Most QR loyalty platforms allow promotional periods where scans count double. Enable double-stamp mode in the platform dashboard for a specific date range. The system automatically awards two stamps per visit during the promotion. This is an effective tactic for quiet periods — a Tuesday double-stamp day drives midweek traffic with a clear, easily communicated mechanic.',
       },
       {
-        question: 'How do we handle staff error in the QR loyalty system (accidentally issuing too many or too few stamps)?',
-        answer: 'Most platforms allow merchant-side stamp correction — add or remove stamps from a specific customer account via the management dashboard. Establish a clear policy: corrections require manager approval to prevent abuse. Log all corrections with a reason code for audit purposes. Brief staff clearly on what constitutes a valid stamp issuance to prevent habitual errors.',
+        question:
+          'How do we handle staff error in the QR loyalty system (accidentally issuing too many or too few stamps)?',
+        answer:
+          'Most platforms allow merchant-side stamp correction — add or remove stamps from a specific customer account via the management dashboard. Establish a clear policy: corrections require manager approval to prevent abuse. Log all corrections with a reason code for audit purposes. Brief staff clearly on what constitutes a valid stamp issuance to prevent habitual errors.',
       },
       {
         question: 'What is the realistic ROI of a QR coffee loyalty programme?',
-        answer: 'A well-run coffee loyalty programme typically drives a 15–25% increase in visit frequency among enrolled members and improves retention significantly. If 200 enrolled customers each visit one extra time per month at an average spend of £4, that is £800 additional monthly revenue. Against a platform cost of £30/month, the ROI is clear. The key is enrolment volume and active engagement — an enrolled but disengaged member provides no benefit.',
+        answer:
+          'A well-run coffee loyalty programme typically drives a 15–25% increase in visit frequency among enrolled members and improves retention significantly. If 200 enrolled customers each visit one extra time per month at an average spend of £4, that is £800 additional monthly revenue. Against a platform cost of £30/month, the ROI is clear. The key is enrolment volume and active engagement — an enrolled but disengaged member provides no benefit.',
       },
     ]
   ),

@@ -24,7 +24,8 @@ export const ARTICLES: Article[] = [
     slug: 'how-qr-codes-work',
     title: 'How QR Codes Work: The Complete Technical & Mathematical Guide',
     primaryKeyword: 'how do qr codes work',
-    description: 'An in-depth technical analysis of QR code architecture: Reed-Solomon error correction, finder patterns, timing tracks, and data masking algorithms.',
+    description:
+      'An in-depth technical analysis of QR code architecture: Reed-Solomon error correction, finder patterns, timing tracks, and data masking algorithms.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-03-15',
     updatedAt: '2026-10-01',
@@ -81,16 +82,29 @@ Once data and parity codewords are interleaved, the raw bit stream may create la
 Each mask is applied via bitwise XOR. A penalty score algorithm computes penalties for consecutive modules of the same color, 2x2 identical blocks, and finder-like sequences. The mask producing the lowest penalty score is written into the format information area alongside the selected error correction level.
     `,
     faqs: [
-      { question: 'What is the maximum data capacity of a QR code?', answer: 'A Version 40 QR code can store up to 7,089 numeric characters, 4,296 alphanumeric characters, or 2,953 binary bytes at Error Correction Level L.' },
-      { question: 'Why are there three square boxes on a QR code?', answer: 'Those are finder patterns with a 1:1:3:1:1 geometric ratio. They allow camera sensors to detect the orientation, tilt, and boundaries of the code in 360-degree space.' },
-      { question: 'How does a QR code work if it is partially torn or dirty?', answer: 'QR codes use Reed-Solomon error correction over GF(2^8). Redundant parity codewords allow decoders to mathematically recalculate and reconstruct missing or corrupted bits.' }
-    ]
+      {
+        question: 'What is the maximum data capacity of a QR code?',
+        answer:
+          'A Version 40 QR code can store up to 7,089 numeric characters, 4,296 alphanumeric characters, or 2,953 binary bytes at Error Correction Level L.',
+      },
+      {
+        question: 'Why are there three square boxes on a QR code?',
+        answer:
+          'Those are finder patterns with a 1:1:3:1:1 geometric ratio. They allow camera sensors to detect the orientation, tilt, and boundaries of the code in 360-degree space.',
+      },
+      {
+        question: 'How does a QR code work if it is partially torn or dirty?',
+        answer:
+          'QR codes use Reed-Solomon error correction over GF(2^8). Redundant parity codewords allow decoders to mathematically recalculate and reconstruct missing or corrupted bits.',
+      },
+    ],
   },
   {
     slug: 'qr-code-sizes-for-printing',
     title: 'QR Code Sizes for Printing: The Definitive Scan-Distance Ratio Guide',
     primaryKeyword: 'qr code size for print',
-    description: 'Calculate the exact physical print dimensions required for any QR code based on viewing distance, scanner optical resolution, and substrate conditions.',
+    description:
+      'Calculate the exact physical print dimensions required for any QR code based on viewing distance, scanner optical resolution, and substrate conditions.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-03-20',
     updatedAt: '2026-10-02',
@@ -137,16 +151,29 @@ $$\text{Resolution} = 2 \times 300 = 600 \times 600\text{ pixels minimum}$$
 The ISO/IEC 18004 standard mandates a minimum **quiet zone margin of 4 modules** on all four sides. If your QR code has a module size of 1 mm, your quiet zone must be at least 4 mm wide on every edge. Cutting or cropping into this white border disrupts the scanner's binarization threshold, causing immediate scan failure.
     `,
     faqs: [
-      { question: 'What is the absolute smallest size a QR code can be printed?', answer: 'For standard smartphones, the absolute minimum size is 20 x 20 mm (0.8 x 0.8 inches) for low-density static URLs on smooth paper.' },
-      { question: 'What size should a QR code be on an A4 poster?', answer: 'On an A4 poster viewed from 1 to 1.5 meters away, the QR code should be between 10 x 10 cm and 15 x 15 cm.' },
-      { question: 'Why does my printed QR code look blurry?', answer: 'It was likely exported as a low-resolution raster image (72 DPI) instead of a vector SVG or 300 DPI high-resolution master.' }
-    ]
+      {
+        question: 'What is the absolute smallest size a QR code can be printed?',
+        answer:
+          'For standard smartphones, the absolute minimum size is 20 x 20 mm (0.8 x 0.8 inches) for low-density static URLs on smooth paper.',
+      },
+      {
+        question: 'What size should a QR code be on an A4 poster?',
+        answer:
+          'On an A4 poster viewed from 1 to 1.5 meters away, the QR code should be between 10 x 10 cm and 15 x 15 cm.',
+      },
+      {
+        question: 'Why does my printed QR code look blurry?',
+        answer:
+          'It was likely exported as a low-resolution raster image (72 DPI) instead of a vector SVG or 300 DPI high-resolution master.',
+      },
+    ],
   },
   {
     slug: 'static-vs-dynamic-qr-codes',
     title: 'Static vs Dynamic QR Codes: Architectural, Privacy, and Cost Comparison',
     primaryKeyword: 'static vs dynamic qr codes',
-    description: 'Compare permanent static QR codes with server-redirected dynamic QR codes. Discover the hidden trade-offs in uptime, security, privacy, and long-term costs.',
+    description:
+      'Compare permanent static QR codes with server-redirected dynamic QR codes. Discover the hidden trade-offs in uptime, security, privacy, and long-term costs.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-03-25',
     updatedAt: '2026-10-03',
@@ -176,16 +203,29 @@ Static QR codes offer absolute privacy:
 * Ideal for emergency medical IDs, offline WiFi signs, and internal warehouse asset tracking.
     `,
     faqs: [
-      { question: 'Do static QR codes ever expire?', answer: 'No. Static QR codes encode the data directly into the matrix and will function indefinitely as long as the printed medium remains legible.' },
-      { question: 'Can I change the link in a static QR code after printing?', answer: 'No. Because the payload is physically burned into the black and white modules, you cannot change the destination URL without reprinting the code.' },
-      { question: 'When should I use a dynamic QR code instead of static?', answer: 'Use dynamic QR codes only when you need scan-volume analytics or anticipate needing to update the destination URL after printing high-volume physical collateral.' }
-    ]
+      {
+        question: 'Do static QR codes ever expire?',
+        answer:
+          'No. Static QR codes encode the data directly into the matrix and will function indefinitely as long as the printed medium remains legible.',
+      },
+      {
+        question: 'Can I change the link in a static QR code after printing?',
+        answer:
+          'No. Because the payload is physically burned into the black and white modules, you cannot change the destination URL without reprinting the code.',
+      },
+      {
+        question: 'When should I use a dynamic QR code instead of static?',
+        answer:
+          'Use dynamic QR codes only when you need scan-volume analytics or anticipate needing to update the destination URL after printing high-volume physical collateral.',
+      },
+    ],
   },
   {
     slug: 'qr-code-error-correction',
     title: 'QR Code Error Correction Explained: Reed-Solomon Levels L, M, Q, and H',
     primaryKeyword: 'qr code error correction levels',
-    description: 'Learn how Reed-Solomon error correction mathematically protects QR codes from physical damage, tears, and logo overlays.',
+    description:
+      'Learn how Reed-Solomon error correction mathematically protects QR codes from physical damage, tears, and logo overlays.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-03-28',
     updatedAt: '2026-10-02',
@@ -219,15 +259,24 @@ When adding a brand logo to the center of a QR code, you are deliberately oblite
 Always configure your QR generator to **Level H** before embedding custom center artwork.
     `,
     faqs: [
-      { question: 'Which error correction level should I choose for marketing materials?', answer: 'Level M (15%) is optimal for standard marketing without logos. If adding a company logo, always use Level H (30%).' },
-      { question: 'Does higher error correction make the QR code bigger?', answer: 'Yes. Higher error correction requires more parity codewords, which increases the grid version and module density.' }
-    ]
+      {
+        question: 'Which error correction level should I choose for marketing materials?',
+        answer:
+          'Level M (15%) is optimal for standard marketing without logos. If adding a company logo, always use Level H (30%).',
+      },
+      {
+        question: 'Does higher error correction make the QR code bigger?',
+        answer:
+          'Yes. Higher error correction requires more parity codewords, which increases the grid version and module density.',
+      },
+    ],
   },
   {
     slug: 'how-to-make-wifi-qr-code',
     title: 'How to Make a WiFi QR Code: Secure WPA3, WPA2, and Hidden SSID Guide',
     primaryKeyword: 'how to create wifi qr code',
-    description: 'Generate instant-connect WiFi QR codes for homes, cafes, and hotels with full support for WPA3, WPA2, WEP, and hidden network syntax.',
+    description:
+      'Generate instant-connect WiFi QR codes for homes, cafes, and hotels with full support for WPA3, WPA2, WEP, and hidden network syntax.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-04-02',
     updatedAt: '2026-10-01',
@@ -259,15 +308,24 @@ WIFI:S:Guest\\;Lounge;T:WPA;P:Secret\\:Key\\;123;;
 In international hospitality settings (e.g., Middle East, Pakistan, North Africa), WiFi signage must clearly communicate instructions in both Latin and Right-to-Left (RTL) scripts such as Urdu (\`اردو\`) and Arabic (\`العربية\`). Always ensure the QR symbol maintains an unblemished quiet zone separate from RTL typography blocks.
     `,
     faqs: [
-      { question: 'Can guests see my WiFi password if they scan the QR code?', answer: 'Yes. Any barcode reader application can display the underlying text payload (WIFI:S:...;P:...). Only share the QR code with individuals you trust with your network password.' },
-      { question: 'Do WiFi QR codes work on both iPhone and Android?', answer: 'Yes. Both iOS (Camera app) and Android (Google Lens / native camera) automatically detect the WIFI: string and present a one-tap "Join Network" prompt.' }
-    ]
+      {
+        question: 'Can guests see my WiFi password if they scan the QR code?',
+        answer:
+          'Yes. Any barcode reader application can display the underlying text payload (WIFI:S:...;P:...). Only share the QR code with individuals you trust with your network password.',
+      },
+      {
+        question: 'Do WiFi QR codes work on both iPhone and Android?',
+        answer:
+          'Yes. Both iOS (Camera app) and Android (Google Lens / native camera) automatically detect the WIFI: string and present a one-tap "Join Network" prompt.',
+      },
+    ],
   },
   {
     slug: 'qr-codes-for-restaurants',
     title: 'Best QR Code Practices for Restaurants: Menus, Ordering & Table Tents',
     primaryKeyword: 'restaurant menu qr code best practices',
-    description: 'Optimize restaurant table turn rates and eliminate PDF download friction with responsive web menus, high-contrast acrylic stands, and durable substrates.',
+    description:
+      'Optimize restaurant table turn rates and eliminate PDF download friction with responsive web menus, high-contrast acrylic stands, and durable substrates.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-04-10',
     updatedAt: '2026-10-02',
@@ -291,15 +349,24 @@ Tabletop QR signage faces continuous exposure to alcohol sanitizers, food grease
 * **Matte vs Gloss Finish:** Always choose a **matte finish** to prevent ambient dining room overhead spotlights from reflecting glare into the customer's camera lens.
     `,
     faqs: [
-      { question: 'What is the best size for a restaurant table QR code?', answer: 'A minimum print size of 3.5 x 3.5 cm (1.4 x 1.4 inches) is ideal for table tents where customers scan from 30 to 45 cm away.' },
-      { question: 'Should I put individual table numbers inside the QR code?', answer: 'Yes, if you offer table-side ordering. Encode unique table parameters (e.g., ?table=12) so your kitchen POS accurately routes orders.' }
-    ]
+      {
+        question: 'What is the best size for a restaurant table QR code?',
+        answer:
+          'A minimum print size of 3.5 x 3.5 cm (1.4 x 1.4 inches) is ideal for table tents where customers scan from 30 to 45 cm away.',
+      },
+      {
+        question: 'Should I put individual table numbers inside the QR code?',
+        answer:
+          'Yes, if you offer table-side ordering. Encode unique table parameters (e.g., ?table=12) so your kitchen POS accurately routes orders.',
+      },
+    ],
   },
   {
     slug: 'qr-code-security-best-practices',
     title: 'QR Code Security Best Practices: Preventing Quishing, Malicious Redirects & Tampering',
     primaryKeyword: 'qr code security best practices',
-    description: 'Comprehensive cybersecurity guide to protecting consumers and enterprises from QR phishing (quishing), sticker overlay attacks, and malicious payloads.',
+    description:
+      'Comprehensive cybersecurity guide to protecting consumers and enterprises from QR phishing (quishing), sticker overlay attacks, and malicious payloads.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-04-15',
     updatedAt: '2026-10-01',
@@ -322,15 +389,24 @@ In public physical environments—such as municipal parking meters, restaurant t
 * **Distinct Branded Framing:** Use custom visual frames with microprint that cannot be easily replicated by a generic sticker.
     `,
     faqs: [
-      { question: 'Can a QR code directly install malware on my phone?', answer: 'No. Scanning a QR code simply parses a string. Malware installation requires the user to open a malicious link, download an APK/executable, and grant execution permissions.' },
-      { question: 'How can I check if a QR code is safe before opening it?', answer: 'Use our client-side QR Safety Checker to inspect the raw destination string, expand short links, and check the target domain against security heuristics before opening.' }
-    ]
+      {
+        question: 'Can a QR code directly install malware on my phone?',
+        answer:
+          'No. Scanning a QR code simply parses a string. Malware installation requires the user to open a malicious link, download an APK/executable, and grant execution permissions.',
+      },
+      {
+        question: 'How can I check if a QR code is safe before opening it?',
+        answer:
+          'Use our client-side QR Safety Checker to inspect the raw destination string, expand short links, and check the target domain against security heuristics before opening.',
+      },
+    ],
   },
   {
     slug: 'anatomy-of-a-qr-code',
     title: 'The Complete Anatomy of a QR Code: Finder, Timing, and Alignment Modules',
     primaryKeyword: 'parts of a qr code',
-    description: 'Deconstruct the functional components of a standard ISO/IEC 18004 QR code: position detection patterns, alignment grids, timing tracks, and format strips.',
+    description:
+      'Deconstruct the functional components of a standard ISO/IEC 18004 QR code: position detection patterns, alignment grids, timing tracks, and format strips.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-04-20',
     updatedAt: '2026-10-02',
@@ -349,15 +425,24 @@ Every standard QR code is composed of functional patterns (which do not encode d
 * **Format Information:** A 15-bit sequence located adjacent to the separators. It encodes the 2-bit error correction level and 3-bit mask pattern, protected by 10 Bose-Chaudhuri-Hocquenghem (BCH) error correction bits.
     `,
     faqs: [
-      { question: 'Why does a QR code not have a finder pattern in the bottom-right corner?', answer: 'The omission of a fourth finder pattern in the bottom-right corner is deliberate; it breaks symmetry and provides unambiguous orientation detection.' },
-      { question: 'What are the small squares inside a dense QR code?', answer: 'Those are alignment patterns. They allow scanner algorithms to correct for physical warping and distortion when the code is printed on curved or flexible surfaces.' }
-    ]
+      {
+        question: 'Why does a QR code not have a finder pattern in the bottom-right corner?',
+        answer:
+          'The omission of a fourth finder pattern in the bottom-right corner is deliberate; it breaks symmetry and provides unambiguous orientation detection.',
+      },
+      {
+        question: 'What are the small squares inside a dense QR code?',
+        answer:
+          'Those are alignment patterns. They allow scanner algorithms to correct for physical warping and distortion when the code is printed on curved or flexible surfaces.',
+      },
+    ],
   },
   {
     slug: 'qr-code-contrast-ratio-requirements',
     title: 'QR Code Contrast Ratio Requirements: Color Pairing, Inversion & Sensor Thresholds',
     primaryKeyword: 'qr code contrast ratio',
-    description: 'Ensure 100% scan reliability by mastering luminance contrast ratios, foreground-background pairing, and sensor binarization physics.',
+    description:
+      'Ensure 100% scan reliability by mastering luminance contrast ratios, foreground-background pairing, and sensor binarization physics.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-04-28',
     updatedAt: '2026-10-03',
@@ -379,15 +464,24 @@ To achieve reliable binarization across diverse lighting conditions:
 While ISO/IEC 18004 allows for "reversed" or inverted symbols (white modules on a black background), **many legacy handheld barcode scanners, logistics imagers, and third-party scanning apps fail to decode inverted QR codes**. Unless your target audience exclusively uses modern iOS or flagship Android devices, always print **dark modules on a light background**.
     `,
     faqs: [
-      { question: 'Can I make a QR code with my brand colors?', answer: 'Yes, provided the foreground modules are significantly darker than the background with a contrast ratio of at least 4.5:1. Avoid light pastels, neons, and reds.' },
-      { question: 'Do inverted (white on black) QR codes scan reliably?', answer: 'Modern smartphone cameras decode inverted codes easily, but older hardware scanners and budget cameras often fail. Dark-on-light remains the global gold standard.' }
-    ]
+      {
+        question: 'Can I make a QR code with my brand colors?',
+        answer:
+          'Yes, provided the foreground modules are significantly darker than the background with a contrast ratio of at least 4.5:1. Avoid light pastels, neons, and reds.',
+      },
+      {
+        question: 'Do inverted (white on black) QR codes scan reliably?',
+        answer:
+          'Modern smartphone cameras decode inverted codes easily, but older hardware scanners and budget cameras often fail. Dark-on-light remains the global gold standard.',
+      },
+    ],
   },
   {
     slug: 'qr-code-svg-vs-png-vs-pdf',
     title: 'QR Code Export Formats: SVG vs PNG vs PDF for Print and Digital Media',
     primaryKeyword: 'svg vs png qr code',
-    description: 'Compare vector SVG, lossless PNG, and print-ready PDF formats to select the right resolution, compression, and scaling for your QR deployment.',
+    description:
+      'Compare vector SVG, lossless PNG, and print-ready PDF formats to select the right resolution, compression, and scaling for your QR deployment.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-05-04',
     updatedAt: '2026-10-02',
@@ -405,15 +499,24 @@ While ISO/IEC 18004 allows for "reversed" or inverted symbols (white modules on 
 JPEG uses lossy discrete cosine transform (DCT) compression. At the crisp boundary between black and white modules, DCT compression generates "ringing artifacts" (fuzzy gray noise around high-frequency edges). This edge blur ruins scanner binarization and significantly increases scan failure rates.
     `,
     faqs: [
-      { question: 'Which format should I send to my commercial print shop?', answer: 'Always send vector SVG or print-ready vector PDF. This allows the press operator to scale the artwork without loss of sharpness.' },
-      { question: 'Can I use PNG for social media and website graphics?', answer: 'Yes, high-resolution PNG is the preferred format for web and digital displays because of its broad browser compatibility and lossless compression.' }
-    ]
+      {
+        question: 'Which format should I send to my commercial print shop?',
+        answer:
+          'Always send vector SVG or print-ready vector PDF. This allows the press operator to scale the artwork without loss of sharpness.',
+      },
+      {
+        question: 'Can I use PNG for social media and website graphics?',
+        answer:
+          'Yes, high-resolution PNG is the preferred format for web and digital displays because of its broad browser compatibility and lossless compression.',
+      },
+    ],
   },
   {
     slug: 'pakistan-regional-payment-qr-raast',
     title: 'Pakistan Payment QR Codes: Complete Raast, JazzCash & Easypaisa Integration Spec',
     primaryKeyword: 'raast qr code standard pakistan',
-    description: 'Technical implementation details for generating EMVCo-compliant Raast P2M QR codes, JazzCash merchant till codes, and Easypaisa payment links.',
+    description:
+      'Technical implementation details for generating EMVCo-compliant Raast P2M QR codes, JazzCash merchant till codes, and Easypaisa payment links.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-05-12',
     updatedAt: '2026-10-03',
@@ -442,15 +545,24 @@ For informal micro-merchants and freelance service providers operating outside f
 All payment QR codes generated on QR Code Tools execute client-side with zero intermediary financial storage, ensuring full confidentiality for both merchant and consumer.
     `,
     faqs: [
-      { question: 'Is a Raast QR code compatible with all Pakistani banking apps?', answer: 'Yes. Any banking app or digital wallet integrated with the SBP Raast switch can scan and process an EMVCo-compliant Raast QR code.' },
-      { question: 'Do customers incur extra fees for scanning a Raast QR code?', answer: 'No. Raast peer-to-peer and merchant payments are designed to be zero-fee or nominal-fee transactions under State Bank of Pakistan regulations.' }
-    ]
+      {
+        question: 'Is a Raast QR code compatible with all Pakistani banking apps?',
+        answer:
+          'Yes. Any banking app or digital wallet integrated with the SBP Raast switch can scan and process an EMVCo-compliant Raast QR code.',
+      },
+      {
+        question: 'Do customers incur extra fees for scanning a Raast QR code?',
+        answer:
+          'No. Raast peer-to-peer and merchant payments are designed to be zero-fee or nominal-fee transactions under State Bank of Pakistan regulations.',
+      },
+    ],
   },
   {
     slug: 'india-upi-qr-code-specifications',
     title: 'India UPI QR Code Specifications: Deep Dive into the NPCI Protocol',
     primaryKeyword: 'upi qr code generator format',
-    description: 'Technical breakdown of the National Payments Corporation of India (NPCI) UPI deep-link URI syntax, parameters, and merchant requirements.',
+    description:
+      'Technical breakdown of the National Payments Corporation of India (NPCI) UPI deep-link URI syntax, parameters, and merchant requirements.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-05-18',
     updatedAt: '2026-10-02',
@@ -473,15 +585,24 @@ upi://pay?pa=merchant@upi&pn=Store%20Name&mc=5411&tid=TX123456&tr=INV001&tn=Paym
 * **\`tn\` (Transaction Note):** Memo or invoice note visible to both parties.
     `,
     faqs: [
-      { question: 'Can I leave the amount blank in a UPI QR code?', answer: 'Yes. If the "am" parameter is omitted, the customer scans the code and types in their own custom payment amount upon checkout.' },
-      { question: 'Which apps can scan this UPI QR code?', answer: 'All NPCI-certified UPI applications, including Google Pay, PhonePe, Paytm, BHIM, and all major Indian banking apps.' }
-    ]
+      {
+        question: 'Can I leave the amount blank in a UPI QR code?',
+        answer:
+          'Yes. If the "am" parameter is omitted, the customer scans the code and types in their own custom payment amount upon checkout.',
+      },
+      {
+        question: 'Which apps can scan this UPI QR code?',
+        answer:
+          'All NPCI-certified UPI applications, including Google Pay, PhonePe, Paytm, BHIM, and all major Indian banking apps.',
+      },
+    ],
   },
   {
     slug: 'qr-code-quiet-zone-rules',
     title: 'The 4-Module Quiet Zone Rule: Why Margins Are Critical for QR Scannability',
     primaryKeyword: 'qr code quiet zone margin',
-    description: 'Understand the mathematical necessity of the 4-module quiet zone margin and how cropping borders causes catastrophic scan failures.',
+    description:
+      'Understand the mathematical necessity of the 4-module quiet zone margin and how cropping borders causes catastrophic scan failures.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-05-24',
     updatedAt: '2026-10-01',
@@ -500,15 +621,24 @@ $$4 \times 2\text{ mm} = 8\text{ mm on all sides}$$
 When a mobile scanner captures an image, it searches for the three 1:1:3:1:1 finder patterns. If text, packaging artwork, or dark borders touch the outer modules of the finder pattern, the scanner cannot calculate the ratio. The quiet zone provides a clean baseline reference level for the camera sensor's automatic gain and thresholding circuits.
     `,
     faqs: [
-      { question: 'Can I reduce the quiet zone to 2 modules?', answer: 'While Micro QR codes allow a 2-module margin, standard QR codes require 4 modules. Reducing it to 2 modules will cause scan failures in poor lighting or on budget devices.' },
-      { question: 'Can the quiet zone be a colored background?', answer: 'Yes, as long as the color matches the light modules of the QR code and provides at least a 4:1 contrast ratio against the dark modules.' }
-    ]
+      {
+        question: 'Can I reduce the quiet zone to 2 modules?',
+        answer:
+          'While Micro QR codes allow a 2-module margin, standard QR codes require 4 modules. Reducing it to 2 modules will cause scan failures in poor lighting or on budget devices.',
+      },
+      {
+        question: 'Can the quiet zone be a colored background?',
+        answer:
+          'Yes, as long as the color matches the light modules of the QR code and provides at least a 4:1 contrast ratio against the dark modules.',
+      },
+    ],
   },
   {
     slug: 'custom-logo-in-qr-code-without-breaking',
     title: 'How to Add a Custom Logo to a QR Code Without Breaking Scan Reliability',
     primaryKeyword: 'how to add logo to qr code',
-    description: 'Learn the exact math and design constraints for embedding brand icons inside QR codes using Level H error correction and safe module zones.',
+    description:
+      'Learn the exact math and design constraints for embedding brand icons inside QR codes using Level H error correction and safe module zones.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-05-30',
     updatedAt: '2026-10-03',
@@ -531,15 +661,24 @@ Never place logos or graphics over:
 3. The **Format Information Bits** bordering the finder patterns.
     `,
     faqs: [
-      { question: 'What error correction level is mandatory for logo QR codes?', answer: 'Error Correction Level H (30% recovery) is mandatory whenever embedding a logo or graphic in the center of the code.' },
-      { question: 'Should my logo have a white border around it?', answer: 'Yes. A small solid border around the logo prevents the graphic from merging with adjacent data modules, preserving contrast.' }
-    ]
+      {
+        question: 'What error correction level is mandatory for logo QR codes?',
+        answer:
+          'Error Correction Level H (30% recovery) is mandatory whenever embedding a logo or graphic in the center of the code.',
+      },
+      {
+        question: 'Should my logo have a white border around it?',
+        answer:
+          'Yes. A small solid border around the logo prevents the graphic from merging with adjacent data modules, preserving contrast.',
+      },
+    ],
   },
   {
     slug: 'qr-codes-on-curved-surfaces',
     title: 'Printing QR Codes on Curved Surfaces: Cylinders, Bottles, and Cans',
     primaryKeyword: 'qr code on curved surface',
-    description: 'Engineering formulas and chord-width calculations for placing scannable QR codes on cans, beverage bottles, tubes, and curved packaging.',
+    description:
+      'Engineering formulas and chord-width calculations for placing scannable QR codes on cans, beverage bottles, tubes, and curved packaging.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-06-05',
     updatedAt: '2026-10-02',
@@ -563,15 +702,24 @@ $$W_{\text{max}} \le \frac{3.14159 \times 66}{4} \approx 51.8\text{ mm}$$
 Adhering to this limit ensures that the perspective distortion angle across the outer finder patterns stays below 45 degrees.
     `,
     faqs: [
-      { question: 'Can I print a QR code vertically on a bottle?', answer: 'Yes. Placing the code on a flat vertical face of a tapered bottle avoids horizontal curve compression, resulting in faster scans.' },
-      { question: 'What error correction should I use on curved containers?', answer: 'Use Error Correction Level Q (25%) or Level H (30%) to compensate for edge distortion caused by cylinder curvature.' }
-    ]
+      {
+        question: 'Can I print a QR code vertically on a bottle?',
+        answer:
+          'Yes. Placing the code on a flat vertical face of a tapered bottle avoids horizontal curve compression, resulting in faster scans.',
+      },
+      {
+        question: 'What error correction should I use on curved containers?',
+        answer:
+          'Use Error Correction Level Q (25%) or Level H (30%) to compensate for edge distortion caused by cylinder curvature.',
+      },
+    ],
   },
   {
     slug: 'vcard-standard-compatibility-ios-android',
     title: 'vCard QR Codes: Version 3.0 vs 4.0 Compatibility Across iOS and Android',
     primaryKeyword: 'vcard qr code format compatibility',
-    description: 'Ensure digital business cards import seamlessly into Apple Contacts and Google Contacts without field truncation or encoding errors.',
+    description:
+      'Ensure digital business cards import seamlessly into Apple Contacts and Google Contacts without field truncation or encoding errors.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-06-12',
     updatedAt: '2026-10-01',
@@ -604,15 +752,24 @@ END:VCARD
 Encoding high-resolution base64 profile pictures or extensive biographical notes directly into a vCard QR code rapidly bloats the character count beyond 1,500 characters. This forces the matrix into Version 20+ (97x97 modules), resulting in an extremely dense symbol that entry-level smartphone cameras struggle to resolve. Keep vCard fields concise.
     `,
     faqs: [
-      { question: 'Why does my vCard QR code show raw text instead of adding a contact?', answer: 'This occurs when mandatory headers (BEGIN:VCARD and VERSION:3.0) or delimiters are missing or corrupted.' },
-      { question: 'Can I include a photo in an offline vCard QR code?', answer: 'Technically yes via BASE64, but it creates a massive, ultra-dense QR code that is nearly impossible to scan reliably on paper.' }
-    ]
+      {
+        question: 'Why does my vCard QR code show raw text instead of adding a contact?',
+        answer:
+          'This occurs when mandatory headers (BEGIN:VCARD and VERSION:3.0) or delimiters are missing or corrupted.',
+      },
+      {
+        question: 'Can I include a photo in an offline vCard QR code?',
+        answer:
+          'Technically yes via BASE64, but it creates a massive, ultra-dense QR code that is nearly impossible to scan reliably on paper.',
+      },
+    ],
   },
   {
     slug: 'choosing-dpi-for-large-format-qr-banners',
     title: 'Billboard and Banner QR Codes: Resolution, DPI, and Viewing Distance Math',
     primaryKeyword: 'billboard qr code size dpi',
-    description: 'Mathematical guidelines for calculating billboard QR code print dimensions, viewing distance angles, and driver scan feasibility.',
+    description:
+      'Mathematical guidelines for calculating billboard QR code print dimensions, viewing distance angles, and driver scan feasibility.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-06-18',
     updatedAt: '2026-10-02',
@@ -632,15 +789,24 @@ $$\text{Minimum Symbol Width} = \frac{30\text{ meters}}{10} = 3.0\text{ meters (
 **Safety Warning:** Never place QR codes on highway billboards targeted at moving vehicular traffic. A vehicle traveling at 100 km/h (62 mph) moves approximately 28 meters per second. Attempting to locate, focus, and scan a QR code while driving introduces severe collision hazards. QR billboards should only be deployed in pedestrian-dense areas, transit waiting platforms, or static drive-thru lanes.
     `,
     faqs: [
-      { question: 'What DPI should large banners be printed at for QR codes?', answer: 'For banners viewed from 2 to 5 meters, 100 to 150 DPI is sufficient. For highway billboards viewed from 20+ meters, 20 to 30 DPI is common.' },
-      { question: 'Can phone cameras zoom in to scan distant QR codes?', answer: 'Modern smartphones with dedicated 3x and 5x optical telephoto lenses can scan smaller codes at distance, but you should never rely on user zoom for broad consumer campaigns.' }
-    ]
+      {
+        question: 'What DPI should large banners be printed at for QR codes?',
+        answer:
+          'For banners viewed from 2 to 5 meters, 100 to 150 DPI is sufficient. For highway billboards viewed from 20+ meters, 20 to 30 DPI is common.',
+      },
+      {
+        question: 'Can phone cameras zoom in to scan distant QR codes?',
+        answer:
+          'Modern smartphones with dedicated 3x and 5x optical telephoto lenses can scan smaller codes at distance, but you should never rely on user zoom for broad consumer campaigns.',
+      },
+    ],
   },
   {
     slug: 'barcode-vs-qr-code-difference',
     title: 'Barcode vs QR Code: 1D vs 2D Storage, Durability, and Industry Use Cases',
     primaryKeyword: 'barcode vs qr code difference',
-    description: 'Compare linear 1D barcodes (EAN-13, UPC, Code 128) with 2D QR codes across data density, omnidirectional scanning, and error correction capabilities.',
+    description:
+      'Compare linear 1D barcodes (EAN-13, UPC, Code 128) with 2D QR codes across data density, omnidirectional scanning, and error correction capabilities.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-06-25',
     updatedAt: '2026-10-03',
@@ -657,15 +823,24 @@ $$\text{Minimum Symbol Width} = \frac{30\text{ meters}}{10} = 3.0\text{ meters (
 The global retail supply chain is actively transitioning from legacy 1D EAN/UPC barcodes to **GS1 Digital Link 2D QR codes**. A single GS1 QR code on retail packaging satisfies point-of-sale checkout scanners while simultaneously directing consumers to nutritional information, origin tracking, and recycling instructions when scanned by a smartphone.
     `,
     faqs: [
-      { question: 'Can a smartphone camera read standard supermarket barcodes?', answer: 'Yes, modern smartphone cameras and dedicated scanner apps can read standard 1D barcodes like UPC and EAN-13, though QR codes scan faster and more reliably from any angle.' },
-      { question: 'Why are 1D barcodes still used if QR codes are superior?', answer: '1D barcodes are deeply embedded in global point-of-sale infrastructure, automated warehouse laser conveyor sorters, and legacy retail cash registers.' }
-    ]
+      {
+        question: 'Can a smartphone camera read standard supermarket barcodes?',
+        answer:
+          'Yes, modern smartphone cameras and dedicated scanner apps can read standard 1D barcodes like UPC and EAN-13, though QR codes scan faster and more reliably from any angle.',
+      },
+      {
+        question: 'Why are 1D barcodes still used if QR codes are superior?',
+        answer:
+          '1D barcodes are deeply embedded in global point-of-sale infrastructure, automated warehouse laser conveyor sorters, and legacy retail cash registers.',
+      },
+    ],
   },
   {
     slug: 'qr-codes-for-visually-impaired',
     title: 'Accessible QR Codes: Tactile Indicators, High Contrast, and Inclusive Design',
     primaryKeyword: 'accessible qr code visually impaired',
-    description: 'Design truly inclusive physical QR codes with tactile cutouts, high-contrast borders, and screen-reader accessible destination targets.',
+    description:
+      'Design truly inclusive physical QR codes with tactile cutouts, high-contrast borders, and screen-reader accessible destination targets.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-07-02',
     updatedAt: '2026-10-01',
@@ -683,15 +858,24 @@ For a blind or visually impaired individual, finding where a QR code is located 
 * **Accessible Landing Pages:** Ensure the target URL is fully compliant with WCAG 2.2 AA standards, featuring proper ARIA labels and screen-reader optimized headings.
     `,
     faqs: [
-      { question: 'What is NaviLens and how does it compare to QR codes?', answer: 'NaviLens is a specialized high-contrast color matrix system that can be detected by visually impaired users from much greater distances and wider angles without precise camera alignment.' },
-      { question: 'Can tactile embossing damage the QR code?', answer: 'As long as the embossing follows the outer border of the quiet zone and does not distort the inner module matrix, it provides excellent accessibility without compromising readability.' }
-    ]
+      {
+        question: 'What is NaviLens and how does it compare to QR codes?',
+        answer:
+          'NaviLens is a specialized high-contrast color matrix system that can be detected by visually impaired users from much greater distances and wider angles without precise camera alignment.',
+      },
+      {
+        question: 'Can tactile embossing damage the QR code?',
+        answer:
+          'As long as the embossing follows the outer border of the quiet zone and does not distort the inner module matrix, it provides excellent accessibility without compromising readability.',
+      },
+    ],
   },
   {
     slug: 'micro-qr-code-specifications',
     title: 'Micro QR Code Specifications: M1 to M4 Formats for Ultra-Small Components',
     primaryKeyword: 'micro qr code specification',
-    description: 'Explore the compact Micro QR standard (M1 through M4), designed for microscopic electronics, medical vials, and space-constrained machinery.',
+    description:
+      'Explore the compact Micro QR standard (M1 through M4), designed for microscopic electronics, medical vials, and space-constrained machinery.',
     author: 'CodexEngr, QR Systems Engineer',
     publishedAt: '2026-07-10',
     updatedAt: '2026-10-03',
@@ -714,10 +898,18 @@ Micro QR codes conserve massive physical space through three architectural chang
    * **M4 (17x17 modules):** Stores up to 35 numeric digits or 21 alphanumeric characters with Reed-Solomon error correction.
     `,
     faqs: [
-      { question: 'Can standard smartphone cameras scan Micro QR codes?', answer: 'Many default camera apps look specifically for three finder patterns and may not decode Micro QR codes without specialized industrial scanning apps.' },
-      { question: 'What is the primary application for Micro QR codes?', answer: 'Micro QR codes are primarily used in electronics manufacturing, aerospace component tracking, and medical laboratory test tube labeling.' }
-    ]
-  }
+      {
+        question: 'Can standard smartphone cameras scan Micro QR codes?',
+        answer:
+          'Many default camera apps look specifically for three finder patterns and may not decode Micro QR codes without specialized industrial scanning apps.',
+      },
+      {
+        question: 'What is the primary application for Micro QR codes?',
+        answer:
+          'Micro QR codes are primarily used in electronics manufacturing, aerospace component tracking, and medical laboratory test tube labeling.',
+      },
+    ],
+  },
 ];
 
 const ALL_ARTICLES: Article[] = [...ARTICLES, ...NEW_ARTICLES];

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — QR Code Tools',
@@ -19,7 +20,12 @@ export default function PrivacyPage() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freeqrcode.tools/' },
-      { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: 'https://freeqrcode.tools/privacy' },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Privacy Policy',
+        item: 'https://freeqrcode.tools/privacy',
+      },
     ],
   };
 
@@ -33,9 +39,15 @@ export default function PrivacyPage() {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
         <ol className="flex items-center gap-1.5">
-          <li><a href="/" className="hover:text-foreground transition-colors">Home</a></li>
+          <li>
+            <Link href="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
+          </li>
           <li aria-hidden="true">›</li>
-          <li aria-current="page" className="text-foreground">Privacy Policy</li>
+          <li aria-current="page" className="text-foreground">
+            Privacy Policy
+          </li>
         </ol>
       </nav>
 
@@ -51,10 +63,11 @@ export default function PrivacyPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Introduction</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            QR Code Tools (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is a free, browser-based QR code generation service
-            operated by codexengr. This Privacy Policy explains what information we collect when you
-            use freeqrcode.tools, how we use it, and your rights under applicable data protection laws
-            including the EU General Data Protection Regulation (GDPR).
+            QR Code Tools (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is a free, browser-based
+            QR code generation service operated by codexengr. This Privacy Policy explains what
+            information we collect when you use freeqrcode.tools, how we use it, and your rights
+            under applicable data protection laws including the EU General Data Protection
+            Regulation (GDPR).
           </p>
           <p>
             This policy applies to all pages and tools on freeqrcode.tools. By using the site, you
@@ -69,13 +82,15 @@ export default function PrivacyPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Data We Collect</h2>
         <div className="space-y-6 text-muted-foreground leading-relaxed">
           <div>
-            <h3 className="text-xl font-semibold mb-3 text-foreground">Data You Enter into QR Tools</h3>
+            <h3 className="text-xl font-semibold mb-3 text-foreground">
+              Data You Enter into QR Tools
+            </h3>
             <p>
-              All QR codes are generated entirely inside your browser. Content you type into any
-              QR generator — WiFi passwords, contact details, payment references, medical
-              information, URLs — is processed by JavaScript running on your device. This data is
-              never transmitted to our servers in any form. We have no technical capability to see,
-              log, or store it.
+              All QR codes are generated entirely inside your browser. Content you type into any QR
+              generator — WiFi passwords, contact details, payment references, medical information,
+              URLs — is processed by JavaScript running on your device. This data is never
+              transmitted to our servers in any form. We have no technical capability to see, log,
+              or store it.
             </p>
           </div>
           <div>
@@ -84,7 +99,8 @@ export default function PrivacyPage() {
               We may collect anonymous, aggregated analytics — page views, country of visit (derived
               from IP and immediately discarded), and broad device category (desktop/mobile/tablet).
               No personal identifiers, no fingerprinting, no tracking across sites. Analytics data
-              is used solely to understand which tools are most useful and to prioritise development.
+              is used solely to understand which tools are most useful and to prioritise
+              development.
             </p>
           </div>
           <div>
@@ -104,18 +120,24 @@ export default function PrivacyPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Cookies and Local Storage</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            QR Code Tools uses browser localStorage (not cookies) for essential preferences. The keys
+            QR Code Tools uses browser localStorage (not cookies) for essential preferences. The
+            keys
             <code className="mx-1 px-1 py-0.5 rounded bg-muted text-sm">qrs_theme</code> (your
             colour scheme preference) and
-            <code className="mx-1 px-1 py-0.5 rounded bg-muted text-sm">qrs_cookie_consent</code>{' '}
-            (your cookie consent decision) are stored locally on your device. These values are
-            never sent to a server and you can delete them at any time via your browser settings.
+            <code className="mx-1 px-1 py-0.5 rounded bg-muted text-sm">
+              qrs_cookie_consent
+            </code>{' '}
+            (your cookie consent decision) are stored locally on your device. These values are never
+            sent to a server and you can delete them at any time via your browser settings.
           </p>
           <p>
             If you accept analytics or advertising cookies via the consent banner, third-party
             cookies from Google may be set. These are described in detail in the{' '}
-            <a href="/cookie-policy" className="text-primary hover:underline">Cookie Policy</a>.
-            If you reject non-essential cookies, only the two localStorage keys listed above are used.
+            <a href="/cookie-policy" className="text-primary hover:underline">
+              Cookie Policy
+            </a>
+            . If you reject non-essential cookies, only the two localStorage keys listed above are
+            used.
           </p>
         </div>
       </section>
@@ -139,8 +161,8 @@ export default function PrivacyPage() {
               rel="noopener noreferrer"
             >
               Google&apos;s Ad Settings
-            </a>
-            {' '}or the{' '}
+            </a>{' '}
+            or the{' '}
             <a
               href="https://optout.networkadvertising.org"
               className="text-primary hover:underline"
@@ -176,11 +198,24 @@ export default function PrivacyPage() {
             </thead>
             <tbody>
               <tr>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">Google Analytics</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">Aggregate page-view analytics</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">Not yet active</td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  Google Analytics
+                </td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  Aggregate page-view analytics
+                </td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  Not yet active
+                </td>
                 <td className="p-2 border-b border-border/50">
-                  <a href="https://tools.google.com/dlpage/gaoptout" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Opt out</a>
+                  <a
+                    href="https://tools.google.com/dlpage/gaoptout"
+                    className="text-primary hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Opt out
+                  </a>
                 </td>
               </tr>
               <tr>
@@ -188,7 +223,14 @@ export default function PrivacyPage() {
                 <td className="p-2 text-muted-foreground">Display advertising</td>
                 <td className="p-2 text-muted-foreground">Not yet active</td>
                 <td className="p-2">
-                  <a href="https://adssettings.google.com" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Opt out</a>
+                  <a
+                    href="https://adssettings.google.com"
+                    className="text-primary hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Opt out
+                  </a>
                 </td>
               </tr>
             </tbody>
@@ -202,7 +244,10 @@ export default function PrivacyPage() {
         <ul className="space-y-2 text-muted-foreground text-sm list-disc list-inside">
           <li>Anonymous analytics data: to understand usage patterns and improve the tools.</li>
           <li>Server log data: to detect and prevent abuse, DDoS, and security threats.</li>
-          <li>Advertising cookies (if consented): to display relevant advertisements that fund the free service.</li>
+          <li>
+            Advertising cookies (if consented): to display relevant advertisements that fund the
+            free service.
+          </li>
         </ul>
       </section>
 
@@ -212,13 +257,34 @@ export default function PrivacyPage() {
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>If you are located in the European Economic Area, you have the following rights:</p>
           <ul className="space-y-2 text-sm list-disc list-inside">
-            <li><strong className="text-foreground">Access:</strong> request a copy of personal data we hold about you.</li>
-            <li><strong className="text-foreground">Rectification:</strong> request correction of inaccurate data.</li>
-            <li><strong className="text-foreground">Erasure:</strong> request deletion of your data where no overriding legitimate interest applies.</li>
-            <li><strong className="text-foreground">Restriction:</strong> request that we restrict processing of your data.</li>
-            <li><strong className="text-foreground">Portability:</strong> receive your data in a structured, machine-readable format.</li>
-            <li><strong className="text-foreground">Object:</strong> object to processing based on legitimate interests.</li>
-            <li><strong className="text-foreground">Complaint:</strong> lodge a complaint with your national data protection supervisory authority.</li>
+            <li>
+              <strong className="text-foreground">Access:</strong> request a copy of personal data
+              we hold about you.
+            </li>
+            <li>
+              <strong className="text-foreground">Rectification:</strong> request correction of
+              inaccurate data.
+            </li>
+            <li>
+              <strong className="text-foreground">Erasure:</strong> request deletion of your data
+              where no overriding legitimate interest applies.
+            </li>
+            <li>
+              <strong className="text-foreground">Restriction:</strong> request that we restrict
+              processing of your data.
+            </li>
+            <li>
+              <strong className="text-foreground">Portability:</strong> receive your data in a
+              structured, machine-readable format.
+            </li>
+            <li>
+              <strong className="text-foreground">Object:</strong> object to processing based on
+              legitimate interests.
+            </li>
+            <li>
+              <strong className="text-foreground">Complaint:</strong> lodge a complaint with your
+              national data protection supervisory authority.
+            </li>
           </ul>
           <p>
             To exercise any of these rights, contact{' '}
@@ -235,9 +301,9 @@ export default function PrivacyPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Data Retention</h2>
         <p className="text-muted-foreground leading-relaxed">
           Server log data is retained for a maximum of 30 days and then permanently deleted.
-          localStorage data is stored on your device and is entirely within your control — delete
-          it at any time via your browser settings. We do not maintain any server-side database of
-          user data.
+          localStorage data is stored on your device and is entirely within your control — delete it
+          at any time via your browser settings. We do not maintain any server-side database of user
+          data.
         </p>
       </section>
 
@@ -259,10 +325,10 @@ export default function PrivacyPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Changes to This Policy</h2>
         <p className="text-muted-foreground leading-relaxed">
-          We may update this Privacy Policy from time to time. When we do, we will update the &quot;Last
-          updated&quot; date at the top of this page. Continued use of QR Code Tools after a policy change
-          constitutes acceptance of the updated terms. We will not make material changes without
-          providing reasonable notice via the site.
+          We may update this Privacy Policy from time to time. When we do, we will update the
+          &quot;Last updated&quot; date at the top of this page. Continued use of QR Code Tools
+          after a policy change constitutes acceptance of the updated terms. We will not make
+          material changes without providing reasonable notice via the site.
         </p>
       </section>
 

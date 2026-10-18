@@ -28,8 +28,16 @@ A QR on the headstock plate links to the manufacturer's recall lookup by VIN. Ow
 A QR links to the genuine parts and accessories catalogue for the model. Owners source the right items without searching by part number.
     `,
     [
-      { question: 'Should a motorcycle QR be unique per machine?', answer: 'Yes. Service history and recall status are VIN-specific. Each machine needs its own QR linking to its own record.' },
-      { question: 'What label material survives a motorcycle engine bay?', answer: 'Polyimide (Kapton) or metalised aluminium labels rated above 150°C on the engine. Standard vinyl fails near hot surfaces.' },
+      {
+        question: 'Should a motorcycle QR be unique per machine?',
+        answer:
+          'Yes. Service history and recall status are VIN-specific. Each machine needs its own QR linking to its own record.',
+      },
+      {
+        question: 'What label material survives a motorcycle engine bay?',
+        answer:
+          'Polyimide (Kapton) or metalised aluminium labels rated above 150°C on the engine. Standard vinyl fails near hot surfaces.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,17 @@ A QR links to the loyalty scheme: scan after each delivery to earn a stamp. Ten 
 A QR on the dessert packaging links to the full dessert menu with add-to-cart for the next order. Impulse dessert orders are a significant revenue opportunity.
     `,
     [
-      { question: 'Should food delivery feedback QRs be anonymous?', answer: 'Default to anonymous. Include an optional name and contact field for customers who want a follow-up on a complaint.' },
-      { question: 'Can a QR on packaging earn loyalty points if the order was placed on a third-party platform?', answer: 'Only if the loyalty programme is managed independently of the delivery platform. Use the QR to enrol the customer in the restaurant\'s own programme.' },
+      {
+        question: 'Should food delivery feedback QRs be anonymous?',
+        answer:
+          'Default to anonymous. Include an optional name and contact field for customers who want a follow-up on a complaint.',
+      },
+      {
+        question:
+          'Can a QR on packaging earn loyalty points if the order was placed on a third-party platform?',
+        answer:
+          "Only if the loyalty programme is managed independently of the delivery platform. Use the QR to enrol the customer in the restaurant's own programme.",
+      },
     ]
   ),
   art(
@@ -88,8 +105,16 @@ A QR links to an export function that generates a PDF or structured data export 
 A QR links to the device's validation status on the British Hypertension Society or dabl Educational Trust database. Patients confirm their device is clinically validated before trusting results.
     `,
     [
-      { question: 'Should a blood pressure monitor QR require medical registration?', answer: 'No for a reading log. Yes for GP sharing integrations that connect to clinical systems, which require regulated data handling.' },
-      { question: 'Can a QR on a home monitor replace a GP appointment?', answer: 'No. The QR supports monitoring and communication; clinical interpretation requires a qualified clinician.' },
+      {
+        question: 'Should a blood pressure monitor QR require medical registration?',
+        answer:
+          'No for a reading log. Yes for GP sharing integrations that connect to clinical systems, which require regulated data handling.',
+      },
+      {
+        question: 'Can a QR on a home monitor replace a GP appointment?',
+        answer:
+          'No. The QR supports monitoring and communication; clinical interpretation requires a qualified clinician.',
+      },
     ]
   ),
   art(
@@ -118,8 +143,16 @@ A QR links to the speaker's full academic profile: publications, institutional a
 A QR in the proceedings links to an errata page. Authors submit corrections; the errata page is updated without reprinting. The printed QR remains the persistent reference.
     `,
     [
-      { question: 'Should conference proceedings QR links be open access?', answer: 'Where possible yes. Paywalled proceedings reduce the conference\'s visibility. Use open access for pre-prints linked from QR if the full paper requires subscription.' },
-      { question: 'Can a QR at a session replace the A/V request for slide access?', answer: 'Yes. Speaker-controlled QR at the end of the presentation is more reliable than session recording distribution and faster for attendees.' },
+      {
+        question: 'Should conference proceedings QR links be open access?',
+        answer:
+          "Where possible yes. Paywalled proceedings reduce the conference's visibility. Use open access for pre-prints linked from QR if the full paper requires subscription.",
+      },
+      {
+        question: 'Can a QR at a session replace the A/V request for slide access?',
+        answer:
+          'Yes. Speaker-controlled QR at the end of the presentation is more reliable than session recording distribution and faster for attendees.',
+      },
     ]
   ),
   art(
@@ -148,8 +181,17 @@ A QR on the receipt links to the reprint request form valid for 30 days. Custome
 A QR beside the photo booth links to the online passport or visa application. A natural handoff from photo service to application.
     `,
     [
-      { question: 'Is a digital passport photo delivered via QR acceptable for UK passport applications?', answer: 'Yes for the online application route. The digital file must meet HMPO specifications. Confirm requirements before marketing this service.' },
-      { question: 'How long should a QR photo reprint link remain valid?', answer: 'Typically 30 to 60 days covers the application window. After that, the customer should take new photos if the original set is unavailable.' },
+      {
+        question:
+          'Is a digital passport photo delivered via QR acceptable for UK passport applications?',
+        answer:
+          'Yes for the online application route. The digital file must meet HMPO specifications. Confirm requirements before marketing this service.',
+      },
+      {
+        question: 'How long should a QR photo reprint link remain valid?',
+        answer:
+          'Typically 30 to 60 days covers the application window. After that, the customer should take new photos if the original set is unavailable.',
+      },
     ]
   ),
   art(
@@ -178,8 +220,16 @@ A QR on visiting team correspondence links to the ground directions, parking ins
 A QR in the scoring shed links to the club's scoring app download or the web-based scorer portal. Volunteers who take on scoring for the first time find the tool quickly.
     `,
     [
-      { question: 'Should an amateur cricket club QR link to its social media or its own website?', answer: 'Prefer the club\'s own website or a managed page you control. Social media accounts can be restricted, deleted, or algorithmic without warning.' },
-      { question: 'Can a QR on the ground help visiting teams find facilities?', answer: 'Yes. A welcome QR at the car park links to the ground layout: pavilion, changing rooms, toilets, and tea room. Reduces confusion on arrival.' },
+      {
+        question: 'Should an amateur cricket club QR link to its social media or its own website?',
+        answer:
+          "Prefer the club's own website or a managed page you control. Social media accounts can be restricted, deleted, or algorithmic without warning.",
+      },
+      {
+        question: 'Can a QR on the ground help visiting teams find facilities?',
+        answer:
+          'Yes. A welcome QR at the car park links to the ground layout: pavilion, changing rooms, toilets, and tea room. Reduces confusion on arrival.',
+      },
     ]
   ),
   art(
@@ -208,8 +258,16 @@ A QR links to the store's project planner tool: enter room dimensions, select a 
 A QR at the trade counter links to the trade account application form. Trade customers sign up for bulk pricing and invoicing from the counter without an office appointment.
     `,
     [
-      { question: 'Should hardware store QR guides link to YouTube or self-hosted video?', answer: 'Self-hosted is preferred for brand control and reliability. YouTube is acceptable if the channel is brand-managed, but adverts and related video suggestions can distract customers.' },
-      { question: 'Can a project planner QR increase basket size?', answer: 'Yes. A materials calculator that lists everything needed for a project drives complete purchase at one visit rather than multiple return trips.' },
+      {
+        question: 'Should hardware store QR guides link to YouTube or self-hosted video?',
+        answer:
+          'Self-hosted is preferred for brand control and reliability. YouTube is acceptable if the channel is brand-managed, but adverts and related video suggestions can distract customers.',
+      },
+      {
+        question: 'Can a project planner QR increase basket size?',
+        answer:
+          'Yes. A materials calculator that lists everything needed for a project drives complete purchase at one visit rather than multiple return trips.',
+      },
     ]
   ),
   art(
@@ -238,8 +296,16 @@ A QR links to a step-by-step executor guide: applying for a grant of probate, co
 Estate asset registers contain extremely sensitive information. Use encrypted storage, access controlled by the solicitor or a trusted digital vault service, and never expose the contents behind a publicly guessable URL.
     `,
     [
-      { question: 'Should an estate asset register QR be in the deceased\'s will?', answer: 'A will is a public document after probate. The QR should link to an authenticated vault, not a page anyone can access with the URL.' },
-      { question: 'How long should estate administration QR links remain active?', answer: 'Until the estate is fully administered and a final distribution has been made, which may be months to years depending on complexity.' },
+      {
+        question: "Should an estate asset register QR be in the deceased's will?",
+        answer:
+          'A will is a public document after probate. The QR should link to an authenticated vault, not a page anyone can access with the URL.',
+      },
+      {
+        question: 'How long should estate administration QR links remain active?',
+        answer:
+          'Until the estate is fully administered and a final distribution has been made, which may be months to years depending on complexity.',
+      },
     ]
   ),
   art(
@@ -268,8 +334,16 @@ A QR links to the official estimate range and reserve information where these ar
 A QR in the post-event email links to the winner's payment page. Winners pay online within the payment window without hunting for a bank transfer reference.
     `,
     [
-      { question: 'Should a charity auction QR catalogue require registration to view?', answer: 'No for preview content. Yes for bidding registration, which requires account details for payment and contact in case of winning.' },
-      { question: 'Can a QR replace a printed charity auction catalogue?', answer: 'For a digital-first audience, yes. Retain a printed version for the event evening; many bidders prefer a physical catalogue on the night.' },
+      {
+        question: 'Should a charity auction QR catalogue require registration to view?',
+        answer:
+          'No for preview content. Yes for bidding registration, which requires account details for payment and contact in case of winning.',
+      },
+      {
+        question: 'Can a QR replace a printed charity auction catalogue?',
+        answer:
+          'For a digital-first audience, yes. Retain a printed version for the event evening; many bidders prefer a physical catalogue on the night.',
+      },
     ]
   ),
   art(
@@ -302,8 +376,16 @@ Regional payment QR schemes (Saudi mada, UAE AECB, Jordanian CliQ) have country-
 Arabic web typography requires fonts designed for digital use. Use Google Fonts' Cairo, Noto Naskh Arabic, or Amiri rather than generic system fonts that may not render correctly on all devices.
     `,
     [
-      { question: 'Can I use the same QR campaign across all Arabic-speaking countries?', answer: 'The QR code is universal. The landing page should detect browser locale and serve appropriate dialect and regional content.' },
-      { question: 'Is MSA appropriate for consumer-facing Arabic QR campaigns?', answer: 'It is safe and universally understood but may feel formal. A/B test with local dialect if your primary market is a single country.' },
+      {
+        question: 'Can I use the same QR campaign across all Arabic-speaking countries?',
+        answer:
+          'The QR code is universal. The landing page should detect browser locale and serve appropriate dialect and regional content.',
+      },
+      {
+        question: 'Is MSA appropriate for consumer-facing Arabic QR campaigns?',
+        answer:
+          'It is safe and universally understood but may feel formal. A/B test with local dialect if your primary market is a single country.',
+      },
     ]
   ),
 ];

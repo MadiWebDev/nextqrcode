@@ -4,12 +4,19 @@ import { getAllArticles } from '@/lib/articles';
 
 export const metadata: Metadata = {
   title: 'Full Site Index & Directory — QR Code Tools',
-  description: 'Full sitemap of QR Code Tools. Browse all 15 optical engineering tools, generators, technical guides, and standards.',
+  description:
+    'Full sitemap of QR Code Tools. Browse all 15 optical engineering tools, generators, technical guides, and standards.',
   alternates: { canonical: 'https://freeqrcode.tools/sitemap-page' },
   robots: { index: true, follow: true },
 };
 
-function SitemapSection({ heading, links }: { heading: string; links: { label: string; href: string }[] }) {
+function SitemapSection({
+  heading,
+  links,
+}: {
+  heading: string;
+  links: { label: string; href: string }[];
+}) {
   return (
     <section>
       <h2 className="text-xl font-bold mb-3 text-foreground">{heading}</h2>
@@ -32,9 +39,12 @@ export default function SitemapPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
       <header>
-        <h1 className="text-3xl font-extrabold tracking-tight">QR Code Tools Directory & Sitemap</h1>
+        <h1 className="text-3xl font-extrabold tracking-tight">
+          QR Code Tools Directory & Sitemap
+        </h1>
         <p className="text-muted-foreground mt-2 text-sm">
-          A complete index of all 15 client-side QR and barcode engineering tools, generators, and research articles.
+          A complete index of all 15 client-side QR and barcode engineering tools, generators, and
+          research articles.
         </p>
       </header>
 
@@ -49,7 +59,10 @@ export default function SitemapPage() {
           { label: 'Animated-QR Offline File Transfer', href: '/animated-qr-transfer' },
           { label: 'Emergency Medical ID QR Card', href: '/medical-id-qr' },
           { label: 'Printable WiFi Signs (RTL Urdu & Arabic)', href: '/wifi-sign-generator' },
-          { label: 'Regional Payment QR (Raast, JazzCash, Easypaisa, UPI)', href: '/pakistan-payment-qr' },
+          {
+            label: 'Regional Payment QR (Raast, JazzCash, Easypaisa, UPI)',
+            href: '/pakistan-payment-qr',
+          },
           { label: 'Avery Sticker Sheet Layout Printer', href: '/qr-sticker-sheet-printer' },
           { label: 'Pet Tag & Lost-and-Found QR', href: '/pet-tag-qr' },
           { label: 'Bulk vCard QR from CSV', href: '/bulk-vcard-qr' },

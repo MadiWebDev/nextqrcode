@@ -6,7 +6,7 @@ export const batch33: Article[] = [
     'qr-code-for-trade-union',
     'QR Codes for Trade Unions: Membership, Ballots, and Workplace Rights',
     'qr code trade union membership ballot workplace rights',
-    'Use QR codes in trade union communications for membership sign-up, industrial ballots, and workers\' rights guides.',
+    "Use QR codes in trade union communications for membership sign-up, industrial ballots, and workers' rights guides.",
     'Business & Regional',
     '5 min read',
     '2027-05-31',
@@ -28,8 +28,16 @@ A QR on a "know your rights" poster links to the union's plain-language rights g
 A QR links to the directory of workplace representatives with contact details and availability. Members reach their rep without searching a general union website.
     `,
     [
-      { question: 'Does an online trade union ballot satisfy legal requirements?', answer: 'Requirements vary by country. In the UK, TULRCA sets out ballot requirements. Confirm digital ballot validity with your union\'s legal advisors.' },
-      { question: 'Should a union membership QR be on a company noticeboard?', answer: 'Yes. Companies are generally required to permit trade union information on noticeboards. Check your recognition agreement.' },
+      {
+        question: 'Does an online trade union ballot satisfy legal requirements?',
+        answer:
+          "Requirements vary by country. In the UK, TULRCA sets out ballot requirements. Confirm digital ballot validity with your union's legal advisors.",
+      },
+      {
+        question: 'Should a union membership QR be on a company noticeboard?',
+        answer:
+          'Yes. Companies are generally required to permit trade union information on noticeboards. Check your recognition agreement.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,17 @@ A QR on a display table links to the current seasonal planting guide: what to so
 A QR on the events board links to the workshop booking page: upcoming events (pruning, propagation, container planting), available spaces, and online payment.
     `,
     [
-      { question: 'Should garden centre plant QRs link to a single generic page or per-species pages?', answer: 'Per-species pages provide far more value and are more likely to be shared. A generic page is a wasted opportunity.' },
-      { question: 'Can a QR on a plant label survive an outdoor garden centre?', answer: 'Use laminated synthetic labels rated for UV and rain. Standard paper labels yellow and peel within weeks outdoors.' },
+      {
+        question:
+          'Should garden centre plant QRs link to a single generic page or per-species pages?',
+        answer:
+          'Per-species pages provide far more value and are more likely to be shared. A generic page is a wasted opportunity.',
+      },
+      {
+        question: 'Can a QR on a plant label survive an outdoor garden centre?',
+        answer:
+          'Use laminated synthetic labels rated for UV and rain. Standard paper labels yellow and peel within weeks outdoors.',
+      },
     ]
   ),
   art(
@@ -88,8 +105,16 @@ A QR links to the activities booking page: kayaking sessions, tennis court slots
 A QR near the fire assembly point and inside each accommodation links to emergency procedures, the site's address for emergency services, and the warden's 24-hour number.
     `,
     [
-      { question: 'Should a holiday park QR self check-in work at 11 pm?', answer: 'Yes. Late arrivals are common. A 24/7 self check-in QR reduces the need for late-night staffing while still welcoming guests properly.' },
-      { question: 'Can activity booking QRs handle capacity management?', answer: 'Yes. Server-side capacity limits prevent overbooking. Sessions close when full; a waitlist QR captures interest.' },
+      {
+        question: 'Should a holiday park QR self check-in work at 11 pm?',
+        answer:
+          'Yes. Late arrivals are common. A 24/7 self check-in QR reduces the need for late-night staffing while still welcoming guests properly.',
+      },
+      {
+        question: 'Can activity booking QRs handle capacity management?',
+        answer:
+          'Yes. Server-side capacity limits prevent overbooking. Sessions close when full; a waitlist QR captures interest.',
+      },
     ]
   ),
   art(
@@ -118,8 +143,16 @@ A QR on the episode streaming page (sidebar or end card) links to cast bios, beh
 A QR on a TV guide print ad or a physical billboard links to the streaming app download page. Converting passive print viewers to active app users.
     `,
     [
-      { question: 'How long should an on-screen QR be displayed for viewers to scan?', answer: 'At least 10 seconds at the end of a segment. Position in a corner away from subtitles. Animate in smoothly to draw attention without distraction.' },
-      { question: 'Can a live on-screen QR poll handle high simultaneous traffic?', answer: 'Only with appropriate server capacity. Scale your backend for peak concurrent scans from the broadcast audience at the moment of display.' },
+      {
+        question: 'How long should an on-screen QR be displayed for viewers to scan?',
+        answer:
+          'At least 10 seconds at the end of a segment. Position in a corner away from subtitles. Animate in smoothly to draw attention without distraction.',
+      },
+      {
+        question: 'Can a live on-screen QR poll handle high simultaneous traffic?',
+        answer:
+          'Only with appropriate server capacity. Scale your backend for peak concurrent scans from the broadcast audience at the moment of display.',
+      },
     ]
   ),
   art(
@@ -148,8 +181,16 @@ A QR in the waiting area links to financial literacy resources: budgeting guides
 A QR links to the complaints page and the feedback form. Accessible in-branch without asking a counter staff member, which can deter customers from raising concerns.
     `,
     [
-      { question: 'Should bank QR codes link to external rate comparison websites?', answer: 'Banks generally prefer to link to their own comparison tools. External links introduce competitors. Discuss with compliance before linking externally.' },
-      { question: 'Can a QR replace the printed rate card in a branch window?', answer: 'No. Rate cards in branch windows have regulatory display requirements. QR supplements the required printed display with a live, detailed breakdown.' },
+      {
+        question: 'Should bank QR codes link to external rate comparison websites?',
+        answer:
+          'Banks generally prefer to link to their own comparison tools. External links introduce competitors. Discuss with compliance before linking externally.',
+      },
+      {
+        question: 'Can a QR replace the printed rate card in a branch window?',
+        answer:
+          'No. Rate cards in branch windows have regulatory display requirements. QR supplements the required printed display with a live, detailed breakdown.',
+      },
     ]
   ),
   art(
@@ -178,8 +219,16 @@ A QR links to the institution's conservation programme for the species: breeding
 A QR beside a popular species links to the animal adoption page. Visitors who fell in love with an animal adopt and receive regular updates. A strong revenue and engagement driver.
     `,
     [
-      { question: 'Should zoo QR codes link to live camera feeds?', answer: 'Yes where available. A live camera QR from a nesting or off-display area is highly engaging and drives return visits.' },
-      { question: 'Can a QR at an exhibit increase conservation donations?', answer: 'Yes. Immediate emotional connection to the animal plus a one-tap donation QR significantly increases conversion compared to a later email ask.' },
+      {
+        question: 'Should zoo QR codes link to live camera feeds?',
+        answer:
+          'Yes where available. A live camera QR from a nesting or off-display area is highly engaging and drives return visits.',
+      },
+      {
+        question: 'Can a QR at an exhibit increase conservation donations?',
+        answer:
+          'Yes. Immediate emotional connection to the animal plus a one-tap donation QR significantly increases conversion compared to a later email ask.',
+      },
     ]
   ),
   art(
@@ -208,8 +257,16 @@ A QR links to how the route has evolved: previous grades, beta variations found 
 A QR at the desk and on the wall links to the membership application: day pass, monthly, and annual options with pricing. Visitors who enjoyed their first session convert to members in the session.
     `,
     [
-      { question: 'Should beta video QRs be behind a paywall?', answer: 'Basic beta is a service enhancement best kept free to drive repeat visits. Premium beta (advanced technique breakdown) can be member-only.' },
-      { question: 'Can a QR route grade system replace coloured hold tape?', answer: 'No. Visual grade identification at a glance is essential. QR provides additional context; it does not replace the visual grade system.' },
+      {
+        question: 'Should beta video QRs be behind a paywall?',
+        answer:
+          'Basic beta is a service enhancement best kept free to drive repeat visits. Premium beta (advanced technique breakdown) can be member-only.',
+      },
+      {
+        question: 'Can a QR route grade system replace coloured hold tape?',
+        answer:
+          'No. Visual grade identification at a glance is essential. QR provides additional context; it does not replace the visual grade system.',
+      },
     ]
   ),
   art(
@@ -238,8 +295,16 @@ A QR on the community notice board links to the full events programme: author ta
 A QR for non-members links to the library card application form. An online application processed within 48 hours reduces the barrier to first visit.
     `,
     [
-      { question: 'Should library QR codes work without a library card?', answer: 'Catalogue browsing: yes. eBook loans and event booking: no, these require a library card.' },
-      { question: 'Can a QR in the library drive eBook adoption?', answer: 'Yes. Many library users are unaware that free eBooks are available. A QR at the physical book shelf with "Also available as an eBook" is a high-conversion placement.' },
+      {
+        question: 'Should library QR codes work without a library card?',
+        answer:
+          'Catalogue browsing: yes. eBook loans and event booking: no, these require a library card.',
+      },
+      {
+        question: 'Can a QR in the library drive eBook adoption?',
+        answer:
+          'Yes. Many library users are unaware that free eBooks are available. A QR at the physical book shelf with "Also available as an eBook" is a high-conversion placement.',
+      },
     ]
   ),
   art(
@@ -268,8 +333,16 @@ A QR links to a public dashboard showing progress against sustainability pledges
 A QR links to the third-party assurance statement confirming the verification scope, standard used, and conclusion. Transparent assurance distinguishes genuine reporting from greenwashing.
     `,
     [
-      { question: 'Can a QR in a sustainability report reduce greenwashing risk?', answer: 'Yes. Linking to verifiable data, methodology, and third-party assurance makes claims auditable and reduces the scope for misleading narrative.' },
-      { question: 'Should sustainability QR data links require registration?', answer: 'No. Transparency is undermined by registration gates. Publicly accessible data serves investors, NGOs, regulators, and journalists equally.' },
+      {
+        question: 'Can a QR in a sustainability report reduce greenwashing risk?',
+        answer:
+          'Yes. Linking to verifiable data, methodology, and third-party assurance makes claims auditable and reduces the scope for misleading narrative.',
+      },
+      {
+        question: 'Should sustainability QR data links require registration?',
+        answer:
+          'No. Transparency is undermined by registration gates. Publicly accessible data serves investors, NGOs, regulators, and journalists equally.',
+      },
     ]
   ),
   art(
@@ -298,8 +371,16 @@ A QR displayed on air or in print links to the competition entry form. No call-i
 A QR on a presenter's promotional material links to their social profiles, interview clips, and upcoming personal appearances. Builds direct presenter-audience relationships.
     `,
     [
-      { question: 'Can a QR code on a radio advert drive measurable traffic?', answer: 'Yes with a unique URL per radio ad placement. Though most radio listeners are in cars, paused or recalled scans from ad recall is measurable.' },
-      { question: 'Should competition entry QRs be time-limited?', answer: 'Yes. Set a closing date server-side. The QR page shows "competition closed" after the deadline without needing a new code.' },
+      {
+        question: 'Can a QR code on a radio advert drive measurable traffic?',
+        answer:
+          'Yes with a unique URL per radio ad placement. Though most radio listeners are in cars, paused or recalled scans from ad recall is measurable.',
+      },
+      {
+        question: 'Should competition entry QRs be time-limited?',
+        answer:
+          'Yes. Set a closing date server-side. The QR page shows "competition closed" after the deadline without needing a new code.',
+      },
     ]
   ),
 ];

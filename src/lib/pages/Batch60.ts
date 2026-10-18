@@ -55,16 +55,20 @@ QR wristband systems can flag allergy alerts on the scanner screen when the pati
     `,
     [
       {
-        question: 'Can a patient\'s QR wristband be scanned without their knowledge or consent?',
-        answer: 'In clinical care contexts, wristband scanning for identification is part of standard care procedures — patients consent to identification checks when agreeing to treatment. The information accessed via the QR is limited to the care team and protected by NHS data governance frameworks. Non-clinical scanning of patient wristbands outside care contexts is not authorised.',
+        question: "Can a patient's QR wristband be scanned without their knowledge or consent?",
+        answer:
+          'In clinical care contexts, wristband scanning for identification is part of standard care procedures — patients consent to identification checks when agreeing to treatment. The information accessed via the QR is limited to the care team and protected by NHS data governance frameworks. Non-clinical scanning of patient wristbands outside care contexts is not authorised.',
       },
       {
-        question: 'What happens if a patient\'s wristband QR code becomes unreadable (damaged, wet)?',
-        answer: 'Wristband replacement protocols require clinical staff to print and apply a new wristband when the existing one is damaged, obscured, or removed. Until replaced, verbal identification using minimum two patient identifiers (name + DOB) with EPR lookup is the required procedure. Degraded wristbands should not be tolerated as adequate identification.',
+        question:
+          "What happens if a patient's wristband QR code becomes unreadable (damaged, wet)?",
+        answer:
+          'Wristband replacement protocols require clinical staff to print and apply a new wristband when the existing one is damaged, obscured, or removed. Until replaced, verbal identification using minimum two patient identifiers (name + DOB) with EPR lookup is the required procedure. Degraded wristbands should not be tolerated as adequate identification.',
       },
       {
         question: 'Are QR codes on patient wristbands secure enough to prevent data breaches?',
-        answer: 'The QR on a wristband encodes only an identifier (hospital number), not clinical data. The clinical data resides in the secured EPR — accessible only to authorised users with valid credentials. Capturing the QR pattern itself provides the identifier but grants no access to clinical records without EPR authentication.',
+        answer:
+          'The QR on a wristband encodes only an identifier (hospital number), not clinical data. The clinical data resides in the secured EPR — accessible only to authorised users with valid credentials. Capturing the QR pattern itself provides the identifier but grants no access to clinical records without EPR authentication.',
       },
     ]
   ),
@@ -121,11 +125,13 @@ This provides the dispensing team with instant reference access during high-volu
     [
       {
         question: 'Can patients use a QR code on a prescription label to request a repeat?',
-        answer: 'Not via the label QR directly, but a QR on the label could link to the NHS App or pharmacy\'s repeat prescription ordering page, with the medication pre-selected. This is a useful design consideration — a link that says "Scan to request your repeat prescription" on the label simplifies a key patient action. Implement with appropriate authentication so prescriptions are not requested without patient verification.',
+        answer:
+          'Not via the label QR directly, but a QR on the label could link to the NHS App or pharmacy\'s repeat prescription ordering page, with the medication pre-selected. This is a useful design consideration — a link that says "Scan to request your repeat prescription" on the label simplifies a key patient action. Implement with appropriate authentication so prescriptions are not requested without patient verification.',
       },
       {
         question: 'Do QR codes on prescription labels work for patients with visual impairments?',
-        answer: 'Screen reader apps on smartphones can describe QR codes, and the linked digital content can be made accessible (large text, text-to-speech compatible). However, patients with severe visual impairment may not be able to locate or align the QR for scanning. Alternative formats (audio patient information, large-print leaflets) must always remain available alongside QR-linked resources.',
+        answer:
+          'Screen reader apps on smartphones can describe QR codes, and the linked digital content can be made accessible (large text, text-to-speech compatible). However, patients with severe visual impairment may not be able to locate or align the QR for scanning. Alternative formats (audio patient information, large-print leaflets) must always remain available alongside QR-linked resources.',
       },
     ]
   ),
@@ -185,15 +191,19 @@ All linking to direct-to-calendar appointment booking, often with automated depo
     [
       {
         question: 'Is online booking via QR appropriate for urgent and same-day appointments?',
-        answer: 'Same-day urgent appointments typically require clinical triage before booking — not all urgent needs are equivalent. Online QR booking is most appropriate for routine and follow-up appointments. For same-day urgent requests, a QR can link to a triage form (AccuRx or similar) rather than a direct booking page, ensuring clinical review before an appointment slot is allocated.',
+        answer:
+          'Same-day urgent appointments typically require clinical triage before booking — not all urgent needs are equivalent. Online QR booking is most appropriate for routine and follow-up appointments. For same-day urgent requests, a QR can link to a triage form (AccuRx or similar) rather than a direct booking page, ensuring clinical review before an appointment slot is allocated.',
       },
       {
         question: 'How do we ensure elderly patients can still book appointments if QR-first?',
-        answer: 'Never QR-first, always QR-alongside. Phone booking must remain available. QR booking is an additional channel that reduces pressure on phone lines, benefiting all patients. Elderly patients who prefer phone booking continue to use it. Practices that remove phone booking entirely create access barriers — this is not a QR issue, it is a service design issue.',
+        answer:
+          'Never QR-first, always QR-alongside. Phone booking must remain available. QR booking is an additional channel that reduces pressure on phone lines, benefiting all patients. Elderly patients who prefer phone booking continue to use it. Practices that remove phone booking entirely create access barriers — this is not a QR issue, it is a service design issue.',
       },
       {
-        question: 'Can a GP surgery\'s online booking QR handle interpreter and accessibility requests?',
-        answer: 'Yes if the booking form includes appropriate fields. Include: preferred language and interpreter required, hearing loop or BSL interpreter, accessible appointment (ground floor, extra time), and any other access needs. Capturing this at booking allows the surgery to prepare appropriately rather than managing access needs at the appointment itself.',
+        question:
+          "Can a GP surgery's online booking QR handle interpreter and accessibility requests?",
+        answer:
+          'Yes if the booking form includes appropriate fields. Include: preferred language and interpreter required, hearing loop or BSL interpreter, accessible appointment (ground floor, extra time), and any other access needs. Capturing this at booking allows the surgery to prepare appropriately rather than managing access needs at the appointment itself.',
       },
     ]
   ),
@@ -249,12 +259,15 @@ Offer text-size controls on the wayfinding page — hospital visitors frequently
     `,
     [
       {
-        question: 'Can QR wayfinding work without the patient having mobile data inside the hospital?',
-        answer: 'Many hospitals have poor indoor mobile coverage. To address this: provide a guest WiFi QR code at the entrance that connects patients automatically, ensure the wayfinding page caches after first load (Progressive Web App), and display a simple static floor plan alongside the QR as a non-digital fallback. Never rely solely on mobile data for wayfinding in a building with known coverage issues.',
+        question:
+          'Can QR wayfinding work without the patient having mobile data inside the hospital?',
+        answer:
+          'Many hospitals have poor indoor mobile coverage. To address this: provide a guest WiFi QR code at the entrance that connects patients automatically, ensure the wayfinding page caches after first load (Progressive Web App), and display a simple static floor plan alongside the QR as a non-digital fallback. Never rely solely on mobile data for wayfinding in a building with known coverage issues.',
       },
       {
         question: 'How often does hospital QR wayfinding need updating?',
-        answer: 'Department relocations in large hospitals can occur quarterly. Assign a wayfinding content owner responsible for updating the linked pages whenever a department moves. A digital wayfinding system that requires a simple URL redirect update is far easier to maintain than reprinting hundreds of static signs. Set a calendar reminder for quarterly audits of all wayfinding QR destinations.',
+        answer:
+          'Department relocations in large hospitals can occur quarterly. Assign a wayfinding content owner responsible for updating the linked pages whenever a department moves. A digital wayfinding system that requires a simple URL redirect update is far easier to maintain than reprinting hundreds of static signs. Set a calendar reminder for quarterly audits of all wayfinding QR destinations.',
       },
     ]
   ),
@@ -310,16 +323,19 @@ The NHS App provides patient access to GP records, medications, and test results
     `,
     [
       {
-        question: 'Is it safe to put medical information in a QR code on a person\'s body?',
-        answer: 'Best practice is to encode only a reference (URL or identifier) in the QR, not the medical data itself. The QR links to a secure system that holds the data. Encoding medical data directly in the QR pattern means anyone who scans it can read it — including strangers. A URL linking to a properly authenticated access system provides both emergency usability and privacy protection.',
+        question: "Is it safe to put medical information in a QR code on a person's body?",
+        answer:
+          'Best practice is to encode only a reference (URL or identifier) in the QR, not the medical data itself. The QR links to a secure system that holds the data. Encoding medical data directly in the QR pattern means anyone who scans it can read it — including strangers. A URL linking to a properly authenticated access system provides both emergency usability and privacy protection.',
       },
       {
         question: 'Can patients update their own emergency medical QR records?',
-        answer: 'In patient-controlled systems (iMedAlert, personal health record apps), yes — the patient updates their own summary. In NHS systems, the GP practice maintains the record. Patient-controlled updates are faster to reflect real-world changes (new allergy discovered, medication changed) but carry the risk of inaccurate patient self-reporting. GP-maintained records are more clinically accurate but may lag real-world changes.',
+        answer:
+          'In patient-controlled systems (iMedAlert, personal health record apps), yes — the patient updates their own summary. In NHS systems, the GP practice maintains the record. Patient-controlled updates are faster to reflect real-world changes (new allergy discovered, medication changed) but carry the risk of inaccurate patient self-reporting. GP-maintained records are more clinically accurate but may lag real-world changes.',
       },
       {
         question: 'How do we ensure a medical QR code card is noticed and scanned in an emergency?',
-        answer: 'Visibility and labelling are critical. The card or wristband should clearly state: "Emergency Medical Information — Scan QR Code." Use a universally recognised medical symbol (red cross or star of life). Brief first responders and emergency contacts about the card\'s existence. A card in a wallet may not be found as quickly as a wristband — consider the patient\'s mobility and likely scenario when choosing the medium.',
+        answer:
+          'Visibility and labelling are critical. The card or wristband should clearly state: "Emergency Medical Information — Scan QR Code." Use a universally recognised medical symbol (red cross or star of life). Brief first responders and emergency contacts about the card\'s existence. A card in a wallet may not be found as quickly as a wristband — consider the patient\'s mobility and likely scenario when choosing the medium.',
       },
     ]
   ),

@@ -32,8 +32,16 @@ A QR at accessibility desks and information points links to a guide for passenge
 Airports have multiple terminals and the layout changes with construction. Use a URL structure that supports terminal and version parameters so links remain valid through building work.
     `,
     [
-      { question: 'Can a QR code replace airport signage?', answer: 'No. Static directional signage must remain. QR supplements with dynamic, detailed, or personalised information.' },
-      { question: 'What if a passenger has no roaming data in the airport?', answer: 'Airports typically offer free WiFi. Make the connected WiFi QR prominent, then all subsequent QR content works via WiFi.' },
+      {
+        question: 'Can a QR code replace airport signage?',
+        answer:
+          'No. Static directional signage must remain. QR supplements with dynamic, detailed, or personalised information.',
+      },
+      {
+        question: 'What if a passenger has no roaming data in the airport?',
+        answer:
+          'Airports typically offer free WiFi. Make the connected WiFi QR prominent, then all subsequent QR content works via WiFi.',
+      },
     ]
   ),
   art(
@@ -62,8 +70,16 @@ A QR in the window links to the charity's current priority list of needed items.
 A QR links to the charity's online shop where items not sold locally are listed. Customers who do not find what they need in-store can browse the wider selection.
     `,
     [
-      { question: 'Does Gift Aid apply to QR-captured declarations?', answer: 'Yes, as long as the form meets HMRC requirements and the declaration is retained. Verify with your charity\'s finance team.' },
-      { question: 'Can a charity shop QR help value rare items?', answer: 'Link to a condition guide or category valuation page to help customers understand pricing and trust it.' },
+      {
+        question: 'Does Gift Aid apply to QR-captured declarations?',
+        answer:
+          "Yes, as long as the form meets HMRC requirements and the declaration is retained. Verify with your charity's finance team.",
+      },
+      {
+        question: 'Can a charity shop QR help value rare items?',
+        answer:
+          'Link to a condition guide or category valuation page to help customers understand pricing and trust it.',
+      },
     ]
   ),
   art(
@@ -92,8 +108,16 @@ Booked desks that are not checked in by scanning within 15 minutes are released 
 A QR on the desk links to the coworking code of conduct and hot desk policy: what is and is not allowed at shared desks, quiet zones, and call policies.
     `,
     [
-      { question: 'How do I prevent members holding desks without being present?', answer: 'Auto-release bookings that are not confirmed by a check-in scan within a defined window after the booking start time.' },
-      { question: 'Can desk QR codes track usage patterns?', answer: 'Yes. Scan events create a time-stamped occupancy record. Use this to identify underused areas and popular desk features.' },
+      {
+        question: 'How do I prevent members holding desks without being present?',
+        answer:
+          'Auto-release bookings that are not confirmed by a check-in scan within a defined window after the booking start time.',
+      },
+      {
+        question: 'Can desk QR codes track usage patterns?',
+        answer:
+          'Yes. Scan events create a time-stamped occupancy record. Use this to identify underused areas and popular desk features.',
+      },
     ]
   ),
   art(
@@ -122,8 +146,16 @@ A QR on the machine links to a fault report form pre-filled with the machine ID.
 A QR accessible to operators opens the stock management view for that machine, showing current levels and restocking history. Efficient route planning for multi-machine operators.
     `,
     [
-      { question: 'Can customers pay via QR on any vending machine?', answer: 'Only on machines integrated with a QR payment gateway. Retrofitting existing machines requires a connected payment module.' },
-      { question: 'Does a vending machine QR need to be unique per machine?', answer: 'Yes. Encode the machine ID in the URL so payment, fault reports, and stock data link to the correct machine.' },
+      {
+        question: 'Can customers pay via QR on any vending machine?',
+        answer:
+          'Only on machines integrated with a QR payment gateway. Retrofitting existing machines requires a connected payment module.',
+      },
+      {
+        question: 'Does a vending machine QR need to be unique per machine?',
+        answer:
+          'Yes. Encode the machine ID in the URL so payment, fault reports, and stock data link to the correct machine.',
+      },
     ]
   ),
   art(
@@ -152,8 +184,16 @@ Large QR posters in student unions, dining halls, and lecture theatres link to t
 Non-partisan registration drives must not influence candidate choice. The QR links only to the official government registration page, not any campaign or advocacy material.
     `,
     [
-      { question: 'Can a QR voter registration drive target a specific party?', answer: 'Non-partisan QR drives cannot. Partisan campaigns can use QR for canvassing but must follow election law on disclosures.' },
-      { question: 'How do I know if the linked registration page is up to date?', answer: 'Use the official government registration URL. Check it before each deployment; registration systems update around deadlines.' },
+      {
+        question: 'Can a QR voter registration drive target a specific party?',
+        answer:
+          'Non-partisan QR drives cannot. Partisan campaigns can use QR for canvassing but must follow election law on disclosures.',
+      },
+      {
+        question: 'How do I know if the linked registration page is up to date?',
+        answer:
+          'Use the official government registration URL. Check it before each deployment; registration systems update around deadlines.',
+      },
     ]
   ),
   art(
@@ -182,8 +222,16 @@ A QR at the preview links to the absentee and telephone bid registration form. B
 A QR displayed during the sale links to the real-time online bidding platform. Broadcast to social channels so remote buyers can scan and join the room.
     `,
     [
-      { question: 'Should every lot have its own QR?', answer: 'Yes. Each lot needs a unique code linking to its specific catalogue entry, condition report, and bidding page.' },
-      { question: 'Can a buyer complete a purchase via QR?', answer: 'Bidding and payment can be initiated via QR-linked web platforms. Final invoicing usually requires account verification.' },
+      {
+        question: 'Should every lot have its own QR?',
+        answer:
+          'Yes. Each lot needs a unique code linking to its specific catalogue entry, condition report, and bidding page.',
+      },
+      {
+        question: 'Can a buyer complete a purchase via QR?',
+        answer:
+          'Bidding and payment can be initiated via QR-linked web platforms. Final invoicing usually requires account verification.',
+      },
     ]
   ),
   art(
@@ -212,8 +260,16 @@ Forged licences are a serious problem in skilled trades. A QR that verifies agai
 Some systems send an expiry reminder to the licence holder when the record is queried near the expiry date. This helps keep the industry compliant.
     `,
     [
-      { question: 'Does a QR on a licence prove it is genuine?', answer: 'Only if the QR links to a verified government or authority database. A QR linking to a privately controlled page can be forged.' },
-      { question: 'Can a contractor print their own licence QR?', answer: 'Only the issuing authority should generate and control the QR. Self-generated licence QRs have no verification value.' },
+      {
+        question: 'Does a QR on a licence prove it is genuine?',
+        answer:
+          'Only if the QR links to a verified government or authority database. A QR linking to a privately controlled page can be forged.',
+      },
+      {
+        question: 'Can a contractor print their own licence QR?',
+        answer:
+          'Only the issuing authority should generate and control the QR. Self-generated licence QRs have no verification value.',
+      },
     ]
   ),
   art(
@@ -242,8 +298,16 @@ A QR on each meeting room door opens the room's calendar for that day. Scan to s
 A QR near the projector or screen links to a quick-start AV guide: which cable to use, how to share from Mac or Windows, and who to call for support.
     `,
     [
-      { question: 'Should the printer QR link to a driver download?', answer: 'Yes. Include the drivers for Windows, Mac, and Linux, along with the IP address and setup screenshots.' },
-      { question: 'Is a WiFi QR code secure in a shared office?', answer: 'Use a separate guest SSID with client isolation. Do not put the main staff network password in a shared QR.' },
+      {
+        question: 'Should the printer QR link to a driver download?',
+        answer:
+          'Yes. Include the drivers for Windows, Mac, and Linux, along with the IP address and setup screenshots.',
+      },
+      {
+        question: 'Is a WiFi QR code secure in a shared office?',
+        answer:
+          'Use a separate guest SSID with client isolation. Do not put the main staff network password in a shared QR.',
+      },
     ]
   ),
   art(
@@ -272,8 +336,15 @@ After a consultation, a QR on the treatment plan printout links to a detailed di
 A QR on the aftercare leaflet links to videos demonstrating correct brushing after a filling, orthodontic appliance cleaning, or implant care. Better compliance reduces return visits.
     `,
     [
-      { question: 'Can patient data be accessed via a QR without authentication?', answer: 'No. Any patient-specific data must be behind authentication. The QR triggers the login flow for the patient portal.' },
-      { question: 'Should the QR aftercare guide ever expire?', answer: 'No. Use a permanent URL. Patients may refer back months later for a refresher.' },
+      {
+        question: 'Can patient data be accessed via a QR without authentication?',
+        answer:
+          'No. Any patient-specific data must be behind authentication. The QR triggers the login flow for the patient portal.',
+      },
+      {
+        question: 'Should the QR aftercare guide ever expire?',
+        answer: 'No. Use a permanent URL. Patients may refer back months later for a refresher.',
+      },
     ]
   ),
   art(
@@ -302,8 +373,16 @@ Facilitators scan a session QR to access the observation form for that group. No
 Photograph and share only with explicit consent, especially in vulnerable adult or child settings. Use anonymised identifiers rather than names on digital portfolios.
     `,
     [
-      { question: 'Can participants access their own portfolios via QR?', answer: 'Yes with appropriate authentication. A simple PIN or email link provides access without a complex account system.' },
-      { question: 'Should artwork be identifiable in a digital portfolio?', answer: 'Only with the participant\'s informed consent. Default to anonymised images with a code identifier.' },
+      {
+        question: 'Can participants access their own portfolios via QR?',
+        answer:
+          'Yes with appropriate authentication. A simple PIN or email link provides access without a complex account system.',
+      },
+      {
+        question: 'Should artwork be identifiable in a digital portfolio?',
+        answer:
+          "Only with the participant's informed consent. Default to anonymised images with a code identifier.",
+      },
     ]
   ),
 ];

@@ -28,8 +28,16 @@ QR codes on community boards link to event sign-up forms, volunteer rosters, and
 Leaflets and banners at community events carry a QR linking to information about the congregation. Provide a language selection on the landing page for multilingual communities.
     `,
     [
-      { question: 'Can a QR code replace the collection plate?', answer: 'It supplements it. Some members prefer digital giving; others prefer cash. Offer both.' },
-      { question: 'How often should the bulletin QR link change?', answer: 'Each week if linking to a specific order of service, or use a permanent URL that always shows the current week.' },
+      {
+        question: 'Can a QR code replace the collection plate?',
+        answer:
+          'It supplements it. Some members prefer digital giving; others prefer cash. Offer both.',
+      },
+      {
+        question: 'How often should the bulletin QR link change?',
+        answer:
+          'Each week if linking to a specific order of service, or use a permanent URL that always shows the current week.',
+      },
     ]
   ),
   art(
@@ -62,8 +70,16 @@ In-stadium competitions use QR codes to capture entries. Each scan registers the
 Provide printed programme QRs and in-seat prompts. Not all fans will scan, so important information must also be available on the big screen and PA.
     `,
     [
-      { question: 'How do I stop fans sharing a screenshot of their ticket?', answer: 'Server-side single-use validation. The first valid scan invalidates the token; subsequent scans of the same code are rejected.' },
-      { question: 'What size QR works on a match day programme?', answer: 'Programmes are read at arm length, so 3 to 4 cm is comfortable for a 30 to 40 cm scan distance.' },
+      {
+        question: 'How do I stop fans sharing a screenshot of their ticket?',
+        answer:
+          'Server-side single-use validation. The first valid scan invalidates the token; subsequent scans of the same code are rejected.',
+      },
+      {
+        question: 'What size QR works on a match day programme?',
+        answer:
+          'Programmes are read at arm length, so 3 to 4 cm is comfortable for a 30 to 40 cm scan distance.',
+      },
     ]
   ),
   art(
@@ -96,8 +112,16 @@ Visitors scan a reception QR to enter their name and host. The host receives a n
 A welcome QR on the member pack links to a digital onboarding guide covering access codes, printer setup, and community guidelines.
     `,
     [
-      { question: 'Can members book a desk with just a QR scan?', answer: 'Yes. Encode the desk ID in the URL and authenticate via a linked member account. One scan, one tap to confirm.' },
-      { question: 'How do I prevent a member from squatting a desk all day?', answer: 'Auto-release after a set period of inactivity, or require a mid-day confirmation scan.' },
+      {
+        question: 'Can members book a desk with just a QR scan?',
+        answer:
+          'Yes. Encode the desk ID in the URL and authenticate via a linked member account. One scan, one tap to confirm.',
+      },
+      {
+        question: 'How do I prevent a member from squatting a desk all day?',
+        answer:
+          'Auto-release after a set period of inactivity, or require a mid-day confirmation scan.',
+      },
     ]
   ),
   art(
@@ -126,8 +150,16 @@ On form submission, trigger an automated email with the property listing link, a
 Inform visitors that their contact details will be used for follow-up. Provide an opt-out option. Comply with local privacy law.
     `,
     [
-      { question: 'Should visitors be required to register via QR before entering?', answer: 'You can ask but cannot legally compel without a valid purpose. Most agents offer it as an optional convenience.' },
-      { question: 'How do I follow up with QR leads automatically?', answer: 'Connect the form to your CRM or email marketing tool and trigger a follow-up sequence on submission.' },
+      {
+        question: 'Should visitors be required to register via QR before entering?',
+        answer:
+          'You can ask but cannot legally compel without a valid purpose. Most agents offer it as an optional convenience.',
+      },
+      {
+        question: 'How do I follow up with QR leads automatically?',
+        answer:
+          'Connect the form to your CRM or email marketing tool and trigger a follow-up sequence on submission.',
+      },
     ]
   ),
   art(
@@ -160,8 +192,16 @@ Keep the code small and tasteful, placed on the back of a programme or a memoria
 Memorial pages should remain accessible for years. Use a hosted service with a good track record or your own domain. Document the URL and access credentials for the family.
     `,
     [
-      { question: 'How long should a memorial page stay live?', answer: 'Ideally indefinitely, or at least for several years. Discuss longevity with the family and ensure someone holds the hosting account details.' },
-      { question: 'Can remote family view the funeral via the QR?', answer: 'Yes, if you link to a live-stream page. Ensure the stream link is tested before the service.' },
+      {
+        question: 'How long should a memorial page stay live?',
+        answer:
+          'Ideally indefinitely, or at least for several years. Discuss longevity with the family and ensure someone holds the hosting account details.',
+      },
+      {
+        question: 'Can remote family view the funeral via the QR?',
+        answer:
+          'Yes, if you link to a live-stream page. Ensure the stream link is tested before the service.',
+      },
     ]
   ),
   art(
@@ -190,8 +230,16 @@ A scan log with timestamp and location provides evidence in any dispute about pa
 See the parking scam article for defence against sticker overlays. Use tamper-evident holders or integrate the code into the signage surface.
     `,
     [
-      { question: 'Can a driver pay for parking via QR without an app?', answer: 'Yes. A web-based payment page works on any smartphone browser. App-based systems add friction for occasional visitors.' },
-      { question: 'How do I prevent one driver paying for another bay?', answer: 'Encode the bay ID in the QR URL so the payment page pre-fills the correct bay, reducing manual entry errors.' },
+      {
+        question: 'Can a driver pay for parking via QR without an app?',
+        answer:
+          'Yes. A web-based payment page works on any smartphone browser. App-based systems add friction for occasional visitors.',
+      },
+      {
+        question: 'How do I prevent one driver paying for another bay?',
+        answer:
+          'Encode the bay ID in the QR URL so the payment page pre-fills the correct bay, reducing manual entry errors.',
+      },
     ]
   ),
   art(
@@ -220,8 +268,16 @@ Python (qrcode library), Go (skip2/go-qrcode), and command-line tools (qrencode)
 Verify that the tool you choose actually generates client-side. Some advertise "privacy" while still sending the payload to a backend. Check the network tab in browser developer tools.
     `,
     [
-      { question: 'Can I generate a WiFi QR code without sending my password online?', answer: 'Yes. Use a client-side browser tool or a local library. Your password never leaves your device.' },
-      { question: 'How do I check if a generator is truly client-side?', answer: 'Open the browser developer tools, go to the network tab, and watch for requests when you generate a code.' },
+      {
+        question: 'Can I generate a WiFi QR code without sending my password online?',
+        answer:
+          'Yes. Use a client-side browser tool or a local library. Your password never leaves your device.',
+      },
+      {
+        question: 'How do I check if a generator is truly client-side?',
+        answer:
+          'Open the browser developer tools, go to the network tab, and watch for requests when you generate a code.',
+      },
     ]
   ),
   art(
@@ -250,8 +306,16 @@ EPR schemes in the EU and UK require producers to report on packaging placed on 
 Use the QR landing page to explain why packaging is designed the way it is, what it is made from, and how to prepare it for recycling (rinse, flatten, cap on or off).
     `,
     [
-      { question: 'Can one recycling QR work across all countries?', answer: 'Yes if the landing page adapts to location. Recycling rules vary by country and even by city, so a dynamic page is essential.' },
-      { question: 'Is this required by law?', answer: 'Not universally, but EU and UK EPR regulations are creating pressure to disclose material composition in machine-readable form, which GS1 Digital Link supports.' },
+      {
+        question: 'Can one recycling QR work across all countries?',
+        answer:
+          'Yes if the landing page adapts to location. Recycling rules vary by country and even by city, so a dynamic page is essential.',
+      },
+      {
+        question: 'Is this required by law?',
+        answer:
+          'Not universally, but EU and UK EPR regulations are creating pressure to disclose material composition in machine-readable form, which GS1 Digital Link supports.',
+      },
     ]
   ),
   art(
@@ -284,8 +348,16 @@ The same QR can serve multiple systems: building access, cafeteria cashless paym
 Corporate ID cards are PVC or polycarbonate. Print the QR code in the card substrate layer or laminate, not on an adhesive label that can be peeled and swapped.
     `,
     [
-      { question: 'Should an employee ID QR contain their employee number?', answer: 'Only an opaque token. Employee numbers are often guessable and should not be exposed in plain text on a physical card.' },
-      { question: 'How quickly is access revoked when an employee leaves?', answer: 'Immediately, if the gate reader validates against a live or frequently-synced token revocation list.' },
+      {
+        question: 'Should an employee ID QR contain their employee number?',
+        answer:
+          'Only an opaque token. Employee numbers are often guessable and should not be exposed in plain text on a physical card.',
+      },
+      {
+        question: 'How quickly is access revoked when an employee leaves?',
+        answer:
+          'Immediately, if the gate reader validates against a live or frequently-synced token revocation list.',
+      },
     ]
   ),
   art(
@@ -314,8 +386,16 @@ Use GS1 AI 10 for batch/lot and AI 11 for production date within a GS1 Digital L
 Produce stickers use polypropylene or polyethylene. QR codes on these must be small (under 2 cm) and high contrast. Test in refrigerated and humid environments before full deployment.
     `,
     [
-      { question: 'Can a produce QR help if there is a contamination recall?', answer: 'Yes. Lot-level traceability lets you identify exactly which units from which harvest are affected and notify the supply chain quickly.' },
-      { question: 'What QR size works on a small produce sticker?', answer: 'Keep payload to a short URL. Version 3 or 4 at level M fits in under 2 cm on smooth polypropylene.' },
+      {
+        question: 'Can a produce QR help if there is a contamination recall?',
+        answer:
+          'Yes. Lot-level traceability lets you identify exactly which units from which harvest are affected and notify the supply chain quickly.',
+      },
+      {
+        question: 'What QR size works on a small produce sticker?',
+        answer:
+          'Keep payload to a short URL. Version 3 or 4 at level M fits in under 2 cm on smooth polypropylene.',
+      },
     ]
   ),
 ];

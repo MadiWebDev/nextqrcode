@@ -32,8 +32,16 @@ Send an automatic message when the customer earns their reward. A thank-you mess
 The simplest integration: a unique merchant QR at the counter. The customer scans; the server records. No POS modification is needed.
     `,
     [
-      { question: 'Can a customer scan the same code multiple times to earn stamps?', answer: 'Rate-limit stamps per account per day to one. The server enforces this regardless of how many times the code is scanned.' },
-      { question: 'Do customers need to download an app?', answer: 'No. A web-based system with a phone number sign-in works on any smartphone without installation.' },
+      {
+        question: 'Can a customer scan the same code multiple times to earn stamps?',
+        answer:
+          'Rate-limit stamps per account per day to one. The server enforces this regardless of how many times the code is scanned.',
+      },
+      {
+        question: 'Do customers need to download an app?',
+        answer:
+          'No. A web-based system with a phone number sign-in works on any smartphone without installation.',
+      },
     ]
   ),
   art(
@@ -62,8 +70,16 @@ A small incentive, such as an extended warranty, a discount on accessories, or a
 Keep the form to three fields. Use large tap targets. Auto-format date and email fields. Test on iOS and Android at various screen sizes.
     `,
     [
-      { question: 'Should warranty registration require account creation?', answer: 'No. Requiring full account creation drastically reduces completion. A name and email is sufficient for warranty purposes.' },
-      { question: 'How do I reduce warranty fraud?', answer: 'Check the serial number against your shipment database on submission to confirm the product was sold by an authorised channel.' },
+      {
+        question: 'Should warranty registration require account creation?',
+        answer:
+          'No. Requiring full account creation drastically reduces completion. A name and email is sufficient for warranty purposes.',
+      },
+      {
+        question: 'How do I reduce warranty fraud?',
+        answer:
+          'Check the serial number against your shipment database on submission to confirm the product was sold by an authorised channel.',
+      },
     ]
   ),
   art(
@@ -92,8 +108,16 @@ Scanning in sequence unlocks story beats: a character message, a sound effect, o
 Use level H on props that will be handled. Print on durable labels or engrave into acrylic. Test in dim room lighting, which is typical for escape rooms.
     `,
     [
-      { question: 'Can an escape room use QR codes in very low light?', answer: 'Yes if module size is generous (10 cm and above) and the camera can focus in low light. Test thoroughly before opening.' },
-      { question: 'Can players use a QR to cheat?', answer: 'Design the server-side logic so codes only work in sequence. Scanning a later code out of order returns nothing or a misdirection.' },
+      {
+        question: 'Can an escape room use QR codes in very low light?',
+        answer:
+          'Yes if module size is generous (10 cm and above) and the camera can focus in low light. Test thoroughly before opening.',
+      },
+      {
+        question: 'Can players use a QR to cheat?',
+        answer:
+          'Design the server-side logic so codes only work in sequence. Scanning a later code out of order returns nothing or a misdirection.',
+      },
     ]
   ),
   art(
@@ -122,8 +146,16 @@ Use shared tablets or phones. Print QR cards on laminated A5 sheets that can be 
 Link each QR to a question or task relevant to the unit of study. Include immediate feedback: correct answers unlock the next QR; wrong answers provide a targeted hint.
     `,
     [
-      { question: 'Can students complete a QR escape room without smartphones?', answer: 'Yes using shared tablets or a classroom computer on rotation. Design the flow so one device is needed per group, not per student.' },
-      { question: 'How do I reuse the materials for different classes?', answer: 'Change the server-side content or redirect for each class session. Physical cards and QR codes stay the same.' },
+      {
+        question: 'Can students complete a QR escape room without smartphones?',
+        answer:
+          'Yes using shared tablets or a classroom computer on rotation. Design the flow so one device is needed per group, not per student.',
+      },
+      {
+        question: 'How do I reuse the materials for different classes?',
+        answer:
+          'Change the server-side content or redirect for each class session. Physical cards and QR codes stay the same.',
+      },
     ]
   ),
   art(
@@ -156,8 +188,16 @@ The same QR that travels the supply chain can be the consumer-facing code on the
 GS1 Serial Shipping Container Code (SSCC) and GS1 Digital Link are well-adopted frameworks for shipper and item-level QR codes in supply chains.
     `,
     [
-      { question: 'Do all parties in the supply chain need the same software?', answer: 'No. A web-based scan portal requires only a browser. Each party logs in to record their scan event without custom integration.' },
-      { question: 'Can a small supplier participate without IT investment?', answer: 'Yes. A simple scan-and-confirm web form on a mobile phone is the lowest-cost participation model.' },
+      {
+        question: 'Do all parties in the supply chain need the same software?',
+        answer:
+          'No. A web-based scan portal requires only a browser. Each party logs in to record their scan event without custom integration.',
+      },
+      {
+        question: 'Can a small supplier participate without IT investment?',
+        answer:
+          'Yes. A simple scan-and-confirm web form on a mobile phone is the lowest-cost participation model.',
+      },
     ]
   ),
   art(
@@ -186,8 +226,16 @@ B2B directories link suppliers to full product catalogues, certifications, and c
 Print directories have long print lives. Use stable URLs (your own domain with redirects) so the link remains valid for the full directory circulation period.
     `,
     [
-      { question: 'What if a business closes after the directory is printed?', answer: 'Redirect the URL to a "business no longer at this location" page or your directory home page. Never let it 404.' },
-      { question: 'Should each business have a unique QR in the directory?', answer: 'Yes, so you can track which listings generate traffic and attribute visits to the directory campaign.' },
+      {
+        question: 'What if a business closes after the directory is printed?',
+        answer:
+          'Redirect the URL to a "business no longer at this location" page or your directory home page. Never let it 404.',
+      },
+      {
+        question: 'Should each business have a unique QR in the directory?',
+        answer:
+          'Yes, so you can track which listings generate traffic and attribute visits to the directory campaign.',
+      },
     ]
   ),
   art(
@@ -223,8 +271,16 @@ Choose readers with a transparent privacy policy. Some free apps bundle advertis
 Zebra, Honeywell, and similar enterprise scanners read all 2D symbologies with high accuracy in challenging lighting, for warehouse, healthcare, and industrial use.
     `,
     [
-      { question: 'Is the built-in iPhone camera safe for scanning sensitive QR codes?', answer: 'Yes. Apple Camera processes the QR locally without sending it to Apple servers for standard codes.' },
-      { question: 'Which app is best for scanning many different barcode types?', answer: 'Scanbot or a dedicated enterprise app covers the widest range. Built-in cameras only handle standard QR codes.' },
+      {
+        question: 'Is the built-in iPhone camera safe for scanning sensitive QR codes?',
+        answer:
+          'Yes. Apple Camera processes the QR locally without sending it to Apple servers for standard codes.',
+      },
+      {
+        question: 'Which app is best for scanning many different barcode types?',
+        answer:
+          'Scanbot or a dedicated enterprise app covers the widest range. Built-in cameras only handle standard QR codes.',
+      },
     ]
   ),
   art(
@@ -253,8 +309,16 @@ QR codes on the notice board link to the week's menu, newsletter, and calendar u
 Child data requires strong protection. Never include a child's name, image, or location in a QR payload. Use authenticated links behind a parent login, and keep logs in a system with access controls.
     `,
     [
-      { question: 'Should childcare pickup QRs work without internet?', answer: 'Staff should have offline access to the authorised pickup list so internet outages do not compromise safety.' },
-      { question: 'Can the centre use QR codes for attendance tracking?', answer: 'Yes. Parent scans at drop-off and pickup create a timestamped attendance record without manual signing.' },
+      {
+        question: 'Should childcare pickup QRs work without internet?',
+        answer:
+          'Staff should have offline access to the authorised pickup list so internet outages do not compromise safety.',
+      },
+      {
+        question: 'Can the centre use QR codes for attendance tracking?',
+        answer:
+          'Yes. Parent scans at drop-off and pickup create a timestamped attendance record without manual signing.',
+      },
     ]
   ),
   art(
@@ -287,8 +351,16 @@ A QR on the order of service links to venue directions, parking notes, accommoda
 Wedding stationery is premium. Use a QR framed in a simple design element that matches the invitation style, and include the URL in elegant typography as a fallback.
     `,
     [
-      { question: 'Should wedding QR codes be tracked?', answer: 'Useful for RSVP. Track unique responses per link, not individual guest behavior. Keep it light and private.' },
-      { question: 'What if elderly guests cannot scan a QR?', answer: 'Include the URL in text, a phone RSVP option, and a paper insert for guests who prefer traditional communication.' },
+      {
+        question: 'Should wedding QR codes be tracked?',
+        answer:
+          'Useful for RSVP. Track unique responses per link, not individual guest behavior. Keep it light and private.',
+      },
+      {
+        question: 'What if elderly guests cannot scan a QR?',
+        answer:
+          'Include the URL in text, a phone RSVP option, and a paper insert for guests who prefer traditional communication.',
+      },
     ]
   ),
   art(
@@ -321,8 +393,16 @@ Campus events, job boards, and club notices carry QR codes instead of tearaway t
 QR codes near IT equipment link to the service desk ticket form pre-filled with the room and equipment number. Fast fault reporting reduces equipment downtime.
     `,
     [
-      { question: 'Should student ID QR codes contain the student number?', answer: 'Use an opaque token. Student numbers are often used in other systems; exposing them in plain text increases risk.' },
-      { question: 'Can a single QR code serve the whole campus?', answer: 'No. Wayfinding requires a unique QR per location to deliver location-specific content.' },
+      {
+        question: 'Should student ID QR codes contain the student number?',
+        answer:
+          'Use an opaque token. Student numbers are often used in other systems; exposing them in plain text increases risk.',
+      },
+      {
+        question: 'Can a single QR code serve the whole campus?',
+        answer:
+          'No. Wayfinding requires a unique QR per location to deliver location-specific content.',
+      },
     ]
   ),
 ];

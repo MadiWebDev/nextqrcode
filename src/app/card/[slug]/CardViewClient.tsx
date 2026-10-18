@@ -37,25 +37,30 @@ const THEME_STYLES: Record<
     bg: 'bg-gradient-to-b from-neutral-950 via-neutral-900 to-black',
     cardBg: 'bg-neutral-900/80 backdrop-blur-2xl border-amber-500/20 shadow-2xl shadow-amber-500/5',
     accent: 'text-amber-400',
-    button: 'bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-neutral-950 font-semibold shadow-lg shadow-amber-500/20',
+    button:
+      'bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-neutral-950 font-semibold shadow-lg shadow-amber-500/20',
     border: 'border-amber-500/30',
     textPrimary: 'text-white',
     textSecondary: 'text-neutral-400',
   },
   'emerald-glass': {
     bg: 'bg-gradient-to-b from-emerald-950 via-teal-950 to-slate-950',
-    cardBg: 'bg-slate-900/75 backdrop-blur-2xl border-emerald-500/20 shadow-2xl shadow-emerald-500/10',
+    cardBg:
+      'bg-slate-900/75 backdrop-blur-2xl border-emerald-500/20 shadow-2xl shadow-emerald-500/10',
     accent: 'text-emerald-400',
-    button: 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-semibold shadow-lg shadow-emerald-500/25',
+    button:
+      'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-semibold shadow-lg shadow-emerald-500/25',
     border: 'border-emerald-500/30',
     textPrimary: 'text-white',
     textSecondary: 'text-emerald-200/70',
   },
   'royal-indigo': {
     bg: 'bg-gradient-to-b from-indigo-950 via-slate-900 to-neutral-950',
-    cardBg: 'bg-slate-900/80 backdrop-blur-2xl border-indigo-500/20 shadow-2xl shadow-indigo-500/10',
+    cardBg:
+      'bg-slate-900/80 backdrop-blur-2xl border-indigo-500/20 shadow-2xl shadow-indigo-500/10',
     accent: 'text-indigo-400',
-    button: 'bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white font-semibold shadow-lg shadow-indigo-500/25',
+    button:
+      'bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white font-semibold shadow-lg shadow-indigo-500/25',
     border: 'border-indigo-500/30',
     textPrimary: 'text-white',
     textSecondary: 'text-indigo-200/70',
@@ -64,16 +69,19 @@ const THEME_STYLES: Record<
     bg: 'bg-gradient-to-b from-rose-950 via-slate-950 to-neutral-950',
     cardBg: 'bg-slate-900/80 backdrop-blur-2xl border-rose-500/20 shadow-2xl shadow-rose-500/10',
     accent: 'text-rose-400',
-    button: 'bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-semibold shadow-lg shadow-rose-500/25',
+    button:
+      'bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-semibold shadow-lg shadow-rose-500/25',
     border: 'border-rose-500/30',
     textPrimary: 'text-white',
     textSecondary: 'text-rose-200/70',
   },
-  'minimalist': {
+  minimalist: {
     bg: 'bg-gradient-to-b from-slate-100 to-slate-200 dark:from-slate-950 dark:to-neutral-950',
-    cardBg: 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl border-slate-200 dark:border-slate-800 shadow-xl',
+    cardBg:
+      'bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl border-slate-200 dark:border-slate-800 shadow-xl',
     accent: 'text-primary',
-    button: 'bg-slate-900 hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 font-semibold shadow-md',
+    button:
+      'bg-slate-900 hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 font-semibold shadow-md',
     border: 'border-slate-200 dark:border-slate-800',
     textPrimary: 'text-slate-900 dark:text-white',
     textSecondary: 'text-slate-500 dark:text-slate-400',
@@ -133,7 +141,9 @@ export function CardViewClient({ card }: CardViewClientProps) {
   const cleanPhone = card.phone?.replace(/[^\d+]/g, '');
 
   return (
-    <div className={`min-h-screen ${theme.bg} py-8 px-4 sm:px-6 flex flex-col justify-between items-center transition-colors duration-500`}>
+    <div
+      className={`min-h-screen ${theme.bg} py-8 px-4 sm:px-6 flex flex-col justify-between items-center transition-colors duration-500`}
+    >
       {/* Top action bar */}
       <div className="w-full max-w-md flex justify-between items-center mb-4">
         <Link
@@ -161,12 +171,16 @@ export function CardViewClient({ card }: CardViewClientProps) {
       </div>
 
       {/* Main Digital Card */}
-      <div className={`w-full max-w-md rounded-3xl border p-6 sm:p-8 ${theme.cardBg} transition-all duration-300`}>
+      <div
+        className={`w-full max-w-md rounded-3xl border p-6 sm:p-8 ${theme.cardBg} transition-all duration-300`}
+      >
         {/* Cover / Header Glow */}
         <div className="flex flex-col items-center text-center">
           {/* Avatar with luxury ring */}
           <div className="relative mb-4">
-            <div className={`w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 ${theme.border} p-1 shadow-2xl`}>
+            <div
+              className={`w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 ${theme.border} p-1 shadow-2xl`}
+            >
               {card.avatarUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -203,7 +217,9 @@ export function CardViewClient({ card }: CardViewClientProps) {
 
           {/* Bio */}
           {card.bio && (
-            <p className={`mt-4 text-xs sm:text-sm leading-relaxed ${theme.textSecondary} max-w-xs`}>
+            <p
+              className={`mt-4 text-xs sm:text-sm leading-relaxed ${theme.textSecondary} max-w-xs`}
+            >
               {card.bio}
             </p>
           )}

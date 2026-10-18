@@ -59,16 +59,20 @@ Plan for poor internet connectivity at venues. Pre-download the valid ticket lis
     `,
     [
       {
-        question: 'Can I use a free QR generator to make event tickets, or do I need a ticketing platform?',
-        answer: 'A free QR generator creates valid QR codes, but it cannot validate them at entry or mark them as used. Without a backend database and validation system, the same QR can be scanned multiple times by multiple copies. For events where fraud matters, use a ticketing platform with proper single-use validation.',
+        question:
+          'Can I use a free QR generator to make event tickets, or do I need a ticketing platform?',
+        answer:
+          'A free QR generator creates valid QR codes, but it cannot validate them at entry or mark them as used. Without a backend database and validation system, the same QR can be scanned multiple times by multiple copies. For events where fraud matters, use a ticketing platform with proper single-use validation.',
       },
       {
-        question: 'What happens when a guest\'s phone screen is cracked or too dim to scan?',
-        answer: 'Instruct guests to increase screen brightness to maximum before scanning. A cracked screen that breaks the QR pattern may not scan — have a fallback: look up the ticket by email or name in the platform dashboard. Always have a laptop or tablet at the door with access to the ticket management console.',
+        question: "What happens when a guest's phone screen is cracked or too dim to scan?",
+        answer:
+          'Instruct guests to increase screen brightness to maximum before scanning. A cracked screen that breaks the QR pattern may not scan — have a fallback: look up the ticket by email or name in the platform dashboard. Always have a laptop or tablet at the door with access to the ticket management console.',
       },
       {
         question: 'How do we handle will-call and guest-list tickets with QR codes?',
-        answer: 'Will-call tickets are issued as QR codes to the named guest\'s email in advance. Guest list entries can be issued as QR tickets on the day via a management portal on your door staff\'s tablet. The scanner app shows guest list status and ticket type, so door staff see the full picture without separate paperwork.',
+        answer:
+          "Will-call tickets are issued as QR codes to the named guest's email in advance. Guest list entries can be issued as QR tickets on the day via a management portal on your door staff's tablet. The scanner app shows guest list status and ticket type, so door staff see the full picture without separate paperwork.",
       },
     ]
   ),
@@ -137,11 +141,13 @@ Real-time check-in data enables crowd management:
     [
       {
         question: 'Can QR event check-in work without an internet connection?',
-        answer: 'Yes with proper preparation. Download the full guest list to all scanning devices before the event. Offline scanning validates against the local copy. Sync when connection returns. If multiple lanes scan offline simultaneously, reconcile scans when back online to catch any duplicate entries across lanes.',
+        answer:
+          'Yes with proper preparation. Download the full guest list to all scanning devices before the event. Offline scanning validates against the local copy. Sync when connection returns. If multiple lanes scan offline simultaneously, reconcile scans when back online to catch any duplicate entries across lanes.',
       },
       {
         question: 'How do we handle guests who forget their ticket and do not have a phone signal?',
-        answer: 'Always have one door staff member with a laptop or tablet running the full guest management portal. Search by name or email to find the booking, verify ID if needed, and manually check in. This lookup typically takes under 60 seconds and should be handled at a separate desk to avoid holding up the main scan queue.',
+        answer:
+          'Always have one door staff member with a laptop or tablet running the full guest management portal. Search by name or email to find the booking, verify ID if needed, and manually check in. This lookup typically takes under 60 seconds and should be handled at a separate desk to avoid holding up the main scan queue.',
       },
     ]
   ),
@@ -196,11 +202,13 @@ When your event is at capacity, update the RSVP QR destination (use a dynamic QR
     [
       {
         question: 'Can a QR RSVP system handle plus-ones and group registrations?',
-        answer: 'Yes. Include a "Number of guests attending (including yourself)" field in the form. For events where you need individual names for all guests, add a text field for "Additional guest names." Group registrations submit one response covering multiple people, which simplifies your follow-up without requiring individual form submissions.',
+        answer:
+          'Yes. Include a "Number of guests attending (including yourself)" field in the form. For events where you need individual names for all guests, add a text field for "Additional guest names." Group registrations submit one response covering multiple people, which simplifies your follow-up without requiring individual form submissions.',
       },
       {
         question: 'How do we stop people scanning a RSVP QR code after the deadline?',
-        answer: 'Use a dynamic QR and update the destination to a "RSVP has now closed — contact us if you have not yet responded" page on the deadline date. Alternatively, close the Google Form (Responses > Accept responses toggle) — the QR will show a "Form closed" message automatically.',
+        answer:
+          'Use a dynamic QR and update the destination to a "RSVP has now closed — contact us if you have not yet responded" page on the deadline date. Alternatively, close the Google Form (Responses > Accept responses toggle) — the QR will show a "Form closed" message automatically.',
       },
     ]
   ),
@@ -253,11 +261,13 @@ This is a premium experience detail that impresses guests and reduces on-the-nig
     [
       {
         question: 'Can guests choose their own seats via a QR booking link?',
-        answer: 'Yes if your ticketing platform supports interactive seat selection. The QR links to the ticket purchase page where an interactive venue map allows guests to select their seat. Platforms like Ticket Tailor, Eventbrite, and Tixr support seat map selection. Once chosen, the seat is reserved and the QR ticket is issued with the selected seat encoded.',
+        answer:
+          'Yes if your ticketing platform supports interactive seat selection. The QR links to the ticket purchase page where an interactive venue map allows guests to select their seat. Platforms like Ticket Tailor, Eventbrite, and Tixr support seat map selection. Once chosen, the seat is reserved and the QR ticket is issued with the selected seat encoded.',
       },
       {
         question: 'How do we handle seat changes on the day of the event?',
-        answer: 'With a ticketing platform, you can re-issue a corrected ticket QR from the management console and email it to the affected guest before they arrive. For walk-in changes, use the platform\'s manual check-in override — check the guest in and note the seat change manually. Avoid changing paper tickets on the day as it creates validation conflicts.',
+        answer:
+          "With a ticketing platform, you can re-issue a corrected ticket QR from the management console and email it to the affected guest before they arrive. For walk-in changes, use the platform's manual check-in override — check the guest in and note the seat change manually. Avoid changing paper tickets on the day as it creates validation conflicts.",
       },
     ]
   ),
@@ -326,16 +336,20 @@ Badge QR scanning for networking requires clear consent from attendees:
     `,
     [
       {
-        question: 'Can I build a conference badge QR system without buying specialist event software?',
-        answer: 'For small conferences (under 100 delegates), yes. Register attendees via a Google Form, assign each a UUID, generate QR codes per UUID, print on badges, and use a Google Sheet as your attendee database. A mobile-friendly lookup page that searches the sheet by UUID provides basic badge scanning. For 100+ delegates, invest in conference software.',
+        question:
+          'Can I build a conference badge QR system without buying specialist event software?',
+        answer:
+          'For small conferences (under 100 delegates), yes. Register attendees via a Google Form, assign each a UUID, generate QR codes per UUID, print on badges, and use a Google Sheet as your attendee database. A mobile-friendly lookup page that searches the sheet by UUID provides basic badge scanning. For 100+ delegates, invest in conference software.',
       },
       {
         question: 'How do we handle attendees who lose their badge during the conference?',
-        answer: 'Reprint from the management portal. If you use unique QR tokens, invalidate the lost badge\'s token and generate a new one. The original token no longer grants access. Printing should take under 2 minutes at a registration desk. Keep spare badge stock and a printer at registration throughout the event.',
+        answer:
+          "Reprint from the management portal. If you use unique QR tokens, invalidate the lost badge's token and generate a new one. The original token no longer grants access. Printing should take under 2 minutes at a registration desk. Keep spare badge stock and a printer at registration throughout the event.",
       },
       {
         question: 'Do all conference attendees scan their badge for networking, or is it opt-in?',
-        answer: 'Adoption varies. At tech-forward events, the majority of delegates engage with badge scanning. At more traditional professional events, adoption is lower. Maximise adoption by featuring the networking app prominently in pre-event communications, demonstrating it at opening remarks, and having staff available to help attendees set up the app on arrival.',
+        answer:
+          'Adoption varies. At tech-forward events, the majority of delegates engage with badge scanning. At more traditional professional events, adoption is lower. Maximise adoption by featuring the networking app prominently in pre-event communications, demonstrating it at opening remarks, and having staff available to help attendees set up the app on arrival.',
       },
     ]
   ),

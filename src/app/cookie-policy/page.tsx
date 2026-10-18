@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Cookie Policy — QR Code Tools',
@@ -7,7 +8,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://freeqrcode.tools/cookie-policy' },
   openGraph: {
     title: 'Cookie Policy — QR Code Tools',
-    description: 'Learn what cookies QR Code Tools uses, why, and how to manage or delete them in your browser.',
+    description:
+      'Learn what cookies QR Code Tools uses, why, and how to manage or delete them in your browser.',
     url: 'https://freeqrcode.tools/cookie-policy',
   },
 };
@@ -18,7 +20,12 @@ export default function CookiePolicyPage() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freeqrcode.tools/' },
-      { '@type': 'ListItem', position: 2, name: 'Cookie Policy', item: 'https://freeqrcode.tools/cookie-policy' },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Cookie Policy',
+        item: 'https://freeqrcode.tools/cookie-policy',
+      },
     ],
   };
 
@@ -32,9 +39,15 @@ export default function CookiePolicyPage() {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
         <ol className="flex items-center gap-1.5">
-          <li><a href="/" className="hover:text-foreground transition-colors">Home</a></li>
+          <li>
+            <Link href="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
+          </li>
           <li aria-hidden="true">›</li>
-          <li aria-current="page" className="text-foreground">Cookie Policy</li>
+          <li aria-current="page" className="text-foreground">
+            Cookie Policy
+          </li>
         </ol>
       </nav>
 
@@ -52,9 +65,9 @@ export default function CookiePolicyPage() {
           <p>
             Cookies are small text files that a website stores on your device when you visit. They
             allow the site to remember information about your visit — such as your preferred
-            language or login state — so you don&apos;t have to re-enter it on your next visit. Cookies
-            are widely used to make websites work more efficiently and to provide information to site
-            owners.
+            language or login state — so you don&apos;t have to re-enter it on your next visit.
+            Cookies are widely used to make websites work more efficiently and to provide
+            information to site owners.
           </p>
           <p>
             QR Code Tools uses browser <strong className="text-foreground">localStorage</strong> for
@@ -84,44 +97,66 @@ export default function CookiePolicyPage() {
             </thead>
             <tbody>
               <tr>
-                <td className="p-2 border-b border-border/50 font-mono text-xs">qrs_cookie_consent</td>
+                <td className="p-2 border-b border-border/50 font-mono text-xs">
+                  qrs_cookie_consent
+                </td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Necessary</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">Stores your cookie consent choice</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">Persistent (localStorage)</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">QR Code Tools</td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  Stores your cookie consent choice
+                </td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  Persistent (localStorage)
+                </td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  QR Code Tools
+                </td>
               </tr>
               <tr>
                 <td className="p-2 border-b border-border/50 font-mono text-xs">qrs_theme</td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Necessary</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">Stores your colour theme preference</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">Persistent (localStorage)</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">QR Code Tools</td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  Stores your colour theme preference
+                </td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  Persistent (localStorage)
+                </td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  QR Code Tools
+                </td>
               </tr>
               <tr>
                 <td className="p-2 border-b border-border/50 font-mono text-xs">_ga</td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Analytics</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">Google Analytics visitor ID (not yet active)</td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  Google Analytics visitor ID (not yet active)
+                </td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">2 years</td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Google</td>
               </tr>
               <tr>
                 <td className="p-2 border-b border-border/50 font-mono text-xs">_ga_*</td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Analytics</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">Google Analytics session data (not yet active)</td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  Google Analytics session data (not yet active)
+                </td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">1 year</td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Google</td>
               </tr>
               <tr>
                 <td className="p-2 border-b border-border/50 font-mono text-xs">NID, IDE, DSID</td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Advertising</td>
-                <td className="p-2 border-b border-border/50 text-muted-foreground">Google AdSense ad personalisation (not yet active)</td>
+                <td className="p-2 border-b border-border/50 text-muted-foreground">
+                  Google AdSense ad personalisation (not yet active)
+                </td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">6–13 months</td>
                 <td className="p-2 border-b border-border/50 text-muted-foreground">Google</td>
               </tr>
               <tr>
                 <td className="p-2 font-mono text-xs">ar_debug</td>
                 <td className="p-2 text-muted-foreground">Advertising</td>
-                <td className="p-2 text-muted-foreground">Google AdSense ad serving (not yet active)</td>
+                <td className="p-2 text-muted-foreground">
+                  Google AdSense ad serving (not yet active)
+                </td>
                 <td className="p-2 text-muted-foreground">Session</td>
                 <td className="p-2 text-muted-foreground">Google</td>
               </tr>
@@ -134,8 +169,8 @@ export default function CookiePolicyPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">How to Control Cookies</h2>
         <p className="text-muted-foreground leading-relaxed mb-6">
-          You can control and delete cookies and localStorage data using your browser settings.
-          Note that disabling all cookies may affect site functionality (for example, your theme
+          You can control and delete cookies and localStorage data using your browser settings. Note
+          that disabling all cookies may affect site functionality (for example, your theme
           preference will reset on each visit).
         </p>
 
@@ -143,8 +178,8 @@ export default function CookiePolicyPage() {
           <div>
             <h3 className="text-xl font-semibold mb-3 text-foreground">Google Chrome</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Open Settings → Privacy and security → Cookies and other site data. You can delete
-              all cookies, or use the search field to remove cookies from freeqrcode.tools specifically.
+              Open Settings → Privacy and security → Cookies and other site data. You can delete all
+              cookies, or use the search field to remove cookies from freeqrcode.tools specifically.
               For localStorage, open DevTools (F12) → Application → Local Storage.{' '}
               <a
                 href="https://support.google.com/chrome/answer/95647"
@@ -160,8 +195,8 @@ export default function CookiePolicyPage() {
           <div>
             <h3 className="text-xl font-semibold mb-3 text-foreground">Mozilla Firefox</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Open Settings → Privacy &amp; Security → Cookies and Site Data → Manage Data. Search for
-              freeqrcode.tools and remove its data. For localStorage, use DevTools (F12) →
+              Open Settings → Privacy &amp; Security → Cookies and Site Data → Manage Data. Search
+              for freeqrcode.tools and remove its data. For localStorage, use DevTools (F12) →
               Storage → Local Storage.{' '}
               <a
                 href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox"
@@ -177,8 +212,8 @@ export default function CookiePolicyPage() {
           <div>
             <h3 className="text-xl font-semibold mb-3 text-foreground">Apple Safari</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Open Preferences → Privacy → Manage Website Data. Search for freeqrcode.tools and click
-              Remove. On iOS: Settings → Safari → Advanced → Website Data.{' '}
+              Open Preferences → Privacy → Manage Website Data. Search for freeqrcode.tools and
+              click Remove. On iOS: Settings → Safari → Advanced → Website Data.{' '}
               <a
                 href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac"
                 className="text-primary hover:underline"
@@ -193,8 +228,8 @@ export default function CookiePolicyPage() {
           <div>
             <h3 className="text-xl font-semibold mb-3 text-foreground">Microsoft Edge</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Open Settings → Cookies and site permissions → Manage and delete cookies and site data.
-              Click &quot;See all cookies and site data&quot; and filter by freeqrcode.tools.{' '}
+              Open Settings → Cookies and site permissions → Manage and delete cookies and site
+              data. Click &quot;See all cookies and site data&quot; and filter by freeqrcode.tools.{' '}
               <a
                 href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09"
                 className="text-primary hover:underline"
@@ -210,7 +245,9 @@ export default function CookiePolicyPage() {
 
       {/* Opting out */}
       <section>
-        <h2 className="text-2xl font-bold mb-4 text-foreground">Opting Out of Advertising Cookies</h2>
+        <h2 className="text-2xl font-bold mb-4 text-foreground">
+          Opting Out of Advertising Cookies
+        </h2>
         <p className="text-muted-foreground leading-relaxed mb-3">
           You can opt out of personalised advertising from Google and other participating ad
           networks using the links below. These opt-outs use their own cookies to remember your
@@ -218,22 +255,37 @@ export default function CookiePolicyPage() {
         </p>
         <ul className="space-y-2 text-sm">
           <li>
-            <a href="https://adssettings.google.com" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://adssettings.google.com"
+              className="text-primary hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Google Ad Settings
-            </a>
-            {' '}— manage Google personalised advertising
+            </a>{' '}
+            — manage Google personalised advertising
           </li>
           <li>
-            <a href="https://optout.networkadvertising.org" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://optout.networkadvertising.org"
+              className="text-primary hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               NAI opt-out
-            </a>
-            {' '}— Network Advertising Initiative opt-out
+            </a>{' '}
+            — Network Advertising Initiative opt-out
           </li>
           <li>
-            <a href="https://optout.aboutads.info" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://optout.aboutads.info"
+              className="text-primary hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               DAA opt-out
-            </a>
-            {' '}— Digital Advertising Alliance opt-out
+            </a>{' '}
+            — Digital Advertising Alliance opt-out
           </li>
         </ul>
       </section>
@@ -243,8 +295,8 @@ export default function CookiePolicyPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Changes to This Policy</h2>
         <p className="text-muted-foreground leading-relaxed">
           We may update this Cookie Policy when we add new cookies or change our use of existing
-          ones. Changes will be reflected by an updated &quot;Last updated&quot; date. Continued use of QR
-          Studio after a change constitutes acceptance of the updated policy.
+          ones. Changes will be reflected by an updated &quot;Last updated&quot; date. Continued use
+          of QR Studio after a change constitutes acceptance of the updated policy.
         </p>
       </section>
 

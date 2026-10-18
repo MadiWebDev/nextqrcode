@@ -32,8 +32,16 @@ If a scan is not recorded within a defined window of the scheduled dose time, th
 Medication adherence data is sensitive health information. Storage, access, and sharing must comply with HIPAA, GDPR, or applicable local law. Obtain explicit informed consent before monitoring.
     `,
     [
-      { question: 'Can a patient scan a blister pack QR without a smartphone?', answer: 'Smart dispensers with built-in scanners work for patients without smartphones. The QR system requires compatible hardware.' },
-      { question: 'Does blister pack scanning require a specific app?', answer: 'Some systems use a companion app; others use a web-based scan flow. Web-based is lower friction and removes the app install barrier.' },
+      {
+        question: 'Can a patient scan a blister pack QR without a smartphone?',
+        answer:
+          'Smart dispensers with built-in scanners work for patients without smartphones. The QR system requires compatible hardware.',
+      },
+      {
+        question: 'Does blister pack scanning require a specific app?',
+        answer:
+          'Some systems use a companion app; others use a web-based scan flow. Web-based is lower friction and removes the app install barrier.',
+      },
     ]
   ),
   art(
@@ -62,8 +70,16 @@ During a burst main or pressure event, the control room scans nearby infrastruct
 Water utility assets are buried, submerged, or exposed outdoors for decades. Use stainless steel riveted plates with laser-engraved QR codes or ceramic-fused labels on iron surfaces.
     `,
     [
-      { question: 'Can utility QR labels survive submersion?', answer: 'Stainless steel with laser-engraved QR codes survives full submersion indefinitely. Standard adhesive labels do not.' },
-      { question: 'Do field crews need mobile data to scan utility QR codes?', answer: 'Offline functionality is essential in remote utility environments. Cache the asset register on the crews mobile device and sync on return.' },
+      {
+        question: 'Can utility QR labels survive submersion?',
+        answer:
+          'Stainless steel with laser-engraved QR codes survives full submersion indefinitely. Standard adhesive labels do not.',
+      },
+      {
+        question: 'Do field crews need mobile data to scan utility QR codes?',
+        answer:
+          'Offline functionality is essential in remote utility environments. Cache the asset register on the crews mobile device and sync on return.',
+      },
     ]
   ),
   art(
@@ -92,8 +108,16 @@ A QR on the delayed baggage receipt links to the tracing tool pre-filled with th
 For personal luggage tags, encode a short URL to a profile with a PIN-protected reveal. The finder enters the PIN they see on the tag; only then is the contact number shown. Limits cold exposure of personal data.
     `,
     [
-      { question: 'Is a personal QR luggage tag safer than a name tag?', answer: 'Yes if contact details are behind authentication. A plain name tag exposes your home address to anyone who reads it.' },
-      { question: 'What material lasts for a personal QR luggage tag?', answer: 'Aluminium or silicone with UV-printed or laser-engraved QR. PVC laminates scratch and fade with airport conveyor wear.' },
+      {
+        question: 'Is a personal QR luggage tag safer than a name tag?',
+        answer:
+          'Yes if contact details are behind authentication. A plain name tag exposes your home address to anyone who reads it.',
+      },
+      {
+        question: 'What material lasts for a personal QR luggage tag?',
+        answer:
+          'Aluminium or silicone with UV-printed or laser-engraved QR. PVC laminates scratch and fade with airport conveyor wear.',
+      },
     ]
   ),
   art(
@@ -122,8 +146,16 @@ An EPIRB (Emergency Position Indicating Radio Beacon) must be registered with th
 Marine safety equipment labels must survive constant spray, UV, and saltwater immersion. Use marine-grade stainless steel or polyester labels rated to IP68. Test label adhesion on fibreglass and GRP surfaces before deployment.
     `,
     [
-      { question: 'Can a QR on an EPIRB confirm it is registered?', answer: 'Yes if the QR links to the registration authority\'s lookup. Unregistered EPIRBs waste coastguard resources and may not trigger a rescue response.' },
-      { question: 'Should marine safety QR pages work without internet?', answer: 'Yes. Critical safety pages must be available offline. Cache life ring throwing technique and coastguard contact as an offline PWA.' },
+      {
+        question: 'Can a QR on an EPIRB confirm it is registered?',
+        answer:
+          "Yes if the QR links to the registration authority's lookup. Unregistered EPIRBs waste coastguard resources and may not trigger a rescue response.",
+      },
+      {
+        question: 'Should marine safety QR pages work without internet?',
+        answer:
+          'Yes. Critical safety pages must be available offline. Cache life ring throwing technique and coastguard contact as an offline PWA.',
+      },
     ]
   ),
   art(
@@ -152,8 +184,16 @@ A QR on a decommissioning work order links to the CMDB record and the change req
 A QR on the cage or cabinet door links to the access control record: who is authorised, recent access events, and the emergency contact for the cage owner.
     `,
     [
-      { question: 'Do data centre QR codes need to survive extreme cooling environments?', answer: 'Yes. Sub-zero aisle cooling and liquid cooling systems require labels rated below -20°C. Use cryogenic-rated polyester labels.' },
-      { question: 'Can QR labels replace traditional asset tags in a data centre?', answer: 'QR plus a human-readable asset ID is the best practice. QR enables automation; the human-readable ID is a fallback.' },
+      {
+        question: 'Do data centre QR codes need to survive extreme cooling environments?',
+        answer:
+          'Yes. Sub-zero aisle cooling and liquid cooling systems require labels rated below -20°C. Use cryogenic-rated polyester labels.',
+      },
+      {
+        question: 'Can QR labels replace traditional asset tags in a data centre?',
+        answer:
+          'QR plus a human-readable asset ID is the best practice. QR enables automation; the human-readable ID is a fallback.',
+      },
     ]
   ),
   art(
@@ -182,8 +222,16 @@ A QR displayed by the speaker at the end of their talk links to slide downloads,
 A QR on the event page links to a short attendee directory (with consent) so participants follow up with people they met. Better outcomes than exchanging business cards in a busy room.
     `,
     [
-      { question: 'Can a QR replace the event ticketing platform?', answer: 'For small internal events, yes. For public events with payment, use a dedicated platform and add a QR check-in layer.' },
-      { question: 'Should the attendee directory QR require consent?', answer: 'Yes. Only include attendees who opted in during registration. Default to privacy-first.' },
+      {
+        question: 'Can a QR replace the event ticketing platform?',
+        answer:
+          'For small internal events, yes. For public events with payment, use a dedicated platform and add a QR check-in layer.',
+      },
+      {
+        question: 'Should the attendee directory QR require consent?',
+        answer:
+          'Yes. Only include attendees who opted in during registration. Default to privacy-first.',
+      },
     ]
   ),
   art(
@@ -212,8 +260,16 @@ A QR in a study guide links to discussion questions, background reading, and vid
 A QR in a children's religious text links to an animated story, colouring pages, or a sing-along song about the passage. Engages young learners beyond the printed page.
     `,
     [
-      { question: 'Should religious QR codes work without internet in a place of worship?', answer: 'Yes. Download-for-offline functionality helps congregants who rely on place-of-worship WiFi or have limited data plans.' },
-      { question: 'Can a QR in a scripture book link to multiple translations?', answer: 'Yes. A tabbed page with multiple translations side by side is a natural extension of printed parallel text editions.' },
+      {
+        question: 'Should religious QR codes work without internet in a place of worship?',
+        answer:
+          'Yes. Download-for-offline functionality helps congregants who rely on place-of-worship WiFi or have limited data plans.',
+      },
+      {
+        question: 'Can a QR in a scripture book link to multiple translations?',
+        answer:
+          'Yes. A tabbed page with multiple translations side by side is a natural extension of printed parallel text editions.',
+      },
     ]
   ),
   art(
@@ -242,8 +298,16 @@ A QR links to the family tracing system: users submit information about missing 
 In disaster zones, mobile data may be unavailable. Run a local WiFi hotspot from a satellite connection and serve QR-linked pages from a local server if cloud access is not possible.
     `,
     [
-      { question: 'Can a QR system work in a field with no internet?', answer: 'Yes with a locally hosted server connected to a satellite or radio link. Offline-first apps that sync when connectivity returns are the standard approach.' },
-      { question: 'How is beneficiary data protected in a disaster context?', answer: 'Minimise data collected, encrypt storage, restrict access by role, and follow humanitarian data protection principles such as those published by ICRC.' },
+      {
+        question: 'Can a QR system work in a field with no internet?',
+        answer:
+          'Yes with a locally hosted server connected to a satellite or radio link. Offline-first apps that sync when connectivity returns are the standard approach.',
+      },
+      {
+        question: 'How is beneficiary data protected in a disaster context?',
+        answer:
+          'Minimise data collected, encrypt storage, restrict access by role, and follow humanitarian data protection principles such as those published by ICRC.',
+      },
     ]
   ),
   art(
@@ -272,8 +336,16 @@ A QR in the course materials links to the cohort study group: forum, live sessio
 In areas with limited connectivity, a QR on a printed handout links to a downloadable offline version of the module. Mobile data users can cache content on WiFi for offline study.
     `,
     [
-      { question: 'Can an employer verify a learning certificate just by scanning a QR?', answer: 'Yes if the QR links to the platform\'s official verification endpoint, which displays the learner\'s name, course, date, and pass grade.' },
-      { question: 'Should course QR codes expire?', answer: 'Certificate QR codes should be permanent. Course access QRs can expire with the enrolment period if the platform requires active subscription.' },
+      {
+        question: 'Can an employer verify a learning certificate just by scanning a QR?',
+        answer:
+          "Yes if the QR links to the platform's official verification endpoint, which displays the learner's name, course, date, and pass grade.",
+      },
+      {
+        question: 'Should course QR codes expire?',
+        answer:
+          'Certificate QR codes should be permanent. Course access QRs can expire with the enrolment period if the platform requires active subscription.',
+      },
     ]
   ),
   art(
@@ -302,8 +374,16 @@ In a boundary dispute, a QR-linked survey record with timestamps and GPS coordin
 Survey pegs in the ground need to survive decades of weather, mowing, and animal contact. Use stainless steel plates with engraved QR codes, or UV-stable acrylic encased in the peg cap.
     `,
     [
-      { question: 'Does a QR on a boundary peg carry legal weight?', answer: 'The QR is an access link to the survey record, which carries the legal weight. The QR itself is a reference tool.' },
-      { question: 'What if the survey peg QR links to a record that has since been superseded?', answer: 'Use a URL with the parcel ID that always returns the current authoritative record from the land registry, not a static snapshot.' },
+      {
+        question: 'Does a QR on a boundary peg carry legal weight?',
+        answer:
+          'The QR is an access link to the survey record, which carries the legal weight. The QR itself is a reference tool.',
+      },
+      {
+        question: 'What if the survey peg QR links to a record that has since been superseded?',
+        answer:
+          'Use a URL with the parcel ID that always returns the current authoritative record from the land registry, not a static snapshot.',
+      },
     ]
   ),
 ];

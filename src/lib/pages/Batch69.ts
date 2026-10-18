@@ -57,15 +57,18 @@ A fake "free WiFi" QR at a café or airport leads to a page requesting personal 
     [
       {
         question: 'How can I tell if a QR code on a restaurant table has been tampered with?',
-        answer: 'Check that the QR is printed directly on the table card or menu rather than applied as a separate sticker on top. If the QR is a sticker, inspect the edges — a fraudulent overlay typically has slightly raised or misaligned edges compared to the original print. After scanning, verify the URL matches the restaurant\'s domain before entering any payment or personal information.',
+        answer:
+          "Check that the QR is printed directly on the table card or menu rather than applied as a separate sticker on top. If the QR is a sticker, inspect the edges — a fraudulent overlay typically has slightly raised or misaligned edges compared to the original print. After scanning, verify the URL matches the restaurant's domain before entering any payment or personal information.",
       },
       {
         question: 'Are QR codes in emails from my bank safe to scan?',
-        answer: 'UK banks and financial institutions rarely include QR codes in emails for security-sensitive actions (login, payment authorisation). If you receive an email purportedly from your bank with a QR asking you to verify your account, do not scan it. Contact your bank directly via the number on the back of your card. Legitimate bank processes do not require QR code scanning from unsolicited emails.',
+        answer:
+          'UK banks and financial institutions rarely include QR codes in emails for security-sensitive actions (login, payment authorisation). If you receive an email purportedly from your bank with a QR asking you to verify your account, do not scan it. Contact your bank directly via the number on the back of your card. Legitimate bank processes do not require QR code scanning from unsolicited emails.',
       },
       {
         question: 'What should I do if I scanned a malicious QR code and entered my credentials?',
-        answer: 'Act immediately. Change the password for the compromised account and any accounts using the same password. If financial details were entered, contact your bank immediately to flag potential fraud. Enable two-factor authentication where available. Report the incident to Action Fraud and to the organisation being impersonated so they can warn other customers.',
+        answer:
+          'Act immediately. Change the password for the compromised account and any accounts using the same password. If financial details were entered, contact your bank immediately to flag potential fraud. Enable two-factor authentication where available. Report the incident to Action Fraud and to the organisation being impersonated so they can warn other customers.',
       },
     ]
   ),
@@ -122,15 +125,18 @@ Train staff to:
     [
       {
         question: 'How often should businesses physically inspect QR codes for sticker fraud?',
-        answer: 'For high-risk locations (payment QR codes at point of sale, outdoor displays), daily inspection at opening is best practice. Assign one staff member responsible for the QR audit. For medium-risk locations (menu QR codes, loyalty QR at counter), weekly inspection is sufficient. After any report of a suspicious scan or failed payment, inspect immediately.',
+        answer:
+          'For high-risk locations (payment QR codes at point of sale, outdoor displays), daily inspection at opening is best practice. Assign one staff member responsible for the QR audit. For medium-risk locations (menu QR codes, loyalty QR at counter), weekly inspection is sufficient. After any report of a suspicious scan or failed payment, inspect immediately.',
       },
       {
         question: 'Can tamper-evident QR labels be applied to existing signage?',
-        answer: 'Yes. Tamper-evident QR label stock is available from specialist label suppliers — it is the same QR code but printed on a substrate that visually indicates removal attempts. For existing signage, replace the current QR sticker with a tamper-evident version as a retrofit security upgrade. The QR code itself (and its destination) does not need to change.',
+        answer:
+          'Yes. Tamper-evident QR label stock is available from specialist label suppliers — it is the same QR code but printed on a substrate that visually indicates removal attempts. For existing signage, replace the current QR sticker with a tamper-evident version as a retrofit security upgrade. The QR code itself (and its destination) does not need to change.',
       },
       {
         question: 'Is QR coupon fraud a significant enough problem to require technical controls?',
-        answer: 'For businesses running high-value promotions (10%+ discount, free product), yes. A viral coupon QR screenshot can result in thousands of unintended redemptions in hours. Implement single-use QR with server-side validation for any coupon with material financial value. For low-value generic promotions (5% off), the control overhead may exceed the fraud cost — assess the risk proportionately.',
+        answer:
+          'For businesses running high-value promotions (10%+ discount, free product), yes. A viral coupon QR screenshot can result in thousands of unintended redemptions in hours. Implement single-use QR with server-side validation for any coupon with material financial value. For low-value generic promotions (5% off), the control overhead may exceed the fraud cost — assess the risk proportionately.',
       },
     ]
   ),
@@ -199,11 +205,13 @@ URL transparency is a simple, zero-cost trust signal that significantly reduces 
     [
       {
         question: 'Should businesses use URL shorteners for QR codes given the security concerns?',
-        answer: 'Custom-domain shorteners (go.yourbrand.com) are fine — the domain is recognisable and trustworthy. Generic shorteners (bit.ly, tinyurl.com) obscure the destination domain and make it harder for users to verify where they are going before entering information. For security-sensitive QR codes (payment, login, data collection), use your own domain rather than a generic shortener.',
+        answer:
+          'Custom-domain shorteners (go.yourbrand.com) are fine — the domain is recognisable and trustworthy. Generic shorteners (bit.ly, tinyurl.com) obscure the destination domain and make it harder for users to verify where they are going before entering information. For security-sensitive QR codes (payment, login, data collection), use your own domain rather than a generic shortener.',
       },
       {
         question: 'Can QR codes be signed cryptographically to prevent tampering?',
-        answer: 'Yes. The destination URL in a QR can include a digital signature (HMAC or public-key signature) that the destination server verifies before serving content. If the URL has been tampered with (e.g., the destination modified in a sticker overlay), the signature fails and the server denies the request. This is used in high-security contexts (pharmaceutical, luxury goods authentication) where QR tampering is a known attack vector.',
+        answer:
+          'Yes. The destination URL in a QR can include a digital signature (HMAC or public-key signature) that the destination server verifies before serving content. If the URL has been tampered with (e.g., the destination modified in a sticker overlay), the signature fails and the server denies the request. This is used in high-security contexts (pharmaceutical, luxury goods authentication) where QR tampering is a known attack vector.',
       },
     ]
   ),
@@ -261,15 +269,18 @@ The victim scans on their personal phone — outside the corporate network, with
     [
       {
         question: 'How do I check if a QR code in an email is safe before scanning?',
-        answer: 'Forward the email to your desktop and use a QR decoder tool (or Google Lens on desktop) to extract the URL without scanning with your phone. Check the URL: does it use a recognised domain? Is it HTTPS? Does it match what the email claims? If anything looks suspicious, report the email without scanning. Never scan a QR from an unexpected email on a mobile device connected to corporate resources.',
+        answer:
+          'Forward the email to your desktop and use a QR decoder tool (or Google Lens on desktop) to extract the URL without scanning with your phone. Check the URL: does it use a recognised domain? Is it HTTPS? Does it match what the email claims? If anything looks suspicious, report the email without scanning. Never scan a QR from an unexpected email on a mobile device connected to corporate resources.',
       },
       {
         question: 'Are QR codes in legitimate business emails ever safe?',
-        answer: 'Yes — many legitimate businesses use QR codes in emails for non-credential purposes: newsletter archive links, event ticketing, location maps, and product information. The risk is QR codes that request authentication or payment. Apply extra scrutiny to any QR in an email that asks you to log in, verify your identity, or make a payment. Verify the sender domain and destination URL carefully before proceeding.',
+        answer:
+          'Yes — many legitimate businesses use QR codes in emails for non-credential purposes: newsletter archive links, event ticketing, location maps, and product information. The risk is QR codes that request authentication or payment. Apply extra scrutiny to any QR in an email that asks you to log in, verify your identity, or make a payment. Verify the sender domain and destination URL carefully before proceeding.',
       },
       {
         question: 'What technical tools detect QR codes in email attachments?',
-        answer: 'Microsoft Defender for Office 365 Safe Links (Plan 2) can decode QR codes in email images and PDF attachments as of 2024. Proofpoint and Mimecast have added QR image scanning to their threat detection pipelines. Check with your email security vendor for current capability. If your current tool does not scan QR images, raise it as a gap with your security team or consider supplementing with a specialist email security layer.',
+        answer:
+          'Microsoft Defender for Office 365 Safe Links (Plan 2) can decode QR codes in email images and PDF attachments as of 2024. Proofpoint and Mimecast have added QR image scanning to their threat detection pipelines. Check with your email security vendor for current capability. If your current tool does not scan QR images, raise it as a gap with your security team or consider supplementing with a specialist email security layer.',
       },
     ]
   ),
@@ -336,15 +347,20 @@ Specify your security requirements clearly: surface type, exposure conditions, r
     [
       {
         question: 'How much more expensive are tamper-evident QR labels than standard labels?',
-        answer: 'Tamper-evident vinyl labels cost 2–5× more than standard labels per unit. For a high-value use case (pharmaceutical unit pack, luxury product, payment terminal), this cost is trivial compared to the fraud or liability risk. For low-value or low-risk applications, standard labels with periodic visual inspection may be a more proportionate response.',
+        answer:
+          'Tamper-evident vinyl labels cost 2–5× more than standard labels per unit. For a high-value use case (pharmaceutical unit pack, luxury product, payment terminal), this cost is trivial compared to the fraud or liability risk. For low-value or low-risk applications, standard labels with periodic visual inspection may be a more proportionate response.',
       },
       {
-        question: 'Can a tamper-evident QR label prevent a fraudster from printing an exact replica?',
-        answer: 'Physical tamper evidence alone does not prevent a well-resourced counterfeiter from printing a replica that looks identical. For high-value anti-counterfeiting, combine tamper-evident labels with cryptographic authentication (signed URLs or serialised tokens). The combination of physical evidence (obvious to any inspector) and digital authentication (verifiable by any phone) provides strong deterrence.',
+        question:
+          'Can a tamper-evident QR label prevent a fraudster from printing an exact replica?',
+        answer:
+          'Physical tamper evidence alone does not prevent a well-resourced counterfeiter from printing a replica that looks identical. For high-value anti-counterfeiting, combine tamper-evident labels with cryptographic authentication (signed URLs or serialised tokens). The combination of physical evidence (obvious to any inspector) and digital authentication (verifiable by any phone) provides strong deterrence.',
       },
       {
-        question: 'Are there regulatory requirements for tamper-evident labels on specific products?',
-        answer: 'Yes for several categories in the UK. Pharmaceutical packaging is subject to FMD (Falsified Medicines Directive) serialisation requirements, which include a tamper-evident seal and a unique QR/Data Matrix code per pack. Food packaging has seal requirements for some categories. Medical devices have specific labelling requirements. Check applicable regulations for your product category with your regulatory affairs team.',
+        question:
+          'Are there regulatory requirements for tamper-evident labels on specific products?',
+        answer:
+          'Yes for several categories in the UK. Pharmaceutical packaging is subject to FMD (Falsified Medicines Directive) serialisation requirements, which include a tamper-evident seal and a unique QR/Data Matrix code per pack. Food packaging has seal requirements for some categories. Medical devices have specific labelling requirements. Check applicable regulations for your product category with your regulatory affairs team.',
       },
     ]
   ),

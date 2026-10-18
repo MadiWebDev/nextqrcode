@@ -30,8 +30,15 @@ Use utm_medium=qr consistently, lowercase values, and one utm_campaign per print
 A redirect you control is still a redirect: if you lose the domain or break the path, printed codes fail. Keep the mapping documented.
     `,
     [
-      { question: 'Do I need a dynamic QR service for UTM tracking?', answer: 'No. A short path on your own domain that redirects to the UTM URL gives the same attribution without a third party.' },
-      { question: 'What should utm_medium be for QR codes?', answer: 'Use a consistent value such as qr so reports group all QR traffic.' },
+      {
+        question: 'Do I need a dynamic QR service for UTM tracking?',
+        answer:
+          'No. A short path on your own domain that redirects to the UTM URL gives the same attribution without a third party.',
+      },
+      {
+        question: 'What should utm_medium be for QR codes?',
+        answer: 'Use a consistent value such as qr so reports group all QR traffic.',
+      },
     ]
   ),
   art(
@@ -61,8 +68,15 @@ The first is the older scanner convention and the second follows URI style. Beha
 Opt-in keywords ("text JOIN to 12345"), quick feedback lines, and appointment confirmations. Check local regulations on marketing messages before launching a campaign.
     `,
     [
-      { question: 'Will the message send automatically?', answer: 'No. The phone opens the messaging app with a draft; the user must tap send.' },
-      { question: 'Which format should I choose?', answer: 'Test both. If you target a single platform, use whichever opens correctly on your test devices.' },
+      {
+        question: 'Will the message send automatically?',
+        answer: 'No. The phone opens the messaging app with a draft; the user must tap send.',
+      },
+      {
+        question: 'Which format should I choose?',
+        answer:
+          'Test both. If you target a single platform, use whichever opens correctly on your test devices.',
+      },
     ]
   ),
   art(
@@ -91,8 +105,14 @@ Some older scanners use the MATMSG format (MATMSG:TO:...;SUB:...;BODY:...;;). Ph
 * Printed email addresses attract spam, so consider a dedicated alias.
     `,
     [
-      { question: 'Can I add attachments through a QR code?', answer: 'No. mailto links cannot attach files. Link to a hosted file instead.' },
-      { question: 'Does mailto work on all phones?', answer: 'Yes, provided a default mail app is configured.' },
+      {
+        question: 'Can I add attachments through a QR code?',
+        answer: 'No. mailto links cannot attach files. Link to a hosted file instead.',
+      },
+      {
+        question: 'Does mailto work on all phones?',
+        answer: 'Yes, provided a default mail app is configured.',
+      },
     ]
   ),
   art(
@@ -117,8 +137,14 @@ Some older scanners use the MATMSG format (MATMSG:TO:...;SUB:...;BODY:...;;). Ph
 For mixed audiences, encode a web map link. Use geo: only when targeting Android in a controlled environment. Verify coordinates by pasting them into a map before printing.
     `,
     [
-      { question: 'Why does my geo QR code fail on iPhone?', answer: 'iOS does not reliably handle geo: URIs from the camera. Use a web map link.' },
-      { question: 'How precise should coordinates be?', answer: 'Four to five decimal places (about 1 to 10 meters) is enough.' },
+      {
+        question: 'Why does my geo QR code fail on iPhone?',
+        answer: 'iOS does not reliably handle geo: URIs from the camera. Use a web map link.',
+      },
+      {
+        question: 'How precise should coordinates be?',
+        answer: 'Four to five decimal places (about 1 to 10 meters) is enough.',
+      },
     ]
   ),
   art(
@@ -152,8 +178,14 @@ Behavior varies by reader. The most reliable approach is to encode a short link 
 Convert times to UTC carefully, keep summary and location short, and test with your own phones.
     `,
     [
-      { question: 'Why did my event import at the wrong time?', answer: 'The time zone was missing or mismatched. Use a UTC timestamp or include a TZID.' },
-      { question: 'Is a hosted .ics link better?', answer: 'Usually, because it keeps the symbol small and is widely supported.' },
+      {
+        question: 'Why did my event import at the wrong time?',
+        answer: 'The time zone was missing or mismatched. Use a UTC timestamp or include a TZID.',
+      },
+      {
+        question: 'Is a hosted .ics link better?',
+        answer: 'Usually, because it keeps the symbol small and is widely supported.',
+      },
     ]
   ),
   art(
@@ -182,8 +214,14 @@ Phones show a call prompt, and the user must confirm. No call is placed automati
 * For business contacts consider a vCard so people can save the number.
     `,
     [
-      { question: 'Do I include the leading zero?', answer: 'Not with the country code. Drop the national trunk zero in E.164.' },
-      { question: 'Can the code dial an extension?', answer: 'Pause characters are inconsistently supported. Use a direct line instead.' },
+      {
+        question: 'Do I include the leading zero?',
+        answer: 'Not with the country code. Drop the national trunk zero in E.164.',
+      },
+      {
+        question: 'Can the code dial an extension?',
+        answer: 'Pause characters are inconsistently supported. Use a direct line instead.',
+      },
     ]
   ),
   art(
@@ -213,7 +251,11 @@ Because prices move, show the fiat value and a payment deadline on checkout page
     `,
     [
       { question: 'Is the amount in BTC or satoshis?', answer: 'BTC, expressed as a decimal.' },
-      { question: 'Can I reuse one address on a printed sign?', answer: 'You can, but address reuse reduces privacy and makes tampering harder to notice. Rotate where practical.' },
+      {
+        question: 'Can I reuse one address on a printed sign?',
+        answer:
+          'You can, but address reuse reduces privacy and makes tampering harder to notice. Rotate where practical.',
+      },
     ]
   ),
   art(
@@ -241,8 +283,16 @@ Encode a URL on your own domain, such as example.com/app. A tiny server-side scr
 Keep a fallback landing page with both store badges. Test with real devices before printing.
     `,
     [
-      { question: 'Can a static QR code choose the store by itself?', answer: 'No. A static code is fixed text. The platform logic must run on the page it links to.' },
-      { question: 'What if the app listing URL changes?', answer: 'Because your domain performs the redirect, you update the target without reprinting.' },
+      {
+        question: 'Can a static QR code choose the store by itself?',
+        answer:
+          'No. A static code is fixed text. The platform logic must run on the page it links to.',
+      },
+      {
+        question: 'What if the app listing URL changes?',
+        answer:
+          'Because your domain performs the redirect, you update the target without reprinting.',
+      },
     ]
   ),
   art(
@@ -271,8 +321,15 @@ Link to a short URL. A full vCard with several fields can produce a dense symbol
 Matte uncoated or matte laminate scans better than glossy foil. Avoid embossing or spot UV across the modules.
     `,
     [
-      { question: 'Should I print the QR on the front or the back?', answer: 'Either works. The back gives space for a proper quiet zone and short instruction text.' },
-      { question: 'Can I use gold foil for the code?', answer: 'Not recommended. Low contrast and reflections reduce reliability.' },
+      {
+        question: 'Should I print the QR on the front or the back?',
+        answer:
+          'Either works. The back gives space for a proper quiet zone and short instruction text.',
+      },
+      {
+        question: 'Can I use gold foil for the code?',
+        answer: 'Not recommended. Low contrast and reflections reduce reliability.',
+      },
     ]
   ),
   art(
@@ -305,8 +362,15 @@ A Version 3 code needs (29 + 8) x 0.5 = 18.5 mm.
 Run a print proof and grade it, or at minimum scan on an older budget phone.
     `,
     [
-      { question: 'What is the minimum QR size on packaging?', answer: 'Around 16 to 20 mm total for low-density codes on smooth stock, larger for dense payloads or rough surfaces.' },
-      { question: 'Does shrink film hurt scanning?', answer: 'It can distort and add glare. Test on filled, finished packs.' },
+      {
+        question: 'What is the minimum QR size on packaging?',
+        answer:
+          'Around 16 to 20 mm total for low-density codes on smooth stock, larger for dense payloads or rough surfaces.',
+      },
+      {
+        question: 'Does shrink film hurt scanning?',
+        answer: 'It can distort and add glare. Test on filled, finished packs.',
+      },
     ]
   ),
 ];

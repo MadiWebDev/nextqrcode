@@ -71,7 +71,9 @@ export default function QRSafetyCheckerPage() {
         isRawIp: false,
         isPunycode: false,
         suspiciousTld: false,
-        riskReasons: ['Contains an executable script or data URI designed to execute arbitrary code.'],
+        riskReasons: [
+          'Contains an executable script or data URI designed to execute arbitrary code.',
+        ],
         safePoints: [],
       });
       setIsAnalyzing(false);
@@ -97,25 +99,40 @@ export default function QRSafetyCheckerPage() {
         if (ipv4Regex.test(domain)) {
           isRawIp = true;
           score -= 40;
-          riskReasons.push('Uses raw numerical IP address instead of a recognized domain name (frequent phishing indicator).');
+          riskReasons.push(
+            'Uses raw numerical IP address instead of a recognized domain name (frequent phishing indicator).'
+          );
         }
 
         // Check for Punycode / Homograph attacks
         if (domain.startsWith('xn--') || domain.includes('.xn--')) {
           isPunycode = true;
           score -= 35;
-          riskReasons.push('Punycode domain detected (often used to visually impersonate legitimate brands like gooogle.com).');
+          riskReasons.push(
+            'Punycode domain detected (often used to visually impersonate legitimate brands like gooogle.com).'
+          );
         }
 
         // Check for known URL shorteners
         const shorteners = [
-          'bit.ly', 'tinyurl.com', 't.co', 'goo.gl', 'is.gd', 'buff.ly',
-          'ow.ly', 'cutt.ly', 'rb.gy', 'shorturl.at', 'bl.ink'
+          'bit.ly',
+          'tinyurl.com',
+          't.co',
+          'goo.gl',
+          'is.gd',
+          'buff.ly',
+          'ow.ly',
+          'cutt.ly',
+          'rb.gy',
+          'shorturl.at',
+          'bl.ink',
         ];
         if (shorteners.some((s) => domain.toLowerCase().includes(s))) {
           isShortLink = true;
           score -= 20;
-          riskReasons.push('Uses a URL shortener service which obscures the final destination website.');
+          riskReasons.push(
+            'Uses a URL shortener service which obscures the final destination website.'
+          );
         } else {
           safePoints.push('Direct domain link (no intermediate URL shortener detected).');
         }
@@ -125,7 +142,9 @@ export default function QRSafetyCheckerPage() {
         if (riskyTlds.some((tld) => domain.toLowerCase().endsWith(tld))) {
           suspiciousTld = true;
           score -= 20;
-          riskReasons.push(`Uses a top-level domain (${domain.split('.').pop()}) frequently associated with spam and phishing.`);
+          riskReasons.push(
+            `Uses a top-level domain (${domain.split('.').pop()}) frequently associated with spam and phishing.`
+          );
         }
       }
     } catch {
@@ -176,7 +195,9 @@ export default function QRSafetyCheckerPage() {
           setInputText(code.data);
           analyzePayload(code.data);
         } else {
-          alert('Could not detect a valid QR code in this image. Please ensure the code is clear and well-lit.');
+          alert(
+            'Could not detect a valid QR code in this image. Please ensure the code is clear and well-lit.'
+          );
         }
       };
       img.src = event.target?.result as string;
@@ -187,19 +208,24 @@ export default function QRSafetyCheckerPage() {
   const faqs = [
     {
       question: 'What is "Quishing" (QR phishing)?',
-      answer: 'Quishing is a social engineering cyberattack where criminals embed phishing links inside QR codes. Because traditional email filters cannot easily inspect image pixels, the QR code reaches the victim, who scans it with a mobile device that lacks enterprise firewall protection.',
+      answer:
+        'Quishing is a social engineering cyberattack where criminals embed phishing links inside QR codes. Because traditional email filters cannot easily inspect image pixels, the QR code reaches the victim, who scans it with a mobile device that lacks enterprise firewall protection.',
     },
     {
-      question: 'How can I tell if a physical QR code on a parking meter or restaurant table has been tampered with?',
-      answer: 'Inspect the code with your fingers. Fraudsters frequently print adhesive stickers and paste them directly on top of genuine signs. If you feel a raised sticker edge or see corners peeling off, do not scan it.',
+      question:
+        'How can I tell if a physical QR code on a parking meter or restaurant table has been tampered with?',
+      answer:
+        'Inspect the code with your fingers. Fraudsters frequently print adhesive stickers and paste them directly on top of genuine signs. If you feel a raised sticker edge or see corners peeling off, do not scan it.',
     },
     {
       question: 'Why are shortened URLs in QR codes risky?',
-      answer: 'Short URLs (such as bit.ly or tinyurl) mask the true destination domain. Attackers use shorteners to hide malicious hostnames and evade basic inspection until the browser executes the redirect chain.',
+      answer:
+        'Short URLs (such as bit.ly or tinyurl) mask the true destination domain. Attackers use shorteners to hide malicious hostnames and evade basic inspection until the browser executes the redirect chain.',
     },
     {
       question: 'Is my data uploaded to any server when I test a QR code here?',
-      answer: 'No. All image decoding and security heuristics run 100% locally inside your browser client using Web APIs. Nothing is ever sent to or stored on any server.',
+      answer:
+        'No. All image decoding and security heuristics run 100% locally inside your browser client using Web APIs. Nothing is ever sent to or stored on any server.',
     },
   ];
 
@@ -221,7 +247,8 @@ export default function QRSafetyCheckerPage() {
           QR Code Safety & Anti-Quishing Inspector
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Decode any QR code from an image or inspect a suspicious URL before scanning. Detect homograph spoofing, IP redirects, hidden short links, and phishing patterns client-side.
+          Decode any QR code from an image or inspect a suspicious URL before scanning. Detect
+          homograph spoofing, IP redirects, hidden short links, and phishing patterns client-side.
         </p>
       </header>
 
@@ -246,13 +273,19 @@ export default function QRSafetyCheckerPage() {
                 className="hidden"
               />
               <FileSearch className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
-              <div className="text-sm font-semibold text-foreground">Click to upload or drag & drop image</div>
-              <div className="text-xs text-muted-foreground mt-1">PNG, JPG, WebP, or screenshots (Decoded 100% in browser)</div>
+              <div className="text-sm font-semibold text-foreground">
+                Click to upload or drag & drop image
+              </div>
+              <div className="text-xs text-muted-foreground mt-1">
+                PNG, JPG, WebP, or screenshots (Decoded 100% in browser)
+              </div>
             </div>
 
             <div className="my-6 flex items-center gap-3">
               <div className="flex-1 h-px bg-border/60" />
-              <span className="text-xs text-muted-foreground uppercase font-semibold">Or Paste Target URL / Text</span>
+              <span className="text-xs text-muted-foreground uppercase font-semibold">
+                Or Paste Target URL / Text
+              </span>
               <div className="flex-1 h-px bg-border/60" />
             </div>
 
@@ -291,7 +324,9 @@ export default function QRSafetyCheckerPage() {
               <div className="text-center py-10 text-muted-foreground space-y-2">
                 <QrCode className="w-12 h-12 mx-auto stroke-1 opacity-40" />
                 <p className="text-sm font-medium">No QR code analyzed yet.</p>
-                <p className="text-xs">Upload an image or enter a URL on the left to inspect security heuristics.</p>
+                <p className="text-xs">
+                  Upload an image or enter a URL on the left to inspect security heuristics.
+                </p>
               </div>
             ) : (
               <div className="space-y-5">
@@ -301,8 +336,8 @@ export default function QRSafetyCheckerPage() {
                     result.status === 'safe'
                       ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-400'
                       : result.status === 'caution'
-                      ? 'bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-400'
-                      : 'bg-rose-500/10 border-rose-500/30 text-rose-700 dark:text-rose-400'
+                        ? 'bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-400'
+                        : 'bg-rose-500/10 border-rose-500/30 text-rose-700 dark:text-rose-400'
                   }`}
                 >
                   <div className="flex justify-center mb-2">
@@ -318,8 +353,8 @@ export default function QRSafetyCheckerPage() {
                     {result.status === 'safe'
                       ? 'Verified Safe (Low Risk)'
                       : result.status === 'caution'
-                      ? 'Caution Advised'
-                      : 'High Risk Phishing Warning'}
+                        ? 'Caution Advised'
+                        : 'High Risk Phishing Warning'}
                   </div>
                   <div className="text-xs mt-1">Trust Score: {result.score} / 100</div>
                 </div>
@@ -335,13 +370,19 @@ export default function QRSafetyCheckerPage() {
                 {/* Checklist Breakdown */}
                 <div className="space-y-2 pt-2 border-t border-border/50 text-xs">
                   {result.riskReasons.map((risk, i) => (
-                    <div key={i} className="flex items-start gap-2 text-rose-600 dark:text-rose-400">
+                    <div
+                      key={i}
+                      className="flex items-start gap-2 text-rose-600 dark:text-rose-400"
+                    >
                       <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
                       <span>{risk}</span>
                     </div>
                   ))}
                   {result.safePoints.map((safe, i) => (
-                    <div key={i} className="flex items-start gap-2 text-emerald-600 dark:text-emerald-400">
+                    <div
+                      key={i}
+                      className="flex items-start gap-2 text-emerald-600 dark:text-emerald-400"
+                    >
                       <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
                       <span>{safe}</span>
                     </div>
@@ -361,7 +402,10 @@ export default function QRSafetyCheckerPage() {
           Understanding QR Code Security Threats and Quishing Attacks
         </h2>
         <p className="text-base leading-relaxed">
-          Because QR codes are visually unintelligible to the human eye, consumers cannot preview where a link leads before scanning. Cybercriminals actively exploit this optical blind spot through <strong>Quishing (QR Phishing)</strong>, embedding weaponized links inside printed physical stickers, PDF attachments, and invoice fraud emails.
+          Because QR codes are visually unintelligible to the human eye, consumers cannot preview
+          where a link leads before scanning. Cybercriminals actively exploit this optical blind
+          spot through <strong>Quishing (QR Phishing)</strong>, embedding weaponized links inside
+          printed physical stickers, PDF attachments, and invoice fraud emails.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
@@ -369,16 +413,26 @@ export default function QRSafetyCheckerPage() {
         </h3>
         <ol className="list-decimal pl-6 space-y-3 text-sm">
           <li>
-            <strong>Punycode and Homograph Impersonation:</strong> Attackers register internationalized domain names using Cyrillic or Greek characters that look visually identical to Latin letters (for example, replacing the Latin letter 'a' with the Cyrillic 'а'). Our tool checks for underlying <code>xn--</code> encodings to detect spoofed brand domains.
+            <strong>Punycode and Homograph Impersonation:</strong> Attackers register
+            internationalized domain names using Cyrillic or Greek characters that look visually
+            identical to Latin letters (for example, replacing the Latin letter &apos;a&apos; with
+            the Cyrillic &apos;а&apos;). Our tool checks for underlying <code>xn--</code> encodings
+            to detect spoofed brand domains.
           </li>
           <li>
-            <strong>Numerical IP Hostnames:</strong> Legitimate commercial organizations rarely route users to raw IP addresses (e.g., <code>http://192.241.168.10/auth</code>). This is a frequent indicator of short-lived malicious command-and-control servers.
+            <strong>Numerical IP Hostnames:</strong> Legitimate commercial organizations rarely
+            route users to raw IP addresses (e.g., <code>http://192.241.168.10/auth</code>). This is
+            a frequent indicator of short-lived malicious command-and-control servers.
           </li>
           <li>
-            <strong>Hidden Intermediate Short Links:</strong> URL shortening domains (bit.ly, tinyurl, t.co) prevent consumers from observing the actual destination domain. Legitimate brand campaigns should use branded domain links or clear, direct URLs.
+            <strong>Hidden Intermediate Short Links:</strong> URL shortening domains (bit.ly,
+            tinyurl, t.co) prevent consumers from observing the actual destination domain.
+            Legitimate brand campaigns should use branded domain links or clear, direct URLs.
           </li>
           <li>
-            <strong>Non-HTTP Protocol Handlers:</strong> Malicious QR codes can encode <code>data:text/html</code> or <code>javascript:</code> strings designed to trigger cross-site scripting or download zero-day browser exploits immediately upon scanning.
+            <strong>Non-HTTP Protocol Handlers:</strong> Malicious QR codes can encode{' '}
+            <code>data:text/html</code> or <code>javascript:</code> strings designed to trigger
+            cross-site scripting or download zero-day browser exploits immediately upon scanning.
           </li>
         </ol>
 
@@ -386,7 +440,11 @@ export default function QRSafetyCheckerPage() {
           Physical Tampering Defense Protocol
         </h3>
         <p className="text-base leading-relaxed">
-          In municipal spaces such as parking meters, EV charging kiosks, and outdoor restaurant patios, attackers paste high-resolution paper stickers over legitimate payment codes. Before scanning any payment code in public, always conduct a brief tactile check: run your thumb across the sign surface. If the QR code feels elevated or reveals a peeling adhesive edge, do not proceed with payment.
+          In municipal spaces such as parking meters, EV charging kiosks, and outdoor restaurant
+          patios, attackers paste high-resolution paper stickers over legitimate payment codes.
+          Before scanning any payment code in public, always conduct a brief tactile check: run your
+          thumb across the sign surface. If the QR code feels elevated or reveals a peeling adhesive
+          edge, do not proceed with payment.
         </p>
       </article>
 

@@ -28,8 +28,16 @@ A QR in the coursebook or classroom poster links to audio exercises, pronunciati
 A QR links to the teaching team profiles: native languages, teaching certifications, and exam preparation expertise. Students choose a teacher they connect with.
     `,
     [
-      { question: 'Can a QR level test replace an in-person placement interview?', answer: 'For most general language courses, yes. A structured online test is sufficient for initial placement. In-person assessment remains useful for advanced or specialised courses.' },
-      { question: 'Should language school QR materials be in the target language?', answer: 'Yes where possible. Greeting prospective students in the language they want to learn demonstrates confidence in the method.' },
+      {
+        question: 'Can a QR level test replace an in-person placement interview?',
+        answer:
+          'For most general language courses, yes. A structured online test is sufficient for initial placement. In-person assessment remains useful for advanced or specialised courses.',
+      },
+      {
+        question: 'Should language school QR materials be in the target language?',
+        answer:
+          'Yes where possible. Greeting prospective students in the language they want to learn demonstrates confidence in the method.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ A QR links to the public voting page for shortlisted entries. Community votes co
 A QR on physical exhibition prints links to the winner announcement page with judge comments, photographer profiles, and purchase options for the winning images.
     `,
     [
-      { question: 'Should a photography competition QR entry form require account creation?', answer: 'Minimise friction. Email and name for contact plus the image upload is sufficient. Add account creation only if you want a long-term entrant relationship.' },
-      { question: 'Can a QR link to high-resolution judging images for print competition?', answer: 'Yes via a secure download link. Restrict to judges only until the competition closes, then open publicly if the entrant consented to display.' },
+      {
+        question: 'Should a photography competition QR entry form require account creation?',
+        answer:
+          'Minimise friction. Email and name for contact plus the image upload is sufficient. Add account creation only if you want a long-term entrant relationship.',
+      },
+      {
+        question: 'Can a QR link to high-resolution judging images for print competition?',
+        answer:
+          'Yes via a secure download link. Restrict to judges only until the competition closes, then open publicly if the entrant consented to display.',
+      },
     ]
   ),
   art(
@@ -88,8 +104,16 @@ A QR on the result slip links to resources after the test: how to apply for your
 A QR links to the official appeals procedure for candidates who wish to query a test outcome or complaint process for conduct issues.
     `,
     [
-      { question: 'Should driving test QR codes link to official government websites?', answer: 'Yes. Test centres are government-operated; QR codes should link to official .gov domains for credibility and accuracy.' },
-      { question: 'Can a QR replace the examiner\'s verbal instructions?', answer: 'No. QR is for pre-test information in the waiting area, not a substitute for the examiner\'s real-time guidance during the test.' },
+      {
+        question: 'Should driving test QR codes link to official government websites?',
+        answer:
+          'Yes. Test centres are government-operated; QR codes should link to official .gov domains for credibility and accuracy.',
+      },
+      {
+        question: "Can a QR replace the examiner's verbal instructions?",
+        answer:
+          "No. QR is for pre-test information in the waiting area, not a substitute for the examiner's real-time guidance during the test.",
+      },
     ]
   ),
   art(
@@ -118,8 +142,16 @@ A QR in the weekly offers email links to a page of personalised offers based on 
 Behind the scenes, managers scan inventory QRs at markdowns and use store QRs at self-checkout lanes. The same technology serves multiple functions across the operation.
     `,
     [
-      { question: 'How do supermarkets prevent a loyalty QR from being shared between people?', answer: 'Loyalty accounts are tied to a registered email or phone number. Points are credited to the account; sharing the QR shares the points, which is usually allowed within household terms.' },
-      { question: 'Can personalised offers be shown immediately after scanning at checkout?', answer: 'Some systems display offers on a receipt QR after purchase. Real-time offers are more commonly delivered by email or notification after the scan event.' },
+      {
+        question: 'How do supermarkets prevent a loyalty QR from being shared between people?',
+        answer:
+          'Loyalty accounts are tied to a registered email or phone number. Points are credited to the account; sharing the QR shares the points, which is usually allowed within household terms.',
+      },
+      {
+        question: 'Can personalised offers be shown immediately after scanning at checkout?',
+        answer:
+          'Some systems display offers on a receipt QR after purchase. Real-time offers are more commonly delivered by email or notification after the scan event.',
+      },
     ]
   ),
   art(
@@ -148,8 +180,16 @@ A QR on the appointment reminder links to a pre-appointment questionnaire: pain 
 A QR on the discharge summary links to the booking system for future appointments. Patients who need a check-up months later book without searching for the clinic's contact details.
     `,
     [
-      { question: 'Should patient exercise plans be accessible without login?', answer: 'Use a unique unguessable link per patient rather than requiring login. The link is shared only with that patient.' },
-      { question: 'Can a QR exercise plan replace a paper handout?', answer: 'For most patients, yes. Keep a printed option for patients without smartphones or who prefer paper reference during exercises.' },
+      {
+        question: 'Should patient exercise plans be accessible without login?',
+        answer:
+          'Use a unique unguessable link per patient rather than requiring login. The link is shared only with that patient.',
+      },
+      {
+        question: 'Can a QR exercise plan replace a paper handout?',
+        answer:
+          'For most patients, yes. Keep a printed option for patients without smartphones or who prefer paper reference during exercises.',
+      },
     ]
   ),
   art(
@@ -178,8 +218,16 @@ A QR on the membership renewal notice links to the online renewal page pre-fille
 A QR in the member newsletter links to the members-only event booking page: private views, curator talks, and collection tours. Events bookable only from this link reinforce membership value.
     `,
     [
-      { question: 'Can a museum member use a phone screen QR at the gate?', answer: 'Yes. Most modern gate scanner systems read QR codes equally from paper and screens. Test brightness and orientation at your specific scanner model.' },
-      { question: 'Should reciprocal admission QRs show the partner venue\'s acceptance policy?', answer: 'Yes. Link to a page confirming which partners accept the pass, any day or time restrictions, and how to present at the venue.' },
+      {
+        question: 'Can a museum member use a phone screen QR at the gate?',
+        answer:
+          'Yes. Most modern gate scanner systems read QR codes equally from paper and screens. Test brightness and orientation at your specific scanner model.',
+      },
+      {
+        question: "Should reciprocal admission QRs show the partner venue's acceptance policy?",
+        answer:
+          'Yes. Link to a page confirming which partners accept the pass, any day or time restrictions, and how to present at the venue.',
+      },
     ]
   ),
   art(
@@ -208,15 +256,23 @@ A QR on a general legal ad links to a case type explainer: personal injury, empl
 A QR on a brochure or letter links to independently verified client reviews. In a trust-sensitive sector, third-party reviews carry more weight than self-reported claims.
     `,
     [
-      { question: 'Can a QR eligibility check replace a solicitor assessment?', answer: 'No. The QR check provides a preliminary filter only. A qualified solicitor must conduct the formal eligibility and merits assessment.' },
-      { question: 'Should legal services QR ads be SRA-compliant?', answer: 'Yes in the UK. All legal advertising must comply with SRA standards. Ensure linked pages meet the same requirements as the ad itself.' },
+      {
+        question: 'Can a QR eligibility check replace a solicitor assessment?',
+        answer:
+          'No. The QR check provides a preliminary filter only. A qualified solicitor must conduct the formal eligibility and merits assessment.',
+      },
+      {
+        question: 'Should legal services QR ads be SRA-compliant?',
+        answer:
+          'Yes in the UK. All legal advertising must comply with SRA standards. Ensure linked pages meet the same requirements as the ad itself.',
+      },
     ]
   ),
   art(
     'qr-code-for-children-clothing',
-    'QR Codes on Children\'s Clothing: Size Guides, Care Instructions, and Second-Life Programs',
+    "QR Codes on Children's Clothing: Size Guides, Care Instructions, and Second-Life Programs",
     'qr code children clothing size guide care label',
-    'Use QR codes on children\'s garment labels for sizing transitions, care guides, and resale or donation programmes.',
+    "Use QR codes on children's garment labels for sizing transitions, care guides, and resale or donation programmes.",
     'Business & Regional',
     '4 min read',
     '2027-04-28',
@@ -238,8 +294,16 @@ A QR links to the brand's clothes take-back or resale programme. Parents who hav
 A QR on character or print clothing links to a themed activity guide: a colouring page for that character, a craft project, or a reading list. Adds value beyond the garment.
     `,
     [
-      { question: 'Should children\'s clothing QRs link to any social media?', answer: 'Only to brand-managed channels. Do not link to user-generated social features from children\'s products. Keep linked content age-appropriate and moderated.' },
-      { question: 'Can a QR take-back programme reduce returns costs?', answer: 'Yes. Directing parents to a resale portal reduces direct return requests while extending the brand relationship and recovering product value.' },
+      {
+        question: "Should children's clothing QRs link to any social media?",
+        answer:
+          "Only to brand-managed channels. Do not link to user-generated social features from children's products. Keep linked content age-appropriate and moderated.",
+      },
+      {
+        question: 'Can a QR take-back programme reduce returns costs?',
+        answer:
+          'Yes. Directing parents to a resale portal reduces direct return requests while extending the brand relationship and recovering product value.',
+      },
     ]
   ),
   art(
@@ -268,8 +332,16 @@ Companies claiming Scope 2 emissions reductions based on green tariff purchases 
 When a certificate is retired (used to back a specific consumption claim), a QR on the retirement notice links to the public registry confirmation that the certificate cannot be used again.
     `,
     [
-      { question: 'Does a green energy tariff QR prove electricity came from renewables?', answer: 'It proves a REGO or REC was purchased and retired to back the claim. Whether the physical electrons came from renewables is a different question answered by grid topology.' },
-      { question: 'Can SMEs verify their energy supplier\'s green claims via QR?', answer: 'Yes if the supplier provides QR-linked REGO retirement notices. Ask your supplier for certificate-level verification with each invoice.' },
+      {
+        question: 'Does a green energy tariff QR prove electricity came from renewables?',
+        answer:
+          'It proves a REGO or REC was purchased and retired to back the claim. Whether the physical electrons came from renewables is a different question answered by grid topology.',
+      },
+      {
+        question: "Can SMEs verify their energy supplier's green claims via QR?",
+        answer:
+          'Yes if the supplier provides QR-linked REGO retirement notices. Ask your supplier for certificate-level verification with each invoice.',
+      },
     ]
   ),
   art(
@@ -298,8 +370,16 @@ A QR links to the school's technique library: knife skills, sauce reduction, pas
 A QR in the follow-up email links to a recap page: the recipes from today's class, shopping list, and recommended further reading. Students cook the dishes again at home.
     `,
     [
-      { question: 'Should recipe QRs expire after the class date?', answer: 'No. Participants refer back to recipes they loved months later. Permanent links provide long-term value and reduce recipe printing costs.' },
-      { question: 'Can a QR replace the class handout entirely?', answer: 'For digital-comfortable participants, yes. Offer a printed recipe sheet as an optional extra for those who prefer physical reference while cooking.' },
+      {
+        question: 'Should recipe QRs expire after the class date?',
+        answer:
+          'No. Participants refer back to recipes they loved months later. Permanent links provide long-term value and reduce recipe printing costs.',
+      },
+      {
+        question: 'Can a QR replace the class handout entirely?',
+        answer:
+          'For digital-comfortable participants, yes. Offer a printed recipe sheet as an optional extra for those who prefer physical reference while cooking.',
+      },
     ]
   ),
 ];

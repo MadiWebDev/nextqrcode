@@ -94,15 +94,18 @@ Every dynamic QR code routes through a redirect URL. The redirect service is the
     [
       {
         question: 'What happens to my QR codes if I cancel my Bit.ly or Rebrandly subscription?',
-        answer: 'Your dynamic QR codes stop working or redirect incorrectly if the links are deactivated on account downgrade or cancellation. Before cancelling, migrate all active QR destinations to a new redirect service and update your QR codes. This is why long-term print materials should use static QR codes or self-hosted redirects that you fully control.',
+        answer:
+          'Your dynamic QR codes stop working or redirect incorrectly if the links are deactivated on account downgrade or cancellation. Before cancelling, migrate all active QR destinations to a new redirect service and update your QR codes. This is why long-term print materials should use static QR codes or self-hosted redirects that you fully control.',
       },
       {
         question: 'Can I use a static QR code for a URL that changes occasionally?',
-        answer: 'If the final destination URL changes, you cannot update a static QR — you must reprint. The workaround: use a static QR that points to a landing page URL on your own domain that you control. Change the content of that landing page freely. The QR URL itself never changes, but what users see when they scan can be updated.',
+        answer:
+          'If the final destination URL changes, you cannot update a static QR — you must reprint. The workaround: use a static QR that points to a landing page URL on your own domain that you control. Change the content of that landing page freely. The QR URL itself never changes, but what users see when they scan can be updated.',
       },
       {
         question: 'Is Bit.ly reliable enough for important marketing campaigns?',
-        answer: 'Bit.ly has strong infrastructure and high uptime historically. For mission-critical campaigns, consider redundancy: a self-hosted shortener that mirrors the redirect as a fallback. For the vast majority of marketing uses, Bit.ly paid tier is reliable enough. Evaluate their current SLA at bitly.com before committing at scale.',
+        answer:
+          'Bit.ly has strong infrastructure and high uptime historically. For mission-critical campaigns, consider redundancy: a self-hosted shortener that mirrors the redirect as a fallback. For the vast majority of marketing uses, Bit.ly paid tier is reliable enough. Evaluate their current SLA at bitly.com before committing at scale.',
       },
     ]
   ),
@@ -148,11 +151,13 @@ Bit.ly's free tier limits mean heavy-use QR campaigns may need a paid plan. Free
     [
       {
         question: 'Can I convert a Bit.ly QR to a static QR without reprinting?',
-        answer: 'No. A Bit.ly QR and a static QR are different QR patterns. The only way to "convert" is to reprint with the new code. This is why choosing the right type upfront matters — a static QR on a business card printed today should still be serving scans five years from now without any ongoing cost.',
+        answer:
+          'No. A Bit.ly QR and a static QR are different QR patterns. The only way to "convert" is to reprint with the new code. This is why choosing the right type upfront matters — a static QR on a business card printed today should still be serving scans five years from now without any ongoing cost.',
       },
       {
         question: 'Is there a free dynamic QR option that does not rely on Bit.ly?',
-        answer: 'Yes. Self-host a redirect using free tools like YOURLS on a cheap server or VPS (from £2/month). The QR points to your own domain\'s redirect, which you control entirely. No subscription, no limits, no third-party dependency. Requires basic technical setup but is the most robust long-term option.',
+        answer:
+          "Yes. Self-host a redirect using free tools like YOURLS on a cheap server or VPS (from £2/month). The QR points to your own domain's redirect, which you control entirely. No subscription, no limits, no third-party dependency. Requires basic technical setup but is the most robust long-term option.",
       },
     ]
   ),
@@ -229,15 +234,18 @@ Once your shortener is running:
     [
       {
         question: 'How difficult is it to self-host Shlink for a non-developer?',
-        answer: 'Shlink has a one-click deployment on Railway.app and a Docker Compose file for those comfortable with basic Linux. For a true non-developer, managed options like Dub.co or Rebrandly are more appropriate. Self-hosting offers full control but requires comfort with server administration.',
+        answer:
+          'Shlink has a one-click deployment on Railway.app and a Docker Compose file for those comfortable with basic Linux. For a true non-developer, managed options like Dub.co or Rebrandly are more appropriate. Self-hosting offers full control but requires comfort with server administration.',
       },
       {
         question: 'What happens to my QR codes if my self-hosted shortener server goes down?',
-        answer: 'Every scan will fail until the server is restored. This is the main risk of self-hosting. Mitigate it with a reliable hosting provider (Hetzner, DigitalOcean), uptime monitoring (UptimeRobot free tier), and automatic restart policies. For truly critical QR deployments, use redundant hosting or a managed service with SLA guarantees.',
+        answer:
+          'Every scan will fail until the server is restored. This is the main risk of self-hosting. Mitigate it with a reliable hosting provider (Hetzner, DigitalOcean), uptime monitoring (UptimeRobot free tier), and automatic restart policies. For truly critical QR deployments, use redundant hosting or a managed service with SLA guarantees.',
       },
       {
         question: 'Can I migrate from Bit.ly to a custom shortener without reprinting my QR codes?',
-        answer: 'No — you cannot change the QR pattern without reprinting. However, you can set up your custom shortener going forward and gradually replace Bit.ly QR codes as printed materials are due for refresh. Maintain your Bit.ly account until all old materials are replaced. Prioritise high-traffic placements for early migration.',
+        answer:
+          'No — you cannot change the QR pattern without reprinting. However, you can set up your custom shortener going forward and gradually replace Bit.ly QR codes as printed materials are due for refresh. Maintain your Bit.ly account until all old materials are replaced. Prioritise high-traffic placements for early migration.',
       },
     ]
   ),
@@ -299,12 +307,15 @@ This granularity shows you which placements are performing and which are wasted 
     `,
     [
       {
-        question: 'Can I use a single QR code and just update the redirect destination when needed?',
-        answer: 'Yes, that is exactly what dynamic QR codes are for. One QR code, one short link, one redirect record in your management tool. Update the destination URL in the dashboard whenever needed. Every subsequent scan goes to the new destination. The printed QR never changes.',
+        question:
+          'Can I use a single QR code and just update the redirect destination when needed?',
+        answer:
+          'Yes, that is exactly what dynamic QR codes are for. One QR code, one short link, one redirect record in your management tool. Update the destination URL in the dashboard whenever needed. Every subsequent scan goes to the new destination. The printed QR never changes.',
       },
       {
         question: 'How do I audit all the active QR redirects across a large organisation?',
-        answer: 'Use a link management platform with campaign tagging or workspace organisation. Export a CSV of all active links regularly — it should show short code, destination URL, campaign, creation date, last updated date, and scan count. This audit list helps identify stale redirects, expired campaigns, and links pointing to old pages.',
+        answer:
+          'Use a link management platform with campaign tagging or workspace organisation. Export a CSV of all active links regularly — it should show short code, destination URL, campaign, creation date, last updated date, and scan count. This audit list helps identify stale redirects, expired campaigns, and links pointing to old pages.',
       },
     ]
   ),
@@ -373,12 +384,15 @@ The most resilient setup: static QR codes pointing to URLs on your own domain fo
     `,
     [
       {
-        question: 'Should I include the short link as text alongside the QR code on printed materials?',
-        answer: 'Yes for important materials. Including the full short link as text provides a fallback for people who cannot scan (no camera, phone battery dead), and makes the QR feel more trustworthy — users can see where they are going before scanning. Keep the text link short and human-readable rather than a long URL.',
+        question:
+          'Should I include the short link as text alongside the QR code on printed materials?',
+        answer:
+          'Yes for important materials. Including the full short link as text provides a fallback for people who cannot scan (no camera, phone battery dead), and makes the QR feel more trustworthy — users can see where they are going before scanning. Keep the text link short and human-readable rather than a long URL.',
       },
       {
         question: 'How do I handle QR codes that were printed years ago and still generate scans?',
-        answer: 'This is the best possible problem to have. If the QR uses a redirect you control, update the destination to the most relevant current content. If the QR is static and the original URL still resolves, add UTM parameters on the destination page load to identify these old-QR visitors. Consider the old QR as a long-tail traffic source worth optimising.',
+        answer:
+          'This is the best possible problem to have. If the QR uses a redirect you control, update the destination to the most relevant current content. If the QR is static and the original URL still resolves, add UTM parameters on the destination page load to identify these old-QR visitors. Consider the old QR as a long-tail traffic source worth optimising.',
       },
     ]
   ),

@@ -20,7 +20,6 @@ import {
   Eye,
 } from 'lucide-react';
 
-
 const LANGUAGE_PRESETS = {
   en: { label: 'English', text: 'Scan to connect to WiFi', dir: 'ltr' },
   ur: { label: 'Urdu (اردو)', text: 'وائی فائی سے منسلک ہونے کے لیے اسکین کریں', dir: 'rtl' },
@@ -63,15 +62,18 @@ export default function WifiSignGeneratorPage() {
   const faqs = [
     {
       question: 'Do guests need to type the password after scanning?',
-      answer: 'No. On iOS and Android devices, scanning this QR code automatically parses the network credentials and displays a one-tap "Join Network" prompt. The user is connected in under two seconds.',
+      answer:
+        'No. On iOS and Android devices, scanning this QR code automatically parses the network credentials and displays a one-tap "Join Network" prompt. The user is connected in under two seconds.',
     },
     {
       question: 'How do I print a foldable table tent?',
-      answer: 'Select the "Foldable Table Tent" layout option and click Print. Fold the printed paper in half along the indicated center dotted line so both sides of your dining table display the WiFi QR code.',
+      answer:
+        'Select the "Foldable Table Tent" layout option and click Print. Fold the printed paper in half along the indicated center dotted line so both sides of your dining table display the WiFi QR code.',
     },
     {
       question: 'Does this tool support Right-to-Left (RTL) scripts like Urdu and Arabic?',
-      answer: 'Yes. Our template engine includes native typography support for Urdu Nastaliq and Arabic scripts with correct RTL text-alignment and phrasing.',
+      answer:
+        'Yes. Our template engine includes native typography support for Urdu Nastaliq and Arabic scripts with correct RTL text-alignment and phrasing.',
     },
   ];
 
@@ -93,7 +95,8 @@ export default function WifiSignGeneratorPage() {
           Printable WiFi Sign & Table Tent Maker (with RTL Urdu/Arabic)
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Design high-converting WiFi signs and foldable table tents for cafes, hotels, and offices. Includes full RTL typography support for Urdu, Arabic, English, and European languages.
+          Design high-converting WiFi signs and foldable table tents for cafes, hotels, and offices.
+          Includes full RTL typography support for Urdu, Arabic, English, and European languages.
         </p>
       </header>
 
@@ -102,7 +105,9 @@ export default function WifiSignGeneratorPage() {
         onFill={({ ssid: s, password: p, encryption: e, hidden: h }) => {
           setSsid(s);
           setPassword(p);
-          setAuthType((e === 'WEP' ? 'WEP' : e === 'nopass' ? 'nopass' : 'WPA') as 'WPA' | 'WEP' | 'nopass');
+          setAuthType(
+            (e === 'WEP' ? 'WEP' : e === 'nopass' ? 'nopass' : 'WPA') as 'WPA' | 'WEP' | 'nopass'
+          );
           setIsHidden(h === 'true');
         }}
       />
@@ -111,7 +116,6 @@ export default function WifiSignGeneratorPage() {
         {/* Left Inputs (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           <Card className="p-6 border-border/80 shadow-xs space-y-4">
-
             <h2 className="text-base font-bold flex items-center gap-2">
               <Wifi className="w-4 h-4 text-primary" />
               <span>WiFi Network Credentials</span>
@@ -119,7 +123,9 @@ export default function WifiSignGeneratorPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="wifi-ssid" className="text-xs">Network Name (SSID):</Label>
+                <Label htmlFor="wifi-ssid" className="text-xs">
+                  Network Name (SSID):
+                </Label>
                 <Input
                   id="wifi-ssid"
                   value={ssid}
@@ -129,7 +135,9 @@ export default function WifiSignGeneratorPage() {
               </div>
 
               <div>
-                <Label htmlFor="wifi-pass" className="text-xs">WiFi Password:</Label>
+                <Label htmlFor="wifi-pass" className="text-xs">
+                  WiFi Password:
+                </Label>
                 <Input
                   id="wifi-pass"
                   value={password}
@@ -139,11 +147,13 @@ export default function WifiSignGeneratorPage() {
               </div>
 
               <div>
-                <Label htmlFor="wifi-auth" className="text-xs">Security Type:</Label>
+                <Label htmlFor="wifi-auth" className="text-xs">
+                  Security Type:
+                </Label>
                 <select
                   id="wifi-auth"
                   value={authType}
-                  onChange={(e) => setAuthType(e.target.value as any)}
+                  onChange={(e) => setAuthType(e.target.value as 'WPA' | 'WEP' | 'nopass')}
                   className="w-full h-9 rounded-md border border-input bg-background px-3 py-1 text-sm mt-1"
                 >
                   <option value="WPA">WPA / WPA2 / WPA3 (Standard)</option>
@@ -153,7 +163,9 @@ export default function WifiSignGeneratorPage() {
               </div>
 
               <div>
-                <Label htmlFor="wifi-biz" className="text-xs">Business / Venue Title:</Label>
+                <Label htmlFor="wifi-biz" className="text-xs">
+                  Business / Venue Title:
+                </Label>
                 <Input
                   id="wifi-biz"
                   value={businessName}
@@ -172,11 +184,13 @@ export default function WifiSignGeneratorPage() {
                 </Label>
                 <select
                   value={langKey}
-                  onChange={(e) => setLangKey(e.target.value as any)}
+                  onChange={(e) => setLangKey(e.target.value as keyof typeof LANGUAGE_PRESETS)}
                   className="w-full h-9 rounded-md border border-input bg-background px-3 py-1 text-sm"
                 >
                   {Object.entries(LANGUAGE_PRESETS).map(([k, v]) => (
-                    <option key={k} value={k}>{v.label}</option>
+                    <option key={k} value={k}>
+                      {v.label}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -195,7 +209,7 @@ export default function WifiSignGeneratorPage() {
                     <button
                       key={t.id}
                       type="button"
-                      onClick={() => setTemplate(t.id as any)}
+                      onClick={() => setTemplate(t.id as 'tent' | 'card' | 'poster')}
                       className={`py-1.5 px-2 rounded-lg border text-xs font-medium transition-all ${
                         template === t.id
                           ? 'border-primary bg-primary/10 text-primary font-bold'
@@ -269,10 +283,7 @@ export default function WifiSignGeneratorPage() {
               </div>
             </div>
 
-            <Button
-              onClick={() => window.print()}
-              className="w-full text-xs font-semibold gap-2"
-            >
+            <Button onClick={() => window.print()} className="w-full text-xs font-semibold gap-2">
               <Printer className="w-3.5 h-3.5" />
               Print Sign / Save as PDF
             </Button>
@@ -288,21 +299,28 @@ export default function WifiSignGeneratorPage() {
           Hospitality WiFi Sign Design & RTL Cultural Typography
         </h2>
         <p className="text-base leading-relaxed">
-          Sharing guest WiFi credentials via verbal conversation or scribbled napkins creates unnecessary friction for patrons and service staff. A clear, branded table tent or wall sign removes connection barriers entirely.
+          Sharing guest WiFi credentials via verbal conversation or scribbled napkins creates
+          unnecessary friction for patrons and service staff. A clear, branded table tent or wall
+          sign removes connection barriers entirely.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           Right-to-Left (RTL) Typography Optimization
         </h3>
         <p className="text-base leading-relaxed">
-          In regions where Arabic or Urdu are the primary languages, signage that only provides English instructions results in lower engagement. Our generator integrates native RTL phrasing and proper ligature rendering so your international guests feel welcomed immediately upon taking their seats.
+          In regions where Arabic or Urdu are the primary languages, signage that only provides
+          English instructions results in lower engagement. Our generator integrates native RTL
+          phrasing and proper ligature rendering so your international guests feel welcomed
+          immediately upon taking their seats.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           Table Tent Material and Durability Advice
         </h3>
         <p className="text-base leading-relaxed">
-          For restaurant and coffee shop tables exposed to condensation, beverage rings, and sanitizing sprays, print on 300 GSM cardstock coated with a matte UV lamination. This prevents water stains and eliminates lighting glare from overhead spotlights.
+          For restaurant and coffee shop tables exposed to condensation, beverage rings, and
+          sanitizing sprays, print on 300 GSM cardstock coated with a matte UV lamination. This
+          prevents water stains and eliminates lighting glare from overhead spotlights.
         </p>
       </article>
 

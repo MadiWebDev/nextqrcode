@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -59,9 +59,14 @@ export function AppHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
+  // Close the mobile menu on navigation. Adjusted during render (the
+  // React-recommended pattern for resetting state when a value changes)
+  // instead of cascading setState from an effect.
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setMobileOpen(false);
-  }, [pathname]);
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-border/60">
@@ -78,7 +83,9 @@ export function AppHeader() {
           />
           <div className="flex items-baseline gap-2">
             <span className="font-bold text-lg tracking-tight">QR Code Tools</span>
-            <span className="text-xs text-muted-foreground hidden sm:inline">100% Client-Side Suite</span>
+            <span className="text-xs text-muted-foreground hidden sm:inline">
+              100% Client-Side Suite
+            </span>
           </div>
         </Link>
 
@@ -88,8 +95,13 @@ export function AppHeader() {
             {/* Mega Tools Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="text-xs text-muted-foreground hover:text-foreground gap-1">
-                  Tools ({toolCategories.flatMap((c) => c.tools).length}) <ChevronDown className="w-3 h-3" />
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-xs text-muted-foreground hover:text-foreground gap-1"
+                >
+                  Tools ({toolCategories.flatMap((c) => c.tools).length}){' '}
+                  <ChevronDown className="w-3 h-3" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-80 p-2">
@@ -101,7 +113,10 @@ export function AppHeader() {
                     </DropdownMenuLabel>
                     {group.tools.map((tool) => (
                       <DropdownMenuItem key={tool.href} asChild>
-                        <Link href={tool.href} className="text-xs cursor-pointer py-1 px-2 rounded-md hover:bg-muted">
+                        <Link
+                          href={tool.href}
+                          className="text-xs cursor-pointer py-1 px-2 rounded-md hover:bg-muted"
+                        >
                           {tool.label}
                         </Link>
                       </DropdownMenuItem>

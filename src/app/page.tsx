@@ -255,8 +255,7 @@ export default function HomePage() {
     '@type': 'WebSite',
     name: 'QR Code Tools',
     url: 'https://freeqrcode.tools',
-    description:
-      'Professional browser-based QR code generator and optical engineering platform.',
+    description: 'Professional browser-based QR code generator and optical engineering platform.',
     potentialAction: {
       '@type': 'SearchAction',
       target: 'https://freeqrcode.tools/sitemap-page?q={search_term_string}',
@@ -457,7 +456,9 @@ export default function HomePage() {
                 href={hub.href}
                 className="group border border-border/70 hover:border-primary/40 rounded-2xl p-5 bg-card hover:shadow-md transition-all"
               >
-                <div className={`w-10 h-10 rounded-xl ${hub.accent} flex items-center justify-center mb-3`}>
+                <div
+                  className={`w-10 h-10 rounded-xl ${hub.accent} flex items-center justify-center mb-3`}
+                >
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-bold text-sm text-foreground group-hover:text-primary transition-colors leading-snug mb-1">
@@ -488,7 +489,8 @@ export default function HomePage() {
                 WhatsApp QR Generators by Country
               </h2>
               <p className="text-muted-foreground text-xs mt-1">
-                Country-validated QR codes with correct calling codes, carrier prefixes, and local regulatory notes.
+                Country-validated QR codes with correct calling codes, carrier prefixes, and local
+                regulatory notes.
               </p>
             </div>
             <Link
@@ -529,7 +531,8 @@ export default function HomePage() {
                 Official Payment QR Standards
               </h2>
               <p className="text-muted-foreground text-xs mt-1">
-                Spec-compliant payment QR generators for global instant payment networks — Pix, UPI, Raast, SGQR, and more.
+                Spec-compliant payment QR generators for global instant payment networks — Pix, UPI,
+                Raast, SGQR, and more.
               </p>
             </div>
             <Link
@@ -575,7 +578,8 @@ export default function HomePage() {
               Technical Guides & Optical Standards
             </h2>
             <p className="text-muted-foreground text-xs sm:text-sm mt-1">
-              Peer-reviewed technical tutorials on error correction mathematics, print sizing, and security.
+              Peer-reviewed technical tutorials on error correction mathematics, print sizing, and
+              security.
             </p>
           </div>
           <Link
@@ -652,7 +656,9 @@ export default function HomePage() {
                 {item.q}
                 <ArrowRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
               </summary>
-              <div className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed">{item.a}</div>
+              <div className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed">
+                {item.a}
+              </div>
             </details>
           ))}
         </div>
@@ -667,27 +673,42 @@ export default function HomePage() {
                 {
                   '@type': 'Question',
                   name: 'Is QR Code Tools really free with no hidden subscriptions?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'Yes. QR Code Tools generates all QR codes directly in your browser. Static codes never expire and require no account or subscription.' },
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Yes. QR Code Tools generates all QR codes directly in your browser. Static codes never expire and require no account or subscription.',
+                  },
                 },
                 {
                   '@type': 'Question',
                   name: 'What is the difference between static and dynamic QR codes?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'Static QR codes encode data directly and work permanently offline. Dynamic codes depend on an external redirect server — if the vendor shuts down or you stop paying, all printed codes break.' },
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Static QR codes encode data directly and work permanently offline. Dynamic codes depend on an external redirect server — if the vendor shuts down or you stop paying, all printed codes break.',
+                  },
                 },
                 {
                   '@type': 'Question',
                   name: 'What file formats can I download?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'Vector SVG, print-ready PDF, high-resolution PNG (up to 4K), JPEG, and data URI embed code. SVG and PDF are recommended for commercial printing.' },
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Vector SVG, print-ready PDF, high-resolution PNG (up to 4K), JPEG, and data URI embed code. SVG and PDF are recommended for commercial printing.',
+                  },
                 },
                 {
                   '@type': 'Question',
                   name: 'Can I add my logo to a QR code?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'Yes. Upload any PNG or SVG logo. QR Code Tools automatically switches to Error Correction Level H and validates that the logo covers less than 20% of the symbol area.' },
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Yes. Upload any PNG or SVG logo. QR Code Tools automatically switches to Error Correction Level H and validates that the logo covers less than 20% of the symbol area.',
+                  },
                 },
                 {
                   '@type': 'Question',
                   name: 'Which payment QR standards are supported?',
-                  acceptedAnswer: { '@type': 'Answer', text: 'UPI (India), Raast (Pakistan), Pix BR Code (Brazil), SGQR (Singapore), Swiss QR-Bill, SEPA EPC QR Code, and more — each validated per official governing body specification.' },
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'UPI (India), Raast (Pakistan), Pix BR Code (Brazil), SGQR (Singapore), Swiss QR-Bill, SEPA EPC QR Code, and more — each validated per official governing body specification.',
+                  },
                 },
               ],
             }),

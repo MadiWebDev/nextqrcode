@@ -81,4 +81,11 @@ export const templates: Record<TemplateName, TemplateStyle> = {
   },
 };
 
-export const templateKeys: TemplateName[] = ['classic', 'modern', 'vibrant', 'glassmorphism', 'minimal', 'corporate'];
+export const templateKeys: TemplateName[] = [
+  'classic',
+  'modern',
+  'vibrant',
+  'glassmorphism',
+  'minimal',
+  'corporate',
+];

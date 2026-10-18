@@ -54,11 +54,7 @@ export async function POST(req: NextRequest) {
     if (isMongoConfigured()) {
       const db = await getDatabase();
       const collection = db.collection<DigitalCard>('cards');
-      await collection.updateOne(
-        { slug },
-        { $set: newCard },
-        { upsert: true }
-      );
+      await collection.updateOne({ slug }, { $set: newCard }, { upsert: true });
     } else {
       // Store in in-memory fallback
       memoryCards.set(slug, newCard);

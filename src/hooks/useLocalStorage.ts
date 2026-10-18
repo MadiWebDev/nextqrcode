@@ -1,20 +1,30 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-export function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T | ((prev: T) => T)) => void] {
-  // Initialise with initialValue to avoid SSR mismatch; hydrate on mount
-  const [storedValue, setStoredValue] = useState<T>(initialValue);
+function readStoredValue<T>(key: string, initialValue: T): T {
+  // Guarded for SSR — the initializer runs on the server too.
+  if (typeof window === 'undefined') return initialValue;
+  try {
+    const item = window.localStorage.getItem(key);
+    return item !== null ? (JSON.parse(item) as T) : initialValue;
+  } catch {
+    return initialValue;
+  }
+}
 
-  useEffect(() => {
-    // Only runs on client — safe to access localStorage
-    try {
-      const item = window.localStorage.getItem(key);
-      if (item !== null) setStoredValue(JSON.parse(item));
-    } catch {
-      // ignore
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [key]);
+export function useLocalStorage<T>(
+  key: string,
+  initialValue: T
+): [T, (value: T | ((prev: T) => T)) => void] {
+  // Read from storage lazily on first render instead of hydrating from an effect.
+  const [storedValue, setStoredValue] = useState<T>(() => readStoredValue(key, initialValue));
+
+  // Re-read from storage if the key changes (mirrors the old effect's [key] dependency).
+  const [prevKey, setPrevKey] = useState(key);
+  if (prevKey !== key) {
+    setPrevKey(key);
+    setStoredValue(readStoredValue(key, initialValue));
+  }
 
   const setValue = (value: T | ((prev: T) => T)) => {
     try {

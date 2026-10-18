@@ -32,8 +32,16 @@ A QR on the guest book table links to the digital version: guests record a short
 A QR on the order of service or table menu lists and links to every supplier used: florist, caterer, band, photographer, dress designer. Guests who love a supplier can contact them directly. A small favour that generates enormous goodwill from suppliers, who reciprocate with referrals.
     `,
     [
-      { question: 'Can a QR replace a printed seating plan entirely?', answer: 'Yes for most guests with smartphones. Always have a backup for guests without smartphones or with low battery — a small printed list at the welcome desk covers the edge cases without the cost of a full printed display.' },
-      { question: 'What is the best QR placement for a photo sharing wall at a wedding?', answer: 'Table cards (guests look at them throughout the meal), the bar (guests wait and are primed to engage), and the photo booth (guests are already in photo-sharing mode). All three placements together typically achieve 60–80% participation.' },
+      {
+        question: 'Can a QR replace a printed seating plan entirely?',
+        answer:
+          'Yes for most guests with smartphones. Always have a backup for guests without smartphones or with low battery — a small printed list at the welcome desk covers the edge cases without the cost of a full printed display.',
+      },
+      {
+        question: 'What is the best QR placement for a photo sharing wall at a wedding?',
+        answer:
+          'Table cards (guests look at them throughout the meal), the bar (guests wait and are primed to engage), and the photo booth (guests are already in photo-sharing mode). All three placements together typically achieve 60–80% participation.',
+      },
     ]
   ),
   art(
@@ -66,8 +74,17 @@ A QR inside each property (on the welcome notice or inside a kitchen cupboard) l
 A QR in the notice to vacate letter links to the check-out instructions: cleaning standards required, what to photograph, where to leave keys, and how to read meters. Tenants who follow the check-out instructions clearly have significantly fewer deposit deductions.
     `,
     [
-      { question: 'Does a QR-based digital inventory satisfy deposit adjudication evidence requirements?', answer: 'Yes. Digital inventories with time-stamped photographs and tenant digital signatures are accepted as evidence by TDS, DPS, and MyDeposits adjudicators. Ensure both parties sign digitally at check-in and check-out.' },
-      { question: 'Should the maintenance QR inside a rental property be static or dynamic?', answer: 'Dynamic. If the property changes management or the reporting system URL changes, a dynamic QR can be updated without physically replacing the notice in the property.' },
+      {
+        question:
+          'Does a QR-based digital inventory satisfy deposit adjudication evidence requirements?',
+        answer:
+          'Yes. Digital inventories with time-stamped photographs and tenant digital signatures are accepted as evidence by TDS, DPS, and MyDeposits adjudicators. Ensure both parties sign digitally at check-in and check-out.',
+      },
+      {
+        question: 'Should the maintenance QR inside a rental property be static or dynamic?',
+        answer:
+          'Dynamic. If the property changes management or the reporting system URL changes, a dynamic QR can be updated without physically replacing the notice in the property.',
+      },
     ]
   ),
   art(
@@ -100,8 +117,16 @@ A QR on the product or manufacturer directory links to the supply chain social c
 A QR in the printed annual report links to the full ESG data appendix: scope emissions table, diversity metrics, water and waste KPIs, and TCFD climate disclosures. The print report carries the narrative; the QR carries the machine-readable detail.
     `,
     [
-      { question: 'Can a QR sustainability disclosure replace printed recycling labels?', answer: 'Not entirely. On-pack recycling labels (OPRL, How2Recycle) are legally required in some markets and are more accessible than QR for consumers without smartphones. The QR supplements with detail the label cannot carry.' },
-      { question: 'Do retailers require QR sustainability data from suppliers?', answer: 'Major UK and EU retailers increasingly include QR-linked sustainability data in supplier codes of conduct and own-brand specifications. Check your specific retailer\'s requirements, which are typically updated annually.' },
+      {
+        question: 'Can a QR sustainability disclosure replace printed recycling labels?',
+        answer:
+          'Not entirely. On-pack recycling labels (OPRL, How2Recycle) are legally required in some markets and are more accessible than QR for consumers without smartphones. The QR supplements with detail the label cannot carry.',
+      },
+      {
+        question: 'Do retailers require QR sustainability data from suppliers?',
+        answer:
+          "Major UK and EU retailers increasingly include QR-linked sustainability data in supplier codes of conduct and own-brand specifications. Check your specific retailer's requirements, which are typically updated annually.",
+      },
     ]
   ),
   art(
@@ -142,8 +167,16 @@ A QR on a comparison site advert or broker's office display links to the quote e
 Financial services QR campaigns must comply with FCA financial promotion rules: risk warnings must be present where required, claims must be fair, clear, and not misleading. A QR landing page is a financial promotion if it contains an inducement to engage in investment or insurance activity.
     `,
     [
-      { question: 'Is Open Banking payment QR regulated in the UK?', answer: 'Yes. Payment Initiation Service Providers must be FCA-authorised under the Payment Services Regulations 2017. The QR itself is unregulated; the payment service it initiates is regulated.' },
-      { question: 'Can a QR link in a bank branch be compromised by sticker overlay attacks?', answer: 'Yes. Banks should use tamper-evident QR displays (recessed behind glass or screen-printed on permanent signage) and include the destination URL in plain text below the QR so customers can verify before scanning.' },
+      {
+        question: 'Is Open Banking payment QR regulated in the UK?',
+        answer:
+          'Yes. Payment Initiation Service Providers must be FCA-authorised under the Payment Services Regulations 2017. The QR itself is unregulated; the payment service it initiates is regulated.',
+      },
+      {
+        question: 'Can a QR link in a bank branch be compromised by sticker overlay attacks?',
+        answer:
+          'Yes. Banks should use tamper-evident QR displays (recessed behind glass or screen-printed on permanent signage) and include the destination URL in plain text below the QR so customers can verify before scanning.',
+      },
     ]
   ),
   art(
@@ -180,8 +213,16 @@ Patient-facing QR links in NHS and private healthcare settings must comply with 
 - Never log patient data in URL parameters.
     `,
     [
-      { question: 'Can a QR self-check-in system reduce GP surgery no-show rates?', answer: 'Self-check-in reduces front-desk friction but does not itself reduce no-shows. The QR appointment reminder with one-tap confirm/reschedule is the key intervention — studies consistently show 15–25% DNA reduction with active reminder systems.' },
-      { question: 'Is it safe to include appointment details in a QR in an SMS?', answer: 'The QR should encode a session token, not the appointment details in plain text. The landing page authenticated by the token then displays the appointment information. This prevents exposure if the SMS is forwarded or the QR photographed.' },
+      {
+        question: 'Can a QR self-check-in system reduce GP surgery no-show rates?',
+        answer:
+          'Self-check-in reduces front-desk friction but does not itself reduce no-shows. The QR appointment reminder with one-tap confirm/reschedule is the key intervention — studies consistently show 15–25% DNA reduction with active reminder systems.',
+      },
+      {
+        question: 'Is it safe to include appointment details in a QR in an SMS?',
+        answer:
+          'The QR should encode a session token, not the appointment details in plain text. The landing page authenticated by the token then displays the appointment information. This prevents exposure if the SMS is forwarded or the QR photographed.',
+      },
     ]
   ),
   art(
@@ -228,8 +269,16 @@ Your QR should always encode an HTTPS URL that:
 Third-party deep link platforms (Branch, Adjust, Firebase Dynamic Links — note: Firebase Dynamic Links deprecated in 2025, migrate to Branch or alternatives) handle cross-platform routing, attribution, and deferred deep linking (the user installs the app after scanning, and the app opens to the specific content on first launch).
     `,
     [
-      { question: 'What is deferred deep linking and why does it matter for QR campaigns?', answer: 'Deferred deep linking stores the intended destination at scan time and opens the correct in-app screen when the user installs and first launches the app. Without it, a new install always opens the app home screen regardless of what QR was scanned.' },
-      { question: 'Do Universal Links work when the QR is scanned from a camera app vs a browser?', answer: 'iOS native camera app triggers Universal Links. Scanning from within Instagram, WhatsApp, or Chrome in-app browsers may not trigger Universal Links — test your specific use case.' },
+      {
+        question: 'What is deferred deep linking and why does it matter for QR campaigns?',
+        answer:
+          'Deferred deep linking stores the intended destination at scan time and opens the correct in-app screen when the user installs and first launches the app. Without it, a new install always opens the app home screen regardless of what QR was scanned.',
+      },
+      {
+        question: 'Do Universal Links work when the QR is scanned from a camera app vs a browser?',
+        answer:
+          'iOS native camera app triggers Universal Links. Scanning from within Instagram, WhatsApp, or Chrome in-app browsers may not trigger Universal Links — test your specific use case.',
+      },
     ]
   ),
   art(
@@ -269,8 +318,17 @@ A QR on the matchday programme or on screens during half-time links to:
 Sponsor perimeter board QRs link to sponsor brand experiences: competitions, product samples, exclusive content. Sponsor scan data gives brands a measurable return on stadium advertising investment — replacing impression estimates with actual engagement metrics.
     `,
     [
-      { question: 'Can a stadium food ordering QR handle a 50,000-person surge at half-time?', answer: 'With a properly scaled cloud backend and CDN-served front end, yes. The critical architecture decision is to process orders asynchronously and provide queue position feedback to the fan, rather than attempting synchronous real-time processing at peak load.' },
-      { question: 'Do sports venue QR codes need to work in poor signal conditions inside a stadium?', answer: 'Stadium signal is variable. The mobile ticketing QR should be cached in Apple or Google Wallet and validated locally where possible. Food ordering requires active connectivity — venue operators should provide dense WiFi coverage to all seating areas.' },
+      {
+        question: 'Can a stadium food ordering QR handle a 50,000-person surge at half-time?',
+        answer:
+          'With a properly scaled cloud backend and CDN-served front end, yes. The critical architecture decision is to process orders asynchronously and provide queue position feedback to the fan, rather than attempting synchronous real-time processing at peak load.',
+      },
+      {
+        question:
+          'Do sports venue QR codes need to work in poor signal conditions inside a stadium?',
+        answer:
+          'Stadium signal is variable. The mobile ticketing QR should be cached in Apple or Google Wallet and validated locally where possible. Food ordering requires active connectivity — venue operators should provide dense WiFi coverage to all seating areas.',
+      },
     ]
   ),
   art(
@@ -303,8 +361,17 @@ Tourism QR landing pages should auto-detect browser language and serve content i
 A QR at attraction entrances links to the accessibility information page: step-free routes, hearing loop locations, BSL tour schedules, and large-print guide availability. Accessible tourism is a growing market and QR-based accessibility information is significantly cheaper to maintain than printed equivalents.
     `,
     [
-      { question: 'Should tourism QR codes on outdoor monuments be weatherproof?', answer: 'Yes. Use UV-stabilised vinyl with a weatherproof overlaminate on outdoor installations. In coastal or particularly harsh environments, consider stainless steel laser-engraved plates (with a short, highly memorable URL due to module size limitations).' },
-      { question: 'Can a city tourism board manage QR content centrally for attractions across the city?', answer: 'Yes. A city content management system (CMS) with location-specific pages, all accessed via dynamic QR codes that redirect to the CMS, allows central updates across every QR in the network simultaneously.' },
+      {
+        question: 'Should tourism QR codes on outdoor monuments be weatherproof?',
+        answer:
+          'Yes. Use UV-stabilised vinyl with a weatherproof overlaminate on outdoor installations. In coastal or particularly harsh environments, consider stainless steel laser-engraved plates (with a short, highly memorable URL due to module size limitations).',
+      },
+      {
+        question:
+          'Can a city tourism board manage QR content centrally for attractions across the city?',
+        answer:
+          'Yes. A city content management system (CMS) with location-specific pages, all accessed via dynamic QR codes that redirect to the CMS, allows central updates across every QR in the network simultaneously.',
+      },
     ]
   ),
   art(
@@ -345,8 +412,18 @@ A QR generated on the device's display (or on a physical label) encodes a diagno
 A QR on the device links to the manufacturer's WEEE (Waste Electrical and Electronic Equipment) recycling programme page: how to prepare the device for recycling, collection point locator, and data deletion instructions. Reduces e-waste and demonstrates environmental responsibility.
     `,
     [
-      { question: 'Can a QR on packaging survive the product\'s full lifecycle including outdoor installation?', answer: 'For IoT devices installed outdoors (smart meters, outdoor sensors), the QR must be UV-stable, waterproof, and placed in a protected location. A QR on the inside of a removable panel or on the device\'s PCB label in a sealed enclosure is more durable than an exterior label QR.' },
-      { question: 'How do I prevent a QR product activation from being used by a second owner after resale?', answer: 'Link activation to both the device serial number and the scanning user\'s account. On resale, implement a device transfer flow in the app: the original owner initiates a transfer, which deactivates the original activation and generates a new activation QR for the new owner.' },
+      {
+        question:
+          "Can a QR on packaging survive the product's full lifecycle including outdoor installation?",
+        answer:
+          "For IoT devices installed outdoors (smart meters, outdoor sensors), the QR must be UV-stable, waterproof, and placed in a protected location. A QR on the inside of a removable panel or on the device's PCB label in a sealed enclosure is more durable than an exterior label QR.",
+      },
+      {
+        question:
+          'How do I prevent a QR product activation from being used by a second owner after resale?',
+        answer:
+          "Link activation to both the device serial number and the scanning user's account. On resale, implement a device transfer flow in the app: the original owner initiates a transfer, which deactivates the original activation and generates a new activation QR for the new owner.",
+      },
     ]
   ),
   art(
@@ -382,8 +459,16 @@ Campaign QR landing pages must comply with:
 - Electoral Commission guidance on digital campaigning imprints (the imprint must appear on the landing page as well as the physical material).
     `,
     [
-      { question: 'Do political campaign QR codes need an imprint?', answer: 'The physical material carrying the QR needs a printed imprint. The QR landing page is a digital campaigning communication that also requires a digital imprint under Electoral Commission guidance for UK regulated periods.' },
-      { question: 'Can a QR on a campaign leaflet be used to collect personal data?', answer: 'Yes but with strong data protection obligations. ICO guidance requires clear information about how voter data will be used, a lawful basis for processing, and secure storage. Political parties must register data processing with the ICO.' },
+      {
+        question: 'Do political campaign QR codes need an imprint?',
+        answer:
+          'The physical material carrying the QR needs a printed imprint. The QR landing page is a digital campaigning communication that also requires a digital imprint under Electoral Commission guidance for UK regulated periods.',
+      },
+      {
+        question: 'Can a QR on a campaign leaflet be used to collect personal data?',
+        answer:
+          'Yes but with strong data protection obligations. ICO guidance requires clear information about how voter data will be used, a lawful basis for processing, and secure storage. Political parties must register data processing with the ICO.',
+      },
     ]
   ),
 ];

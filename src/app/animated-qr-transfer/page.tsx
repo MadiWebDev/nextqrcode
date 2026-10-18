@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import QRCode from 'qrcode';
 import jsQR from 'jsqr';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -35,8 +35,32 @@ export default function AnimatedQRTransferPage() {
   const [chunkLength, setChunkLength] = useState<number>(120);
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
-  const [senderFrames, setSenderFrames] = useState<string[]>([]);
   const [senderQRDataUrls, setSenderQRDataUrls] = useState<string[]>([]);
+
+  // Derive the ordered frame payloads from the text during render (pure computation).
+  const senderFrames = useMemo<string[]>(() => {
+    if (!payloadText.trim()) return [];
+    const pieces: string[] = [];
+    const total = Math.ceil(payloadText.length / chunkLength);
+    for (let i = 0; i < total; i++) {
+      const chunk = payloadText.slice(i * chunkLength, (i + 1) * chunkLength);
+      pieces.push(`[FRAME:${i + 1}/${total}]:${chunk}`);
+    }
+    return pieces;
+  }, [payloadText, chunkLength]);
+
+  // Reset the frame index whenever the frame set changes, and clear stale QR
+  // images when the payload is emptied — as a render-time state adjustment
+  // instead of a syncing effect.
+  const [prevFrames, setPrevFrames] = useState(senderFrames);
+  if (prevFrames !== senderFrames) {
+    setPrevFrames(senderFrames);
+    if (senderFrames.length === 0) {
+      setSenderQRDataUrls([]);
+    } else {
+      setCurrentFrameIndex(0);
+    }
+  }
 
   // Receiver State
   const [isScanning, setIsScanning] = useState(false);
@@ -49,28 +73,12 @@ export default function AnimatedQRTransferPage() {
   const streamRef = useRef<MediaStream | null>(null);
   const animationIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Generate Sender Frames
+  // Generate QR data URLs for the current frames. State updates happen only
+  // in the async generation callback, never synchronously in the effect body.
   useEffect(() => {
-    if (!payloadText.trim()) {
-      setSenderFrames([]);
-      setSenderQRDataUrls([]);
-      return;
-    }
-
-    const raw = payloadText;
-    const pieces: string[] = [];
-    const total = Math.ceil(raw.length / chunkLength);
-
-    for (let i = 0; i < total; i++) {
-      const chunk = raw.slice(i * chunkLength, (i + 1) * chunkLength);
-      pieces.push(`[FRAME:${i + 1}/${total}]:${chunk}`);
-    }
-
-    setSenderFrames(pieces);
-    setCurrentFrameIndex(0);
-
+    let cancelled = false;
     Promise.all(
-      pieces.map((p) =>
+      senderFrames.map((p) =>
         QRCode.toDataURL(p, {
           errorCorrectionLevel: 'L',
           width: 340,
@@ -78,9 +86,12 @@ export default function AnimatedQRTransferPage() {
         })
       )
     ).then((urls) => {
-      setSenderQRDataUrls(urls);
+      if (!cancelled) setSenderQRDataUrls(urls);
     });
-  }, [payloadText, chunkLength]);
+    return () => {
+      cancelled = true;
+    };
+  }, [senderFrames]);
 
   // Handle Play/Pause Animation Loop
   useEffect(() => {
@@ -182,15 +193,18 @@ export default function AnimatedQRTransferPage() {
   const faqs = [
     {
       question: 'How does animated QR data transfer work?',
-      answer: 'The sender splits a payload into ordered frames and streams them as an animated sequence of QR codes at a set frame rate (e.g. 4 FPS). The receiving camera continuously scans the video feed, collecting missing frames until the entire payload is reconstructed.',
+      answer:
+        'The sender splits a payload into ordered frames and streams them as an animated sequence of QR codes at a set frame rate (e.g. 4 FPS). The receiving camera continuously scans the video feed, collecting missing frames until the entire payload is reconstructed.',
     },
     {
       question: 'Why is animated QR transfer useful for air-gapped computers?',
-      answer: 'It provides a purely optical, unidirectional data channel. Because no USB, Bluetooth, or WiFi connection is established, it prevents firmware malware and wireless interception attacks.',
+      answer:
+        'It provides a purely optical, unidirectional data channel. Because no USB, Bluetooth, or WiFi connection is established, it prevents firmware malware and wireless interception attacks.',
     },
     {
       question: 'What is the optimal animation speed (FPS)?',
-      answer: 'Between 3 and 5 FPS is optimal for most smartphone cameras and webcams. Speeds above 6 FPS may cause frame drops due to camera shutter latency and browser decoding overhead.',
+      answer:
+        'Between 3 and 5 FPS is optimal for most smartphone cameras and webcams. Speeds above 6 FPS may cause frame drops due to camera shutter latency and browser decoding overhead.',
     },
   ];
 
@@ -212,7 +226,8 @@ export default function AnimatedQRTransferPage() {
           Animated-QR Offline File & Text Transfer
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Transmit text, keys, or files across air-gapped computers using an animated stream of QR codes. Optical sender with frame rate controls and camera receiver.
+          Transmit text, keys, or files across air-gapped computers using an animated stream of QR
+          codes. Optical sender with frame rate controls and camera receiver.
         </p>
       </header>
 
@@ -245,7 +260,10 @@ export default function AnimatedQRTransferPage() {
           <div className="lg:col-span-7 space-y-6">
             <Card className="p-6 border-border/80 shadow-xs space-y-5">
               <div>
-                <Label htmlFor="animated-text" className="text-xs font-semibold uppercase text-muted-foreground">
+                <Label
+                  htmlFor="animated-text"
+                  className="text-xs font-semibold uppercase text-muted-foreground"
+                >
                   Payload to Transmit:
                 </Label>
                 <Textarea
@@ -261,7 +279,9 @@ export default function AnimatedQRTransferPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-border/60">
                 <div className="space-y-2">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-semibold text-muted-foreground uppercase">Frame Rate:</span>
+                    <span className="font-semibold text-muted-foreground uppercase">
+                      Frame Rate:
+                    </span>
                     <span className="font-bold text-foreground">{fps} FPS</span>
                   </div>
                   <Slider
@@ -280,7 +300,9 @@ export default function AnimatedQRTransferPage() {
 
                 <div className="space-y-2">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-semibold text-muted-foreground uppercase">Chunk Size:</span>
+                    <span className="font-semibold text-muted-foreground uppercase">
+                      Chunk Size:
+                    </span>
                     <span className="font-bold text-foreground">{chunkLength} chars</span>
                   </div>
                   <Slider
@@ -320,7 +342,9 @@ export default function AnimatedQRTransferPage() {
                       <div
                         key={i}
                         className={`w-2 h-2 rounded-full transition-colors ${
-                          i === currentFrameIndex ? 'bg-primary scale-125' : 'bg-muted-foreground/30'
+                          i === currentFrameIndex
+                            ? 'bg-primary scale-125'
+                            : 'bg-muted-foreground/30'
                         }`}
                       />
                     ))}
@@ -470,21 +494,30 @@ export default function AnimatedQRTransferPage() {
           The Mechanics of Optical Air-Gapped Data Transfer
         </h2>
         <p className="text-base leading-relaxed">
-          Air-gapped computers—systems physically isolated from networks and radios—represent the pinnacle of computing security. However, data must occasionally cross this air gap. Animated QR codes provide an asynchronous optical data pipeline that transmits megabytes of information without introducing USB hardware firmware attack vectors.
+          Air-gapped computers—systems physically isolated from networks and radios—represent the
+          pinnacle of computing security. However, data must occasionally cross this air gap.
+          Animated QR codes provide an asynchronous optical data pipeline that transmits megabytes
+          of information without introducing USB hardware firmware attack vectors.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           Fountain Codes and Shutter Synchronization
         </h3>
         <p className="text-base leading-relaxed">
-          When transmitting data optically between two screens and cameras, the primary engineering challenge is shutter synchronization. Because the sending monitor refresh rate and the receiving camera frame rate are unsynchronized, frame tears can occur. By lowering the error correction overhead to Level L (which minimizes matrix density and maximizes optical contrast) and streaming at 3 to 5 FPS, receiver cameras capture clean, unblurred snapshots of every chunk.
+          When transmitting data optically between two screens and cameras, the primary engineering
+          challenge is shutter synchronization. Because the sending monitor refresh rate and the
+          receiving camera frame rate are unsynchronized, frame tears can occur. By lowering the
+          error correction overhead to Level L (which minimizes matrix density and maximizes optical
+          contrast) and streaming at 3 to 5 FPS, receiver cameras capture clean, unblurred snapshots
+          of every chunk.
         </p>
 
-        <h3 className="text-xl font-semibold text-foreground">
-          Zero-Server Client-Side Guarantee
-        </h3>
+        <h3 className="text-xl font-semibold text-foreground">Zero-Server Client-Side Guarantee</h3>
         <p className="text-base leading-relaxed">
-          Both the frame encoding and the camera video decoding are executed completely within client-side browser JavaScript utilizing standard HTML5 Canvas and the WebRTC MediaStream API. No telemetry, session tokens, or transmitted bits ever leave your local device memory.
+          Both the frame encoding and the camera video decoding are executed completely within
+          client-side browser JavaScript utilizing standard HTML5 Canvas and the WebRTC MediaStream
+          API. No telemetry, session tokens, or transmitted bits ever leave your local device
+          memory.
         </p>
       </article>
 

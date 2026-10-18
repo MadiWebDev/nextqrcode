@@ -28,8 +28,16 @@ A QR on the customer's loyalty card links to their bike's service history: all j
 A QR on the window links to the service booking form: type of service, fault description, and preferred date. Reduces phone calls and captures information the mechanic needs before the bike arrives.
     `,
     [
-      { question: 'Should a job status QR require a login?', answer: 'A unique unguessable token per job (no login) balances privacy and convenience for a single-ticket use case.' },
-      { question: 'Can service history QRs help when selling a bicycle?', answer: 'Yes. A documented service history adds buyer confidence. The QR makes the history shareable without physical paperwork.' },
+      {
+        question: 'Should a job status QR require a login?',
+        answer:
+          'A unique unguessable token per job (no login) balances privacy and convenience for a single-ticket use case.',
+      },
+      {
+        question: 'Can service history QRs help when selling a bicycle?',
+        answer:
+          'Yes. A documented service history adds buyer confidence. The QR makes the history shareable without physical paperwork.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ A QR visible on a screen or programme links to the live fundraising total: money
 A QR at each table links to the donation page so guests who were not reached personally by the fundraising team can still give. Easy giving at the moment of highest emotional engagement.
     `,
     [
-      { question: 'Can a QR silent auction replace a dedicated events app?', answer: 'For events without an existing app, a web-based QR auction is faster to set up, requires no download, and reaches all guests equally.' },
-      { question: 'Should auction bidding QRs be per item or per event?', answer: 'Per item. Each QR pre-selects the lot so guests land directly on the bidding page for the item they are standing in front of.' },
+      {
+        question: 'Can a QR silent auction replace a dedicated events app?',
+        answer:
+          'For events without an existing app, a web-based QR auction is faster to set up, requires no download, and reaches all guests equally.',
+      },
+      {
+        question: 'Should auction bidding QRs be per item or per event?',
+        answer:
+          'Per item. Each QR pre-selects the lot so guests land directly on the bidding page for the item they are standing in front of.',
+      },
     ]
   ),
   art(
@@ -88,8 +104,16 @@ A QR links to a guide for using What3Words to share a precise location in an eme
 Signal fails in mountain environments. Prompt hikers at the trailhead to save the safety page: "Tap the share button and save to home screen." Cached pages work without signal mid-route.
     `,
     [
-      { question: 'Can a QR at a mountain trailhead save lives?', answer: 'Yes indirectly. Safety briefings, planned route sharing, and location tools all reduce rescue incidents and improve response when needed.' },
-      { question: 'What if hikers do not have signal to scan the trailhead QR?', answer: 'Scan and cache at the car park or visitor centre where signal is available. The QR is the prompt; the phone does the rest offline.' },
+      {
+        question: 'Can a QR at a mountain trailhead save lives?',
+        answer:
+          'Yes indirectly. Safety briefings, planned route sharing, and location tools all reduce rescue incidents and improve response when needed.',
+      },
+      {
+        question: 'What if hikers do not have signal to scan the trailhead QR?',
+        answer:
+          'Scan and cache at the car park or visitor centre where signal is available. The QR is the prompt; the phone does the rest offline.',
+      },
     ]
   ),
   art(
@@ -118,8 +142,16 @@ For antique or interesting pieces, a QR links to the provenance story: era, orig
 A QR links to a "make an offer" form. Shop owners set a floor price; offers above it trigger a confirmation email. Enables price negotiation without staff mediation for every enquiry.
     `,
     [
-      { question: 'Can a second-hand furniture QR help with online listings?', answer: 'Yes. The same content page linked from the QR can be shared on Facebook Marketplace or Gumtree as the listing link.' },
-      { question: 'Should the QR tag be reused or recycled when the item sells?', answer: 'Redirect the URL to "this item has sold" on the same day it sells to avoid customer frustration. The physical tag can be reused for a new item.' },
+      {
+        question: 'Can a second-hand furniture QR help with online listings?',
+        answer:
+          'Yes. The same content page linked from the QR can be shared on Facebook Marketplace or Gumtree as the listing link.',
+      },
+      {
+        question: 'Should the QR tag be reused or recycled when the item sells?',
+        answer:
+          'Redirect the URL to "this item has sold" on the same day it sells to avoid customer frustration. The physical tag can be reused for a new item.',
+      },
     ]
   ),
   art(
@@ -148,8 +180,16 @@ A QR in the confirmation links to: venue address with navigation link, nearest c
 A QR offers an optional team photo package add-on after the game. Pre-booking creates an upsell opportunity with minimal friction.
     `,
     [
-      { question: 'Does a QR waiver have the same legal effect as a paper signature?', answer: 'In most jurisdictions, yes, provided the form meets electronic signature requirements and the record is retained. Confirm with your legal counsel.' },
-      { question: 'Should the briefing video QR be the same for all rooms?', answer: 'No. Briefing content may vary by room complexity. Use room-specific QR links so each team receives the correct preparation.' },
+      {
+        question: 'Does a QR waiver have the same legal effect as a paper signature?',
+        answer:
+          'In most jurisdictions, yes, provided the form meets electronic signature requirements and the record is retained. Confirm with your legal counsel.',
+      },
+      {
+        question: 'Should the briefing video QR be the same for all rooms?',
+        answer:
+          'No. Briefing content may vary by room complexity. Use room-specific QR links so each team receives the correct preparation.',
+      },
     ]
   ),
   art(
@@ -178,8 +218,16 @@ After a match, a QR links to the incident report form pre-filled with the match 
 A QR links to the performance feedback form sent by the assessor who observed the match. The official reviews the assessment and responds digitally. Replaces slow postal feedback.
     `,
     [
-      { question: 'Can a referee look up a rule during a game using a QR?', answer: 'Only in break periods. QR rule references are for pre-match preparation and half-time consultation, not mid-play lookups.' },
-      { question: 'Should incident report QRs pre-fill match details?', answer: 'Yes. Pre-fill match ID, date, and competition from a schedule system. The referee adds only the incident-specific content.' },
+      {
+        question: 'Can a referee look up a rule during a game using a QR?',
+        answer:
+          'Only in break periods. QR rule references are for pre-match preparation and half-time consultation, not mid-play lookups.',
+      },
+      {
+        question: 'Should incident report QRs pre-fill match details?',
+        answer:
+          'Yes. Pre-fill match ID, date, and competition from a schedule system. The referee adds only the incident-specific content.',
+      },
     ]
   ),
   art(
@@ -208,8 +256,16 @@ A QR on bereavement information leaflets links to local and national support org
 All content behind hospice QR codes must be reviewed for compassion, clarity, and appropriateness. Technical information (visiting hours, parking) is separate from emotional support content. Plain language is essential.
     `,
     [
-      { question: 'Should family members access patient care updates via QR without login?', answer: 'No. Any patient-specific care information requires authentication. QR provides convenient access to the login flow, not a bypass.' },
-      { question: 'Can a QR code on a memorial card be appropriate?', answer: 'Yes when sensitively designed. A QR on a tribute card linking to a memorial page provides lasting value without overwhelming the card design.' },
+      {
+        question: 'Should family members access patient care updates via QR without login?',
+        answer:
+          'No. Any patient-specific care information requires authentication. QR provides convenient access to the login flow, not a bypass.',
+      },
+      {
+        question: 'Can a QR code on a memorial card be appropriate?',
+        answer:
+          'Yes when sensitively designed. A QR on a tribute card linking to a memorial page provides lasting value without overwhelming the card design.',
+      },
     ]
   ),
   art(
@@ -242,8 +298,16 @@ Offer a plain text version of the menu with larger default font size. Avoid auto
 Provide a printed menu option on request. Accessibility includes patrons who cannot or choose not to use a smartphone. Train staff to offer this without making the patron feel singled out.
     `,
     [
-      { question: 'Does a QR menu need to meet WCAG if it is only used in a restaurant?', answer: 'In the UK and EU, digital services must be accessible. For businesses serving the public, WCAG 2.1 AA is the expected standard.' },
-      { question: 'What is the most common accessibility failure in QR menus?', answer: 'Insufficient colour contrast and missing alt text on dish images are the most frequently failed criteria in restaurant web menus.' },
+      {
+        question: 'Does a QR menu need to meet WCAG if it is only used in a restaurant?',
+        answer:
+          'In the UK and EU, digital services must be accessible. For businesses serving the public, WCAG 2.1 AA is the expected standard.',
+      },
+      {
+        question: 'What is the most common accessibility failure in QR menus?',
+        answer:
+          'Insufficient colour contrast and missing alt text on dish images are the most frequently failed criteria in restaurant web menus.',
+      },
     ]
   ),
   art(
@@ -272,8 +336,16 @@ A QR on the poolside safety board links to the full rules, depth markings guide,
 A QR at reception links to the swim lesson programme: available levels, instructor bios, prices, and available slots. Parents book from the poolside without queuing at the office.
     `,
     [
-      { question: 'Can a QR at a public pool replace the safety notice board?', answer: 'No. Safety notices must be displayed prominently in print as a legal requirement. QR provides extended detail, not a replacement.' },
-      { question: 'Should water quality data be behind a login?', answer: 'No. Pool water quality data is a public health matter and should be freely accessible without registration.' },
+      {
+        question: 'Can a QR at a public pool replace the safety notice board?',
+        answer:
+          'No. Safety notices must be displayed prominently in print as a legal requirement. QR provides extended detail, not a replacement.',
+      },
+      {
+        question: 'Should water quality data be behind a login?',
+        answer:
+          'No. Pool water quality data is a public health matter and should be freely accessible without registration.',
+      },
     ]
   ),
   art(
@@ -302,8 +374,16 @@ A QR on the policy schedule links to the claims initiation form pre-filled with 
 A QR on a commercial policy schedule links to the broker's risk management guide for the client's industry: common claims causes, prevention tips, and the broker's risk assessment portal.
     `,
     [
-      { question: 'Should policy comparison QRs require login?', answer: 'Yes. Policy details contain personal and financial information. Require authentication before displaying individual quote comparisons.' },
-      { question: 'Can a QR on a renewal letter reduce non-renewals?', answer: 'Yes. Reducing friction in the renewal decision—one scan, review, accept—increases renewal rates compared to requiring a phone call or form.' },
+      {
+        question: 'Should policy comparison QRs require login?',
+        answer:
+          'Yes. Policy details contain personal and financial information. Require authentication before displaying individual quote comparisons.',
+      },
+      {
+        question: 'Can a QR on a renewal letter reduce non-renewals?',
+        answer:
+          'Yes. Reducing friction in the renewal decision—one scan, review, accept—increases renewal rates compared to requiring a phone call or form.',
+      },
     ]
   ),
 ];

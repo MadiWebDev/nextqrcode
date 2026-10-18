@@ -28,8 +28,16 @@ A QR links to the full technical data sheet: wear layer, AC rating, dimensional 
 A QR links to the installation guide specific to the product: subfloor preparation, acclimatisation requirements, cutting tips, and underlay selection. DIY and trade installers get the right information before starting.
     `,
     [
-      { question: 'Can a room visualiser QR increase flooring conversion rates?', answer: 'Yes. Visualiser tools reduce purchase uncertainty significantly. Customers who see the product in their own space convert at much higher rates.' },
-      { question: 'Should sample request QRs collect lead information?', answer: 'Yes. A name and email with the sample request creates a follow-up opportunity. Keep the form to three fields.' },
+      {
+        question: 'Can a room visualiser QR increase flooring conversion rates?',
+        answer:
+          'Yes. Visualiser tools reduce purchase uncertainty significantly. Customers who see the product in their own space convert at much higher rates.',
+      },
+      {
+        question: 'Should sample request QRs collect lead information?',
+        answer:
+          'Yes. A name and email with the sample request creates a follow-up opportunity. Keep the form to three fields.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ A QR links to the operator's account management page: daily, weekly, and monthly
 Gambling operators must display responsible gambling information prominently under licensing conditions. A QR is supplementary to required printed notices and should link to regulated external resources.
     `,
     [
-      { question: 'Does a QR responsible gambling link satisfy regulatory requirements?', answer: 'It supplements but does not replace required posted notices. Confirm the specific display requirements with your gambling authority.' },
-      { question: 'Should self-exclusion QRs be conspicuous or discreet?', answer: 'Conspicuous, as regulators require. Discreet placement implies the operator is not meeting their duty of care.' },
+      {
+        question: 'Does a QR responsible gambling link satisfy regulatory requirements?',
+        answer:
+          'It supplements but does not replace required posted notices. Confirm the specific display requirements with your gambling authority.',
+      },
+      {
+        question: 'Should self-exclusion QRs be conspicuous or discreet?',
+        answer:
+          'Conspicuous, as regulators require. Discreet placement implies the operator is not meeting their duty of care.',
+      },
     ]
   ),
   art(
@@ -88,8 +104,16 @@ A QR on the EU tyre label display links to a guide explaining the fuel efficienc
 A QR links to the tyre safety self-check guide: how to measure tread depth, check for bulges, and identify sidewall damage. Drives footfall from customers who do their own assessment.
     `,
     [
-      { question: 'Can a QR tyre matching tool replace a sales advisor conversation?', answer: 'For straightforward replacements, yes. For unusual vehicles, run-flat requirements, or seasonal changeovers, advisor input adds value the tool cannot.' },
-      { question: 'Should tyre shop appointment QRs show waiting time as well as a specific date?', answer: 'Yes if real-time data is available. Showing "next available: today 3 pm" alongside the calendar increases immediate bookings.' },
+      {
+        question: 'Can a QR tyre matching tool replace a sales advisor conversation?',
+        answer:
+          'For straightforward replacements, yes. For unusual vehicles, run-flat requirements, or seasonal changeovers, advisor input adds value the tool cannot.',
+      },
+      {
+        question: 'Should tyre shop appointment QRs show waiting time as well as a specific date?',
+        answer:
+          'Yes if real-time data is available. Showing "next available: today 3 pm" alongside the calendar increases immediate bookings.',
+      },
     ]
   ),
   art(
@@ -118,8 +142,16 @@ A QR links to the tick-log form where climbers record a send, project attempt, o
 When a route is taken down and reset, the QR page updates to "archived" with the reset date. Climbers who return looking for a project they were projecting see the update immediately.
     `,
     [
-      { question: 'Should a climbing wall charge for the QR route system?', answer: 'No. A route information system adds value to membership and day passes. It is a retention tool, not a revenue line.' },
-      { question: 'Can community beta QRs be moderated to prevent incorrect or unsafe information?', answer: 'Yes. Use a moderated submission system where route setters or trusted community members approve posts before they appear.' },
+      {
+        question: 'Should a climbing wall charge for the QR route system?',
+        answer:
+          'No. A route information system adds value to membership and day passes. It is a retention tool, not a revenue line.',
+      },
+      {
+        question: 'Can community beta QRs be moderated to prevent incorrect or unsafe information?',
+        answer:
+          'Yes. Use a moderated submission system where route setters or trusted community members approve posts before they appear.',
+      },
     ]
   ),
   art(
@@ -148,8 +180,16 @@ A QR on the executed contract links to the signed PDF stored in the document man
 A QR on an amendment notice links to the updated document for review and signature. Versioning is maintained in the document system; the QR always references the latest amendment.
     `,
     [
-      { question: 'Is a QR-initiated e-signature legally binding?', answer: 'E-signatures are legally binding in most jurisdictions under eIDAS, ESIGN, and similar laws. The QR is the delivery mechanism; the signature platform provides the legal framework.' },
-      { question: 'Can a QR on a paper contract be scanned to start the digital signature process?', answer: 'Yes. This is a practical bridge between organisations that send paper drafts and parties who prefer digital signing.' },
+      {
+        question: 'Is a QR-initiated e-signature legally binding?',
+        answer:
+          'E-signatures are legally binding in most jurisdictions under eIDAS, ESIGN, and similar laws. The QR is the delivery mechanism; the signature platform provides the legal framework.',
+      },
+      {
+        question: 'Can a QR on a paper contract be scanned to start the digital signature process?',
+        answer:
+          'Yes. This is a practical bridge between organisations that send paper drafts and parties who prefer digital signing.',
+      },
     ]
   ),
   art(
@@ -178,8 +218,16 @@ A QR links to the online training portal for mandatory courses: safeguarding, ac
 A QR in the annual renewal pack links to the driver's compliance dashboard: licence expiry, insurance renewal date, and DBS recertification due date. Drivers manage their own compliance without chasing emails.
     `,
     [
-      { question: 'Should new driver onboarding QRs expire?', answer: 'Onboarding QRs can be valid for 30 days from offer. The underlying training and compliance portal remains accessible to active drivers indefinitely.' },
-      { question: 'Can a QR licence verification replace a physical document check?', answer: 'DVLA check shares are accepted in lieu of physical licence presentation for many operator compliance processes. Confirm requirements with your licensing authority.' },
+      {
+        question: 'Should new driver onboarding QRs expire?',
+        answer:
+          'Onboarding QRs can be valid for 30 days from offer. The underlying training and compliance portal remains accessible to active drivers indefinitely.',
+      },
+      {
+        question: 'Can a QR licence verification replace a physical document check?',
+        answer:
+          'DVLA check shares are accepted in lieu of physical licence presentation for many operator compliance processes. Confirm requirements with your licensing authority.',
+      },
     ]
   ),
   art(
@@ -208,8 +256,17 @@ A QR on a conference or training event badge logs attendance automatically when 
 Many professional bodies (CIPD, RICS, BCS, NMC) maintain online CPD registers. A QR on an employer-issued training certificate links to the standard format record that can be imported directly.
     `,
     [
-      { question: 'Should CPD certificates have permanent QR links?', answer: 'Yes. CPD records are used for re-registration for years after completion. Short-lived links undermine the certificate\'s value.' },
-      { question: 'Can an employer\'s QR training certificate satisfy a professional body\'s CPD requirement?', answer: 'If the record includes the required elements (hours, learning outcomes, date), most bodies accept it. Confirm with the specific professional body.' },
+      {
+        question: 'Should CPD certificates have permanent QR links?',
+        answer:
+          "Yes. CPD records are used for re-registration for years after completion. Short-lived links undermine the certificate's value.",
+      },
+      {
+        question:
+          "Can an employer's QR training certificate satisfy a professional body's CPD requirement?",
+        answer:
+          'If the record includes the required elements (hours, learning outcomes, date), most bodies accept it. Confirm with the specific professional body.',
+      },
     ]
   ),
   art(
@@ -238,8 +295,16 @@ A QR inside the product links to the warranty registration form pre-filled with 
 A QR on the product label links to end-of-season storage and maintenance guidance: cleaning method, which parts to remove, and how to store to maximise product life.
     `,
     [
-      { question: 'Should outdoor furniture QR labels be on the product or the packaging?', answer: 'Both. Packaging QRs serve the initial assembly moment; a durable product label QR serves maintenance and accessory needs years later.' },
-      { question: 'Can a QR reduce outdoor furniture warranty claims?', answer: 'Yes. Storage and maintenance guidance reduces damage from improper winter storage, which is a common cause of warranty claims.' },
+      {
+        question: 'Should outdoor furniture QR labels be on the product or the packaging?',
+        answer:
+          'Both. Packaging QRs serve the initial assembly moment; a durable product label QR serves maintenance and accessory needs years later.',
+      },
+      {
+        question: 'Can a QR reduce outdoor furniture warranty claims?',
+        answer:
+          'Yes. Storage and maintenance guidance reduces damage from improper winter storage, which is a common cause of warranty claims.',
+      },
     ]
   ),
   art(
@@ -268,8 +333,17 @@ A QR on the return form links to the digital condition report: pre-populated wit
 A QR on the hire receipt links to the booking system for the next session. Converting a satisfied hirer to a repeat customer at the point of maximum satisfaction.
     `,
     [
-      { question: 'Can a QR condition report at ski hire replace paper damage forms?', answer: 'Yes. Photo-enabled digital forms are more accurate, harder to dispute, and easier to archive than paper forms.' },
-      { question: 'Should hire equipment safety briefings require a timed read before rental starts?', answer: 'For higher-risk equipment, a 30-second minimum view time before the rental confirmation QR activates adds a safety checkpoint.' },
+      {
+        question: 'Can a QR condition report at ski hire replace paper damage forms?',
+        answer:
+          'Yes. Photo-enabled digital forms are more accurate, harder to dispute, and easier to archive than paper forms.',
+      },
+      {
+        question:
+          'Should hire equipment safety briefings require a timed read before rental starts?',
+        answer:
+          'For higher-risk equipment, a 30-second minimum view time before the rental confirmation QR activates adds a safety checkpoint.',
+      },
     ]
   ),
   art(
@@ -298,8 +372,16 @@ A QR on public safety signage links to the non-emergency police number, street m
 A QR on public toilet signage and bus stop shelters links to the mechanism for reporting harassment witnessed or experienced on that street. Quiet, discreet reporting increases reports.
     `,
     [
-      { question: 'Can a QR help councils identify which streets have the most lighting faults?', answer: 'Yes. Each lamp post QR is unique; aggregate scan/report data shows which areas have the highest fault rates.' },
-      { question: 'Should nighttime safety QR pages work offline?', answer: 'Emergency contacts and safe route maps should be cached locally. A person in danger cannot rely on a slow data connection to load a page.' },
+      {
+        question: 'Can a QR help councils identify which streets have the most lighting faults?',
+        answer:
+          'Yes. Each lamp post QR is unique; aggregate scan/report data shows which areas have the highest fault rates.',
+      },
+      {
+        question: 'Should nighttime safety QR pages work offline?',
+        answer:
+          'Emergency contacts and safe route maps should be cached locally. A person in danger cannot rely on a slow data connection to load a page.',
+      },
     ]
   ),
 ];

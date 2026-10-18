@@ -33,7 +33,7 @@ export function AdSlot({
     'horizontal-banner': 'min-h-[90px] sm:min-h-[100px] w-full max-w-[728px]',
     'medium-rectangle': 'min-h-[250px] w-full max-w-[300px]',
     'in-article': 'min-h-[280px] w-full max-w-[650px]',
-    'sidebar': 'min-h-[600px] w-full max-w-[300px]',
+    sidebar: 'min-h-[600px] w-full max-w-[300px]',
   }[format];
 
   const isLive = Boolean(ADSENSE_CLIENT_ID && !isTestMode);
@@ -76,7 +76,9 @@ export function AdSlot({
         ) : (
           <div className="flex flex-col items-center gap-1">
             <span className="font-semibold text-foreground/80">Ad Slot Reserved</span>
-            <span className="text-[11px]">Format: {format} | ID: {id}</span>
+            <span className="text-[11px]">
+              Format: {format} | ID: {id}
+            </span>
             <span className="text-[10px] text-muted-foreground">
               Zero-CLS placeholder. Live ads activate upon setting NEXT_PUBLIC_ADSENSE_CLIENT_ID.
             </span>

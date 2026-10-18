@@ -41,7 +41,13 @@ const legalLinks = [
   { label: 'Contact & Support', href: '/contact' },
 ];
 
-function FooterColumn({ heading, links }: { heading: string; links: { label: string; href: string }[] }) {
+function FooterColumn({
+  heading,
+  links,
+}: {
+  heading: string;
+  links: { label: string; href: string }[];
+}) {
   return (
     <div>
       <p className="text-xs font-bold uppercase tracking-wider text-foreground mb-3">{heading}</p>
@@ -75,14 +81,21 @@ export function AppFooter() {
       </div>
       <div className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
         <p>
-          © 2026 QR Code Tools · All decoding and encoding executes 100% client-side · Zero server telemetry.
+          © 2026 QR Code Tools · All decoding and encoding executes 100% client-side · Zero server
+          telemetry.
         </p>
         <p className="mt-1 space-x-3">
-          <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+          <Link href="/privacy" className="hover:text-foreground transition-colors">
+            Privacy Policy
+          </Link>
           <span>·</span>
-          <Link href="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link>
+          <Link href="/terms" className="hover:text-foreground transition-colors">
+            Terms of Service
+          </Link>
           <span>·</span>
-          <Link href="/disclaimer" className="hover:text-foreground transition-colors">Disclaimer</Link>
+          <Link href="/disclaimer" className="hover:text-foreground transition-colors">
+            Disclaimer
+          </Link>
         </p>
       </div>
     </footer>

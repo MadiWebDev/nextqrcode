@@ -5,7 +5,8 @@ import { Tag } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'QR Code Label Sheet Templates — Avery, Herma & More',
-  description: 'Free print-ready QR code templates for popular label sheets: Avery 5160, 5163, L7160, Herma 4682, and more. Calibrated dimensions, zero drift.',
+  description:
+    'Free print-ready QR code templates for popular label sheets: Avery 5160, 5163, L7160, Herma 4682, and more. Calibrated dimensions, zero drift.',
   alternates: { canonical: 'https://freeqrcode.tools/qr-labels' },
 };
 
@@ -19,8 +20,8 @@ export default function QrLabelsIndexPage() {
           QR Code Label Sheet Templates
         </h1>
         <p className="text-base sm:text-lg text-muted-foreground max-w-2xl">
-          Calibrated print templates for popular Avery, Herma, and compatible label sheets.
-          Generate batch QR codes and print them at exactly the right size — zero drift.
+          Calibrated print templates for popular Avery, Herma, and compatible label sheets. Generate
+          batch QR codes and print them at exactly the right size — zero drift.
         </p>
       </header>
 

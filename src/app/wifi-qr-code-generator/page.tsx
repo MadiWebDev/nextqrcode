@@ -142,12 +142,7 @@ export default function WifiQRPage() {
               typeLabel={config?.label ?? ''}
             />
             <Separator className="my-3" />
-            <ExportPanel
-              qrText={qrText}
-              canvasRef={canvasRef}
-              type={type}
-              state={landingState}
-            />
+            <ExportPanel qrText={qrText} canvasRef={canvasRef} type={type} state={landingState} />
           </div>
         </div>
       </section>
@@ -176,11 +171,7 @@ export default function WifiQRPage() {
         <h2 className="text-2xl font-bold">Frequently Asked Questions</h2>
         <Accordion type="multiple" className="space-y-2">
           {FAQS.map((faq, i) => (
-            <AccordionItem
-              key={i}
-              value={`faq-${i}`}
-              className="border rounded-lg px-4"
-            >
+            <AccordionItem key={i} value={`faq-${i}`} className="border rounded-lg px-4">
               <AccordionTrigger className="text-left text-sm font-medium py-3">
                 {faq.q}
               </AccordionTrigger>

@@ -31,8 +31,16 @@ Version 1 is 21x21, Version 10 is 57x57, Version 25 is 117x117, and Version 40 i
 Raising error correction or adding characters pushes the code to a higher version, which means smaller modules at a fixed print size. A 30-character URL at level M fits Version 3 (29x29 modules). The same URL at level H needs a larger version. Keep payloads short to keep modules large and scans fast.
     `,
     [
-      { question: 'How do I know which version my QR code is?', answer: 'Count the modules along one side (excluding the quiet zone) and solve 17 + 4V. A 33x33 symbol is Version 4.' },
-      { question: 'Can I force a specific QR version?', answer: 'Most libraries allow a minimum version, but you cannot go below what the data requires at the chosen error correction level.' },
+      {
+        question: 'How do I know which version my QR code is?',
+        answer:
+          'Count the modules along one side (excluding the quiet zone) and solve 17 + 4V. A 33x33 symbol is Version 4.',
+      },
+      {
+        question: 'Can I force a specific QR version?',
+        answer:
+          'Most libraries allow a minimum version, but you cannot go below what the data requires at the chosen error correction level.',
+      },
     ]
   ),
   art(
@@ -57,8 +65,15 @@ Denso Wave holds patents on the QR code but chose not to enforce them for standa
 Industrial use came first. Japanese mobile phones added QR reading in the early 2000s. Western adoption lagged until smartphone cameras began scanning codes natively, which accelerated further during the 2020s for menus, payments, and ticketing.
     `,
     [
-      { question: 'Who invented the QR code?', answer: 'Masahiro Hara and a team at Denso Wave invented it in 1994.' },
-      { question: 'Is the QR code free to use?', answer: 'Yes. Denso Wave has stated it will not exercise its patent rights for codes conforming to the published standards, though QR Code is a registered trademark.' },
+      {
+        question: 'Who invented the QR code?',
+        answer: 'Masahiro Hara and a team at Denso Wave invented it in 1994.',
+      },
+      {
+        question: 'Is the QR code free to use?',
+        answer:
+          'Yes. Denso Wave has stated it will not exercise its patent rights for codes conforming to the published standards, though QR Code is a registered trademark.',
+      },
     ]
   ),
   art(
@@ -88,8 +103,16 @@ QR Code uses three square finder patterns and a quiet zone of four modules. Data
 Data Matrix is preferred for tiny parts, such as electronics, medical devices, and pharmaceutical packaging, because of its small footprint and thin quiet zone. QR Code is preferred for consumer scanning because every smartphone camera app recognizes it. Choose QR for people, Data Matrix for machines and tight spaces.
     `,
     [
-      { question: 'Can a phone scan Data Matrix codes?', answer: 'Many dedicated scanner apps can, but default camera apps are built primarily around QR Code. Test your target devices.' },
-      { question: 'Which is more damage tolerant?', answer: 'Both use Reed-Solomon error correction. QR Code offers four selectable levels, while Data Matrix ECC 200 sets correction according to symbol size.' },
+      {
+        question: 'Can a phone scan Data Matrix codes?',
+        answer:
+          'Many dedicated scanner apps can, but default camera apps are built primarily around QR Code. Test your target devices.',
+      },
+      {
+        question: 'Which is more damage tolerant?',
+        answer:
+          'Both use Reed-Solomon error correction. QR Code offers four selectable levels, while Data Matrix ECC 200 sets correction according to symbol size.',
+      },
     ]
   ),
   art(
@@ -114,8 +137,15 @@ Virtually every generator and phone produces and reads Model 2. Model 1 survives
 Unless you are maintaining a legacy factory scanner setup, always generate Model 2. If an old reader cannot scan your code, check whether it supports Model 2 and its larger versions.
     `,
     [
-      { question: 'Which model do online QR generators produce?', answer: 'Model 2, the standard in ISO/IEC 18004.' },
-      { question: 'Are Model 1 and Model 2 codes visually different?', answer: 'Small versions look very similar. Larger Model 2 symbols include alignment patterns that Model 1 lacks.' },
+      {
+        question: 'Which model do online QR generators produce?',
+        answer: 'Model 2, the standard in ISO/IEC 18004.',
+      },
+      {
+        question: 'Are Model 1 and Model 2 codes visually different?',
+        answer:
+          'Small versions look very similar. Larger Model 2 symbols include alignment patterns that Model 1 lacks.',
+      },
     ]
   ),
   art(
@@ -143,7 +173,10 @@ Consumer camera apps often ignore structured append, treating each symbol as a s
     `,
     [
       { question: 'How many symbols can structured append link?', answer: 'Up to 16.' },
-      { question: 'Will a normal phone camera combine them?', answer: 'Usually not. Plan for readers that treat each code separately.' },
+      {
+        question: 'Will a normal phone camera combine them?',
+        answer: 'Usually not. Plan for readers that treat each code separately.',
+      },
     ]
   ),
   art(
@@ -170,8 +203,16 @@ ECI is a header that tells the reader which character set follows. ECI 3 denotes
 3. Test on at least one iPhone and two Android models before printing.
     `,
     [
-      { question: 'Why do accented letters show as symbols?', answer: 'The reader decoded UTF-8 bytes as Latin-1, or the reverse. Make the encoding explicit with ECI or avoid non-ASCII in the payload.' },
-      { question: 'Can I put Urdu text directly in a QR code?', answer: 'Yes in UTF-8, but a URL to a web page is more reliable and keeps the symbol smaller.' },
+      {
+        question: 'Why do accented letters show as symbols?',
+        answer:
+          'The reader decoded UTF-8 bytes as Latin-1, or the reverse. Make the encoding explicit with ECI or avoid non-ASCII in the payload.',
+      },
+      {
+        question: 'Can I put Urdu text directly in a QR code?',
+        answer:
+          'Yes in UTF-8, but a URL to a web page is more reliable and keeps the symbol smaller.',
+      },
     ]
   ),
   art(
@@ -196,8 +237,15 @@ The final 15-bit string is XORed with the fixed pattern 101010000010010. This pr
 The format string is written twice: once around the top-left finder pattern, and once split between the other two finders. If one copy is damaged, the reader falls back to the other. Version information (Version 7 and above) is a separate 18-bit block also written twice.
     `,
     [
-      { question: 'Where is the format information located?', answer: 'Next to the separators around the finder patterns, duplicated in two places.' },
-      { question: 'Does the format string store the version?', answer: 'No. The version is derived from the symbol size for small symbols and from a separate version block from Version 7 up.' },
+      {
+        question: 'Where is the format information located?',
+        answer: 'Next to the separators around the finder patterns, duplicated in two places.',
+      },
+      {
+        question: 'Does the format string store the version?',
+        answer:
+          'No. The version is derived from the symbol size for small symbols and from a separate version block from Version 7 up.',
+      },
     ]
   ),
   art(
@@ -222,7 +270,10 @@ rMQR uses one finder pattern at the top-left, a smaller sub-finder at the bottom
 rMQR is newer, and common phone camera apps do not all read it. Use it in closed environments with scanners you control, and test before committing to print.
     `,
     [
-      { question: 'Can I use rMQR on a consumer menu?', answer: 'Not recommended. Support in default camera apps is not universal.' },
+      {
+        question: 'Can I use rMQR on a consumer menu?',
+        answer: 'Not recommended. Support in default camera apps is not universal.',
+      },
       { question: 'What is the quiet zone for rMQR?', answer: 'Two modules.' },
     ]
   ),
@@ -248,8 +299,14 @@ SQRC (Secured QR Code) stores two kinds of data in one symbol: public data reada
 Both are Denso Wave technologies and are not part of the core ISO symbol definition, and implementation requires compatible generators and readers. For most businesses, a standard QR code with level H and a modest logo is simpler.
     `,
     [
-      { question: 'Do normal phones read SQRC private data?', answer: 'No. Phones read the public portion; the private data needs authorized readers.' },
-      { question: 'Do I need Frame QR for a logo?', answer: 'No. A standard code at level H with a small centered logo works for most brands.' },
+      {
+        question: 'Do normal phones read SQRC private data?',
+        answer: 'No. Phones read the public portion; the private data needs authorized readers.',
+      },
+      {
+        question: 'Do I need Frame QR for a logo?',
+        answer: 'No. A standard code at level H with a small centered logo works for most brands.',
+      },
     ]
   ),
   art(
@@ -277,8 +334,16 @@ Byte mode spends 8 bits per character. A 120-character tracking URL can push a c
 Generate the code, count the modules, and measure the final module width. Target at least 0.5 mm for packaging and 0.35 mm as an absolute floor on smooth stock.
     `,
     [
-      { question: 'Does a shorter URL make a QR code scan better?', answer: 'Yes. Fewer modules means larger modules at the same print size, which improves focus and tolerance for print gain.' },
-      { question: 'Is uppercase in a URL safe?', answer: 'Domains are case-insensitive, but paths often are not. Only use uppercase if your server handles it.' },
+      {
+        question: 'Does a shorter URL make a QR code scan better?',
+        answer:
+          'Yes. Fewer modules means larger modules at the same print size, which improves focus and tolerance for print gain.',
+      },
+      {
+        question: 'Is uppercase in a URL safe?',
+        answer:
+          'Domains are case-insensitive, but paths often are not. Only use uppercase if your server handles it.',
+      },
     ]
   ),
 ];

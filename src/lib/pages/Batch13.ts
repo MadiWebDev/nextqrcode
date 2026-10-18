@@ -28,8 +28,16 @@ The QR must not contain the patient's name or diagnosis in plain text. Link to a
 Check your national drug labelling regulations before adding QR. In some markets, the required information on a printed label cannot be moved behind a QR only.
     `,
     [
-      { question: 'Can a pharmacy put all label info behind a QR?', answer: 'Generally no. Regulations require key information in print. QR is supplementary for extended detail.' },
-      { question: 'What language should the QR-linked information be in?', answer: 'Ideally the patients preferred language. Offer a language selector on the landing page.' },
+      {
+        question: 'Can a pharmacy put all label info behind a QR?',
+        answer:
+          'Generally no. Regulations require key information in print. QR is supplementary for extended detail.',
+      },
+      {
+        question: 'What language should the QR-linked information be in?',
+        answer:
+          'Ideally the patients preferred language. Offer a language selector on the landing page.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ Shelf-edge QR codes link to pages you control. Price or promotion changes update
 A QR on the shelf can pre-add an item to a digital shopping list or loyalty basket. Some retailers use this to drive app downloads.
     `,
     [
-      { question: 'Can a QR on a shelf label display the current price?', answer: 'Yes if it links to a server-side page. A static code with the price hardcoded cannot update when the price changes.' },
-      { question: 'Should every product have a shelf QR?', answer: 'High-consideration categories benefit most: fresh produce, wines, cosmetics, and dietary products.' },
+      {
+        question: 'Can a QR on a shelf label display the current price?',
+        answer:
+          'Yes if it links to a server-side page. A static code with the price hardcoded cannot update when the price changes.',
+      },
+      {
+        question: 'Should every product have a shelf QR?',
+        answer:
+          'High-consideration categories benefit most: fresh produce, wines, cosmetics, and dietary products.',
+      },
     ]
   ),
   art(
@@ -88,8 +104,16 @@ A QR on a travel document is only as secure as the destination system. The recor
 Travellers may have no data at the border. Immigration QR documents should be downloadable to the phone before arrival and viewable offline.
     `,
     [
-      { question: 'Does a QR on a visa document prove it is genuine?', answer: 'Only if the destination is a verified government system. The QR itself can be printed by anyone; the server behind it is the security.' },
-      { question: 'What if I have no internet at the border?', answer: 'Download your eVisa PDF to local storage before travel. The document is readable offline; the officer scans it using their connected system.' },
+      {
+        question: 'Does a QR on a visa document prove it is genuine?',
+        answer:
+          'Only if the destination is a verified government system. The QR itself can be printed by anyone; the server behind it is the security.',
+      },
+      {
+        question: 'What if I have no internet at the border?',
+        answer:
+          'Download your eVisa PDF to local storage before travel. The document is readable offline; the officer scans it using their connected system.',
+      },
     ]
   ),
   art(
@@ -118,8 +142,16 @@ Some platforms record each ownership transfer on a blockchain, creating an immut
 Before purchasing, scan the QR to confirm the certificate is genuine, the player details match, and the ownership history is consistent. Any gap or mismatch is a red flag.
     `,
     [
-      { question: 'Does a QR on a certificate make it impossible to forge?', answer: 'No. A forger can create a fake QR linking to a fake website. Verify the domain matches the authentication company you trust.' },
-      { question: 'Can I check ownership history via the QR?', answer: 'Yes, if the authenticator records transfers. A legitimate registry shows each recorded sale.' },
+      {
+        question: 'Does a QR on a certificate make it impossible to forge?',
+        answer:
+          'No. A forger can create a fake QR linking to a fake website. Verify the domain matches the authentication company you trust.',
+      },
+      {
+        question: 'Can I check ownership history via the QR?',
+        answer:
+          'Yes, if the authenticator records transfers. A legitimate registry shows each recorded sale.',
+      },
     ]
   ),
   art(
@@ -148,8 +180,16 @@ A QR on a tour t-shirt or exclusive merchandise links to a download code, exclus
 Behind-the-scenes content, early ticket access, or a direct fan community can be accessed via QR. Require a simple sign-up to capture fan contact details.
     `,
     [
-      { question: 'Should album QRs link to Spotify or a multi-platform page?', answer: 'A smart link page covering Spotify, Apple Music, Tidal, and Amazon Music serves all fans with one code.' },
-      { question: 'Can QR codes on vinyl be added to a master of a reissue?', answer: 'Yes. Add a small QR sticker or insert. The code link can be updated for each new reissue without changing the physical design.' },
+      {
+        question: 'Should album QRs link to Spotify or a multi-platform page?',
+        answer:
+          'A smart link page covering Spotify, Apple Music, Tidal, and Amazon Music serves all fans with one code.',
+      },
+      {
+        question: 'Can QR codes on vinyl be added to a master of a reissue?',
+        answer:
+          'Yes. Add a small QR sticker or insert. The code link can be updated for each new reissue without changing the physical design.',
+      },
     ]
   ),
   art(
@@ -181,8 +221,16 @@ Government services handle sensitive citizen data. Linked forms must only collec
 Citizens may not speak the primary national language. Offer language selection prominently on landing pages and at minimum in the most spoken local languages.
     `,
     [
-      { question: 'Can a government fine be paid via QR?', answer: 'Yes. Many tax authorities and traffic enforcement agencies provide a QR on the notice linking to the online payment portal.' },
-      { question: 'Are government QR campaigns required to meet accessibility standards?', answer: 'Yes. In most jurisdictions, government digital services are subject to accessibility legislation and must not exclude any citizen group.' },
+      {
+        question: 'Can a government fine be paid via QR?',
+        answer:
+          'Yes. Many tax authorities and traffic enforcement agencies provide a QR on the notice linking to the online payment portal.',
+      },
+      {
+        question: 'Are government QR campaigns required to meet accessibility standards?',
+        answer:
+          'Yes. In most jurisdictions, government digital services are subject to accessibility legislation and must not exclude any citizen group.',
+      },
     ]
   ),
   art(
@@ -235,8 +283,16 @@ Citizens may not speak the primary national language. Offer language selection p
 * Document every code, its destination, and its placement.
     `,
     [
-      { question: 'What is the single most common QR deployment mistake?', answer: 'Using a URL that is too long, pushing the code to a high version with tiny modules that fail at the intended print size.' },
-      { question: 'How do I know if my QR code is truly accessible?', answer: 'Include the URL in text, test the linked page with a screen reader, and confirm WCAG 2.1 AA compliance on the destination.' },
+      {
+        question: 'What is the single most common QR deployment mistake?',
+        answer:
+          'Using a URL that is too long, pushing the code to a high version with tiny modules that fail at the intended print size.',
+      },
+      {
+        question: 'How do I know if my QR code is truly accessible?',
+        answer:
+          'Include the URL in text, test the linked page with a screen reader, and confirm WCAG 2.1 AA compliance on the destination.',
+      },
     ]
   ),
   art(
@@ -269,8 +325,16 @@ Elections involve frequently changing information. The QR must link to a page th
 QR voter information provided by an electoral authority must be strictly non-partisan. The linked page should contain only factual, procedural information.
     `,
     [
-      { question: 'Can election QR codes be used to influence votes?', answer: 'Not by electoral authorities; those links must be strictly informational. Campaign QR codes are subject to election advertising laws.' },
-      { question: 'What if a voter cannot scan the QR?', answer: 'Always include a phone number and website URL in text. QR is a convenience supplement, not the only channel.' },
+      {
+        question: 'Can election QR codes be used to influence votes?',
+        answer:
+          'Not by electoral authorities; those links must be strictly informational. Campaign QR codes are subject to election advertising laws.',
+      },
+      {
+        question: 'What if a voter cannot scan the QR?',
+        answer:
+          'Always include a phone number and website URL in text. QR is a convenience supplement, not the only channel.',
+      },
     ]
   ),
   art(
@@ -299,8 +363,16 @@ A QR label on each blood unit links to the chain-of-custody record: donor anonym
 Donor identity must be protected throughout the chain. Use opaque tokens on blood unit labels; never expose donor names or health data in plain text on a printed label.
     `,
     [
-      { question: 'Does a blood unit QR expose the donors identity?', answer: 'Not if implemented correctly. Use an anonymised token that maps to the donor record in a secured system.' },
-      { question: 'Can a QR booking system reduce no-shows?', answer: 'Yes. Automated reminder messages sent after QR booking significantly reduce no-show rates.' },
+      {
+        question: 'Does a blood unit QR expose the donors identity?',
+        answer:
+          'Not if implemented correctly. Use an anonymised token that maps to the donor record in a secured system.',
+      },
+      {
+        question: 'Can a QR booking system reduce no-shows?',
+        answer:
+          'Yes. Automated reminder messages sent after QR booking significantly reduce no-show rates.',
+      },
     ]
   ),
   art(
@@ -329,8 +401,16 @@ A QR near the meter or on the bill links to the 24-hour fault line and outage re
 For smart meters that report automatically, a QR links to the real-time usage dashboard. Consumers see their consumption and associated cost, supporting energy saving behaviour.
     `,
     [
-      { question: 'Can a QR on a meter take a customer straight to their account?', answer: 'Only if the URL contains the account number. The landing page must require authentication before displaying billing data.' },
-      { question: 'What if the customer does not have a smartphone?', answer: 'Always include a phone number and URL in text on the bill. QR is a convenience option, not the only submission route.' },
+      {
+        question: 'Can a QR on a meter take a customer straight to their account?',
+        answer:
+          'Only if the URL contains the account number. The landing page must require authentication before displaying billing data.',
+      },
+      {
+        question: 'What if the customer does not have a smartphone?',
+        answer:
+          'Always include a phone number and URL in text on the bill. QR is a convenience option, not the only submission route.',
+      },
     ]
   ),
 ];

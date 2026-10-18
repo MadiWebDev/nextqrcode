@@ -82,7 +82,7 @@ Pair this template with a short, clean URL under 50 characters. The minimalist a
     avoidFor: [
       'Retail packaging (needs brand color for recognition)',
       'Event wristbands (needs high-contrast in low-light)',
-      'Children\'s education materials (needs visual engagement)',
+      "Children's education materials (needs visual engagement)",
     ],
     title: 'Minimal White QR Code Template: Professional Business Card Design',
     metaDescription:

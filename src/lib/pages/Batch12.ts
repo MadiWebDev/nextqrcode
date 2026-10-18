@@ -28,8 +28,16 @@ A provisioning token should be single-use. If someone photographs your device's 
 After setup, the same QR can link to the product support page, firmware update instructions, or spare parts. Encode a URL, not just a token, so it remains useful beyond first setup.
     `,
     [
-      { question: 'Can my smart home device be claimed by someone who scans the QR first?', answer: 'Only if the provisioning token is reusable. Single-use tokens prevent this; invalidate them after first claim.' },
-      { question: 'Should the device QR be printed on the device or in the box?', answer: 'Both. On the device is accessible after the box is discarded; in the box may carry additional detail.' },
+      {
+        question: 'Can my smart home device be claimed by someone who scans the QR first?',
+        answer:
+          'Only if the provisioning token is reusable. Single-use tokens prevent this; invalidate them after first claim.',
+      },
+      {
+        question: 'Should the device QR be printed on the device or in the box?',
+        answer:
+          'Both. On the device is accessible after the box is discarded; in the box may carry additional detail.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ Conferences, gaming conventions, and streams display QR codes on screen. Players
 Rate-limit scan events by user account. Set short validity windows on time-limited codes. Log and investigate anomalies like thousands of claims from one IP.
     `,
     [
-      { question: 'Can a player screenshot a promotional QR and use it later?', answer: 'If the code has a short validity window or is single-use, no. Design your redemption system to enforce both.' },
-      { question: 'Do QR codes work well on screen at events?', answer: 'Yes. Display them full-screen at high brightness. Keep the payload short and ensure the room is not too bright for phone cameras.' },
+      {
+        question: 'Can a player screenshot a promotional QR and use it later?',
+        answer:
+          'If the code has a short validity window or is single-use, no. Design your redemption system to enforce both.',
+      },
+      {
+        question: 'Do QR codes work well on screen at events?',
+        answer:
+          'Yes. Display them full-screen at high brightness. Keep the payload short and ensure the room is not too bright for phone cameras.',
+      },
     ]
   ),
   art(
@@ -88,8 +104,16 @@ A 360-degree virtual tour linked from the QR lets brokers qualify tenants remote
 Link directly to the leasing agent's contact form or calendar booking for inspections. Measure enquiries per board position to optimise placement.
     `,
     [
-      { question: 'Should commercial property QRs include the rent in the URL?', answer: 'Include it on the landing page, not the URL. Rates change; the URL and printed code should not.' },
-      { question: 'How do I track which listing signs generate enquiries?', answer: 'Use a unique path per property and per sign placement. Track form submissions from each source.' },
+      {
+        question: 'Should commercial property QRs include the rent in the URL?',
+        answer:
+          'Include it on the landing page, not the URL. Rates change; the URL and printed code should not.',
+      },
+      {
+        question: 'How do I track which listing signs generate enquiries?',
+        answer:
+          'Use a unique path per property and per sign placement. Track form submissions from each source.',
+      },
     ]
   ),
   art(
@@ -122,8 +146,16 @@ Some signage operators add a small tactile indicator near the QR code as a locat
 Offer the same information by phone, email, and web URL in addition to QR. Accessibility law in many markets requires equivalent access.
     `,
     [
-      { question: 'Is a QR code accessible under WCAG?', answer: 'A QR code image must have descriptive alt text to meet WCAG 1.1.1. Full WCAG compliance also requires a non-visual alternative to the linked content.' },
-      { question: 'How do I make a QR code on signage accessible?', answer: 'Include the URL in text, use a large legible typeface near the code, and ensure the destination is accessible to screen readers.' },
+      {
+        question: 'Is a QR code accessible under WCAG?',
+        answer:
+          'A QR code image must have descriptive alt text to meet WCAG 1.1.1. Full WCAG compliance also requires a non-visual alternative to the linked content.',
+      },
+      {
+        question: 'How do I make a QR code on signage accessible?',
+        answer:
+          'Include the URL in text, use a large legible typeface near the code, and ensure the destination is accessible to screen readers.',
+      },
     ]
   ),
   art(
@@ -152,8 +184,16 @@ A QR on a t-shirt or poster needs to be large enough (8 to 12 cm) and survive wa
 If your audience is overwhelmingly on one platform, a direct link to that show page is simpler. Use a URL on your own domain so you can change the target later.
     `,
     [
-      { question: 'Should a podcast QR link directly to Spotify?', answer: 'Only if your audience is almost entirely on Spotify. A smart link page covers all listeners with one code.' },
-      { question: 'Can QR codes appear in a podcast?', answer: 'Yes, as supplementary show-notes content or on social media graphics. They do not appear in audio but support marketing materials.' },
+      {
+        question: 'Should a podcast QR link directly to Spotify?',
+        answer:
+          'Only if your audience is almost entirely on Spotify. A smart link page covers all listeners with one code.',
+      },
+      {
+        question: 'Can QR codes appear in a podcast?',
+        answer:
+          'Yes, as supplementary show-notes content or on social media graphics. They do not appear in audio but support marketing materials.',
+      },
     ]
   ),
   art(
@@ -182,8 +222,16 @@ Countries issuing electronic travel authorisations (ETAs) and digital visas ofte
 Chains use QR codes for keyless check-in and digital room keys. A signed token on the booking confirmation opens the room lock via the hotel app.
     `,
     [
-      { question: 'Does a standard QR code appear in a passport?', answer: 'No. Passports use MRZ text and an RFID chip. Some supplementary visa documents use QR.' },
-      { question: 'Are boarding pass QR codes encrypted?', answer: 'No. The BCBP standard data is unencrypted; the barcode is used for speed, not security. PII in the data is simply structured.' },
+      {
+        question: 'Does a standard QR code appear in a passport?',
+        answer:
+          'No. Passports use MRZ text and an RFID chip. Some supplementary visa documents use QR.',
+      },
+      {
+        question: 'Are boarding pass QR codes encrypted?',
+        answer:
+          'No. The BCBP standard data is unencrypted; the barcode is used for speed, not security. PII in the data is simply structured.',
+      },
     ]
   ),
   art(
@@ -212,8 +260,16 @@ Some systems use the serial QR as an entry point to the monitoring portal for th
 Panels are outdoors for 25 years. Use UV-stable polyimide or anodised aluminium labels rated for continuous outdoor exposure. Test scanning through weathered surfaces after a simulated service lifetime.
     `,
     [
-      { question: 'How long must a solar panel label last?', answer: 'Panels are warranted for 25 years. Labels should be tested to at least this duration under UV and temperature cycling.' },
-      { question: 'Can installers scan roof-mounted panels safely?', answer: 'Keep the label on the back or accessible frame edge. Never require scanning from an unsafe position on a roof.' },
+      {
+        question: 'How long must a solar panel label last?',
+        answer:
+          'Panels are warranted for 25 years. Labels should be tested to at least this duration under UV and temperature cycling.',
+      },
+      {
+        question: 'Can installers scan roof-mounted panels safely?',
+        answer:
+          'Keep the label on the back or accessible frame edge. Never require scanning from an unsafe position on a roof.',
+      },
     ]
   ),
   art(
@@ -242,8 +298,16 @@ The QR also links to the equipment spec, appropriate fire classes, operating ins
 Fire safety equipment is in kitchens, plant rooms, and outdoor stores. Use metalised polyester labels or stainless steel plates with UV-resistant print. Test in high-humidity and high-temperature environments.
     `,
     [
-      { question: 'Does a QR on a fire extinguisher replace the paper inspection tag?', answer: 'In many jurisdictions it supplements but does not yet replace the physical tag. Check local fire safety regulation.' },
-      { question: 'What if the QR is damaged in a fire?', answer: 'The QR is for inspection and information, not emergency operation. The extinguisher must work without scanning.' },
+      {
+        question: 'Does a QR on a fire extinguisher replace the paper inspection tag?',
+        answer:
+          'In many jurisdictions it supplements but does not yet replace the physical tag. Check local fire safety regulation.',
+      },
+      {
+        question: 'What if the QR is damaged in a fire?',
+        answer:
+          'The QR is for inspection and information, not emergency operation. The extinguisher must work without scanning.',
+      },
     ]
   ),
   art(
@@ -276,8 +340,16 @@ QR codes in print look better when they are designed into the layout from the st
 Print has a long life. Use URLs that will stay valid for years. Avoid linking to pages on third-party domains that may change. Redirect layers on your own domain give long-term control.
     `,
     [
-      { question: 'Can QR codes replace the need to reprint textbooks?', answer: 'Partially. Static content stays in print; updated data and supplementary material live online and are accessed via QR.' },
-      { question: 'How do I ensure QR links in a magazine are still valid five years later?', answer: 'Use URLs on your own domain with a redirect layer. Update the destination when content moves; the printed URL never changes.' },
+      {
+        question: 'Can QR codes replace the need to reprint textbooks?',
+        answer:
+          'Partially. Static content stays in print; updated data and supplementary material live online and are accessed via QR.',
+      },
+      {
+        question: 'How do I ensure QR links in a magazine are still valid five years later?',
+        answer:
+          'Use URLs on your own domain with a redirect layer. Update the destination when content moves; the printed URL never changes.',
+      },
     ]
   ),
   art(
@@ -306,8 +378,16 @@ A QR on the ID card links to the claims start page, pre-filled with the policyho
 Policy documents contain personal data. The QR landing page must require authentication before displaying sensitive policy details.
     `,
     [
-      { question: 'Should anyone who scans an insurance QR see the full policy?', answer: 'No. Require authentication (login or policy number and date of birth) before showing personal policy data.' },
-      { question: 'Can I start a claim from a QR on the roadside?', answer: 'Yes. A pre-filled claim form accessible by scanning saves time at the scene. Design it to work on a slow mobile connection.' },
+      {
+        question: 'Should anyone who scans an insurance QR see the full policy?',
+        answer:
+          'No. Require authentication (login or policy number and date of birth) before showing personal policy data.',
+      },
+      {
+        question: 'Can I start a claim from a QR on the roadside?',
+        answer:
+          'Yes. A pre-filled claim form accessible by scanning saves time at the scene. Design it to work on a slow mobile connection.',
+      },
     ]
   ),
 ];

@@ -28,8 +28,16 @@ A QR on interview confirmation letters links to the candidate portal: interview 
 A QR on employee referral programme materials links to the referral submission form. Current employees submit referrals from their phone without navigating the HR system.
     `,
     [
-      { question: 'Should job poster QR codes link to the live listing or a general jobs page?', answer: 'Directly to the specific listing. Candidates who land on a general jobs page often leave without applying. One scan, one job, one application.' },
-      { question: 'Can a QR poster work if the job fills before the poster comes down?', answer: 'Yes if the listing page updates to "closed". Redirect closed listings to similar vacancies rather than a 404.' },
+      {
+        question: 'Should job poster QR codes link to the live listing or a general jobs page?',
+        answer:
+          'Directly to the specific listing. Candidates who land on a general jobs page often leave without applying. One scan, one job, one application.',
+      },
+      {
+        question: 'Can a QR poster work if the job fills before the poster comes down?',
+        answer:
+          'Yes if the listing page updates to "closed". Redirect closed listings to similar vacancies rather than a 404.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ A QR on the car park entrance sign links to the permit application form: number 
 Each scan by an enforcement officer is logged with time, location, and officer ID. The log provides evidence for appeals and identifies sites with high non-compliance rates.
     `,
     [
-      { question: 'Can a QR permit system replace physical permit stickers on windscreens?', answer: 'Yes. A digital display of the QR permit on the phone, or a printed permit, are both verified the same way by enforcement scanners.' },
-      { question: 'How do overflow permits prevent abuse from the previous day?', answer: 'Set a validity window of hours, not days. A permit valid from 8 am to 6 pm on a specific date cannot be reused the following day.' },
+      {
+        question: 'Can a QR permit system replace physical permit stickers on windscreens?',
+        answer:
+          'Yes. A digital display of the QR permit on the phone, or a printed permit, are both verified the same way by enforcement scanners.',
+      },
+      {
+        question: 'How do overflow permits prevent abuse from the previous day?',
+        answer:
+          'Set a validity window of hours, not days. A permit valid from 8 am to 6 pm on a specific date cannot be reused the following day.',
+      },
     ]
   ),
   art(
@@ -88,8 +104,16 @@ A QR links to a basket-saving page where shoppers add items they are trying to t
 A QR links to a brief fitting room feedback form: is the room clean and well-lit, is the correct size range available, and any other comments. Real-time feedback to the floor manager.
     `,
     [
-      { question: 'Can a fitting room QR increase conversion rates?', answer: 'Yes. Reducing the friction of requesting a size increases the likelihood of completing a purchase, particularly during busy periods when staff are stretched.' },
-      { question: 'Should fitting room QRs be the same for every room?', answer: 'No. Use a unique QR per room so size requests and feedback are attributed to the correct space.' },
+      {
+        question: 'Can a fitting room QR increase conversion rates?',
+        answer:
+          'Yes. Reducing the friction of requesting a size increases the likelihood of completing a purchase, particularly during busy periods when staff are stretched.',
+      },
+      {
+        question: 'Should fitting room QRs be the same for every room?',
+        answer:
+          'No. Use a unique QR per room so size requests and feedback are attributed to the correct space.',
+      },
     ]
   ),
   art(
@@ -118,8 +142,16 @@ A QR on the prescription bag links to the repeat request form. Patients order th
 A QR in the waiting room links to NHS-approved self-help guides for common conditions: upper respiratory tract infections, mental health first aid, and minor injury management. Reduces unnecessary appointments.
     `,
     [
-      { question: 'Should a GP practice QR link to unofficial health websites?', answer: 'No. Link only to NHS.uk, BNF, or NICE-approved resources. Unofficial sites may contain inaccurate or harmful health information.' },
-      { question: 'Can a QR replace the prescription delivery counter?', answer: 'Not entirely. Patients without smartphones still need a counter service. QR accelerates the process for digital-comfortable patients.' },
+      {
+        question: 'Should a GP practice QR link to unofficial health websites?',
+        answer:
+          'No. Link only to NHS.uk, BNF, or NICE-approved resources. Unofficial sites may contain inaccurate or harmful health information.',
+      },
+      {
+        question: 'Can a QR replace the prescription delivery counter?',
+        answer:
+          'Not entirely. Patients without smartphones still need a counter service. QR accelerates the process for digital-comfortable patients.',
+      },
     ]
   ),
   art(
@@ -148,8 +180,16 @@ A QR at the start of a session links to that week's conversation prompt cards: t
 After each session, a QR links to a brief note-taking form: vocabulary learned, grammar points practised, and what to focus on next. A record the learner builds over time.
     `,
     [
-      { question: 'Should language exchange profiles be publicly searchable?', answer: 'Only within the programme\'s own community. Publicly listed profiles create privacy and safety risks. Use an opt-in community directory.' },
-      { question: 'Can a QR profile replace business cards at a language exchange meet-up?', answer: 'Yes. Scanning a QR profile card is faster, richer, and more useful than a business card exchange.' },
+      {
+        question: 'Should language exchange profiles be publicly searchable?',
+        answer:
+          "Only within the programme's own community. Publicly listed profiles create privacy and safety risks. Use an opt-in community directory.",
+      },
+      {
+        question: 'Can a QR profile replace business cards at a language exchange meet-up?',
+        answer:
+          'Yes. Scanning a QR profile card is faster, richer, and more useful than a business card exchange.',
+      },
     ]
   ),
   art(
@@ -182,8 +222,16 @@ A QR at the host desk links to an accessibility settings page: simpler clue lang
 A QR in the booking confirmation links to an accessibility guide: which rooms are step-free, what sensory conditions are present (lighting levels, audio), and how to request adaptations.
     `,
     [
-      { question: 'Can an escape room be fully accessible to a wheelchair user?', answer: 'With intentional design yes: step-free entry, clue placement at seated height, and no physical dexterity puzzles. Many venues are retrofitting for this.' },
-      { question: 'Should accessibility adaptations require advance booking?', answer: 'Yes for significant adaptations. Spontaneous access improvements (audio descriptions, large print) should be standard and always available.' },
+      {
+        question: 'Can an escape room be fully accessible to a wheelchair user?',
+        answer:
+          'With intentional design yes: step-free entry, clue placement at seated height, and no physical dexterity puzzles. Many venues are retrofitting for this.',
+      },
+      {
+        question: 'Should accessibility adaptations require advance booking?',
+        answer:
+          'Yes for significant adaptations. Spontaneous access improvements (audio descriptions, large print) should be standard and always available.',
+      },
     ]
   ),
   art(
@@ -212,8 +260,16 @@ A QR links to a clear breakdown of available shifts: day, night, rotating, and w
 A QR links to an assessment day booking form. Candidates who complete the short-form application are invited by text with a QR to book their slot.
     `,
     [
-      { question: 'Why use a short-form QR application for manufacturing roles?', answer: 'High-volume manufacturing recruitment needs speed. A three-field QR form converts opportunistic job seekers who would not return to fill a long form.' },
-      { question: 'Should a factory gate job poster QR collect a CV?', answer: 'No for entry-level production roles. CV collection adds friction and CV content is less predictive than assessment performance for these roles.' },
+      {
+        question: 'Why use a short-form QR application for manufacturing roles?',
+        answer:
+          'High-volume manufacturing recruitment needs speed. A three-field QR form converts opportunistic job seekers who would not return to fill a long form.',
+      },
+      {
+        question: 'Should a factory gate job poster QR collect a CV?',
+        answer:
+          'No for entry-level production roles. CV collection adds friction and CV content is less predictive than assessment performance for these roles.',
+      },
     ]
   ),
   art(
@@ -242,8 +298,16 @@ A QR explains what conditions Pharmacy First covers (in the UK), what the consul
 After a consultation, a QR on the referral notice links to the GP's online booking system or the urgent care finder. Patients take action immediately.
     `,
     [
-      { question: 'Does a Pharmacy First consultation QR need to comply with health data law?', answer: 'Yes. Any pre-consultation form that captures health information must be handled in compliance with GDPR and the Data Security and Protection Toolkit.' },
-      { question: 'Can a QR symptom checker replace a pharmacist assessment?', answer: 'No. The QR triage is a signposting tool only. Clinical assessment requires a qualified pharmacist.' },
+      {
+        question: 'Does a Pharmacy First consultation QR need to comply with health data law?',
+        answer:
+          'Yes. Any pre-consultation form that captures health information must be handled in compliance with GDPR and the Data Security and Protection Toolkit.',
+      },
+      {
+        question: 'Can a QR symptom checker replace a pharmacist assessment?',
+        answer:
+          'No. The QR triage is a signposting tool only. Clinical assessment requires a qualified pharmacist.',
+      },
     ]
   ),
   art(
@@ -272,15 +336,23 @@ Visitors who funded a conservation project see their name or organisation acknow
 A QR links to the technical report: analysis results (X-ray, infrared reflectography, paint analysis), materials identified, and any historical discoveries. Accessible to specialist visitors without cluttering the gallery label.
     `,
     [
-      { question: 'Can a QR on a conservation project help future funding campaigns?', answer: 'Yes. Showing the impact of past conservation funding in detail is among the most persuasive tools for prospective donors and grant funders.' },
-      { question: 'Should the conservation report be freely accessible?', answer: 'Yes. Open access to conservation data supports the field, advances scholarship, and demonstrates transparency to funders.' },
+      {
+        question: 'Can a QR on a conservation project help future funding campaigns?',
+        answer:
+          'Yes. Showing the impact of past conservation funding in detail is among the most persuasive tools for prospective donors and grant funders.',
+      },
+      {
+        question: 'Should the conservation report be freely accessible?',
+        answer:
+          'Yes. Open access to conservation data supports the field, advances scholarship, and demonstrates transparency to funders.',
+      },
     ]
   ),
   art(
     'qr-code-for-home-care-workers',
     'QR Codes for Home Care Workers: Visit Logs, Care Plans, and Medication Records',
     'qr code home care worker visit log care plan',
-    'Use QR codes at care recipients\' homes for electronic visit logging, care plan access, and medication records.',
+    "Use QR codes at care recipients' homes for electronic visit logging, care plan access, and medication records.",
     'Business & Regional',
     '6 min read',
     '2027-05-20',
@@ -302,8 +374,16 @@ A QR links to the MAR (Medication Administration Record) for that visit. The car
 A QR at the front door also links to the incident reporting form. Any accident, safeguarding concern, or unplanned event is reported digitally during or immediately after the visit.
     `,
     [
-      { question: 'Can home care visit logs via QR satisfy CQC compliance?', answer: 'Yes for many providers. Electronic visit verification with timestamped records is increasingly accepted. Confirm requirements with your specific CQC registration.' },
-      { question: 'Should the care plan QR require login for a carer on every visit?', answer: 'A persistent session on a company device is practical. Individual consumer devices should require authentication on each use for security.' },
+      {
+        question: 'Can home care visit logs via QR satisfy CQC compliance?',
+        answer:
+          'Yes for many providers. Electronic visit verification with timestamped records is increasingly accepted. Confirm requirements with your specific CQC registration.',
+      },
+      {
+        question: 'Should the care plan QR require login for a carer on every visit?',
+        answer:
+          'A persistent session on a company device is practical. Individual consumer devices should require authentication on each use for security.',
+      },
     ]
   ),
 ];

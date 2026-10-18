@@ -143,15 +143,18 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
   const faqs = [
     {
       question: 'Is my medical information stored on your servers?',
-      answer: 'No. QR Code Tools stores zero health data. All medical fields are baked directly into the static QR code matrix inside your browser. No database, server, or cloud storage ever sees your personal information.',
+      answer:
+        'No. QR Code Tools stores zero health data. All medical fields are baked directly into the static QR code matrix inside your browser. No database, server, or cloud storage ever sees your personal information.',
     },
     {
       question: 'Can paramedics and EMTs scan this code without cell reception?',
-      answer: 'Yes. Because the data is stored completely offline inside the QR code itself, any standard smartphone camera or barcode scanner can instantly read your blood type, allergies, and emergency contacts even in remote areas with zero cellular reception.',
+      answer:
+        'Yes. Because the data is stored completely offline inside the QR code itself, any standard smartphone camera or barcode scanner can instantly read your blood type, allergies, and emergency contacts even in remote areas with zero cellular reception.',
     },
     {
       question: 'How should I carry this medical QR code?',
-      answer: 'You can print the generated wallet card and keep it behind your driver license, or download the lock-screen wallpaper so first responders can view and scan it directly on your locked smartphone without needing your passcode.',
+      answer:
+        'You can print the generated wallet card and keep it behind your driver license, or download the lock-screen wallpaper so first responders can view and scan it directly on your locked smartphone without needing your passcode.',
     },
   ];
 
@@ -173,7 +176,9 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
           Emergency Medical ID QR & Printable Card Generator
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Create an offline emergency health card and lock-screen badge. All medical alerts, allergies, and emergency contacts are encoded directly into the QR code with zero server storage.
+          Create an offline emergency health card and lock-screen badge. All medical alerts,
+          allergies, and emergency contacts are encoded directly into the QR code with zero server
+          storage.
         </p>
       </header>
 
@@ -188,7 +193,9 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="m-name" className="text-xs">Full Name:</Label>
+                <Label htmlFor="m-name" className="text-xs">
+                  Full Name:
+                </Label>
                 <Input
                   id="m-name"
                   value={fullName}
@@ -198,7 +205,9 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
               </div>
 
               <div>
-                <Label htmlFor="m-dob" className="text-xs">Date of Birth:</Label>
+                <Label htmlFor="m-dob" className="text-xs">
+                  Date of Birth:
+                </Label>
                 <Input
                   id="m-dob"
                   type="date"
@@ -209,7 +218,9 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
               </div>
 
               <div>
-                <Label htmlFor="m-blood" className="text-xs">Blood Type:</Label>
+                <Label htmlFor="m-blood" className="text-xs">
+                  Blood Type:
+                </Label>
                 <select
                   id="m-blood"
                   value={bloodType}
@@ -217,13 +228,17 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
                   className="w-full h-9 rounded-md border border-input bg-background px-3 py-1 text-sm mt-1"
                 >
                   {['O+', 'O-', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'Unknown'].map((b) => (
-                    <option key={b} value={b}>{b}</option>
+                    <option key={b} value={b}>
+                      {b}
+                    </option>
                   ))}
                 </select>
               </div>
 
               <div>
-                <Label htmlFor="m-donor" className="text-xs">Organ Donor Status:</Label>
+                <Label htmlFor="m-donor" className="text-xs">
+                  Organ Donor Status:
+                </Label>
                 <select
                   id="m-donor"
                   value={organDonor}
@@ -237,7 +252,10 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
             </div>
 
             <div>
-              <Label htmlFor="m-ice" className="text-xs font-semibold text-rose-600 dark:text-rose-400">
+              <Label
+                htmlFor="m-ice"
+                className="text-xs font-semibold text-rose-600 dark:text-rose-400"
+              >
                 In Case of Emergency (I.C.E.) Contact:
               </Label>
               <Input
@@ -250,7 +268,9 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
             </div>
 
             <div>
-              <Label htmlFor="m-allergies" className="text-xs">Severe Allergies (Medications / Foods):</Label>
+              <Label htmlFor="m-allergies" className="text-xs">
+                Severe Allergies (Medications / Foods):
+              </Label>
               <Input
                 id="m-allergies"
                 placeholder="Penicillin, Sulfa, Peanuts, Bee stings..."
@@ -262,7 +282,9 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="m-meds" className="text-xs">Daily Medications:</Label>
+                <Label htmlFor="m-meds" className="text-xs">
+                  Daily Medications:
+                </Label>
                 <Input
                   id="m-meds"
                   placeholder="Insulin, Blood thinners..."
@@ -273,7 +295,9 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
               </div>
 
               <div>
-                <Label htmlFor="m-conds" className="text-xs">Medical Conditions:</Label>
+                <Label htmlFor="m-conds" className="text-xs">
+                  Medical Conditions:
+                </Label>
                 <Input
                   id="m-conds"
                   placeholder="Type 1 Diabetes, Epilepsy..."
@@ -312,7 +336,11 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
                 <Download className="w-3.5 h-3.5" />
                 Download High-Res Card (PNG)
               </Button>
-              <Button onClick={() => window.print()} variant="outline" className="text-xs font-semibold gap-1.5">
+              <Button
+                onClick={() => window.print()}
+                variant="outline"
+                className="text-xs font-semibold gap-1.5"
+              >
                 <Printer className="w-3.5 h-3.5" />
                 Print Card
               </Button>
@@ -329,24 +357,36 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
           Emergency Medical QR Codes: First Responder Access and Privacy Architecture
         </h2>
         <p className="text-base leading-relaxed">
-          During acute medical emergencies—such as anaphylaxis, diabetic hypoglycemia, or severe vehicle collisions—the patient is frequently unconscious or unable to communicate. Every second spent verifying blood compatibility or avoiding fatal drug contraindications directly impacts survival outcomes.
+          During acute medical emergencies—such as anaphylaxis, diabetic hypoglycemia, or severe
+          vehicle collisions—the patient is frequently unconscious or unable to communicate. Every
+          second spent verifying blood compatibility or avoiding fatal drug contraindications
+          directly impacts survival outcomes.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           Why Server-Based Medical Portals Fail in Emergencies
         </h3>
         <p className="text-base leading-relaxed">
-          Commercial medical ID bracelets frequently direct paramedics to a web URL requiring an account login, PIN code, or active internet connectivity. In disaster areas, underground parking garages, or rural highways without cellular reception, a cloud-dependent QR code fails completely. 
+          Commercial medical ID bracelets frequently direct paramedics to a web URL requiring an
+          account login, PIN code, or active internet connectivity. In disaster areas, underground
+          parking garages, or rural highways without cellular reception, a cloud-dependent QR code
+          fails completely.
         </p>
         <p className="text-base leading-relaxed">
-          Our Emergency Medical ID tool utilizes <strong>100% self-contained static payloads</strong>. When an emergency medical technician (EMT) points their smartphone or ruggedized tablet at your card, the raw text renders on their screen instantaneously—zero servers, zero logins, and zero delays.
+          Our Emergency Medical ID tool utilizes{' '}
+          <strong>100% self-contained static payloads</strong>. When an emergency medical technician
+          (EMT) points their smartphone or ruggedized tablet at your card, the raw text renders on
+          their screen instantaneously—zero servers, zero logins, and zero delays.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           Medical Liability and User Responsibility Notice
         </h3>
         <p className="text-base leading-relaxed text-xs text-muted-foreground italic">
-          Disclaimer: This medical ID card generator is provided for informational and emergency aid convenience only. QR Code Tools is not a medical provider and assumes no liability for inaccurate data entry, scanner failure, or medical decisions made by first responders. Always review printed cards for complete legibility before wallet placement.
+          Disclaimer: This medical ID card generator is provided for informational and emergency aid
+          convenience only. QR Code Tools is not a medical provider and assumes no liability for
+          inaccurate data entry, scanner failure, or medical decisions made by first responders.
+          Always review printed cards for complete legibility before wallet placement.
         </p>
       </article>
 

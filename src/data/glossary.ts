@@ -77,7 +77,13 @@ Rmax - Rmin ≥ 0.50 × Rmax
 
 In practical terms, for white paper (Rmax ≈ 0.90), dark modules must have reflectance below 0.45 — easily achieved with standard black ink on coated paper. Problems arise when using colored inks, metallic substrates, or printing dark modules on dark-colored packaging.
     `,
-    relatedTerms: ['finder-pattern', 'quiet-zone', 'version', 'timing-pattern', 'alignment-pattern'],
+    relatedTerms: [
+      'finder-pattern',
+      'quiet-zone',
+      'version',
+      'timing-pattern',
+      'alignment-pattern',
+    ],
     relatedTools: ['/qr-size-calculator', '/printed-qr-tester', '/qr-placement-guide'],
     hasDiagramDescription: true,
     diagramDescription:
@@ -219,7 +225,7 @@ The decoder uses algorithms such as the Berlekamp-Massey or Euclidean algorithm 
       {
         question: 'How much of a QR code can be physically damaged and still scan?',
         answer:
-          'At Error Correction Level H, up to 30% of the data codewords can be corrupted or missing. This translates to roughly 30% of the symbol\'s surface area, though the damage must not destroy all three finder patterns or the format information strips.',
+          "At Error Correction Level H, up to 30% of the data codewords can be corrupted or missing. This translates to roughly 30% of the symbol's surface area, though the damage must not destroy all three finder patterns or the format information strips.",
       },
       {
         question: 'Why does QR use Reed-Solomon instead of a simpler checksum?',
@@ -416,7 +422,12 @@ TLV encoding was chosen over JSON for payment QR codes because:
 4. It naturally supports forward compatibility — unknown tags are skipped rather than causing parse failures
     `,
     relatedTerms: ['iso-18004', 'vcard', 'mecard'],
-    relatedTools: ['/payment-qr/brazil-pix-emv', '/payment-qr/india-upi', '/payment-qr/singapore-sgqr', '/regional-payment-qr'],
+    relatedTools: [
+      '/payment-qr/brazil-pix-emv',
+      '/payment-qr/india-upi',
+      '/payment-qr/singapore-sgqr',
+      '/regional-payment-qr',
+    ],
     hasDiagramDescription: true,
     diagramDescription:
       'Annotated EMVCo TLV payload breakdown for a Pix QR code, with each Tag-Length-Value triplet color-coded and labeled with field name, showing the nested merchant account information structure.',
@@ -559,12 +570,14 @@ vCard properties containing commas, colons, or backslashes must be escaped with 
       'Annotated vCard 3.0 payload with each property line labeled, and a corresponding QR code showing the version (density) impact of adding vs removing the PHOTO field.',
     faqs: [
       {
-        question: 'Does the vCard QR code work directly with the iPhone Camera app without a third-party scanner?',
+        question:
+          'Does the vCard QR code work directly with the iPhone Camera app without a third-party scanner?',
         answer:
           'Yes. iOS Camera app since iOS 11 natively detects and parses vCard 3.0 payloads, displaying a "Add Contact" banner when a vCard QR code is scanned. vCard 4.0 may not be recognized by all iOS versions without a dedicated contacts app.',
       },
       {
-        question: 'How do I handle non-Latin characters (Arabic, Chinese, Korean) in a vCard QR code?',
+        question:
+          'How do I handle non-Latin characters (Arabic, Chinese, Korean) in a vCard QR code?',
         answer:
           'Use Byte Mode encoding in the QR generator with UTF-8 character encoding selected. vCard 3.0 technically uses ISO-8859-1 by default, but modern parsers universally accept UTF-8. Explicitly add the CHARSET=UTF-8 parameter to affected properties if you encounter import errors on legacy systems.',
       },

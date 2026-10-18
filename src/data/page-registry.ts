@@ -29,12 +29,7 @@ export type RegistrySection =
   | 'guides';
 
 export type RegistryPageStatus =
-  | 'published'
-  | 'draft'
-  | 'needs_review'
-  | 'reviewer_approved'
-  | 'noindex'
-  | 'redirected';
+  'published' | 'draft' | 'needs_review' | 'reviewer_approved' | 'noindex' | 'redirected';
 
 export interface RegistryPage {
   id: string;
@@ -46,12 +41,12 @@ export interface RegistryPage {
   status: RegistryPageStatus;
   qualityScore?: number;
   wordCount?: number;
-  inboundLinks: string[];  // slugs of pages that link to this page
+  inboundLinks: string[]; // slugs of pages that link to this page
   outboundLinks: string[]; // slugs this page links to
   author: string;
   publishedAt: string;
   updatedAt: string;
-  batchNumber: number;     // 0 = existing pre-system, 1-6 = release batches
+  batchNumber: number; // 0 = existing pre-system, 1-6 = release batches
   impressions90d?: number; // populated from Search Console API
   pruningCandidate?: boolean;
 }
@@ -71,11 +66,21 @@ const BATCH_0_PAGES: RegistryPage[] = [
     wordCount: 1200,
     inboundLinks: [],
     outboundLinks: [
-      'qr-size-calculator', 'qr-safety-checker', 'printed-qr-tester',
-      'error-correction-simulator', 'qr-splitter-scanner', 'animated-qr-transfer',
-      'medical-id-qr', 'wifi-sign-generator', 'pakistan-payment-qr',
-      'qr-sticker-sheet-printer', 'pet-tag-qr', 'bulk-vcard-qr',
-      'utm-builder', 'qr-placement-guide', 'barcode-generator',
+      'qr-size-calculator',
+      'qr-safety-checker',
+      'printed-qr-tester',
+      'error-correction-simulator',
+      'qr-splitter-scanner',
+      'animated-qr-transfer',
+      'medical-id-qr',
+      'wifi-sign-generator',
+      'pakistan-payment-qr',
+      'qr-sticker-sheet-printer',
+      'pet-tag-qr',
+      'bulk-vcard-qr',
+      'utm-builder',
+      'qr-placement-guide',
+      'barcode-generator',
     ],
     author: 'QR Code Tools Team',
     publishedAt: '2024-01-01',
@@ -575,7 +580,11 @@ const BATCH_PLANNED_PAGES: RegistryPage[] = [
     primaryKeyword: 'whatsapp qr code brazil +55',
     title: 'WhatsApp QR Code Generator for Brazil (+55)',
     status: 'draft',
-    outboundLinks: ['whatsapp-qr-code-generator', 'payment-qr/brazil-pix-emv', 'whatsapp-qr/argentina'],
+    outboundLinks: [
+      'whatsapp-qr-code-generator',
+      'payment-qr/brazil-pix-emv',
+      'whatsapp-qr/argentina',
+    ],
     inboundLinks: ['whatsapp-qr-code-generator', 'home'],
     author: 'CodexEngr',
     publishedAt: '',
@@ -599,10 +608,7 @@ const BATCH_PLANNED_PAGES: RegistryPage[] = [
   },
 ];
 
-export const PAGE_REGISTRY: RegistryPage[] = [
-  ...BATCH_0_PAGES,
-  ...BATCH_PLANNED_PAGES,
-];
+export const PAGE_REGISTRY: RegistryPage[] = [...BATCH_0_PAGES, ...BATCH_PLANNED_PAGES];
 
 // ── Helper Functions ──────────────────────────────────────────────────────────
 
@@ -632,15 +638,11 @@ export function getPruningCandidates(minImpressions = 10, days = 90): RegistryPa
 }
 
 export function getOrphanPages(): RegistryPage[] {
-  return PAGE_REGISTRY.filter(
-    (p) => p.status === 'published' && p.inboundLinks.length < 2
-  );
+  return PAGE_REGISTRY.filter((p) => p.status === 'published' && p.inboundLinks.length < 2);
 }
 
 export function getSitemapEligiblePages(): RegistryPage[] {
-  return PAGE_REGISTRY.filter(
-    (p) => p.status === 'published' || p.status === 'reviewer_approved'
-  );
+  return PAGE_REGISTRY.filter((p) => p.status === 'published' || p.status === 'reviewer_approved');
 }
 
 export function getRegistryStats() {

@@ -67,9 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/qr-placement-guide',
     '/barcode-generator',
   ];
-  const toolEntries = toolPaths.map((p) =>
-    entry(p, { changeFrequency: weekly, priority: 0.9 })
-  );
+  const toolEntries = toolPaths.map((p) => entry(p, { changeFrequency: weekly, priority: 0.9 }));
 
   // ── SECTION: Standard QR Type Generators ────────────────────────────────
   const generatorPaths = [
@@ -120,14 +118,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // ── SECTION: Trust / Legal ───────────────────────────────────────────────
-  const trustPaths = [
-    '/about',
-    '/contact',
-    '/privacy',
-    '/terms',
-    '/cookie-policy',
-    '/disclaimer',
-  ];
+  const trustPaths = ['/about', '/contact', '/privacy', '/terms', '/cookie-policy', '/disclaimer'];
   const trustEntries = trustPaths.map((p) =>
     entry(p, { changeFrequency: 'yearly' as const, priority: 0.4 })
   );

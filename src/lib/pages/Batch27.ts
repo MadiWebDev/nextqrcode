@@ -28,8 +28,16 @@ A QR in the welcome email links to the personalised onboarding checklist rather 
 A QR on a printed invoice or renewal notice links to the upgrade page with an explanation of the next tier's benefits. A physical nudge at renewal decision time.
     `,
     [
-      { question: 'Can a QR in an email reach a personalised page?', answer: 'Yes. Encode a unique token in the URL. The server resolves the token to the customer\'s onboarding state and renders the right content.' },
-      { question: 'Is a QR useful in a purely digital product?', answer: 'Yes when users work across devices. Scanning on a phone while working on a desktop is a real and common pattern.' },
+      {
+        question: 'Can a QR in an email reach a personalised page?',
+        answer:
+          "Yes. Encode a unique token in the URL. The server resolves the token to the customer's onboarding state and renders the right content.",
+      },
+      {
+        question: 'Is a QR useful in a purely digital product?',
+        answer:
+          'Yes when users work across devices. Scanning on a phone while working on a desktop is a real and common pattern.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ After each lesson, a QR in the session report links the student to their progres
 A QR links to the mock test booking page. Students who are nearing test readiness book a full mock without asking the instructor to schedule it manually.
     `,
     [
-      { question: 'Should student progress records be accessible without a login?', answer: 'No. Progress records are personal data. Use authenticated access with a student account.' },
-      { question: 'Can a driving instructor use a QR on their car?', answer: 'A QR sticker on the parcel shelf or glove compartment links to resources students can scan between lessons. Keep it unobtrusive during driving.' },
+      {
+        question: 'Should student progress records be accessible without a login?',
+        answer:
+          'No. Progress records are personal data. Use authenticated access with a student account.',
+      },
+      {
+        question: 'Can a driving instructor use a QR on their car?',
+        answer:
+          'A QR sticker on the parcel shelf or glove compartment links to resources students can scan between lessons. Keep it unobtrusive during driving.',
+      },
     ]
   ),
   art(
@@ -88,8 +104,16 @@ A QR links to a gallery of previous commissions with descriptions and turnaround
 A QR links to the mailing list registration page. Buyers who do not purchase today stay in touch and convert at the next market or via the online shop.
     `,
     [
-      { question: 'Can a craft maker use the same QR at every market?', answer: 'Yes. One permanent QR links to the profile page. Update the commission portfolio and availability on the page without reprinting.' },
-      { question: 'Should custom order forms ask for a deposit?', answer: 'Yes for custom work. Link the form response to a payment gateway that collects a small deposit before the commission begins.' },
+      {
+        question: 'Can a craft maker use the same QR at every market?',
+        answer:
+          'Yes. One permanent QR links to the profile page. Update the commission portfolio and availability on the page without reprinting.',
+      },
+      {
+        question: 'Should custom order forms ask for a deposit?',
+        answer:
+          'Yes for custom work. Link the form response to a payment gateway that collects a small deposit before the commission begins.',
+      },
     ]
   ),
   art(
@@ -118,8 +142,16 @@ A QR links to the brand's Strava segment, challenge, or club join page. Wearers 
 A QR on the hangtag links to the cycling-specific fit guide: stack height comparison, aero vs comfort cut, and how jersey sizing relates to bibs. Reduces returns from incorrect sizing.
     `,
     [
-      { question: 'Should care instruction QRs expire or update?', answer: 'Never expire them. Care instructions for a garment are permanent. Update only if a product formulation changes and old instructions become incorrect.' },
-      { question: 'Can a QR on a jersey survive washing?', answer: 'A QR inside the collar on a woven label or heat-transfer print survives washing. Test after 20 wash cycles at the recommended temperature.' },
+      {
+        question: 'Should care instruction QRs expire or update?',
+        answer:
+          'Never expire them. Care instructions for a garment are permanent. Update only if a product formulation changes and old instructions become incorrect.',
+      },
+      {
+        question: 'Can a QR on a jersey survive washing?',
+        answer:
+          'A QR inside the collar on a woven label or heat-transfer print survives washing. Test after 20 wash cycles at the recommended temperature.',
+      },
     ]
   ),
   art(
@@ -148,8 +180,16 @@ Each transfer event (issue, return, repair, disposal) is logged by scanning the 
 Military QR systems must operate in classified or sensitive environments. Use network-isolated scanners and servers in appropriate environments. The QR payload itself should be opaque (encoded serial only, no sensitive data in plain text).
     `,
     [
-      { question: 'Can military equipment QRs be used in the field without connectivity?', answer: 'Yes with offline-capable devices that cache the equipment register and sync when connectivity is restored at base.' },
-      { question: 'Should the QR payload contain equipment classification?', answer: 'No. Use an opaque identifier only. Classification is stored in the secured backend system.' },
+      {
+        question: 'Can military equipment QRs be used in the field without connectivity?',
+        answer:
+          'Yes with offline-capable devices that cache the equipment register and sync when connectivity is restored at base.',
+      },
+      {
+        question: 'Should the QR payload contain equipment classification?',
+        answer:
+          'No. Use an opaque identifier only. Classification is stored in the secured backend system.',
+      },
     ]
   ),
   art(
@@ -178,8 +218,16 @@ Full transcripts indexed by search engines dramatically increase podcast discove
 A QR on a magazine feature or interview sidebar links to the related podcast episode page with transcript, audio player, and subscription links.
     `,
     [
-      { question: 'Do podcast transcripts need to be exact?', answer: 'Aim for accurate rather than verbatim. Light editing for readability, removing filler words, and adding paragraph breaks significantly improves the experience.' },
-      { question: 'Can a QR on a podcast app screenshot link to the transcript?', answer: 'Not natively. Include a QR in episode artwork, episode description, or any physical material associated with the show.' },
+      {
+        question: 'Do podcast transcripts need to be exact?',
+        answer:
+          'Aim for accurate rather than verbatim. Light editing for readability, removing filler words, and adding paragraph breaks significantly improves the experience.',
+      },
+      {
+        question: 'Can a QR on a podcast app screenshot link to the transcript?',
+        answer:
+          'Not natively. Include a QR in episode artwork, episode description, or any physical material associated with the show.',
+      },
     ]
   ),
   art(
@@ -208,8 +256,16 @@ A QR on the box or on the unit body links to the setup guide specific to the mod
 Where the system connects to a water quality sensor, a QR links to the real-time water quality dashboard: TDS, pH, and contaminant levels. Gives users confidence in the system's performance.
     `,
     [
-      { question: 'Should a water filter QR require registration to show filter status?', answer: 'Yes if the status is connected to a specific unit. Guest users see general product information; registered users see their unit\'s actual status.' },
-      { question: 'Can a QR on a water filter prompt users to reorder at the right time?', answer: 'Yes. The filter status page can show a "time to reorder" prompt when capacity drops below 20%.' },
+      {
+        question: 'Should a water filter QR require registration to show filter status?',
+        answer:
+          "Yes if the status is connected to a specific unit. Guest users see general product information; registered users see their unit's actual status.",
+      },
+      {
+        question: 'Can a QR on a water filter prompt users to reorder at the right time?',
+        answer:
+          'Yes. The filter status page can show a "time to reorder" prompt when capacity drops below 20%.',
+      },
     ]
   ),
   art(
@@ -238,8 +294,16 @@ A QR on the AGM notice links to the agenda, financial accounts, and proxy voting
 A QR on promotional material links to the share offer prospectus and application form. Community solar projects raise capital through community investment; a simple share-purchase QR lowers the barrier to participation.
     `,
     [
-      { question: 'Should community solar generation data be public or member-only?', answer: 'Summary data (total output, CO2 saved) can be public to build awareness. Detailed financial and per-share data should be member-only.' },
-      { question: 'Can a QR link to an online proxy voting form for an AGM?', answer: 'Yes. Electronic proxy voting is permitted for many community benefit societies. Confirm with your legal structure and rules.' },
+      {
+        question: 'Should community solar generation data be public or member-only?',
+        answer:
+          'Summary data (total output, CO2 saved) can be public to build awareness. Detailed financial and per-share data should be member-only.',
+      },
+      {
+        question: 'Can a QR link to an online proxy voting form for an AGM?',
+        answer:
+          'Yes. Electronic proxy voting is permitted for many community benefit societies. Confirm with your legal structure and rules.',
+      },
     ]
   ),
   art(
@@ -268,8 +332,16 @@ Each lane carries a QR that links to or launches the digital scorecard for that 
 A QR at each lane links to the in-lane food and drink order form. Players order without leaving the lane. Orders are delivered to the correct lane number.
     `,
     [
-      { question: 'Can a QR scorecard work without a dedicated app?', answer: 'Yes. A web-based scorecard that any player opens in their browser eliminates app installation and works on any device.' },
-      { question: 'Should lane booking QR codes be unique per lane?', answer: 'Yes for in-venue use. Each lane QR pre-fills the lane number in the booking or order form.' },
+      {
+        question: 'Can a QR scorecard work without a dedicated app?',
+        answer:
+          'Yes. A web-based scorecard that any player opens in their browser eliminates app installation and works on any device.',
+      },
+      {
+        question: 'Should lane booking QR codes be unique per lane?',
+        answer:
+          'Yes for in-venue use. Each lane QR pre-fills the lane number in the booking or order form.',
+      },
     ]
   ),
   art(
@@ -298,8 +370,16 @@ After testing, a QR on the result printout links to a secure results page. For n
 A QR on the result letter links to the standard GP referral form pre-populated with the test result summary. Participants take action while motivated, rather than waiting for a letter to arrive.
     `,
     [
-      { question: 'Should health screening results be visible via QR without authentication?', answer: 'No. Health data requires authentication. Use a secure link sent by SMS or email; the QR initiates the authenticated flow.' },
-      { question: 'Can a screening event use QR for consent forms?', answer: 'Yes. A QR links to the digital consent form with electronic signature capability. Records are stored securely in the event management system.' },
+      {
+        question: 'Should health screening results be visible via QR without authentication?',
+        answer:
+          'No. Health data requires authentication. Use a secure link sent by SMS or email; the QR initiates the authenticated flow.',
+      },
+      {
+        question: 'Can a screening event use QR for consent forms?',
+        answer:
+          'Yes. A QR links to the digital consent form with electronic signature capability. Records are stored securely in the event management system.',
+      },
     ]
   ),
 ];

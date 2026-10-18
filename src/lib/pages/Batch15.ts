@@ -32,8 +32,16 @@ Street art environments are high-risk for label damage. Use engraved stainless s
 A network of mural QR codes can form a self-guided art trail. Each code links to the current piece and shows the map to the next one, building a continuous experience.
     `,
     [
-      { question: 'What material lasts longest for a street art QR plaque?', answer: 'Engraved and paint-filled stainless steel or anodised aluminium. Adhesive labels peel and fade within weeks outdoors.' },
-      { question: 'Can a QR on a mural show the painting process?', answer: 'Yes. Link to a time-lapse video or AR animation. Check that the landing page works on slow mobile connections.' },
+      {
+        question: 'What material lasts longest for a street art QR plaque?',
+        answer:
+          'Engraved and paint-filled stainless steel or anodised aluminium. Adhesive labels peel and fade within weeks outdoors.',
+      },
+      {
+        question: 'Can a QR on a mural show the painting process?',
+        answer:
+          'Yes. Link to a time-lapse video or AR animation. Check that the landing page works on slow mobile connections.',
+      },
     ]
   ),
   art(
@@ -62,8 +70,16 @@ Place a visible sign encouraging drivers to scan when they park: "Scan to save y
 Include large-print level and zone identifiers as text alongside the QR. Visitors with visual impairments need the information available without a scan.
     `,
     [
-      { question: 'Can a QR navigate me exactly to my car?', answer: 'Only with floor sensor or camera data linked to your ticket. Without those, it shows your zone; you do the final search.' },
-      { question: 'Should the map be accessible without internet?', answer: 'Ideally cache the map on first scan. Underground car parks often have poor signal.' },
+      {
+        question: 'Can a QR navigate me exactly to my car?',
+        answer:
+          'Only with floor sensor or camera data linked to your ticket. Without those, it shows your zone; you do the final search.',
+      },
+      {
+        question: 'Should the map be accessible without internet?',
+        answer:
+          'Ideally cache the map on first scan. Underground car parks often have poor signal.',
+      },
     ]
   ),
   art(
@@ -96,8 +112,16 @@ A confirmation page with a simple status indicator (order received, in preparati
 Hotels serve international guests. Offer at minimum English, Spanish, Arabic, and French on the menu page with a language toggle on load.
     `,
     [
-      { question: 'Should room service QR codes be unique per room?', answer: 'Yes. Encode the room number in the URL so the order form is pre-filled and routed correctly.' },
-      { question: 'What if a guest prefers to call?', answer: 'Include the room service phone number prominently on the page and on the table tent below the QR.' },
+      {
+        question: 'Should room service QR codes be unique per room?',
+        answer:
+          'Yes. Encode the room number in the URL so the order form is pre-filled and routed correctly.',
+      },
+      {
+        question: 'What if a guest prefers to call?',
+        answer:
+          'Include the room service phone number prominently on the page and on the table tent below the QR.',
+      },
     ]
   ),
   art(
@@ -126,8 +150,16 @@ A personal QR code on an athlete's profile card links to their performance histo
 After a session, a coach prints a summary card with a QR linking to the session video analysis and personalised feedback. The athlete reviews between sessions.
     `,
     [
-      { question: 'Should drill videos be hosted on YouTube?', answer: 'YouTube works but carries ads and may go offline or change access policy. Self-hosting gives long-term control.' },
-      { question: 'Can QR codes replace a coaching app?', answer: 'For small clubs or individual coaches, QR to a web page is a low-cost alternative to building or buying a coaching app.' },
+      {
+        question: 'Should drill videos be hosted on YouTube?',
+        answer:
+          'YouTube works but carries ads and may go offline or change access policy. Self-hosting gives long-term control.',
+      },
+      {
+        question: 'Can QR codes replace a coaching app?',
+        answer:
+          'For small clubs or individual coaches, QR to a web page is a low-cost alternative to building or buying a coaching app.',
+      },
     ]
   ),
   art(
@@ -160,8 +192,16 @@ Gates may lose connectivity. Cache a signed token list locally on the gate devic
 Provide a physical alternative for passengers without smartphones or who face difficulty with screen brightness at outdoor gates.
     `,
     [
-      { question: 'What happens if the passengers phone dies at the gate?', answer: 'Authorities must provide a fallback. A physical card issue desk or staff override are common alternatives.' },
-      { question: 'How do inspectors verify a QR pass on a train?', answer: 'Using a handheld scanner connected to the validity system. The screen shows the pass class and valid-to date.' },
+      {
+        question: 'What happens if the passengers phone dies at the gate?',
+        answer:
+          'Authorities must provide a fallback. A physical card issue desk or staff override are common alternatives.',
+      },
+      {
+        question: 'How do inspectors verify a QR pass on a train?',
+        answer:
+          'Using a handheld scanner connected to the validity system. The screen shows the pass class and valid-to date.',
+      },
     ]
   ),
   art(
@@ -190,8 +230,16 @@ A QR at a fly-tipping hotspot links directly to the council's report-a-fly-tip f
 QR codes at recycling centres link to accepted materials lists and disposal instructions for specific items: batteries, paint, chemicals, and electronics.
     `,
     [
-      { question: 'Can a QR on a bin tell the driver it is full?', answer: 'Not directly. Smart bins use a sensor; the QR is for residents. Combine both for a full smart waste solution.' },
-      { question: 'How do I update collection schedules without reprinting?', answer: 'The QR links to a page you control. Update the schedule on the server; all existing printed codes immediately show the new data.' },
+      {
+        question: 'Can a QR on a bin tell the driver it is full?',
+        answer:
+          'Not directly. Smart bins use a sensor; the QR is for residents. Combine both for a full smart waste solution.',
+      },
+      {
+        question: 'How do I update collection schedules without reprinting?',
+        answer:
+          'The QR links to a page you control. Update the schedule on the server; all existing printed codes immediately show the new data.',
+      },
     ]
   ),
   art(
@@ -223,8 +271,16 @@ A QR on the stage backdrop or distributed cards links to the online news room up
 After the embargo lifts, assets become public. Ensure the linked page transitions cleanly from embargoed to public access at the announced time.
     `,
     [
-      { question: 'Should press kit QR codes require a login?', answer: 'For embargoed materials, yes. For general press assets, a public news room is more accessible and builds media relationships.' },
-      { question: 'Can a QR in a press release go to a PDF?', answer: 'Better to link to a news room page. PDFs cannot be updated if a correction is needed, and they are less accessible.' },
+      {
+        question: 'Should press kit QR codes require a login?',
+        answer:
+          'For embargoed materials, yes. For general press assets, a public news room is more accessible and builds media relationships.',
+      },
+      {
+        question: 'Can a QR in a press release go to a PDF?',
+        answer:
+          'Better to link to a news room page. PDFs cannot be updated if a correction is needed, and they are less accessible.',
+      },
     ]
   ),
   art(
@@ -257,8 +313,16 @@ Creative Commons or open-source licences are communicated via the linked page. C
 Some designers extrude a small QR code directly into the surface of the model. This is elegant but requires a large enough model, high print quality, and testing the scan result.
     `,
     [
-      { question: 'Can a QR code be embedded in the surface of a 3D print?', answer: 'Yes. Model the QR as a relief in the file. Use at least 10 cm total size and high contrast filament for reliable scanning.' },
-      { question: 'What platform should I host 3D files on?', answer: 'Thingiverse, Printables, and MakerWorld are community platforms. Self-hosting gives more control but requires maintenance.' },
+      {
+        question: 'Can a QR code be embedded in the surface of a 3D print?',
+        answer:
+          'Yes. Model the QR as a relief in the file. Use at least 10 cm total size and high contrast filament for reliable scanning.',
+      },
+      {
+        question: 'What platform should I host 3D files on?',
+        answer:
+          'Thingiverse, Printables, and MakerWorld are community platforms. Self-hosting gives more control but requires maintenance.',
+      },
     ]
   ),
   art(
@@ -287,8 +351,16 @@ The physical label carries simplified care symbols. A QR links to full written i
 Link to the brand's take-back programme, resale platform, or textile recycling locator. End-of-life guidance reduces landfill and builds brand loyalty among sustainability-conscious consumers.
     `,
     [
-      { question: 'Are Digital Product Passports required for clothing yet?', answer: 'EU regulations are phasing them in. Check the current timeline for your product category; early adoption demonstrates leadership.' },
-      { question: 'What information must be on a fashion label vs behind a QR?', answer: 'Fibre content and care symbols are legally required in print in most markets. QR extends, not replaces, this information.' },
+      {
+        question: 'Are Digital Product Passports required for clothing yet?',
+        answer:
+          'EU regulations are phasing them in. Check the current timeline for your product category; early adoption demonstrates leadership.',
+      },
+      {
+        question: 'What information must be on a fashion label vs behind a QR?',
+        answer:
+          'Fibre content and care symbols are legally required in print in most markets. QR extends, not replaces, this information.',
+      },
     ]
   ),
   art(
@@ -321,8 +393,16 @@ Table QR signs face wind, light rain, and UV. Use laminated polyester cards in a
 A vCard QR or link to a contact card lets customers save your details for repeat orders. Include the days and markets you attend.
     `,
     [
-      { question: 'What is the simplest contactless payment QR for a market stall?', answer: 'A static QR for your countrys dominant payment scheme (UPI, PayNow, Pix, etc.) covers most buyers at zero cost.' },
-      { question: 'Should a market stall QR link to Instagram or an email sign-up?', answer: 'Both via a link-in-bio style page. Let the customer choose their preferred way to stay connected.' },
+      {
+        question: 'What is the simplest contactless payment QR for a market stall?',
+        answer:
+          'A static QR for your countrys dominant payment scheme (UPI, PayNow, Pix, etc.) covers most buyers at zero cost.',
+      },
+      {
+        question: 'Should a market stall QR link to Instagram or an email sign-up?',
+        answer:
+          'Both via a link-in-bio style page. Let the customer choose their preferred way to stay connected.',
+      },
     ]
   ),
 ];

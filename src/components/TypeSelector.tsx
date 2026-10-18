@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useCallback, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useCallback, useMemo, useRef, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   Search,
   ChevronDown,
@@ -46,12 +46,12 @@ import {
   Building2,
   Star,
   type LucideIcon,
-} from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import type { QRType } from "@/types";
-import { qrTypeConfigs, QR_CATEGORIES } from "@/lib/qr-helpers";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+} from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import type { QRType } from '@/types';
+import { qrTypeConfigs, QR_CATEGORIES } from '@/lib/qr-helpers';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 /* -------------------------------------------------------------------------- */
 /*  Constants                                                                 */
@@ -98,11 +98,11 @@ const ICONS: Record<string, LucideIcon> = {
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
-  popular: "Popular",
-  social: "Social",
-  payments: "Payments",
-  business: "Business",
-  utilities: "Utilities",
+  popular: 'Popular',
+  social: 'Social',
+  payments: 'Payments',
+  business: 'Business',
+  utilities: 'Utilities',
 };
 
 const GRID_COLUMNS_SM = 2;
@@ -113,7 +113,7 @@ type TypeConfig = (typeof qrTypeConfigs)[number];
 
 function TypeIcon({ name, className }: { name?: string; className?: string }) {
   const Icon = (name && ICONS[name]) || Globe;
-  return <Icon className={className ?? "h-5 w-5"} aria-hidden="true" />;
+  return <Icon className={className ?? 'h-5 w-5'} aria-hidden="true" />;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -137,12 +137,12 @@ function TypeCard({ config, isSelected, isTabStop, onSelect }: TypeCardProps) {
       title={config.description}
       onClick={() => onSelect(config.type)}
       className={[
-        "group relative flex min-h-[68px] sm:min-h-[76px] cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border p-2 sm:p-2.5 text-center",
-        "transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        'group relative flex min-h-[68px] sm:min-h-[76px] cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border p-2 sm:p-2.5 text-center',
+        'transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background',
         isSelected
-          ? "border-primary/40 bg-primary/10"
-          : "border-border/60 hover:border-primary/30 hover:bg-muted/60",
-      ].join(" ")}
+          ? 'border-primary/40 bg-primary/10'
+          : 'border-border/60 hover:border-primary/30 hover:bg-muted/60',
+      ].join(' ')}
     >
       {isSelected && (
         <span className="absolute right-1.5 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-primary-foreground">
@@ -151,17 +151,15 @@ function TypeCard({ config, isSelected, isTabStop, onSelect }: TypeCardProps) {
       )}
       <span
         className={[
-          "flex h-9 w-9 items-center justify-center rounded-lg transition-colors",
+          'flex h-9 w-9 items-center justify-center rounded-lg transition-colors',
           isSelected
-            ? "bg-primary/20 text-primary"
-            : "bg-muted text-muted-foreground group-hover:text-foreground",
-        ].join(" ")}
+            ? 'bg-primary/20 text-primary'
+            : 'bg-muted text-muted-foreground group-hover:text-foreground',
+        ].join(' ')}
       >
         <TypeIcon name={config.icon} />
       </span>
-      <span className="line-clamp-2 text-xs font-medium leading-tight">
-        {config.label}
-      </span>
+      <span className="line-clamp-2 text-xs font-medium leading-tight">{config.label}</span>
     </button>
   );
 }
@@ -186,7 +184,7 @@ function TypeGrid({ types, selected, onSelect, label }: TypeGridProps) {
       types
         .map((t) => qrTypeConfigs.find((c) => c.type === t))
         .filter((c): c is TypeConfig => Boolean(c)),
-    [types],
+    [types]
   );
 
   // The selected card (or the first one) is the single Tab stop of the grid.
@@ -194,8 +192,7 @@ function TypeGrid({ types, selected, onSelect, label }: TypeGridProps) {
   const tabStop = focusIndex ?? (selectedIndex >= 0 ? selectedIndex : 0);
 
   const moveFocus = useCallback((next: number) => {
-    const buttons =
-      gridRef.current?.querySelectorAll<HTMLButtonElement>("[data-type-btn]");
+    const buttons = gridRef.current?.querySelectorAll<HTMLButtonElement>('[data-type-btn]');
     if (!buttons || next < 0 || next >= buttons.length) return;
     setFocusIndex(next);
     buttons[next].focus();
@@ -203,18 +200,18 @@ function TypeGrid({ types, selected, onSelect, label }: TypeGridProps) {
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     const buttons = Array.from(
-      gridRef.current?.querySelectorAll<HTMLButtonElement>("[data-type-btn]") ??
-        [],
+      gridRef.current?.querySelectorAll<HTMLButtonElement>('[data-type-btn]') ?? []
     );
     const current = buttons.indexOf(document.activeElement as HTMLButtonElement);
     if (current === -1) return;
 
     // Detect the actual column count from the rendered grid
-    const cols =
-      gridRef.current
-        ? Math.round(gridRef.current.offsetWidth /
-            (gridRef.current.querySelector<HTMLButtonElement>("[data-type-btn]")?.offsetWidth ?? 1))
-        : GRID_COLUMNS_MD;
+    const cols = gridRef.current
+      ? Math.round(
+          gridRef.current.offsetWidth /
+            (gridRef.current.querySelector<HTMLButtonElement>('[data-type-btn]')?.offsetWidth ?? 1)
+        )
+      : GRID_COLUMNS_MD;
     const safeCol = Math.max(GRID_COLUMNS_SM, Math.min(GRID_COLUMNS_MD, cols));
     const keyMap: Record<string, number> = {
       ArrowRight: current + 1,
@@ -261,19 +258,13 @@ interface TypeSelectorProps {
 }
 
 export function TypeSelector({ selected, onChange }: TypeSelectorProps) {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [isExpanded, setIsExpanded] = useState(true);
-  const [activeTab, setActiveTab] = useState("popular");
-  const [recentTypes, setRecentTypes] = useLocalStorage<QRType[]>(
-    "qr-recent-types",
-    [],
-  );
+  const [activeTab, setActiveTab] = useState('popular');
+  const [recentTypes, setRecentTypes] = useLocalStorage<QRType[]>('qr-recent-types', []);
   const prefersReducedMotion = useReducedMotion();
 
-  const selectedConfig = useMemo(
-    () => qrTypeConfigs.find((c) => c.type === selected),
-    [selected],
-  );
+  const selectedConfig = useMemo(() => qrTypeConfigs.find((c) => c.type === selected), [selected]);
 
   // Search across label, description and category name.
   const filteredTypes = useMemo(() => {
@@ -281,15 +272,13 @@ export function TypeSelector({ selected, onChange }: TypeSelectorProps) {
     if (!q) return [];
     const categoryOf = new Map<QRType, string>();
     Object.entries(QR_CATEGORIES).forEach(([cat, types]) =>
-      types.forEach((t) => categoryOf.set(t, cat)),
+      types.forEach((t) => categoryOf.set(t, cat))
     );
     return qrTypeConfigs.filter(
       (c) =>
         c.label.toLowerCase().includes(q) ||
         c.description.toLowerCase().includes(q) ||
-        (CATEGORY_LABELS[categoryOf.get(c.type) ?? ""] ?? "")
-          .toLowerCase()
-          .includes(q),
+        (CATEGORY_LABELS[categoryOf.get(c.type) ?? ''] ?? '').toLowerCase().includes(q)
     );
   }, [search]);
 
@@ -298,17 +287,15 @@ export function TypeSelector({ selected, onChange }: TypeSelectorProps) {
       recentTypes
         .map((t) => qrTypeConfigs.find((c) => c.type === t))
         .filter((c): c is TypeConfig => Boolean(c)),
-    [recentTypes],
+    [recentTypes]
   );
 
   const handleSelect = useCallback(
     (type: QRType) => {
       onChange(type);
-      setRecentTypes((prev) =>
-        [type, ...prev.filter((t) => t !== type)].slice(0, MAX_RECENT),
-      );
+      setRecentTypes((prev) => [type, ...prev.filter((t) => t !== type)].slice(0, MAX_RECENT));
     },
-    [onChange, setRecentTypes],
+    [onChange, setRecentTypes]
   );
 
   const isSearching = search.trim().length > 0;
@@ -329,11 +316,11 @@ export function TypeSelector({ selected, onChange }: TypeSelectorProps) {
         <span className="min-w-0 flex-1">
           <span className="block text-xs text-muted-foreground">QR code type</span>
           <span className="block truncate text-sm font-semibold">
-            {selectedConfig?.label ?? "Choose a type"}
+            {selectedConfig?.label ?? 'Choose a type'}
           </span>
         </span>
         <ChevronDown
-          className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+          className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
           aria-hidden="true"
         />
       </button>
@@ -344,9 +331,9 @@ export function TypeSelector({ selected, onChange }: TypeSelectorProps) {
             id="type-selector-panel"
             key="panel"
             initial={prefersReducedMotion ? false : { height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
+            animate={{ height: 'auto', opacity: 1 }}
             exit={prefersReducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.2, ease: "easeInOut" }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.2, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
             <div className="space-y-3 p-1">
@@ -362,7 +349,7 @@ export function TypeSelector({ selected, onChange }: TypeSelectorProps) {
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   onKeyDown={(e) => {
-                    if (e.key === "Escape") setSearch("");
+                    if (e.key === 'Escape') setSearch('');
                   }}
                   className="h-9 pl-9 pr-9"
                   aria-label="Search QR types"
@@ -370,7 +357,7 @@ export function TypeSelector({ selected, onChange }: TypeSelectorProps) {
                 {search && (
                   <button
                     type="button"
-                    onClick={() => setSearch("")}
+                    onClick={() => setSearch('')}
                     aria-label="Clear search"
                     className="absolute right-1.5 top-1.5 flex h-6 w-6 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   >
@@ -381,10 +368,14 @@ export function TypeSelector({ selected, onChange }: TypeSelectorProps) {
 
               {isSearching ? (
                 <div className="space-y-2">
-                  <p className="px-1 text-xs text-muted-foreground" role="status" aria-live="polite">
+                  <p
+                    className="px-1 text-xs text-muted-foreground"
+                    role="status"
+                    aria-live="polite"
+                  >
                     {filteredTypes.length === 0
-                      ? "No matches"
-                      : `${filteredTypes.length} ${filteredTypes.length === 1 ? "type" : "types"} found`}
+                      ? 'No matches'
+                      : `${filteredTypes.length} ${filteredTypes.length === 1 ? 'type' : 'types'} found`}
                   </p>
                   {filteredTypes.length > 0 ? (
                     <TypeGrid
@@ -395,15 +386,13 @@ export function TypeSelector({ selected, onChange }: TypeSelectorProps) {
                     />
                   ) : (
                     <div className="rounded-xl border border-dashed border-border/70 px-4 py-6 text-center">
-                      <p className="text-sm font-medium">
-                        Nothing matches “{search.trim()}”
-                      </p>
+                      <p className="text-sm font-medium">Nothing matches “{search.trim()}”</p>
                       <p className="mt-1 text-xs text-muted-foreground">
                         Try a shorter word, like “wifi” or “pay”.
                       </p>
                       <button
                         type="button"
-                        onClick={() => setSearch("")}
+                        onClick={() => setSearch('')}
                         className="mt-3 text-xs font-medium text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                       >
                         Show all types
@@ -438,11 +427,11 @@ export function TypeSelector({ selected, onChange }: TypeSelectorProps) {
                               aria-pressed={isSelected}
                               onClick={() => handleSelect(cfg.type)}
                               className={[
-                                "flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+                                'flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
                                 isSelected
-                                  ? "border-primary/40 bg-primary/10 text-primary"
-                                  : "border-border/60 hover:border-primary/30 hover:bg-muted/60",
-                              ].join(" ")}
+                                  ? 'border-primary/40 bg-primary/10 text-primary'
+                                  : 'border-border/60 hover:border-primary/30 hover:bg-muted/60',
+                              ].join(' ')}
                             >
                               <TypeIcon name={cfg.icon} className="h-3.5 w-3.5" />
                               {cfg.label}
@@ -462,9 +451,7 @@ export function TypeSelector({ selected, onChange }: TypeSelectorProps) {
                           className="shrink-0 gap-1 px-2.5 py-1 text-xs"
                         >
                           {CATEGORY_LABELS[cat] ?? cat}
-                          <span className="text-[10px] text-muted-foreground">
-                            {types.length}
-                          </span>
+                          <span className="text-[10px] text-muted-foreground">{types.length}</span>
                         </TabsTrigger>
                       ))}
                     </TabsList>

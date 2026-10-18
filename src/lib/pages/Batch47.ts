@@ -32,8 +32,17 @@ A QR on the gallery delivery card links to the referral page: "Refer a couple an
 A QR in the gallery email links to the print store pre-populated with images from this couple's gallery: canvas prints, framed prints, photo books, and gift items. Post-gallery product sales are the highest-margin revenue stream in wedding photography — a QR at the moment of gallery viewing maximises conversion.
     `,
     [
-      { question: 'Should a wedding photographer use a cloud gallery service or a self-hosted gallery for QR delivery?', answer: 'Dedicated photography gallery platforms (Pixieset, Pic-Time, ShootProof) provide QR-friendly delivery, proofing, and integrated print sales in one platform. Self-hosting offers cost saving but requires more technical management. The platform choice significantly affects the client experience quality.' },
-      { question: 'How long should a QR wedding gallery link remain active?', answer: 'Wedding galleries are emotionally significant and referenced for decades. At minimum, maintain the QR link for 5 years post-wedding. Many photographers offer lifetime gallery hosting — it is a meaningful differentiator that commands a pricing premium.' },
+      {
+        question:
+          'Should a wedding photographer use a cloud gallery service or a self-hosted gallery for QR delivery?',
+        answer:
+          'Dedicated photography gallery platforms (Pixieset, Pic-Time, ShootProof) provide QR-friendly delivery, proofing, and integrated print sales in one platform. Self-hosting offers cost saving but requires more technical management. The platform choice significantly affects the client experience quality.',
+      },
+      {
+        question: 'How long should a QR wedding gallery link remain active?',
+        answer:
+          'Wedding galleries are emotionally significant and referenced for decades. At minimum, maintain the QR link for 5 years post-wedding. Many photographers offer lifetime gallery hosting — it is a meaningful differentiator that commands a pricing premium.',
+      },
     ]
   ),
   art(
@@ -66,8 +75,17 @@ A QR links to the current seasonal availability list: flowers in season this wee
 A QR on the shop window and on flyers links to the same-day local delivery order form: available arrangements at this moment, cut-off time for today's deliveries, and the delivery radius map. Time-sensitive intent (birthday, anniversary) converts best when the delivery capability is immediately visible.
     `,
     [
-      { question: 'Can a QR on a bouquet increase a florist\'s Instagram following?', answer: 'Yes. A QR care card with a CTA ("Tag us in your photos for a chance to be featured: @yourflorist") drives social tagging and follower growth from people who have just received a beautiful arrangement — the optimal moment for social engagement.' },
-      { question: 'Should a florist\'s subscription QR link directly to a payment page or an information page first?', answer: 'An information page first works better for new customers (what\'s included, example arrangements, cancellation terms). A direct payment page works better for returning customers who already know the product. Consider using a simple landing page with a clear CTA for the first tier of information.' },
+      {
+        question: "Can a QR on a bouquet increase a florist's Instagram following?",
+        answer:
+          'Yes. A QR care card with a CTA ("Tag us in your photos for a chance to be featured: @yourflorist") drives social tagging and follower growth from people who have just received a beautiful arrangement — the optimal moment for social engagement.',
+      },
+      {
+        question:
+          "Should a florist's subscription QR link directly to a payment page or an information page first?",
+        answer:
+          "An information page first works better for new customers (what's included, example arrangements, cancellation terms). A direct payment page works better for returning customers who already know the product. Consider using a simple landing page with a clear CTA for the first tier of information.",
+      },
     ]
   ),
   art(
@@ -100,8 +118,17 @@ A QR on the completion card links to the rebooking calendar and the referral pag
 A QR on the completion card links to a 3-question feedback form: overall satisfaction, specific praise or concerns, and likelihood to recommend. Feedback that arrives while the client is still in their freshly cleaned home is the most positive feedback you will ever receive — capture it immediately.
     `,
     [
-      { question: 'Can a QR staff verification system build client trust for a domestic cleaning business?', answer: 'Yes significantly. Clients letting strangers into their home have a legitimate security concern. A QR verification that confirms the cleaner\'s identity, DBS check, and employment status directly addresses this concern and differentiates the business from unverified independent cleaners.' },
-      { question: 'Should domestic cleaning QR codes be on physical cards or sent digitally?', answer: 'Physical cards left after each clean perform best — they are visible, tangible, and a natural prompt to leave feedback or rebook. Digital follow-up via text/WhatsApp with a QR link is a complementary channel for clients who prefer digital interaction.' },
+      {
+        question:
+          'Can a QR staff verification system build client trust for a domestic cleaning business?',
+        answer:
+          "Yes significantly. Clients letting strangers into their home have a legitimate security concern. A QR verification that confirms the cleaner's identity, DBS check, and employment status directly addresses this concern and differentiates the business from unverified independent cleaners.",
+      },
+      {
+        question: 'Should domestic cleaning QR codes be on physical cards or sent digitally?',
+        answer:
+          'Physical cards left after each clean perform best — they are visible, tangible, and a natural prompt to leave feedback or rebook. Digital follow-up via text/WhatsApp with a QR link is a complementary channel for clients who prefer digital interaction.',
+      },
     ]
   ),
   art(
@@ -134,8 +161,16 @@ A QR in the tax computation letter links to a plain-English video explanation of
 A QR in MTD preparation communications links to the practice's MTD guide: what MTD means for the client's business, which software is compatible, and how the practice will help with the transition. MTD readiness is a current urgency for many small business clients — a QR-linked guide positions the accountant as proactive advisor.
     `,
     [
-      { question: 'Does a QR document upload portal satisfy HMRC record-keeping requirements?', answer: 'HMRC requires records to be kept for specific periods (5 years post-self-assessment deadline for individuals, 6 years for companies). A secure document portal with appropriate access controls, backup, and retention settings meets these requirements. Verify the specific platform\'s data retention policy.' },
-      { question: 'Should an accounting practice QR portal require two-factor authentication?', answer: 'Yes. Client portals containing financial documents are high-value targets. Two-factor authentication is a proportionate security measure and is now expected by professional indemnity insurers. Most dedicated client portal platforms include 2FA as standard.' },
+      {
+        question: 'Does a QR document upload portal satisfy HMRC record-keeping requirements?',
+        answer:
+          "HMRC requires records to be kept for specific periods (5 years post-self-assessment deadline for individuals, 6 years for companies). A secure document portal with appropriate access controls, backup, and retention settings meets these requirements. Verify the specific platform's data retention policy.",
+      },
+      {
+        question: 'Should an accounting practice QR portal require two-factor authentication?',
+        answer:
+          'Yes. Client portals containing financial documents are high-value targets. Two-factor authentication is a proportionate security measure and is now expected by professional indemnity insurers. Most dedicated client portal platforms include 2FA as standard.',
+      },
     ]
   ),
   art(
@@ -168,8 +203,16 @@ A QR on the mock test debrief sheet links to the digital feedback form: faults r
 A QR on the pass certificate envelope links to the referral page: "Passed? Refer a friend and both get a lesson discount." Driving test passes are shared widely on social media — a QR on the pass certificate captures that sharing moment and routes referrals systematically.
     `,
     [
-      { question: 'Can a QR progress report replace the ADI pupil record card?', answer: 'No. The DVSA ADI record card (or approved equivalent) must be completed and available for DVSA inspection. A digital progress report via QR is a valuable supplement for pupil communication but does not replace the statutory record.' },
-      { question: 'Should a driving school QR for booking show price per lesson?', answer: 'Yes. Price transparency reduces abandoned booking attempts. Pupils who see the lesson price before booking have realistic expectations and lower cancellation rates than those who discover the price during a confirmation call.' },
+      {
+        question: 'Can a QR progress report replace the ADI pupil record card?',
+        answer:
+          'No. The DVSA ADI record card (or approved equivalent) must be completed and available for DVSA inspection. A digital progress report via QR is a valuable supplement for pupil communication but does not replace the statutory record.',
+      },
+      {
+        question: 'Should a driving school QR for booking show price per lesson?',
+        answer:
+          'Yes. Price transparency reduces abandoned booking attempts. Pupils who see the lesson price before booking have realistic expectations and lower cancellation rates than those who discover the price during a confirmation call.',
+      },
     ]
   ),
   art(
@@ -202,8 +245,17 @@ A QR on the aftercare card links to the post-treatment care guide specific to th
 A QR on the loyalty card or in loyalty emails links to the digital loyalty programme: points balance, reward options, and gift card purchase. Gift cards sold via QR are the highest-margin product in a beauty salon — a QR on the welcome desk and on social media during gifting seasons significantly increases gift card revenue.
     `,
     [
-      { question: 'Should a beauty salon QR booking link to a third-party booking platform or its own website?', answer: 'Either works. Third-party platforms (Fresha, Treatwell, Vagaro) have discovery benefits (the platform\'s own audience) but charge booking fees. Own-website booking (square appointments, Acuity, Timely) avoids per-booking fees and keeps client data in the salon\'s control. Evaluate total cost of ownership for your booking volume.' },
-      { question: 'Can a QR pre-treatment consultation form reduce adverse reactions?', answer: 'Yes. Pre-treatment forms that capture allergies, medications (e.g., Roaccutane for facials and waxing, blood thinners for advanced treatments), and contraindications allow therapists to modify or decline treatments that carry risk for that specific client — directly reducing adverse events and the associated liability.' },
+      {
+        question:
+          'Should a beauty salon QR booking link to a third-party booking platform or its own website?',
+        answer:
+          "Either works. Third-party platforms (Fresha, Treatwell, Vagaro) have discovery benefits (the platform's own audience) but charge booking fees. Own-website booking (square appointments, Acuity, Timely) avoids per-booking fees and keeps client data in the salon's control. Evaluate total cost of ownership for your booking volume.",
+      },
+      {
+        question: 'Can a QR pre-treatment consultation form reduce adverse reactions?',
+        answer:
+          'Yes. Pre-treatment forms that capture allergies, medications (e.g., Roaccutane for facials and waxing, blood thinners for advanced treatments), and contraindications allow therapists to modify or decline treatments that carry risk for that specific client — directly reducing adverse events and the associated liability.',
+      },
     ]
   ),
   art(
@@ -236,8 +288,16 @@ A QR links to the lost property registration form and the missing person alert s
 A QR on waste stations, camping areas, and site signage links to the festival's sustainability guide: recycling instructions, water refill station map, composting points, and pledge to leave the site clean. Festivals are increasingly evaluated on sustainability performance — QR-accessed guidance demonstrably improves visitor behaviour.
     `,
     [
-      { question: 'Can festival QR codes work in a field with no mobile signal?', answer: 'Festival sites are increasingly investing in temporary mobile infrastructure (COW — Cell on Wheels) and site WiFi for operational reasons. Key safety QR content (welfare, lost property) should also be available offline via a PWA cache. Always test QR connectivity in the actual site conditions before the event.' },
-      { question: 'Should festival wristband QR codes be permanent or session-specific?', answer: 'Festival wristband QRs should be permanent for the wristband\'s lifetime (the festival duration) but time-limited in their authentication scope. The wristband QR can be scanned for top-up, entry, and welfare as many times as needed during the event, but becomes inactive after the event closes.' },
+      {
+        question: 'Can festival QR codes work in a field with no mobile signal?',
+        answer:
+          'Festival sites are increasingly investing in temporary mobile infrastructure (COW — Cell on Wheels) and site WiFi for operational reasons. Key safety QR content (welfare, lost property) should also be available offline via a PWA cache. Always test QR connectivity in the actual site conditions before the event.',
+      },
+      {
+        question: 'Should festival wristband QR codes be permanent or session-specific?',
+        answer:
+          "Festival wristband QRs should be permanent for the wristband's lifetime (the festival duration) but time-limited in their authentication scope. The wristband QR can be scanned for top-up, entry, and welfare as many times as needed during the event, but becomes inactive after the event closes.",
+      },
     ]
   ),
   art(
@@ -270,8 +330,16 @@ A QR on the charge point links to the network's subscription sign-up page: month
 A QR on the charge point links to the driver education hub: charging etiquette, how to report cable hogging, cable types and compatibility guide, and charging speed explainer. New EV drivers encounter information gaps at charging points — a QR resource directly addresses the moment of uncertainty.
     `,
     [
-      { question: 'Is QR payment at EV charging points legally required in the UK?', answer: 'The Public Charge Point Regulations 2023 require that public charge points above 8 kW accept contactless debit/credit card payment (not necessarily QR specifically) by November 2024 for new installations. QR to a payment page satisfies this if the payment itself is card or wallet — QR is the interface, not the payment method.' },
-      { question: 'Can a QR on an EV charger work in an underground car park with no signal?', answer: 'Underground installations need dedicated WiFi or cellular repeaters for QR payment to function. The OZEV regulations account for network coverage requirements. Where signal cannot be guaranteed, the charge point should also accept contactless card directly at the terminal.' },
+      {
+        question: 'Is QR payment at EV charging points legally required in the UK?',
+        answer:
+          'The Public Charge Point Regulations 2023 require that public charge points above 8 kW accept contactless debit/credit card payment (not necessarily QR specifically) by November 2024 for new installations. QR to a payment page satisfies this if the payment itself is card or wallet — QR is the interface, not the payment method.',
+      },
+      {
+        question: 'Can a QR on an EV charger work in an underground car park with no signal?',
+        answer:
+          'Underground installations need dedicated WiFi or cellular repeaters for QR payment to function. The OZEV regulations account for network coverage requirements. Where signal cannot be guaranteed, the charge point should also accept contactless card directly at the terminal.',
+      },
     ]
   ),
   art(
@@ -304,8 +372,16 @@ A QR on the poolside display links to the current water quality report: pH, chlo
 A QR at the poolside links to the accessibility information page: pool hoist availability and booking, accessible changing facilities, lifeguard first aid capability, and contact for additional assistance. Disabled swimmers benefit most from advance access to accessibility information before making a journey.
     `,
     [
-      { question: 'Can a QR replace the physical membership card at a leisure centre?', answer: 'Yes. A QR in Apple Wallet or Google Wallet serves as the entry pass at turnstiles and reception. Most modern leisure management systems support QR or barcode-based access. The physical card can be retired when the QR wallet pass is deployed — reducing plastic and administration cost.' },
-      { question: 'Should swimming lesson progress be accessible via QR for parents?', answer: 'Yes. A QR in the lesson confirmation links to the child\'s swimming lesson progress record: current stage, skills achieved, and next stage goals. ASA Swim Star and similar frameworks have defined progression milestones — a QR progress page aligned to the framework helps parents understand and celebrate their child\'s development.' },
+      {
+        question: 'Can a QR replace the physical membership card at a leisure centre?',
+        answer:
+          'Yes. A QR in Apple Wallet or Google Wallet serves as the entry pass at turnstiles and reception. Most modern leisure management systems support QR or barcode-based access. The physical card can be retired when the QR wallet pass is deployed — reducing plastic and administration cost.',
+      },
+      {
+        question: 'Should swimming lesson progress be accessible via QR for parents?',
+        answer:
+          "Yes. A QR in the lesson confirmation links to the child's swimming lesson progress record: current stage, skills achieved, and next stage goals. ASA Swim Star and similar frameworks have defined progression milestones — a QR progress page aligned to the framework helps parents understand and celebrate their child's development.",
+      },
     ]
   ),
   art(
@@ -338,8 +414,17 @@ A QR on the discharge sheet links to the specific post-operative care instructio
 A QR in the waiting room links to the practice's health education hub: seasonal health alerts (tick prevention, grass seeds, heatstroke), life stage guides (puppy, kitten, senior), and breed-specific health information. Educated pet owners identify health issues earlier and present pets sooner — improving outcomes and reducing emergency consultations.
     `,
     [
-      { question: 'Can a QR pet health record replace the physical vaccination certificate?', answer: 'For travel purposes (pet passports, entry to kennels or groomers), physical documentation is still required. A QR digital record is a valuable supplement for daily reference and emergency situations. Maintain physical records for all regulated purposes.' },
-      { question: 'Should a veterinary practice QR appointment system allow booking without a registered account?', answer: 'For existing clients, a QR that deep-links to their account (via a session token in the QR URL) provides the smoothest experience. For new clients, a lightweight registration during the booking flow is necessary. Avoid requiring a full account setup before allowing a first appointment to be booked.' },
+      {
+        question: 'Can a QR pet health record replace the physical vaccination certificate?',
+        answer:
+          'For travel purposes (pet passports, entry to kennels or groomers), physical documentation is still required. A QR digital record is a valuable supplement for daily reference and emergency situations. Maintain physical records for all regulated purposes.',
+      },
+      {
+        question:
+          'Should a veterinary practice QR appointment system allow booking without a registered account?',
+        answer:
+          'For existing clients, a QR that deep-links to their account (via a session token in the QR URL) provides the smoothest experience. For new clients, a lightweight registration during the booking flow is necessary. Avoid requiring a full account setup before allowing a first appointment to be booked.',
+      },
     ]
   ),
 ];

@@ -53,15 +53,18 @@ This reduces the barrier to public engagement with the planning process signific
     [
       {
         question: 'How can citizens verify that a government QR code is legitimate?',
-        answer: 'Scan and check the destination URL before entering any information. Legitimate UK government QR codes resolve to .gov.uk domains, NHS.net, or established local authority websites. Any QR on a government document that resolves to a non-official domain (shortened URL that does not show the destination, commercial domain) should be treated as suspicious and reported to the relevant authority.',
+        answer:
+          'Scan and check the destination URL before entering any information. Legitimate UK government QR codes resolve to .gov.uk domains, NHS.net, or established local authority websites. Any QR on a government document that resolves to a non-official domain (shortened URL that does not show the destination, commercial domain) should be treated as suspicious and reported to the relevant authority.',
       },
       {
         question: 'Are government QR codes accessible for citizens without smartphones?',
-        answer: 'Government services must not create barriers for citizens without digital access. Any QR-linked service must remain accessible by phone, post, and in-person. The QR is an additional access channel — never the only one. UK Equality Act 2010 obligations require public sector organisations to make reasonable adjustments to ensure services are accessible to all.',
+        answer:
+          'Government services must not create barriers for citizens without digital access. Any QR-linked service must remain accessible by phone, post, and in-person. The QR is an additional access channel — never the only one. UK Equality Act 2010 obligations require public sector organisations to make reasonable adjustments to ensure services are accessible to all.',
       },
       {
         question: 'Can local councils use QR codes on penalty notices to reduce payment arrears?',
-        answer: 'Evidence from councils that have implemented QR payment links on penalty notices shows improved early payment rates. The QR on the notice provides immediate payment access at the moment the notice is received — peak motivation to resolve the penalty. Ease of payment correlates with faster collection and reduced enforcement cost.',
+        answer:
+          'Evidence from councils that have implemented QR payment links on penalty notices shows improved early payment rates. The QR on the notice provides immediate payment access at the moment the notice is received — peak motivation to resolve the penalty. Ease of payment correlates with faster collection and reduced enforcement cost.',
       },
     ]
   ),
@@ -114,11 +117,13 @@ For a council managing multiple notice boards across a district:
     [
       {
         question: 'How do councils handle QR codes being defaced or removed from notice boards?',
-        answer: 'Include a backup printed URL alongside the QR so residents can type the address if the QR is damaged. Regular (monthly) physical inspection of high-use notice boards identifies damage promptly. For high-vandalism areas, a perspex-covered notice board frame protects printed materials including QR codes from physical damage.',
+        answer:
+          'Include a backup printed URL alongside the QR so residents can type the address if the QR is damaged. Regular (monthly) physical inspection of high-use notice boards identifies damage promptly. For high-vandalism areas, a perspex-covered notice board frame protects printed materials including QR codes from physical damage.',
       },
       {
         question: 'Can a QR on a notice board capture resident contact details for consultation?',
-        answer: 'Yes, if the linked consultation form collects email or address for follow-up. Ensure the form has a clear privacy notice explaining why the data is collected and how it will be used under UK GDPR. Consultation responses must be handled as personal data with appropriate retention and security controls.',
+        answer:
+          'Yes, if the linked consultation form collects email or address for follow-up. Ensure the form has a clear privacy notice explaining why the data is collected and how it will be used under UK GDPR. Consultation responses must be handled as personal data with appropriate retention and security controls.',
       },
     ]
   ),
@@ -160,11 +165,14 @@ UK public sector digital services are bound by the Public Sector Bodies Accessib
     [
       {
         question: 'Can I use a QR code to access my driving licence records?',
-        answer: 'You can access your DVLA driver record via GOV.UK using your NI number and driving licence number. A QR on official correspondence can link to the relevant login page. The actual records require authenticated access — the QR provides the navigation shortcut, not a direct bypass of the authentication requirement.',
+        answer:
+          'You can access your DVLA driver record via GOV.UK using your NI number and driving licence number. A QR on official correspondence can link to the relevant login page. The actual records require authenticated access — the QR provides the navigation shortcut, not a direct bypass of the authentication requirement.',
       },
       {
-        question: 'Are QR codes in DVLA letters officially produced by the DVLA or added by other parties?',
-        answer: 'Official DVLA correspondence may include QR codes in authenticated formats. Be cautious of any letter, text, or email claiming to be from the DVLA that contains a QR code linking to a non-GOV.UK domain. The DVLA will not ask for payment via a non-GOV.UK page. Suspicious QR codes in correspondence should be reported to Action Fraud.',
+        question:
+          'Are QR codes in DVLA letters officially produced by the DVLA or added by other parties?',
+        answer:
+          'Official DVLA correspondence may include QR codes in authenticated formats. Be cautious of any letter, text, or email claiming to be from the DVLA that contains a QR code linking to a non-GOV.UK domain. The DVLA will not ask for payment via a non-GOV.UK page. Suspicious QR codes in correspondence should be reported to Action Fraud.',
       },
     ]
   ),
@@ -212,12 +220,15 @@ Residents arriving at a form via QR are already motivated to complete it — red
     `,
     [
       {
-        question: 'Can a QR code on a council letter pre-fill the form with the resident\'s details?',
-        answer: 'Yes with tokenised URLs. The council letter QR encodes a URL containing a secure token that pre-populates the recipient\'s name, address, and reference number in the linked form. The token is single-use and time-limited for security. This significantly reduces form completion friction and improves completion rates, particularly for benefit applications.',
+        question:
+          "Can a QR code on a council letter pre-fill the form with the resident's details?",
+        answer:
+          "Yes with tokenised URLs. The council letter QR encodes a URL containing a secure token that pre-populates the recipient's name, address, and reference number in the linked form. The token is single-use and time-limited for security. This significantly reduces form completion friction and improves completion rates, particularly for benefit applications.",
       },
       {
         question: 'Do council QR codes comply with GDPR when directing to online forms?',
-        answer: 'The QR itself does not collect data — the linked form does. The online form must have a privacy notice explaining the lawful basis for data collection, what data is collected, who can access it, and how long it is retained. Public task (UK GDPR Article 6(1)(e)) is the typical lawful basis for most council service forms.',
+        answer:
+          'The QR itself does not collect data — the linked form does. The online form must have a privacy notice explaining the lawful basis for data collection, what data is collected, who can access it, and how long it is retained. Public task (UK GDPR Article 6(1)(e)) is the typical lawful basis for most council service forms.',
       },
     ]
   ),
@@ -271,15 +282,19 @@ UK train operators increasingly include QR codes on:
     [
       {
         question: 'Can QR codes at bus stops work without internet if the passenger has no data?',
-        answer: 'Most QR timetable links require internet access to fetch live data. For offline accessibility, display the printed static timetable alongside the QR — the QR augments the printed timetable with live data for connected users rather than replacing it. At major transport hubs, station WiFi can provide the connectivity needed to scan and access timetables.',
+        answer:
+          'Most QR timetable links require internet access to fetch live data. For offline accessibility, display the printed static timetable alongside the QR — the QR augments the printed timetable with live data for connected users rather than replacing it. At major transport hubs, station WiFi can provide the connectivity needed to scan and access timetables.',
       },
       {
         question: 'Are QR codes being used as physical train tickets in the UK?',
-        answer: 'Yes. UK train operators issue mobile ticket QR codes via their apps and email confirmations. The ticket QR is scanned at the gate or by the guard on-train. ATOC (Rail Delivery Group) standards define the QR ticket format used by UK TOCs. Physical paper tickets with QR codes are also issued as an alternative to magnetic stripe tickets at many stations.',
+        answer:
+          'Yes. UK train operators issue mobile ticket QR codes via their apps and email confirmations. The ticket QR is scanned at the gate or by the guard on-train. ATOC (Rail Delivery Group) standards define the QR ticket format used by UK TOCs. Physical paper tickets with QR codes are also issued as an alternative to magnetic stripe tickets at many stations.',
       },
       {
-        question: 'How do transport operators prevent QR ticket fraud (screenshots of valid tickets)?',
-        answer: 'Most UK rail QR tickets use animated or rotating barcodes (the QR changes appearance every few seconds) to prevent screenshot sharing. The gate reader and guard app verify the QR against the live ticket database. Static screenshots of a valid QR fail validation after a short window. For bus QR tickets, simpler validation with single-use invalidation at the reader is standard.',
+        question:
+          'How do transport operators prevent QR ticket fraud (screenshots of valid tickets)?',
+        answer:
+          'Most UK rail QR tickets use animated or rotating barcodes (the QR changes appearance every few seconds) to prevent screenshot sharing. The gate reader and guard app verify the QR against the live ticket database. Static screenshots of a valid QR fail validation after a short window. For bus QR tickets, simpler validation with single-use invalidation at the reader is standard.',
       },
     ]
   ),

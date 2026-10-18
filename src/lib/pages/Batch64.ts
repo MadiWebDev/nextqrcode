@@ -58,15 +58,19 @@ You do not need a dedicated service. Create a profile page (Google Sites, a simp
     [
       {
         question: 'Are QR pet tags waterproof enough for dogs that swim regularly?',
-        answer: 'Standard QR sticker tags are not suitable for frequent water exposure — the adhesive degrades and printing fades. For water dogs, choose an etched or engraved QR tag (metal with QR pattern etched in) or a QR embedded in a durable silicone tag. Several specialist pet tag manufacturers offer waterproof QR options. Test scannability of etched QR under simulated water exposure before relying on it.',
+        answer:
+          'Standard QR sticker tags are not suitable for frequent water exposure — the adhesive degrades and printing fades. For water dogs, choose an etched or engraved QR tag (metal with QR pattern etched in) or a QR embedded in a durable silicone tag. Several specialist pet tag manufacturers offer waterproof QR options. Test scannability of etched QR under simulated water exposure before relying on it.',
       },
       {
-        question: 'Can a QR pet tag replace the legal requirement for a dog to wear an ID tag in the UK?',
-        answer: 'Under the Control of Dogs Order 1992, all dogs in a public place must wear a collar with the owner\'s name and address on a tag. A QR-only tag does not satisfy this requirement — the name and address must be legible without a device. Use a QR tag alongside an engraved tag, or engrave your surname and postcode on the QR tag surface alongside the QR code.',
+        question:
+          'Can a QR pet tag replace the legal requirement for a dog to wear an ID tag in the UK?',
+        answer:
+          "Under the Control of Dogs Order 1992, all dogs in a public place must wear a collar with the owner's name and address on a tag. A QR-only tag does not satisfy this requirement — the name and address must be legible without a device. Use a QR tag alongside an engraved tag, or engrave your surname and postcode on the QR tag surface alongside the QR code.",
       },
       {
         question: 'What happens if the QR tag gets dirty or scratched and becomes unscannable?',
-        answer: 'Clean the tag gently — most dirt and mud can be removed with a damp cloth. For engraved or etched QR tags, dirt in the grooves can prevent scanning; a soft brush with water usually clears this. If the tag is physically damaged beyond cleaning, replace it. With most QR tag services, your profile page remains active — simply scan a new tag and link it to your existing profile.',
+        answer:
+          'Clean the tag gently — most dirt and mud can be removed with a damp cloth. For engraved or etched QR tags, dirt in the grooves can prevent scanning; a soft brush with water usually clears this. If the tag is physically damaged beyond cleaning, replace it. With most QR tag services, your profile page remains active — simply scan a new tag and link it to your existing profile.',
       },
     ]
   ),
@@ -121,11 +125,13 @@ For international pet travel (UK to EU requires an Animal Health Certificate and
     [
       {
         question: 'Can a QR code replace the physical pet vaccination booklet required for travel?',
-        answer: 'No. UK and EU pet travel requirements specify physical documentation (Animal Health Certificate, microchip, vaccination records) in a format that border control can inspect. A QR linking to digital records is a useful supplement but cannot replace the physical documentation required by APHA and EU border authorities. Carry physical documents and use the QR for convenience access, not as a substitute.',
+        answer:
+          'No. UK and EU pet travel requirements specify physical documentation (Animal Health Certificate, microchip, vaccination records) in a format that border control can inspect. A QR linking to digital records is a useful supplement but cannot replace the physical documentation required by APHA and EU border authorities. Carry physical documents and use the QR for convenience access, not as a substitute.',
       },
       {
         question: 'How do vets access QR-linked pet records in practice?',
-        answer: 'An emergency vet or out-of-hours service scanning the QR on the pet\'s tag or owner\'s pet card accesses a summary page immediately. For practices adopting shared records, the QR links to a vet-facing authenticated portal where clinical staff can view the full record. This requires the owner\'s primary vet to have participated in a shared record system — adoption is growing but not yet universal in UK veterinary practice.',
+        answer:
+          "An emergency vet or out-of-hours service scanning the QR on the pet's tag or owner's pet card accesses a summary page immediately. For practices adopting shared records, the QR links to a vet-facing authenticated portal where clinical staff can view the full record. This requires the owner's primary vet to have participated in a shared record system — adoption is growing but not yet universal in UK veterinary practice.",
       },
     ]
   ),
@@ -181,11 +187,13 @@ Lost pet posters on lamp posts benefit from a QR rather than (or in addition to)
     [
       {
         question: 'How quickly should a lost pet QR page be updated when the pet is found?',
-        answer: 'Update it immediately. A QR lost pet page that still shows "Lost — please help" after the pet is found wastes the time of community members who contact you about sightings. Add a prominent "FOUND — Thank you!" banner to the top of the page. If using a dynamic QR, you could redirect to a "Case closed" confirmation page.',
+        answer:
+          'Update it immediately. A QR lost pet page that still shows "Lost — please help" after the pet is found wastes the time of community members who contact you about sightings. Add a prominent "FOUND — Thank you!" banner to the top of the page. If using a dynamic QR, you could redirect to a "Case closed" confirmation page.',
       },
       {
         question: 'Can lost pet QR posters be printed at home for free?',
-        answer: 'Yes. Design the poster in Canva (free), include the QR code generated from any free QR generator, and print on any home printer. Laminate if possible for weather resistance. Multiple A4 copies printed at home and distributed across the local area within the first hour of a pet going missing is more effective than waiting for professional printing.',
+        answer:
+          'Yes. Design the poster in Canva (free), include the QR code generated from any free QR generator, and print on any home printer. Laminate if possible for weather resistance. Multiple A4 copies printed at home and distributed across the local area within the first hour of a pet going missing is more effective than waiting for professional printing.',
       },
     ]
   ),
@@ -244,11 +252,13 @@ Using all three layers (microchip + QR tag + engraved tag) provides redundancy �
     [
       {
         question: 'If a dog is found with no collar, can a QR tag still help?',
-        answer: 'No — if the collar and tag are lost, neither the QR tag nor the engraved tag is available to a finder. This is why microchipping is the legally mandatory baseline — the chip cannot be lost with the collar. Ensure microchip registration is always current as the last line of identification when all else fails.',
+        answer:
+          'No — if the collar and tag are lost, neither the QR tag nor the engraved tag is available to a finder. This is why microchipping is the legally mandatory baseline — the chip cannot be lost with the collar. Ensure microchip registration is always current as the last line of identification when all else fails.',
       },
       {
         question: 'Are QR pet tags suitable for cats as well as dogs?',
-        answer: 'Yes, with some considerations. Cats are more likely to lose collars (breakaway collars are recommended for cat safety). Choose a lightweight QR tag (under 5g) appropriate for a cat collar. Test that the QR is scannable at the smaller size that fits a cat tag. Engraved tags with name and phone number remain the most practical primary identification for cats alongside microchipping.',
+        answer:
+          'Yes, with some considerations. Cats are more likely to lose collars (breakaway collars are recommended for cat safety). Choose a lightweight QR tag (under 5g) appropriate for a cat collar. Test that the QR is scannable at the smaller size that fits a cat tag. Engraved tags with name and phone number remain the most practical primary identification for cats alongside microchipping.',
       },
     ]
   ),
@@ -305,11 +315,13 @@ If the profile is hosted on a platform that requires internet access, and the fi
     [
       {
         question: 'Can the QR pet emergency page include a GPS location or last-seen map?',
-        answer: 'If the pet goes missing and you update the page with last seen location, yes. A static page linked from the tag cannot show real-time GPS (that requires a GPS tracker collar) — but you can manually update a Google Maps link on the profile page to show the pet\'s last confirmed location. This is useful for ongoing search efforts.',
+        answer:
+          "If the pet goes missing and you update the page with last seen location, yes. A static page linked from the tag cannot show real-time GPS (that requires a GPS tracker collar) — but you can manually update a Google Maps link on the profile page to show the pet's last confirmed location. This is useful for ongoing search efforts.",
       },
       {
-        question: 'Should the pet QR profile include the owner\'s full home address?',
-        answer: 'No. Including a full home address creates a privacy and security risk — the profile is publicly accessible to anyone who scans. Use city/district only. If you want to provide a collection address, share it directly with the finder via phone or message after initial contact, not on the public profile page.',
+        question: "Should the pet QR profile include the owner's full home address?",
+        answer:
+          'No. Including a full home address creates a privacy and security risk — the profile is publicly accessible to anyone who scans. Use city/district only. If you want to provide a collection address, share it directly with the finder via phone or message after initial contact, not on the public profile page.',
       },
     ]
   ),

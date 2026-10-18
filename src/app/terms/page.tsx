@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Terms of Service — QR Code Tools',
@@ -19,7 +20,12 @@ export default function TermsPage() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freeqrcode.tools/' },
-      { '@type': 'ListItem', position: 2, name: 'Terms of Service', item: 'https://freeqrcode.tools/terms' },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Terms of Service',
+        item: 'https://freeqrcode.tools/terms',
+      },
     ],
   };
 
@@ -33,9 +39,15 @@ export default function TermsPage() {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
         <ol className="flex items-center gap-1.5">
-          <li><a href="/" className="hover:text-foreground transition-colors">Home</a></li>
+          <li>
+            <Link href="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
+          </li>
           <li aria-hidden="true">›</li>
-          <li aria-current="page" className="text-foreground">Terms of Service</li>
+          <li aria-current="page" className="text-foreground">
+            Terms of Service
+          </li>
         </ol>
       </nav>
 
@@ -50,11 +62,14 @@ export default function TermsPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Agreement to Terms</h2>
         <p className="text-muted-foreground leading-relaxed">
-          By accessing or using QR Code Tools (freeqrcode.tools), you agree to be bound by these Terms of
-          Service and our <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
-          If you do not agree to these terms, please do not use the service. These terms apply to
-          all visitors and users of the service. QR Code Tools is provided by codexengr, an independent
-          developer.
+          By accessing or using QR Code Tools (freeqrcode.tools), you agree to be bound by these
+          Terms of Service and our{' '}
+          <a href="/privacy" className="text-primary hover:underline">
+            Privacy Policy
+          </a>
+          . If you do not agree to these terms, please do not use the service. These terms apply to
+          all visitors and users of the service. QR Code Tools is provided by codexengr, an
+          independent developer.
         </p>
       </section>
 
@@ -76,19 +91,34 @@ export default function TermsPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Use of the Service</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            You are permitted to use QR Code Tools for personal, commercial, and non-commercial purposes,
-            free of charge. There is no restriction on the volume of QR codes you generate for
-            legitimate purposes.
+            You are permitted to use QR Code Tools for personal, commercial, and non-commercial
+            purposes, free of charge. There is no restriction on the volume of QR codes you generate
+            for legitimate purposes.
           </p>
           <p>The following uses are strictly prohibited:</p>
           <ul className="list-disc list-inside space-y-1.5 text-sm">
             <li>Generating QR codes that link to or encode illegal content under applicable law</li>
-            <li>Creating phishing QR codes designed to deceive users into revealing credentials or payment information</li>
-            <li>Distributing QR codes that deliver malware, ransomware, or other harmful software</li>
-            <li>Using the service to impersonate another person, organisation, or brand in a misleading way</li>
-            <li>Automated scraping or bulk downloading of the QR Code Tools application code or assets</li>
-            <li>Attempting to circumvent any rate limiting, security measure, or access control on the service</li>
-            <li>Encoding content that infringes the intellectual property rights of any third party</li>
+            <li>
+              Creating phishing QR codes designed to deceive users into revealing credentials or
+              payment information
+            </li>
+            <li>
+              Distributing QR codes that deliver malware, ransomware, or other harmful software
+            </li>
+            <li>
+              Using the service to impersonate another person, organisation, or brand in a
+              misleading way
+            </li>
+            <li>
+              Automated scraping or bulk downloading of the QR Code Tools application code or assets
+            </li>
+            <li>
+              Attempting to circumvent any rate limiting, security measure, or access control on the
+              service
+            </li>
+            <li>
+              Encoding content that infringes the intellectual property rights of any third party
+            </li>
           </ul>
           <p>
             We reserve the right to block access to users who appear to be using the service for
@@ -103,8 +133,8 @@ export default function TermsPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Intellectual Property</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            QR codes you generate using QR Code Tools belong entirely to you. We claim no rights over
-            the output of the QR generation tools. You are free to use, reproduce, modify, and
+            QR codes you generate using QR Code Tools belong entirely to you. We claim no rights
+            over the output of the QR generation tools. You are free to use, reproduce, modify, and
             distribute generated QR codes without restriction.
           </p>
           <p>
@@ -131,8 +161,8 @@ export default function TermsPage() {
             and does not infringe any third-party rights.
           </p>
           <p>
-            Before deploying any QR code for public use — on print materials, products, signage,
-            or digital distribution — you are responsible for testing the QR code in your intended
+            Before deploying any QR code for public use — on print materials, products, signage, or
+            digital distribution — you are responsible for testing the QR code in your intended
             environment, on representative devices, and in the expected lighting conditions. QR
             Studio does not guarantee scannability in all scenarios.
           </p>
@@ -149,11 +179,12 @@ export default function TermsPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Disclaimer of Warranties</h2>
         <p className="text-muted-foreground leading-relaxed">
-          The service is provided on an &quot;as is&quot; and &quot;as available&quot; basis. We make no warranties,
-          express or implied, including implied warranties of merchantability, fitness for a
-          particular purpose, or non-infringement. We do not warrant that the service will be
-          uninterrupted, error-free, or free from security vulnerabilities. We reserve the right
-          to modify, suspend, or discontinue any part of the service at any time without notice.
+          The service is provided on an &quot;as is&quot; and &quot;as available&quot; basis. We
+          make no warranties, express or implied, including implied warranties of merchantability,
+          fitness for a particular purpose, or non-infringement. We do not warrant that the service
+          will be uninterrupted, error-free, or free from security vulnerabilities. We reserve the
+          right to modify, suspend, or discontinue any part of the service at any time without
+          notice.
         </p>
       </section>
 
@@ -164,8 +195,8 @@ export default function TermsPage() {
           <p>
             To the maximum extent permitted by applicable law, QR Code Tools and codexengr shall not
             be liable for any direct, indirect, incidental, special, consequential, or punitive
-            damages arising from or related to your use of the service, even if we have been
-            advised of the possibility of such damages.
+            damages arising from or related to your use of the service, even if we have been advised
+            of the possibility of such damages.
           </p>
           <p>
             Without limiting the foregoing, we are specifically not liable for: QR code scan
@@ -174,8 +205,12 @@ export default function TermsPage() {
             losses arising from reliance on the Medical ID QR tool in an emergency.
           </p>
           <p>
-            See the <a href="/disclaimer" className="text-primary hover:underline">Disclaimer page</a> for
-            additional specific limitations relating to Medical ID QR codes and payment QR codes.
+            See the{' '}
+            <a href="/disclaimer" className="text-primary hover:underline">
+              Disclaimer page
+            </a>{' '}
+            for additional specific limitations relating to Medical ID QR codes and payment QR
+            codes.
           </p>
         </div>
       </section>
@@ -184,11 +219,18 @@ export default function TermsPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Third-Party Services</h2>
         <p className="text-muted-foreground leading-relaxed">
-          QR Code Tools may display Google AdSense advertisements. The display of these ads is governed
-          by Google&apos;s own terms and privacy policies. We do not endorse the content of third-party
-          advertisements. Google&apos;s use of advertising cookies is subject to your cookie consent
-          choice. See the <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a> and{' '}
-          <a href="/cookie-policy" className="text-primary hover:underline">Cookie Policy</a> for details.
+          QR Code Tools may display Google AdSense advertisements. The display of these ads is
+          governed by Google&apos;s own terms and privacy policies. We do not endorse the content of
+          third-party advertisements. Google&apos;s use of advertising cookies is subject to your
+          cookie consent choice. See the{' '}
+          <a href="/privacy" className="text-primary hover:underline">
+            Privacy Policy
+          </a>{' '}
+          and{' '}
+          <a href="/cookie-policy" className="text-primary hover:underline">
+            Cookie Policy
+          </a>{' '}
+          for details.
         </p>
       </section>
 
@@ -208,9 +250,9 @@ export default function TermsPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Changes to These Terms</h2>
         <p className="text-muted-foreground leading-relaxed">
           We may revise these Terms of Service at any time. Changes will be effective immediately
-          upon posting to this page with an updated &quot;Last updated&quot; date. Your continued use of
-          QR Code Tools after any change constitutes acceptance of the revised terms. If you disagree
-          with any revision, your remedy is to stop using the service.
+          upon posting to this page with an updated &quot;Last updated&quot; date. Your continued
+          use of QR Code Tools after any change constitutes acceptance of the revised terms. If you
+          disagree with any revision, your remedy is to stop using the service.
         </p>
       </section>
 

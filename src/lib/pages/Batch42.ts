@@ -32,8 +32,16 @@ A QR on tractors, sprayers, and combine harvesters links to the maintenance sche
 A QR on produce crates and wholesale boxes links to the chain of custody record for that batch: farm, field, picker team, packing date, and cold chain compliance. Retailers and food service buyers increasingly require this level of supply chain transparency.
     `,
     [
-      { question: 'Do agricultural QR codes work in outdoor field conditions without internet?', answer: 'Field operations often have poor signal. For field use, design the QR system with offline caching: field staff download the day\'s job list and record inputs offline, syncing when connectivity returns. Read-only reference data (SDS, crop plans) can be cached on the device.' },
-      { question: 'Can a QR replace a paper-based farm assurance record?', answer: 'For Red Tractor, LEAF, and organic certifications, digital records including QR-accessed audit trails are accepted. Verify with your specific assurance body before converting — some require paper records as primary evidence.' },
+      {
+        question: 'Do agricultural QR codes work in outdoor field conditions without internet?',
+        answer:
+          "Field operations often have poor signal. For field use, design the QR system with offline caching: field staff download the day's job list and record inputs offline, syncing when connectivity returns. Read-only reference data (SDS, crop plans) can be cached on the device.",
+      },
+      {
+        question: 'Can a QR replace a paper-based farm assurance record?',
+        answer:
+          'For Red Tractor, LEAF, and organic certifications, digital records including QR-accessed audit trails are accepted. Verify with your specific assurance body before converting — some require paper records as primary evidence.',
+      },
     ]
   ),
   art(
@@ -66,8 +74,16 @@ A QR on conference posters, research output displays, and published papers (prin
 A QR at library study zones links to the research support services: literature search assistance, referencing guides, interlibrary loan requests, and data management planning tools. Meets researchers at their point of need (the library) rather than requiring a separate navigation step.
     `,
     [
-      { question: 'Should university QR codes use the institution\'s own short-link domain?', answer: 'Yes. Using the institution\'s own domain (e.g., links.university.ac.uk) maintains brand trust, keeps analytics in the institution\'s control, and prevents content drift if a third-party shortener changes its policies.' },
-      { question: 'Can a QR on a research poster replace printed contact details?', answer: 'Supplement but not replace. A QR linking to the researcher\'s institutional profile provides richer contact options. A printed email address remains essential for conference contexts where poster reviewers may not have scanning capability.' },
+      {
+        question: "Should university QR codes use the institution's own short-link domain?",
+        answer:
+          "Yes. Using the institution's own domain (e.g., links.university.ac.uk) maintains brand trust, keeps analytics in the institution's control, and prevents content drift if a third-party shortener changes its policies.",
+      },
+      {
+        question: 'Can a QR on a research poster replace printed contact details?',
+        answer:
+          "Supplement but not replace. A QR linking to the researcher's institutional profile provides richer contact options. A printed email address remains essential for conference contexts where poster reviewers may not have scanning capability.",
+      },
     ]
   ),
   art(
@@ -116,8 +132,16 @@ Every QR landing page that collects personal data must display a clear, accessib
 - [ ] Are campaign analytics aggregated before retention (not storing individual scan records long-term)?
     `,
     [
-      { question: 'Does scanning a public QR code constitute consent to data processing?', answer: 'No. Scanning a QR code is not a GDPR consent action. If the QR system logs scan data (IP, location), the lawful basis must be legitimate interests or another valid basis. Consent must be freely given, specific, informed, and unambiguous — a passive scan does not meet this standard.' },
-      { question: 'Can I use QR campaign scan data for targeted advertising?', answer: 'Only with specific consent for that purpose. Aggregated analytics (total scans by location, time-of-day patterns) do not identify individuals and are lower risk. Linking scan events to individual profiles for ad targeting requires explicit consent and a clear privacy notice.' },
+      {
+        question: 'Does scanning a public QR code constitute consent to data processing?',
+        answer:
+          'No. Scanning a QR code is not a GDPR consent action. If the QR system logs scan data (IP, location), the lawful basis must be legitimate interests or another valid basis. Consent must be freely given, specific, informed, and unambiguous — a passive scan does not meet this standard.',
+      },
+      {
+        question: 'Can I use QR campaign scan data for targeted advertising?',
+        answer:
+          'Only with specific consent for that purpose. Aggregated analytics (total scans by location, time-of-day patterns) do not identify individuals and are lower risk. Linking scan events to individual profiles for ad targeting requires explicit consent and a clear privacy notice.',
+      },
     ]
   ),
   art(
@@ -153,8 +177,17 @@ A QR on the garment care label links to the brand's take-back or resale programm
 A QR on the inside label or authentication card of luxury garments links to the product authentication page: confirms the item is genuine, registered warranty, and brand-authorised resale platforms. Luxury brands use NFC + QR hybrid for the highest-value items.
     `,
     [
-      { question: 'Do QR care labels need to include all the information currently on printed labels?', answer: 'No. QR care labels supplement but currently do not replace printed care symbols in most markets. The EU DPP regulation for textiles, when fully in force, may allow digital-first labelling for certain data fields. Monitor regulation updates.' },
-      { question: 'Can a QR on a garment survive washing and dry cleaning?', answer: 'A standard printed QR on fabric will not survive repeated washing. Use woven labels with embroidered or heat-transferred QR codes for garment-embedded QRs. Test wash durability at the intended care temperature before production.' },
+      {
+        question:
+          'Do QR care labels need to include all the information currently on printed labels?',
+        answer:
+          'No. QR care labels supplement but currently do not replace printed care symbols in most markets. The EU DPP regulation for textiles, when fully in force, may allow digital-first labelling for certain data fields. Monitor regulation updates.',
+      },
+      {
+        question: 'Can a QR on a garment survive washing and dry cleaning?',
+        answer:
+          'A standard printed QR on fabric will not survive repeated washing. Use woven labels with embroidered or heat-transferred QR codes for garment-embedded QRs. Test wash durability at the intended care temperature before production.',
+      },
     ]
   ),
   art(
@@ -187,8 +220,16 @@ A QR on the team notice board links to the team communication hub: fixture sched
 A QR on individual player development plans links to their personalised development tracking page: strengths, areas for improvement, goals for the season, and progress against measurable targets. Players check their own development plan between sessions and arrive at 1-to-1s with the coach already briefed.
     `,
     [
-      { question: 'Can a QR-based drill library replace a coach verbally explaining drills?', answer: 'It reduces verbal explanation time significantly but does not replace coaching. Video demonstrates the drill; the coach provides real-time feedback during execution. The combination is more effective than either alone.' },
-      { question: 'What is the best platform for hosting sports coaching QR-linked video content?', answer: 'Private video on Vimeo, unlisted YouTube, or a dedicated coaching platform (Hudl, Catapult). Avoid public YouTube for tactical analysis — opposition teams should not have access to your training content.' },
+      {
+        question: 'Can a QR-based drill library replace a coach verbally explaining drills?',
+        answer:
+          'It reduces verbal explanation time significantly but does not replace coaching. Video demonstrates the drill; the coach provides real-time feedback during execution. The combination is more effective than either alone.',
+      },
+      {
+        question: 'What is the best platform for hosting sports coaching QR-linked video content?',
+        answer:
+          'Private video on Vimeo, unlisted YouTube, or a dedicated coaching platform (Hudl, Catapult). Avoid public YouTube for tactical analysis — opposition teams should not have access to your training content.',
+      },
     ]
   ),
   art(
@@ -221,8 +262,17 @@ A QR links to the brand's veterinary advice hub: condition-specific feeding guid
 A QR on the bag links to the subscription or auto-reorder page pre-loaded with the product variant and the recommended pack size for the owner's pet profile. Reducing friction in the reorder journey is the highest-ROI retention activity in subscription pet food.
     `,
     [
-      { question: 'Can a QR on pet food help with cross-contamination allergen disclosure for pets?', answer: 'Yes. Allergen cross-contamination (e.g., grain traces in grain-free products, species cross-contamination in single-protein diets) is a significant concern for veterinary therapeutic diets. A QR linking to current manufacturing allergen controls is more reliably up-to-date than a printed label claim.' },
-      { question: 'Should pet product QR codes be placed on the bag or a label?', answer: 'On the bag directly where possible (branded, weather-resistant). Labels on sealed bags are acceptable. Avoid placing QRs on areas of the bag that are cut or torn on opening — the QR becomes unscannable at the moment of highest consumer engagement.' },
+      {
+        question:
+          'Can a QR on pet food help with cross-contamination allergen disclosure for pets?',
+        answer:
+          'Yes. Allergen cross-contamination (e.g., grain traces in grain-free products, species cross-contamination in single-protein diets) is a significant concern for veterinary therapeutic diets. A QR linking to current manufacturing allergen controls is more reliably up-to-date than a printed label claim.',
+      },
+      {
+        question: 'Should pet product QR codes be placed on the bag or a label?',
+        answer:
+          'On the bag directly where possible (branded, weather-resistant). Labels on sealed bags are acceptable. Avoid placing QRs on areas of the bag that are cut or torn on opening — the QR becomes unscannable at the moment of highest consumer engagement.',
+      },
     ]
   ),
   art(
@@ -257,8 +307,16 @@ A QR in claim acknowledgement letters and status updates links to the live claim
 A QR on the repair authorisation letter links to the approved repair portal where the supplier: receives repair instructions, submits progress updates, and raises supplementary estimates. Streamlines the three-way communication between claimant, repairer, and insurer.
     `,
     [
-      { question: 'Should FNOL QR links require authentication?', answer: 'For the initial FNOL submission, no — removing authentication friction is critical in a stressful post-incident situation. The claimant authenticates via policy number + postcode on the form itself. Full account access (viewing all policies and claim history) requires standard authentication.' },
-      { question: 'Can QR-linked photo evidence reduce fraudulent insurance claims?', answer: 'Yes. Metadata on QR-uploaded photos (GPS location, timestamp, device ID) is consistent with the claimed incident location and time. Inconsistencies are a fraud indicator. This is not fraud prevention alone, but it raises the evidential bar significantly vs verbal or email-submitted claims.' },
+      {
+        question: 'Should FNOL QR links require authentication?',
+        answer:
+          'For the initial FNOL submission, no — removing authentication friction is critical in a stressful post-incident situation. The claimant authenticates via policy number + postcode on the form itself. Full account access (viewing all policies and claim history) requires standard authentication.',
+      },
+      {
+        question: 'Can QR-linked photo evidence reduce fraudulent insurance claims?',
+        answer:
+          'Yes. Metadata on QR-uploaded photos (GPS location, timestamp, device ID) is consistent with the claimed incident location and time. Inconsistencies are a fraud indicator. This is not fraud prevention alone, but it raises the evidential bar significantly vs verbal or email-submitted claims.',
+      },
     ]
   ),
   art(
@@ -291,8 +349,17 @@ A QR links to an immersive practice scenario: a conversational simulation where 
 A QR in the student workbook links to their personal progress dashboard: vocabulary tested, accuracy rates, time spent, and recommended next steps. Self-monitoring is one of the highest-impact metacognitive strategies for language learning.
     `,
     [
-      { question: 'Can a language learning QR work offline for use during travel?', answer: 'A Progressive Web App (PWA) version of the learning content can be cached on first access. Travelers who cache the phrasebook content at home can access audio pronunciations offline during their trip — the most common use case for travel phrasebooks.' },
-      { question: 'Should language learning QR content be hosted on the publisher\'s server or a third-party platform?', answer: 'Publisher-hosted is strongly preferred for longevity. Third-party platforms change pricing, deprecate features, or shut down. Language learning materials are long-lived; the QR must still work in 5–10 years. Host on your own infrastructure with a robust CDN.' },
+      {
+        question: 'Can a language learning QR work offline for use during travel?',
+        answer:
+          'A Progressive Web App (PWA) version of the learning content can be cached on first access. Travelers who cache the phrasebook content at home can access audio pronunciations offline during their trip — the most common use case for travel phrasebooks.',
+      },
+      {
+        question:
+          "Should language learning QR content be hosted on the publisher's server or a third-party platform?",
+        answer:
+          'Publisher-hosted is strongly preferred for longevity. Third-party platforms change pricing, deprecate features, or shut down. Language learning materials are long-lived; the QR must still work in 5–10 years. Host on your own infrastructure with a robust CDN.',
+      },
     ]
   ),
   art(
@@ -336,8 +403,16 @@ All non-standard module shapes require testing on multiple devices before produc
 QR codes embedded in illustrated frames (coffee cups, speech bubbles, product outlines) are popular in 2026 for retail and food service. The frame is decorative and outside the QR's functional area — it does not affect scanning. Ensure the quiet zone between the QR and the frame is at least 4 modules.
     `,
     [
-      { question: 'Does a designed QR code scan less reliably than a plain black and white one?', answer: 'Potentially, if the design reduces module contrast below safe thresholds or uses unusual shapes that confuse scanner algorithms. A well-executed designed QR at level H with tested contrast scans as reliably as a standard code. Always verify on a range of devices before deploying at scale.' },
-      { question: 'Can I use a QR code generator to create artistic QR codes?', answer: 'Yes. Specialised tools like QR Code Styling, Unitag, and custom SVG manipulation libraries allow dot shape, colour, and logo customisation. Start with a working standard code and apply design modifications incrementally, testing scan reliability at each step.' },
+      {
+        question: 'Does a designed QR code scan less reliably than a plain black and white one?',
+        answer:
+          'Potentially, if the design reduces module contrast below safe thresholds or uses unusual shapes that confuse scanner algorithms. A well-executed designed QR at level H with tested contrast scans as reliably as a standard code. Always verify on a range of devices before deploying at scale.',
+      },
+      {
+        question: 'Can I use a QR code generator to create artistic QR codes?',
+        answer:
+          'Yes. Specialised tools like QR Code Styling, Unitag, and custom SVG manipulation libraries allow dot shape, colour, and logo customisation. Start with a working standard code and apply design modifications incrementally, testing scan reliability at each step.',
+      },
     ]
   ),
 ];

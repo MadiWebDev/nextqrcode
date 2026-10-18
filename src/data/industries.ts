@@ -50,9 +50,11 @@ export const INDUSTRY_USE_CASES: IndustryUseCasePage[] = [
       'Consumers willing to pay 8–12% premium for verified authentic products',
     ],
     title: 'QR Code Product Authentication for Retail: Anti-Counterfeit Generator',
-    metaDescription: 'Generate serialized QR codes for retail product authentication. Embed cryptographic hashes, batch numbers, and factory codes to fight counterfeiting.',
+    metaDescription:
+      'Generate serialized QR codes for retail product authentication. Embed cryptographic hashes, batch numbers, and factory codes to fight counterfeiting.',
     h1: 'Retail Product Authentication QR Codes: Serialized & Tamper-Evident',
-    workingToolDescription: 'Generates unique serialized QR codes with embedded batch number, factory ID, and optional SHA-256 short hash for retail product authentication.',
+    workingToolDescription:
+      'Generates unique serialized QR codes with embedded batch number, factory ID, and optional SHA-256 short hash for retail product authentication.',
     content: `
 ### The Counterfeiting Crisis in Global Retail
 
@@ -92,11 +94,13 @@ Holographic overlay films can be applied over QR codes without compromising scan
     faqs: [
       {
         question: 'Can consumers tell if a product authentication QR code has been copied?',
-        answer: 'Without a backend verification system, consumers cannot detect a cloned code. With a server-side lookup that checks scan counts and geolocation, the first scan validates genuine; subsequent scans from different locations trigger counterfeit alerts.',
+        answer:
+          'Without a backend verification system, consumers cannot detect a cloned code. With a server-side lookup that checks scan counts and geolocation, the first scan validates genuine; subsequent scans from different locations trigger counterfeit alerts.',
       },
       {
         question: 'What payload should a retail authentication QR code contain?',
-        answer: 'At minimum: a unique serial number and a verification URL (e.g., https://verify.brand.com?s=SERIAL). Advanced implementations add a cryptographic HMAC-SHA256 short hash as a tamper-evidence layer.',
+        answer:
+          'At minimum: a unique serial number and a verification URL (e.g., https://verify.brand.com?s=SERIAL). Advanced implementations add a cryptographic HMAC-SHA256 short hash as a tamper-evidence layer.',
       },
     ],
     status: 'approved',
@@ -119,9 +123,11 @@ Holographic overlay films can be applied over QR codes without compromising scan
       'Cycle count time reduction of 60–75% with QR vs manual pen-and-paper',
     ],
     title: 'QR Code Inventory Tagging for Retail Stores: Batch Generator',
-    metaDescription: 'Generate sequential QR code asset tags for retail inventory management. Print batch labels for shelves, stockrooms, and display fixtures instantly.',
+    metaDescription:
+      'Generate sequential QR code asset tags for retail inventory management. Print batch labels for shelves, stockrooms, and display fixtures instantly.',
     h1: 'Retail Inventory Asset Tagging with QR Codes: Sequential Batch Generator',
-    workingToolDescription: 'Generates sequential QR code asset tags (e.g., ASSET-0001 through ASSET-0500) formatted for Avery 5160 or 5163 label sheets with one click.',
+    workingToolDescription:
+      'Generates sequential QR code asset tags (e.g., ASSET-0001 through ASSET-0500) formatted for Avery 5160 or 5163 label sheets with one click.',
     content: `
 ### Why QR Code Inventory Tagging Transforms Retail Operations
 
@@ -150,11 +156,13 @@ For label printing, Avery 5163 (2×4 inch) sheets are optimal for stockroom bin 
     faqs: [
       {
         question: 'What is the difference between QR code inventory tagging and RFID?',
-        answer: 'QR codes require line-of-sight scanning (one item at a time) but cost essentially nothing per tag. RFID can scan hundreds of items simultaneously through packaging without line of sight but costs $0.10–$1.00 per tag. QR is cost-optimal for most small-to-mid-size retail operations.',
+        answer:
+          'QR codes require line-of-sight scanning (one item at a time) but cost essentially nothing per tag. RFID can scan hundreds of items simultaneously through packaging without line of sight but costs $0.10–$1.00 per tag. QR is cost-optimal for most small-to-mid-size retail operations.',
       },
       {
         question: 'How many QR tags can I print in one batch?',
-        answer: 'Our sequential batch generator supports up to 10,000 unique QR codes in a single export, formatted for direct printing on standard Avery label sheets. Each code is uniquely numbered with no duplicates.',
+        answer:
+          'Our sequential batch generator supports up to 10,000 unique QR codes in a single export, formatted for direct printing on standard Avery label sheets. Each code is uniquely numbered with no duplicates.',
       },
     ],
     status: 'approved',
@@ -177,9 +185,11 @@ For label printing, Avery 5163 (2×4 inch) sheets are optimal for stockroom bin 
       '73% of consumers more likely to recommend brands with QR-enabled loyalty cards',
     ],
     title: 'QR Code Loyalty Program Generator for Retail: Drive Enrollment at Point of Sale',
-    metaDescription: 'Generate QR codes that drive instant loyalty program enrollment at checkout. Pre-fill UTM parameters and track enrollment conversions by store location.',
+    metaDescription:
+      'Generate QR codes that drive instant loyalty program enrollment at checkout. Pre-fill UTM parameters and track enrollment conversions by store location.',
     h1: 'Retail Loyalty Program QR Codes: Enrollment Generator with UTM Tracking',
-    workingToolDescription: 'Generates loyalty enrollment QR codes pre-filled with store ID, UTM campaign parameters, and optional member referral codes for conversion attribution.',
+    workingToolDescription:
+      'Generates loyalty enrollment QR codes pre-filled with store ID, UTM campaign parameters, and optional member referral codes for conversion attribution.',
     content: `
 ### The QR Code Loyalty Enrollment Revolution
 
@@ -210,11 +220,14 @@ Staff should be trained to verbally prompt: "Scan that QR code on the counter to
     faqs: [
       {
         question: 'Should each store location have a different loyalty QR code?',
-        answer: 'Yes. Using store-specific URL parameters allows you to attribute enrollments to specific locations in your analytics dashboard, identify top-performing stores, and customize enrollment offers by region.',
+        answer:
+          'Yes. Using store-specific URL parameters allows you to attribute enrollments to specific locations in your analytics dashboard, identify top-performing stores, and customize enrollment offers by region.',
       },
       {
-        question: 'How do I prevent the same customer from scanning the loyalty QR code multiple times?',
-        answer: 'Implement a server-side check on the loyalty enrollment form: if the email or phone number already exists in the database, show a "You\'re already a member!" message and optionally offer a link to retrieve their member number.',
+        question:
+          'How do I prevent the same customer from scanning the loyalty QR code multiple times?',
+        answer:
+          'Implement a server-side check on the loyalty enrollment form: if the email or phone number already exists in the database, show a "You\'re already a member!" message and optionally offer a link to retrieve their member number.',
       },
     ],
     status: 'approved',
@@ -238,9 +251,11 @@ Staff should be trained to verbally prompt: "Scan that QR code on the counter to
       'QR wristband scanning reduces medication errors by up to 87% (AHRQ)',
     ],
     title: 'QR Code Patient Wristband Generator for Hospitals: HL7 FHIR-Compatible',
-    metaDescription: 'Generate HIPAA-aware QR codes for hospital patient wristbands. Encode MRN, allergies, blood type, and FHIR resource URLs for bedside point-of-care scanning.',
+    metaDescription:
+      'Generate HIPAA-aware QR codes for hospital patient wristbands. Encode MRN, allergies, blood type, and FHIR resource URLs for bedside point-of-care scanning.',
     h1: 'Hospital Patient Wristband QR Codes: Safe Identification at the Bedside',
-    workingToolDescription: 'Generates patient wristband QR codes encoding Medical Record Number (MRN), admission date, and optional FHIR patient resource URL for EHR integration.',
+    workingToolDescription:
+      'Generates patient wristband QR codes encoding Medical Record Number (MRN), admission date, and optional FHIR patient resource URL for EHR integration.',
     content: `
 ### Patient Misidentification: Healthcare's Persistent Safety Crisis
 
@@ -272,11 +287,13 @@ The minimum recommended QR code module size for patient wristband printing is 0.
     faqs: [
       {
         question: 'Is it HIPAA-compliant to encode patient information in a wristband QR code?',
-        answer: 'PHI encoded in a QR code on a printed wristband is classified as physical PHI. HIPAA physical safeguards require that wristbands not be left unattended or accessible to unauthorized individuals. For high-security environments, encode only the MRN and retrieve PHI via a secured EHR API endpoint.',
+        answer:
+          'PHI encoded in a QR code on a printed wristband is classified as physical PHI. HIPAA physical safeguards require that wristbands not be left unattended or accessible to unauthorized individuals. For high-security environments, encode only the MRN and retrieve PHI via a secured EHR API endpoint.',
       },
       {
         question: 'Can a standard smartphone scan a patient wristband QR code?',
-        answer: 'Yes, with limitations. A modern flagship smartphone can scan a 0.35mm-module QR code from 10–15 cm in adequate lighting. However, clinical implementations should use dedicated point-of-care barcode scanners (e.g., Zebra MC3300) for guaranteed reliability across all patient wristband types and lighting conditions.',
+        answer:
+          'Yes, with limitations. A modern flagship smartphone can scan a 0.35mm-module QR code from 10–15 cm in adequate lighting. However, clinical implementations should use dedicated point-of-care barcode scanners (e.g., Zebra MC3300) for guaranteed reliability across all patient wristband types and lighting conditions.',
       },
     ],
     status: 'approved',
@@ -299,9 +316,11 @@ The minimum recommended QR code module size for patient wristband printing is 0.
       'QR-enabled preventive maintenance reduces equipment downtime by 35% (GE Healthcare)',
     ],
     title: 'QR Code Medical Equipment Maintenance Tracking: Asset Tag Generator',
-    metaDescription: 'Generate equipment maintenance QR tags for hospitals and clinics. Encode asset ID, manufacturer details, and maintenance history URL for instant log access.',
+    metaDescription:
+      'Generate equipment maintenance QR tags for hospitals and clinics. Encode asset ID, manufacturer details, and maintenance history URL for instant log access.',
     h1: 'Medical Equipment Maintenance QR Tags: Instant Compliance Log Access',
-    workingToolDescription: 'Generates durable equipment asset QR tags encoding asset ID, department, manufacturer, and a link to the maintenance history and PM schedule.',
+    workingToolDescription:
+      'Generates durable equipment asset QR tags encoding asset ID, department, manufacturer, and a link to the maintenance history and PM schedule.',
     content: `
 ### Medical Equipment Maintenance: A Regulatory Imperative
 
@@ -332,11 +351,13 @@ The recommended substrate for medical equipment QR tags is 0.1mm anodized alumin
     faqs: [
       {
         question: 'What CMMS systems integrate with QR code equipment tags?',
-        answer: 'Most major healthcare CMMS platforms (TMS (TriMedx), Accruent Biomedical, Nuvolo, IBM Maximo Healthcare) support URL-based deep links. Configure each asset record to have a stable, bookmarkable URL and encode that URL in the QR tag.',
+        answer:
+          'Most major healthcare CMMS platforms (TMS (TriMedx), Accruent Biomedical, Nuvolo, IBM Maximo Healthcare) support URL-based deep links. Configure each asset record to have a stable, bookmarkable URL and encode that URL in the QR tag.',
       },
       {
         question: 'Can the QR tag survive autoclave sterilization?',
-        answer: 'Standard printed labels cannot. For autoclave-compatible applications, use laser-engraved anodized aluminum tags or Brady chemical-resistant polyester labels specifically rated for autoclave cycles up to 135°C/275°F for 18 minutes.',
+        answer:
+          'Standard printed labels cannot. For autoclave-compatible applications, use laser-engraved anodized aluminum tags or Brady chemical-resistant polyester labels specifically rated for autoclave cycles up to 135°C/275°F for 18 minutes.',
       },
     ],
     status: 'approved',
@@ -360,9 +381,11 @@ The recommended substrate for medical equipment QR tags is 0.1mm anodized alumin
       'GS1-128 standard used by FedEx, UPS, and DHL for all air waybills',
     ],
     title: 'QR Code Shipment Tracking Labels for Logistics: GS1 Carrier-Compatible Generator',
-    metaDescription: 'Generate GS1-compatible shipment tracking QR codes for logistics cartons, pallets, and courier bags. Encode AWB numbers, COD amounts, and delivery instructions.',
+    metaDescription:
+      'Generate GS1-compatible shipment tracking QR codes for logistics cartons, pallets, and courier bags. Encode AWB numbers, COD amounts, and delivery instructions.',
     h1: 'Logistics Shipment Tracking QR Codes: GS1 Carrier-Compatible Label Generator',
-    workingToolDescription: 'Generates GS1-compliant shipment QR codes encoding air waybill number, sender/receiver details, and a carrier tracking URL for instant shipment status access.',
+    workingToolDescription:
+      'Generates GS1-compliant shipment QR codes encoding air waybill number, sender/receiver details, and a carrier tracking URL for instant shipment status access.',
     content: `
 ### QR Codes in Modern Logistics: From Warehouse to Last Mile
 
@@ -391,11 +414,13 @@ A logistics shipment QR code typically encodes one of two payload formats:
     faqs: [
       {
         question: 'Should logistics QR codes use Error Correction Level H or M?',
-        answer: 'Level Q (25% recovery) is the recommended minimum for logistics applications where labels may sustain abrasion, moisture, and handling damage during multi-stop journeys. Level H (30%) is recommended for labels applied to corrugated cardboard, which can degrade QR module contrast through ink absorption.',
+        answer:
+          'Level Q (25% recovery) is the recommended minimum for logistics applications where labels may sustain abrasion, moisture, and handling damage during multi-stop journeys. Level H (30%) is recommended for labels applied to corrugated cardboard, which can degrade QR module contrast through ink absorption.',
       },
       {
         question: 'What is the minimum print resolution for logistics QR codes?',
-        answer: 'For thermal direct printing (Zebra ZPL), minimum 203 DPI (8 dots/mm) for labels scanned at under 50cm. For high-volume conveyor scanning at distances over 1 meter, use 300 DPI minimum. Thermal transfer printing produces more durable images on polyester stock for long-transit shipments.',
+        answer:
+          'For thermal direct printing (Zebra ZPL), minimum 203 DPI (8 dots/mm) for labels scanned at under 50cm. For high-volume conveyor scanning at distances over 1 meter, use 300 DPI minimum. Thermal transfer printing produces more durable images on polyester stock for long-transit shipments.',
       },
     ],
     status: 'approved',
@@ -419,9 +444,11 @@ A logistics shipment QR code typically encodes one of two payload formats:
       'Table-specific QR codes reduce order errors by 45% vs verbal ordering',
     ],
     title: 'Restaurant Menu QR Code Generator: Table-Specific with Zero PDF Links',
-    metaDescription: 'Create table-specific restaurant menu QR codes that link to responsive web menus, not PDFs. Add table numbers, ordering parameters, and feedback links.',
+    metaDescription:
+      'Create table-specific restaurant menu QR codes that link to responsive web menus, not PDFs. Add table numbers, ordering parameters, and feedback links.',
     h1: 'Restaurant Digital Menu QR Codes: Table-Specific Generator',
-    workingToolDescription: 'Generates restaurant menu QR codes with optional table number parameter, feedback survey append, and matte-finish print design optimized for tabletop tent cards.',
+    workingToolDescription:
+      'Generates restaurant menu QR codes with optional table number parameter, feedback survey append, and matte-finish print design optimized for tabletop tent cards.',
     content: `
 ### The End of Physical Menus: QR Code Best Practices for Restaurants
 
@@ -448,11 +475,13 @@ Tabletop QR codes face continuous environmental exposure from food, beverage spi
     faqs: [
       {
         question: 'Should I use a dynamic or static QR code for my restaurant menu?',
-        answer: 'For restaurant menus that change seasonally, use a static QR code pointing to your own domain (e.g., yourrestaurant.com/menu). Update the web page whenever the menu changes — the printed QR code never needs to be replaced. Avoid dynamic QR services from third-party vendors that charge monthly fees and can deactivate your codes.',
+        answer:
+          'For restaurant menus that change seasonally, use a static QR code pointing to your own domain (e.g., yourrestaurant.com/menu). Update the web page whenever the menu changes — the printed QR code never needs to be replaced. Avoid dynamic QR services from third-party vendors that charge monthly fees and can deactivate your codes.',
       },
       {
         question: 'What size should a restaurant table QR code be?',
-        answer: 'For tabletop tents scanned from 25–40 cm, a minimum QR code size of 4 × 4 cm is recommended. Larger is always better for reliability in dim restaurant lighting — 6 × 6 cm is ideal for premium dining environments.',
+        answer:
+          'For tabletop tents scanned from 25–40 cm, a minimum QR code size of 4 × 4 cm is recommended. Larger is always better for reliability in dim restaurant lighting — 6 × 6 cm is ideal for premium dining environments.',
       },
     ],
     status: 'approved',
@@ -493,4 +522,3 @@ export const APPROVED_INDUSTRIES = [
 ] as const;
 
 export type ApprovedIndustry = (typeof APPROVED_INDUSTRIES)[number];
-

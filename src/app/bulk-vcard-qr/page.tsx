@@ -118,15 +118,18 @@ END:VCARD`;
   const faqs = [
     {
       question: 'How many vCard QR codes can I generate at once?',
-      answer: 'Our client-side engine can process dozens of rows in seconds. For maximum performance and memory stability in browser tabs, we recommend batches of up to 100 contacts at a time.',
+      answer:
+        'Our client-side engine can process dozens of rows in seconds. For maximum performance and memory stability in browser tabs, we recommend batches of up to 100 contacts at a time.',
     },
     {
       question: 'Will these business card QR codes import directly on iPhones and Androids?',
-      answer: 'Yes. By adhering strictly to the RFC 2426 vCard 3.0 standard, pointing the native camera at the code opens the device’s default Contacts app with fields populated.',
+      answer:
+        'Yes. By adhering strictly to the RFC 2426 vCard 3.0 standard, pointing the native camera at the code opens the device’s default Contacts app with fields populated.',
     },
     {
       question: 'Is my employee directory uploaded to your server?',
-      answer: 'Never. The entire CSV parsing and QR rendering takes place client-side in your local browser sandbox. No corporate contact data is ever transmitted over the network.',
+      answer:
+        'Never. The entire CSV parsing and QR rendering takes place client-side in your local browser sandbox. No corporate contact data is ever transmitted over the network.',
     },
   ];
 
@@ -148,7 +151,8 @@ END:VCARD`;
           Bulk vCard QR Code Generator from CSV
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Create hundreds of standardized digital business card QR codes from a spreadsheet. Zero server upload, instant local rendering, and print-ready card layouts.
+          Create hundreds of standardized digital business card QR codes from a spreadsheet. Zero
+          server upload, instant local rendering, and print-ready card layouts.
         </p>
       </header>
 
@@ -215,7 +219,12 @@ END:VCARD`;
                 Batch Contact Cards ({parsedCards.length})
               </span>
               {parsedCards.length > 0 && (
-                <Button onClick={() => window.print()} variant="outline" size="sm" className="text-xs gap-1">
+                <Button
+                  onClick={() => window.print()}
+                  variant="outline"
+                  size="sm"
+                  className="text-xs gap-1"
+                >
                   <Printer className="w-3.5 h-3.5" />
                   Print All Cards
                 </Button>
@@ -225,7 +234,7 @@ END:VCARD`;
             {parsedCards.length === 0 ? (
               <div className="py-16 text-center text-muted-foreground text-xs space-y-2">
                 <Users className="w-10 h-10 mx-auto stroke-1 opacity-40" />
-                <p>Click "Generate All vCards" on the left to produce QR cards.</p>
+                <p>Click &quot;Generate All vCards&quot; on the left to produce QR cards.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[520px] overflow-y-auto p-1">
@@ -244,7 +253,9 @@ END:VCARD`;
                         </div>
                         <div className="text-[11px] text-primary truncate">{card.title}</div>
                         <div className="text-[10px] text-muted-foreground truncate">{card.org}</div>
-                        <div className="text-[10px] text-muted-foreground truncate mt-1">{card.phone}</div>
+                        <div className="text-[10px] text-muted-foreground truncate mt-1">
+                          {card.phone}
+                        </div>
                       </div>
                     </div>
                     <div className="pt-2 mt-2 border-t border-border/40 flex justify-end">
@@ -273,14 +284,20 @@ END:VCARD`;
           Deploying Bulk vCard 3.0 QR Codes for Corporate Conferences and Teams
         </h2>
         <p className="text-base leading-relaxed">
-          At corporate exhibitions and networking events, physical paper business cards are routinely discarded or lost within 24 hours. Placing a standardized vCard QR code on attendee badges allows potential clients to instantly save clean contact records directly into their smartphone address books.
+          At corporate exhibitions and networking events, physical paper business cards are
+          routinely discarded or lost within 24 hours. Placing a standardized vCard QR code on
+          attendee badges allows potential clients to instantly save clean contact records directly
+          into their smartphone address books.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           Why Client-Side Bulk Generation Protects Enterprise Security
         </h3>
         <p className="text-base leading-relaxed">
-          Uploading company employee spreadsheets—complete with direct cell phone numbers, corporate titles, and internal email addresses—to third-party cloud generators introduces serious data leakage risks. Our generator executes 100% within your local browser sandbox, ensuring that your corporate personnel directory never touches an external server.
+          Uploading company employee spreadsheets—complete with direct cell phone numbers, corporate
+          titles, and internal email addresses—to third-party cloud generators introduces serious
+          data leakage risks. Our generator executes 100% within your local browser sandbox,
+          ensuring that your corporate personnel directory never touches an external server.
         </p>
       </article>
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import QRCode from 'qrcode';
 import jsQR from 'jsqr';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -33,24 +33,21 @@ export default function QRSplitterScannerPage() {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Section two of the technical payload includes cryptographic keys and data frames.'
   );
   const [chunkSize, setChunkSize] = useState<number>(180);
-  const [chunks, setChunks] = useState<string[]>([]);
   const [activeChunkIndex, setActiveChunkIndex] = useState(0);
   const [chunkQRDataUrls, setChunkQRDataUrls] = useState<string[]>([]);
   const [copied, setCopied] = useState(false);
 
   // Assembler State
-  const [assembledParts, setAssembledParts] = useState<Record<number, { total: number; data: string }>>({});
+  const [assembledParts, setAssembledParts] = useState<
+    Record<number, { total: number; data: string }>
+  >({});
   const [assembledTotal, setAssembledTotal] = useState<number>(0);
   const [assembledText, setAssembledText] = useState<string>('');
   const assembleFileInputRef = useRef<HTMLInputElement>(null);
 
-  // Split logic
-  useEffect(() => {
-    if (!inputText) {
-      setChunks([]);
-      setChunkQRDataUrls([]);
-      return;
-    }
+  // Split logic: chunks are derived directly from input (pure memo, no state sync)
+  const chunks = useMemo(() => {
+    if (!inputText) return [];
 
     const raw = inputText;
     const pieces: string[] = [];
@@ -59,16 +56,18 @@ export default function QRSplitterScannerPage() {
     for (let i = 0; i < count; i++) {
       const partData = raw.slice(i * chunkSize, (i + 1) * chunkSize);
       // Format: [PART:i+1/count]:payload
-      const formatted = `[PART:${i + 1}/${count}]:${partData}`;
-      pieces.push(formatted);
+      pieces.push(`[PART:${i + 1}/${count}]:${partData}`);
     }
 
-    setChunks(pieces);
-    setActiveChunkIndex(0);
+    return pieces;
+  }, [inputText, chunkSize]);
 
-    // Generate QR for all chunks
+  // Generate QR for all chunks (state updates happen in the async callback)
+  useEffect(() => {
+    let cancelled = false;
+
     Promise.all(
-      pieces.map((p) =>
+      chunks.map((p) =>
         QRCode.toDataURL(p, {
           errorCorrectionLevel: 'M',
           width: 320,
@@ -76,9 +75,13 @@ export default function QRSplitterScannerPage() {
         })
       )
     ).then((urls) => {
-      setChunkQRDataUrls(urls);
+      if (!cancelled) setChunkQRDataUrls(urls);
     });
-  }, [inputText, chunkSize]);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [chunks]);
 
   // Decode uploaded image for assembler
   const handleAssembleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -142,15 +145,18 @@ export default function QRSplitterScannerPage() {
   const faqs = [
     {
       question: 'What is a multi-part or split QR code?',
-      answer: 'Standard QR codes have capacity limits. When encoding extensive documents, cryptographic certificates, or software code, splitting the payload across an ordered sequence of QR codes allows transfer of arbitrarily large data offline.',
+      answer:
+        'Standard QR codes have capacity limits. When encoding extensive documents, cryptographic certificates, or software code, splitting the payload across an ordered sequence of QR codes allows transfer of arbitrarily large data offline.',
     },
     {
       question: 'How does the reassembly scanner know the order of chunks?',
-      answer: 'Each QR code contains a structured sequence header [PART:X/Y] specifying its index and the total count. The reassembly engine collects the parts in any order and merges them sequentially once all chunks are present.',
+      answer:
+        'Each QR code contains a structured sequence header [PART:X/Y] specifying its index and the total count. The reassembly engine collects the parts in any order and merges them sequentially once all chunks are present.',
     },
     {
       question: 'Can I print these split QR codes as a physical backup?',
-      answer: 'Yes. Multi-part QR sheets are commonly used in security and cold-storage paper wallets to store encrypted private keys or air-gapped seed phrases across physical binder pages.',
+      answer:
+        'Yes. Multi-part QR sheets are commonly used in security and cold-storage paper wallets to store encrypted private keys or air-gapped seed phrases across physical binder pages.',
     },
   ];
 
@@ -172,7 +178,8 @@ export default function QRSplitterScannerPage() {
           Large-Data QR Code Splitter & Reassembly Scanner
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Break extensive text, code, or cryptographic keys into sequenced, multi-part QR codes. Scan and reassemble all chunks offline with zero internet connectivity.
+          Break extensive text, code, or cryptographic keys into sequenced, multi-part QR codes.
+          Scan and reassemble all chunks offline with zero internet connectivity.
         </p>
       </header>
 
@@ -203,16 +210,24 @@ export default function QRSplitterScannerPage() {
             <Card className="p-6 border-border/80 shadow-xs space-y-5">
               <div>
                 <div className="flex justify-between items-center mb-1.5">
-                  <Label htmlFor="long-input" className="text-xs font-semibold uppercase text-muted-foreground">
+                  <Label
+                    htmlFor="long-input"
+                    className="text-xs font-semibold uppercase text-muted-foreground"
+                  >
                     Input Large Text / Payload:
                   </Label>
-                  <span className="text-xs text-muted-foreground">{inputText.length} characters</span>
+                  <span className="text-xs text-muted-foreground">
+                    {inputText.length} characters
+                  </span>
                 </div>
                 <Textarea
                   id="long-input"
                   rows={8}
                   value={inputText}
-                  onChange={(e) => setInputText(e.target.value)}
+                  onChange={(e) => {
+                    setInputText(e.target.value);
+                    setActiveChunkIndex(0);
+                  }}
                   placeholder="Paste lengthy markdown, JSON, source code, or cryptographic keys..."
                   className="font-mono text-xs"
                 />
@@ -220,7 +235,9 @@ export default function QRSplitterScannerPage() {
 
               <div className="space-y-3 pt-2 border-t border-border/60">
                 <div className="flex justify-between items-center text-xs">
-                  <span className="font-semibold text-muted-foreground uppercase">Chunk Size per QR:</span>
+                  <span className="font-semibold text-muted-foreground uppercase">
+                    Chunk Size per QR:
+                  </span>
                   <span className="font-bold text-foreground">{chunkSize} characters</span>
                 </div>
                 <Slider
@@ -228,7 +245,10 @@ export default function QRSplitterScannerPage() {
                   min={80}
                   max={400}
                   step={20}
-                  onValueChange={([val]) => setChunkSize(val)}
+                  onValueChange={([val]) => {
+                    setChunkSize(val);
+                    setActiveChunkIndex(0);
+                  }}
                 />
                 <div className="flex justify-between text-[11px] text-muted-foreground">
                   <span>Fast Scan (80-120 chars)</span>
@@ -331,9 +351,12 @@ export default function QRSplitterScannerPage() {
                   className="hidden"
                 />
                 <Layers className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
-                <div className="text-sm font-semibold text-foreground">Select one or multiple QR images</div>
+                <div className="text-sm font-semibold text-foreground">
+                  Select one or multiple QR images
+                </div>
                 <div className="text-xs text-muted-foreground mt-1">
-                  Upload images in any order. The engine reconstructs the original document automatically.
+                  Upload images in any order. The engine reconstructs the original document
+                  automatically.
                 </div>
               </div>
 
@@ -411,21 +434,32 @@ export default function QRSplitterScannerPage() {
           How Multi-Part QR Code Serialization Overcomes Data Capacity Limits
         </h2>
         <p className="text-base leading-relaxed">
-          While a single Version 40 QR code can theoretically hold up to 2.9 KB of binary data, practical optical scanning limits are much lower. In real-world environments, encoding more than 300 characters creates an extremely dense matrix that requires specialized macro lenses or laboratory lighting to scan.
+          While a single Version 40 QR code can theoretically hold up to 2.9 KB of binary data,
+          practical optical scanning limits are much lower. In real-world environments, encoding
+          more than 300 characters creates an extremely dense matrix that requires specialized macro
+          lenses or laboratory lighting to scan.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           The Solution: Sequenced Chunk Framing
         </h3>
         <p className="text-base leading-relaxed">
-          By splitting a large payload into discrete chunks with structured headers—such as <code>[PART:1/5]:...</code>—data can be transmitted optically with zero chance of scanner focus degradation. Each individual QR code remains at a friendly Version 4 or Version 6 matrix density, allowing standard smartphones to scan each frame in under 200 milliseconds.
+          By splitting a large payload into discrete chunks with structured headers—such as{' '}
+          <code>[PART:1/5]:...</code>—data can be transmitted optically with zero chance of scanner
+          focus degradation. Each individual QR code remains at a friendly Version 4 or Version 6
+          matrix density, allowing standard smartphones to scan each frame in under 200
+          milliseconds.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           Applications in Air-Gapped and Cold Storage Security
         </h3>
         <p className="text-base leading-relaxed">
-          In high-security environments where servers must never connect to the public internet (air-gapped networks), transferring signed software binaries or cryptographic certificates is traditionally handled via USB thumb drives, which introduces malware risks. Multi-part QR code sequences allow strictly unidirectional optical data ingress with zero physical hardware connectivity.
+          In high-security environments where servers must never connect to the public internet
+          (air-gapped networks), transferring signed software binaries or cryptographic certificates
+          is traditionally handled via USB thumb drives, which introduces malware risks. Multi-part
+          QR code sequences allow strictly unidirectional optical data ingress with zero physical
+          hardware connectivity.
         </p>
       </article>
 

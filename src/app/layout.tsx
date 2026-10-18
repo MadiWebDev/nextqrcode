@@ -16,7 +16,8 @@ export const metadata: Metadata = {
     default: 'Free QR Code Generator — QR Code Tools',
     template: '%s | QR Code Tools',
   },
-  description: 'Create beautiful, custom QR codes for free. 40+ types, custom colors, logo upload. Download PNG, SVG, PDF instantly. No sign-up needed.',
+  description:
+    'Create beautiful, custom QR codes for free. 40+ types, custom colors, logo upload. Download PNG, SVG, PDF instantly. No sign-up needed.',
   metadataBase: new URL('https://freeqrcode.tools'),
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
@@ -35,9 +36,7 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   icons: {
-    icon: [
-      { url: '/qrcodelogo.png', type: 'image/png' },
-    ],
+    icon: [{ url: '/qrcodelogo.png', type: 'image/png' }],
     shortcut: '/qrcodelogo.png',
     apple: '/qrcodelogo.png',
   },
@@ -61,9 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </a>
             <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
               <AppHeader />
-              <main id="main-content">
-                {children}
-              </main>
+              <main id="main-content">{children}</main>
               <AppFooter />
             </div>
             <Toaster position="bottom-right" richColors />

@@ -35,8 +35,16 @@ Serialised codes (one per unit) enable precise tracking but cost more to print a
 Expose a simple POST endpoint or use a spreadsheet-backed webhook. Keep the mapping of QR payload to item description in a database you control.
     `,
     [
-      { question: 'Should I use a QR code or a barcode for inventory?', answer: 'QR codes hold more data and scan at any angle. Standard 1D barcodes work fine for SKU-only tracking with existing handheld scanners.' },
-      { question: 'How do I prevent duplicate label printing?', answer: 'Generate IDs server-side with a unique constraint and print from a confirmed batch, never re-printing without a new ID.' },
+      {
+        question: 'Should I use a QR code or a barcode for inventory?',
+        answer:
+          'QR codes hold more data and scan at any angle. Standard 1D barcodes work fine for SKU-only tracking with existing handheld scanners.',
+      },
+      {
+        question: 'How do I prevent duplicate label printing?',
+        answer:
+          'Generate IDs server-side with a unique constraint and print from a confirmed batch, never re-printing without a new ID.',
+      },
     ]
   ),
   art(
@@ -68,8 +76,16 @@ Member QR codes for borrowing must not contain personal data in plain text. Use 
 Book labels face abrasion. Use a durable adhesive label with matte laminate, and place the label in a consistent position such as the lower inside cover.
     `,
     [
-      { question: 'Can a patron scan a shelf QR without logging in?', answer: 'Yes for public catalogue links. Reserve authentication for checkout or hold requests.' },
-      { question: 'Should member QR codes contain their name or barcode?', answer: 'Use an opaque token. Including a member number in plain text exposes personal data.' },
+      {
+        question: 'Can a patron scan a shelf QR without logging in?',
+        answer:
+          'Yes for public catalogue links. Reserve authentication for checkout or hold requests.',
+      },
+      {
+        question: 'Should member QR codes contain their name or barcode?',
+        answer:
+          'Use an opaque token. Including a member number in plain text exposes personal data.',
+      },
     ]
   ),
   art(
@@ -98,8 +114,16 @@ A QR code on each part encodes its serial number. Scanning at each operation rec
 For metal parts that go through heat treatment or other harsh processes, use direct part marking, not labels. See the direct part marking article for method choices.
     `,
     [
-      { question: 'Do I need a dedicated MES to use QR codes on the shop floor?', answer: 'No. A simple web app backed by a spreadsheet or database can receive scan events and serve instruction pages.' },
-      { question: 'What if the floor has no WiFi?', answer: 'Use short-lived offline-capable progressive web apps that cache the current instruction set, or synchronise via local network.' },
+      {
+        question: 'Do I need a dedicated MES to use QR codes on the shop floor?',
+        answer:
+          'No. A simple web app backed by a spreadsheet or database can receive scan events and serve instruction pages.',
+      },
+      {
+        question: 'What if the floor has no WiFi?',
+        answer:
+          'Use short-lived offline-capable progressive web apps that cache the current instruction set, or synchronise via local network.',
+      },
     ]
   ),
   art(
@@ -131,8 +155,16 @@ Keep the payload to a short URL. Even a 3 × 3 cm code is readable in good outdo
 A central QR index sign can link to a plot map where visitors tap individual plot squares for that plot's growing guide. This avoids one physical code per plant.
     `,
     [
-      { question: 'What material lasts longest for outdoor plant QR labels?', answer: 'UV-stable acrylic, engraved slate, and ceramic resist weather best. Standard paper labels fade and peel within weeks.' },
-      { question: 'Can I link to a Wikipedia page?', answer: 'Yes, but host your own copy or a curated page if you want controlled, branded content.' },
+      {
+        question: 'What material lasts longest for outdoor plant QR labels?',
+        answer:
+          'UV-stable acrylic, engraved slate, and ceramic resist weather best. Standard paper labels fade and peel within weeks.',
+      },
+      {
+        question: 'Can I link to a Wikipedia page?',
+        answer:
+          'Yes, but host your own copy or a curated page if you want controlled, branded content.',
+      },
     ]
   ),
   art(
@@ -164,8 +196,16 @@ Retailers and supply chains increasingly use GS1 Digital Link QR codes that comb
 Provide a plain-text URL near the code. Consumers with disabilities who cannot scan should be able to access the same information online.
     `,
     [
-      { question: 'Can I put all allergen information only in a QR code?', answer: 'In most jurisdictions, no. Allergen information must be printed on the label. QR is supplementary.' },
-      { question: 'What is GS1 Digital Link and should I use it?', answer: 'It is the GS1 standard for embedding a GTIN and traceability data in a QR code. Large retailers are beginning to require it.' },
+      {
+        question: 'Can I put all allergen information only in a QR code?',
+        answer:
+          'In most jurisdictions, no. Allergen information must be printed on the label. QR is supplementary.',
+      },
+      {
+        question: 'What is GS1 Digital Link and should I use it?',
+        answer:
+          'It is the GS1 standard for embedding a GTIN and traceability data in a QR code. Large retailers are beginning to require it.',
+      },
     ]
   ),
   art(
@@ -194,8 +234,16 @@ FMD requires Data Matrix or QR codes on most prescription packs with the product
 Use a GS1-certified packaging software vendor. Do not attempt manual generation of serialised pharma codes. Generate, print, verify, and report to the relevant national repository as required by law.
     `,
     [
-      { question: 'Can I use a QR code instead of Data Matrix for pharma compliance?', answer: 'DSCSA allows any GS1-conformant 2D barcode. EU FMD permits both Data Matrix and QR. Check the current regulations for your market.' },
-      { question: 'Do I need to register each code?', answer: 'Yes, in most regulated markets. Codes must be reported to the national or supranational repository at batch release.' },
+      {
+        question: 'Can I use a QR code instead of Data Matrix for pharma compliance?',
+        answer:
+          'DSCSA allows any GS1-conformant 2D barcode. EU FMD permits both Data Matrix and QR. Check the current regulations for your market.',
+      },
+      {
+        question: 'Do I need to register each code?',
+        answer:
+          'Yes, in most regulated markets. Codes must be reported to the national or supranational repository at batch release.',
+      },
     ]
   ),
   art(
@@ -227,8 +275,16 @@ Windscreen stickers face UV, heat, and cleaning chemicals. Use polyester or poly
 Linking a VIN to a public page is fine. Avoid linking to pages that expose the owner's personal details without authentication.
     `,
     [
-      { question: 'Should I encode the full service history in the QR?', answer: 'No. Encode a URL to a hosted record. The data is too large for a reliable symbol and will be out of date after the next service.' },
-      { question: 'What label material works on a hot engine bay?', answer: 'Polyimide or metal-faced labels rated above 150°C. Standard paper and vinyl will fail.' },
+      {
+        question: 'Should I encode the full service history in the QR?',
+        answer:
+          'No. Encode a URL to a hosted record. The data is too large for a reliable symbol and will be out of date after the next service.',
+      },
+      {
+        question: 'What label material works on a hot engine bay?',
+        answer:
+          'Polyimide or metal-faced labels rated above 150°C. Standard paper and vinyl will fail.',
+      },
     ]
   ),
   art(
@@ -257,8 +313,15 @@ Link codes near meters to the utility provider's self-meter-read portal or a for
 QR codes are used in some smart lock systems as a temporary access token. These must use a signed, time-limited payload verified by the lock server; a static or guessable code creates a security risk.
     `,
     [
-      { question: 'Can a tenant submit maintenance requests without an app?', answer: 'Yes. A web form linked from the QR code works on any phone without installation.' },
-      { question: 'Are QR smart lock codes secure?', answer: 'Only if they use short-lived signed tokens verified server-side. Static QR codes for locks are a security risk.' },
+      {
+        question: 'Can a tenant submit maintenance requests without an app?',
+        answer: 'Yes. A web form linked from the QR code works on any phone without installation.',
+      },
+      {
+        question: 'Are QR smart lock codes secure?',
+        answer:
+          'Only if they use short-lived signed tokens verified server-side. Static QR codes for locks are a security risk.',
+      },
     ]
   ),
   art(
@@ -291,8 +354,16 @@ Pair the QR with a covert label feature (micro-text, security fibres, holograms)
 Keep the verification flow simple: scan, see a confirmation screen with the product image and origin, and a "first scanned" date. Consumers trust clear, fast results.
     `,
     [
-      { question: 'Can a plain QR code prevent counterfeiting?', answer: 'No. Without server-side validation and physical anti-copy features, any QR code can be reproduced.' },
-      { question: 'What is the cheapest effective anti-counterfeit approach?', answer: 'Server-side serialised scan counting with a signed token adds minimal cost and catches most opportunistic counterfeiting.' },
+      {
+        question: 'Can a plain QR code prevent counterfeiting?',
+        answer:
+          'No. Without server-side validation and physical anti-copy features, any QR code can be reproduced.',
+      },
+      {
+        question: 'What is the cheapest effective anti-counterfeit approach?',
+        answer:
+          'Server-side serialised scan counting with a signed token adds minimal cost and catches most opportunistic counterfeiting.',
+      },
     ]
   ),
   art(
@@ -325,8 +396,16 @@ Many pharma and food regulations require documented temperature records. QR-link
 Cold-chain labels must adhere at temperatures down to -20°C or lower and survive condensation when removed from a freezer. Use cryogenic-rated label stock.
     `,
     [
-      { question: 'Can a QR code itself monitor temperature?', answer: 'No. A standard QR is passive. Pair it with an electronic temperature logger; the QR links to the log data.' },
-      { question: 'What label stock works at -20°C?', answer: 'Use cryogenic-rated polyester or polypropylene labels tested to the required minimum temperature.' },
+      {
+        question: 'Can a QR code itself monitor temperature?',
+        answer:
+          'No. A standard QR is passive. Pair it with an electronic temperature logger; the QR links to the log data.',
+      },
+      {
+        question: 'What label stock works at -20°C?',
+        answer:
+          'Use cryogenic-rated polyester or polypropylene labels tested to the required minimum temperature.',
+      },
     ]
   ),
 ];

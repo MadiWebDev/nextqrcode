@@ -556,7 +556,7 @@ An escape room is built on information reveals: the right clue at the right time
       {
         question: 'Can QR codes be used in outdoor scavenger hunts in the same way?',
         answer:
-          'Yes. Outdoor scavenger hunts using QR codes are a growing format for team-building events, city tourism, and children\'s activities. Place QR labels on laminated cards attached to public fixtures (with permission), park benches, or landmarks. Use weather-resistant labels. Include GPS coordinates as backup for any QR that gets damaged or removed.',
+          "Yes. Outdoor scavenger hunts using QR codes are a growing format for team-building events, city tourism, and children's activities. Place QR labels on laminated cards attached to public fixtures (with permission), park benches, or landmarks. Use weather-resistant labels. Include GPS coordinates as backup for any QR that gets damaged or removed.",
       },
     ]
   ),

@@ -100,17 +100,24 @@ export default async function WhatsAppCountryPage({ params }: Props) {
         <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-start gap-3 text-xs sm:text-sm text-amber-800 dark:text-amber-300">
           <ShieldAlert className="w-5 h-5 flex-shrink-0 text-amber-600 dark:text-amber-400 mt-0.5" />
           <div>
-            <span className="font-semibold block mb-0.5">Regulatory & Compliance Note ({country.isoCode})</span>
+            <span className="font-semibold block mb-0.5">
+              Regulatory & Compliance Note ({country.isoCode})
+            </span>
             {country.regulatoryNotes}
           </div>
         </div>
 
         {/* Local Carrier Networks */}
         <div className="pt-4 border-t border-border/50">
-          <h3 className="text-sm font-semibold text-foreground mb-2">Supported Mobile Operators in {country.name}:</h3>
+          <h3 className="text-sm font-semibold text-foreground mb-2">
+            Supported Mobile Operators in {country.name}:
+          </h3>
           <div className="flex flex-wrap gap-2">
             {country.localCarriers.map((carrier) => (
-              <span key={carrier} className="px-3 py-1 rounded-full text-xs font-medium bg-muted text-foreground/80">
+              <span
+                key={carrier}
+                className="px-3 py-1 rounded-full text-xs font-medium bg-muted text-foreground/80"
+              >
                 {carrier}
               </span>
             ))}
@@ -120,7 +127,9 @@ export default async function WhatsAppCountryPage({ params }: Props) {
 
       {/* Other Country Hub Links */}
       <section className="space-y-4">
-        <h3 className="text-lg font-bold text-foreground">Explore WhatsApp QR Generators for Other Countries</h3>
+        <h3 className="text-lg font-bold text-foreground">
+          Explore WhatsApp QR Generators for Other Countries
+        </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {otherCountries.map((c) => (
             <Link
@@ -129,7 +138,9 @@ export default async function WhatsAppCountryPage({ params }: Props) {
               className="p-3 border border-border/60 rounded-xl bg-card hover:border-emerald-500/40 hover:shadow-sm transition-all text-xs font-medium text-foreground flex items-center justify-between group"
             >
               <span>{c.name}</span>
-              <span className="text-muted-foreground group-hover:text-emerald-500 transition-colors">{c.callingCode}</span>
+              <span className="text-muted-foreground group-hover:text-emerald-500 transition-colors">
+                {c.callingCode}
+              </span>
             </Link>
           ))}
         </div>

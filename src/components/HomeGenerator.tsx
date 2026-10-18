@@ -25,13 +25,7 @@ import { ExportPanel } from '@/components/ExportPanel';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { useDebounce } from '@/hooks/useDebounce';
-import type {
-  QRType,
-  QRData,
-  TemplateName,
-  CustomizationOptions,
-  QRState,
-} from '@/types';
+import type { QRType, QRData, TemplateName, CustomizationOptions, QRState } from '@/types';
 import { DEFAULT_CUSTOMIZATION } from '@/lib/defaults';
 import { generateQRData, getTypeConfig } from '@/lib/qr-helpers';
 import { templates } from '@/lib/templates';
@@ -139,9 +133,7 @@ function SectionCard({
             <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
             {title}
           </CardTitle>
-          {description && (
-            <p className="text-xs text-muted-foreground">{description}</p>
-          )}
+          {description && <p className="text-xs text-muted-foreground">{description}</p>}
         </div>
         {action}
       </CardHeader>
@@ -184,13 +176,18 @@ export function HomeGenerator() {
   const [storedType, setStoredType] = useLocalStorage<QRType>('qr-last-type', 'url');
   const [storedTemplate, setStoredTemplate] = useLocalStorage<TemplateName>(
     'qr-last-template',
-    'classic',
+    'classic'
   );
   const [qrType, setQrTypeState] = useState<QRType>(storedType);
   const [qrData, setQrData] = useState<QRData>({});
   const [template, setTemplateState] = useState<TemplateName>(storedTemplate);
-  const [customization, setCustomization] =
-    useState<CustomizationOptions>(DEFAULT_CUSTOMIZATION);
+  // Seed customization with the stored template's colors up front (lazy
+  // initializer) instead of applying them from a mount effect.
+  const [customization, setCustomization] = useState<CustomizationOptions>(() => ({
+    ...DEFAULT_CUSTOMIZATION,
+    fgColor: templates[storedTemplate].qrColor,
+    eyeColor: templates[storedTemplate].qrColor,
+  }));
 
   const debouncedData = useDebounce(qrData, DEBOUNCE_MS);
   const config = getTypeConfig(qrType);
@@ -202,7 +199,7 @@ export function HomeGenerator() {
       setStoredType(t);
       setQrData({});
     },
-    [setStoredType],
+    [setStoredType]
   );
 
   // Apply template colors to the customization options.
@@ -221,14 +218,8 @@ export function HomeGenerator() {
       setStoredTemplate(t);
       applyTemplateColors(t);
     },
-    [setStoredTemplate, applyTemplateColors],
+    [setStoredTemplate, applyTemplateColors]
   );
-
-  // Sync stored template on first render.
-  useEffect(() => {
-    applyTemplateColors(storedTemplate);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const handleReset = useCallback(() => setQrData({}), []);
 
@@ -244,7 +235,7 @@ export function HomeGenerator() {
 
   const qrText = useMemo(
     () => (isValid ? generateQRData(qrType, debouncedData) : ''),
-    [qrType, debouncedData, isValid],
+    [qrType, debouncedData, isValid]
   );
   const hasQR = qrText.length > 0;
 
@@ -256,7 +247,7 @@ export function HomeGenerator() {
       customColor: customization.fgColor,
       customization,
     }),
-    [qrType, qrData, template, customization],
+    [qrType, qrData, template, customization]
   );
 
   const stats = (
@@ -276,13 +267,15 @@ export function HomeGenerator() {
       if (id === LAST_STEP && !hasQR) return;
       setMobileStep(id);
     },
-    [hasQR],
+    [hasQR]
   );
 
   // If the code becomes invalid while on the download step, step back.
-  useEffect(() => {
-    if (mobileStep === LAST_STEP && !hasQR) setMobileStep(1);
-  }, [mobileStep, hasQR]);
+  // Adjusted during render (the React-recommended pattern) instead of
+  // cascading setState from an effect.
+  if (mobileStep === LAST_STEP && !hasQR) {
+    setMobileStep(1);
+  }
 
   // Move focus and scroll to the top when the step changes (keyboard and
   // screen-reader users land on the new step's heading).
@@ -373,9 +366,7 @@ export function HomeGenerator() {
             />
           )}
 
-          {mobileStep === 1 && (
-            <DynamicForm type={qrType} data={qrData} onChange={setQrData} />
-          )}
+          {mobileStep === 1 && <DynamicForm type={qrType} data={qrData} onChange={setQrData} />}
 
           {mobileStep === 2 && (
             <div className="space-y-5">
@@ -385,9 +376,7 @@ export function HomeGenerator() {
               </div>
               <Separator />
               <div className="space-y-2">
-                <p className="text-xs font-medium text-muted-foreground">
-                  Advanced customization
-                </p>
+                <p className="text-xs font-medium text-muted-foreground">Advanced customization</p>
                 <CustomizationPanel
                   options={customization}
                   onChange={setCustomization}
@@ -405,12 +394,7 @@ export function HomeGenerator() {
                 options={customization}
                 typeLabel={typeLabel}
               />
-              <ExportPanel
-                qrText={qrText}
-                canvasRef={canvasRef}
-                type={qrType}
-                state={state}
-              />
+              <ExportPanel qrText={qrText} canvasRef={canvasRef} type={qrType} state={state} />
               {stats}
             </div>
           )}
@@ -469,9 +453,7 @@ export function HomeGenerator() {
                       'flex min-h-[56px] w-full flex-col items-center justify-center gap-0.5 py-2 transition-colors',
                       'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary',
                       'disabled:cursor-not-allowed disabled:opacity-40',
-                      isActive
-                        ? 'text-primary'
-                        : 'text-muted-foreground hover:text-foreground',
+                      isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground',
                     ].join(' ')}
                   >
                     <Icon className="h-5 w-5" aria-hidden="true" />
@@ -554,12 +536,7 @@ export function HomeGenerator() {
                 typeLabel={typeLabel}
               />
               <Separator />
-              <ExportPanel
-                qrText={qrText}
-                canvasRef={canvasRef}
-                type={qrType}
-                state={state}
-              />
+              <ExportPanel qrText={qrText} canvasRef={canvasRef} type={qrType} state={state} />
               <Separator />
               {stats}
             </div>

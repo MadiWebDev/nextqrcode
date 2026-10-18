@@ -60,15 +60,18 @@ This data, unavailable from fob-based systems, helps retention teams proactively
     [
       {
         question: 'Can a member share their gym QR code to let someone else in?',
-        answer: 'This is a common concern. Mitigate it by embedding the member\'s photo in the check-in confirmation displayed on the reception screen, implementing time-limited rotating QR codes (regenerated every 60 seconds via app), or requiring face ID to display the QR. Most gym software offers one of these anti-sharing features.',
+        answer:
+          "This is a common concern. Mitigate it by embedding the member's photo in the check-in confirmation displayed on the reception screen, implementing time-limited rotating QR codes (regenerated every 60 seconds via app), or requiring face ID to display the QR. Most gym software offers one of these anti-sharing features.",
       },
       {
-        question: 'What happens if a member\'s phone battery dies at the gym entrance?',
-        answer: 'Provide a backup option for every member: a printed QR card issued at sign-up, a PIN override at reception, or an NFC wristband. A 100% phone-only system will frustrate members with dead batteries. A hybrid approach maintains the speed benefits of QR while ensuring no one is turned away.',
+        question: "What happens if a member's phone battery dies at the gym entrance?",
+        answer:
+          'Provide a backup option for every member: a printed QR card issued at sign-up, a PIN override at reception, or an NFC wristband. A 100% phone-only system will frustrate members with dead batteries. A hybrid approach maintains the speed benefits of QR while ensuring no one is turned away.',
       },
       {
         question: 'How do QR check-in systems handle class capacity limits?',
-        answer: 'Most gym management platforms integrate QR check-in with class booking. When a member scans in for a class, the system checks against their booking and the class capacity. If the class is full and the member did not book, the scanner can display a denial message. Some systems allow walk-in overrides with staff approval.',
+        answer:
+          'Most gym management platforms integrate QR check-in with class booking. When a member scans in for a class, the system checks against their booking and the class capacity. If the class is full and the member did not book, the scanner can display a denial message. Some systems allow walk-in overrides with staff approval.',
       },
     ]
   ),
@@ -123,11 +126,13 @@ Attendance frequency correlates directly with membership upgrade potential. A me
     [
       {
         question: 'How long should gym attendance data be retained?',
-        answer: 'UK GDPR requires personal data to be kept only as long as necessary for its stated purpose. For gym attendance, 12 months of granular visit data is typically sufficient for operational use. Summary statistics (monthly visit counts per member) can be retained longer for trend analysis. Define and document your retention policy in your privacy notice.',
+        answer:
+          'UK GDPR requires personal data to be kept only as long as necessary for its stated purpose. For gym attendance, 12 months of granular visit data is typically sufficient for operational use. Summary statistics (monthly visit counts per member) can be retained longer for trend analysis. Define and document your retention policy in your privacy notice.',
       },
       {
         question: 'Can QR attendance tracking integrate with a CRM like HubSpot or Salesforce?',
-        answer: 'Yes via API or CSV export. Most gym management platforms offer a REST API or Zapier integration that can push attendance events to a CRM. This enables sophisticated lifecycle automation — welcome sequences, retention nudges, renewal campaigns — triggered by actual visit behaviour rather than calendar dates alone.',
+        answer:
+          'Yes via API or CSV export. Most gym management platforms offer a REST API or Zapier integration that can push attendance events to a CRM. This enables sophisticated lifecycle automation — welcome sequences, retention nudges, renewal campaigns — triggered by actual visit behaviour rather than calendar dates alone.',
       },
     ]
   ),
@@ -190,12 +195,15 @@ With QR tracking at every stage, you can build a full acquisition-to-revenue rep
     `,
     [
       {
-        question: 'How do we prevent QR codes on posters from being scanned by people who are not potential members?',
-        answer: 'You cannot fully prevent non-intent scans, but targeting placement reduces them. QR codes near gym entrances, sports shops, health food cafes, and running tracks attract genuinely interested people. Track UTM data to see which placements convert scans into completed sign-ups — not just scan volume.',
+        question:
+          'How do we prevent QR codes on posters from being scanned by people who are not potential members?',
+        answer:
+          'You cannot fully prevent non-intent scans, but targeting placement reduces them. QR codes near gym entrances, sports shops, health food cafes, and running tracks attract genuinely interested people. Track UTM data to see which placements convert scans into completed sign-ups — not just scan volume.',
       },
       {
         question: 'Can a QR code be used to issue and manage membership freeze requests?',
-        answer: 'Yes. A QR on the member\'s app home screen or on an in-gym poster can link to a self-service freeze request form. This reduces reception staff handling of phone and email freeze requests significantly. The form feeds into the gym management system and automates the direct debit pause.',
+        answer:
+          "Yes. A QR on the member's app home screen or on an in-gym poster can link to a self-service freeze request form. This reduces reception staff handling of phone and email freeze requests significantly. The form feeds into the gym management system and automates the direct debit pause.",
       },
     ]
   ),
@@ -203,7 +211,7 @@ With QR tracking at every stage, you can build a full acquisition-to-revenue rep
     'qr-code-personal-trainer-client-check-in',
     'QR Codes for Personal Trainers: Client Check-In, Session Tracking, and Billing',
     'qr code personal trainer client check in',
-    'Personal trainers can use QR codes for seamless client session check-in, progress tracking links, and automated billing — here\'s how.',
+    "Personal trainers can use QR codes for seamless client session check-in, progress tracking links, and automated billing — here's how.",
     'Business & Regional',
     '4 min read',
     '2027-02-28',
@@ -248,11 +256,13 @@ A secure QR (requiring client login) links to a private progress log where clien
     [
       {
         question: 'Is a QR code-based attendance log legally sufficient for insurance purposes?',
-        answer: 'A digital attendance log with timestamps meets the record-keeping requirements of most PT insurance policies, which require documentation of sessions delivered. Confirm with your insurer that a digital record is acceptable. Ensure the log is backed up regularly and includes the client name, date, time, and session type.',
+        answer:
+          'A digital attendance log with timestamps meets the record-keeping requirements of most PT insurance policies, which require documentation of sessions delivered. Confirm with your insurer that a digital record is acceptable. Ensure the log is backed up regularly and includes the client name, date, time, and session type.',
       },
       {
         question: 'What is the simplest free way for a solo PT to implement QR check-in?',
-        answer: 'Create a unique Google Form for check-in with the client\'s name pre-filled via URL parameter. Generate a QR from this URL for each client. Responses feed into a Google Sheet — your attendance log. Totally free, takes 30 minutes to set up, and works on any phone without an app.',
+        answer:
+          "Create a unique Google Form for check-in with the client's name pre-filled via URL parameter. Generate a QR from this URL for each client. Responses feed into a Google Sheet — your attendance log. Totally free, takes 30 minutes to set up, and works on any phone without an app.",
       },
     ]
   ),
@@ -291,12 +301,15 @@ After each class, the instructor displays a QR on the studio screen linking to a
     `,
     [
       {
-        question: 'How do we update the QR codes on our physical timetable when class times change?',
-        answer: 'Use dynamic QR codes or a redirect URL per class that you can update without reprinting. Alternatively, link the QR to the class category page rather than a specific date — members select their preferred date from there. For stable weekly schedules, static QR codes per timeslot are simplest and need only updating when the schedule permanently changes.',
+        question:
+          'How do we update the QR codes on our physical timetable when class times change?',
+        answer:
+          'Use dynamic QR codes or a redirect URL per class that you can update without reprinting. Alternatively, link the QR to the class category page rather than a specific date — members select their preferred date from there. For stable weekly schedules, static QR codes per timeslot are simplest and need only updating when the schedule permanently changes.',
       },
       {
         question: 'Can QR booking work for drop-in customers who are not registered members?',
-        answer: 'Yes. Link the QR to a page that offers both "Member login to book" and "Guest single-session purchase." Non-members can purchase a drop-in online and receive a confirmation QR for entry. This converts walk-in interest directly into revenue without staff involvement.',
+        answer:
+          'Yes. Link the QR to a page that offers both "Member login to book" and "Guest single-session purchase." Non-members can purchase a drop-in online and receive a confirmation QR for entry. This converts walk-in interest directly into revenue without staff involvement.',
       },
     ]
   ),

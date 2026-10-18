@@ -28,8 +28,16 @@ A "new this week" QR near the entrance generates excitement. Link to a page high
 A QR links to the digital stamp card system. Each purchase earns a stamp; ten stamps unlock a free scoop. Digital stamps cannot be forged or lost in a pocket.
     `,
     [
-      { question: 'Should a flavour board QR change daily?', answer: 'The URL stays permanent; the content updates daily. One printed QR, refreshed content every morning.' },
-      { question: 'Can an ice cream QR handle severe allergy queries?', answer: 'Link to the allergen matrix and add a clear instruction to ask staff for cross-contamination confirmation. QR informs; staff verify.' },
+      {
+        question: 'Should a flavour board QR change daily?',
+        answer:
+          'The URL stays permanent; the content updates daily. One printed QR, refreshed content every morning.',
+      },
+      {
+        question: 'Can an ice cream QR handle severe allergy queries?',
+        answer:
+          'Link to the allergen matrix and add a clear instruction to ask staff for cross-contamination confirmation. QR informs; staff verify.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ A QR links to a booking form for that specific model. The customer selects a dat
 A QR on one vehicle links to a comparison page showing similar models in stock. Customers shortlist options without wandering the forecourt.
     `,
     [
-      { question: 'Should every vehicle on the forecourt have its own QR?', answer: 'Yes. Each vehicle has unique history, spec, and pricing. A per-vehicle QR avoids customer confusion and enables accurate analytics per unit.' },
-      { question: 'Can a QR help sell used cars faster?', answer: 'Yes. Customers who can access full history and finance options before engaging a salesperson are warmer leads and convert at higher rates.' },
+      {
+        question: 'Should every vehicle on the forecourt have its own QR?',
+        answer:
+          'Yes. Each vehicle has unique history, spec, and pricing. A per-vehicle QR avoids customer confusion and enables accurate analytics per unit.',
+      },
+      {
+        question: 'Can a QR help sell used cars faster?',
+        answer:
+          'Yes. Customers who can access full history and finance options before engaging a salesperson are warmer leads and convert at higher rates.',
+      },
     ]
   ),
   art(
@@ -88,8 +104,16 @@ A QR on the cashier screen links to a top-up portal for the school's cashless di
 A QR on the dining table links to a simple two-question lunch feedback form. The catering manager sees which dishes are popular and which underperform.
     `,
     [
-      { question: 'Should school canteen allergen information be behind a QR only?', answer: 'No. Allergen information must also be available in print and from staff. QR provides convenient digital access, not the only access.' },
-      { question: 'Can parents top up dinner money at any time via QR?', answer: 'Yes if the payment portal is available 24/7. A QR on the school newsletter or app shortcuts the process.' },
+      {
+        question: 'Should school canteen allergen information be behind a QR only?',
+        answer:
+          'No. Allergen information must also be available in print and from staff. QR provides convenient digital access, not the only access.',
+      },
+      {
+        question: 'Can parents top up dinner money at any time via QR?',
+        answer:
+          'Yes if the payment portal is available 24/7. A QR on the school newsletter or app shortcuts the process.',
+      },
     ]
   ),
   art(
@@ -118,8 +142,16 @@ A QR links to a two-minute pairing guide for the style: dish suggestions, servin
 A QR on a natural wine links to the certification documents or producer's farming philosophy. Growing demand for provenance transparency rewards shops that provide it.
     `,
     [
-      { question: 'Can a wine shop QR link to external reviews without permission?', answer: 'Linking to a publicly published review is generally acceptable. Reproducing the full text on your own page requires permission.' },
-      { question: 'Should the shelf talker QR be the same for all vintages?', answer: 'Use separate QRs per vintage if tasting notes differ significantly. Use one QR per wine line if notes are generic across years.' },
+      {
+        question: 'Can a wine shop QR link to external reviews without permission?',
+        answer:
+          'Linking to a publicly published review is generally acceptable. Reproducing the full text on your own page requires permission.',
+      },
+      {
+        question: 'Should the shelf talker QR be the same for all vintages?',
+        answer:
+          'Use separate QRs per vintage if tasting notes differ significantly. Use one QR per wine line if notes are generic across years.',
+      },
     ]
   ),
   art(
@@ -148,8 +180,16 @@ If the monitoring system detected an issue during the billing period, the statem
 A QR on the annual service reminder links to the booking portal for a system health check. Pre-filled with the system address and last service date.
     `,
     [
-      { question: 'Can customers see their live generation data via QR?', answer: 'Yes if the QR links to a real-time monitoring portal. The statement QR typically shows historic monthly data; the monitoring portal shows live.' },
-      { question: 'Should the billing QR require login?', answer: 'Yes. Generation and financial data is account-specific and must be behind authentication.' },
+      {
+        question: 'Can customers see their live generation data via QR?',
+        answer:
+          'Yes if the QR links to a real-time monitoring portal. The statement QR typically shows historic monthly data; the monitoring portal shows live.',
+      },
+      {
+        question: 'Should the billing QR require login?',
+        answer:
+          'Yes. Generation and financial data is account-specific and must be behind authentication.',
+      },
     ]
   ),
   art(
@@ -178,8 +218,16 @@ A QR beside workshop listings links to the sign-up or drop-in form. Capacity-lim
 A QR near a cultural display or performance links to background on the tradition, language, and history being celebrated. Makes the festival educational without cluttering the physical programme.
     `,
     [
-      { question: 'Can a cultural festival QR display content in minority languages?', answer: 'Yes. The linked page can offer language selection including heritage languages. This is a meaningful act of inclusion.' },
-      { question: 'Should performer QR profiles be maintained after the festival?', answer: 'Yes. Fans who discover a new artist at a festival will search for them later. Permanent profiles drive ongoing audience growth.' },
+      {
+        question: 'Can a cultural festival QR display content in minority languages?',
+        answer:
+          'Yes. The linked page can offer language selection including heritage languages. This is a meaningful act of inclusion.',
+      },
+      {
+        question: 'Should performer QR profiles be maintained after the festival?',
+        answer:
+          'Yes. Fans who discover a new artist at a festival will search for them later. Permanent profiles drive ongoing audience growth.',
+      },
     ]
   ),
   art(
@@ -212,8 +260,16 @@ In a gas incident, first responders scan the cylinder QR for immediate hazard in
 Cylinders are stored outdoors, exposed to UV and industrial environments. Use anodised aluminium or stainless steel labels rated to the same standard as the cylinder itself.
     `,
     [
-      { question: 'Does every industrial gas cylinder need a unique QR?', answer: 'Yes for fill and inspection traceability. Each cylinder has a unique serial number; the QR links its serial to the full history.' },
-      { question: 'Can first responders access SDS without an account?', answer: 'Yes. SDS information is required to be publicly accessible under REACH and GHS regulations. No login should be required.' },
+      {
+        question: 'Does every industrial gas cylinder need a unique QR?',
+        answer:
+          'Yes for fill and inspection traceability. Each cylinder has a unique serial number; the QR links its serial to the full history.',
+      },
+      {
+        question: 'Can first responders access SDS without an account?',
+        answer:
+          'Yes. SDS information is required to be publicly accessible under REACH and GHS regulations. No login should be required.',
+      },
     ]
   ),
   art(
@@ -242,8 +298,16 @@ A QR on all marketing materials links directly to the online booking calendar. C
 A QR sent before the session links to the studio's prep guide: what to wear, what to bring for children, and how to prepare for headshots. Better-prepared clients produce better photos.
     `,
     [
-      { question: 'Should client proof gallery QRs be private?', answer: 'Yes. Each QR contains a unique, unguessable token. The page requires no login but the URL is shared only with the client.' },
-      { question: 'Can a QR gallery link expire?', answer: 'Yes. Set a 30 to 60 day expiry after delivery. This protects the photographer\'s work and encourages timely ordering.' },
+      {
+        question: 'Should client proof gallery QRs be private?',
+        answer:
+          'Yes. Each QR contains a unique, unguessable token. The page requires no login but the URL is shared only with the client.',
+      },
+      {
+        question: 'Can a QR gallery link expire?',
+        answer:
+          "Yes. Set a 30 to 60 day expiry after delivery. This protects the photographer's work and encourages timely ordering.",
+      },
     ]
   ),
   art(
@@ -272,8 +336,16 @@ A QR at the brew bar links to the shop's brewing guide: V60 ratios, AeroPress re
 A QR links to the coffee subscription page where customers sign up for a weekly or monthly coffee delivery. The in-shop QR converts walk-in customers to recurring online revenue.
     `,
     [
-      { question: 'Can a coffee shop update its seasonal menu without reprinting the QR?', answer: 'Yes. The QR URL is permanent; the content page changes with each new coffee. Update the page, not the code.' },
-      { question: 'Should a coffee loyalty QR be the same for all customers?', answer: 'The merchant\'s QR at the counter is the same for all. Each customer\'s stamp count is stored server-side against their account.' },
+      {
+        question: 'Can a coffee shop update its seasonal menu without reprinting the QR?',
+        answer:
+          'Yes. The QR URL is permanent; the content page changes with each new coffee. Update the page, not the code.',
+      },
+      {
+        question: 'Should a coffee loyalty QR be the same for all customers?',
+        answer:
+          "The merchant's QR at the counter is the same for all. Each customer's stamp count is stored server-side against their account.",
+      },
     ]
   ),
   art(
@@ -302,8 +374,16 @@ A QR links to the donation page with options: one-time, monthly, and in-kind wis
 A QR links to the foster application form. Fostering extends the shelter's capacity without a permanent adoption commitment. A QR beside each profile makes applying feel natural.
     `,
     [
-      { question: 'Should an adoptable pet QR profile show medical history?', answer: 'Show a summary (vaccinated, neutered, microchipped) publicly. Full medical records are shared with approved adopters during the process.' },
-      { question: 'Can a QR in an animal shelter increase adoption rates?', answer: 'Yes. Detailed profiles with photos and video help adopters connect emotionally with animals before or during a visit.' },
+      {
+        question: 'Should an adoptable pet QR profile show medical history?',
+        answer:
+          'Show a summary (vaccinated, neutered, microchipped) publicly. Full medical records are shared with approved adopters during the process.',
+      },
+      {
+        question: 'Can a QR in an animal shelter increase adoption rates?',
+        answer:
+          'Yes. Detailed profiles with photos and video help adopters connect emotionally with animals before or during a visit.',
+      },
     ]
   ),
 ];

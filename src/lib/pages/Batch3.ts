@@ -30,8 +30,14 @@ State what the scan delivers ("Scan for the 2-minute demo"). Large banners also 
 Use vector files at the finished banner size and matte material to limit glare from booth lighting.
     `,
     [
-      { question: 'What size QR code works on a roll-up banner?', answer: 'Typically 15 to 25 cm when scanned from 1.5 to 2.5 meters.' },
-      { question: 'Should I add a short URL under the code?', answer: 'Yes. It helps people without scanning and serves as a backup if lighting is poor.' },
+      {
+        question: 'What size QR code works on a roll-up banner?',
+        answer: 'Typically 15 to 25 cm when scanned from 1.5 to 2.5 meters.',
+      },
+      {
+        question: 'Should I add a short URL under the code?',
+        answer: 'Yes. It helps people without scanning and serves as a backup if lighting is poor.',
+      },
     ]
   ),
   art(
@@ -62,8 +68,16 @@ Use level Q or H, a high-contrast dark-on-light layout, and keep the payload sho
 Wash and wear a sample at least five times, then scan it at a normal distance.
     `,
     [
-      { question: 'Do QR codes survive washing?', answer: 'Quality screen prints and vinyl transfers usually do. Cracking and fading reduce contrast over time, so test samples.' },
-      { question: 'Can I print a white QR on a black shirt?', answer: 'Inverted codes are unreliable on many scanners. Use a dark code on a light patch instead.' },
+      {
+        question: 'Do QR codes survive washing?',
+        answer:
+          'Quality screen prints and vinyl transfers usually do. Cracking and fading reduce contrast over time, so test samples.',
+      },
+      {
+        question: 'Can I print a white QR on a black shirt?',
+        answer:
+          'Inverted codes are unreliable on many scanners. Use a dark code on a light patch instead.',
+      },
     ]
   ),
   art(
@@ -92,8 +106,16 @@ Reflections from sun and street lights can wash out modules. Prefer matte film a
 Place it at a comfortable standing height, away from traffic where people might step off the pavement to scan.
     `,
     [
-      { question: 'Should the QR code be mirrored on a window?', answer: 'If printed on the inside face and viewed from outside, the artwork must be reversed so it reads correctly. Always verify from the outside.' },
-      { question: 'Can I put a QR code on a backlit window?', answer: 'Only with sufficient contrast and a solid light backing. Test at different times of day.' },
+      {
+        question: 'Should the QR code be mirrored on a window?',
+        answer:
+          'If printed on the inside face and viewed from outside, the artwork must be reversed so it reads correctly. Always verify from the outside.',
+      },
+      {
+        question: 'Can I put a QR code on a backlit window?',
+        answer:
+          'Only with sufficient contrast and a solid light backing. Test at different times of day.',
+      },
     ]
   ),
   art(
@@ -124,8 +146,15 @@ Reflective, curved, or low-contrast surfaces need controlled lighting and indust
 Use Data Matrix where space is tight, error correction at the higher end, and verify every mark with a dedicated verifier rather than a phone.
     `,
     [
-      { question: 'Can a phone read a dot peen code?', answer: 'Sometimes, but industrial imagers with proper lighting are much more reliable.' },
-      { question: 'Which symbology is best for metal parts?', answer: 'Data Matrix is common because of its compact size, though QR works when scanners support it.' },
+      {
+        question: 'Can a phone read a dot peen code?',
+        answer: 'Sometimes, but industrial imagers with proper lighting are much more reliable.',
+      },
+      {
+        question: 'Which symbology is best for metal parts?',
+        answer:
+          'Data Matrix is common because of its compact size, though QR works when scanners support it.',
+      },
     ]
   ),
   art(
@@ -154,8 +183,15 @@ Make sure black overprint settings do not cause modules to merge with light-colo
 If you must use a color, choose a dark one with strong luminance contrast against the background. See our contrast guide for numeric targets.
     `,
     [
-      { question: 'Should QR codes be rich black?', answer: 'No. Use 100% K only to avoid misregistration on small modules.' },
-      { question: 'Is a dark brand color acceptable?', answer: 'Yes, if luminance contrast is strong, but pure black on white remains the safest choice.' },
+      {
+        question: 'Should QR codes be rich black?',
+        answer: 'No. Use 100% K only to avoid misregistration on small modules.',
+      },
+      {
+        question: 'Is a dark brand color acceptable?',
+        answer:
+          'Yes, if luminance contrast is strong, but pure black on white remains the safest choice.',
+      },
     ]
   ),
   art(
@@ -186,8 +222,15 @@ Uncoated paper, newsprint, and corrugated board spread ink most. Coated and synt
 Print a proof on the real stock and test on older phones in typical lighting. Formal grading under ISO/IEC 15415 reports a print growth measurement.
     `,
     [
-      { question: 'How can I tell if print growth is the issue?', answer: 'Zoom into a printed proof. If thin light modules are filled in or dark modules touch, growth is excessive.' },
-      { question: 'Does a bigger QR code fix it?', answer: 'Larger modules reduce the relative effect, which usually helps.' },
+      {
+        question: 'How can I tell if print growth is the issue?',
+        answer:
+          'Zoom into a printed proof. If thin light modules are filled in or dark modules touch, growth is excessive.',
+      },
+      {
+        question: 'Does a bigger QR code fix it?',
+        answer: 'Larger modules reduce the relative effect, which usually helps.',
+      },
     ]
   ),
   art(
@@ -219,8 +262,16 @@ $$33 \\times 4 = 132\\text{ dots} \\approx 16.5\\text{ mm}$$
 Set darkness and speed so modules neither fade nor bloom, and print the code from a vector or exact-pixel bitmap, not a resampled image.
     `,
     [
-      { question: 'Why is my thermal QR code fuzzy?', answer: 'It was probably resampled to a non-integer scale. Render it at exact dot multiples.' },
-      { question: 'What module size works on 203 dpi?', answer: 'Four dots (about 0.5 mm) is a solid baseline; three dots (about 0.38 mm) is near the limit.' },
+      {
+        question: 'Why is my thermal QR code fuzzy?',
+        answer:
+          'It was probably resampled to a non-integer scale. Render it at exact dot multiples.',
+      },
+      {
+        question: 'What module size works on 203 dpi?',
+        answer:
+          'Four dots (about 0.5 mm) is a solid baseline; three dots (about 0.38 mm) is near the limit.',
+      },
     ]
   ),
   art(
@@ -250,8 +301,15 @@ Place the code in the lower third so people can hold a phone comfortably, and ne
 Include a short call to action and a fallback URL. Use matte paper to avoid glare from overhead lights.
     `,
     [
-      { question: 'How large should a QR be on an A3 poster?', answer: 'About 10 to 15 cm when viewed from 1 to 1.5 meters.' },
-      { question: 'Should posters use level H?', answer: 'Only when adding a logo or expecting wear. Otherwise level M gives a less dense code.' },
+      {
+        question: 'How large should a QR be on an A3 poster?',
+        answer: 'About 10 to 15 cm when viewed from 1 to 1.5 meters.',
+      },
+      {
+        question: 'Should posters use level H?',
+        answer:
+          'Only when adding a logo or expecting wear. Otherwise level M gives a less dense code.',
+      },
     ]
   ),
   art(
@@ -287,8 +345,14 @@ Commercial specifications commonly require grade C (2.0) or better, with B (3.0)
 Grading helps printers fix specific faults, such as low contrast or uneven print growth, before a full production run.
     `,
     [
-      { question: 'Can I grade a QR code with my phone?', answer: 'No. Phones decode but do not provide calibrated ISO grades. Use a verifier.' },
-      { question: 'What grade should I target?', answer: 'Aim for C or better, B or better for critical labels.' },
+      {
+        question: 'Can I grade a QR code with my phone?',
+        answer: 'No. Phones decode but do not provide calibrated ISO grades. Use a verifier.',
+      },
+      {
+        question: 'What grade should I target?',
+        answer: 'Aim for C or better, B or better for critical labels.',
+      },
     ]
   ),
   art(
@@ -321,8 +385,16 @@ Most camera apps show the destination URL before opening. Read the domain carefu
 Type the official web address yourself or use the organization's app instead of the code.
     `,
     [
-      { question: 'Can I tell a malicious QR code just by looking at it?', answer: 'No. The symbol looks the same either way. Judge the destination URL and the context.' },
-      { question: 'What should I do if I opened a suspicious link?', answer: 'Close it, do not enter details, and change passwords if you did. Report it to the organization concerned.' },
+      {
+        question: 'Can I tell a malicious QR code just by looking at it?',
+        answer:
+          'No. The symbol looks the same either way. Judge the destination URL and the context.',
+      },
+      {
+        question: 'What should I do if I opened a suspicious link?',
+        answer:
+          'Close it, do not enter details, and change passwords if you did. Report it to the organization concerned.',
+      },
     ]
   ),
 ];

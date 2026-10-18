@@ -1,12 +1,18 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertCircle, Sparkles } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import type { QRType, QRData, QRField } from '@/types';
 import { getTypeConfig, validateField } from '@/lib/qr-helpers';
@@ -24,12 +30,19 @@ export function DynamicForm({ type, data, onChange }: DynamicFormProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
 
-  useEffect(() => {
+  // Reset validation state when the QR type changes. Adjusted during render
+  // (the React-recommended pattern) instead of cascading setState from an effect.
+  const [prevType, setPrevType] = useState(type);
+  if (prevType !== type) {
+    setPrevType(type);
     setErrors({});
     setTouched({});
-  }, [type]);
+  }
 
-  const validateFieldValue = useCallback((field: QRField, value: string) => validateField(field, value), []);
+  const validateFieldValue = useCallback(
+    (field: QRField, value: string) => validateField(field, value),
+    []
+  );
 
   const handleChange = useCallback(
     (field: QRField, value: string) => {
@@ -97,7 +110,8 @@ export function DynamicForm({ type, data, onChange }: DynamicFormProps) {
                   <span>Premium Mobile Landing Viewer</span>
                 </Label>
                 <p className="text-[11px] text-muted-foreground">
-                  When scanned, visitors see a luxury custom player/lightbox with download & share options
+                  When scanned, visitors see a luxury custom player/lightbox with download & share
+                  options
                 </p>
               </div>
               <Switch
@@ -112,12 +126,7 @@ export function DynamicForm({ type, data, onChange }: DynamicFormProps) {
         )}
 
         {/* MongoDB Digital Business Card Builder */}
-        {isCardType && (
-          <DigitalCardBuilder
-            data={data}
-            onChange={onChange}
-          />
-        )}
+        {isCardType && <DigitalCardBuilder data={data} onChange={onChange} />}
 
         {/* Regular Type Fields */}
         {config.fields.map((field) => (

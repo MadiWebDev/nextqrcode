@@ -7,13 +7,7 @@
  */
 
 export type SubstrateType =
-  | 'smooth-paper'
-  | 'coated-paper'
-  | 'corrugated'
-  | 'fabric'
-  | 'glass'
-  | 'metal'
-  | 'plastic';
+  'smooth-paper' | 'coated-paper' | 'corrugated' | 'fabric' | 'glass' | 'metal' | 'plastic';
 
 export type LightingCondition = 'bright' | 'normal' | 'dim';
 export type PayloadDensity = 'low' | 'medium' | 'high';
@@ -196,7 +190,7 @@ Restaurant overhead lighting — particularly Edison-style pendant bulbs and tra
       {
         question: 'Should each restaurant table have a unique QR code?',
         answer:
-          'Yes if you use table-side ordering through a POS system — each table\'s QR code appends the table number as a URL parameter (?table=12), allowing automatic routing to the kitchen. If the QR only links to a static menu page, a single QR code for all tables is sufficient.',
+          "Yes if you use table-side ordering through a POS system — each table's QR code appends the table number as a URL parameter (?table=12), allowing automatic routing to the kitchen. If the QR only links to a static menu page, a single QR code for all tables is sufficient.",
       },
     ],
     status: 'approved',
@@ -349,10 +343,10 @@ For QR codes on pharmaceutical labels:
       {
         question: 'Is QR code or DataMatrix required on prescription pill bottles by FDA?',
         answer:
-          'FDA does not currently mandate a specific 2D barcode type on retail prescription labels (21 CFR Part 201). However, FDA\'s Unique Device Identifier (UDI) system for medical devices mandates GS1 DataMatrix or QR code. Many pharmacies voluntarily add QR codes to patient education and refill ordering workflows.',
+          "FDA does not currently mandate a specific 2D barcode type on retail prescription labels (21 CFR Part 201). However, FDA's Unique Device Identifier (UDI) system for medical devices mandates GS1 DataMatrix or QR code. Many pharmacies voluntarily add QR codes to patient education and refill ordering workflows.",
       },
       {
-        question: 'Can the pharmacist\'s own label printer produce scan-quality QR codes?',
+        question: "Can the pharmacist's own label printer produce scan-quality QR codes?",
         answer:
           'It depends on the printer. Thermal transfer printers at 203 DPI (standard) produce modules below 0.35mm for small QR codes — below the reliable scanning threshold. Upgrade to 300 DPI (or 600 DPI for small label sizes) thermal transfer printers for pharmaceutical QR code reliability.',
       },
@@ -430,7 +424,7 @@ From December 2023, all EU wines must list full ingredient and nutritional infor
           'Yes — this is a growing trend. "Augmented label" experiences link from a wine bottle QR to a winemaker video, vineyard drone footage, or animated vintage story. Keep the URL short (under 40 characters with a redirect) to maintain a scannable QR version.',
       },
       {
-        question: 'Do wine label QR codes work through the bottle\'s glass?',
+        question: "Do wine label QR codes work through the bottle's glass?",
         answer:
           'No — the camera must scan the label surface directly. However, wines with transparent or lightly tinted labels on clear glass bottles can sometimes be scanned from the back if the label is backlit — not a reliable deployment strategy. Always expect front-label scanning.',
       },

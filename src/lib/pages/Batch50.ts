@@ -77,16 +77,20 @@ If all three scan reliably, the design is safe to print. If any fails, increase 
     `,
     [
       {
-        question: 'Can I use my brand\'s primary colour as the QR code foreground even if it is bright?',
-        answer: 'Only if it provides at least 4:1 contrast against your chosen background. Bright or light brand colours (yellows, pastels, lime greens) typically do not meet this threshold against white. Use a darker tonal variant of your brand colour instead, and test scannability on multiple devices before committing to print.',
+        question:
+          "Can I use my brand's primary colour as the QR code foreground even if it is bright?",
+        answer:
+          'Only if it provides at least 4:1 contrast against your chosen background. Bright or light brand colours (yellows, pastels, lime greens) typically do not meet this threshold against white. Use a darker tonal variant of your brand colour instead, and test scannability on multiple devices before committing to print.',
       },
       {
         question: 'Does inverting a QR code (white modules on dark background) work?',
-        answer: 'Most modern scanner apps handle inverted QR codes, but not all. Older firmware and some industrial scanners expect dark-on-light. Inverted codes also fail printed on glossy dark materials that cause glare. Unless you need it for aesthetic reasons, stick to dark-on-light for maximum compatibility.',
+        answer:
+          'Most modern scanner apps handle inverted QR codes, but not all. Older firmware and some industrial scanners expect dark-on-light. Inverted codes also fail printed on glossy dark materials that cause glare. Unless you need it for aesthetic reasons, stick to dark-on-light for maximum compatibility.',
       },
       {
         question: 'How much of a QR code can I replace with a logo before it stops scanning?',
-        answer: 'With error correction Level H (30%), you can safely obscure up to 30% of the code area. In practice, keep logo placement to the centre 20–25% and ensure the three finder patterns in the corners are fully intact. Always test after adding a logo — the actual tolerance varies by QR version and data density.',
+        answer:
+          'With error correction Level H (30%), you can safely obscure up to 30% of the code area. In practice, keep logo placement to the centre 20–25% and ensure the three finder patterns in the corners are fully intact. Always test after adding a logo — the actual tolerance varies by QR version and data density.',
       },
     ]
   ),
@@ -154,15 +158,18 @@ Always export from the generator as SVG for print. Raster (PNG/JPG) QR codes sca
     [
       {
         question: 'Is it safe to use rounded module shapes in a QR code?',
-        answer: 'Yes, if each module still covers most of its cell area and adjacent modules remain distinct. Heavily rounded or teardrop-shaped modules reduce effective scan area and can fail at small sizes or in poor lighting. Use Level M or higher error correction and test on a physical print at the intended final size before approving the design.',
+        answer:
+          'Yes, if each module still covers most of its cell area and adjacent modules remain distinct. Heavily rounded or teardrop-shaped modules reduce effective scan area and can fail at small sizes or in poor lighting. Use Level M or higher error correction and test on a physical print at the intended final size before approving the design.',
       },
       {
         question: 'Can the frame around a QR code include a border that touches the modules?',
-        answer: 'No. The quiet zone — a minimum 4-module-wide white border surrounding the QR matrix — must be preserved. A frame border that touches or overlaps the quiet zone confuses scanners trying to locate the finder patterns. Keep all decorative frame elements outside this white margin.',
+        answer:
+          'No. The quiet zone — a minimum 4-module-wide white border surrounding the QR matrix — must be preserved. A frame border that touches or overlaps the quiet zone confuses scanners trying to locate the finder patterns. Keep all decorative frame elements outside this white margin.',
       },
       {
         question: 'Should I export a branded QR code as PNG or SVG for print?',
-        answer: 'SVG for anything printed. SVG is resolution-independent vector data, so it stays perfectly sharp at any size from a business card to a billboard. PNG is pixel-based and blurs when scaled beyond its original resolution. Most professional QR generators export SVG — use this format for any print material.',
+        answer:
+          'SVG for anything printed. SVG is resolution-independent vector data, so it stays perfectly sharp at any size from a business card to a billboard. PNG is pixel-based and blurs when scaled beyond its original resolution. Most professional QR generators export SVG — use this format for any print material.',
       },
     ]
   ),
@@ -215,11 +222,14 @@ The ISO/IEC 18004 standard specifies a minimum print contrast signal (PCS) of 0.
     [
       {
         question: 'Does a white QR code on a black background (inverted) scan correctly?',
-        answer: 'Many modern apps handle it, but it is not universally supported. Inverted QR codes can fail on older scanner firmware, some industrial barcode readers, and on printed surfaces where the dark background absorbs light rather than reflecting it. Dark modules on a light background is the universal safe choice.',
+        answer:
+          'Many modern apps handle it, but it is not universally supported. Inverted QR codes can fail on older scanner firmware, some industrial barcode readers, and on printed surfaces where the dark background absorbs light rather than reflecting it. Dark modules on a light background is the universal safe choice.',
       },
       {
-        question: 'Can I print a QR code directly onto brown kraft paper without a white background?',
-        answer: 'It depends on the kraft paper shade and ink colour. Medium brown kraft with black ink typically achieves a 5–7:1 contrast ratio and scans fine. Dark kraft with dark ink will fail. Add a white rectangular background behind the QR code if the paper colour is too dark to guarantee adequate contrast.',
+        question:
+          'Can I print a QR code directly onto brown kraft paper without a white background?',
+        answer:
+          'It depends on the kraft paper shade and ink colour. Medium brown kraft with black ink typically achieves a 5–7:1 contrast ratio and scans fine. Dark kraft with dark ink will fail. Add a white rectangular background behind the QR code if the paper colour is too dark to guarantee adequate contrast.',
       },
     ]
   ),
@@ -285,11 +295,13 @@ The same digital colour combination can have different real-world contrast depen
     [
       {
         question: 'Is off-white a safe background for a QR code?',
-        answer: 'Yes. Off-white backgrounds (#FFFFF0, #FFF8E1, #F5F5F5) provide slightly reduced contrast compared to pure white but still achieve 15:1+ against black or near-black foregrounds. Off-white is often preferable for print materials where pure white looks stark or clashes with surrounding design.',
+        answer:
+          'Yes. Off-white backgrounds (#FFFFF0, #FFF8E1, #F5F5F5) provide slightly reduced contrast compared to pure white but still achieve 15:1+ against black or near-black foregrounds. Off-white is often preferable for print materials where pure white looks stark or clashes with surrounding design.',
       },
       {
         question: 'What happens if I accidentally swap foreground and background colours?',
-        answer: 'The QR code will be light modules on a dark background — an inverted code. This may scan on modern smartphone apps but will fail on many barcode scanners, some QR reader apps, and certain automated systems. Always ensure the modules are the darker colour and the background the lighter one.',
+        answer:
+          'The QR code will be light modules on a dark background — an inverted code. This may scan on modern smartphone apps but will fail on many barcode scanners, some QR reader apps, and certain automated systems. Always ensure the modules are the darker colour and the background the lighter one.',
       },
     ]
   ),
@@ -354,15 +366,18 @@ If your brand's entire palette is mid-tones or pastels, the QR code simply canno
     [
       {
         question: 'Our brand uses only pastel colours. How can we make a branded QR code?',
-        answer: 'If your entire palette is light or pastel, none of those colours can safely be used as QR module foreground. Instead, apply brand colours to the surrounding frame, background wash, or call-to-action text. Use dark neutral — near-black or dark charcoal — for the modules themselves, and include your logo in the centre with Level H error correction.',
+        answer:
+          'If your entire palette is light or pastel, none of those colours can safely be used as QR module foreground. Instead, apply brand colours to the surrounding frame, background wash, or call-to-action text. Use dark neutral — near-black or dark charcoal — for the modules themselves, and include your logo in the centre with Level H error correction.',
       },
       {
         question: 'Can we use a gradient background behind the QR code modules?',
-        answer: 'A gradient on the outer background (behind the entire QR including quiet zone) is fine if the area directly under the modules maintains consistent contrast. A gradient that passes through the module area from light to dark is risky — the scan threshold varies across the code. Apply gradients to the surrounding design, not the QR matrix background.',
+        answer:
+          'A gradient on the outer background (behind the entire QR including quiet zone) is fine if the area directly under the modules maintains consistent contrast. A gradient that passes through the module area from light to dark is risky — the scan threshold varies across the code. Apply gradients to the surrounding design, not the QR matrix background.',
       },
       {
         question: 'How do we ensure our branded QR code looks the same across different printers?',
-        answer: 'Specify colours in CMYK for print rather than RGB hex, and provide a minimum contrast specification to your print supplier. Request a physical proof before bulk printing. Screen-to-print colour shift is common — verify the printed foreground still appears significantly darker than the background under typical room lighting.',
+        answer:
+          'Specify colours in CMYK for print rather than RGB hex, and provide a minimum contrast specification to your print supplier. Request a physical proof before bulk printing. Screen-to-print colour shift is common — verify the printed foreground still appears significantly darker than the background under typical room lighting.',
       },
     ]
   ),

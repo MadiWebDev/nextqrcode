@@ -48,16 +48,20 @@ For-sale boards that remain in place for 3–12 months benefit from dynamic QR c
     `,
     [
       {
-        question: 'Should estate agents use the portal listing URL or their own website as the QR destination?',
-        answer: 'Your own website is preferable for lead generation. Portal pages capture the enquiry for the portal, not for you. A property page on your own site captures the buyer\'s email directly, allows follow-up marketing, and builds your own database. Use the portal URL only if your website does not have a comparable property display.',
+        question:
+          'Should estate agents use the portal listing URL or their own website as the QR destination?',
+        answer:
+          "Your own website is preferable for lead generation. Portal pages capture the enquiry for the portal, not for you. A property page on your own site captures the buyer's email directly, allows follow-up marketing, and builds your own database. Use the portal URL only if your website does not have a comparable property display.",
       },
       {
         question: 'How do we track which for-sale boards are generating the most scans?',
-        answer: 'Assign a unique dynamic QR per property with tracking enabled. The QR management platform shows scan count, time of day, and device type per property. This tells you which street locations generate interest and which format of board (standard vs premium display) performs better.',
+        answer:
+          'Assign a unique dynamic QR per property with tracking enabled. The QR management platform shows scan count, time of day, and device type per property. This tells you which street locations generate interest and which format of board (standard vs premium display) performs better.',
       },
       {
         question: 'What should happen when a property sells and the QR is still live?',
-        answer: 'With a dynamic QR, redirect the sold property\'s QR to a "This property is now SSTC" page with similar available properties nearby. This prevents dead links, maintains the buyer\'s trust, and generates leads for other listings. Never let a high-traffic QR link die.',
+        answer:
+          'With a dynamic QR, redirect the sold property\'s QR to a "This property is now SSTC" page with similar available properties nearby. This prevents dead links, maintains the buyer\'s trust, and generates leads for other listings. Never let a high-traffic QR link die.',
       },
     ]
   ),
@@ -109,11 +113,13 @@ Embed a QR in the Matterport or video tour that links to a downloadable floor pl
     [
       {
         question: 'Is a Matterport tour worth the cost for every property?',
-        answer: 'For properties above £300k or in competitive markets, yes — the filtering effect and premium presentation justify the cost. For standard properties below £200k with strong local demand, a well-shot video walkthrough (much lower cost) achieves similar results. Calibrate production spend to the property value and competition level.',
+        answer:
+          'For properties above £300k or in competitive markets, yes — the filtering effect and premium presentation justify the cost. For standard properties below £200k with strong local demand, a well-shot video walkthrough (much lower cost) achieves similar results. Calibrate production spend to the property value and competition level.',
       },
       {
         question: 'Can virtual tour QR codes be tracked for analytics?',
-        answer: 'Yes. Link the QR to a redirect URL with UTM parameters before it reaches the Matterport or video platform. This tracks scans per placement. Many tour platforms (Matterport, Kuula) also provide their own analytics — view count, time on tour, interaction points. Combine both data sources for a full picture of buyer engagement.',
+        answer:
+          'Yes. Link the QR to a redirect URL with UTM parameters before it reaches the Matterport or video platform. This tracks scans per placement. Many tour platforms (Matterport, Kuula) also provide their own analytics — view count, time on tour, interaction points. Combine both data sources for a full picture of buyer engagement.',
       },
     ]
   ),
@@ -164,11 +170,13 @@ The visitors who signed in via QR are already in your email system — follow-up
     [
       {
         question: 'Should the open house RSVP QR be static or dynamic?',
-        answer: 'Dynamic is preferable. If the open house date changes or the event is cancelled, you can update the QR destination to reflect the new information. A static QR would link to an outdated RSVP form. For one-off events, a dynamic QR with redirect management is a small cost for significant flexibility.',
+        answer:
+          'Dynamic is preferable. If the open house date changes or the event is cancelled, you can update the QR destination to reflect the new information. A static QR would link to an outdated RSVP form. For one-off events, a dynamic QR with redirect management is a small cost for significant flexibility.',
       },
       {
         question: 'How do we ensure visitors at an open house actually scan the information QR?',
-        answer: 'Placement and labelling are critical. Position the QR at eye level at the entrance with a clear instruction: "Scan for full property details — floor plan, EPC, and offer guide." Friendly verbal prompting from the agent ("Have you grabbed the digital pack? Scan that code by the door") dramatically increases uptake.',
+        answer:
+          'Placement and labelling are critical. Position the QR at eye level at the entrance with a clear instruction: "Scan for full property details — floor plan, EPC, and offer guide." Friendly verbal prompting from the agent ("Have you grabbed the digital pack? Scan that code by the door") dramatically increases uptake.',
       },
     ]
   ),
@@ -217,11 +225,13 @@ If scans are high but conversions are low, review the landing page. If scans are
     [
       {
         question: 'Is a QR code on a business card professional-looking or does it look cheap?',
-        answer: 'A well-designed QR code integrated into the card design looks professional and modern. It signals digital literacy. A poorly positioned, uncustomised black-and-white QR code pasted onto an otherwise premium card can look out of place. Use a branded QR (matching your agency colours) and integrate it intentionally into the card layout.',
+        answer:
+          'A well-designed QR code integrated into the card design looks professional and modern. It signals digital literacy. A poorly positioned, uncustomised black-and-white QR code pasted onto an otherwise premium card can look out of place. Use a branded QR (matching your agency colours) and integrate it intentionally into the card layout.',
       },
       {
         question: 'What if a client scans my business card QR and my listed properties have sold?',
-        answer: 'Link to your personal agent profile page rather than a specific listing. The profile page always shows your current active listings. If you link to a specific property and it sells, update the dynamic QR redirect to your profile or similar listings. Never let a widely distributed QR link to a dead or irrelevant page.',
+        answer:
+          'Link to your personal agent profile page rather than a specific listing. The profile page always shows your current active listings. If you link to a specific property and it sells, update the dynamic QR redirect to your profile or similar listings. Never let a widely distributed QR link to a dead or irrelevant page.',
       },
     ]
   ),
@@ -271,15 +281,18 @@ Track which brochure sections generate scans — virtual tour link vs local area
     [
       {
         question: 'Should property brochure QR codes be static or dynamic?',
-        answer: 'Dynamic for all print runs of 50+ copies. Property details change — price reductions, offers accepted, new photos added. A dynamic QR allows you to update the linked content without reprinting the brochure. The cost of a dynamic QR subscription (typically under £10/month) is trivial compared to reprinting hundreds of brochures.',
+        answer:
+          'Dynamic for all print runs of 50+ copies. Property details change — price reductions, offers accepted, new photos added. A dynamic QR allows you to update the linked content without reprinting the brochure. The cost of a dynamic QR subscription (typically under £10/month) is trivial compared to reprinting hundreds of brochures.',
       },
       {
         question: 'How many QR codes are too many in a property brochure?',
-        answer: 'Three to four strategically placed QR codes is the practical maximum for a standard 8-page brochure. More than this creates visual clutter and decision fatigue. Prioritise: virtual tour, full photo gallery, and local area guide. A fourth QR for floor plan interaction is useful for larger properties.',
+        answer:
+          'Three to four strategically placed QR codes is the practical maximum for a standard 8-page brochure. More than this creates visual clutter and decision fatigue. Prioritise: virtual tour, full photo gallery, and local area guide. A fourth QR for floor plan interaction is useful for larger properties.',
       },
       {
         question: 'Can QR codes in brochures help with mortgage pre-qualification?',
-        answer: 'Yes. A QR linking to a mortgage calculator pre-populated with the property\'s asking price and typical deposit levels helps buyers assess affordability immediately. Partnering with a mortgage broker to provide this tool generates a referral commission and adds genuine value to your brochure.',
+        answer:
+          "Yes. A QR linking to a mortgage calculator pre-populated with the property's asking price and typical deposit levels helps buyers assess affordability immediately. Partnering with a mortgage broker to provide this tool generates a referral commission and adds genuine value to your brochure.",
       },
     ]
   ),
