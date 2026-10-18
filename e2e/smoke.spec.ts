@@ -32,3 +32,20 @@ test('unknown route shows not-found page', async ({ page }) => {
   const res = await page.goto('/this-page-does-not-exist-xyz');
   expect(res?.status()).toBe(404);
 });
+
+test('login page renders sign-in options or unconfigured notice', async ({ page }) => {
+  const res = await page.goto('/login');
+  expect(res?.status()).toBeLessThan(400);
+  await expect(page.locator('main').first()).toBeVisible();
+});
+
+test('short-link route handles missing codes gracefully', async ({ page }) => {
+  const res = await page.goto('/r/does-not-exist-xyz123');
+  // 503 without a database configured, 404 with one — never a 500.
+  expect([404, 503]).toContain(res?.status());
+});
+
+test('dashboard redirects anonymous visitors to login', async ({ page }) => {
+  const res = await page.goto('/dashboard');
+  expect(res?.url()).toContain('/login');
+});

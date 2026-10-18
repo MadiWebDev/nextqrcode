@@ -69,6 +69,7 @@ flags off until Phase 3.
 ## Phase 2 — QR engine upgrade ✅
 
 **Done:**
+
 - `src/lib/qr/payloads.ts`: spec-correct builders (WiFi, vCard 4.0 w/ folding+escaping, MeCard,
   ICS VEVENT, geo, BIP-21, EIP-681 wei, NPCI UPI, EPC/SEPA real newlines, SMS, mailto, tel:,
   wa.me, t.me) + Zod schemas + `PayloadError`. `generateQRData` delegates for wifi/vcard/event/
@@ -89,4 +90,44 @@ flags off until Phase 3.
 `vitest run` 122/122 · `playwright` 12/12 · `build` PASS (new routes present).
 
 **Known gaps:** e2e needed onboarding-tour dismissal seeding (modal blocks input on first visit);
-  template save-as-template needs accounts → Phase 3.
+template save-as-template needs accounts → Phase 3.
+
+## Phase 3 — Data layer (MongoDB + Cloudinary + Auth.js) ✅
+
+**Done:**
+
+- Mongoose (`src/lib/db/mongoose.ts`, global-cached) + models: User, QrCode (publicId unique,
+  ownerId/status/visibility/expiresAt indexes, passwordHash field, moderation subdoc),
+  ScanEvent (TTL 400d on ts), Template, Report.
+- Cloudinary: signed browser-upload params (`/api/uploads/sign`), server-side upload
+  (`/api/uploads`) with 2MB limit, MIME allowlist, real SVG sanitizer; folder
+  `nextqrcode/{userId}/logos|previews`.
+- Auth.js v5: Google OAuth + email magic link, MongoDBAdapter, JWT sessions; `/login` page;
+  503 JSON when unconfigured (guests still generate static QRs).
+- API: `POST/GET /api/qrcodes` (Zod, 30/120 per min, Safe Browsing + scheme/SSRF/shortener
+  checks), `GET/PATCH/DELETE /api/qrcodes/[id]` (ownership → 404, password set/clear,
+  Cloudinary cleanup on delete), `POST /api/qrcodes/[id]/unlock` (timing-safe, 10/min/IP),
+  `POST /api/reports` (always ok, 5/min/IP), `DELETE /api/account` (full data wipe).
+- `/r/[publicId]`: 307 redirect, fire-and-forget ScanEvent (daily-rotating ipHash HMAC,
+  country/device/referrer), 410 for paused/blocked/expired, password gate → /unlock page,
+  flagged → HTML interstitial (no ads) with ?ack=1 continue.
+- Dashboard (`/dashboard`, `/dashboard/[id]`, `/dashboard/settings`): auth-gated, noindex,
+  stats, search/filter, edit form, 30-day Recharts analytics, export JSON, delete account.
+- Security: rate-limit lib (Upstash or in-memory), security headers incl. CSP in next.config.ts
+  (nonces deferred to Phase 9), abuse lib (74 tests).
+- Feature flags flipped: accounts, dynamicQr, analytics → true. Header gains Sign in links.
+
+**Final gate numbers:** `format:check` PASS · `lint` 0 errors (83 warnings) · `typecheck` clean ·
+`vitest run` 211/211 (7 files) · `npm run build` PASS (all new routes compiled) ·
+`playwright` 15/15 (incl. new: /login renders, /r/404-or-503-never-500, /dashboard 307→/login).
+
+**Integration fixes by coordinator:** added `passwordHash` as a declared QrCode schema field
+(replacing the `strict:false` updateOne workaround; dashboard exposes only `hasPassword`);
+503-with-message on public routes when DB unconfigured (`/r/`, unlock, reports);
+**deleted root `src/app/loading.tsx`** — it forced every route into a streaming context,
+degrading all `redirect()` calls to 200+meta-refresh; verified `/dashboard` now 307s (D3.7);
+added `vite` + `@testing-library/dom` as proper devDependencies (were pruned by clean install).
+
+**Known gaps:** no live Mongo/Cloudinary/Auth creds in sandbox → auth + DB paths are
+implemented-but-unexercised end-to-end (unit-tested where possible); mark UNVERIFIED.
+Auth.js users collection for the old cards feature is untouched (cards predate accounts).

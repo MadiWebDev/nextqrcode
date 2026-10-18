@@ -31,12 +31,12 @@ export const siteConfig = {
   flags: {
     /** Render AdSense slots (also requires NEXT_PUBLIC_ADSENSE_CLIENT + consent). */
     ads: true,
-    /** User accounts (Auth.js). Off until Phase 3 ships. */
-    accounts: false,
-    /** Dynamic QR codes + /r/ short links. Off until Phase 3 ships. */
-    dynamicQr: false,
-    /** Scan analytics. Off until Phase 3 ships. */
-    analytics: false,
+    /** User accounts (Auth.js). Shipped in Phase 3. */
+    accounts: true,
+    /** Dynamic QR codes + /r/ short links. Shipped in Phase 3. */
+    dynamicQr: true,
+    /** Scan analytics. Shipped in Phase 3. */
+    analytics: true,
     /** Locale-prefixed routes + hreflang. Off until Phase 8 ships. */
     i18n: false,
   },

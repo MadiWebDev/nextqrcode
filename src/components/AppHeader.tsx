@@ -106,10 +106,16 @@ export function AppHeader() {
             </NavigationMenuList>
           </NavigationMenu>
           <ThemeToggle />
+          <Button asChild size="sm" className="ml-1">
+            <Link href="/login">Sign in</Link>
+          </Button>
         </div>
 
         {/* Mobile controls */}
         <div className="flex md:hidden items-center gap-1">
+          <Button asChild variant="ghost" size="sm">
+            <Link href="/login">Sign in</Link>
+          </Button>
           <ThemeToggle />
           <Button
             variant="ghost"

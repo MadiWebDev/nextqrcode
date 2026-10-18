@@ -102,22 +102,75 @@ The user asked for zero questions — the best default is chosen and recorded he
 ## Phase 2
 
 ### D2.1 — Payload fixes: spec-correct, not backward-compatible where broken
+
 - **Decision:** Fixed SEPA (real newlines), vCard (RFC 6350 4.0), event (RFC 5545 ICS),
   Ethereum (wei), WiFi (single trailing `;`) even though payload strings changed.
 - **Reason:** The old outputs were broken/non-scannable; "never break what works" does not
   protect broken output. Untouched types are byte-identical (regression-tested).
 
 ### D2.2 — WiFi empty password still allowed
+
 - **Decision:** `buildWifi` encodes empty password as `P:;` instead of throwing.
 - **Reason:** The generator form marks password optional; throwing degraded to an empty
   payload (worse UX than the old behavior).
 
 ### D2.3 — PDF via jsPDF with crop marks, not print dialog
+
 - **Decision:** Real `.pdf` download (A4, 80mm code, 3mm-bleed crop marks) via dynamically
   imported `jspdf`; the old print-dialog flow stays as the separate Print button.
 - **Reason:** Spec requires print-ready PDF download; dynamic import keeps it out of the bundle.
 
 ### D2.4 — Round-trip tests rasterize the QR matrix in Node (no canvas)
+
 - **Decision:** Vitest round-trip builds `qrcode` module matrix → raw RGBA → jsQR decode.
 - **Reason:** jsdom has no canvas; matrix rasterization tests the real encode/decode path
   without a browser. Playwright covers the UI path for 3 key types.
+
+## Phase 3
+
+### D3.1 — Mongoose alongside the legacy raw MongoClient (cards)
+
+- **Decision:** New code uses Mongoose (`src/lib/db/mongoose.ts`, `src/models/`); the legacy
+  digital-cards API keeps its raw MongoClient in `src/lib/mongodb.ts`.
+- **Reason:** Migrating cards risks breaking a working feature; the spec does not cover cards.
+  Two DB layers is acknowledged tech debt (see AUDIT tech-debt list).
+
+### D3.2 — passwordHash as a declared schema field
+
+- **Decision:** Added `passwordHash: String` to the QrCode schema instead of the
+  `strict:false` updateOne workaround; dashboard exposes only `hasPassword: boolean`.
+- **Reason:** Declared fields persist through normal `set()`/`save()` and are type-safe;
+  the hash never leaves the server (DTOs strip it).
+
+### D3.3 — Auth.js v5 with MongoDBAdapter, JWT sessions
+
+- **Decision:** MongoDBAdapter persists users/verification tokens; sessions are JWT
+  (server-side session revocation is not possible — account deletion signs the client out).
+- **Reason:** Standard Auth.js v5 pattern; documented in the dashboard settings caveat.
+
+### D3.4 — In-memory rate limit fallback is a real implementation
+
+- **Decision:** When Upstash is unconfigured, rate limiting uses a real in-memory fixed-window
+  bucket, not a no-op.
+- **Reason:** Spec forbids mock-as-default; single-instance fallback still protects the origin.
+
+### D3.5 — Safe Browsing degraded path returns 'unavailable', not 'clean'
+
+- **Decision:** Without GOOGLE_SAFE_BROWSING_API_KEY the check returns 'unavailable' and the
+  link is created with moderation.status='pending' + a shortener warning where applicable.
+- **Reason:** Never claim a check passed that never ran.
+
+### D3.6 — localStorage onboarding seed in e2e (carried from Phase 2)
+
+- Unchanged: onboarding tour modal blocks input; tests seed `qr-onboarded`.
+
+### D3.7 — Removed the root loading.tsx (redirect vs streaming conflict)
+
+- **Decision:** Deleted `src/app/loading.tsx`. A root loading file wraps every route in a
+  Suspense/streaming context, which degrades ALL `redirect()` calls (dashboard auth gate,
+  login signed-in redirect, unlock page) from real 307s into `200` + meta-refresh with a ~1s
+  delay. Verified with curl: without it, `/dashboard` → `307 /login`; with it, `200` +
+  `<meta http-equiv="refresh" content="1;url=/login"/>`.
+- **Reason:** Correct auth gating (immediate 307, no content flash) outweighs global loading
+  skeletons. Route-level `loading.tsx` files may be added later, but never on redirect-gated
+  routes.
