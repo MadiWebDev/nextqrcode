@@ -59,36 +59,65 @@ The user asked for zero questions — the best default is chosen and recorded he
 ## Phase 1
 
 ### D1.1 — Brand: "QR Studio" via config/site.ts
+
 - **Decision:** Product brand = "QR Studio", operator = codexengr, canonical URL default
   `https://freeqrcode.tools` (override via `NEXT_PUBLIC_SITE_URL`); all in `src/config/site.ts`.
 - **Reason:** Matches the repo's established identity (footer, prior plan); centralizes the
   previously scattered brand/domain literals (D0.5).
 
 ### D1.2 — Typography: Space Grotesk display + Inter body via next/font
+
 - **Decision:** Google Fonts loaded with `next/font` (`display: swap`), CSS variables.
 - **Alternatives:** System font stack (zero network dependency).
 - **Reason:** Distinctive but professional; `next/font` self-hosts at build time (no runtime
   Google request, no CLS). Connectivity to fonts.googleapis.com verified in-sandbox.
 
 ### D1.3 — Page-level canonical literals left in place
+
 - **Decision:** Hardcoded `https://freeqrcode.tools` in page metadata/JSON-LD stays; only
   infrastructure (layout, sitemap, robots, qr-helpers, cards API) now reads `siteConfig.url`.
 - **Reason:** Literals equal the config default (behavior-neutral); the 20 page files get
   regenerated metadata from the content model in Phase 5 anyway.
 
 ### D1.4 — AdSense loader gated on consent + flag now; full policy in Phase 7
+
 - **Decision:** `GoogleAdSense` renders only when ads flag on + client ID set + consent granted.
   Third-party ahrefs analytics moved behind the same consent gate (`ConsentScripts`).
 - **Reason:** Privacy architecture belongs in Phase 1; placement/eligibility rules are Phase 7.
 
 ### D1.5 — PWA: manifest route + minimal offline service worker
+
 - **Decision:** `src/app/manifest.ts` (replaces `public/manifest.json`); `public/sw.js`
   cache-first for assets, network-first for navigations, never caches `/api/*` or `/r/*`;
   registered only in production.
 - **Reason:** Offline shell for the static generator per spec; kept minimal and best-effort.
 
 ### D1.6 — error.tsx must be a client component
+
 - **Decision:** Added `'use client'` to `src/app/error.tsx` after the build failed
   ("Ecmascript file had an error").
 - **Reason:** Next.js requires error boundaries to be client components; the cryptic build
   error was exactly this.
+
+## Phase 2
+
+### D2.1 — Payload fixes: spec-correct, not backward-compatible where broken
+- **Decision:** Fixed SEPA (real newlines), vCard (RFC 6350 4.0), event (RFC 5545 ICS),
+  Ethereum (wei), WiFi (single trailing `;`) even though payload strings changed.
+- **Reason:** The old outputs were broken/non-scannable; "never break what works" does not
+  protect broken output. Untouched types are byte-identical (regression-tested).
+
+### D2.2 — WiFi empty password still allowed
+- **Decision:** `buildWifi` encodes empty password as `P:;` instead of throwing.
+- **Reason:** The generator form marks password optional; throwing degraded to an empty
+  payload (worse UX than the old behavior).
+
+### D2.3 — PDF via jsPDF with crop marks, not print dialog
+- **Decision:** Real `.pdf` download (A4, 80mm code, 3mm-bleed crop marks) via dynamically
+  imported `jspdf`; the old print-dialog flow stays as the separate Print button.
+- **Reason:** Spec requires print-ready PDF download; dynamic import keeps it out of the bundle.
+
+### D2.4 — Round-trip tests rasterize the QR matrix in Node (no canvas)
+- **Decision:** Vitest round-trip builds `qrcode` module matrix → raw RGBA → jsQR decode.
+- **Reason:** jsdom has no canvas; matrix rasterization tests the real encode/decode path
+  without a browser. Playwright covers the UI path for 3 key types.

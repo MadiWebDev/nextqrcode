@@ -107,6 +107,10 @@ export interface CustomizationOptions {
   frameCta: string;
   frameColor: string;
   frameFontSize: number;
+  /** Quiet zone width in modules (spec minimum: 4). */
+  quietZone: number;
+  /** Optional foreground gradient; null = solid fgColor. */
+  fgGradient: { from: string; to: string } | null;
 }
 
 export type ExportFormat =

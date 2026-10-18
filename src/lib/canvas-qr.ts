@@ -41,7 +41,7 @@ function drawDot(
   y: number,
   size: number,
   style: DotStyle,
-  color: string
+  color: string | CanvasGradient
 ): void {
   ctx.fillStyle = color;
   const gap = 0.5;
@@ -274,6 +274,8 @@ export async function drawCustomQR(
     frameCta,
     frameColor,
     frameFontSize,
+    quietZone,
+    fgGradient,
   } = opts;
   const qr = createQRCode(text, { errorCorrectionLevel: ecLevel });
   const moduleCount = qr.modules.size;
@@ -291,11 +293,25 @@ export async function drawCustomQR(
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
   const qrOffsetY = frameStyle === 'banner' ? frameHeight : 0;
-  const quietModules = 4;
+  // Quiet zone: spec minimum is 4 modules; user-controllable (0–10).
+  const quietModules = Math.max(0, Math.min(10, Math.round(quietZone ?? 4)));
   const totalModules = moduleCount + quietModules * 2;
   const moduleSize = qrAreaSize / totalModules;
   const originX = moduleSize * quietModules;
   const originY = qrOffsetY + moduleSize * quietModules;
+  // Foreground fill: solid color or a diagonal linear gradient across the QR area.
+  const fgFill: string | CanvasGradient = (() => {
+    if (!fgGradient) return fgColor;
+    const g = ctx.createLinearGradient(
+      originX,
+      originY,
+      originX + moduleCount * moduleSize,
+      originY + moduleCount * moduleSize
+    );
+    g.addColorStop(0, fgGradient.from);
+    g.addColorStop(1, fgGradient.to);
+    return g;
+  })();
   const eyeRegions = [
     { row: 0, col: 0 },
     { row: 0, col: moduleCount - 7 },
@@ -315,7 +331,7 @@ export async function drawCustomQR(
           originY + row * moduleSize,
           moduleSize,
           dotStyle,
-          fgColor
+          fgFill
         );
       }
     }

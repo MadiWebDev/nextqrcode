@@ -52,6 +52,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const toolPaths = [
     '/qr-size-calculator',
     '/qr-safety-checker',
+    '/qr-scanner',
+    '/bulk-generator',
     '/printed-qr-tester',
     '/error-correction-simulator',
     '/qr-splitter-scanner',

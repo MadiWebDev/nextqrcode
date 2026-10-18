@@ -139,18 +139,40 @@ export function ExportPanel({ qrText, canvasRef, type, state }: ExportPanelProps
           break;
         }
         case 'pdf': {
-          const dataUrl = await plainDataUrl(qrText);
-          const w = window.open('', '_blank');
-          if (!w) {
-            toast.error('Pop-up blocked. Allow pop-ups and try again.');
-            return;
+          // Print-ready PDF via jsPDF (dynamically imported — stays out of the main bundle).
+          const { jsPDF } = await import('jspdf');
+          const canvas = await buildOffscreenCanvas(qrText, state.customization);
+          const imgData = canvas.toDataURL('image/png');
+          const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+          const pageW = 210;
+          const pageH = 297;
+          const qrMm = 80;
+          const x = (pageW - qrMm) / 2;
+          const y = (pageH - qrMm) / 2;
+          // Crop marks with 3mm bleed offset around the QR placement.
+          const bleed = 3;
+          const markLen = 6;
+          doc.setDrawColor(100);
+          doc.setLineWidth(0.25);
+          const corners: Array<[number, number, number, number]> = [
+            [x - bleed, y - bleed, -1, -1],
+            [x + qrMm + bleed, y - bleed, 1, -1],
+            [x - bleed, y + qrMm + bleed, -1, 1],
+            [x + qrMm + bleed, y + qrMm + bleed, 1, 1],
+          ];
+          for (const [cx, cy, dx, dy] of corners) {
+            doc.line(cx, cy, cx + markLen * dx, cy);
+            doc.line(cx, cy, cx, cy + markLen * dy);
           }
-          w.document.write(
-            `<!DOCTYPE html><html><head><title>QR Code PDF</title><style>*{margin:0;padding:0;box-sizing:border-box}body{display:flex;align-items:center;justify-content:center;min-height:100vh;background:#fff}.page{width:210mm;min-height:297mm;display:flex;align-items:center;justify-content:center}img{width:80mm;height:80mm;object-fit:contain}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body><div class="page"><img src="${dataUrl}" alt="QR Code"/></div><script>window.onload=()=>{setTimeout(()=>{window.print();window.close();},300);}<\/script></body></html>`
-          );
-          w.document.close();
+          doc.addImage(imgData, 'PNG', x, y, qrMm, qrMm);
+          doc.setFontSize(9);
+          doc.setTextColor(120);
+          doc.text('Generated with QR Studio — freeqrcode.tools', pageW / 2, y + qrMm + 12, {
+            align: 'center',
+          });
+          doc.save(`qr-code-${type}.pdf`);
           trackQRDownloaded('pdf', type);
-          toast.success('PDF print dialog opened');
+          toast.success('Print-ready PDF downloaded');
           break;
         }
       }
@@ -303,7 +325,9 @@ export function ExportPanel({ qrText, canvasRef, type, state }: ExportPanelProps
             <DropdownMenuItem onClick={() => handleDownload('svg')}>SVG (vector)</DropdownMenuItem>
             <DropdownMenuItem onClick={() => handleDownload('jpeg')}>JPEG</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => handleDownload('pdf')}>PDF (print)</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleDownload('pdf')}>
+              PDF (print-ready)
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
 

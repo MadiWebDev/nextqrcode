@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { TypeSelector } from '@/components/TypeSelector';
 import { DynamicForm } from '@/components/DynamicForm';
 import { QRPreview } from '@/components/QRPreview';
+import ScanabilityPanel from '@/components/qr/ScanabilityPanel';
 import { ExportPanel } from '@/components/ExportPanel';
 import {
   Accordion,
@@ -101,6 +102,8 @@ export function LandingGenerator({ type, data }: LandingGeneratorProps) {
               options={customization}
               typeLabel={config?.label ?? ''}
             />
+            <Separator className="my-3" />
+            <ScanabilityPanel canvasRef={canvasRef} qrText={qrText} hasLogo={false} />
             <Separator className="my-3" />
             <ExportPanel qrText={qrText} canvasRef={canvasRef} type={type} state={landingState} />
           </div>

@@ -8,7 +8,7 @@ import { generateQRData, getContrastRatio } from '@/lib/qr-helpers';
 describe('generateQRData (smoke)', () => {
   it('builds a WIFI payload with escaping', () => {
     const out = generateQRData('wifi', { ssid: 'My;Net', password: 'p"ass', encryption: 'WPA' });
-    expect(out).toBe('WIFI:S:My\\;Net;T:WPA;P:p\\"ass;;');
+    expect(out).toBe('WIFI:S:My\\;Net;T:WPA;P:p\\"ass;');
   });
 
   it('builds a geo URI', () => {

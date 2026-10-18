@@ -209,6 +209,44 @@ export function CustomizationPanel({ options, onChange, qrText }: CustomizationP
               </Label>
             </div>
           </div>
+          <div className="space-y-3 border-t border-border pt-3">
+            <div className="flex items-center gap-2">
+              <Switch
+                id="fg-gradient"
+                checked={options.fgGradient !== null}
+                onCheckedChange={(v) =>
+                  update({
+                    fgGradient: v ? { from: options.fgColor, to: options.eyeColor } : null,
+                  })
+                }
+              />
+              <Label htmlFor="fg-gradient" className="text-xs cursor-pointer">
+                Foreground gradient
+              </Label>
+            </div>
+            {options.fgGradient && (
+              <div className="grid grid-cols-2 gap-3">
+                <ColorPicker
+                  label="Gradient from"
+                  value={options.fgGradient.from}
+                  onChange={(v) =>
+                    update({
+                      fgGradient: { from: v, to: options.fgGradient?.to ?? options.eyeColor },
+                    })
+                  }
+                />
+                <ColorPicker
+                  label="Gradient to"
+                  value={options.fgGradient.to}
+                  onChange={(v) =>
+                    update({
+                      fgGradient: { from: options.fgGradient?.from ?? options.fgColor, to: v },
+                    })
+                  }
+                />
+              </div>
+            )}
+          </div>
         </AccordionContent>
       </AccordionItem>
 
@@ -462,6 +500,33 @@ export function CustomizationPanel({ options, onChange, qrText }: CustomizationP
               </Button>
             ))}
           </div>
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="quiet-zone" className="border rounded-lg px-3">
+        <AccordionTrigger className="text-sm font-medium py-3">Quiet Zone</AccordionTrigger>
+        <AccordionContent className="space-y-4 pb-4">
+          <div className="flex justify-between">
+            <span className="text-xs text-muted-foreground">Margin (modules)</span>
+            <span className="text-xs font-medium">{options.quietZone}</span>
+          </div>
+          <Slider
+            min={0}
+            max={10}
+            step={1}
+            value={[options.quietZone]}
+            onValueChange={(v) => update({ quietZone: v[0] ?? 4 })}
+            aria-label="Quiet zone in modules"
+          />
+          {options.quietZone < 4 && (
+            <p className="text-xs text-destructive">
+              Below the 4-module spec minimum — scanners may fail to detect the code.
+            </p>
+          )}
+          <p className="text-xs text-muted-foreground">
+            The quiet zone is the blank margin around the code. The QR spec requires at least 4
+            modules on all sides.
+          </p>
         </AccordionContent>
       </AccordionItem>
 

@@ -1,5 +1,13 @@
 import type { QRType, QRData, QRTypeConfig, ECLevel } from '@/types';
 import { siteConfig } from '@/config/site';
+import {
+  buildEthereum,
+  buildIcsEvent,
+  buildSepa,
+  buildUpi,
+  buildVCard,
+  buildWifi,
+} from '@/lib/qr/payloads';
 
 export const qrTypeConfigs: QRTypeConfig[] = [
   {
@@ -947,18 +955,35 @@ export function generateQRData(type: QRType, data: QRData): string {
         : '';
     case 'wifi': {
       if (!data['ssid']) return '';
-      const escapeStr = (str: string) => str.replace(/([\\;:",])/g, '\\$1');
-      const ssid = escapeStr(data['ssid']);
-      const enc = data['encryption'] || 'WPA';
-      const pass = enc !== 'nopass' ? escapeStr(data['password'] ?? '') : '';
-      const hiddenTag = data['hidden'] === 'true' ? 'H:true;' : '';
-      const passTag = enc !== 'nopass' ? `P:${pass};` : '';
-      return `WIFI:S:${ssid};T:${enc};${passTag}${hiddenTag};`;
+      try {
+        return buildWifi(
+          data['ssid'],
+          data['password'] ?? '',
+          (data['encryption'] || 'WPA') as 'WPA' | 'WEP' | 'nopass',
+          data['hidden'] === 'true'
+        );
+      } catch {
+        // Invalid input degrades to an empty payload.
+        return '';
+      }
     }
-    case 'vcard':
+    case 'vcard': {
       if (data['cardUrl']) return data['cardUrl'];
       if (!data['name']) return '';
-      return `MECARD:N:${data['name']};${data['phone'] ? `TEL:${data['phone']};` : ''}${data['email'] ? `EMAIL:${data['email']};` : ''}${data['org'] ? `ORG:${data['org']};` : ''};;`;
+      try {
+        const [firstName, ...rest] = data['name'].trim().split(/\s+/);
+        return buildVCard({
+          firstName,
+          lastName: rest.length > 0 ? rest.join(' ') : undefined,
+          phone: data['phone'],
+          email: data['email'],
+          org: data['org'],
+        });
+      } catch {
+        // Invalid input degrades to an empty payload.
+        return '';
+      }
+    }
     case 'social': {
       if (!data['username']) return '';
       const platform = data['platform'] ?? 'twitter';
@@ -995,16 +1020,20 @@ export function generateQRData(type: QRType, data: QRData): string {
     }
     case 'event': {
       if (!data['title']) return '';
-      const startDate = data['date'] ? data['date'].replace(/-/g, '') : '';
-      const startTime = data['time'] ? data['time'].replace(':', '') + '00' : '';
-      const dates = startDate
-        ? startTime
-          ? `${startDate}T${startTime}/${startDate}T${startTime}`
-          : `${startDate}/${startDate}`
-        : '';
-      return dates
-        ? `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(data['title'])}&dates=${dates}&details=${encodeURIComponent(data['description'] ?? '')}&location=${encodeURIComponent(data['location'] ?? '')}`
-        : `Event: ${data['title']}`;
+      if (!data['date']) return `Event: ${data['title']}`;
+      try {
+        const start = data['time'] ? `${data['date']}T${data['time']}:00` : data['date'];
+        return buildIcsEvent({
+          title: data['title'],
+          start,
+          end: start,
+          location: data['location'],
+          description: data['description'],
+        });
+      } catch {
+        // Invalid input degrades to a plain-text fallback.
+        return `Event: ${data['title']}`;
+      }
     }
     case 'business_card': {
       if (data['cardUrl']) return data['cardUrl'];
@@ -1071,10 +1100,20 @@ export function generateQRData(type: QRType, data: QRData): string {
       return data['username']
         ? `https://paypal.me/${data['username']}${data['amount'] ? `/${data['amount']}${data['currency'] ?? 'USD'}` : ''}`
         : '';
-    case 'upi':
-      return data['pa']
-        ? `upi://pay?pa=${encodeURIComponent(data['pa'])}${data['pn'] ? `&pn=${encodeURIComponent(data['pn'])}` : ''}${data['amount'] ? `&am=${data['amount']}` : ''}${data['cu'] ? `&cu=${data['cu']}` : '&cu=INR'}${data['tn'] ? `&tn=${encodeURIComponent(data['tn'])}` : ''}`
-        : '';
+    case 'upi': {
+      if (!data['pa']) return '';
+      try {
+        return buildUpi({
+          pa: data['pa'],
+          pn: data['pn'],
+          amount: data['amount'],
+          note: data['tn'],
+        });
+      } catch {
+        // Invalid input degrades to an empty payload.
+        return '';
+      }
+    }
     case 'bitcoin': {
       if (!data['address']) return '';
       const btcParts: string[] = [];
@@ -1083,14 +1122,30 @@ export function generateQRData(type: QRType, data: QRData): string {
       if (data['message']) btcParts.push(`message=${encodeURIComponent(data['message'])}`);
       return `bitcoin:${data['address']}${btcParts.length > 0 ? `?${btcParts.join('&')}` : ''}`;
     }
-    case 'ethereum':
-      return data['address']
-        ? `ethereum:${data['address']}${data['amount'] ? `?value=${data['amount']}` : ''}`
-        : '';
-    case 'sepa':
-      return data['name'] && data['iban']
-        ? `BCD\n002\n1\nSCT\n${data['bic'] ?? ''}\n${data['name']}\n${data['iban']}\nEUR${data['amount'] ?? ''}\n\n\n${data['reason'] ?? ''}`
-        : '';
+    case 'ethereum': {
+      if (!data['address']) return '';
+      try {
+        return buildEthereum(data['address'], data['amount'] || undefined);
+      } catch {
+        // Invalid input degrades to an empty payload.
+        return '';
+      }
+    }
+    case 'sepa': {
+      if (!data['name'] || !data['iban']) return '';
+      try {
+        return buildSepa({
+          name: data['name'],
+          iban: data['iban'],
+          bic: data['bic'],
+          amount: data['amount'],
+          reason: data['reason'],
+        });
+      } catch {
+        // Invalid input degrades to an empty payload.
+        return '';
+      }
+    }
     default:
       return '';
   }

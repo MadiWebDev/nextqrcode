@@ -21,6 +21,7 @@ import { DynamicForm } from '@/components/DynamicForm';
 import { TemplateSelector } from '@/components/TemplateSelector';
 import { CustomizationPanel } from '@/components/CustomizationPanel';
 import { QRPreview } from '@/components/QRPreview';
+import ScanabilityPanel from '@/components/qr/ScanabilityPanel';
 import { ExportPanel } from '@/components/ExportPanel';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
@@ -394,6 +395,11 @@ export function HomeGenerator() {
                 options={customization}
                 typeLabel={typeLabel}
               />
+              <ScanabilityPanel
+                canvasRef={canvasRef}
+                qrText={qrText}
+                hasLogo={!!customization.logoUrl}
+              />
               <ExportPanel qrText={qrText} canvasRef={canvasRef} type={qrType} state={state} />
               {stats}
             </div>
@@ -534,6 +540,12 @@ export function HomeGenerator() {
                 canvasRef={canvasRef}
                 options={customization}
                 typeLabel={typeLabel}
+              />
+              <Separator />
+              <ScanabilityPanel
+                canvasRef={canvasRef}
+                qrText={qrText}
+                hasLogo={!!customization.logoUrl}
               />
               <Separator />
               <ExportPanel qrText={qrText} canvasRef={canvasRef} type={qrType} state={state} />

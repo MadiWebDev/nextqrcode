@@ -94,6 +94,8 @@ export const primaryNav: NavGroup[] = [
       { href: '/barcode-generator', label: 'Barcode Generator' },
       { href: '/qr-sticker-sheet-printer', label: 'Sticker Sheet Printer' },
       { href: '/bulk-vcard-qr', label: 'Bulk vCard QR' },
+      { href: '/qr-scanner', label: 'QR Scanner' },
+      { href: '/bulk-generator', label: 'Bulk QR Generator' },
     ],
   },
   {
@@ -147,6 +149,8 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
       { href: '/bulk-vcard-qr', label: 'Bulk vCard QR' },
       { href: '/wifi-sign-generator', label: 'WiFi Sign Generator' },
       { href: '/qr-placement-guide', label: 'QR Placement Guide' },
+      { href: '/qr-scanner', label: 'QR Scanner' },
+      { href: '/bulk-generator', label: 'Bulk QR Generator' },
     ],
   },
   {

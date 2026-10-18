@@ -18,4 +18,6 @@ export const DEFAULT_CUSTOMIZATION: CustomizationOptions = {
   frameCta: 'Scan Me',
   frameColor: '#000000',
   frameFontSize: 14,
+  quietZone: 4,
+  fgGradient: null,
 };
