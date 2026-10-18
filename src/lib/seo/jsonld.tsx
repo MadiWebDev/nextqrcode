@@ -33,3 +33,26 @@ export function BreadcrumbJsonLd({
     />
   );
 }
+
+/** WebPage JSON-LD for indexable content pages. Only rendered when the page is indexed. */
+export function WebPageJsonLd({
+  name,
+  url,
+  description,
+}: {
+  name: string;
+  url: string;
+  description: string;
+}) {
+  return (
+    <JsonLd
+      data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name,
+        url,
+        description,
+      }}
+    />
+  );
+}

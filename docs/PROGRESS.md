@@ -131,3 +131,24 @@ added `vite` + `@testing-library/dom` as proper devDependencies (were pruned by 
 **Known gaps:** no live Mongo/Cloudinary/Auth creds in sandbox → auth + DB paths are
 implemented-but-unexercised end-to-end (unit-tested where possible); mark UNVERIFIED.
 Auth.js users collection for the old cards feature is untouched (cards predate accounts).
+
+## Phase 4 — Public QR pages (/q/[publicId]) ✅
+
+**Done:**
+
+- `/q/[publicId]`: QR preview (canvas, stored design), PNG/SVG download, copy QR text,
+  Web Share, per-type "About" section (`src/lib/qr/type-meta.ts`, all 40 types, functional
+  blurbs only), "Create your own like this" CTA, owner edit/analytics links, report-abuse
+  form → `/api/reports`. Status notices for paused/blocked/expired; helpful 404 for missing.
+- SEO: `generateMetadata` (noindex default; index+follow only when public + moderation-passed
+  - unique title), canonical, dynamic OG via `next/og` (`opengraph-image.tsx`, real QR,
+    brand fallback), BreadcrumbList + WebPage JSON-LD (WebPage only when indexable).
+- Sitemap: async, includes only indexable `/q/` entries (DB-gated, best-effort, 5000 cap).
+- `src/lib/ads/eligibility.ts`: indexable/adsEligible rules shared by page + sitemap
+  (ad rendering itself lands in Phase 7).
+
+**Final gate numbers:** `format:check` PASS · `lint` 0 errors (83 warnings) · `typecheck` clean ·
+`vitest run` 221/221 (9 files) · `npm run build` PASS · `playwright` 16/16.
+
+**Known gaps:** no true HTTP 410 for deleted codes (D4.1); /q/ page + OG untested against a
+live DB (no creds in sandbox) → mark UNVERIFIED end-to-end.

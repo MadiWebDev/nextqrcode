@@ -36,7 +36,7 @@ function entry(
   };
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const weekly = 'weekly' as const;
   const monthly = 'monthly' as const;
@@ -149,5 +149,43 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...paymentEntries,
     ...articleEntries,
     ...trustEntries,
+    ...(await indexableQrEntries()),
   ];
+}
+
+/**
+ * /q/[publicId] entries: ONLY public + moderation-passed QRs with a unique
+ * owner-written title (mirrors qrPageEligibility). Best-effort: any DB failure
+ * yields no entries rather than a broken sitemap.
+ */
+async function indexableQrEntries(): Promise<MetadataRoute.Sitemap> {
+  try {
+    const { isDbConfigured, dbConnect } = await import('@/lib/db/mongoose');
+    if (!isDbConfigured()) return [];
+    await dbConnect();
+    const { QrCode } = await import('@/models/QrCode');
+    const docs = (await QrCode.find({
+      visibility: 'public',
+      status: 'active',
+      'moderation.status': 'passed',
+      title: { $exists: true, $ne: '' },
+    })
+      .select('publicId title updatedAt')
+      .sort({ updatedAt: -1 })
+      .limit(5000)
+      .lean()) as unknown as { publicId: string; title: string; updatedAt: Date }[];
+    // Keep the sitemap's unique-title rule in sync with qrPageEligibility.
+    const generic = new Set(['untitled', 'my qr code', 'qr code', 'new qr code']);
+    return docs
+      .filter((d) => d.title.trim().length >= 8 && !generic.has(d.title.trim().toLowerCase()))
+      .map((d) =>
+        entry(`/q/${d.publicId}`, {
+          lastModified: d.updatedAt ? new Date(d.updatedAt) : new Date(),
+          changeFrequency: 'monthly' as const,
+          priority: 0.5,
+        })
+      );
+  } catch {
+    return [];
+  }
 }

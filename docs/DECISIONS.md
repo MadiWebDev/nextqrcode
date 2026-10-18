@@ -174,3 +174,28 @@ The user asked for zero questions — the best default is chosen and recorded he
 - **Reason:** Correct auth gating (immediate 307, no content flash) outweighs global loading
   skeletons. Route-level `loading.tsx` files may be added later, but never on redirect-gated
   routes.
+
+## Phase 4
+
+### D4.1 — Deleted QR codes: hard delete + helpful 404 (no true 410)
+
+- **Decision:** The API hard-deletes QR documents, so "deleted" and "never existed" are
+  indistinguishable — both render the helpful 404 page. No soft-delete, no middleware 410.
+- **Reason:** App Router pages cannot emit a 410 status without middleware; adding a
+  DB-touching middleware (or soft-delete filtering across dashboard/API//r//q/) for a
+  marginal SEO distinction (Google treats 404 and 410 nearly identically for removal)
+  was not worth the complexity. The not-found page is helpful per spec.
+
+### D4.2 — Indexing rule for /q/ pages
+
+- **Decision:** `qrPageEligibility()`: indexable only when public + moderation passed +
+  unique owner title (≥8 chars, not generic). Ads additionally require "substantive"
+  (description ≥40 chars or 10+ scans). Sitemap mirrors the rule.
+- **Reason:** Direct implementation of the spec's "indexing only when public + moderated +
+  unique title/description" and "ads only on public+moderated+substantive pages".
+
+### D4.3 — OG image renders the real QR server-side
+
+- **Decision:** `opengraph-image.tsx` (nodejs runtime) generates the QR PNG with the
+  `qrcode` package and embeds it in the ImageResponse.
+- **Reason:** Real QR in social previews; graceful brand-art fallback when DB/unconfigured.

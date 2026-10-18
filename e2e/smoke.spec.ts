@@ -45,6 +45,11 @@ test('short-link route handles missing codes gracefully', async ({ page }) => {
   expect([404, 503]).toContain(res?.status());
 });
 
+test('public QR page 404s for unknown codes', async ({ page }) => {
+  const res = await page.goto('/q/does-not-exist-xyz123');
+  expect(res?.status()).toBe(404);
+});
+
 test('dashboard redirects anonymous visitors to login', async ({ page }) => {
   const res = await page.goto('/dashboard');
   expect(res?.url()).toContain('/login');
