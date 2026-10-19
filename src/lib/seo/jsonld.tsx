@@ -56,3 +56,37 @@ export function WebPageJsonLd({
     />
   );
 }
+
+/**
+ * DefinedTerm JSON-LD for glossary entries. `name` must be the term shown on
+ * the page and `description` the definition shown on the page.
+ * `inDefinedTermSet` links the term to the visible glossary index page.
+ */
+export function DefinedTermJsonLd({
+  name,
+  description,
+  url,
+  inDefinedTermSet,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  inDefinedTermSet: { name: string; url: string };
+}) {
+  return (
+    <JsonLd
+      data={{
+        '@context': 'https://schema.org',
+        '@type': 'DefinedTerm',
+        name,
+        description,
+        url,
+        inDefinedTermSet: {
+          '@type': 'DefinedTermSet',
+          name: inDefinedTermSet.name,
+          url: inDefinedTermSet.url,
+        },
+      }}
+    />
+  );
+}

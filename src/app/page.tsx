@@ -38,6 +38,7 @@ import { getAllArticles } from '@/lib/articles';
 import { getAllCountries } from '@/data/countries';
 import { getAllPaymentSchemes } from '@/data/payments';
 import { getAllLabelSheets } from '@/data/labels';
+import { JsonLd } from '@/lib/seo/jsonld';
 
 export const metadata: Metadata = {
   title: 'Free QR Code Generator & Optical Engineering Suite — QR Code Tools',
@@ -266,9 +267,9 @@ export default function HomePage() {
   const softwareSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'QR Code Tools',
+    name: 'QR Studio',
     applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'Web Browser',
+    operatingSystem: 'Web',
     url: 'https://freeqrcode.tools',
     description:
       'Free online QR code generator suite with 40+ code types, optical size calculator, safety checker, and print-ready exports.',
@@ -296,10 +297,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
-      />
+      <JsonLd data={softwareSchema} />
 
       {/* Main Interactive Studio Hero */}
       <HomeGenerator />

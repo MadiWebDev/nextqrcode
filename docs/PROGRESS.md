@@ -173,3 +173,22 @@ live DB (no creds in sandbox) → mark UNVERIFIED end-to-end.
 
 **Known gaps:** 581/581 blog pages fail the gate (thin: 299 under 150 words) → noindex until
 remediated (D5.2, roadmap in ROLLOUT.md). Total indexed pages ~216 of ~816 built.
+
+## Phase 6 — Technical SEO ✅
+
+**Done:**
+
+- Metadata coverage: 17 legacy tool pages got `layout.tsx` metadata (title, description,
+  canonical, OG) — fixed double "| QR Studio" suffix from title template.
+- JSON-LD: SoftwareApplication on home, DefinedTerm for glossary terms (new export),
+  existing Breadcrumb/Article/FAQPage/WebPage coverage kept.
+- Per-family OG images: all 5 families ([slug]/opengraph-image.tsx, nodejs runtime).
+- `/.well-known/security.txt` (RFC 9116, build-time Expires).
+- `next.config.ts`: permanent /home → / redirect.
+- HTML sitemap page updated (family hubs, fixed stale copy).
+
+**Final gate numbers:** `format:check` PASS · `lint` 0 errors · `typecheck` clean ·
+`vitest run` 221/221 · `npm run build` PASS · `playwright` smoke 14/14.
+
+**Known gaps:** Lighthouse budgets UNVERIFIED in sandbox (no headless Chrome with GPU);
+documented for Phase 9.

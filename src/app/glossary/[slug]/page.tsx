@@ -5,7 +5,7 @@ import { siteConfig } from '@/config/site';
 import { loadGlossary } from '@/content/families/glossary';
 import { getGlossaryEntryBySlug, type GlossaryEntry } from '@/data/glossary';
 import { auditVerdict } from '@/content/audit';
-import { JsonLd, BreadcrumbJsonLd, WebPageJsonLd } from '@/lib/seo/jsonld';
+import { JsonLd, BreadcrumbJsonLd, WebPageJsonLd, DefinedTermJsonLd } from '@/lib/seo/jsonld';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -276,6 +276,14 @@ export default async function GlossaryTermPage({ params }: Props) {
       />
       {verdict.passed && (
         <WebPageJsonLd name={entry.title} url={canonical} description={entry.metaDescription} />
+      )}
+      {verdict.passed && data && (
+        <DefinedTermJsonLd
+          name={data.term}
+          description={data.shortDefinition}
+          url={canonical}
+          inDefinedTermSet={{ name: 'QR Code Glossary', url: `${siteConfig.url}/glossary` }}
+        />
       )}
       <JsonLd data={faqJsonLd} />
 

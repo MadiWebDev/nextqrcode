@@ -227,3 +227,18 @@ The user asked for zero questions — the best default is chosen and recorded he
   families exit 1 (build-blocking). Per-page quality failures exit 0 but write the
   manifest that drives noindex + sitemap exclusion.
 - **Reason:** A single thin page must never block a deploy; corrupt data must never ship.
+
+## Phase 6
+
+### D6.1 — QR lib stays in the main chunk (perf tradeoff)
+
+- **Decision:** The `qrcode` package remains statically imported (home generator is
+  above-the-fold; lazy-loading would delay first render). jsQR/jszip/jspdf are
+  route-split or dynamic-imported — they only load on the routes that use them.
+- **Reason:** Measured tradeoff; per-route code splitting already isolates heavy libs.
+
+### D6.2 — Only one redirect justified (/home → /)
+
+- **Decision:** Added a single permanent redirect (/home → /). /view exists as a real
+  page, so no redirect was added for it.
+- **Reason:** No invented redirects; each entry justified from the repo.

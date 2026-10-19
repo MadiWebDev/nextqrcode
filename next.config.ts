@@ -45,6 +45,19 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  /**
+   * Legacy / convenience redirects. Each entry is justified in-repo:
+   * - /home: no such route exists; direct-navigation typo guard for the home page.
+   */
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

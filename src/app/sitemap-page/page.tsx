@@ -5,7 +5,7 @@ import { getAllArticles } from '@/lib/articles';
 export const metadata: Metadata = {
   title: 'Full Site Index & Directory — QR Code Tools',
   description:
-    'Full sitemap of QR Code Tools. Browse all 15 optical engineering tools, generators, technical guides, and standards.',
+    'Full sitemap of QR Code Tools. Browse all 29 free QR tools and generators, technical guides, and standards.',
   alternates: { canonical: 'https://freeqrcode.tools/sitemap-page' },
   robots: { index: true, follow: true },
 };
@@ -43,8 +43,8 @@ export default function SitemapPage() {
           QR Code Tools Directory & Sitemap
         </h1>
         <p className="text-muted-foreground mt-2 text-sm">
-          A complete index of all 15 client-side QR and barcode engineering tools, generators, and
-          research articles.
+          A complete index of all 29 free QR tools and generators, research articles, and reference
+          guides.
         </p>
       </header>
 
@@ -91,6 +91,25 @@ export default function SitemapPage() {
           href: `/blog/${a.slug}`,
         }))}
       />
+
+      <SitemapSection
+        heading="Reference Guides & Industry Collections"
+        links={[
+          { label: 'QR Codes by Industry', href: '/industries' },
+          { label: 'QR Code Glossary', href: '/glossary' },
+          { label: 'QR Code Scanning Guides', href: '/scan-guide' },
+          { label: 'QR Code Size Guide', href: '/qr-size-guide' },
+          { label: 'QR Code Design Templates', href: '/templates' },
+        ]}
+      />
+
+      <p className="text-xs text-muted-foreground">
+        Individual entries in these collections that pass the content audit are listed in{' '}
+        <Link href="/sitemap.xml" className="text-primary hover:underline">
+          /sitemap.xml
+        </Link>
+        .
+      </p>
 
       <SitemapSection
         heading="Trust & Compliance"
