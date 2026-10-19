@@ -125,7 +125,7 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
           size="sm"
           variant="outline"
           onClick={handleDetect}
-          className="shrink-0 border-sky-500/40 text-sky-600 dark:text-sky-400 hover:bg-sky-500/10 hover:border-sky-500/60"
+          className="shrink-0 border-sky-700/40 text-sky-700 dark:text-sky-400 hover:bg-sky-500/10 hover:border-sky-700/60"
         >
           <Wifi className="w-3.5 h-3.5" />
           Detect WiFi
@@ -215,6 +215,7 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
           size="icon-sm"
           variant="ghost"
           onClick={handleReset}
+          aria-label="Clear WiFi detection"
           className="shrink-0 text-muted-foreground"
         >
           <X className="w-4 h-4" />
@@ -287,7 +288,7 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
             <div className="space-y-1.5">
               <Label className="text-xs font-medium">Encryption</Label>
               <Select value={encryption} onValueChange={setEncryption}>
-                <SelectTrigger className="bg-background">
+                <SelectTrigger className="bg-background" aria-label="Encryption">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -302,7 +303,7 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
             <div className="space-y-1.5">
               <Label className="text-xs font-medium">Hidden Network</Label>
               <Select value={hidden} onValueChange={setHidden}>
-                <SelectTrigger className="bg-background">
+                <SelectTrigger className="bg-background" aria-label="Hidden Network">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

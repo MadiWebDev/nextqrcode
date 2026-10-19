@@ -155,6 +155,7 @@ export function DynamicForm({ type, data, onChange }: DynamicFormProps) {
                 <SelectTrigger
                   className={errors[field.name] ? 'border-destructive' : ''}
                   aria-invalid={!!errors[field.name]}
+                  aria-label={field.label}
                 >
                   <SelectValue placeholder={`Select ${field.label.toLowerCase()}`} />
                 </SelectTrigger>

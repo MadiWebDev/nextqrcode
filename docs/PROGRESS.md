@@ -220,3 +220,16 @@ Regional: `pixQr` (BCB, byte-for-byte incl. CRC), `upiIntent` (NPCI), `girocode`
 
 **Fixes during gate:** wired `createNextIntlPlugin` into next.config.ts (build was failing
 on missing next-intl config); removed next-intl middleware (was 404ing non-locale routes).
+
+## Phase 9 — Quality, security & testing ✅
+
+**Done:** axe e2e (6 pages, 0 critical/serious — fixed 3 real violations: Select
+button-names, muted-foreground contrast 4.34→4.89:1, sky-600 button contrast);
+`lighthouserc.json` budgets + `npm run lhci`; CSP nonces via headers-only middleware;
+`docs/SECURITY.md`; `src/lib/observability.ts` (Sentry + privacy-friendly analytics);
+rate-limit tests 8/8.
+
+**Final gate numbers:** `typecheck` clean · `vitest run` 239/239 ·
+`npm run build` PASS · `playwright` 24/24 (14 smoke + 1 locale + 3 roundtrip + 6 a11y).
+
+**UNVERIFIED:** `npm audit` (sandbox proxy 403); Lighthouse scores (no GPU Chrome).

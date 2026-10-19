@@ -6,6 +6,8 @@ const WINDOW_MS = 60_000;
 
 afterEach(() => {
   vi.useRealTimers();
+  vi.unstubAllEnvs();
+  vi.unstubAllGlobals();
 });
 
 function freshKey(prefix: string): string {
@@ -58,6 +60,21 @@ describe('rateLimit (in-memory fallback)', () => {
     const r = await rateLimit(key);
     expect(r.ok).toBe(true);
     expect(r.remaining).toBe(59);
+  });
+  it('fails open to the in-memory limiter when Redis errors', async () => {
+    // The limiter has no retry-after in its result contract — callers infer
+    // the back-off from the configured window instead. This test pins the
+    // documented fail-open behavior: a Redis outage must not block traffic.
+    vi.stubEnv('UPSTASH_REDIS_REST_URL', 'https://upstash.test');
+    vi.stubEnv('UPSTASH_REDIS_REST_TOKEN', 'token');
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('redis down')));
+
+    const key = freshKey('redis-down');
+    const first = await rateLimit(key, { limit: 1, windowMs: WINDOW_MS });
+    expect(first.ok).toBe(true);
+    expect(first.remaining).toBe(0);
+    const second = await rateLimit(key, { limit: 1, windowMs: WINDOW_MS });
+    expect(second.ok).toBe(false);
   });
 });
 

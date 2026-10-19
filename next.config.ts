@@ -4,10 +4,24 @@ import createNextIntlPlugin from 'next-intl/plugin';
 /**
  * Security headers applied to every route.
  *
- * Content-Security-Policy keeps Next.js, AdSense, and analytics working
- * ('unsafe-inline'/'unsafe-eval' are required by Next's runtime and by the
- * AdSense snippet). Per-request nonces (Phase 9) will let us drop
- * 'unsafe-inline' later; this policy is documented as transitional.
+ * Content-Security-Policy is NOT here on purpose: it is owned per-request by
+ * `src/middleware.ts`, which generates a fresh cryptographically random nonce
+ * for every page request and emits a nonce-based CSP
+ * (`'nonce-{nonce}'` on `script-src`/`style-src`, no `'unsafe-inline'`).
+ * Keeping a static global CSP in `headers()` alongside the middleware would
+ * either duplicate the header (two CSP headers are AND-ed by browsers, so the
+ * static `'unsafe-inline'` policy would silently re-allow what the nonce
+ * policy blocks) or override it — hence it was removed here (Phase 9).
+ *
+ * API routes and static assets intentionally receive no CSP: middleware does
+ * not run for them by design (`config.matcher` excludes `/api/*`, `/_next/*`
+ * and static files), and a CSP on JSON/API responses or hashed static
+ * bundles adds no protection while risking breakage.
+ *
+ * `'unsafe-eval'` remains in the middleware's `script-src` only — the Next.js
+ * runtime requires it (React uses `eval` for dev-mode server error stack
+ * reconstruction, and ad/analytics snippets may rely on it). Documented in
+ * `src/middleware.ts` and `docs/SECURITY.md`.
  */
 const securityHeaders = [
   {
@@ -21,20 +35,6 @@ const securityHeaders = [
     value: 'camera=(self), microphone=(), geolocation=()',
   },
   { key: 'X-Frame-Options', value: 'DENY' },
-  {
-    key: 'Content-Security-Policy',
-    value: [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://analytics.ahrefs.com",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "img-src 'self' data: blob: https:",
-      "font-src 'self' https://fonts.gstatic.com",
-      "connect-src 'self' https://pagead2.googlesyndication.com https://www.google-analytics.com",
-      'frame-src https://googleads.g.doubleclick.net',
-      "object-src 'none'",
-      "base-uri 'self'",
-    ].join('; '),
-  },
 ];
 
 const nextConfig: NextConfig = {

@@ -5,7 +5,13 @@ import path from 'node:path';
 /**
  * Phase 2 — UI round-trip: drive the real generator pages, then decode the
  * rendered canvas in-browser with jsQR and assert the exact payload.
+ *
+ * bypassCSP: the app ships a nonce-based Content-Security-Policy (Phase 9);
+ * jsQR is injected into the test page via addScriptTag, which the CSP would
+ * block. Bypassing CSP is test-only and does not weaken the app's policy.
  */
+test.use({ bypassCSP: true });
+
 const JSQR_PATH = path.join(__dirname, '..', 'node_modules', 'jsqr', 'dist', 'jsQR.js');
 
 // The onboarding tour opens a modal on first visit; seed localStorage so tests

@@ -15,6 +15,7 @@
     "test:e2e": "playwright test",
     "prepare": "husky",
     "content:audit": "tsx scripts/content-audit.ts",
+    "lhci": "lhci autorun",
     "prebuild": "npm run content:audit"
   },
   "dependencies": {
@@ -80,6 +81,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@playwright/test": "^1.64.1",
     "@tailwindcss/postcss": "^4",
     "@testing-library/dom": "^10.4.2",

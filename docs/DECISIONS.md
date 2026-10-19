@@ -278,3 +278,19 @@ The user asked for zero questions — the best default is chosen and recorded he
   operator (unpublished) and the annex example contradicts the normative ID table.
 - **Reason:** Building from contradictory sources would be fabrication. Documented in
   `src/data/regional-payment-specs.ts` with `supported: false`.
+
+### D9.1 — CSP nonce middleware is headers-only
+
+- **Decision:** `src/middleware.ts` sets per-request CSP nonces via headers only;
+  never rewrites/redirects (lesson from D8.1).
+- **Reason:** Verified no route interference; documented static-page nonce limits.
+
+### D9.2 — e2e uses bypassCSP for jsQR injection
+
+- **Decision:** `e2e/qr-roundtrip.spec.ts` sets `test.use({ bypassCSP: true })`.
+- **Reason:** The nonce CSP correctly blocks addScriptTag; bypass is test-only.
+
+### D9.3 — npm audit blocked by sandbox proxy
+
+- **Decision:** No audit numbers; documented as UNVERIFIED for owner environment.
+- **Reason:** Registry proxy returns 403 on the audit endpoint.
