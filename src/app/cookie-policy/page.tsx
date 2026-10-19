@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'Cookie Policy — QR Code Tools',
@@ -50,6 +51,8 @@ export default function CookiePolicyPage() {
           </li>
         </ol>
       </nav>
+
+      <AdSlot id="cookie-policy-top" format="horizontal-banner" />
 
       <header>
         <h1 className="text-3xl font-extrabold tracking-tight">Cookie Policy</h1>
@@ -165,6 +168,7 @@ export default function CookiePolicyPage() {
         </div>
       </section>
 
+      <AdSlot id="cookie-policy-in-content" format="in-article" />
       {/* How to control cookies */}
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">How to Control Cookies</h2>
@@ -290,6 +294,7 @@ export default function CookiePolicyPage() {
         </ul>
       </section>
 
+      <AdSlot id="cookie-policy-pre-related" format="horizontal-banner" />
       {/* Changes */}
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Changes to This Policy</h2>
@@ -310,6 +315,8 @@ export default function CookiePolicyPage() {
           </a>
         </p>
       </section>
+
+      <AdSlot id="cookie-policy-bottom" format="horizontal-banner" />
     </div>
   );
 }

@@ -178,6 +178,8 @@ export default async function IndustryUseCasePage({ params }: Props) {
         </ol>
       </nav>
 
+      <AdSlot slot={`industries-${slug}-top`} format="leaderboard" eligible={verdict.passed} />
+
       <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{entry.h1}</h1>
       <p className="mt-4 text-sm text-slate-500">
         By {entry.author} <span aria-hidden="true">·</span> Last reviewed: {entry.lastReviewed}
@@ -231,6 +233,11 @@ export default async function IndustryUseCasePage({ params }: Props) {
         </section>
       )}
 
+      <AdSlot
+        slot={`industries-${slug}-pre-related`}
+        format="leaderboard"
+        eligible={verdict.passed}
+      />
       <section aria-labelledby="related-heading" className="mt-12">
         <h2 id="related-heading" className="text-2xl font-bold text-slate-900">
           Related pages
@@ -248,6 +255,8 @@ export default async function IndustryUseCasePage({ params }: Props) {
           ))}
         </ul>
       </section>
+
+      <AdSlot slot={`industries-${slug}-bottom`} format="leaderboard" eligible={verdict.passed} />
     </div>
   );
 }

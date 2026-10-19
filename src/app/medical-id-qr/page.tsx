@@ -379,6 +379,8 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
           their screen instantaneously—zero servers, zero logins, and zero delays.
         </p>
 
+        <AdSlot id="medical-id-qr-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           Medical Liability and User Responsibility Notice
         </h3>
@@ -391,6 +393,7 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
       </article>
 
       {/* Structured FAQ Section */}
+      <AdSlot id="medical-id-qr-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Medical QR Codes
@@ -408,6 +411,8 @@ NOTICE: 100% offline self-contained data. No cloud storage.`;
           ))}
         </div>
       </section>
+
+      <AdSlot id="medical-id-qr-bottom" format="horizontal-banner" />
     </div>
   );
 }

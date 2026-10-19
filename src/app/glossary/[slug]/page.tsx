@@ -308,6 +308,8 @@ export default async function GlossaryTermPage({ params }: Props) {
         </ol>
       </nav>
 
+      <AdSlot slot={`glossary-${slug}-top`} format="leaderboard" eligible={verdict.passed} />
+
       <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-700">
         {data ? CATEGORY_LABELS[data.category] : 'Glossary'}
       </p>
@@ -359,6 +361,11 @@ export default async function GlossaryTermPage({ params }: Props) {
         </section>
       )}
 
+      <AdSlot
+        slot={`glossary-${slug}-pre-related`}
+        format="leaderboard"
+        eligible={verdict.passed}
+      />
       {relatedTerms.length > 0 && (
         <section className="mt-10" aria-label="Related terms">
           <h2 className="mb-4 text-2xl font-bold text-slate-900">Related terms</h2>
@@ -393,6 +400,8 @@ export default async function GlossaryTermPage({ params }: Props) {
           </ul>
         </section>
       )}
+
+      <AdSlot slot={`glossary-${slug}-bottom`} format="leaderboard" eligible={verdict.passed} />
     </main>
   );
 }

@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Pill, Download, QrCode, CheckCircle2, HelpCircle, AlertTriangle } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 type Preset = {
   id: string;
@@ -306,6 +307,9 @@ export default function PharmacyQrSuitePage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="pharmacy-qr-suite-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">How to Use the Pharmacy QR Suite</h2>
         <p className="text-base leading-relaxed">
@@ -315,6 +319,10 @@ export default function PharmacyQrSuitePage() {
           points to exactly the right page, because a patient who lands on a generic homepage will
           join the queue anyway, which defeats the purpose.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="pharmacy-qr-suite-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Refill codes should open a request flow that confirms the request and tells the patient
           when the medication will be ready, since a refill page that leaves the patient guessing
@@ -353,6 +361,9 @@ export default function PharmacyQrSuitePage() {
         </p>
       </article>
 
+      {/* Pre-related AdSlot */}
+      <AdSlot id="pharmacy-qr-suite-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -370,6 +381,9 @@ export default function PharmacyQrSuitePage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="pharmacy-qr-suite-bottom" format="horizontal-banner" />
     </div>
   );
 }

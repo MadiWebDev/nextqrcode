@@ -116,6 +116,9 @@ export default async function PaymentSchemePage({ params }: Props) {
           {scheme.content.trim()}
         </div>
 
+        {/* In-content AdSlot */}
+        <AdSlot id={`payment-${scheme.slug}-in-content`} format="in-article" />
+
         {/* Regulatory Note */}
         <div className="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-start gap-3 text-xs sm:text-sm text-blue-800 dark:text-blue-300">
           <ShieldCheck className="w-5 h-5 flex-shrink-0 text-blue-600 dark:text-blue-400 mt-0.5" />
@@ -125,6 +128,9 @@ export default async function PaymentSchemePage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Pre-related AdSlot */}
+      <AdSlot id={`payment-${scheme.slug}-pre-related`} format="horizontal-banner" />
 
       {/* Other Payment Schemes Grid */}
       <section className="space-y-4">
@@ -147,6 +153,9 @@ export default async function PaymentSchemePage({ params }: Props) {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id={`payment-${scheme.slug}-bottom`} format="horizontal-banner" />
     </div>
   );
 }

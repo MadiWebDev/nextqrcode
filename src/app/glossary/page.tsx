@@ -7,6 +7,7 @@ import {
   type GlossaryEntry,
 } from '@/data/glossary';
 import { BreadcrumbJsonLd } from '@/lib/seo/jsonld';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'QR Code Glossary: 40 Technical Terms Explained | QR Studio',
@@ -64,6 +65,8 @@ export default function GlossaryHubPage() {
         </ol>
       </nav>
 
+      <AdSlot id="glossary-top" format="horizontal-banner" />
+
       <h1 className="mb-3 text-3xl font-bold text-slate-900 sm:text-4xl">QR Code Glossary</h1>
       <p className="mb-10 max-w-2xl text-slate-600 leading-relaxed">
         {total} technical terms explained in depth — from finder patterns and Reed-Solomon error
@@ -71,6 +74,7 @@ export default function GlossaryHubPage() {
         systems engineers.
       </p>
 
+      <AdSlot id="glossary-in-content" format="in-article" />
       <div className="space-y-12">
         {GLOSSARY_CATEGORIES.map((category) => {
           const entries = getGlossaryEntriesByCategory(category).filter(
@@ -102,6 +106,8 @@ export default function GlossaryHubPage() {
           );
         })}
       </div>
+
+      <AdSlot id="glossary-bottom" format="horizontal-banner" />
     </main>
   );
 }

@@ -342,6 +342,10 @@ export default function PrintedQRTesterPage() {
           symbol.
         </p>
 
+        {/* In-content AdSlot */}
+        <AdSlot id="printed-qr-tester-in-content" format="in-article" />
+
+
         <h3 className="text-xl font-semibold text-foreground">
           Understanding Luminance Contrast Ratios
         </h3>
@@ -364,6 +368,9 @@ export default function PrintedQRTesterPage() {
         </p>
       </article>
 
+      {/* Pre-related AdSlot */}
+      <AdSlot id="printed-qr-tester-pre-related" format="horizontal-banner" />
+
       {/* Structured FAQ Section */}
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
@@ -382,6 +389,9 @@ export default function PrintedQRTesterPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="printed-qr-tester-bottom" format="horizontal-banner" />
     </div>
   );
 }

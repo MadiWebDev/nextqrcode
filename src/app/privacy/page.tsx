@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — QR Code Tools',
@@ -57,6 +58,10 @@ export default function PrivacyPage() {
           Last updated: <time dateTime="2026-10-05">October 5, 2026</time>
         </p>
       </header>
+
+      {/* Top AdSlot */}
+      <AdSlot id="privacy-top" format="horizontal-banner" />
+
 
       {/* Introduction */}
       <section>
@@ -141,6 +146,9 @@ export default function PrivacyPage() {
           </p>
         </div>
       </section>
+
+      {/* In-content AdSlot */}
+      <AdSlot id="privacy-in-content" format="in-article" />
 
       {/* Google AdSense */}
       <section>
@@ -321,6 +329,9 @@ export default function PrivacyPage() {
         </p>
       </section>
 
+      {/* Pre-related AdSlot */}
+      <AdSlot id="privacy-pre-related" format="horizontal-banner" />
+
       {/* Changes */}
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Changes to This Policy</h2>
@@ -342,6 +353,9 @@ export default function PrivacyPage() {
           </a>
         </p>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="privacy-bottom" format="horizontal-banner" />
     </div>
   );
 }
