@@ -13,7 +13,12 @@ export function ThemeToggle() {
     else setTheme('light');
   };
   const Icon = safeTheme === 'light' ? Sun : safeTheme === 'dark' ? Moon : Monitor;
-  const label = safeTheme === 'light' ? 'Switch to dark mode' : safeTheme === 'dark' ? 'Switch to system theme' : 'Switch to light mode';
+  const label =
+    safeTheme === 'light'
+      ? 'Switch to dark mode'
+      : safeTheme === 'dark'
+        ? 'Switch to system theme'
+        : 'Switch to light mode';
   return (
     <Tooltip>
       <TooltipTrigger asChild>

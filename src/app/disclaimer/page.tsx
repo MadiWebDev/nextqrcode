@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Disclaimer — QR Code Tools',
@@ -19,7 +20,12 @@ export default function DisclaimerPage() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freeqrcode.tools/' },
-      { '@type': 'ListItem', position: 2, name: 'Disclaimer', item: 'https://freeqrcode.tools/disclaimer' },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Disclaimer',
+        item: 'https://freeqrcode.tools/disclaimer',
+      },
     ],
   };
 
@@ -33,9 +39,15 @@ export default function DisclaimerPage() {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
         <ol className="flex items-center gap-1.5">
-          <li><a href="/" className="hover:text-foreground transition-colors">Home</a></li>
+          <li>
+            <Link href="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
+          </li>
           <li aria-hidden="true">›</li>
-          <li aria-current="page" className="text-foreground">Disclaimer</li>
+          <li aria-current="page" className="text-foreground">
+            Disclaimer
+          </li>
         </ol>
       </nav>
 
@@ -51,10 +63,11 @@ export default function DisclaimerPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">General Disclaimer</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            The information and tools provided on QR Code Tools (freeqrcode.tools) are for informational
-            and practical purposes only. All tools are provided &quot;as is&quot; and &quot;as available&quot; without
-            any warranty of accuracy, completeness, fitness for a particular purpose, or
-            non-infringement. Your use of any tool on this site is entirely at your own risk.
+            The information and tools provided on QR Code Tools (freeqrcode.tools) are for
+            informational and practical purposes only. All tools are provided &quot;as is&quot; and
+            &quot;as available&quot; without any warranty of accuracy, completeness, fitness for a
+            particular purpose, or non-infringement. Your use of any tool on this site is entirely
+            at your own risk.
           </p>
           <p>
             While we make every effort to ensure the tools generate correct output, we cannot
@@ -71,19 +84,25 @@ export default function DisclaimerPage() {
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
             The Medical ID QR tool is provided for informational convenience only. It is
-            <strong className="text-foreground"> not a substitute for professional medical advice</strong>,
-            diagnosis, treatment, or an official medical alert system. The presence of a Medical ID
-            QR code does not guarantee that emergency responders will scan it, that scanning devices
-            will be available at the scene, or that the encoded information will be acted upon.
+            <strong className="text-foreground">
+              {' '}
+              not a substitute for professional medical advice
+            </strong>
+            , diagnosis, treatment, or an official medical alert system. The presence of a Medical
+            ID QR code does not guarantee that emergency responders will scan it, that scanning
+            devices will be available at the scene, or that the encoded information will be acted
+            upon.
           </p>
           <p>
             Users are solely responsible for the accuracy, completeness, and currency of the medical
-            information they encode. QR Code Tools makes no representations regarding whether emergency
-            medical personnel in any jurisdiction will use, recognise, or have the ability to read
-            QR-based medical ID information.
+            information they encode. QR Code Tools makes no representations regarding whether
+            emergency medical personnel in any jurisdiction will use, recognise, or have the ability
+            to read QR-based medical ID information.
           </p>
           <p>
-            <strong className="text-foreground">Always carry a physical medical ID as backup.</strong>{' '}
+            <strong className="text-foreground">
+              Always carry a physical medical ID as backup.
+            </strong>{' '}
             A printed card, a medical alert bracelet, or a wristband containing your critical
             information remains the safest and most universally recognised approach in an emergency.
           </p>
@@ -98,16 +117,18 @@ export default function DisclaimerPage() {
             Payment QR codes generated on QR Code Tools (UPI, Raast, JazzCash, Easypaisa) follow
             publicly available format specifications for each payment scheme. However, QR Code Tools
             is not an official application, is not affiliated with, endorsed by, or certified by
-            NPCI (National Payments Corporation of India), the State Bank of Pakistan, Jazz
-            (Veon), Telenor Pakistan, or any other payment operator or financial regulator.
+            NPCI (National Payments Corporation of India), the State Bank of Pakistan, Jazz (Veon),
+            Telenor Pakistan, or any other payment operator or financial regulator.
           </p>
           <p>
             We do not guarantee that all receiving apps, point-of-sale terminals, or banking
             applications will correctly parse every field in a generated payment QR code.
-            <strong className="text-foreground"> Always verify payment amounts and recipient
-            details before completing any transaction.</strong> QR Code Tools is not responsible for
-            payment errors, incorrect transfers, or financial losses arising from the use of
-            payment QR codes generated on this site.
+            <strong className="text-foreground">
+              {' '}
+              Always verify payment amounts and recipient details before completing any transaction.
+            </strong>{' '}
+            QR Code Tools is not responsible for payment errors, incorrect transfers, or financial
+            losses arising from the use of payment QR codes generated on this site.
           </p>
         </div>
       </section>
@@ -117,11 +138,10 @@ export default function DisclaimerPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">QR Code Scannability</h2>
         <p className="text-muted-foreground leading-relaxed">
           QR Code Tools does not guarantee that every generated QR code will be scannable in all
-          environments, lighting conditions, or by all QR scanning apps. Factors outside our
-          control — including print quality, surface texture, material reflectivity, camera
-          quality, and environmental lighting — can affect scannability. The user is responsible
-          for testing QR codes in their intended deployment environment before distribution or
-          publication.
+          environments, lighting conditions, or by all QR scanning apps. Factors outside our control
+          — including print quality, surface texture, material reflectivity, camera quality, and
+          environmental lighting — can affect scannability. The user is responsible for testing QR
+          codes in their intended deployment environment before distribution or publication.
         </p>
       </section>
 
@@ -129,10 +149,11 @@ export default function DisclaimerPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">External Links</h2>
         <p className="text-muted-foreground leading-relaxed">
-          QR Code Tools may contain links to third-party websites for reference and convenience. These
-          links do not constitute an endorsement of those sites&apos; content, products, or services.
-          We do not control and are not responsible for the privacy practices, content accuracy, or
-          availability of any external site. You access external links at your own risk.
+          QR Code Tools may contain links to third-party websites for reference and convenience.
+          These links do not constitute an endorsement of those sites&apos; content, products, or
+          services. We do not control and are not responsible for the privacy practices, content
+          accuracy, or availability of any external site. You access external links at your own
+          risk.
         </p>
       </section>
 
@@ -140,17 +161,20 @@ export default function DisclaimerPage() {
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">No Warranty</h2>
         <p className="text-muted-foreground leading-relaxed">
-          To the maximum extent permitted by applicable law, QR Code Tools and its operator (codexengr)
-          expressly disclaim all warranties, express or implied, including but not limited to implied
-          warranties of merchantability, fitness for a particular purpose, and non-infringement. We
-          do not warrant that the service will be uninterrupted, error-free, or free of harmful
-          components. The entire risk arising from use of the service remains with you.
+          To the maximum extent permitted by applicable law, QR Code Tools and its operator
+          (codexengr) expressly disclaim all warranties, express or implied, including but not
+          limited to implied warranties of merchantability, fitness for a particular purpose, and
+          non-infringement. We do not warrant that the service will be uninterrupted, error-free, or
+          free of harmful components. The entire risk arising from use of the service remains with
+          you.
         </p>
       </section>
 
       {/* Affiliate / Advertising */}
       <section>
-        <h2 className="text-2xl font-bold mb-4 text-foreground">Affiliate and Advertising Disclosure</h2>
+        <h2 className="text-2xl font-bold mb-4 text-foreground">
+          Affiliate and Advertising Disclosure
+        </h2>
         <p className="text-muted-foreground leading-relaxed">
           This site may display Google AdSense advertisements. We do not personally endorse
           advertised products or services. Advertisements are served by Google and are not
@@ -164,8 +188,8 @@ export default function DisclaimerPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Changes to This Disclaimer</h2>
         <p className="text-muted-foreground leading-relaxed">
           We may update this disclaimer at any time. Changes will be reflected in the &quot;Last
-          updated&quot; date above. Continued use of QR Code Tools after a change constitutes acceptance
-          of the updated disclaimer.
+          updated&quot; date above. Continued use of QR Code Tools after a change constitutes
+          acceptance of the updated disclaimer.
         </p>
       </section>
 

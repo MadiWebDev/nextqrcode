@@ -48,15 +48,18 @@ Outside business hours, every vehicle QR page should have a prominent "Save this
     [
       {
         question: 'How do we keep QR codes on vehicles updated as prices change?',
-        answer: 'Use dynamic QR codes linked to your DMS (Dealer Management System) listing for each vehicle. When the price updates in the DMS, the listing page reflects the change — the QR does not need reprinting. Ensure your listing system is integrated so prices, photos, and availability status are always current.',
+        answer:
+          'Use dynamic QR codes linked to your DMS (Dealer Management System) listing for each vehicle. When the price updates in the DMS, the listing page reflects the change — the QR does not need reprinting. Ensure your listing system is integrated so prices, photos, and availability status are always current.',
       },
       {
         question: 'Can a QR code on a car link directly to a finance calculator?',
-        answer: 'Yes. Link the QR to a vehicle detail page that includes an embedded finance calculator pre-populated with the vehicle\'s price. The buyer enters their deposit and preferred term and sees monthly payment estimates. This is a high-engagement feature that increases finance enquiries and time on page, both positive signals for sales conversion.',
+        answer:
+          "Yes. Link the QR to a vehicle detail page that includes an embedded finance calculator pre-populated with the vehicle's price. The buyer enters their deposit and preferred term and sees monthly payment estimates. This is a high-engagement feature that increases finance enquiries and time on page, both positive signals for sales conversion.",
       },
       {
         question: 'Is it worth using QR codes on used vehicle photos in online listings?',
-        answer: 'Not in the photos themselves — the QR would be photographed as part of the image. QR codes belong on physical assets. For online listings, standard clickable links are more effective. QR codes add value in offline contexts: forecourt signage, printed vehicle brochures, automotive magazine ads, and point-of-sale materials.',
+        answer:
+          'Not in the photos themselves — the QR would be photographed as part of the image. QR codes belong on physical assets. For online listings, standard clickable links are more effective. QR codes add value in offline contexts: forecourt signage, printed vehicle brochures, automotive magazine ads, and point-of-sale materials.',
       },
     ]
   ),
@@ -110,11 +113,14 @@ Automated follow-up sequences increase test-drive-to-appointment show rate by 15
     [
       {
         question: 'Should we capture driving licence details via QR before a test drive?',
-        answer: 'Capturing driving licence details beforehand reduces admin time on arrival. However, requiring it as a mandatory step before booking adds friction and may reduce booking conversion. Best practice: make it optional at booking ("Upload your licence to save time on the day") and handle mandatory verification in person at the dealership.',
+        answer:
+          'Capturing driving licence details beforehand reduces admin time on arrival. However, requiring it as a mandatory step before booking adds friction and may reduce booking conversion. Best practice: make it optional at booking ("Upload your licence to save time on the day") and handle mandatory verification in person at the dealership.',
       },
       {
-        question: 'Can QR test drive booking work for online enquiries as well as forecourt visits?',
-        answer: 'Yes. The same test drive booking page linked from the QR can also be linked from the vehicle listing on your website, AutoTrader, or Motors. A unified booking system with one page handles both online and offline enquiries, simplifying management and ensuring consistent follow-up regardless of where the interest originated.',
+        question:
+          'Can QR test drive booking work for online enquiries as well as forecourt visits?',
+        answer:
+          'Yes. The same test drive booking page linked from the QR can also be linked from the vehicle listing on your website, AutoTrader, or Motors. A unified booking system with one page handles both online and offline enquiries, simplifying management and ensuring consistent follow-up regardless of where the interest originated.',
       },
     ]
   ),
@@ -157,12 +163,16 @@ Proactive transparency also reduces post-sale disputes and potential Trading Sta
     `,
     [
       {
-        question: 'Does displaying an HPI check via QR create any legal obligation for the dealership?',
-        answer: 'The HPI check is evidence at a point in time. Ensure the date of the check is clearly displayed and that buyers understand it represents the status at that date, not an ongoing guarantee. Your sale documentation should still include standard consumer protection disclosures. Displaying the check proactively demonstrates good faith and typically supports the dealer in consumer disputes.',
+        question:
+          'Does displaying an HPI check via QR create any legal obligation for the dealership?',
+        answer:
+          'The HPI check is evidence at a point in time. Ensure the date of the check is clearly displayed and that buyers understand it represents the status at that date, not an ongoing guarantee. Your sale documentation should still include standard consumer protection disclosures. Displaying the check proactively demonstrates good faith and typically supports the dealer in consumer disputes.',
       },
       {
-        question: 'What if the vehicle history shows a previous minor accident? Should we still show it via QR?',
-        answer: 'Yes. Disclosing known history proactively protects the dealer legally and builds trust. Suppressing information that is available in public records (MOT advisories, Category S markers) creates much larger liability if discovered post-sale. Frame the disclosure contextually: "This vehicle has a Category S marker — it has been professionally repaired and independently inspected as follows..."',
+        question:
+          'What if the vehicle history shows a previous minor accident? Should we still show it via QR?',
+        answer:
+          'Yes. Disclosing known history proactively protects the dealer legally and builds trust. Suppressing information that is available in public records (MOT advisories, Category S markers) creates much larger liability if discovered post-sale. Frame the disclosure contextually: "This vehicle has a Category S marker — it has been professionally repaired and independently inspected as follows..."',
       },
     ]
   ),
@@ -214,11 +224,13 @@ Position the QR in the lower-right quadrant of the sticker. This is below the ke
     [
       {
         question: 'How do we update QR window stickers when vehicle prices change?',
-        answer: 'Use dynamic QR codes per vehicle. The sticker does not need reprinting — update the listing page price in your DMS. If you use static QR codes, a price change requires a new sticker. For dealerships managing 50+ vehicles, the admin of reprinting static-QR stickers for every price change is significant — dynamic QR is strongly recommended.',
+        answer:
+          'Use dynamic QR codes per vehicle. The sticker does not need reprinting — update the listing page price in your DMS. If you use static QR codes, a price change requires a new sticker. For dealerships managing 50+ vehicles, the admin of reprinting static-QR stickers for every price change is significant — dynamic QR is strongly recommended.',
       },
       {
         question: 'Can window sticker QR codes survive a car wash?',
-        answer: 'Polypropylene and polyester vinyl stickers with UV overlaminate survive automated car washes without damage to the printed QR. Standard paper labels with inkjet printing do not survive moisture. If your stickers must survive washing, specify waterproof material and check with your print supplier. Always test scan after a wash before relying on the result.',
+        answer:
+          'Polypropylene and polyester vinyl stickers with UV overlaminate survive automated car washes without damage to the printed QR. Standard paper labels with inkjet printing do not survive moisture. If your stickers must survive washing, specify waterproof material and check with your print supplier. Always test scan after a wash before relying on the result.',
       },
     ]
   ),
@@ -278,16 +290,21 @@ QRs throughout the showroom:
     `,
     [
       {
-        question: 'How do automotive manufacturers track QR performance across multiple dealerships?',
-        answer: 'Manufacturer-level tracking uses a central link management platform that assigns unique QR codes to each dealership and campaign. Scan data aggregates centrally, showing performance by dealership, region, campaign, and channel. This data informs dealer incentive programs, media planning, and model allocation decisions.',
+        question:
+          'How do automotive manufacturers track QR performance across multiple dealerships?',
+        answer:
+          'Manufacturer-level tracking uses a central link management platform that assigns unique QR codes to each dealership and campaign. Scan data aggregates centrally, showing performance by dealership, region, campaign, and channel. This data informs dealer incentive programs, media planning, and model allocation decisions.',
       },
       {
-        question: 'What is the best time to send a QR-linked direct mail piece for automotive campaigns?',
-        answer: 'Research consistently shows Tuesday–Thursday mail delivery generates the highest response rates for automotive direct mail. Time campaigns to arrive 2–4 weeks before a plate change month (March and September in the UK) when buyer motivation and trade-in interest peaks. Personalise based on the recipient\'s vehicle age — targeting owners of 3–5 year old vehicles maximises upgrade intent.',
+        question:
+          'What is the best time to send a QR-linked direct mail piece for automotive campaigns?',
+        answer:
+          "Research consistently shows Tuesday–Thursday mail delivery generates the highest response rates for automotive direct mail. Time campaigns to arrive 2–4 weeks before a plate change month (March and September in the UK) when buyer motivation and trade-in interest peaks. Personalise based on the recipient's vehicle age — targeting owners of 3–5 year old vehicles maximises upgrade intent.",
       },
       {
         question: 'Can QR codes on automotive packaging (car covers, accessories) provide value?',
-        answer: 'Yes. A QR on accessory packaging can link to installation videos, compatibility guides, care instructions, and warranty registration. This reduces returns caused by incorrect installation and improves customer satisfaction. Accessory packaging QRs also provide a low-cost touchpoint for upselling complementary products and extending the brand relationship post-sale.',
+        answer:
+          'Yes. A QR on accessory packaging can link to installation videos, compatibility guides, care instructions, and warranty registration. This reduces returns caused by incorrect installation and improves customer satisfaction. Accessory packaging QRs also provide a low-cost touchpoint for upselling complementary products and extending the brand relationship post-sale.',
       },
     ]
   ),

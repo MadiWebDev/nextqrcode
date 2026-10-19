@@ -30,7 +30,7 @@ export default function QRSizeCalculatorPage() {
   // Calculation formulas:
   // Baseline ratio: 10:1 (distance:size)
   // Suboptimal lighting or high density: 8:1
-  const ratio = (lightingCondition === 'suboptimal' || dataDensity === 'high') ? 8 : 10;
+  const ratio = lightingCondition === 'suboptimal' || dataDensity === 'high' ? 8 : 10;
 
   // Convert distance to centimeters
   const distanceCm = distanceUnit === 'meters' ? distance * 100 : distance * 30.48;
@@ -51,19 +51,23 @@ export default function QRSizeCalculatorPage() {
   const faqs = [
     {
       question: 'What is the standard scan-distance-to-size ratio for QR codes?',
-      answer: 'The universal optical rule of thumb is a 10:1 ratio. For every 10 units of scanning distance, the QR code should measure at least 1 unit in width (e.g., 100 cm distance requires a 10 cm wide QR code). Under low light or high data density, use an 8:1 ratio.',
+      answer:
+        'The universal optical rule of thumb is a 10:1 ratio. For every 10 units of scanning distance, the QR code should measure at least 1 unit in width (e.g., 100 cm distance requires a 10 cm wide QR code). Under low light or high data density, use an 8:1 ratio.',
     },
     {
       question: 'What is the absolute minimum physical size for a printed QR code?',
-      answer: 'For handheld materials (business cards, product labels) scanned from 15 to 20 cm away, the absolute minimum size is 20 x 20 mm (0.8 x 0.8 inches). Anything smaller risks optical focus failure on budget smartphones.',
+      answer:
+        'For handheld materials (business cards, product labels) scanned from 15 to 20 cm away, the absolute minimum size is 20 x 20 mm (0.8 x 0.8 inches). Anything smaller risks optical focus failure on budget smartphones.',
     },
     {
       question: 'Does the amount of data in the QR code change the required size?',
-      answer: 'Yes. As payload length increases (such as long URLs with UTM parameters or full vCards), the QR code adds more rows and columns (modules). More modules mean each individual square is smaller, requiring a larger overall print size to scan reliably.',
+      answer:
+        'Yes. As payload length increases (such as long URLs with UTM parameters or full vCards), the QR code adds more rows and columns (modules). More modules mean each individual square is smaller, requiring a larger overall print size to scan reliably.',
     },
     {
       question: 'How large should a QR code be on a highway billboard?',
-      answer: 'A billboard intended to be scanned from 25 meters away requires a QR code at least 2.5 meters (approx. 8.2 feet) wide. However, never place QR codes targeting drivers moving at high speeds due to severe road safety hazards.',
+      answer:
+        'A billboard intended to be scanned from 25 meters away requires a QR code at least 2.5 meters (approx. 8.2 feet) wide. However, never place QR codes targeting drivers moving at high speeds due to severe road safety hazards.',
     },
   ];
 
@@ -95,8 +99,14 @@ export default function QRSizeCalculatorPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
 
       <Breadcrumbs
         items={[
@@ -114,7 +124,8 @@ export default function QRSizeCalculatorPage() {
           QR Code Size and Scan-Distance Calculator
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Determine the mathematically optimal print dimensions for posters, packaging, table tents, and billboards based on camera sensor physics, viewing distance, and ambient lighting.
+          Determine the mathematically optimal print dimensions for posters, packaging, table tents,
+          and billboards based on camera sensor physics, viewing distance, and ambient lighting.
         </p>
       </header>
 
@@ -205,7 +216,7 @@ export default function QRSizeCalculatorPage() {
                   <button
                     key={item.id}
                     type="button"
-                    onClick={() => setDataDensity(item.id as any)}
+                    onClick={() => setDataDensity(item.id as 'low' | 'medium' | 'high')}
                     className={`p-3 text-left rounded-xl border text-xs transition-all ${
                       dataDensity === item.id
                         ? 'border-primary bg-primary/5 text-primary font-semibold'
@@ -235,7 +246,9 @@ export default function QRSizeCalculatorPage() {
                   }`}
                 >
                   <div className="text-foreground">Optimal (10:1 Ratio)</div>
-                  <div className="text-[10px] text-muted-foreground">Bright indoor or clear daylight</div>
+                  <div className="text-[10px] text-muted-foreground">
+                    Bright indoor or clear daylight
+                  </div>
                 </button>
                 <button
                   type="button"
@@ -247,7 +260,9 @@ export default function QRSizeCalculatorPage() {
                   }`}
                 >
                   <div className="text-foreground">Dim / Harsh Glare (8:1 Ratio)</div>
-                  <div className="text-[10px] text-muted-foreground">Bar, subway, reflective glass</div>
+                  <div className="text-[10px] text-muted-foreground">
+                    Bar, subway, reflective glass
+                  </div>
                 </button>
               </div>
             </div>
@@ -294,7 +309,9 @@ export default function QRSizeCalculatorPage() {
               </div>
               <div className="flex justify-between py-1.5 border-b border-border/50">
                 <span className="text-muted-foreground">Estimated Module Size ($W_m$):</span>
-                <span className={`font-semibold ${individualModuleMm < 0.35 ? 'text-amber-600' : 'text-foreground'}`}>
+                <span
+                  className={`font-semibold ${individualModuleMm < 0.35 ? 'text-amber-600' : 'text-foreground'}`}
+                >
                   {individualModuleMm.toFixed(2)} mm
                 </span>
               </div>
@@ -310,7 +327,8 @@ export default function QRSizeCalculatorPage() {
               <div className="rounded-lg bg-amber-500/10 border border-amber-500/30 p-3 text-xs text-amber-800 dark:text-amber-300 flex items-start gap-2">
                 <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
                 <span>
-                  Warning: Individual modules are below 0.35mm. Some budget camera sensors will fail to focus. Increase physical size.
+                  Warning: Individual modules are below 0.35mm. Some budget camera sensors will fail
+                  to focus. Increase physical size.
                 </span>
               </div>
             )}
@@ -336,42 +354,85 @@ export default function QRSizeCalculatorPage() {
           How to Calculate the Exact Physical Print Size for Any QR Code
         </h2>
         <p className="text-base leading-relaxed">
-          The most prevalent reason a printed QR code fails in the real world is improper optical scaling. Unlike human eyes that can adjust focus and interpret context, mobile camera sensors depend on physical pixel coverage across each discrete module of the matrix. If a user cannot comfortably stand close enough to cover the sensor’s focal threshold, the image binarization algorithm will register the code as ambient visual noise.
+          The most prevalent reason a printed QR code fails in the real world is improper optical
+          scaling. Unlike human eyes that can adjust focus and interpret context, mobile camera
+          sensors depend on physical pixel coverage across each discrete module of the matrix. If a
+          user cannot comfortably stand close enough to cover the sensor’s focal threshold, the
+          image binarization algorithm will register the code as ambient visual noise.
         </p>
 
-        <h3 className="text-xl font-semibold text-foreground">
-          The 10:1 Ratio Rule Explained
-        </h3>
+        <h3 className="text-xl font-semibold text-foreground">The 10:1 Ratio Rule Explained</h3>
         <p className="text-base leading-relaxed">
-          In typical commercial environments, the standard optical baseline is the <strong>10:1 scanning ratio</strong>. This means the scanning distance should not exceed 10 times the width of the printed QR code. For instance:
+          In typical commercial environments, the standard optical baseline is the{' '}
+          <strong>10:1 scanning ratio</strong>. This means the scanning distance should not exceed
+          10 times the width of the printed QR code. For instance:
         </p>
         <ul className="list-disc pl-6 space-y-2 text-sm">
-          <li><strong>Tabletop Restaurant Menus (scan distance 30 cm):</strong> Minimum width = 3.0 cm (1.2 inches).</li>
-          <li><strong>Eye-Level A4 Posters & Flyers (scan distance 1.2 meters):</strong> Minimum width = 12 cm (4.7 inches).</li>
-          <li><strong>Storefront Window Signage (scan distance 3 meters):</strong> Minimum width = 30 cm (11.8 inches).</li>
-          <li><strong>Elevated Trade Show Banners (scan distance 6 meters):</strong> Minimum width = 60 cm (23.6 inches).</li>
+          <li>
+            <strong>Tabletop Restaurant Menus (scan distance 30 cm):</strong> Minimum width = 3.0 cm
+            (1.2 inches).
+          </li>
+          <li>
+            <strong>Eye-Level A4 Posters & Flyers (scan distance 1.2 meters):</strong> Minimum width
+            = 12 cm (4.7 inches).
+          </li>
+          <li>
+            <strong>Storefront Window Signage (scan distance 3 meters):</strong> Minimum width = 30
+            cm (11.8 inches).
+          </li>
+          <li>
+            <strong>Elevated Trade Show Banners (scan distance 6 meters):</strong> Minimum width =
+            60 cm (23.6 inches).
+          </li>
         </ul>
 
         <h3 className="text-xl font-semibold text-foreground">
           When to Use the Conservative 8:1 Ratio
         </h3>
         <p className="text-base leading-relaxed">
-          The 10:1 ratio assumes optimal conditions: a clean camera lens, direct daylight or 400+ lux illumination, a high-contrast black-on-white substrate, and a low-density payload (such as a 25-character URL). You should immediately scale up to the conservative <strong>8:1 ratio</strong> when:
+          The 10:1 ratio assumes optimal conditions: a clean camera lens, direct daylight or 400+
+          lux illumination, a high-contrast black-on-white substrate, and a low-density payload
+          (such as a 25-character URL). You should immediately scale up to the conservative{' '}
+          <strong>8:1 ratio</strong> when:
         </p>
         <ol className="list-decimal pl-6 space-y-2 text-sm">
-          <li>The QR code is placed behind glass or acrylic, which creates specular reflection and glare.</li>
-          <li>The lighting is dim, such as in cocktail lounges, nightclubs, or underground transit stations.</li>
-          <li>The payload contains a dense vCard or long URL containing multiple UTM tracking strings.</li>
-          <li>The QR code incorporates a custom logo in the center, which reduces available error correction headroom.</li>
+          <li>
+            The QR code is placed behind glass or acrylic, which creates specular reflection and
+            glare.
+          </li>
+          <li>
+            The lighting is dim, such as in cocktail lounges, nightclubs, or underground transit
+            stations.
+          </li>
+          <li>
+            The payload contains a dense vCard or long URL containing multiple UTM tracking strings.
+          </li>
+          <li>
+            The QR code incorporates a custom logo in the center, which reduces available error
+            correction headroom.
+          </li>
         </ol>
 
         <h3 className="text-xl font-semibold text-foreground">
           Common Sizing Mistakes That Destroy Scannability
         </h3>
         <ul className="list-disc pl-6 space-y-2 text-sm">
-          <li><strong>Cropping the Quiet Zone:</strong> The white margin around the QR code must be at least 4 modules wide. Cropping this border so that graphic design elements or photos touch the finder pattern squares causes instant scan failure.</li>
-          <li><strong>Exporting as 72 DPI Raster JPG:</strong> When a low-resolution JPG is enlarged for print, JPEG compression introduces ringing artifacts around high-contrast edges. Always export as vector SVG or 300+ DPI PNG.</li>
-          <li><strong>Ignoring Phone Camera Minimal Focal Distance:</strong> Most modern smartphones cannot focus on objects closer than 8 to 10 cm without switching to specialized macro modes. Printing a microscopic 10 mm QR code forces users into the camera's blur zone.</li>
+          <li>
+            <strong>Cropping the Quiet Zone:</strong> The white margin around the QR code must be at
+            least 4 modules wide. Cropping this border so that graphic design elements or photos
+            touch the finder pattern squares causes instant scan failure.
+          </li>
+          <li>
+            <strong>Exporting as 72 DPI Raster JPG:</strong> When a low-resolution JPG is enlarged
+            for print, JPEG compression introduces ringing artifacts around high-contrast edges.
+            Always export as vector SVG or 300+ DPI PNG.
+          </li>
+          <li>
+            <strong>Ignoring Phone Camera Minimal Focal Distance:</strong> Most modern smartphones
+            cannot focus on objects closer than 8 to 10 cm without switching to specialized macro
+            modes. Printing a microscopic 10 mm QR code forces users into the camera&apos;s blur
+            zone.
+          </li>
         </ul>
       </article>
 

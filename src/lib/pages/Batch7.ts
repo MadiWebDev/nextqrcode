@@ -38,8 +38,16 @@ Scan with BHIM or any UPI-enabled bank app before printing. Confirm the payee na
 Use level M for screen display and level Q or H for printed signage.
     `,
     [
-      { question: 'Is the amount mandatory in a UPI QR?', answer: 'No. Omitting it creates a static code the customer fills in. Include it for specific invoices or order amounts.' },
-      { question: 'What is a VPA?', answer: 'A Virtual Payment Address, also called a UPI ID, such as name@bank. It routes the payment to the correct account.' },
+      {
+        question: 'Is the amount mandatory in a UPI QR?',
+        answer:
+          'No. Omitting it creates a static code the customer fills in. Include it for specific invoices or order amounts.',
+      },
+      {
+        question: 'What is a VPA?',
+        answer:
+          'A Virtual Payment Address, also called a UPI ID, such as name@bank. It routes the payment to the correct account.',
+      },
     ]
   ),
   art(
@@ -73,7 +81,11 @@ Follow the published SBP Raast QR specification for exact sub-tag numbers and le
     `,
     [
       { question: 'What currency code does Raast use?', answer: '586 for the Pakistani rupee.' },
-      { question: 'Is CRC16 required?', answer: 'Yes. Banking apps validate the checksum and will reject a code with an incorrect value.' },
+      {
+        question: 'Is CRC16 required?',
+        answer:
+          'Yes. Banking apps validate the checksum and will reject a code with an incorrect value.',
+      },
     ]
   ),
   art(
@@ -108,7 +120,11 @@ DuitNow QR codes must be issued through a participating financial institution. I
 DuitNow is interoperable with other ASEAN instant payment QR schemes including Singapore PayNow, Thailand PromptPay, and the Philippines InstaPay, under the ASEAN cross-border payment framework.
     `,
     [
-      { question: 'Can anyone generate a DuitNow QR code?', answer: 'Merchants must register through a participating bank. Self-generated payloads will not link to a verified account.' },
+      {
+        question: 'Can anyone generate a DuitNow QR code?',
+        answer:
+          'Merchants must register through a participating bank. Self-generated payloads will not link to a verified account.',
+      },
       { question: 'What currency code does DuitNow use?', answer: '458 for Malaysian ringgit.' },
     ]
   ),
@@ -139,7 +155,10 @@ NQR works with mobile banking apps and licensed payment apps. The consumer scans
     `,
     [
       { question: 'What currency code does NQR use?', answer: '566 for the Nigerian naira.' },
-      { question: 'Can I generate an NQR code manually?', answer: 'No. NQR codes must be issued through a NIBSS-certified financial institution.' },
+      {
+        question: 'Can I generate an NQR code manually?',
+        answer: 'No. NQR codes must be issued through a NIBSS-certified financial institution.',
+      },
     ]
   ),
   art(
@@ -173,7 +192,10 @@ Dynamic PayNow QR codes include an amount and a reference so the payer's bank pr
     `,
     [
       { question: 'What currency code does PayNow use?', answer: '702 for the Singapore dollar.' },
-      { question: 'Can tourists pay with PayNow from their home banking app?', answer: 'Yes, under the ASEAN cross-border QR framework, if their bank participates.' },
+      {
+        question: 'Can tourists pay with PayNow from their home banking app?',
+        answer: 'Yes, under the ASEAN cross-border QR framework, if their bank participates.',
+      },
     ]
   ),
   art(
@@ -208,8 +230,15 @@ The customer scans with the M-Pesa app or the Safaricom app. The app pre-fills t
 Print the till number and paybill in plain text beside the code so customers who prefer to type can still pay.
     `,
     [
-      { question: 'Can I scan an M-Pesa QR with a generic QR reader?', answer: 'The code is technically a standard QR, but the payload is processed only by M-Pesa-compatible apps.' },
-      { question: 'Do I need to register to get a merchant QR?', answer: 'Yes. Register as a Lipa na M-Pesa merchant through Safaricom or your bank.' },
+      {
+        question: 'Can I scan an M-Pesa QR with a generic QR reader?',
+        answer:
+          'The code is technically a standard QR, but the payload is processed only by M-Pesa-compatible apps.',
+      },
+      {
+        question: 'Do I need to register to get a merchant QR?',
+        answer: 'Yes. Register as a Lipa na M-Pesa merchant through Safaricom or your bank.',
+      },
     ]
   ),
   art(
@@ -238,8 +267,16 @@ STC Pay is a Telco-backed wallet. Merchants display an STC Pay QR and consumers 
 For any Saudi payment QR deployment, obtain the QR through the acquiring bank or payment service provider. Self-generated codes that mimic the payload format may not route correctly. Verify by scanning in the target app before going live.
     `,
     [
-      { question: 'Are Saudi payment QR codes based on EMV?', answer: 'Yes. mada and other SAMA-regulated schemes follow the EMVCo merchant-presented QR framework.' },
-      { question: 'Can a merchant generate their own mada QR?', answer: 'No. The QR must be issued by a certified acquirer linked to the merchants registered account.' },
+      {
+        question: 'Are Saudi payment QR codes based on EMV?',
+        answer:
+          'Yes. mada and other SAMA-regulated schemes follow the EMVCo merchant-presented QR framework.',
+      },
+      {
+        question: 'Can a merchant generate their own mada QR?',
+        answer:
+          'No. The QR must be issued by a certified acquirer linked to the merchants registered account.',
+      },
     ]
   ),
   art(
@@ -268,8 +305,16 @@ Merchants apply through their acquiring bank or JPQR-participating payment servi
 Participation varies by app and region. Not every Japanese payment service supports JPQR. Check the current list of enrolled providers before promising full coverage to customers.
     `,
     [
-      { question: 'Does JPQR work with all Japanese payment apps?', answer: 'Only participating apps. Coverage is broad but not universal. Check the enrolled provider list.' },
-      { question: 'Is JPQR based on a standard protocol?', answer: 'The payload uses a URL scheme that enrolled apps resolve. The underlying QR is a standard Model 2 symbol.' },
+      {
+        question: 'Does JPQR work with all Japanese payment apps?',
+        answer:
+          'Only participating apps. Coverage is broad but not universal. Check the enrolled provider list.',
+      },
+      {
+        question: 'Is JPQR based on a standard protocol?',
+        answer:
+          'The payload uses a URL scheme that enrolled apps resolve. The underlying QR is a standard Model 2 symbol.',
+      },
     ]
   ),
   art(
@@ -299,8 +344,15 @@ A simple version: each scan adds a stamp entry in a database; no NFC or app need
 For small businesses, a campaign QR linking to a web form with the customer's email can substitute for a full loyalty app. Keep the form short and the reward clear.
     `,
     [
-      { question: 'Can a screenshot be used to cheat a loyalty QR?', answer: 'Yes, if the code is static. Use a rotating token or sign the payload with a timestamp to prevent replay.' },
-      { question: 'Do I need a mobile app for a QR loyalty program?', answer: 'No. A web-based flow with email or phone authentication can work without an app.' },
+      {
+        question: 'Can a screenshot be used to cheat a loyalty QR?',
+        answer:
+          'Yes, if the code is static. Use a rotating token or sign the payload with a timestamp to prevent replay.',
+      },
+      {
+        question: 'Do I need a mobile app for a QR loyalty program?',
+        answer: 'No. A web-based flow with email or phone authentication can work without an app.',
+      },
     ]
   ),
   art(
@@ -329,8 +381,16 @@ Offline-verified tokens cannot be instantly revoked. For high-value access, requ
 Show the QR on a screen that refreshes periodically, with a clear expiry indicator so subscribers do not present an expired code.
     `,
     [
-      { question: 'How do I revoke access if a subscription is cancelled?', answer: 'Online check mode revokes instantly. Offline signed tokens cannot be revoked until they expire, so use short expiry windows.' },
-      { question: 'Can a subscriber share their QR code?', answer: 'They can share a screenshot, but a rotating token limits its useful life. Biometric confirmation adds another layer.' },
+      {
+        question: 'How do I revoke access if a subscription is cancelled?',
+        answer:
+          'Online check mode revokes instantly. Offline signed tokens cannot be revoked until they expire, so use short expiry windows.',
+      },
+      {
+        question: 'Can a subscriber share their QR code?',
+        answer:
+          'They can share a screenshot, but a rotating token limits its useful life. Biometric confirmation adds another layer.',
+      },
     ]
   ),
 ];

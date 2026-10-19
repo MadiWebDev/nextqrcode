@@ -10,10 +10,7 @@ export async function POST(req: NextRequest) {
     const mediaType = (formData.get('type') as string) || 'auto';
 
     if (!file) {
-      return NextResponse.json(
-        { success: false, error: 'No file provided' },
-        { status: 400 }
-      );
+      return NextResponse.json({ success: false, error: 'No file provided' }, { status: 400 });
     }
 
     // Determine resource type for Cloudinary

@@ -28,7 +28,9 @@ export default function WhatsAppHubPage() {
           WhatsApp QR Code Generators by Country
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Select your destination country to generate ITU-T E.164 compliant WhatsApp QR codes. Automatic national prefix validation, domestic zero-stripping, and native pre-filled message templates for local business & customer service.
+          Select your destination country to generate ITU-T E.164 compliant WhatsApp QR codes.
+          Automatic national prefix validation, domestic zero-stripping, and native pre-filled
+          message templates for local business & customer service.
         </p>
       </header>
 
@@ -54,9 +56,7 @@ export default function WhatsAppHubPage() {
               </div>
 
               <h2 className="font-bold text-xl text-foreground group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-snug mb-2">
-                <Link href={`/whatsapp-qr/${country.slug}`}>
-                  WhatsApp QR {country.name}
-                </Link>
+                <Link href={`/whatsapp-qr/${country.slug}`}>WhatsApp QR {country.name}</Link>
               </h2>
 
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-4">

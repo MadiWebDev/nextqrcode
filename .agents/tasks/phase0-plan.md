@@ -134,6 +134,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   - **Section: Get in Touch** (~30 words): link to `/contact`.
 
   **Metadata**:
+
   ```tsx
   title: 'About QR Studio — Privacy-First QR Code Tools by codexengr',
   description: 'Learn about QR Studio: a free, privacy-first QR code tool suite built by codexengr. All processing is in your browser — no sign-up, no data collection.',
@@ -173,6 +174,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   - Section "What to Include": for bug reports — browser, OS, QR type, steps to reproduce. For feature requests — describe the use case, not just the feature.
 
   **Metadata**:
+
   ```tsx
   title: 'Contact QR Studio — Bug Reports, Feature Requests & Feedback',
   description: 'Get in touch with the QR Studio team. Report bugs, request features, or ask questions about QR codes, payment specs, or privacy.',
@@ -205,6 +207,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   11. **Contact** — privacy@freeqrcode.tools.
 
   **Metadata**:
+
   ```tsx
   title: 'Privacy Policy — QR Studio',
   description: 'QR Studio privacy policy. Learn how we handle your data, our use of Google AdSense, your GDPR rights, and cookie usage.',
@@ -239,6 +242,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   **Table styling**: `w-full text-sm border-collapse`. `<th>`: `text-left font-semibold p-2 border-b border-border`. `<td>`: `p-2 border-b border-border/50 text-muted-foreground`. Wrap in `overflow-x-auto` div.
 
   **Metadata**:
+
   ```tsx
   title: 'Cookie Policy — QR Studio',
   description: 'Full cookie policy for QR Studio. Learn which cookies we use, why, and how to control or disable them.',
@@ -268,6 +272,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   8. **Contact** — legal@freeqrcode.tools.
 
   **Metadata**:
+
   ```tsx
   title: 'Disclaimer — QR Studio',
   description: 'Read the QR Studio disclaimer covering medical ID tools, payment QR codes, external links, and advertising.',
@@ -299,6 +304,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   10. **Contact** — legal@freeqrcode.tools.
 
   **Metadata**:
+
   ```tsx
   title: 'Terms of Service — QR Studio',
   description: 'QR Studio terms of service. Read our acceptable use policy, intellectual property terms, liability limits, and governing law.',
@@ -326,6 +332,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   **Styling**: H1 + category H2s with the standard style rules. Each `<li>`: `<Link className="text-primary hover:underline text-sm">` showing the page title.
 
   **Metadata**:
+
   ```tsx
   title: 'Sitemap — QR Studio',
   description: 'Browse all pages and tools on QR Studio.',
@@ -346,6 +353,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   **What**: Create `public/ads.txt` with a comment placeholder so the file exists and is served at `/ads.txt`. Google AdSense requires this file when applying for approval. The actual publisher ID is filled in after AdSense approval.
 
   **Content**:
+
   ```
   # ads.txt placeholder — replace with your AdSense publisher line after approval.
   # Format: google.com, pub-XXXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
@@ -388,6 +396,7 @@ Every non-home page must include a BreadcrumbList JSON-LD `<script>` block (inli
   **What**: The existing `disallow: ['/api/']` is correct. Ads.txt lives in `public/` and is never under `/api/`, so it is already allowed. The only change needed: add explicit `allow: '/ads.txt'` to be unambiguous, and ensure the sitemap URL is still correct.
 
   **New content**:
+
   ```ts
   rules: [
     { userAgent: '*', allow: '/', disallow: ['/api/'] },
@@ -426,6 +435,7 @@ npm run lint
 ```
 
 Both must pass with zero errors. Then start dev server and manually verify:
+
 - Header dropdown opens with all 9 tool links
 - Mobile menu works at 320px
 - Footer renders with all four columns

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About QR Code Tools — Built by codexengr | Free Browser-Based QR Tools',
@@ -33,7 +34,7 @@ export default function AboutPage() {
     {
       question: 'What QR code size should I print?',
       answer:
-        'A good rule of thumb is a minimum of 2 cm × 2 cm for indoor scanning at arm\'s length. For billboards or large-format print, use our QR Size Calculator to compute the exact dimensions based on your viewing distance and error-correction level.',
+        "A good rule of thumb is a minimum of 2 cm × 2 cm for indoor scanning at arm's length. For billboards or large-format print, use our QR Size Calculator to compute the exact dimensions based on your viewing distance and error-correction level.",
     },
     {
       question: 'Does QR Code Tools work offline?',
@@ -75,9 +76,15 @@ export default function AboutPage() {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
         <ol className="flex items-center gap-1.5">
-          <li><a href="/" className="hover:text-foreground transition-colors">Home</a></li>
+          <li>
+            <Link href="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
+          </li>
           <li aria-hidden="true">›</li>
-          <li aria-current="page" className="text-foreground">About</li>
+          <li aria-current="page" className="text-foreground">
+            About
+          </li>
         </ol>
       </nav>
 
@@ -95,9 +102,9 @@ export default function AboutPage() {
           <p className="font-semibold text-foreground text-lg">codexengr</p>
           <p className="text-sm text-muted-foreground mb-2">Developer &amp; Designer</p>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            I build tools that respect your privacy. QR Code Tools started as a personal project after
-            frustration with paywalled generators that upload your data to servers you don&apos;t control.
-            The goal was simple: every feature, free, in the browser, forever.
+            I build tools that respect your privacy. QR Code Tools started as a personal project
+            after frustration with paywalled generators that upload your data to servers you
+            don&apos;t control. The goal was simple: every feature, free, in the browser, forever.
           </p>
         </div>
       </div>
@@ -107,27 +114,28 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">Our Story</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            QR Code Tools began out of genuine frustration. Every QR generator I tried in 2023 fell into
-            one of three traps: a hard paywall for basic features like SVG export or transparent
-            backgrounds, a mandatory sign-up that was really just an email harvesting exercise, or —
-            most concerning — server-side generation that sent every WiFi password, personal contact,
-            and payment reference to a third-party server you had never agreed to trust. For a tool
-            handling data as sensitive as that, those choices felt wrong.
+            QR Code Tools began out of genuine frustration. Every QR generator I tried in 2023 fell
+            into one of three traps: a hard paywall for basic features like SVG export or
+            transparent backgrounds, a mandatory sign-up that was really just an email harvesting
+            exercise, or — most concerning — server-side generation that sent every WiFi password,
+            personal contact, and payment reference to a third-party server you had never agreed to
+            trust. For a tool handling data as sensitive as that, those choices felt wrong.
           </p>
           <p>
             The first version was a weekend project. I wanted to prove that a fully capable QR
             generator — custom colours, dot styles, eye shapes, logo embedding, multiple formats —
-            could be built entirely client-side without any compromises on quality. The <code>qrcode</code>{' '}
-            library handles the low-level matrix generation; everything else — styling, rendering,
-            export — is handled by the browser. No server receives any input data, ever.
+            could be built entirely client-side without any compromises on quality. The{' '}
+            <code>qrcode</code> library handles the low-level matrix generation; everything else —
+            styling, rendering, export — is handled by the browser. No server receives any input
+            data, ever.
           </p>
           <p>
             Since that first version, QR Code Tools has grown to cover 40+ QR types and serve users
             internationally. The tools now include region-specific payment formats (UPI for India;
             Raast, JazzCash, and Easypaisa for Pakistan), multilingual WiFi sign generators with RTL
-            support for Urdu and Arabic, bulk vCard generation for teams, and specialised formats like
-            emergency medical ID cards and pet tag QR codes. Every new tool follows the same rule: if
-            it touches your data, it stays in your browser.
+            support for Urdu and Arabic, bulk vCard generation for teams, and specialised formats
+            like emergency medical ID cards and pet tag QR codes. Every new tool follows the same
+            rule: if it touches your data, it stays in your browser.
           </p>
         </div>
       </section>
@@ -138,15 +146,16 @@ export default function AboutPage() {
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
             The web works best when powerful tools are freely accessible to everyone — not gated
-            behind subscriptions or monetised through surveillance. QR Code Tools&apos;s mission is to
-            maintain a genuinely free, genuinely private QR toolset that professionals, small
+            behind subscriptions or monetised through surveillance. QR Code Tools&apos;s mission is
+            to maintain a genuinely free, genuinely private QR toolset that professionals, small
             businesses, students, and individuals can rely on without compromising their data.
           </p>
           <p>
             Privacy-first means more than a checkbox in a settings panel. It means the architecture
             itself makes data collection structurally impossible: there is no backend service to log
-            your inputs, no analytics SDK phoning home with your content, no account system to breach.
-            No registration is required for any tool on this site, and that will never change.
+            your inputs, no analytics SDK phoning home with your content, no account system to
+            breach. No registration is required for any tool on this site, and that will never
+            change.
           </p>
         </div>
       </section>
@@ -156,10 +165,11 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold mb-4 text-foreground">How It Works — Technology</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            QR Code Tools is built on Next.js 16 App Router with React 19 and TypeScript. The UI layer
-            uses Tailwind CSS v4 (with CSS custom-property design tokens) and shadcn/ui for accessible,
-            composable components. All QR generation uses the open-source <code>qrcode</code> npm
-            package, running entirely inside a browser JavaScript context — not on any server.
+            QR Code Tools is built on Next.js 16 App Router with React 19 and TypeScript. The UI
+            layer uses Tailwind CSS v4 (with CSS custom-property design tokens) and shadcn/ui for
+            accessible, composable components. All QR generation uses the open-source{' '}
+            <code>qrcode</code> npm package, running entirely inside a browser JavaScript context —
+            not on any server.
           </p>
           <p>
             There is no backend QR generation API. When you configure a QR code and click download,
@@ -199,15 +209,16 @@ export default function AboutPage() {
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
             All QR generation happens locally in your browser. You can verify this by opening your
-            browser&apos;s network panel while generating a QR code — you will see no outbound request
-            carrying your content. The architecture enforces privacy rather than relying on policy
-            promises.
+            browser&apos;s network panel while generating a QR code — you will see no outbound
+            request carrying your content. The architecture enforces privacy rather than relying on
+            policy promises.
           </p>
           <p>
             The QR generation core uses the well-established open-source <code>qrcode</code> npm
-            package, which is maintained by the community and auditable by anyone. Payment QR formats
-            (UPI, Raast, JazzCash, Easypaisa) are implemented against each scheme&apos;s official
-            published specification, and the implementation notes are documented on each tool&apos;s page.
+            package, which is maintained by the community and auditable by anyone. Payment QR
+            formats (UPI, Raast, JazzCash, Easypaisa) are implemented against each scheme&apos;s
+            official published specification, and the implementation notes are documented on each
+            tool&apos;s page.
           </p>
           <p>
             Medical ID data encoded with our Medical ID QR tool never leaves your device under any
@@ -230,9 +241,12 @@ export default function AboutPage() {
             accessibility standards like WCAG 2.2 AA.
           </p>
           <p>
-            QR Code Tools is maintained as a solo project. Feedback, bug reports, and feature requests
-            are welcomed — see the <a href="/contact" className="text-primary hover:underline">Contact page</a> for
-            how to get in touch.
+            QR Code Tools is maintained as a solo project. Feedback, bug reports, and feature
+            requests are welcomed — see the{' '}
+            <Link href="/contact" className="text-primary hover:underline">
+              Contact page
+            </Link>{' '}
+            for how to get in touch.
           </p>
         </div>
       </section>
@@ -255,9 +269,9 @@ export default function AboutPage() {
         <h2 className="text-xl font-semibold mb-2 text-foreground">Get in Touch</h2>
         <p className="text-muted-foreground text-sm">
           Have a question, found a bug, or want to suggest a new tool?{' '}
-          <a href="/contact" className="text-primary hover:underline">
+          <Link href="/contact" className="text-primary hover:underline">
             Reach out on the Contact page
-          </a>{' '}
+          </Link>{' '}
           — we respond within 48 hours on weekdays.
         </p>
       </section>

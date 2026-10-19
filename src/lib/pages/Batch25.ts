@@ -28,8 +28,16 @@ A QR in the childminder's emergency folder links to the child's emergency contac
 A QR links to a shared communication page: upcoming holiday dates, policy documents, settling-in schedules, and any notices. Reduces individual messages and keeps information in one place.
     `,
     [
-      { question: 'Should a daily report QR be unique per child?', answer: 'Yes. Each child\'s log is private. Use unique child-specific URLs behind authentication.' },
-      { question: 'Can parents access emergency medical information via QR without logging in?', answer: 'For genuine emergencies, consider a PIN-protected view rather than a full login, so emergency services can access it quickly.' },
+      {
+        question: 'Should a daily report QR be unique per child?',
+        answer:
+          "Yes. Each child's log is private. Use unique child-specific URLs behind authentication.",
+      },
+      {
+        question: 'Can parents access emergency medical information via QR without logging in?',
+        answer:
+          'For genuine emergencies, consider a PIN-protected view rather than a full login, so emergency services can access it quickly.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ A QR provides an audio description of the exhibit for visually impaired visitors
 A QR links to a 10-minute curator video explaining the acquisition story, conservation challenges, and why this object matters to the collection. Suits visitors who want more than the label provides.
     `,
     [
-      { question: 'Should interactive museum QR pages require internet?', answer: 'Ideally not. Cache key content on the museum WiFi on first visit. Galleries with poor signal should serve content from a local network.' },
-      { question: 'Can a QR replace the museum label?', answer: 'No. The physical label serves visitors who do not or cannot scan. QR adds layers beyond what the label can carry.' },
+      {
+        question: 'Should interactive museum QR pages require internet?',
+        answer:
+          'Ideally not. Cache key content on the museum WiFi on first visit. Galleries with poor signal should serve content from a local network.',
+      },
+      {
+        question: 'Can a QR replace the museum label?',
+        answer:
+          'No. The physical label serves visitors who do not or cannot scan. QR adds layers beyond what the label can carry.',
+      },
     ]
   ),
   art(
@@ -88,8 +104,16 @@ A QR on the day's programme links to a shared photo album where parents upload t
 A QR links to the current running order, with completed events struck through and upcoming events highlighted. Helps parents plan when to return for their child's event.
     `,
     [
-      { question: 'Should parent photos require moderation before appearing in the shared album?', answer: 'Yes. A moderation step protects against inadvertent sharing of images of other children without parental consent.' },
-      { question: 'Can the results QR page work without mobile data on a sports field?', answer: 'Implement as a PWA with frequent background sync. Field connectivity varies; offline caching prevents a blank page.' },
+      {
+        question: 'Should parent photos require moderation before appearing in the shared album?',
+        answer:
+          'Yes. A moderation step protects against inadvertent sharing of images of other children without parental consent.',
+      },
+      {
+        question: 'Can the results QR page work without mobile data on a sports field?',
+        answer:
+          'Implement as a PWA with frequent background sync. Field connectivity varies; offline caching prevents a blank page.',
+      },
     ]
   ),
   art(
@@ -118,8 +142,16 @@ After a repair or remediation, the contractor scans the defect QR and uploads ph
 Major structural elements (foundations, beams, columns) carry QR labels installed during construction. Future inspectors access the original specification, inspection test records, and any subsequent assessments.
     `,
     [
-      { question: 'Should building inspection QR records be retained forever?', answer: 'Yes for structural records. Retention periods for compliance documents vary by regulation; consult your legal and compliance team.' },
-      { question: 'Can a QR label survive in a wall cavity or ceiling void?', answer: 'Use metalised polyester or stainless steel plates. Test that the QR is readable through the access hatch before sealing the space.' },
+      {
+        question: 'Should building inspection QR records be retained forever?',
+        answer:
+          'Yes for structural records. Retention periods for compliance documents vary by regulation; consult your legal and compliance team.',
+      },
+      {
+        question: 'Can a QR label survive in a wall cavity or ceiling void?',
+        answer:
+          'Use metalised polyester or stainless steel plates. Test that the QR is readable through the access hatch before sealing the space.',
+      },
     ]
   ),
   art(
@@ -148,8 +180,16 @@ A QR in the waiting area links to the clinic's gallery with appropriate before-a
 A QR on the discharge sheet links to aftercare instructions specific to the procedure performed: when to apply ice, what to avoid, when to contact the clinic, and expected timeline for swelling.
     `,
     [
-      { question: 'Is digital consent valid for medical procedures?', answer: 'In most jurisdictions yes, with an audit trail showing the patient read and signed. Confirm the requirements with your regulatory body.' },
-      { question: 'Can before-and-after photos be shared in a QR gallery without consent?', answer: 'Never. Informed written consent with image release is required. Include the consent scope and how long images will be displayed.' },
+      {
+        question: 'Is digital consent valid for medical procedures?',
+        answer:
+          'In most jurisdictions yes, with an audit trail showing the patient read and signed. Confirm the requirements with your regulatory body.',
+      },
+      {
+        question: 'Can before-and-after photos be shared in a QR gallery without consent?',
+        answer:
+          'Never. Informed written consent with image release is required. Include the consent scope and how long images will be displayed.',
+      },
     ]
   ),
   art(
@@ -178,8 +218,16 @@ A QR near the consumer unit links to a fault report form. Tenants or building us
 A QR inside the consumer unit door links to the circuit schedule: which breaker covers which circuit, amperage, and type. Reduces mistakes when isolating a circuit for work.
     `,
     [
-      { question: 'Do UK landlords need to provide tenants with the EICR?', answer: 'Yes. UK landlords must provide a copy of the current EICR to tenants on request. A QR with the certificate link satisfies this in addition to a paper copy.' },
-      { question: 'Can a QR on a consumer unit be scanned safely near live equipment?', answer: 'The QR scan is passive (camera only) and poses no electrical risk. However, always follow safe working procedures when near live equipment.' },
+      {
+        question: 'Do UK landlords need to provide tenants with the EICR?',
+        answer:
+          'Yes. UK landlords must provide a copy of the current EICR to tenants on request. A QR with the certificate link satisfies this in addition to a paper copy.',
+      },
+      {
+        question: 'Can a QR on a consumer unit be scanned safely near live equipment?',
+        answer:
+          'The QR scan is passive (camera only) and poses no electrical risk. However, always follow safe working procedures when near live equipment.',
+      },
     ]
   ),
   art(
@@ -208,8 +256,16 @@ A QR links to the public comment form. Visitors who have questions or concerns a
 A QR on a heritage redevelopment model links to historical photographs, maps, and documents about the site. Public consultation informed by heritage context produces more constructive feedback.
     `,
     [
-      { question: 'Should planning exhibition QR links require login?', answer: 'No. Public planning consultations must be accessible to all. Require login only if collecting personal details with consent for follow-up communication.' },
-      { question: 'Can a QR replace the physical model in planning consultation?', answer: 'No. Physical presence and direct engagement are important in planning. QR supplements by providing depth beyond what the model shows.' },
+      {
+        question: 'Should planning exhibition QR links require login?',
+        answer:
+          'No. Public planning consultations must be accessible to all. Require login only if collecting personal details with consent for follow-up communication.',
+      },
+      {
+        question: 'Can a QR replace the physical model in planning consultation?',
+        answer:
+          'No. Physical presence and direct engagement are important in planning. QR supplements by providing depth beyond what the model shows.',
+      },
     ]
   ),
   art(
@@ -238,8 +294,16 @@ A QR on donation signage links to the priority items list: what is most needed t
 A QR links to the food safety log: temperature records, cleaning schedules, and hygiene certification. Required by most food safety regulations and available to inspectors on request.
     `,
     [
-      { question: 'Can a community kitchen volunteer sign up via QR without an account?', answer: 'Yes. A simple form with name and phone number is sufficient for volunteer coordination at community scale.' },
-      { question: 'Are digital food safety records acceptable to health inspectors?', answer: 'In most jurisdictions yes, provided the records are complete, accurate, and accessible during inspection. Confirm with your local food safety authority.' },
+      {
+        question: 'Can a community kitchen volunteer sign up via QR without an account?',
+        answer:
+          'Yes. A simple form with name and phone number is sufficient for volunteer coordination at community scale.',
+      },
+      {
+        question: 'Are digital food safety records acceptable to health inspectors?',
+        answer:
+          'In most jurisdictions yes, provided the records are complete, accurate, and accessible during inspection. Confirm with your local food safety authority.',
+      },
     ]
   ),
   art(
@@ -268,8 +332,16 @@ A central event QR on the entrance sign links to the programme: cooking demonstr
 A QR on the exit links to a "best stall" vote and optional visitor feedback form. Results feed the organiser's next event decisions and give winners recognition.
     `,
     [
-      { question: 'Should every stall at a market have the same QR?', answer: 'No. Each vendor needs a unique QR for their own menu and allergen information. A central event QR covers the programme for all.' },
-      { question: 'Can vendors update their own menu via QR?', answer: 'Yes if you give each vendor access to a simple CMS for their menu page. Real-time updates are the main value over printed menus.' },
+      {
+        question: 'Should every stall at a market have the same QR?',
+        answer:
+          'No. Each vendor needs a unique QR for their own menu and allergen information. A central event QR covers the programme for all.',
+      },
+      {
+        question: 'Can vendors update their own menu via QR?',
+        answer:
+          'Yes if you give each vendor access to a simple CMS for their menu page. Real-time updates are the main value over printed menus.',
+      },
     ]
   ),
   art(
@@ -305,8 +377,16 @@ See the scan rate benchmarks article for placement-specific ranges. Use your fir
 For ongoing placements (restaurant menus, product packaging), review monthly. For time-limited campaigns (trade shows, promotions), review within 48 hours and adjust while the campaign is live.
     `,
     [
-      { question: 'What is a good scan rate for a product packaging QR?', answer: '1 to 5% of units sold is typical. Premium or high-engagement categories (wine, craft food, beauty) can reach 5 to 15% with compelling content.' },
-      { question: 'How do I attribute a QR scan to a sale?', answer: 'Pass a campaign parameter through the QR URL to the landing page. If the landing page includes a checkout, the parameter flows to the order record and can be reported in your analytics.' },
+      {
+        question: 'What is a good scan rate for a product packaging QR?',
+        answer:
+          '1 to 5% of units sold is typical. Premium or high-engagement categories (wine, craft food, beauty) can reach 5 to 15% with compelling content.',
+      },
+      {
+        question: 'How do I attribute a QR scan to a sale?',
+        answer:
+          'Pass a campaign parameter through the QR URL to the landing page. If the landing page includes a checkout, the parameter flows to the order record and can be reported in your analytics.',
+      },
     ]
   ),
 ];

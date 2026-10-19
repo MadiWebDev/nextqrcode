@@ -83,15 +83,16 @@ export default async function LabelSheetPage({ params }: Props) {
       <section className="bg-card border border-border/70 rounded-2xl p-6 sm:p-8 space-y-6">
         <div className="flex items-center gap-3">
           <Ruler className="w-6 h-6 text-blue-500" />
-          <h2 className="text-2xl font-bold text-foreground">
-            Print Specifications: {sheet.name}
-          </h2>
+          <h2 className="text-2xl font-bold text-foreground">Print Specifications: {sheet.name}</h2>
         </div>
 
         {/* Dimension grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs sm:text-sm">
           {[
-            { label: 'Paper Size', value: sheet.paperSize === 'a4' ? 'ISO A4 (210×297mm)' : 'US Letter (8.5×11 in)' },
+            {
+              label: 'Paper Size',
+              value: sheet.paperSize === 'a4' ? 'ISO A4 (210×297mm)' : 'US Letter (8.5×11 in)',
+            },
             { label: 'Labels per Sheet', value: String(sheet.labelsPerSheet) },
             { label: 'Label Dimensions', value: `${sheet.widthMm} × ${sheet.heightMm} mm` },
             { label: 'Layout', value: `${sheet.columns} col × ${sheet.rows} rows` },
@@ -169,7 +170,8 @@ export default async function LabelSheetPage({ params }: Props) {
               <div>
                 <span className="font-semibold block">{s.name}</span>
                 <span className="text-[11px] text-muted-foreground">
-                  {s.labelsPerSheet} labels · {s.paperSize === 'a4' ? 'A4' : 'Letter'} · {s.widthMm}×{s.heightMm}mm
+                  {s.labelsPerSheet} labels · {s.paperSize === 'a4' ? 'A4' : 'Letter'} · {s.widthMm}
+                  ×{s.heightMm}mm
                 </span>
               </div>
               <Tag className="w-4 h-4 text-muted-foreground group-hover:text-blue-500 transition-colors" />

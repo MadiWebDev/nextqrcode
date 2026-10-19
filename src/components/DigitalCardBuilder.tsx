@@ -29,7 +29,11 @@ const THEMES: { id: CardTheme; label: string; preview: string }[] = [
   { id: 'emerald-glass', label: 'Emerald Glass', preview: 'bg-emerald-950 border-emerald-500/50' },
   { id: 'royal-indigo', label: 'Royal Indigo', preview: 'bg-indigo-950 border-indigo-500/50' },
   { id: 'sunset-rose', label: 'Sunset Rose', preview: 'bg-rose-950 border-rose-500/50' },
-  { id: 'minimalist', label: 'Titanium Minimal', preview: 'bg-slate-200 dark:bg-slate-800 border-slate-400' },
+  {
+    id: 'minimalist',
+    label: 'Titanium Minimal',
+    preview: 'bg-slate-200 dark:bg-slate-800 border-slate-400',
+  },
 ];
 
 export function DigitalCardBuilder({ data, onChange }: DigitalCardBuilderProps) {

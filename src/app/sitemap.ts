@@ -11,12 +11,13 @@
  *  • hreflang only added for truly translated pages (not keyword variations).
  */
 import type { MetadataRoute } from 'next';
+import { siteConfig } from '@/config/site';
 import { getAllArticles } from '@/lib/articles';
 import { getAllCountries } from '@/data/countries';
 import { getAllPaymentSchemes } from '@/data/payments';
 import { getAllLabelSheets } from '@/data/labels';
 
-const BASE = 'https://freeqrcode.tools';
+const BASE = siteConfig.url;
 
 /** Helper: build a sitemap entry */
 function entry(
@@ -35,7 +36,7 @@ function entry(
   };
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const weekly = 'weekly' as const;
   const monthly = 'monthly' as const;
@@ -51,6 +52,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const toolPaths = [
     '/qr-size-calculator',
     '/qr-safety-checker',
+    '/qr-scanner',
+    '/bulk-generator',
     '/printed-qr-tester',
     '/error-correction-simulator',
     '/qr-splitter-scanner',
@@ -67,9 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/qr-placement-guide',
     '/barcode-generator',
   ];
-  const toolEntries = toolPaths.map((p) =>
-    entry(p, { changeFrequency: weekly, priority: 0.9 })
-  );
+  const toolEntries = toolPaths.map((p) => entry(p, { changeFrequency: weekly, priority: 0.9 }));
 
   // ── SECTION: Standard QR Type Generators ────────────────────────────────
   const generatorPaths = [
@@ -111,7 +112,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // ── SECTION: Blog / Technical Guides ────────────────────────────────────
-  const articleEntries = getAllArticles().map((art) =>
+  // Only audit-passing articles are indexed (§7.5).
+  const articleEntries = (await auditedBlogArticles()).map((art) =>
     entry(`/blog/${art.slug}`, {
       lastModified: new Date(art.updatedAt),
       changeFrequency: monthly,
@@ -120,14 +122,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // ── SECTION: Trust / Legal ───────────────────────────────────────────────
-  const trustPaths = [
-    '/about',
-    '/contact',
-    '/privacy',
-    '/terms',
-    '/cookie-policy',
-    '/disclaimer',
-  ];
+  const trustPaths = ['/about', '/contact', '/privacy', '/terms', '/cookie-policy', '/disclaimer'];
   const trustEntries = trustPaths.map((p) =>
     entry(p, { changeFrequency: 'yearly' as const, priority: 0.4 })
   );
@@ -155,5 +150,115 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...paymentEntries,
     ...articleEntries,
     ...trustEntries,
+    ...(await indexableQrEntries()),
+    ...(await familyEntries()),
   ];
+}
+
+/**
+ * Blog articles that pass the content audit. Reads the audit manifest written
+ * by scripts/content-audit.ts (prebuild); failing articles are excluded.
+ */
+async function auditedBlogArticles(): Promise<{ slug: string; updatedAt: string }[]> {
+  try {
+    const { readFileSync, existsSync } = await import('node:fs');
+    const { join } = await import('node:path');
+    const manifestPath = join(
+      process.cwd(),
+      'src',
+      'content',
+      '__generated__',
+      'audit-manifest.json'
+    );
+    const manifest: Record<string, { passed: boolean }> = existsSync(manifestPath)
+      ? JSON.parse(readFileSync(manifestPath, 'utf8'))
+      : {};
+    const hasManifest = Object.keys(manifest).length > 0;
+    return getAllArticles().filter((art) => {
+      if (!hasManifest) return true; // dev without prebuild: keep everything
+      const verdict = manifest[`/blog/${art.slug}`];
+      return verdict?.passed === true; // audited + passed only (fail closed)
+    });
+  } catch {
+    return getAllArticles();
+  }
+}
+
+/**
+ * Family content entries (/industries/*, /glossary/*, ...): ONLY pages that
+ * pass the content audit appear in the sitemap. Reads the audit manifest
+ * written by scripts/content-audit.ts (prebuild).
+ */
+async function familyEntries(): Promise<MetadataRoute.Sitemap> {
+  try {
+    const { familyLoaders } = await import('@/content/families/index');
+    const { FAMILY_PREFIXES, CONTENT_FAMILIES } = await import('@/content/schema');
+    const { readFileSync, existsSync } = await import('node:fs');
+    const { join } = await import('node:path');
+    const manifestPath = join(
+      process.cwd(),
+      'src',
+      'content',
+      '__generated__',
+      'audit-manifest.json'
+    );
+    const manifest: Record<string, { passed: boolean }> = existsSync(manifestPath)
+      ? JSON.parse(readFileSync(manifestPath, 'utf8'))
+      : {};
+    const hasManifest = Object.keys(manifest).length > 0;
+    const out: MetadataRoute.Sitemap = [];
+    for (const family of CONTENT_FAMILIES) {
+      const prefix = FAMILY_PREFIXES[family];
+      const entries = await familyLoaders[family]();
+      for (const e of entries) {
+        const url = `${prefix}/${e.slug}`;
+        if (!hasManifest) {
+          out.push(entry(url, { changeFrequency: 'monthly' as const, priority: 0.75 }));
+          continue;
+        }
+        const verdict = manifest[url];
+        if (verdict?.passed !== true) continue; // failing or unaudited → excluded
+        out.push(entry(url, { changeFrequency: 'monthly' as const, priority: 0.75 }));
+      }
+    }
+    return out;
+  } catch {
+    return [];
+  }
+}
+/**
+ * /q/[publicId] entries: ONLY public + moderation-passed QRs with a unique
+ * owner-written title (mirrors qrPageEligibility). Best-effort: any DB failure
+ * yields no entries rather than a broken sitemap.
+ */
+async function indexableQrEntries(): Promise<MetadataRoute.Sitemap> {
+  try {
+    const { isDbConfigured, dbConnect } = await import('@/lib/db/mongoose');
+    if (!isDbConfigured()) return [];
+    await dbConnect();
+    const { QrCode } = await import('@/models/QrCode');
+    const docs = (await QrCode.find({
+      visibility: 'public',
+      status: 'active',
+      'moderation.status': 'passed',
+      title: { $exists: true, $ne: '' },
+    })
+      .select('publicId title updatedAt')
+      .sort({ updatedAt: -1 })
+      .limit(5000)
+      .lean()) as unknown as { publicId: string; title: string; updatedAt: Date }[];
+    // Keep the sitemap's unique-title rule in sync with qrPageEligibility.
+    const generic = new Set(['untitled', 'my qr code', 'qr code', 'new qr code']);
+    return docs
+      .filter((d) => d.title.trim().length >= 8 && !generic.has(d.title.trim().toLowerCase()))
+      .map((d) =>
+        entry(`/q/${d.publicId}`, {
+          lastModified: d.updatedAt ? new Date(d.updatedAt) : new Date(),
+          changeFrequency: 'monthly' as const,
+          priority: 0.5,
+        })
+      );
+  } catch {
+    return [];
+  }
 }

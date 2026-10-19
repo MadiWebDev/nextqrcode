@@ -67,7 +67,10 @@ export default async function PaymentSchemePage({ params }: Props) {
           title: `Free ${scheme.name} Generator`,
           description: `Create official ${scheme.name} codes for ${scheme.country} (${scheme.currency}). Governed by ${scheme.governingBody} using official ${scheme.standardSpec} specifications.`,
           howTo: [
-            `Fill in your merchant credentials (${scheme.fields.map((f) => f.label).slice(0, 2).join(', ')}).`,
+            `Fill in your merchant credentials (${scheme.fields
+              .map((f) => f.label)
+              .slice(0, 2)
+              .join(', ')}).`,
             `Specify the transaction amount in ${scheme.currency} or leave blank for open customer input.`,
             'Download high-resolution SVG or PNG format to insert directly on paper invoices or point-of-sale displays.',
           ],
@@ -103,7 +106,9 @@ export default async function PaymentSchemePage({ params }: Props) {
           </div>
           <div className="p-3 rounded-xl bg-muted/60 space-y-1">
             <span className="text-muted-foreground block text-[11px]">Settlement Currency</span>
-            <span className="font-semibold text-foreground">{scheme.currency} ({scheme.country})</span>
+            <span className="font-semibold text-foreground">
+              {scheme.currency} ({scheme.country})
+            </span>
           </div>
         </div>
 
@@ -133,7 +138,9 @@ export default async function PaymentSchemePage({ params }: Props) {
             >
               <div>
                 <span className="font-semibold block">{p.name}</span>
-                <span className="text-[11px] text-muted-foreground">{p.country} ({p.currency})</span>
+                <span className="text-[11px] text-muted-foreground">
+                  {p.country} ({p.currency})
+                </span>
               </div>
               <Coins className="w-4 h-4 text-muted-foreground group-hover:text-blue-500 transition-colors" />
             </Link>

@@ -32,8 +32,16 @@ A QR links to a local support group directory: peer support groups, drop-in serv
 A QR in workplace wellness contexts links to the mental health first aider directory and manager conversation guides. For many people, the first disclosure of mental health difficulty is to a manager or peer, not a clinician — equipping non-clinical first contacts is critical.
     `,
     [
-      { question: 'Should mental health QR codes require creating an account?', answer: 'No. The first touch with a mental health resource must be completely frictionless. Account creation is appropriate for personalised tracking tools at a later stage — not for initial crisis or awareness contact.' },
-      { question: 'How do you measure the impact of mental health QR campaigns?', answer: 'Track QR scan rate, landing page engagement (time on page, resource clicks), and if possible, self-assessment completion rates. Partner with service providers to correlate campaign periods with referral or service access volume. Note: direct attribution is intentionally limited to preserve anonymity.' },
+      {
+        question: 'Should mental health QR codes require creating an account?',
+        answer:
+          'No. The first touch with a mental health resource must be completely frictionless. Account creation is appropriate for personalised tracking tools at a later stage — not for initial crisis or awareness contact.',
+      },
+      {
+        question: 'How do you measure the impact of mental health QR campaigns?',
+        answer:
+          'Track QR scan rate, landing page engagement (time on page, resource clicks), and if possible, self-assessment completion rates. Partner with service providers to correlate campaign periods with referral or service access volume. Note: direct attribution is intentionally limited to preserve anonymity.',
+      },
     ]
   ),
   art(
@@ -68,8 +76,18 @@ UK Alcohol Labelling regulations and responsible drinking commitments require si
 Where required (duty-free, online, certain events), a QR-linked landing page for premium spirits content should include an age gate. Keep age gates simple (birth year entry) and store confirmation in a session cookie — do not ask for age on every page load.
     `,
     [
-      { question: 'Does the EU wine label QR requirement apply to wines exported to the EU from outside the EU?', answer: 'Yes. EU Regulation 2021/2117 applies to wines placed on the EU market regardless of origin. Non-EU producers selling to the EU must comply for EU-destined shipments.' },
-      { question: 'Can the same QR on a wine label serve both the regulatory compliance information and the marketing content?', answer: 'Under EU 2021/2117, the QR destination page for nutrition and ingredients must contain only that regulatory information. Maintain a separate marketing QR if you want to direct consumers to tasting notes and producer stories.' },
+      {
+        question:
+          'Does the EU wine label QR requirement apply to wines exported to the EU from outside the EU?',
+        answer:
+          'Yes. EU Regulation 2021/2117 applies to wines placed on the EU market regardless of origin. Non-EU producers selling to the EU must comply for EU-destined shipments.',
+      },
+      {
+        question:
+          'Can the same QR on a wine label serve both the regulatory compliance information and the marketing content?',
+        answer:
+          'Under EU 2021/2117, the QR destination page for nutrition and ingredients must contain only that regulatory information. Maintain a separate marketing QR if you want to direct consumers to tasting notes and producer stories.',
+      },
     ]
   ),
   art(
@@ -110,8 +128,16 @@ A QR at the duty-free entrance linked to the passenger's booking reference (scan
 A QR in the booking confirmation or airline app links to the fast-track security slot booking for the departure time. Pre-booked fast-track QRs are scanned at the security lane entrance, ensuring orderly access without physical queue management.
     `,
     [
-      { question: 'What happens if my mobile boarding pass QR will not scan at the gate?', answer: 'Modern gate scanners read IATA BCBP QR codes in all orientations. Failures are typically caused by low screen brightness, screen protector glare, or a damaged/corrupt QR image. Always ensure maximum screen brightness and have a backup screenshot. The airline can always print a boarding pass at a desk.' },
-      { question: 'Do airport wayfinding QR codes work in terminal buildings with poor signal?', answer: 'Airports are investing heavily in indoor WiFi for operational reasons. For passenger-facing wayfinding, airports increasingly provide free WiFi specifically so digital services work throughout terminals. The QR should link to a CDN-hosted lightweight page that loads quickly on airport WiFi.' },
+      {
+        question: 'What happens if my mobile boarding pass QR will not scan at the gate?',
+        answer:
+          'Modern gate scanners read IATA BCBP QR codes in all orientations. Failures are typically caused by low screen brightness, screen protector glare, or a damaged/corrupt QR image. Always ensure maximum screen brightness and have a backup screenshot. The airline can always print a boarding pass at a desk.',
+      },
+      {
+        question: 'Do airport wayfinding QR codes work in terminal buildings with poor signal?',
+        answer:
+          'Airports are investing heavily in indoor WiFi for operational reasons. For passenger-facing wayfinding, airports increasingly provide free WiFi specifically so digital services work throughout terminals. The QR should link to a CDN-hosted lightweight page that loads quickly on airport WiFi.',
+      },
     ]
   ),
   art(
@@ -161,8 +187,16 @@ For physical QR codes in public spaces (signage, menus, heritage sites):
 - Consider tactile signage alongside QR for venue wayfinding.
     `,
     [
-      { question: 'Is a QR code on a website covered by WCAG accessibility requirements?', answer: 'Yes. The QR image requires appropriate alt text (WCAG 1.1.1), the surrounding context must be understandable without the QR, and an alternative access method (text link or URL) must be provided. Full WCAG 2.2 compliance requires manual testing with assistive technologies.' },
-      { question: 'Can a visually impaired person scan a QR code using assistive technology?', answer: 'Yes. iOS VoiceOver with the camera can identify and scan QR codes in some configurations. Android TalkBack with Google Lens has QR detection capability. However, these require specific setup and are not universally reliable — always provide a text alternative.' },
+      {
+        question: 'Is a QR code on a website covered by WCAG accessibility requirements?',
+        answer:
+          'Yes. The QR image requires appropriate alt text (WCAG 1.1.1), the surrounding context must be understandable without the QR, and an alternative access method (text link or URL) must be provided. Full WCAG 2.2 compliance requires manual testing with assistive technologies.',
+      },
+      {
+        question: 'Can a visually impaired person scan a QR code using assistive technology?',
+        answer:
+          'Yes. iOS VoiceOver with the camera can identify and scan QR codes in some configurations. Android TalkBack with Google Lens has QR detection capability. However, these require specific setup and are not universally reliable — always provide a text alternative.',
+      },
     ]
   ),
   art(
@@ -195,8 +229,16 @@ A QR on the nursery newsletter or notice board links to the digital parent commu
 A QR in the manager's office links to the inspection readiness checklist and live document library: current policies, staff qualifications, risk assessments, and safeguarding training records. Instant access to compliance documentation during an Ofsted visit.
     `,
     [
-      { question: 'Do nursery QR systems for child data comply with GDPR?', answer: 'Yes if the platform is compliant. Child data is particularly sensitive under GDPR. Choose platforms that process data within the UK/EEA, have a DPA (Data Processing Agreement), and allow parents to access and delete their child\'s data on request.' },
-      { question: 'Can a QR collection verification system prevent unauthorised collection?', answer: 'A QR system can verify that the presenting adult is on the authorised collection list. It cannot physically prevent an unauthorised person from attempting collection. Always combine digital verification with staff recognition and challenge procedures.' },
+      {
+        question: 'Do nursery QR systems for child data comply with GDPR?',
+        answer:
+          "Yes if the platform is compliant. Child data is particularly sensitive under GDPR. Choose platforms that process data within the UK/EEA, have a DPA (Data Processing Agreement), and allow parents to access and delete their child's data on request.",
+      },
+      {
+        question: 'Can a QR collection verification system prevent unauthorised collection?',
+        answer:
+          'A QR system can verify that the presenting adult is on the authorised collection list. It cannot physically prevent an unauthorised person from attempting collection. Always combine digital verification with staff recognition and challenge procedures.',
+      },
     ]
   ),
   art(
@@ -229,8 +271,16 @@ A QR distributed after the service links to the recording of the service and eul
 A QR plaque on a headstone or memorial wall links to the tribute page. Permanent outdoor QR plaques must be manufactured in weather-resistant materials (stainless steel etching, porcelain tile printing) with a short, memorable URL as a backup. Hosting must be committed to a very long time horizon — link permanence is critical for memorial applications.
     `,
     [
-      { question: 'How long should a digital tribute page QR remain active?', answer: 'Indefinitely is the standard expectation for memorial applications. Choose a platform specifically designed for memorial hosting — generic website builders and QR redirect services may not provide the longevity guarantee appropriate for this context.' },
-      { question: 'Are QR codes appropriate in the context of a funeral?', answer: 'Yes, when introduced sensitively. The QR is placed on printed materials the family chooses, not displayed conspicuously. Families who use memorial QR services consistently report high satisfaction — the digital element extends the reach of the tribute beyond those physically present.' },
+      {
+        question: 'How long should a digital tribute page QR remain active?',
+        answer:
+          'Indefinitely is the standard expectation for memorial applications. Choose a platform specifically designed for memorial hosting — generic website builders and QR redirect services may not provide the longevity guarantee appropriate for this context.',
+      },
+      {
+        question: 'Are QR codes appropriate in the context of a funeral?',
+        answer:
+          'Yes, when introduced sensitively. The QR is placed on printed materials the family chooses, not displayed conspicuously. Families who use memorial QR services consistently report high satisfaction — the digital element extends the reach of the tribute beyond those physically present.',
+      },
     ]
   ),
   art(
@@ -278,8 +328,16 @@ In marker-based AR, the QR code itself is the marker — the camera detects the 
 WebXR AR remains inconsistent across iOS and Android. Test on target devices before launch. 8th Wall (Niantic Lightship) provides a polished cross-platform web AR SDK at a cost. For consumer campaigns with broad reach, budget for cross-platform testing and graceful fallback to a standard video for unsupported devices.
     `,
     [
-      { question: 'Does WebXR AR work on an iPhone?', answer: 'iOS Safari has partial WebXR support as of iOS 17. Full immersive-ar sessions are not yet supported natively in Safari. 8th Wall and similar platforms work around this with their own camera access layer. Test on your target iOS version before committing to a WebXR approach on iPhone.' },
-      { question: 'Can a QR code and an AR marker be the same image?', answer: 'Yes. In marker-based AR systems like AR.js, a QR code can function as both the information payload (decoded by the native camera) and the visual marker (detected by the AR engine in the camera stream). The two reads are sequential: native camera QR decode first, then AR engine marker detect.' },
+      {
+        question: 'Does WebXR AR work on an iPhone?',
+        answer:
+          'iOS Safari has partial WebXR support as of iOS 17. Full immersive-ar sessions are not yet supported natively in Safari. 8th Wall and similar platforms work around this with their own camera access layer. Test on your target iOS version before committing to a WebXR approach on iPhone.',
+      },
+      {
+        question: 'Can a QR code and an AR marker be the same image?',
+        answer:
+          'Yes. In marker-based AR systems like AR.js, a QR code can function as both the information payload (decoded by the native camera) and the visual marker (detected by the AR engine in the camera stream). The two reads are sequential: native camera QR decode first, then AR engine marker detect.',
+      },
     ]
   ),
   art(
@@ -312,8 +370,16 @@ A QR on a completed training certificate links to the live skills register: the 
 A QR displayed at the end of a training session links to the course evaluation form and CPD logging page. Post-session QR evaluations achieve significantly higher response rates than emailed forms — the engagement window is the immediate post-session moment.
     `,
     [
-      { question: 'Can QR-based microlearning replace formal classroom training?', answer: 'For refresher training, compliance updates, and equipment-specific guidance, QR microlearning is highly effective. It does not replace structured skill development programmes requiring practice, coaching, and assessment — it complements them.' },
-      { question: 'How do I ensure employees actually scan training QRs rather than ignoring them?', answer: 'Integrate QR completion into workflow requirements (cannot proceed without completing the safety QR briefing) or incentivise completion (visible team completion scoreboards). Passive posters without a workflow consequence have low completion rates.' },
+      {
+        question: 'Can QR-based microlearning replace formal classroom training?',
+        answer:
+          'For refresher training, compliance updates, and equipment-specific guidance, QR microlearning is highly effective. It does not replace structured skill development programmes requiring practice, coaching, and assessment — it complements them.',
+      },
+      {
+        question: 'How do I ensure employees actually scan training QRs rather than ignoring them?',
+        answer:
+          'Integrate QR completion into workflow requirements (cannot proceed without completing the safety QR briefing) or incentivise completion (visible team completion scoreboards). Passive posters without a workflow consequence have low completion rates.',
+      },
     ]
   ),
   art(
@@ -346,8 +412,17 @@ A QR on the hoarding links to a monthly site progress update: construction photo
 At legal completion, the buyer's welcome pack contains a QR linking to the handover information portal: appliance manuals, warranty documents, utility connections, emergency contacts, and the 2-year builder's warranty reporting portal. Digital handover packs have higher completion and retention rates than physical binders.
     `,
     [
-      { question: 'Should a development site QR on outdoor hoarding be weather-resistant?', answer: 'Yes. Hoardings are exposed to sun, rain, and UV. Use UV-stabilised vinyl prints with a gloss UV overlaminate, or direct-UV print on aluminium composite panels. Plan for replacement every 12 months on exposed sites.' },
-      { question: 'Can a QR on a planning notice increase the number of public consultation responses?', answer: 'Yes significantly. Removing the step of navigating to the local authority planning portal (which many residents do not know how to find) dramatically increases the proportion of interested parties who actually submit a response.' },
+      {
+        question: 'Should a development site QR on outdoor hoarding be weather-resistant?',
+        answer:
+          'Yes. Hoardings are exposed to sun, rain, and UV. Use UV-stabilised vinyl prints with a gloss UV overlaminate, or direct-UV print on aluminium composite panels. Plan for replacement every 12 months on exposed sites.',
+      },
+      {
+        question:
+          'Can a QR on a planning notice increase the number of public consultation responses?',
+        answer:
+          'Yes significantly. Removing the step of navigating to the local authority planning portal (which many residents do not know how to find) dramatically increases the proportion of interested parties who actually submit a response.',
+      },
     ]
   ),
   art(
@@ -397,8 +472,16 @@ Based on aggregated data from major QR campaign platforms and published case stu
 High scan rate with no conversion is not success. A restaurant QR with 40% scan rate but only 5% of scanners actually ordering is a landing page problem, not a scan rate problem. Always track through to the business outcome, not just the scan count.
     `,
     [
-      { question: 'Is a 1% scan rate on a product package good or bad?', answer: '1–2% on product packaging is within normal range for passively placed codes. 8%+ requires an active, compelling CTA and a genuinely valuable content offer. Evaluate against the cost of production (near zero for a QR on existing packaging) — even 1% at scale can be significant volume.' },
-      { question: 'How do I measure scan rate for a physical QR code?', answer: 'Use a redirect URL that logs each scan request. The redirect service gives you raw scan counts. Divide by estimated impressions (footfall, print run, distribution count) to approximate scan rate. Visitor survey data can supplement impression estimates.' },
+      {
+        question: 'Is a 1% scan rate on a product package good or bad?',
+        answer:
+          '1–2% on product packaging is within normal range for passively placed codes. 8%+ requires an active, compelling CTA and a genuinely valuable content offer. Evaluate against the cost of production (near zero for a QR on existing packaging) — even 1% at scale can be significant volume.',
+      },
+      {
+        question: 'How do I measure scan rate for a physical QR code?',
+        answer:
+          'Use a redirect URL that logs each scan request. The redirect service gives you raw scan counts. Divide by estimated impressions (footfall, print run, distribution count) to approximate scan rate. Visitor survey data can supplement impression estimates.',
+      },
     ]
   ),
 ];

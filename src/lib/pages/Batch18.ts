@@ -32,8 +32,16 @@ Configure an automatic follow-up email sent within 24 hours of a QR lead submiss
 Use different QR codes for the backdrop, counter, printed handout, and badge. Comparing scan rates tells you which touch point drives engagement.
     `,
     [
-      { question: 'Is a QR better than a business card scanner at trade shows?', answer: 'QR is faster and connects directly to a CRM form. Business card scanners require OCR accuracy and a later data entry step.' },
-      { question: 'Should I put a QR on my own badge?', answer: 'Yes. Scanning your badge QR gives contacts your details instantly and logs the interaction in your CRM if connected.' },
+      {
+        question: 'Is a QR better than a business card scanner at trade shows?',
+        answer:
+          'QR is faster and connects directly to a CRM form. Business card scanners require OCR accuracy and a later data entry step.',
+      },
+      {
+        question: 'Should I put a QR on my own badge?',
+        answer:
+          'Yes. Scanning your badge QR gives contacts your details instantly and logs the interaction in your CRM if connected.',
+      },
     ]
   ),
   art(
@@ -62,8 +70,16 @@ Tag each documentation page with the firmware or product version it applies to. 
 Some markets require a paper quick-start guide. QR satisfies the full manual requirement in many cases. Verify with your legal team before removing all paper from the box.
     `,
     [
-      { question: 'Can a QR fully replace the paper manual in the box?', answer: 'In many markets yes, but some require at minimum a brief printed safety guide. Check applicable CE, FCC, or other certifications.' },
-      { question: 'What if the customer has no internet at the time of setup?', answer: 'Provide a minimal offline quick-start on a small printed sheet. The QR covers detailed documentation for most situations.' },
+      {
+        question: 'Can a QR fully replace the paper manual in the box?',
+        answer:
+          'In many markets yes, but some require at minimum a brief printed safety guide. Check applicable CE, FCC, or other certifications.',
+      },
+      {
+        question: 'What if the customer has no internet at the time of setup?',
+        answer:
+          'Provide a minimal offline quick-start on a small printed sheet. The QR covers detailed documentation for most situations.',
+      },
     ]
   ),
   art(
@@ -92,8 +108,16 @@ A QR in the room links to the express check-out page where the guest reviews the
 Always maintain a staffed front desk as a fallback. Not all guests are comfortable with self-service kiosks, and some may need assistance with language or disability accommodations.
     `,
     [
-      { question: 'Is a QR room key as secure as a physical key card?', answer: 'A time-limited signed token is cryptographically stronger than a magnetic stripe card. The main risk is phone theft, which the hotel system mitigates by requiring PIN or biometric.' },
-      { question: 'Can guests check in without downloading an app?', answer: 'Yes. Web-based check-in flows and mobile wallet passes work without a proprietary app.' },
+      {
+        question: 'Is a QR room key as secure as a physical key card?',
+        answer:
+          'A time-limited signed token is cryptographically stronger than a magnetic stripe card. The main risk is phone theft, which the hotel system mitigates by requiring PIN or biometric.',
+      },
+      {
+        question: 'Can guests check in without downloading an app?',
+        answer:
+          'Yes. Web-based check-in flows and mobile wallet passes work without a proprietary app.',
+      },
     ]
   ),
   art(
@@ -122,8 +146,16 @@ A QR on a premium product (art book, collector's print) unlocks exclusive digita
 A QR inside a gift wrap option links to an eCard the buyer can personalise and send digitally. Adds a service layer without increasing packaging complexity.
     `,
     [
-      { question: 'Should a gift shop QR track which products are scanned?', answer: 'Yes. Scan analytics per product show which items generate online engagement and can guide future stocking decisions.' },
-      { question: 'Can the QR replace the printed object description?', answer: 'The QR supplements it. The printed description should stand alone; the QR provides extended content.' },
+      {
+        question: 'Should a gift shop QR track which products are scanned?',
+        answer:
+          'Yes. Scan analytics per product show which items generate online engagement and can guide future stocking decisions.',
+      },
+      {
+        question: 'Can the QR replace the printed object description?',
+        answer:
+          'The QR supplements it. The printed description should stand alone; the QR provides extended content.',
+      },
     ]
   ),
   art(
@@ -156,8 +188,16 @@ A short URL ensures the code is a low version with large modules at the physical
 Use a unique short URL per billboard location and campaign. Scan events from outdoor placements are a direct, attributable channel signal.
     `,
     [
-      { question: 'Is it legal to include a QR code on a highway billboard?', answer: 'In most markets yes, but do not design it for scanning while driving. Position and context must discourage unsafe phone use.' },
-      { question: 'What minimum module size works for a 1-metre billboard code?', answer: 'At 1 metre total size for a Version 3 code (29 modules plus 8 quiet zone = 37 modules), each module is about 27 mm — comfortably readable from 10+ metres.' },
+      {
+        question: 'Is it legal to include a QR code on a highway billboard?',
+        answer:
+          'In most markets yes, but do not design it for scanning while driving. Position and context must discourage unsafe phone use.',
+      },
+      {
+        question: 'What minimum module size works for a 1-metre billboard code?',
+        answer:
+          'At 1 metre total size for a Version 3 code (29 modules plus 8 quiet zone = 37 modules), each module is about 27 mm — comfortably readable from 10+ metres.',
+      },
     ]
   ),
   art(
@@ -186,8 +226,16 @@ Link to a page showing the student's progress across multiple terms. Parents see
 Report data is sensitive. Require parent authentication before displaying any student-specific information. The QR triggers the login flow; it does not bypass it.
     `,
     [
-      { question: 'Should the report card QR link directly to the student\'s data?', answer: 'No. The QR links to the login page of the parent portal. Authentication gates the personal data.' },
-      { question: 'Can a report card QR be the same for all students?', answer: 'Yes if it links to a generic login page. Use unique QR per student only if the URL encodes account-specific context like a suggested login hint.' },
+      {
+        question: "Should the report card QR link directly to the student's data?",
+        answer:
+          'No. The QR links to the login page of the parent portal. Authentication gates the personal data.',
+      },
+      {
+        question: 'Can a report card QR be the same for all students?',
+        answer:
+          'Yes if it links to a generic login page. Use unique QR per student only if the URL encodes account-specific context like a suggested login hint.',
+      },
     ]
   ),
   art(
@@ -216,8 +264,16 @@ QR codes in aged care must respect residents' privacy and dignity. Only publish 
 Residents themselves may not be QR users. Design the QR programme for family members, visitors, and staff — not as a resident-facing interface. Provide paper versions of all information.
     `,
     [
-      { question: 'Can family members access resident health records via a QR?', answer: 'Only with proper authentication and in compliance with health data privacy law. QR is an access point, not a bypass for privacy controls.' },
-      { question: 'What content is appropriate on a nursing home family QR page?', answer: 'Activity schedules, menus, event photos, and general welfare updates with resident consent. Medical details require a secure, authenticated channel.' },
+      {
+        question: 'Can family members access resident health records via a QR?',
+        answer:
+          'Only with proper authentication and in compliance with health data privacy law. QR is an access point, not a bypass for privacy controls.',
+      },
+      {
+        question: 'What content is appropriate on a nursing home family QR page?',
+        answer:
+          'Activity schedules, menus, event photos, and general welfare updates with resident consent. Medical details require a secure, authenticated channel.',
+      },
     ]
   ),
   art(
@@ -246,8 +302,16 @@ After payment, the customer can opt in to an SMS notification when their cycle e
 A QR on each machine links to a fault report form pre-filled with the machine number. The maintenance team receives structured reports with machine ID, fault description, and timestamp.
     `,
     [
-      { question: 'Do customers need an account to pay at a laundromat via QR?', answer: 'Not for a one-time payment. A guest checkout flow is simpler and has higher conversion than a mandatory account.' },
-      { question: 'Can a QR replace the coin mechanism entirely?', answer: 'Yes if you also install a fallback payment method such as a card terminal, to serve all customer types.' },
+      {
+        question: 'Do customers need an account to pay at a laundromat via QR?',
+        answer:
+          'Not for a one-time payment. A guest checkout flow is simpler and has higher conversion than a mandatory account.',
+      },
+      {
+        question: 'Can a QR replace the coin mechanism entirely?',
+        answer:
+          'Yes if you also install a fallback payment method such as a card terminal, to serve all customer types.',
+      },
     ]
   ),
   art(
@@ -280,8 +344,16 @@ Structure hints from a nudge ("check every surface") to a moderate hint ("look f
 The hint log shows which puzzles needed the most help. Use this to improve puzzle design and brief teams on the puzzles they missed.
     `,
     [
-      { question: 'Can a hint QR give the full solution?', answer: 'Yes as a last resort, but apply a time penalty to keep it meaningful. Most teams prefer not to use it.' },
-      { question: 'How do I prevent teams from scanning the hint QR repeatedly?', answer: 'Rate-limit requests per session by IP or session token. Show the remaining hint allowance on the scan page.' },
+      {
+        question: 'Can a hint QR give the full solution?',
+        answer:
+          'Yes as a last resort, but apply a time penalty to keep it meaningful. Most teams prefer not to use it.',
+      },
+      {
+        question: 'How do I prevent teams from scanning the hint QR repeatedly?',
+        answer:
+          'Rate-limit requests per session by IP or session token. Show the remaining hint allowance on the scan page.',
+      },
     ]
   ),
   art(
@@ -310,8 +382,16 @@ The dog park QR links to local dog community notices: lost dog alerts, upcoming 
 Outdoor signage at dog parks is touched and weathered. Use aluminium signs with UV-printed codes and a protective coating. Place at 120 to 140 cm height for comfortable scanning while holding a lead.
     `,
     [
-      { question: 'Can a QR at a dog park help find lost dogs?', answer: 'Yes if the linked page has a current lost and found section. Combine with local social media for maximum reach.' },
-      { question: 'What if a dog owner cannot scan while managing an excited dog?', answer: 'Display the emergency vet number in large print as well. QR is an enhancement, not the only channel.' },
+      {
+        question: 'Can a QR at a dog park help find lost dogs?',
+        answer:
+          'Yes if the linked page has a current lost and found section. Combine with local social media for maximum reach.',
+      },
+      {
+        question: 'What if a dog owner cannot scan while managing an excited dog?',
+        answer:
+          'Display the emergency vet number in large print as well. QR is an enhancement, not the only channel.',
+      },
     ]
   ),
 ];

@@ -28,8 +28,16 @@ When a roll is allocated to a specific buyer or order, the QR record updates to 
 The QR links upstream to the fibre certificate: country of origin, farm or plantation, and social or environmental standard compliance. Required for brands meeting Higg or similar due diligence frameworks.
     `,
     [
-      { question: 'Should each fabric roll have a unique QR?', answer: 'Yes. Rolls differ in weight, width, and quality even within the same batch. A unique QR per roll supports precise allocation and traceability.' },
-      { question: 'What label material survives a textile mill environment?', answer: 'Polyester or nylon woven labels with thermal-transfer printing, or self-laminating synthetic labels for lighter-weight rolls.' },
+      {
+        question: 'Should each fabric roll have a unique QR?',
+        answer:
+          'Yes. Rolls differ in weight, width, and quality even within the same batch. A unique QR per roll supports precise allocation and traceability.',
+      },
+      {
+        question: 'What label material survives a textile mill environment?',
+        answer:
+          'Polyester or nylon woven labels with thermal-transfer printing, or self-laminating synthetic labels for lighter-weight rolls.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ First-time users are shown a 60-second safety briefing video after scanning, bef
 A QR on parking bays and return zones links to the return procedure. Users confirm return is accepted and avoid out-of-zone penalty charges.
     `,
     [
-      { question: 'Can a cycle hire QR work without the operator app?', answer: 'Some schemes use a web flow that works without app installation. Coverage depends on the operator\'s implementation.' },
-      { question: 'What if a bike\'s QR is damaged?', answer: 'Report via the app using the bike number. The operator dispatches maintenance. A damaged QR is treated as a fault.' },
+      {
+        question: 'Can a cycle hire QR work without the operator app?',
+        answer:
+          "Some schemes use a web flow that works without app installation. Coverage depends on the operator's implementation.",
+      },
+      {
+        question: "What if a bike's QR is damaged?",
+        answer:
+          'Report via the app using the bike number. The operator dispatches maintenance. A damaged QR is treated as a fault.',
+      },
     ]
   ),
   art(
@@ -88,8 +104,16 @@ A QR in the member's app generates a single-use guest pass for a visitor. The vi
 A QR near the equipment rack links to the hire form: select item, confirm member account, and start the hire. Return by scanning again. No staff required for routine hire transactions.
     `,
     [
-      { question: 'Can non-members book a court via QR?', answer: 'If the booking system supports guest checkout. Most facilities offer pay-as-you-go bookings alongside member bookings on the same platform.' },
-      { question: 'Is QR locker access more secure than a padlock?', answer: 'A server-validated QR token is harder to copy than a standard padlock code, and the access log provides an audit trail if needed.' },
+      {
+        question: 'Can non-members book a court via QR?',
+        answer:
+          'If the booking system supports guest checkout. Most facilities offer pay-as-you-go bookings alongside member bookings on the same platform.',
+      },
+      {
+        question: 'Is QR locker access more secure than a padlock?',
+        answer:
+          'A server-validated QR token is harder to copy than a standard padlock code, and the access log provides an audit trail if needed.',
+      },
     ]
   ),
   art(
@@ -118,8 +142,16 @@ Scanning the appliance QR triggers a maintenance calendar check: descaling due d
 A QR inside the appliance door or on the rating plate links to the spares catalogue for that exact model. The user orders the correct seal, filter, or tray without searching by model number.
     `,
     [
-      { question: 'Should QR codes on kitchen appliances survive 10 years?', answer: 'Yes. Use label stock rated for kitchen environments: heat, humidity, and cleaning products. UV-stable polyester is a good choice.' },
-      { question: 'Can recipe QR links update after purchase?', answer: 'Yes. Because the QR links to a server page, new recipes are added over time without any change to the physical appliance.' },
+      {
+        question: 'Should QR codes on kitchen appliances survive 10 years?',
+        answer:
+          'Yes. Use label stock rated for kitchen environments: heat, humidity, and cleaning products. UV-stable polyester is a good choice.',
+      },
+      {
+        question: 'Can recipe QR links update after purchase?',
+        answer:
+          'Yes. Because the QR links to a server page, new recipes are added over time without any change to the physical appliance.',
+      },
     ]
   ),
   art(
@@ -152,8 +184,16 @@ A QR on the packing slip initiates the returns process: reason for return, refun
 For temperature-sensitive deliveries, the QR on the outer box links to the temperature log for the shipment. Recipients of medical or perishable goods can verify exposure before acceptance.
     `,
     [
-      { question: 'Does a delivery confirmation QR replace a signature?', answer: 'In many consumer parcel services, yes. Scan plus photo equals proof of delivery. High-value items may still require signature.' },
-      { question: 'Can the recipient change the delivery address via QR?', answer: 'Only before despatch in most systems. After the parcel is in transit, address changes are limited to delivery preference updates.' },
+      {
+        question: 'Does a delivery confirmation QR replace a signature?',
+        answer:
+          'In many consumer parcel services, yes. Scan plus photo equals proof of delivery. High-value items may still require signature.',
+      },
+      {
+        question: 'Can the recipient change the delivery address via QR?',
+        answer:
+          'Only before despatch in most systems. After the parcel is in transit, address changes are limited to delivery preference updates.',
+      },
     ]
   ),
   art(
@@ -182,8 +222,16 @@ A QR links to the safety reporting page where a passenger reports unsafe driving
 A QR in an email receipt links to the full trip record: distance, route, fare breakdown, and driver details. Useful for business expense claims.
     `,
     [
-      { question: 'Can a passenger access safety reporting without an account?', answer: 'Yes. Anonymous safety reports are still actionable. Require contact details only if the passenger wants a follow-up.' },
-      { question: 'Should a QR feedback form request personal data?', answer: 'Keep it anonymous by default. Optional name and contact for passengers who want a response.' },
+      {
+        question: 'Can a passenger access safety reporting without an account?',
+        answer:
+          'Yes. Anonymous safety reports are still actionable. Require contact details only if the passenger wants a follow-up.',
+      },
+      {
+        question: 'Should a QR feedback form request personal data?',
+        answer:
+          'Keep it anonymous by default. Optional name and contact for passengers who want a response.',
+      },
     ]
   ),
   art(
@@ -212,8 +260,16 @@ EU and UK WEEE regulations require retailers above a certain threshold to accept
 A QR links to the registry of certified WEEE recyclers. Consumers can verify that their device will be responsibly processed rather than exported informally.
     `,
     [
-      { question: 'Does a QR at a collection point need to work offline?', answer: 'Partial offline functionality helps. Cache the accepted items list so users can check without signal at the collection point.' },
-      { question: 'What data does a mobile device retain after a factory reset?', answer: 'Modern devices overwrite storage during a factory reset. However, encryption before reset adds a further layer of protection. Link to manufacturer-specific guidance.' },
+      {
+        question: 'Does a QR at a collection point need to work offline?',
+        answer:
+          'Partial offline functionality helps. Cache the accepted items list so users can check without signal at the collection point.',
+      },
+      {
+        question: 'What data does a mobile device retain after a factory reset?',
+        answer:
+          'Modern devices overwrite storage during a factory reset. However, encryption before reset adds a further layer of protection. Link to manufacturer-specific guidance.',
+      },
     ]
   ),
   art(
@@ -242,8 +298,16 @@ A QR on the ticket links to available in-match seat upgrades, hospitality packag
 A QR on the entry turnstile links to the membership sign-up page. Match-day spectators who enjoyed the experience convert to members with minimal friction.
     `,
     [
-      { question: 'Can a QR at a cricket ground work with poor mobile signal?', answer: 'Implement the scorecard page as a PWA that caches data. Offer ground WiFi so spectators can load and cache at entry.' },
-      { question: 'Should the scorecard QR be on printed tickets or physical signage?', answer: 'Both. Ticket QR serves spectators already inside; signage QR converts passers-by who see the match from outside.' },
+      {
+        question: 'Can a QR at a cricket ground work with poor mobile signal?',
+        answer:
+          'Implement the scorecard page as a PWA that caches data. Offer ground WiFi so spectators can load and cache at entry.',
+      },
+      {
+        question: 'Should the scorecard QR be on printed tickets or physical signage?',
+        answer:
+          'Both. Ticket QR serves spectators already inside; signage QR converts passers-by who see the match from outside.',
+      },
     ]
   ),
   art(
@@ -272,8 +336,16 @@ A QR on a tenancy notice, employment termination letter, or police stop card lin
 A QR on custody suite signage links to the 24-hour duty solicitor contact. Fast access to legal representation for detained individuals.
     `,
     [
-      { question: 'Should legal aid QR pages be available in multiple languages?', answer: 'Yes. Language barriers are a leading reason people do not access legal help they are entitled to.' },
-      { question: 'Can a QR replace a duty solicitor?', answer: 'No. A QR can connect someone to a duty solicitor rapidly, but it cannot substitute for professional legal advice.' },
+      {
+        question: 'Should legal aid QR pages be available in multiple languages?',
+        answer:
+          'Yes. Language barriers are a leading reason people do not access legal help they are entitled to.',
+      },
+      {
+        question: 'Can a QR replace a duty solicitor?',
+        answer:
+          'No. A QR can connect someone to a duty solicitor rapidly, but it cannot substitute for professional legal advice.',
+      },
     ]
   ),
   art(
@@ -302,8 +374,16 @@ A QR on an incident notice links to the witness appeal page with the incident re
 A QR on a leaflet or door-drop links to current seasonal crime prevention advice: holiday security, vehicle security, and online fraud awareness.
     `,
     [
-      { question: 'Can someone report a crime anonymously via a QR?', answer: 'Yes. Online reporting forms and anonymous reporting services like Crimestoppers accept reports without personal details.' },
-      { question: 'Should police QR codes link to official force websites?', answer: 'Yes. Use the official force domain only. Community members need to trust the source before reporting sensitive information.' },
+      {
+        question: 'Can someone report a crime anonymously via a QR?',
+        answer:
+          'Yes. Online reporting forms and anonymous reporting services like Crimestoppers accept reports without personal details.',
+      },
+      {
+        question: 'Should police QR codes link to official force websites?',
+        answer:
+          'Yes. Use the official force domain only. Community members need to trust the source before reporting sensitive information.',
+      },
     ]
   ),
 ];

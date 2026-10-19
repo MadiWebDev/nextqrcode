@@ -28,8 +28,16 @@ A QR links to a weekly progress form: pain level (0-10), function tests complete
 A QR on the discharge sheet links to the evidence-based return-to-sport checklist for the specific injury. Athletes know exactly which tests they must pass before full competition return.
     `,
     [
-      { question: 'Can an athlete self-administer a return-to-sport test via QR?', answer: 'Some functional tests (hop tests, isokinetic strength) require supervision. QR provides the protocol and criteria; a clinician confirms pass or fail.' },
-      { question: 'Should a QR RICE protocol page be available without internet?', answer: 'Yes. On a sports field, signal may be absent. A cached offline version of the RICE page is essential for effective immediate management.' },
+      {
+        question: 'Can an athlete self-administer a return-to-sport test via QR?',
+        answer:
+          'Some functional tests (hop tests, isokinetic strength) require supervision. QR provides the protocol and criteria; a clinician confirms pass or fail.',
+      },
+      {
+        question: 'Should a QR RICE protocol page be available without internet?',
+        answer:
+          'Yes. On a sports field, signal may be absent. A cached offline version of the RICE page is essential for effective immediate management.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ Many conference apps embed a QR in the badge. Scanning launches the app's contac
 A QR on a conference recap email links to the speaker's slides, key takeaways, and a curated reading list. Sharing this QR link extends the conference's value after the event.
     `,
     [
-      { question: 'Is a QR digital business card GDPR-compliant?', answer: 'Yes if the contact\'s data is only stored with their consent. The QR links to your details for them to save; you only store theirs if they submit a form.' },
-      { question: 'Does a QR digital card replace all business cards?', answer: 'For most professional networking, yes. A printed backup card is useful at venues with poor signal or with contacts who prefer physical cards.' },
+      {
+        question: 'Is a QR digital business card GDPR-compliant?',
+        answer:
+          "Yes if the contact's data is only stored with their consent. The QR links to your details for them to save; you only store theirs if they submit a form.",
+      },
+      {
+        question: 'Does a QR digital card replace all business cards?',
+        answer:
+          'For most professional networking, yes. A printed backup card is useful at venues with poor signal or with contacts who prefer physical cards.',
+      },
     ]
   ),
   art(
@@ -88,8 +104,16 @@ A QR beside a display of limited-edition items links to the pre-order page when 
 A QR at the shop desk links to the digital gift card purchase page. Visitors who want to share the museum experience with someone else buy a gift card in seconds.
     `,
     [
-      { question: 'Should the museum shop digital catalogue require account creation?', answer: 'Guest checkout for single purchases reduces friction. Offer account creation as optional for order tracking and future purchases.' },
-      { question: 'Can a QR in the shop drive significant international revenue?', answer: 'Yes for popular cultural institutions. Tourists represent a large share of gift shop visitors and will purchase online if the process is simple.' },
+      {
+        question: 'Should the museum shop digital catalogue require account creation?',
+        answer:
+          'Guest checkout for single purchases reduces friction. Offer account creation as optional for order tracking and future purchases.',
+      },
+      {
+        question: 'Can a QR in the shop drive significant international revenue?',
+        answer:
+          'Yes for popular cultural institutions. Tourists represent a large share of gift shop visitors and will purchase online if the process is simple.',
+      },
     ]
   ),
   art(
@@ -118,8 +142,16 @@ A QR on the completion certificate links to the LMS record confirming the employ
 A QR on the manager's monthly compliance report links to their team's real-time training completion dashboard. Outstanding training is visible without logging into the LMS.
     `,
     [
-      { question: 'Should compliance training QR links require corporate SSO login?', answer: 'Yes. Compliance records are employee-specific and must be secured behind corporate identity. SSO prevents personal account use for work training.' },
-      { question: 'Can a QR on a training poster drive voluntary course completion?', answer: 'Yes. A well-placed QR with a compelling "learn something new" call to action in a break room can drive voluntary learning outside scheduled programmes.' },
+      {
+        question: 'Should compliance training QR links require corporate SSO login?',
+        answer:
+          'Yes. Compliance records are employee-specific and must be secured behind corporate identity. SSO prevents personal account use for work training.',
+      },
+      {
+        question: 'Can a QR on a training poster drive voluntary course completion?',
+        answer:
+          'Yes. A well-placed QR with a compelling "learn something new" call to action in a break room can drive voluntary learning outside scheduled programmes.',
+      },
     ]
   ),
   art(
@@ -148,8 +180,16 @@ Neighbouring properties scan to read the application, understand the impact on t
 Use a URL structure that always serves the current approved version, not a static snapshot. Approved amendments automatically replace superseded drawings.
     `,
     [
-      { question: 'Is a QR on a construction site notice board legally required?', answer: 'Currently not statutory in most jurisdictions. It is best practice and increasingly expected. Check current planning notice regulations in your country.' },
-      { question: 'Can a QR replace the posted site notice entirely?', answer: 'No. Physical posted notices are a statutory requirement in most jurisdictions. QR provides access to the full application linked from the required notice.' },
+      {
+        question: 'Is a QR on a construction site notice board legally required?',
+        answer:
+          'Currently not statutory in most jurisdictions. It is best practice and increasingly expected. Check current planning notice regulations in your country.',
+      },
+      {
+        question: 'Can a QR replace the posted site notice entirely?',
+        answer:
+          'No. Physical posted notices are a statutory requirement in most jurisdictions. QR provides access to the full application linked from the required notice.',
+      },
     ]
   ),
   art(
@@ -178,8 +218,16 @@ A QR in the area's cultural listings links to the open studio event page: dates,
 A QR in the building links to the residency archive: every artist who has been in residence, their work, and their project outcomes. Documents institutional history and value.
     `,
     [
-      { question: 'Should artist studio diary QRs require public access?', answer: 'Studio diary pages can be public for outreach and engagement. Private process notes or unfinished work can be password-protected for invited audiences.' },
-      { question: 'Can a QR application replace a PDF submission?', answer: 'Yes for most residencies. A web form collects portfolio links, text, and documents in a structured way that is easier to manage than inbox PDFs.' },
+      {
+        question: 'Should artist studio diary QRs require public access?',
+        answer:
+          'Studio diary pages can be public for outreach and engagement. Private process notes or unfinished work can be password-protected for invited audiences.',
+      },
+      {
+        question: 'Can a QR application replace a PDF submission?',
+        answer:
+          'Yes for most residencies. A web form collects portfolio links, text, and documents in a structured way that is easier to manage than inbox PDFs.',
+      },
     ]
   ),
   art(
@@ -208,8 +256,16 @@ A QR links to the flavour wheel, tasting notes, and cupping score for the lot. C
 A QR on the bag links to the coffee subscription page. First-time buyers who enjoyed the coffee subscribe to receive it regularly. The conversion from one-off purchase to subscription is highest at the moment of enjoyment.
     `,
     [
-      { question: 'Should a QR on a coffee bag be different for each lot?', answer: 'Yes. Each lot has a unique origin, flavour profile, and brew recommendation. A lot-specific QR maintains accuracy and adds collector interest.' },
-      { question: 'Can a QR on a coffee bag drive B2C subscription from a wholesale customer?', answer: 'Yes if the bag is sold to an end consumer. Include B2C subscription QR even on bags distributed through wholesale channels.' },
+      {
+        question: 'Should a QR on a coffee bag be different for each lot?',
+        answer:
+          'Yes. Each lot has a unique origin, flavour profile, and brew recommendation. A lot-specific QR maintains accuracy and adds collector interest.',
+      },
+      {
+        question: 'Can a QR on a coffee bag drive B2C subscription from a wholesale customer?',
+        answer:
+          'Yes if the bag is sold to an end consumer. Include B2C subscription QR even on bags distributed through wholesale channels.',
+      },
     ]
   ),
   art(
@@ -238,8 +294,17 @@ A QR at the quizmaster's station lets the quizmaster push the current question t
 A special round QR unlocks a timed speed round or picture round directly on participants' phones. The variety drives engagement and differentiates the quiz from a traditional format.
     `,
     [
-      { question: 'Can a pub quiz run without paper at all using QR?', answer: 'Yes. QR answer submission, leaderboard display, and question delivery is a fully digital format. Some quizmasters retain paper for older participants.' },
-      { question: 'How do you prevent teams looking up answers on the same device used for submission?', answer: 'Answer submission and question display use the same phone. Add a time limit per round that is tight enough to discourage searching.' },
+      {
+        question: 'Can a pub quiz run without paper at all using QR?',
+        answer:
+          'Yes. QR answer submission, leaderboard display, and question delivery is a fully digital format. Some quizmasters retain paper for older participants.',
+      },
+      {
+        question:
+          'How do you prevent teams looking up answers on the same device used for submission?',
+        answer:
+          'Answer submission and question display use the same phone. Add a time limit per round that is tight enough to discourage searching.',
+      },
     ]
   ),
   art(
@@ -268,8 +333,16 @@ A QR links to guides for parents and teachers: developmental benefits, curriculu
 A QR on the toy box links to the product safety page, current recall status, and the correct cleaning method for the materials. Parents confirm safety without searching by model number.
     `,
     [
-      { question: 'Should educational toy QR links be moderated for child safety?', answer: 'Yes. All linked content must be age-appropriate, free from advertising, and hosted on a platform the brand controls. Never link to user-generated content platforms.' },
-      { question: 'Can a QR on a toy survive washing or rough play?', answer: 'The QR is on the packaging or a label, not on the toy itself. Packaging QRs serve the purchase moment; for in-play use, embed QR on a durable label on the product body.' },
+      {
+        question: 'Should educational toy QR links be moderated for child safety?',
+        answer:
+          'Yes. All linked content must be age-appropriate, free from advertising, and hosted on a platform the brand controls. Never link to user-generated content platforms.',
+      },
+      {
+        question: 'Can a QR on a toy survive washing or rough play?',
+        answer:
+          'The QR is on the packaging or a label, not on the toy itself. Packaging QRs serve the purchase moment; for in-play use, embed QR on a durable label on the product body.',
+      },
     ]
   ),
   art(
@@ -298,8 +371,16 @@ A QR on toilet door signage and wristbands links to consent education, bystander
 A QR on "Safe Space" venue stickers links to the network of venues that have committed to the Safe Space scheme, the location finder, and what the scheme means for a person who needs it.
     `,
     [
-      { question: 'Can a QR code at a nightclub entrance link to safety information?', answer: 'Yes. Pre-venue safety QRs set expectations before entry. A queue is a good moment to scan welfare and safe travel information.' },
-      { question: 'Should night-time economy welfare QR pages work offline?', answer: 'Yes where possible. Signal in basements and crowded venues is poor. Cache welfare information on first scan outside the venue.' },
+      {
+        question: 'Can a QR code at a nightclub entrance link to safety information?',
+        answer:
+          'Yes. Pre-venue safety QRs set expectations before entry. A queue is a good moment to scan welfare and safe travel information.',
+      },
+      {
+        question: 'Should night-time economy welfare QR pages work offline?',
+        answer:
+          'Yes where possible. Signal in basements and crowded venues is poor. Cache welfare information on first scan outside the venue.',
+      },
     ]
   ),
 ];

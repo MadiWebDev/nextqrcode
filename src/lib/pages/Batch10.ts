@@ -38,8 +38,16 @@ QR scan rates depend on foot traffic, awareness of what the code does, and scan 
 Use a separate short path per placement. Track unique visitors and sessions from the QR source on your analytics.
     `,
     [
-      { question: 'How many people typically scan a QR on packaging?', answer: 'About 1 to 5% of units sold in most consumer goods categories. Engagement depends heavily on the offer.' },
-      { question: 'What is the easiest way to improve scan rates?', answer: 'Add a clear, specific call to action. "Scan for the recipe" outperforms a bare code.' },
+      {
+        question: 'How many people typically scan a QR on packaging?',
+        answer:
+          'About 1 to 5% of units sold in most consumer goods categories. Engagement depends heavily on the offer.',
+      },
+      {
+        question: 'What is the easiest way to improve scan rates?',
+        answer:
+          'Add a clear, specific call to action. "Scan for the recipe" outperforms a bare code.',
+      },
     ]
   ),
   art(
@@ -70,8 +78,15 @@ If the server is unreachable, display the scheduled timetable from a cached fall
 Bus stop signs face weather and vandalism. Use durable aluminium panels, level Q error correction, and a printed stop number as a text fallback for phone-based timetable lookups.
     `,
     [
-      { question: 'Does each stop need a unique QR code?', answer: 'Yes. Encode the stop ID in the URL so the page shows arrivals for the correct stop.' },
-      { question: 'Should the page require an app install?', answer: 'No. A fast, mobile-optimised web page removes all friction for riders.' },
+      {
+        question: 'Does each stop need a unique QR code?',
+        answer:
+          'Yes. Encode the stop ID in the URL so the page shows arrivals for the correct stop.',
+      },
+      {
+        question: 'Should the page require an app install?',
+        answer: 'No. A fast, mobile-optimised web page removes all friction for riders.',
+      },
     ]
   ),
   art(
@@ -100,8 +115,16 @@ Exhibitors scan visitor badges to capture contact details. GDPR and equivalent l
 Most conference platforms now embed QR networking: attendees scan each other and the platform facilitates introductions and follow-ups. This works best when the event app is adopted by most participants.
     `,
     [
-      { question: 'Can exhibitors take personal data from a badge scan without permission?', answer: 'No. Most jurisdictions require informed consent. Make the consent mechanism clear at registration.' },
-      { question: 'What is the most reliable badge QR format?', answer: 'A URL to the attendee profile or a vCard payload. URLs are more flexible; vCards work offline.' },
+      {
+        question: 'Can exhibitors take personal data from a badge scan without permission?',
+        answer:
+          'No. Most jurisdictions require informed consent. Make the consent mechanism clear at registration.',
+      },
+      {
+        question: 'What is the most reliable badge QR format?',
+        answer:
+          'A URL to the attendee profile or a vCard payload. URLs are more flexible; vCards work offline.',
+      },
     ]
   ),
   art(
@@ -133,8 +156,16 @@ Wine labels are small. Use a QR that fits between 1.2 and 2 cm without cutting i
 Curved glass causes distortion. Place the code on the flattest part of the label and test scanning before production.
     `,
     [
-      { question: 'Is a QR code required on EU wine labels?', answer: 'QR is the recommended approach for nutrition and ingredient disclosure required from December 2023, though other digital means are also permitted.' },
-      { question: 'What should the QR on a wine bottle link to?', answer: 'At minimum the required nutrition and ingredient data. Brand storytelling and tasting notes are added value.' },
+      {
+        question: 'Is a QR code required on EU wine labels?',
+        answer:
+          'QR is the recommended approach for nutrition and ingredient disclosure required from December 2023, though other digital means are also permitted.',
+      },
+      {
+        question: 'What should the QR on a wine bottle link to?',
+        answer:
+          'At minimum the required nutrition and ingredient data. Brand storytelling and tasting notes are added value.',
+      },
     ]
   ),
   art(
@@ -163,8 +194,16 @@ The EU Cosmetics Regulation requires responsible person documentation including 
 Link to recycling instructions specific to the packaging type and the consumer's region, or to a product return programme.
     `,
     [
-      { question: 'Is a full ingredient list required on cosmetic packaging?', answer: 'The INCI list is required on the pack under EU and most national regulations. QR extends this with more detail but does not replace required print.' },
-      { question: 'Can QR codes be used for cosmetic product recall?', answer: 'Yes. A QR with a serialised batch code can trigger a recall notice when the batch is flagged in the system.' },
+      {
+        question: 'Is a full ingredient list required on cosmetic packaging?',
+        answer:
+          'The INCI list is required on the pack under EU and most national regulations. QR extends this with more detail but does not replace required print.',
+      },
+      {
+        question: 'Can QR codes be used for cosmetic product recall?',
+        answer:
+          'Yes. A QR with a serialised batch code can trigger a recall notice when the batch is flagged in the system.',
+      },
     ]
   ),
   art(
@@ -196,8 +235,16 @@ For smaller stores without an e-commerce presence, link to a universal product s
 A URL on your own domain allows updating product information without reprinting. Use a redirect per product category or SKU.
     `,
     [
-      { question: 'Should every product have a QR on the shelf tag?', answer: 'High-consideration products (electronics, appliances, furniture) benefit most. Simple FMCG products see less ROI.' },
-      { question: 'Can the QR replace the price?', answer: 'No. Prices must be clearly displayed per consumer protection law in most countries. QR is supplementary.' },
+      {
+        question: 'Should every product have a QR on the shelf tag?',
+        answer:
+          'High-consideration products (electronics, appliances, furniture) benefit most. Simple FMCG products see less ROI.',
+      },
+      {
+        question: 'Can the QR replace the price?',
+        answer:
+          'No. Prices must be clearly displayed per consumer protection law in most countries. QR is supplementary.',
+      },
     ]
   ),
   art(
@@ -226,8 +273,16 @@ A QR inside the appliance door or compartment links to step-by-step repair video
 Place the label in a visible but durable location: inside a door, on the back, or near the rating plate. Make it tamper-evident if it doubles as a warranty or serial-number label.
     `,
     [
-      { question: 'Can a QR replace the required safety documentation?', answer: 'Usually not. Safety warnings and basic operating instructions may be legally required in print. QR supplements detailed documentation.' },
-      { question: 'What if the URL changes after the product ships?', answer: 'Use a redirect on a domain you control. The printed code stays the same; only the redirect target changes.' },
+      {
+        question: 'Can a QR replace the required safety documentation?',
+        answer:
+          'Usually not. Safety warnings and basic operating instructions may be legally required in print. QR supplements detailed documentation.',
+      },
+      {
+        question: 'What if the URL changes after the product ships?',
+        answer:
+          'Use a redirect on a domain you control. The printed code stays the same; only the redirect target changes.',
+      },
     ]
   ),
   art(
@@ -260,8 +315,15 @@ Place the call to action directly adjacent to the code. "Scan for 20% off your n
 For highly personalised direct mail, generate a unique code per recipient. Track individual-level response and attribute conversions to specific mailpieces.
     `,
     [
-      { question: 'What minimum size QR works in a newspaper ad?', answer: 'Newsprint has lower contrast and resolution. Use at least 4 cm and level M with a short, simple URL.' },
-      { question: 'Should each magazine insertion have its own QR?', answer: 'Yes, so you can measure which publication drives response.' },
+      {
+        question: 'What minimum size QR works in a newspaper ad?',
+        answer:
+          'Newsprint has lower contrast and resolution. Use at least 4 cm and level M with a short, simple URL.',
+      },
+      {
+        question: 'Should each magazine insertion have its own QR?',
+        answer: 'Yes, so you can measure which publication drives response.',
+      },
     ]
   ),
   art(
@@ -292,8 +354,16 @@ Trail signs face rain, UV, frost, and wildlife contact. Use aluminium or stainle
 At emergency posts, the most important link is a page that works offline and contains: the post's GPS coordinates, the closest road access, and emergency phone numbers.
     `,
     [
-      { question: 'How do I make trail QR pages work without mobile signal?', answer: 'Build them as progressive web apps (PWA) that cache content. Instruct hikers to scan the trailhead code before starting.' },
-      { question: 'What material lasts longest on a mountain trail?', answer: 'Anodised aluminium or stainless steel with UV-cured print, or chemically etched with paint fill.' },
+      {
+        question: 'How do I make trail QR pages work without mobile signal?',
+        answer:
+          'Build them as progressive web apps (PWA) that cache content. Instruct hikers to scan the trailhead code before starting.',
+      },
+      {
+        question: 'What material lasts longest on a mountain trail?',
+        answer:
+          'Anodised aluminium or stainless steel with UV-cured print, or chemically etched with paint fill.',
+      },
     ]
   ),
   art(
@@ -322,8 +392,16 @@ Some galleries link to an NFT or blockchain provenance record. This supplements 
 Keep the QR label minimal and on-brand. Printed on a small card stock in the gallery's typographic style, it looks intentional rather than afterthought.
     `,
     [
-      { question: 'Should artwork prices be behind the QR?', answer: 'If gallery policy is price-on-request, link to an inquiry form. If prices are shown, list them on the page for transparency.' },
-      { question: 'Does a QR code on a certificate add value?', answer: 'Yes. It links the physical certificate to a verifiable digital record, making it harder to forge.' },
+      {
+        question: 'Should artwork prices be behind the QR?',
+        answer:
+          'If gallery policy is price-on-request, link to an inquiry form. If prices are shown, list them on the page for transparency.',
+      },
+      {
+        question: 'Does a QR code on a certificate add value?',
+        answer:
+          'Yes. It links the physical certificate to a verifiable digital record, making it harder to forge.',
+      },
     ]
   ),
 ];

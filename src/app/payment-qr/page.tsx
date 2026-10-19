@@ -28,7 +28,8 @@ export default function PaymentHubPage() {
           Payment QR Code Scheme Library
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Generate compliant ISO 20022, EMVCo TLV, and national standard payment QR codes for bank apps and digital wallets worldwide. Zero intermediary fees, 100% client-side data privacy.
+          Generate compliant ISO 20022, EMVCo TLV, and national standard payment QR codes for bank
+          apps and digital wallets worldwide. Zero intermediary fees, 100% client-side data privacy.
         </p>
       </header>
 
@@ -54,9 +55,7 @@ export default function PaymentHubPage() {
               </div>
 
               <h2 className="font-bold text-xl text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug mb-2">
-                <Link href={`/payment-qr/${scheme.slug}`}>
-                  {scheme.name}
-                </Link>
+                <Link href={`/payment-qr/${scheme.slug}`}>{scheme.name}</Link>
               </h2>
 
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-4">

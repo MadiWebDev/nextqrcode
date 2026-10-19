@@ -28,8 +28,16 @@ A QR on the welcome pack links to a plain-language tenant rights guide: deposit 
 A QR on the inside of each flat door links to the emergency contacts page: fire alarm procedure, emergency plumber, and out-of-hours warden contact. Critical information always within reach.
     `,
     [
-      { question: 'Can a QR maintenance system replace the email ticketing system?', answer: 'It complements it. QR form submission can feed directly into the ticketing system with location pre-filled, reducing back-and-forth clarification.' },
-      { question: 'Should student accommodation QR links work during a power cut?', answer: 'Phone battery permitting, yes. Ensure emergency contact pages are cached by the phone browser on first access.' },
+      {
+        question: 'Can a QR maintenance system replace the email ticketing system?',
+        answer:
+          'It complements it. QR form submission can feed directly into the ticketing system with location pre-filled, reducing back-and-forth clarification.',
+      },
+      {
+        question: 'Should student accommodation QR links work during a power cut?',
+        answer:
+          'Phone battery permitting, yes. Ensure emergency contact pages are cached by the phone browser on first access.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ The contract manager scans area QRs during an audit walk and submits quality sco
 A QR in the cleaning contractor's app or on a card links to the non-conformance report form. Clients and contractors report missed cleans, damage, or quality failures in a structured format.
     `,
     [
-      { question: 'Can QR cleaning logs replace the paper site logbook?', answer: 'Yes in most contractual contexts. Verify that the digital log satisfies any specific regulatory or industry audit standard required by the client.' },
-      { question: 'Should cleaning evidence photos be stored for how long?', answer: 'At least the duration of the contract plus the contractual dispute window, typically 12 months after contract end.' },
+      {
+        question: 'Can QR cleaning logs replace the paper site logbook?',
+        answer:
+          'Yes in most contractual contexts. Verify that the digital log satisfies any specific regulatory or industry audit standard required by the client.',
+      },
+      {
+        question: 'Should cleaning evidence photos be stored for how long?',
+        answer:
+          'At least the duration of the contract plus the contractual dispute window, typically 12 months after contract end.',
+      },
     ]
   ),
   art(
@@ -92,8 +108,16 @@ A QR on manager development materials links to a guide for having mental health 
 A QR links to the quarterly wellbeing survey. Anonymous responses feed the HR team's wellbeing strategy. Post a QR in the lift, kitchen, and toilets to maximise response rates.
     `,
     [
-      { question: 'Should EAP QR codes be behind any authentication?', answer: 'No. EAP access must be frictionless. Any barrier reduces the likelihood of a struggling employee reaching help.' },
-      { question: 'Can a workplace wellness QR reduce long-term sickness absence?', answer: 'Early access to EAP and self-help tools is correlated with reduced absence duration. QR lowers the barrier to that early access.' },
+      {
+        question: 'Should EAP QR codes be behind any authentication?',
+        answer:
+          'No. EAP access must be frictionless. Any barrier reduces the likelihood of a struggling employee reaching help.',
+      },
+      {
+        question: 'Can a workplace wellness QR reduce long-term sickness absence?',
+        answer:
+          'Early access to EAP and self-help tools is correlated with reduced absence duration. QR lowers the barrier to that early access.',
+      },
     ]
   ),
   art(
@@ -122,8 +146,16 @@ A QR at each seat or cabin links to the onboard restaurant or kiosk menu. Orders
 A QR at the boarding gate links to the assistance request form: wheelchair boarding, lifting assistance, and priority seating. Submitted before boarding so crew can prepare.
     `,
     [
-      { question: 'Can a ferry digital ticket QR work if the passenger has no signal at sea?', answer: 'The QR is scanned before boarding while in range. Onboard ordering requires the ship\'s WiFi. Ensure the ticket page is cached before departure.' },
-      { question: 'Should each passenger have a unique QR ticket?', answer: 'Yes. Group bookings should generate individual QRs so each passenger boards independently if the group separates.' },
+      {
+        question: 'Can a ferry digital ticket QR work if the passenger has no signal at sea?',
+        answer:
+          "The QR is scanned before boarding while in range. Onboard ordering requires the ship's WiFi. Ensure the ticket page is cached before departure.",
+      },
+      {
+        question: 'Should each passenger have a unique QR ticket?',
+        answer:
+          'Yes. Group bookings should generate individual QRs so each passenger boards independently if the group separates.',
+      },
     ]
   ),
   art(
@@ -152,8 +184,17 @@ A QR on the parking payment page allows eligible patients and visitors to apply 
 A QR on the car park entrance links to the staff monthly pass application and renewal form. Renewal reminders sent by email carry a QR shortcut to the renewal page.
     `,
     [
-      { question: 'Can hospital car park QR payment help patients with severe illness who struggle to reach a pay station?', answer: 'Yes. A QR accessible from the car or via a phone scan near the bay removes the need to walk to a machine for patients with limited mobility.' },
-      { question: 'Should disabled bay QR verification links be public?', answer: 'Yes. Blue Badge verification and misuse reporting is a public interest service that should be freely accessible.' },
+      {
+        question:
+          'Can hospital car park QR payment help patients with severe illness who struggle to reach a pay station?',
+        answer:
+          'Yes. A QR accessible from the car or via a phone scan near the bay removes the need to walk to a machine for patients with limited mobility.',
+      },
+      {
+        question: 'Should disabled bay QR verification links be public?',
+        answer:
+          'Yes. Blue Badge verification and misuse reporting is a public interest service that should be freely accessible.',
+      },
     ]
   ),
   art(
@@ -182,8 +223,16 @@ A QR links to the insurer's safe driving tips: smooth acceleration techniques, a
 A QR on the renewal notice links to the renewal form pre-filled with last year's data. Drivers see their score history and how it has affected their premium. Transparent pricing builds trust and loyalty.
     `,
     [
-      { question: 'Should telematics driving score QRs require login?', answer: 'Yes. Driving score data is personal and financially sensitive. Require authentication before displaying individual scores and trip history.' },
-      { question: 'Can a QR improve driving behaviour in young drivers?', answer: 'Yes if it makes scores visible and actionable. Regular score check access via QR is associated with behaviour improvement in telematics programmes.' },
+      {
+        question: 'Should telematics driving score QRs require login?',
+        answer:
+          'Yes. Driving score data is personal and financially sensitive. Require authentication before displaying individual scores and trip history.',
+      },
+      {
+        question: 'Can a QR improve driving behaviour in young drivers?',
+        answer:
+          'Yes if it makes scores visible and actionable. Regular score check access via QR is associated with behaviour improvement in telematics programmes.',
+      },
     ]
   ),
   art(
@@ -212,8 +261,16 @@ A QR on collection tins and street collection bibs links to the online donation 
 A QR on corporate challenge event packs links to the team fundraising page. Corporate donors track their team's total and share progress with colleagues.
     `,
     [
-      { question: 'Should a hospice tribute fund QR require registration?', answer: 'No. Anonymous donations are fully valid. Optional registration allows the charity to send a thank you and communicate impact.' },
-      { question: 'Can a QR on a hospice collection tin increase donation amounts?', answer: 'Yes. Digital donors tend to give larger amounts than cash donors. A QR alongside the tin captures both populations.' },
+      {
+        question: 'Should a hospice tribute fund QR require registration?',
+        answer:
+          'No. Anonymous donations are fully valid. Optional registration allows the charity to send a thank you and communicate impact.',
+      },
+      {
+        question: 'Can a QR on a hospice collection tin increase donation amounts?',
+        answer:
+          'Yes. Digital donors tend to give larger amounts than cash donors. A QR alongside the tin captures both populations.',
+      },
     ]
   ),
   art(
@@ -242,8 +299,16 @@ A QR links to the current Safer Food Better Business (SFBB) or equivalent pack f
 A QR links to the allergen information matrix for all ingredients in use. Updated when a supplier changes a formulation. Always current without reprinting an allergen binder.
     `,
     [
-      { question: 'Do digital cleaning logs satisfy EHO requirements?', answer: 'In most cases yes, provided they are complete, timestamped, and accessible for inspection. Confirm requirements with your local authority.' },
-      { question: 'Should kitchen QR temperature logs alert managers automatically?', answer: 'Yes. Configure automatic alerts when readings are out of range so corrective action is taken before a food safety incident occurs.' },
+      {
+        question: 'Do digital cleaning logs satisfy EHO requirements?',
+        answer:
+          'In most cases yes, provided they are complete, timestamped, and accessible for inspection. Confirm requirements with your local authority.',
+      },
+      {
+        question: 'Should kitchen QR temperature logs alert managers automatically?',
+        answer:
+          'Yes. Configure automatic alerts when readings are out of range so corrective action is taken before a food safety incident occurs.',
+      },
     ]
   ),
   art(
@@ -272,8 +337,16 @@ A QR on a construction or creation site links to the project blog: progress phot
 A QR beside the finished artwork links to the project archive: original proposal, participant photos, process documentation, and the community's response. The artwork becomes a gateway to its own story.
     `,
     [
-      { question: 'Should community art project QR links remain active after the project ends?', answer: 'Yes. The archive QR beside the finished artwork should remain live indefinitely. It is part of the artwork\'s public identity.' },
-      { question: 'Can a QR crowdfunding link on a poster comply with fundraising regulations?', answer: 'If the project is a registered charity or community benefit society, yes. Unregistered fundraising has different rules. Check your jurisdiction before promoting publicly.' },
+      {
+        question: 'Should community art project QR links remain active after the project ends?',
+        answer:
+          "Yes. The archive QR beside the finished artwork should remain live indefinitely. It is part of the artwork's public identity.",
+      },
+      {
+        question: 'Can a QR crowdfunding link on a poster comply with fundraising regulations?',
+        answer:
+          'If the project is a registered charity or community benefit society, yes. Unregistered fundraising has different rules. Check your jurisdiction before promoting publicly.',
+      },
     ]
   ),
   art(
@@ -306,8 +379,16 @@ UPI is the dominant payment method in India. QR codes for payment use the upi://
 Hindi is widely spoken but not universal. In South India, Tamil, Telugu, or Kannada may be more effective. Check the language demographic of the specific target region before committing to Hindi.
     `,
     [
-      { question: 'Can a single QR landing page serve all 22 official Indian languages?', answer: 'Via language detection yes, though serving all 22 reliably requires significant translation and testing investment. Prioritise the languages of your target market.' },
-      { question: 'Should Hindi QR campaigns use formal or informal register?', answer: 'For mass-market consumer campaigns, informal register ("आप" vs "तुम") typically performs better for trust and warmth. Formal register suits government and healthcare contexts.' },
+      {
+        question: 'Can a single QR landing page serve all 22 official Indian languages?',
+        answer:
+          'Via language detection yes, though serving all 22 reliably requires significant translation and testing investment. Prioritise the languages of your target market.',
+      },
+      {
+        question: 'Should Hindi QR campaigns use formal or informal register?',
+        answer:
+          'For mass-market consumer campaigns, informal register ("आप" vs "तुम") typically performs better for trust and warmth. Formal register suits government and healthcare contexts.',
+      },
     ]
   ),
 ];

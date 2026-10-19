@@ -1,9 +1,5 @@
 export type CardTheme =
-  | 'luxury-dark'
-  | 'emerald-glass'
-  | 'royal-indigo'
-  | 'sunset-rose'
-  | 'minimalist';
+  'luxury-dark' | 'emerald-glass' | 'royal-indigo' | 'sunset-rose' | 'minimalist';
 
 export interface CardSocials {
   linkedin?: string;

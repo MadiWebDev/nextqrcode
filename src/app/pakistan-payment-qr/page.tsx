@@ -20,8 +20,52 @@ import {
   DollarSign,
 } from 'lucide-react';
 
+type PaymentProvider = 'raast' | 'jazzcash' | 'easypaisa' | 'upi';
+
+// Pure helper: build the standard payload string for a provider (no side effects).
+function buildPayload(
+  provider: PaymentProvider,
+  accountIdentifier: string,
+  merchantName: string,
+  amount: string,
+  reference: string
+): string {
+  let payload = '';
+
+  if (provider === 'raast') {
+    // EMVCo TLV payload approximation for SBP Raast P2M
+    // 00: Payload Format Indicator (01)
+    // 01: Point of Initiation Method (12 for dynamic/amount or 11 for static)
+    // 26: Merchant Info (PK.GOV.SBP.RAAST)
+    // 52: MCC (0000)
+    // 53: Currency (586 for PKR)
+    // 54: Amount
+    // 58: Country Code (PK)
+    // 59: Merchant Name
+    // 62: Additional Data (Reference)
+    const amtStr = amount ? `54${String(amount.length).padStart(2, '0')}${amount}` : '';
+    const refStr = reference ? `01${String(reference.length).padStart(2, '0')}${reference}` : '';
+    const tag62 = refStr ? `62${String(refStr.length).padStart(2, '0')}${refStr}` : '';
+    const nameStr = merchantName || 'Merchant';
+    const tag59 = `59${String(nameStr.length).padStart(2, '0')}${nameStr}`;
+    const ibanClean = accountIdentifier.replace(/\s+/g, '');
+    const tag26Sub = `0016PK.GOV.SBP.RAAST01${String(ibanClean.length).padStart(2, '0')}${ibanClean}`;
+    const tag26 = `26${String(tag26Sub.length).padStart(2, '0')}${tag26Sub}`;
+
+    payload = `000201010212${tag26}520400005303586${amtStr}5802PK${tag59}${tag62}6304ABCD`;
+  } else if (provider === 'jazzcash') {
+    payload = `jazzcash://pay?till=${accountIdentifier}&name=${encodeURIComponent(merchantName)}&am=${amount}&ref=${reference}`;
+  } else if (provider === 'easypaisa') {
+    payload = `easypaisa://pay?account=${accountIdentifier}&name=${encodeURIComponent(merchantName)}&amount=${amount}&ref=${reference}`;
+  } else if (provider === 'upi') {
+    payload = `upi://pay?pa=${accountIdentifier}&pn=${encodeURIComponent(merchantName)}&am=${amount}&tn=${encodeURIComponent(reference)}&cu=INR`;
+  }
+
+  return payload;
+}
+
 export default function RegionalPaymentQRPage() {
-  const [provider, setProvider] = useState<'raast' | 'jazzcash' | 'easypaisa' | 'upi'>('raast');
+  const [provider, setProvider] = useState<PaymentProvider>('raast');
 
   // Fields
   const [accountIdentifier, setAccountIdentifier] = useState('PK36SCBL0000001123456701');
@@ -30,65 +74,41 @@ export default function RegionalPaymentQRPage() {
   const [reference, setReference] = useState('INV-9021');
 
   const [qrDataUrl, setQrDataUrl] = useState<string>('');
-  const [rawPayload, setRawPayload] = useState<string>('');
   const [copied, setCopied] = useState(false);
 
-  // Compute standard payload strings
+  // Derive the payload string during render (pure computation, no state needed).
+  const rawPayload = buildPayload(provider, accountIdentifier, merchantName, amount, reference);
+
+  // Render the payload to a QR image; state updates only in the async callback.
   useEffect(() => {
-    let payload = '';
-
-    if (provider === 'raast') {
-      // EMVCo TLV payload approximation for SBP Raast P2M
-      // 00: Payload Format Indicator (01)
-      // 01: Point of Initiation Method (12 for dynamic/amount or 11 for static)
-      // 26: Merchant Info (PK.GOV.SBP.RAAST)
-      // 52: MCC (0000)
-      // 53: Currency (586 for PKR)
-      // 54: Amount
-      // 58: Country Code (PK)
-      // 59: Merchant Name
-      // 62: Additional Data (Reference)
-      const amtStr = amount ? `54${String(amount.length).padStart(2, '0')}${amount}` : '';
-      const refStr = reference ? `01${String(reference.length).padStart(2, '0')}${reference}` : '';
-      const tag62 = refStr ? `62${String(refStr.length).padStart(2, '0')}${refStr}` : '';
-      const nameStr = merchantName || 'Merchant';
-      const tag59 = `59${String(nameStr.length).padStart(2, '0')}${nameStr}`;
-      const ibanClean = accountIdentifier.replace(/\s+/g, '');
-      const tag26Sub = `0016PK.GOV.SBP.RAAST01${String(ibanClean.length).padStart(2, '0')}${ibanClean}`;
-      const tag26 = `26${String(tag26Sub.length).padStart(2, '0')}${tag26Sub}`;
-
-      payload = `000201010212${tag26}520400005303586${amtStr}5802PK${tag59}${tag62}6304ABCD`;
-    } else if (provider === 'jazzcash') {
-      payload = `jazzcash://pay?till=${accountIdentifier}&name=${encodeURIComponent(merchantName)}&am=${amount}&ref=${reference}`;
-    } else if (provider === 'easypaisa') {
-      payload = `easypaisa://pay?account=${accountIdentifier}&name=${encodeURIComponent(merchantName)}&amount=${amount}&ref=${reference}`;
-    } else if (provider === 'upi') {
-      payload = `upi://pay?pa=${accountIdentifier}&pn=${encodeURIComponent(merchantName)}&am=${amount}&tn=${encodeURIComponent(reference)}&cu=INR`;
-    }
-
-    setRawPayload(payload);
-
-    QRCode.toDataURL(payload, {
+    let cancelled = false;
+    QRCode.toDataURL(rawPayload, {
       errorCorrectionLevel: 'M',
       width: 360,
       margin: 2,
     }).then((url) => {
-      setQrDataUrl(url);
+      if (!cancelled) setQrDataUrl(url);
     });
-  }, [provider, accountIdentifier, merchantName, amount, reference]);
+    return () => {
+      cancelled = true;
+    };
+  }, [rawPayload]);
 
   const faqs = [
     {
       question: 'What is the Pakistan Raast QR code standard?',
-      answer: 'Raast is Pakistan’s national instant payment system developed by the State Bank of Pakistan. Its QR specification complies with international EMVCo Tag-Length-Value (TLV) standards, allowing interoperable payments across all Pakistani commercial banks and microfinance institutions.',
+      answer:
+        'Raast is Pakistan’s national instant payment system developed by the State Bank of Pakistan. Its QR specification complies with international EMVCo Tag-Length-Value (TLV) standards, allowing interoperable payments across all Pakistani commercial banks and microfinance institutions.',
     },
     {
       question: 'Can customers scan this QR code with Easypaisa, JazzCash, or bank apps?',
-      answer: 'Yes. EMVCo Raast QR codes are cross-compatible across all SBP-certified applications including Nayapay, Sadapay, HBL, Meezan, Bank Alfalah, Easypaisa, and JazzCash.',
+      answer:
+        'Yes. EMVCo Raast QR codes are cross-compatible across all SBP-certified applications including Nayapay, Sadapay, HBL, Meezan, Bank Alfalah, Easypaisa, and JazzCash.',
     },
     {
       question: 'Does QR Code Tools charge any transaction or payment processing fees?',
-      answer: 'Zero fees. QR Code Tools is not a payment gateway and never touches transaction funds. We generate open standard payload strings directly inside your browser.',
+      answer:
+        'Zero fees. QR Code Tools is not a payment gateway and never touches transaction funds. We generate open standard payload strings directly inside your browser.',
     },
   ];
 
@@ -110,7 +130,8 @@ export default function RegionalPaymentQRPage() {
           Regional Payment QR Generator (Raast, JazzCash, Easypaisa & UPI)
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Create official merchant payment QR codes for Pakistan (SBP Raast EMVCo, JazzCash Till, Easypaisa) and India (NPCI UPI) with fixed or open amounts.
+          Create official merchant payment QR codes for Pakistan (SBP Raast EMVCo, JazzCash Till,
+          Easypaisa) and India (NPCI UPI) with fixed or open amounts.
         </p>
       </header>
 
@@ -126,7 +147,7 @@ export default function RegionalPaymentQRPage() {
             key={item.id}
             type="button"
             onClick={() => {
-              setProvider(item.id as any);
+              setProvider(item.id as PaymentProvider);
               if (item.id === 'raast') setAccountIdentifier('PK36SCBL0000001123456701');
               if (item.id === 'jazzcash') setAccountIdentifier('03001234567');
               if (item.id === 'easypaisa') setAccountIdentifier('03451234567');
@@ -158,8 +179,8 @@ export default function RegionalPaymentQRPage() {
                   {provider === 'raast'
                     ? 'Raast IBAN or Registered Mobile Alias:'
                     : provider === 'upi'
-                    ? 'Virtual Payment Address (VPA / UPI ID):'
-                    : 'Merchant Till Number or Wallet Account:'}
+                      ? 'Virtual Payment Address (VPA / UPI ID):'
+                      : 'Merchant Till Number or Wallet Account:'}
                 </Label>
                 <Input
                   id="pay-acc"
@@ -213,7 +234,9 @@ export default function RegionalPaymentQRPage() {
             <div className="rounded-xl bg-amber-500/10 border border-amber-500/20 p-3 text-xs text-amber-900 dark:text-amber-300 flex items-start gap-2">
               <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
               <span>
-                Disclaimer: Verify your IBAN, till, or UPI ID with a small test scan before printing checkout displays. QR Code Tools is an open generator and is not affiliated with the State Bank of Pakistan or NPCI.
+                Disclaimer: Verify your IBAN, till, or UPI ID with a small test scan before printing
+                checkout displays. QR Code Tools is an open generator and is not affiliated with the
+                State Bank of Pakistan or NPCI.
               </span>
             </div>
           </Card>
@@ -234,9 +257,7 @@ export default function RegionalPaymentQRPage() {
                 <div className="p-4 bg-white rounded-2xl border border-border shadow-xs">
                   <img src={qrDataUrl} alt="Payment QR" className="w-56 h-56" />
                 </div>
-                <div className="mt-3 text-xs font-semibold text-foreground">
-                  {merchantName}
-                </div>
+                <div className="mt-3 text-xs font-semibold text-foreground">{merchantName}</div>
                 {amount && (
                   <div className="text-lg font-extrabold text-primary mt-0.5">
                     {provider === 'upi' ? `₹${amount}` : `Rs. ${amount}`}
@@ -283,14 +304,21 @@ export default function RegionalPaymentQRPage() {
           Understanding Regional QR Payment Standards in South Asia
         </h2>
         <p className="text-base leading-relaxed">
-          The rapid demonetization of cash in South Asia has been driven by standardized interoperable QR code switches. In Pakistan, the State Bank of Pakistan launched Raast to eliminate merchant transaction fees. In India, the Unified Payments Interface (UPI) powers billions of monthly retail payments.
+          The rapid demonetization of cash in South Asia has been driven by standardized
+          interoperable QR code switches. In Pakistan, the State Bank of Pakistan launched Raast to
+          eliminate merchant transaction fees. In India, the Unified Payments Interface (UPI) powers
+          billions of monthly retail payments.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           The EMVCo Merchant-Presented QR Architecture
         </h3>
         <p className="text-base leading-relaxed">
-          The Raast standard follows the global EMVCo specification, using Tag-Length-Value (TLV) encoding. Each data element is identified by a two-digit numerical tag, followed by a two-digit length indicator and the raw value. Because this architecture is open and standardized, customers can scan the same physical countertop code regardless of which banking app they use.
+          The Raast standard follows the global EMVCo specification, using Tag-Length-Value (TLV)
+          encoding. Each data element is identified by a two-digit numerical tag, followed by a
+          two-digit length indicator and the raw value. Because this architecture is open and
+          standardized, customers can scan the same physical countertop code regardless of which
+          banking app they use.
         </p>
       </article>
 

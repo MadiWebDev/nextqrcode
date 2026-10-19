@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/test-results/
+/playwright-report/
 
 # next.js
 /.next/
@@ -30,6 +32,16 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# build / typecheck / lint log dumps (never commit these)
+build-output.txt
+tsc_err.txt
+tsc_out.txt
+tsc_output.txt
+lint-output.txt
+eslint-output.txt
+lighthouse-*.html
+lighthouse-*.json
+
 # env files (can opt-in for committing if needed)
 .env*
 
@@ -40,4 +52,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.vercel
+# content tooling outputs
+docs/CONTENT_AUDIT.md
+content-draft/
+# generated content audit manifest
+src/content/__generated__/

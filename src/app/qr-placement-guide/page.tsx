@@ -35,7 +35,8 @@ const SUBSTRATES: SubstrateData[] = [
     minModuleMm: 0.6,
     contrastRecommendation: 'Always print a solid white background flood coat behind the QR code.',
     finishAdvice: 'Use matte anti-reflective vinyl to eliminate specular sunlight glare.',
-    criticalCaveat: 'Never print black modules directly onto transparent glass; passing shadows will destroy contrast.',
+    criticalCaveat:
+      'Never print black modules directly onto transparent glass; passing shadows will destroy contrast.',
   },
   {
     id: 'metal',
@@ -44,7 +45,8 @@ const SUBSTRATES: SubstrateData[] = [
     minModuleMm: 0.5,
     contrastRecommendation: 'Laser annealing with matte dark oxidation against raw brushed metal.',
     finishAdvice: 'Matte chemical etching or powder-coated white backing plate.',
-    criticalCaveat: 'Overhead warehouse LED fixtures will mirror into optical sensors on mirror finishes.',
+    criticalCaveat:
+      'Overhead warehouse LED fixtures will mirror into optical sensors on mirror finishes.',
   },
   {
     id: 'wood',
@@ -53,7 +55,8 @@ const SUBSTRATES: SubstrateData[] = [
     minModuleMm: 0.8,
     contrastRecommendation: 'Deep char burn on light woods (birch, maple). Avoid dark walnut.',
     finishAdvice: 'Seal with a flat, non-yellowing matte lacquer after engraving.',
-    criticalCaveat: 'Wood grain striations crossing the finder patterns can be misread as extra modules.',
+    criticalCaveat:
+      'Wood grain striations crossing the finder patterns can be misread as extra modules.',
   },
   {
     id: 'fabric',
@@ -62,16 +65,19 @@ const SUBSTRATES: SubstrateData[] = [
     minModuleMm: 1.2,
     contrastRecommendation: 'High-density silk screen ink or woven heat-transfer vinyl.',
     finishAdvice: 'Avoid coarse embroidery threads which distort module geometry when stretched.',
-    criticalCaveat: 'Fabric wrinkles and stretch warp the timing tracks. Keep payload under 50 characters.',
+    criticalCaveat:
+      'Fabric wrinkles and stretch warp the timing tracks. Keep payload under 50 characters.',
   },
   {
     id: 'cardboard',
     name: 'Corrugated Kraft Packaging',
     glareRisk: 'Low',
     minModuleMm: 0.85,
-    contrastRecommendation: 'High-pigment black flexographic ink to compensate for brown pulp absorption.',
+    contrastRecommendation:
+      'High-pigment black flexographic ink to compensate for brown pulp absorption.',
     finishAdvice: 'Uncoated raw kraft requires larger modules to counteract ink dot gain.',
-    criticalCaveat: 'Flute ridges in corrugated board create shadow dips that distort straight module lines.',
+    criticalCaveat:
+      'Flute ridges in corrugated board create shadow dips that distort straight module lines.',
   },
   {
     id: 'curved',
@@ -80,7 +86,8 @@ const SUBSTRATES: SubstrateData[] = [
     minModuleMm: 0.55,
     contrastRecommendation: 'Dark ink on white opaque label stock with Error Correction Level H.',
     finishAdvice: 'Matte laminate to avoid circular reflections from cylinder highlights.',
-    criticalCaveat: 'Keep total width under 25% of cylinder circumference to prevent keystone compression.',
+    criticalCaveat:
+      'Keep total width under 25% of cylinder circumference to prevent keystone compression.',
   },
 ];
 
@@ -107,15 +114,18 @@ export default function QRPlacementGuidePage() {
   const faqs = [
     {
       question: 'Why does printing on glass or clear acrylic require a white backing layer?',
-      answer: 'Transparent substrates allow background objects, ambient shadows, and indoor lighting to show through. If a customer scans a window code with a dark interior behind it, the camera cannot distinguish the black modules from the background. A solid white flood coat restores a reliable 7:1 contrast ratio.',
+      answer:
+        'Transparent substrates allow background objects, ambient shadows, and indoor lighting to show through. If a customer scans a window code with a dark interior behind it, the camera cannot distinguish the black modules from the background. A solid white flood coat restores a reliable 7:1 contrast ratio.',
     },
     {
       question: 'How do I prevent laser engraved QR codes on wood from failing?',
-      answer: 'Select a fine-grain, pale wood species such as Baltic birch, maple, or basswood. Run a high-contrast burn setting and ensure the individual module size is at least 0.8 mm so natural wood grain pores do not blend with the modules.',
+      answer:
+        'Select a fine-grain, pale wood species such as Baltic birch, maple, or basswood. Run a high-contrast burn setting and ensure the individual module size is at least 0.8 mm so natural wood grain pores do not blend with the modules.',
     },
     {
       question: 'What is ink dot gain and why does it affect cardboard packaging?',
-      answer: 'Dot gain is the phenomenon where liquid ink absorbs into paper fibers and expands outwards before drying. On porous corrugated cardboard, dot gain can widen dark modules by 15-20%, encroaching upon adjacent white spaces unless compensated for in prepress software.',
+      answer:
+        'Dot gain is the phenomenon where liquid ink absorbs into paper fibers and expands outwards before drying. On porous corrugated cardboard, dot gain can widen dark modules by 15-20%, encroaching upon adjacent white spaces unless compensated for in prepress software.',
     },
   ];
 
@@ -137,7 +147,8 @@ export default function QRPlacementGuidePage() {
           QR Code Placement-by-Material & Substrate Guide
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Interactive prepress guidelines for printing on glass, metal, wood, apparel, cardboard, and curved packaging. Audit specular glare, ink bleed, and module thresholds.
+          Interactive prepress guidelines for printing on glass, metal, wood, apparel, cardboard,
+          and curved packaging. Audit specular glare, ink bleed, and module thresholds.
         </p>
       </header>
 
@@ -170,8 +181,8 @@ export default function QRPlacementGuidePage() {
                   activeSubstrate.glareRisk === 'Extreme'
                     ? 'bg-rose-500/10 text-rose-600'
                     : activeSubstrate.glareRisk === 'Medium'
-                    ? 'bg-amber-500/10 text-amber-600'
-                    : 'bg-emerald-500/10 text-emerald-600'
+                      ? 'bg-amber-500/10 text-amber-600'
+                      : 'bg-emerald-500/10 text-emerald-600'
                 }`}
               >
                 Glare Risk: {activeSubstrate.glareRisk}
@@ -228,11 +239,26 @@ export default function QRPlacementGuidePage() {
 
             <div className="space-y-3 pt-2 text-xs">
               {[
-                { id: 'quietZone', label: 'Quiet Zone: At least 4-modules unprinted white border verified.' },
-                { id: 'contrastRatio', label: 'Contrast Ratio: Exceeds 4.0:1 (dark ink on light substrate).' },
-                { id: 'formatVector', label: 'Artwork Format: Vector SVG or 300+ DPI PDF (no 72 DPI JPG).' },
-                { id: 'glareTested', label: 'Specular Glare: Matte finish applied or white flood layer printed.' },
-                { id: 'phoneFocalCheck', label: 'Physical Size: Larger than minimum 20x20mm camera focus limit.' },
+                {
+                  id: 'quietZone',
+                  label: 'Quiet Zone: At least 4-modules unprinted white border verified.',
+                },
+                {
+                  id: 'contrastRatio',
+                  label: 'Contrast Ratio: Exceeds 4.0:1 (dark ink on light substrate).',
+                },
+                {
+                  id: 'formatVector',
+                  label: 'Artwork Format: Vector SVG or 300+ DPI PDF (no 72 DPI JPG).',
+                },
+                {
+                  id: 'glareTested',
+                  label: 'Specular Glare: Matte finish applied or white flood layer printed.',
+                },
+                {
+                  id: 'phoneFocalCheck',
+                  label: 'Physical Size: Larger than minimum 20x20mm camera focus limit.',
+                },
               ].map((item) => (
                 <label
                   key={item.id}
@@ -243,7 +269,9 @@ export default function QRPlacementGuidePage() {
                     onCheckedChange={() => toggleCheck(item.id)}
                     className="mt-0.5"
                   />
-                  <span className={`text-xs ${checks[item.id] ? 'line-through text-muted-foreground' : 'text-foreground'}`}>
+                  <span
+                    className={`text-xs ${checks[item.id] ? 'line-through text-muted-foreground' : 'text-foreground'}`}
+                  >
                     {item.label}
                   </span>
                 </label>
@@ -268,14 +296,21 @@ export default function QRPlacementGuidePage() {
           Substrate Physics: How Print Materials Influence Optical Scanners
         </h2>
         <p className="text-base leading-relaxed">
-          In graphic design software, a QR code exists as ideal mathematical black and white pixels. In the physical realm, light behaves according to Snell's law and Fresnel reflection equations. Substrates like clear acrylic, curved glass bottles, and laser-etched metal reflect light unevenly across camera sensors.
+          In graphic design software, a QR code exists as ideal mathematical black and white pixels.
+          In the physical realm, light behaves according to Snell&apos;s law and Fresnel reflection
+          equations. Substrates like clear acrylic, curved glass bottles, and laser-etched metal
+          reflect light unevenly across camera sensors.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           The Destructive Impact of Specular Highlights
         </h3>
         <p className="text-base leading-relaxed">
-          When an overhead supermarket fixture or sunny window reflects off a high-gloss lamination, it generates a "specular highlight"—a blinding hot spot of 100% white luminance. If this hot spot covers even a few data modules, the camera's auto-exposure circuit dims the entire frame, turning your white quiet zone into a dark gray and causing immediate scan failure.
+          When an overhead supermarket fixture or sunny window reflects off a high-gloss lamination,
+          it generates a &quot;specular highlight&quot;—a blinding hot spot of 100% white luminance.
+          If this hot spot covers even a few data modules, the camera&apos;s auto-exposure circuit
+          dims the entire frame, turning your white quiet zone into a dark gray and causing
+          immediate scan failure.
         </p>
       </article>
 

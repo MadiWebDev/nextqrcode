@@ -58,15 +58,19 @@ Every minimum size specification assumes the quiet zone (4-module white border) 
     [
       {
         question: 'What is the absolute smallest QR code that a modern iPhone will scan?',
-        answer: 'Under ideal laboratory conditions (perfect lighting, static subject, close focus), current iPhone camera systems can scan QR codes as small as 5–8 mm. In real-world conditions — typical indoor lighting, hand tremor, print quality variation — 20 mm is the practical reliable minimum. Below this size, scan failures become common enough to be problematic.',
+        answer:
+          'Under ideal laboratory conditions (perfect lighting, static subject, close focus), current iPhone camera systems can scan QR codes as small as 5–8 mm. In real-world conditions — typical indoor lighting, hand tremor, print quality variation — 20 mm is the practical reliable minimum. Below this size, scan failures become common enough to be problematic.',
       },
       {
         question: 'Does shrinking the QR code reduce the amount of data it can store?',
-        answer: 'No. Shrinking the physical size does not change the data capacity — the same information is encoded whether the QR is 10 mm or 100 mm. What changes is scannability: a smaller QR requires a closer scanning distance and better lighting. The data capacity is determined by the QR version and error correction level, not the physical dimensions.',
+        answer:
+          'No. Shrinking the physical size does not change the data capacity — the same information is encoded whether the QR is 10 mm or 100 mm. What changes is scannability: a smaller QR requires a closer scanning distance and better lighting. The data capacity is determined by the QR version and error correction level, not the physical dimensions.',
       },
       {
-        question: 'Why does my printed QR code fail to scan even though the digital version scans fine?',
-        answer: 'Print introduces several degradation factors: ink bleeding (spread beyond the module boundary), paper texture creating noise, and low printer DPI causing fuzzy module edges. Test a physical print proof under the actual lighting conditions of the deployment environment, not under a desk lamp or bright office light. Low-quality printers at sub-300 DPI are a common cause of print-specific scan failures.',
+        question:
+          'Why does my printed QR code fail to scan even though the digital version scans fine?',
+        answer:
+          'Print introduces several degradation factors: ink bleeding (spread beyond the module boundary), paper texture creating noise, and low printer DPI causing fuzzy module edges. Test a physical print proof under the actual lighting conditions of the deployment environment, not under a desk lamp or bright office light. Low-quality printers at sub-300 DPI are a common cause of print-specific scan failures.',
       },
     ]
   ),
@@ -139,15 +143,18 @@ Many label printers operate at 203 DPI (8 dots/mm). At this resolution, QR codes
     [
       {
         question: 'Can I print a QR code from a screenshot and have it scan reliably?',
-        answer: 'Screenshots are typically 72–96 DPI at screen resolution — far too low for quality print. A screenshot of a QR code printed at 50mm will be extremely blurry and likely unscannable. Always generate the QR fresh from a proper generator that offers high-resolution PNG export or SVG vector download.',
+        answer:
+          'Screenshots are typically 72–96 DPI at screen resolution — far too low for quality print. A screenshot of a QR code printed at 50mm will be extremely blurry and likely unscannable. Always generate the QR fresh from a proper generator that offers high-resolution PNG export or SVG vector download.',
       },
       {
         question: 'Does the paper finish (matte vs gloss) affect QR scannability at the same DPI?',
-        answer: 'Yes. Gloss paper can cause specular reflection (glare) that confuses scanner thresholding, particularly at oblique scan angles. Matte or silk paper is generally more reliable for QR code scanning. If gloss is required for design reasons, ensure the QR is printed with high contrast and test under typical scanning conditions including lighting at various angles.',
+        answer:
+          'Yes. Gloss paper can cause specular reflection (glare) that confuses scanner thresholding, particularly at oblique scan angles. Matte or silk paper is generally more reliable for QR code scanning. If gloss is required for design reasons, ensure the QR is printed with high contrast and test under typical scanning conditions including lighting at various angles.',
       },
       {
         question: 'What DPI setting should I use when exporting a QR code from Canva or Adobe?',
-        answer: 'Export at 300 DPI minimum for any print application. In Canva, use "Download → PDF Print" which outputs at print-appropriate resolution. In Adobe Illustrator, export as SVG (no DPI limit) or as PNG at 300 DPI minimum. In Photoshop, set image size to 300 DPI before generating or placing the QR, and ensure no resampling degrades quality.',
+        answer:
+          'Export at 300 DPI minimum for any print application. In Canva, use "Download → PDF Print" which outputs at print-appropriate resolution. In Adobe Illustrator, export as SVG (no DPI limit) or as PNG at 300 DPI minimum. In Photoshop, set image size to 300 DPI before generating or placing the QR, and ensure no resampling degrades quality.',
       },
     ]
   ),
@@ -216,15 +223,18 @@ Standard printing on fabric is not recommended for QR codes — ink bleeding int
     [
       {
         question: 'How long does a QR code printed on standard vinyl last outdoors?',
-        answer: 'Vinyl with UV-resistant laminate and UV-stable inks lasts 5–7 years in typical outdoor conditions. Unlaminated vinyl with standard inks fades significantly within 1–2 years when exposed to direct sunlight. For permanent outdoor installations, use UV-laminated vinyl or engraved metal for maximum lifespan.',
+        answer:
+          'Vinyl with UV-resistant laminate and UV-stable inks lasts 5–7 years in typical outdoor conditions. Unlaminated vinyl with standard inks fades significantly within 1–2 years when exposed to direct sunlight. For permanent outdoor installations, use UV-laminated vinyl or engraved metal for maximum lifespan.',
       },
       {
         question: 'Can a QR code be laser engraved onto wood?',
-        answer: 'Yes. Laser engraving on wood creates a contrast between the raw wood and the engraved (darker, charred) areas. Scan reliability depends on the wood type and laser settings — darker woods with less natural contrast may need a painted background or a lighter laser setting that maximises the contrast. Test on the actual wood species before full production.',
+        answer:
+          'Yes. Laser engraving on wood creates a contrast between the raw wood and the engraved (darker, charred) areas. Scan reliability depends on the wood type and laser settings — darker woods with less natural contrast may need a painted background or a lighter laser setting that maximises the contrast. Test on the actual wood species before full production.',
       },
       {
         question: 'Are QR codes on stickers reliably scannable when applied to curved surfaces?',
-        answer: 'Moderate curve (e.g., a cylindrical bottle) reduces scan reliability as the QR is distorted when viewed from an angle. QR codes with error correction Level Q or H handle some distortion. For highly curved surfaces, either increase the error correction level, reduce data density, or use a sticker that applies flat to a curved section rather than wrapping around the entire curve.',
+        answer:
+          'Moderate curve (e.g., a cylindrical bottle) reduces scan reliability as the QR is distorted when viewed from an angle. QR codes with error correction Level Q or H handle some distortion. For highly curved surfaces, either increase the error correction level, reduce data density, or use a sticker that applies flat to a curved section rather than wrapping around the entire curve.',
       },
     ]
   ),
@@ -280,15 +290,20 @@ Scanning from outside a shop window (1.5–2m): minimum 150–200 mm QR. Factors
     [
       {
         question: 'Can a billboard include a QR code if viewers are driving past at speed?',
-        answer: 'No — QR codes on roadside billboards are ineffective and potentially dangerous if they encourage drivers to use phones while driving. They are counterproductive even if legal in a given jurisdiction. On billboards, use a memorable short URL or phone number. QR codes on billboards are appropriate only at locations where pedestrians stop and read, not vehicle-speed pass-by contexts.',
+        answer:
+          'No — QR codes on roadside billboards are ineffective and potentially dangerous if they encourage drivers to use phones while driving. They are counterproductive even if legal in a given jurisdiction. On billboards, use a memorable short URL or phone number. QR codes on billboards are appropriate only at locations where pedestrians stop and read, not vehicle-speed pass-by contexts.',
       },
       {
-        question: 'How do we ensure our outdoor QR code does not fade or become unscannable over time?',
-        answer: 'Use UV-stable inks and UV-resistant overlaminate for outdoor vinyl. Budget for annual inspection of permanent outdoor QR codes — check physical condition and verify scannability with multiple devices. Replace materials before degradation becomes visible. For permanent outdoor installations (wayfinding, heritage trails), engraved or ceramic-printed signs with no ink layer are more durable than vinyl.',
+        question:
+          'How do we ensure our outdoor QR code does not fade or become unscannable over time?',
+        answer:
+          'Use UV-stable inks and UV-resistant overlaminate for outdoor vinyl. Budget for annual inspection of permanent outdoor QR codes — check physical condition and verify scannability with multiple devices. Replace materials before degradation becomes visible. For permanent outdoor installations (wayfinding, heritage trails), engraved or ceramic-printed signs with no ink layer are more durable than vinyl.',
       },
       {
-        question: 'What is the maximum realistic viewing distance for a QR code on an outdoor poster?',
-        answer: 'In controlled testing, modern smartphones can scan a QR from 3–4 metres when the QR is at least 300 × 300 mm and the lighting is good. In real-world conditions, expect reliable scanning from 2–2.5 metres. Design your QR size based on the expected scanning distance — not the maximum possible camera capability.',
+        question:
+          'What is the maximum realistic viewing distance for a QR code on an outdoor poster?',
+        answer:
+          'In controlled testing, modern smartphones can scan a QR from 3–4 metres when the QR is at least 300 × 300 mm and the lighting is good. In real-world conditions, expect reliable scanning from 2–2.5 metres. Design your QR size based on the expected scanning distance — not the maximum possible camera capability.',
       },
     ]
   ),
@@ -350,15 +365,18 @@ A 100-character URL generates a V5–V6 QR — needs 25–30 mm minimum.
     [
       {
         question: 'Should the QR code on a business card go on the front or back?',
-        answer: 'Back of card is strongly preferred. The front should communicate your name, title, company, and key contact at a glance — cluttering it with a QR reduces the quality of that first impression. The back is the appropriate place for supplementary digital interaction. Exception: premium cards where the QR is the design feature and no back-face text is needed.',
+        answer:
+          'Back of card is strongly preferred. The front should communicate your name, title, company, and key contact at a glance — cluttering it with a QR reduces the quality of that first impression. The back is the appropriate place for supplementary digital interaction. Exception: premium cards where the QR is the design feature and no back-face text is needed.',
       },
       {
         question: 'What content should a business card QR link to for maximum impact?',
-        answer: 'Link to a personal landing page that combines: a brief professional bio, links to your portfolio or LinkedIn, a vCard download button, and a contact form. This delivers far more than a vCard alone and keeps the content easily updatable without reprinting cards. A personal domain (yourname.com) makes the page memorable and brandable.',
+        answer:
+          'Link to a personal landing page that combines: a brief professional bio, links to your portfolio or LinkedIn, a vCard download button, and a contact form. This delivers far more than a vCard alone and keeps the content easily updatable without reprinting cards. A personal domain (yourname.com) makes the page memorable and brandable.',
       },
       {
         question: 'Can I include multiple QR codes on a single business card?',
-        answer: 'Technically yes, but practically inadvisable. Multiple QR codes on a business card create visual clutter and decision fatigue. Choose one primary action — save contact details, visit portfolio, connect on LinkedIn — and commit to one QR. If the back needs multiple links, consider a landing page that lists all options, linked from a single QR.',
+        answer:
+          'Technically yes, but practically inadvisable. Multiple QR codes on a business card create visual clutter and decision fatigue. Choose one primary action — save contact details, visit portfolio, connect on LinkedIn — and commit to one QR. If the back needs multiple links, consider a landing page that lists all options, linked from a single QR.',
       },
     ]
   ),

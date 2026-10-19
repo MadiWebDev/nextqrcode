@@ -14,8 +14,18 @@
  *   4. Call onFill({ ssid, password, encryption }) to pre-fill the parent form
  */
 
-import { useState, useEffect } from 'react';
-import { Wifi, WifiOff, Loader2, CheckCircle2, X, Lock, Eye, EyeOff, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
+import {
+  Wifi,
+  WifiOff,
+  Loader2,
+  CheckCircle2,
+  X,
+  Lock,
+  Eye,
+  EyeOff,
+  ChevronDown,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -61,16 +71,7 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [encryption, setEncryption] = useState('WPA');
   const [hidden, setHidden] = useState('false');
-  const [connectionType, setConnectionType] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(false);
-
-  // Read connection type once (read-only, no SSID or password accessible)
-  useEffect(() => {
-    const conn = navigator?.connection;
-    if (conn?.type) {
-      setConnectionType(conn.type);
-    }
-  }, []);
 
   function handleDetect() {
     setStep('detecting');
@@ -124,7 +125,7 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
           size="sm"
           variant="outline"
           onClick={handleDetect}
-          className="shrink-0 border-sky-500/40 text-sky-600 dark:text-sky-400 hover:bg-sky-500/10 hover:border-sky-500/60"
+          className="shrink-0 border-sky-700/40 text-sky-700 dark:text-sky-400 hover:bg-sky-500/10 hover:border-sky-700/60"
         >
           <Wifi className="w-3.5 h-3.5" />
           Detect WiFi
@@ -154,7 +155,12 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
             first, or type your network details below manually.
           </p>
         </div>
-        <Button size="sm" variant="ghost" onClick={() => setStep('form')} className="shrink-0 text-xs">
+        <Button
+          size="sm"
+          variant="ghost"
+          onClick={() => setStep('form')}
+          className="shrink-0 text-xs"
+        >
           Enter Manually
         </Button>
       </div>
@@ -168,13 +174,20 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
         <div className="flex items-center gap-3">
           <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
           <div>
-            <p className="text-sm font-semibold text-foreground">Form pre-filled with "{ssid}"</p>
+            <p className="text-sm font-semibold text-foreground">
+              Form pre-filled with &quot;{ssid}&quot;
+            </p>
             <p className="text-xs text-muted-foreground mt-0.5">
               The QR code below will auto-connect devices when scanned.
             </p>
           </div>
         </div>
-        <Button size="sm" variant="ghost" onClick={handleReset} className="shrink-0 text-xs text-muted-foreground">
+        <Button
+          size="sm"
+          variant="ghost"
+          onClick={handleReset}
+          className="shrink-0 text-xs text-muted-foreground"
+        >
           <X className="w-3.5 h-3.5" />
           Clear
         </Button>
@@ -198,7 +211,13 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
             </p>
           </div>
         </div>
-        <Button size="icon-sm" variant="ghost" onClick={handleReset} className="shrink-0 text-muted-foreground">
+        <Button
+          size="icon-sm"
+          variant="ghost"
+          onClick={handleReset}
+          aria-label="Clear WiFi detection"
+          className="shrink-0 text-muted-foreground"
+        >
           <X className="w-4 h-4" />
         </Button>
       </div>
@@ -219,7 +238,8 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
             autoComplete="off"
           />
           <p className="text-[11px] text-muted-foreground">
-            Find it in your device&apos;s WiFi settings — it&apos;s the name of the connected network.
+            Find it in your device&apos;s WiFi settings — it&apos;s the name of the connected
+            network.
           </p>
         </div>
 
@@ -256,7 +276,9 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
           onClick={() => setExpanded((v) => !v)}
           className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
         >
-          <ChevronDown className={cn('w-3.5 h-3.5 transition-transform', expanded && 'rotate-180')} />
+          <ChevronDown
+            className={cn('w-3.5 h-3.5 transition-transform', expanded && 'rotate-180')}
+          />
           Advanced options (encryption type, hidden network)
         </button>
 
@@ -266,7 +288,7 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
             <div className="space-y-1.5">
               <Label className="text-xs font-medium">Encryption</Label>
               <Select value={encryption} onValueChange={setEncryption}>
-                <SelectTrigger className="bg-background">
+                <SelectTrigger className="bg-background" aria-label="Encryption">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -281,7 +303,7 @@ export function WifiDetector({ onFill }: WifiDetectorProps) {
             <div className="space-y-1.5">
               <Label className="text-xs font-medium">Hidden Network</Label>
               <Select value={hidden} onValueChange={setHidden}>
-                <SelectTrigger className="bg-background">
+                <SelectTrigger className="bg-background" aria-label="Hidden Network">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

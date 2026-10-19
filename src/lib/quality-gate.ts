@@ -34,19 +34,10 @@ export type Hub =
   | 'countries'
   | 'howto';
 
-export type SearchIntent =
-  | 'informational'
-  | 'transactional'
-  | 'commercial'
-  | 'navigational';
+export type SearchIntent = 'informational' | 'transactional' | 'commercial' | 'navigational';
 
 export type PageStatus =
-  | 'draft'
-  | 'needs_human_review'
-  | 'reviewer_approved'
-  | 'published'
-  | 'noindex'
-  | 'redirected';
+  'draft' | 'needs_human_review' | 'reviewer_approved' | 'published' | 'noindex' | 'redirected';
 
 export interface PageRecord {
   slug: string;
@@ -60,14 +51,14 @@ export interface PageRecord {
   wordCount: number;
   hasFaq: boolean;
   hasHowTo?: boolean;
-  hasWorkingTool: boolean;       // NEW: working tool/calculator/generator present
-  outboundLinks: string[];       // NEW: slugs this page links to (min 3)
-  inboundLinks: string[];        // NEW: slugs linking to this page (min 2)
+  hasWorkingTool: boolean; // NEW: working tool/calculator/generator present
+  outboundLinks: string[]; // NEW: slugs this page links to (min 3)
+  inboundLinks: string[]; // NEW: slugs linking to this page (min 2)
   reviewerSignOff: string | null; // NEW: reviewer name — must be set before "published"
   status: PageStatus;
-  batchNumber: number;           // which release batch
-  similarityScore?: number;      // 0-100, populated by similarity checker
-  siblingSlug?: string;          // most similar sibling if flagged
+  batchNumber: number; // which release batch
+  similarityScore?: number; // 0-100, populated by similarity checker
+  siblingSlug?: string; // most similar sibling if flagged
 }
 
 export interface QualityGateResult {
@@ -139,9 +130,7 @@ export function evaluateQualityGate(
 
   // ── 2. Keyword Cannibalization Check ────────────────────────────────────
   const normalizedKeyword = record.primaryKeyword.toLowerCase().trim();
-  const duplicate = existingKeywords.find(
-    (k) => k.toLowerCase().trim() === normalizedKeyword
-  );
+  const duplicate = existingKeywords.find((k) => k.toLowerCase().trim() === normalizedKeyword);
   if (duplicate) {
     issues.push(
       `Keyword cannibalization: "${record.primaryKeyword}" is already targeted by another published page.`
@@ -167,7 +156,9 @@ export function evaluateQualityGate(
 
   // ── 4. Author & Date Verification ───────────────────────────────────────
   if (!record.author || record.author.trim().length === 0) {
-    issues.push('Missing verifiable author entity. Author field is required for all published pages.');
+    issues.push(
+      'Missing verifiable author entity. Author field is required for all published pages.'
+    );
     score -= 15;
   }
   if (!record.publishedAt || !record.updatedAt) {
@@ -212,15 +203,14 @@ export function evaluateQualityGate(
   if (!hasReviewerSignOff && record.status === 'published') {
     issues.push(
       'Reviewer sign-off is required before a page can be set to "published" status. ' +
-        'Set the reviewerSignOff field to the reviewer\'s name.'
+        "Set the reviewerSignOff field to the reviewer's name."
     );
     score -= 25;
   }
 
   // ── 9. Keyword Density Heuristic ────────────────────────────────────────
-  const occurrences = (
-    contentBody.toLowerCase().match(new RegExp(normalizedKeyword, 'g')) || []
-  ).length;
+  const occurrences = (contentBody.toLowerCase().match(new RegExp(normalizedKeyword, 'g')) || [])
+    .length;
   const keywordDensity = words > 0 ? (occurrences / words) * 100 : 0;
 
   if (keywordDensity > 3.0) {

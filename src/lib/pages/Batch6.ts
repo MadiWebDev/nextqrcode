@@ -35,8 +35,16 @@ Typical parameters include \`data\` (URL-encoded payload), \`ecl\` (error correc
 SVG responses are resolution-independent. PNG responses need a size parameter; request at least 300 × 300 pixels and scale up for print.
     `,
     [
-      { question: 'Should I use a cloud API or a client-side library?', answer: 'For public links, either works. For sensitive payloads, generate client-side so the data never leaves the browser.' },
-      { question: 'Can I generate QR codes at build time?', answer: 'Yes. Run a library in your build script, cache the images, and serve them as static assets.' },
+      {
+        question: 'Should I use a cloud API or a client-side library?',
+        answer:
+          'For public links, either works. For sensitive payloads, generate client-side so the data never leaves the browser.',
+      },
+      {
+        question: 'Can I generate QR codes at build time?',
+        answer:
+          'Yes. Run a library in your build script, cache the images, and serve them as static assets.',
+      },
     ]
   ),
   art(
@@ -65,8 +73,15 @@ PDF layout tools can shrink graphics to fit a box. Check that the quiet zone is 
 Add alt text to the QR code image element and include the URL as visible text or a hyperlink nearby. Screen readers cannot scan QR images.
     `,
     [
-      { question: 'What format should I embed in a PDF?', answer: 'SVG or a native PDF path object. Avoid JPEG or low-resolution PNG.' },
-      { question: 'How do I make the QR accessible in a PDF?', answer: 'Add alt text to the image and include the destination URL as plain text or a hyperlink.' },
+      {
+        question: 'What format should I embed in a PDF?',
+        answer: 'SVG or a native PDF path object. Avoid JPEG or low-resolution PNG.',
+      },
+      {
+        question: 'How do I make the QR accessible in a PDF?',
+        answer:
+          'Add alt text to the image and include the destination URL as plain text or a hyperlink.',
+      },
     ]
   ),
   art(
@@ -97,8 +112,15 @@ If the code is meant to be scanned from a printed page, embed a high-resolution 
 Use a unique path per campaign so you distinguish QR scans from hyperlink clicks.
     `,
     [
-      { question: 'Should every marketing email have a QR code?', answer: 'No. Only include one when there is a genuine reason to scan, such as a printable voucher or a phone handoff.' },
-      { question: 'What resolution image should I embed?', answer: 'At least 400 × 400 pixels so it prints clearly from a typical email client.' },
+      {
+        question: 'Should every marketing email have a QR code?',
+        answer:
+          'No. Only include one when there is a genuine reason to scan, such as a printable voucher or a phone handoff.',
+      },
+      {
+        question: 'What resolution image should I embed?',
+        answer: 'At least 400 × 400 pixels so it prints clearly from a typical email client.',
+      },
     ]
   ),
   art(
@@ -130,8 +152,16 @@ Thermal receipts use heat-sensitive paper that fades over months. If the custome
 Several countries now require QR codes on tax invoices (India, Saudi Arabia, Mexico). Follow the published specification from the relevant authority exactly, including any signature or hash fields.
     `,
     [
-      { question: 'How long does a QR code on thermal paper last?', answer: 'Often only months before fading. Provide a digital copy for long-term warranty claims.' },
-      { question: 'Does my country require a QR on invoices?', answer: 'Many do for B2B or high-value transactions. Check your national tax authority guidance.' },
+      {
+        question: 'How long does a QR code on thermal paper last?',
+        answer:
+          'Often only months before fading. Provide a digital copy for long-term warranty claims.',
+      },
+      {
+        question: 'Does my country require a QR on invoices?',
+        answer:
+          'Many do for B2B or high-value transactions. Check your national tax authority guidance.',
+      },
     ]
   ),
   art(
@@ -160,8 +190,16 @@ A QR code on a printed card can link to a pass download. The pass adds to the ph
 For offline reliability: vCard QR. For updating details without reprinting: link QR. For a premium experience with an app ecosystem: wallet pass.
     `,
     [
-      { question: 'Can a vCard QR code include a photo?', answer: 'Technically yes in vCard format, but encoded photos make the symbol extremely dense. Use a URL instead.' },
-      { question: 'What is the maximum vCard size that scans well on a business card?', answer: 'Keep the vCard under 200 bytes for a card-sized code. Trim to name, phone, and email.' },
+      {
+        question: 'Can a vCard QR code include a photo?',
+        answer:
+          'Technically yes in vCard format, but encoded photos make the symbol extremely dense. Use a URL instead.',
+      },
+      {
+        question: 'What is the maximum vCard size that scans well on a business card?',
+        answer:
+          'Keep the vCard under 200 bytes for a card-sized code. Trim to name, phone, and email.',
+      },
     ]
   ),
   art(
@@ -198,8 +236,16 @@ Both can be physically replaced or cloned. NFC chips can implement challenge-res
 Use QR for posters, menus, and large-format print. Use NFC when fast tap interaction matters, such as product authentication or transit cards.
     `,
     [
-      { question: 'Is NFC always faster than QR?', answer: 'In good light with a modern phone, QR scanning is nearly instant. NFC is slightly faster and needs no camera pointing.' },
-      { question: 'Can a product have both a QR code and NFC?', answer: 'Yes, and it is common in authentication and ticketing. Each serves a different segment of users.' },
+      {
+        question: 'Is NFC always faster than QR?',
+        answer:
+          'In good light with a modern phone, QR scanning is nearly instant. NFC is slightly faster and needs no camera pointing.',
+      },
+      {
+        question: 'Can a product have both a QR code and NFC?',
+        answer:
+          'Yes, and it is common in authentication and ticketing. Each serves a different segment of users.',
+      },
     ]
   ),
   art(
@@ -232,8 +278,14 @@ The logo itself must not place dark elements over dark module areas at the edges
 After placing the logo, scan the result on at least three different devices under typical lighting. Do not assume it works because the symbol looks intact.
     `,
     [
-      { question: 'What error correction level should I use with a logo?', answer: 'Level H. It provides 30% recovery capacity, which the logo area consumes.' },
-      { question: 'How big can a logo be in the center?', answer: 'Up to about 15% of the symbol area at level H. Going larger risks scan failure.' },
+      {
+        question: 'What error correction level should I use with a logo?',
+        answer: 'Level H. It provides 30% recovery capacity, which the logo area consumes.',
+      },
+      {
+        question: 'How big can a logo be in the center?',
+        answer: 'Up to about 15% of the symbol area at level H. Going larger risks scan failure.',
+      },
     ]
   ),
   art(
@@ -267,8 +319,16 @@ Test candidate palettes with a luminance contrast calculator before printing:
 3. Generate and scan the result on a real device in ambient indoor light.
     `,
     [
-      { question: 'Can I use my brand colour for QR modules?', answer: 'Yes, if it passes a 4:1 luminance contrast check against the background. Test on real devices before printing.' },
-      { question: 'Why does a red QR code often fail to scan?', answer: 'Red is bright in grayscale. The decoder sees low contrast between red modules and white, making binarization unreliable.' },
+      {
+        question: 'Can I use my brand colour for QR modules?',
+        answer:
+          'Yes, if it passes a 4:1 luminance contrast check against the background. Test on real devices before printing.',
+      },
+      {
+        question: 'Why does a red QR code often fail to scan?',
+        answer:
+          'Red is bright in grayscale. The decoder sees low contrast between red modules and white, making binarization unreliable.',
+      },
     ]
   ),
   art(
@@ -308,8 +368,15 @@ On the print proof, measure the quiet zone with a ruler. It should be at least f
 Keep a record of every code printed: the slug or campaign name, the destination URL, the date, and the location. You will need this when a destination changes.
     `,
     [
-      { question: 'Is scanning on a laptop webcam a valid test?', answer: 'No. Use real phones. Webcams have different optics and autofocus behavior.' },
-      { question: 'Do I need to test every variant in a batch?', answer: 'Test a representative sample. If all codes share the same template and payload length, one thorough test covers the batch.' },
+      {
+        question: 'Is scanning on a laptop webcam a valid test?',
+        answer: 'No. Use real phones. Webcams have different optics and autofocus behavior.',
+      },
+      {
+        question: 'Do I need to test every variant in a batch?',
+        answer:
+          'Test a representative sample. If all codes share the same template and payload length, one thorough test covers the batch.',
+      },
     ]
   ),
   art(
@@ -342,8 +409,15 @@ A small discount or entry into a draw increases response rates but can bias answ
 Share a summary of actions taken on the feedback. Customers who see results are more likely to respond next time.
     `,
     [
-      { question: 'How long should a feedback survey be?', answer: 'Three to five questions for mobile. Any more and completion rates fall sharply.' },
-      { question: 'Should I offer an incentive for completing the survey?', answer: 'It helps response volume but may introduce response bias. Use incentives for low-stakes satisfaction surveys.' },
+      {
+        question: 'How long should a feedback survey be?',
+        answer: 'Three to five questions for mobile. Any more and completion rates fall sharply.',
+      },
+      {
+        question: 'Should I offer an incentive for completing the survey?',
+        answer:
+          'It helps response volume but may introduce response bias. Use incentives for low-stakes satisfaction surveys.',
+      },
     ]
   ),
 ];

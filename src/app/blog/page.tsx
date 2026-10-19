@@ -7,7 +7,8 @@ import { BookOpen, Calendar, Clock, ArrowRight, UserCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'QR Code Engineering & Standards Hub — Guides & Research',
-  description: 'Deep-dive engineering guides, Reed-Solomon math, ISO/IEC 18004 standards, printing guidelines, and mobile scan diagnostics from QR Code Tools.',
+  description:
+    'Deep-dive engineering guides, Reed-Solomon math, ISO/IEC 18004 standards, printing guidelines, and mobile scan diagnostics from QR Code Tools.',
   alternates: { canonical: 'https://freeqrcode.tools/blog' },
 };
 
@@ -27,7 +28,8 @@ export default function BlogIndexPage() {
           QR Code Standards, Optics & Guides
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Comprehensive, peer-reviewed engineering analyses covering optical camera physics, Galois Field error correction, commercial print substrates, and international payment protocols.
+          Comprehensive, peer-reviewed engineering analyses covering optical camera physics, Galois
+          Field error correction, commercial print substrates, and international payment protocols.
         </p>
       </header>
 
@@ -53,9 +55,7 @@ export default function BlogIndexPage() {
               </div>
 
               <h2 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors leading-snug mb-3">
-                <Link href={`/blog/${article.slug}`}>
-                  {article.title}
-                </Link>
+                <Link href={`/blog/${article.slug}`}>{article.title}</Link>
               </h2>
 
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-4">

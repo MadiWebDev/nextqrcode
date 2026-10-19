@@ -8,15 +8,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import {
-  Printer,
-  Grid,
-  Layers,
-  Settings,
-  Sparkles,
-  CheckCircle2,
-  FileCheck,
-} from 'lucide-react';
+import { Printer, Grid, Layers, Settings, Sparkles, CheckCircle2, FileCheck } from 'lucide-react';
 
 interface SheetPreset {
   id: string;
@@ -30,10 +22,46 @@ interface SheetPreset {
 }
 
 const SHEET_PRESETS: SheetPreset[] = [
-  { id: 'avery-5160', name: 'Avery 5160 / 8160 (30 Labels - US Letter)', paper: 'letter', cols: 3, rows: 10, total: 30, labelWidth: '2.625in', labelHeight: '1in' },
-  { id: 'avery-5163', name: 'Avery 5163 (10 Shipping Labels - US Letter)', paper: 'letter', cols: 2, rows: 5, total: 10, labelWidth: '4in', labelHeight: '2in' },
-  { id: 'a4-24', name: 'Herma A4 3x8 (24 Labels - 70x36mm)', paper: 'a4', cols: 3, rows: 8, total: 24, labelWidth: '70mm', labelHeight: '36mm' },
-  { id: 'round-12', name: '2" Round Stickers (12 per Sheet)', paper: 'letter', cols: 3, rows: 4, total: 12, labelWidth: '2in', labelHeight: '2in' },
+  {
+    id: 'avery-5160',
+    name: 'Avery 5160 / 8160 (30 Labels - US Letter)',
+    paper: 'letter',
+    cols: 3,
+    rows: 10,
+    total: 30,
+    labelWidth: '2.625in',
+    labelHeight: '1in',
+  },
+  {
+    id: 'avery-5163',
+    name: 'Avery 5163 (10 Shipping Labels - US Letter)',
+    paper: 'letter',
+    cols: 2,
+    rows: 5,
+    total: 10,
+    labelWidth: '4in',
+    labelHeight: '2in',
+  },
+  {
+    id: 'a4-24',
+    name: 'Herma A4 3x8 (24 Labels - 70x36mm)',
+    paper: 'a4',
+    cols: 3,
+    rows: 8,
+    total: 24,
+    labelWidth: '70mm',
+    labelHeight: '36mm',
+  },
+  {
+    id: 'round-12',
+    name: '2" Round Stickers (12 per Sheet)',
+    paper: 'letter',
+    cols: 3,
+    rows: 4,
+    total: 12,
+    labelWidth: '2in',
+    labelHeight: '2in',
+  },
 ];
 
 export default function QRStickerSheetPrinterPage() {
@@ -75,15 +103,18 @@ export default function QRStickerSheetPrinterPage() {
   const faqs = [
     {
       question: 'How do I ensure the labels align with Avery label sheets when printing?',
-      answer: 'In your browser print dialog, set Margins to "None" or "Default" and Scale to "100%" (do not select "Fit to Printable Area"). Ensure your printer paper tray guides fit the sheet snugly to prevent paper skew.',
+      answer:
+        'In your browser print dialog, set Margins to "None" or "Default" and Scale to "100%" (do not select "Fit to Printable Area"). Ensure your printer paper tray guides fit the sheet snugly to prevent paper skew.',
     },
     {
       question: 'Can I generate sequential serial numbers for warehouse inventory?',
-      answer: 'Yes. Switch to "Sequential Serial Numbers" mode, enter your prefix (e.g. INV-), and set the starting number. The generator will create unique numbered QR codes across all 30 labels.',
+      answer:
+        'Yes. Switch to "Sequential Serial Numbers" mode, enter your prefix (e.g. INV-), and set the starting number. The generator will create unique numbered QR codes across all 30 labels.',
     },
     {
       question: 'Which label material is best for long-term outdoor use?',
-      answer: 'For outdoor or industrial use, choose weatherproof polyester or vinyl label sheets (such as Avery 5520) rather than standard matte paper, which degrades when wet.',
+      answer:
+        'For outdoor or industrial use, choose weatherproof polyester or vinyl label sheets (such as Avery 5520) rather than standard matte paper, which degrades when wet.',
     },
   ];
 
@@ -105,7 +136,8 @@ export default function QRStickerSheetPrinterPage() {
           QR Code Sticker & Label Sheet Layout Printer
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Format and print batches of QR codes on popular Avery, Herma, and round sticker sheets. Support for uniform links and sequential inventory serial numbers.
+          Format and print batches of QR codes on popular Avery, Herma, and round sticker sheets.
+          Support for uniform links and sequential inventory serial numbers.
         </p>
       </header>
 
@@ -123,7 +155,9 @@ export default function QRStickerSheetPrinterPage() {
                 className="w-full h-9 rounded-md border border-input bg-background px-3 py-1 text-sm mt-1.5"
               >
                 {SHEET_PRESETS.map((p) => (
-                  <option key={p.id} value={p.id}>{p.name}</option>
+                  <option key={p.id} value={p.id}>
+                    {p.name}
+                  </option>
                 ))}
               </select>
             </div>
@@ -161,7 +195,9 @@ export default function QRStickerSheetPrinterPage() {
 
             {mode === 'single' ? (
               <div>
-                <Label htmlFor="base-url" className="text-xs">Destination URL or Text:</Label>
+                <Label htmlFor="base-url" className="text-xs">
+                  Destination URL or Text:
+                </Label>
                 <Input
                   id="base-url"
                   value={basePayload}
@@ -172,7 +208,9 @@ export default function QRStickerSheetPrinterPage() {
             ) : (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <Label htmlFor="pre-id" className="text-xs">Prefix:</Label>
+                  <Label htmlFor="pre-id" className="text-xs">
+                    Prefix:
+                  </Label>
                   <Input
                     id="pre-id"
                     value={prefix}
@@ -181,7 +219,9 @@ export default function QRStickerSheetPrinterPage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="start-num" className="text-xs">Start Number:</Label>
+                  <Label htmlFor="start-num" className="text-xs">
+                    Start Number:
+                  </Label>
                   <Input
                     id="start-num"
                     type="number"
@@ -194,7 +234,9 @@ export default function QRStickerSheetPrinterPage() {
             )}
 
             <div>
-              <Label htmlFor="lbl-title" className="text-xs">Label Caption (Top):</Label>
+              <Label htmlFor="lbl-title" className="text-xs">
+                Label Caption (Top):
+              </Label>
               <Input
                 id="lbl-title"
                 value={labelTitle}
@@ -203,10 +245,7 @@ export default function QRStickerSheetPrinterPage() {
               />
             </div>
 
-            <Button
-              onClick={() => window.print()}
-              className="w-full text-xs font-semibold gap-2"
-            >
+            <Button onClick={() => window.print()} className="w-full text-xs font-semibold gap-2">
               <Printer className="w-4 h-4" />
               Print Sheet ({activePreset.total} Labels)
             </Button>
@@ -266,17 +305,32 @@ export default function QRStickerSheetPrinterPage() {
           Calibrating and Printing QR Code Sticker Sheets Without Alignment Creep
         </h2>
         <p className="text-base leading-relaxed">
-          Printing pre-cut adhesive label sheets is notorious for alignment creep—where the first row prints perfectly, but the bottom rows drift off the sticker boundaries. This occurs when browser print drivers apply automatic margins or scaling adjustments.
+          Printing pre-cut adhesive label sheets is notorious for alignment creep—where the first
+          row prints perfectly, but the bottom rows drift off the sticker boundaries. This occurs
+          when browser print drivers apply automatic margins or scaling adjustments.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           Printer Dialog Calibration Checklist
         </h3>
         <ol className="list-decimal pl-6 space-y-2 text-sm">
-          <li><strong>Paper Size:</strong> Ensure your printer driver matches the exact paper size (US Letter vs A4).</li>
-          <li><strong>Scaling:</strong> Always select <strong>Custom: 100%</strong>. Never leave it on "Fit to Page" or "Shrink to Fit".</li>
-          <li><strong>Margins:</strong> Set Margins to <strong>None</strong> in Chrome/Edge or 0mm in Firefox.</li>
-          <li><strong>Test on Plain Paper First:</strong> Print one test sheet on standard photocopy paper, place it on top of your adhesive sheet against a bright window, and inspect alignment through the back.</li>
+          <li>
+            <strong>Paper Size:</strong> Ensure your printer driver matches the exact paper size (US
+            Letter vs A4).
+          </li>
+          <li>
+            <strong>Scaling:</strong> Always select <strong>Custom: 100%</strong>. Never leave it on
+            &quot;Fit to Page&quot; or &quot;Shrink to Fit&quot;.
+          </li>
+          <li>
+            <strong>Margins:</strong> Set Margins to <strong>None</strong> in Chrome/Edge or 0mm in
+            Firefox.
+          </li>
+          <li>
+            <strong>Test on Plain Paper First:</strong> Print one test sheet on standard photocopy
+            paper, place it on top of your adhesive sheet against a bright window, and inspect
+            alignment through the back.
+          </li>
         </ol>
       </article>
 

@@ -30,8 +30,16 @@ Unity (with Vuforia or AR Foundation) and Unreal can use QR codes as image targe
 * Test in the real lighting environment; dark exhibition halls behave differently from a studio.
     `,
     [
-      { question: 'Can AR work without a dedicated app?', answer: 'Yes. WebXR in modern browsers supports AR overlays triggered from a web page. No app install needed.' },
-      { question: 'Does the QR need a special design for AR?', answer: 'A standard QR works as an AR trigger. Use level H and high contrast for reliable detection.' },
+      {
+        question: 'Can AR work without a dedicated app?',
+        answer:
+          'Yes. WebXR in modern browsers supports AR overlays triggered from a web page. No app install needed.',
+      },
+      {
+        question: 'Does the QR need a special design for AR?',
+        answer:
+          'A standard QR works as an AR trigger. Use level H and high contrast for reliable detection.',
+      },
     ]
   ),
   art(
@@ -60,8 +68,16 @@ Brands are using QR codes to communicate recycling, return, or refill instructio
 Use a URL on a domain you control with server-side redirect logic. The printed code never changes; the page behind it evolves with your campaign calendar. Track scan events per SKU and geography.
     `,
     [
-      { question: 'Can a QR on packaging capture first-party data?', answer: 'Yes, if you offer a reason to register or sign in. Always disclose data use and comply with privacy law.' },
-      { question: 'Do I need a new code per product variant?', answer: 'Usually yes, so each variant links to its specific information and scan events are attributed correctly.' },
+      {
+        question: 'Can a QR on packaging capture first-party data?',
+        answer:
+          'Yes, if you offer a reason to register or sign in. Always disclose data use and comply with privacy law.',
+      },
+      {
+        question: 'Do I need a new code per product variant?',
+        answer:
+          'Usually yes, so each variant links to its specific information and scan events are attributed correctly.',
+      },
     ]
   ),
   art(
@@ -94,8 +110,16 @@ Provide sufficient colour contrast, resizable text, and a language toggle. Test 
 If your venue offers guest WiFi, link to both the menu and the WiFi QR from the same table tent. Customers on weak mobile signal will appreciate the offer.
     `,
     [
-      { question: 'Should the digital menu be a PDF or a web page?', answer: 'A web page. PDFs are hard to update, poor for SEO, and awkward to read on small screens.' },
-      { question: 'Can the digital menu help with SEO?', answer: 'Yes. A public, well-structured menu page can rank for local food searches and show dish-level content to search engines.' },
+      {
+        question: 'Should the digital menu be a PDF or a web page?',
+        answer:
+          'A web page. PDFs are hard to update, poor for SEO, and awkward to read on small screens.',
+      },
+      {
+        question: 'Can the digital menu help with SEO?',
+        answer:
+          'Yes. A public, well-structured menu page can rank for local food searches and show dish-level content to search engines.',
+      },
     ]
   ),
   art(
@@ -124,8 +148,16 @@ Link to your booking page with the specific class pre-selected (use a URL parame
 Gym equipment labels face sweat, cleaning sprays, and UV from skylights. Use laminated polyester labels and replace them on a maintenance schedule. Check regularly that codes still scan.
     `,
     [
-      { question: 'Should I link to a YouTube video or host the guide myself?', answer: 'Host it yourself for reliability and no adverts. A YouTube link is quicker to set up but shows competitor ads and can disappear.' },
-      { question: 'How do I track whether members use the equipment guides?', answer: 'Use a different short URL per machine and track page visits. You will see which guides get the most use.' },
+      {
+        question: 'Should I link to a YouTube video or host the guide myself?',
+        answer:
+          'Host it yourself for reliability and no adverts. A YouTube link is quicker to set up but shows competitor ads and can disappear.',
+      },
+      {
+        question: 'How do I track whether members use the equipment guides?',
+        answer:
+          'Use a different short URL per machine and track page visits. You will see which guides get the most use.',
+      },
     ]
   ),
   art(
@@ -159,8 +191,15 @@ Send the QR to the visitor by email before arrival. Display it on their phone or
 Every scan event creates an immutable audit entry. This is valuable for investigating incidents or satisfying health-and-safety requirements.
     `,
     [
-      { question: 'Can a visitor print their QR pass?', answer: 'Yes. A signed pass is equally valid on paper as on screen, provided the signature check occurs at the gate.' },
-      { question: 'How do I handle a visitor arriving without their code?', answer: 'Require manual reception check-in as a fallback. Never bypass the access check.' },
+      {
+        question: 'Can a visitor print their QR pass?',
+        answer:
+          'Yes. A signed pass is equally valid on paper as on screen, provided the signature check occurs at the gate.',
+      },
+      {
+        question: 'How do I handle a visitor arriving without their code?',
+        answer: 'Require manual reception check-in as a fallback. Never bypass the access check.',
+      },
     ]
   ),
   art(
@@ -193,8 +232,16 @@ Even durable signs degrade. Set a quarterly visual inspection. Scan the code at 
 Use level Q for outdoor signs to tolerate physical damage without losing scannability.
     `,
     [
-      { question: 'What is the best material for a permanent outdoor QR sign?', answer: 'Aluminium composite (Dibond) with UV-cured print or powder-coat, or anodised aluminium plate.' },
-      { question: 'Should I use level H for outdoor signs?', answer: 'Level Q is usually sufficient. Level H makes the symbol denser without much benefit unless you also embed a logo.' },
+      {
+        question: 'What is the best material for a permanent outdoor QR sign?',
+        answer:
+          'Aluminium composite (Dibond) with UV-cured print or powder-coat, or anodised aluminium plate.',
+      },
+      {
+        question: 'Should I use level H for outdoor signs?',
+        answer:
+          'Level Q is usually sufficient. Level H makes the symbol denser without much benefit unless you also embed a logo.',
+      },
     ]
   ),
   art(
@@ -230,8 +277,16 @@ Wristbands face water, hand sanitiser, and physical wear. Use thermal direct lab
 4. Never re-use wristbands or tokens across patients.
     `,
     [
-      { question: 'Can a wristband QR expose patient health data?', answer: 'Only if the payload contains readable data. Encode an opaque token and protect the patient record behind authentication.' },
-      { question: 'Which wristband material is most durable?', answer: 'Vinyl with thermal direct printing tested under relevant clinical standards. Confirm with your hospital procurement.' },
+      {
+        question: 'Can a wristband QR expose patient health data?',
+        answer:
+          'Only if the payload contains readable data. Encode an opaque token and protect the patient record behind authentication.',
+      },
+      {
+        question: 'Which wristband material is most durable?',
+        answer:
+          'Vinyl with thermal direct printing tested under relevant clinical standards. Confirm with your hospital procurement.',
+      },
     ]
   ),
   art(
@@ -264,8 +319,16 @@ Chemical storage labels can carry QR codes linking to SDS (Safety Data Sheet) fi
 Emergency situations often involve network disruption. Print key information in text alongside the QR, and consider a brief offline-capable page or a vCard fallback.
     `,
     [
-      { question: 'Should an ICE QR link to sensitive medical data without a password?', answer: 'Balance access vs security. A simple shared PIN that paramedics know provides meaningful protection without preventing access in emergencies.' },
-      { question: 'Can a QR replace a printed evacuation notice?', answer: 'No. Regulations require printed notices. QR is supplementary, providing detail that cannot fit on the notice.' },
+      {
+        question: 'Should an ICE QR link to sensitive medical data without a password?',
+        answer:
+          'Balance access vs security. A simple shared PIN that paramedics know provides meaningful protection without preventing access in emergencies.',
+      },
+      {
+        question: 'Can a QR replace a printed evacuation notice?',
+        answer:
+          'No. Regulations require printed notices. QR is supplementary, providing detail that cannot fit on the notice.',
+      },
     ]
   ),
   art(
@@ -298,8 +361,16 @@ Some pet tags include both an NFC chip and a QR code. The QR works for phones wi
 Scan the code before attaching to the collar. Confirm the page loads and the contact form works.
     `,
     [
-      { question: 'Should I put my phone number directly in the QR?', answer: 'A tel: URI works, but a web page gives you more control and lets you update your number without making a new tag.' },
-      { question: 'What size should a pet tag QR be?', answer: 'At least 2.5 cm to scan reliably. Smaller tags are difficult to scan in low light or with shaking hands.' },
+      {
+        question: 'Should I put my phone number directly in the QR?',
+        answer:
+          'A tel: URI works, but a web page gives you more control and lets you update your number without making a new tag.',
+      },
+      {
+        question: 'What size should a pet tag QR be?',
+        answer:
+          'At least 2.5 cm to scan reliably. Smaller tags are difficult to scan in low light or with shaking hands.',
+      },
     ]
   ),
   art(
@@ -328,8 +399,16 @@ Private law firms use QR codes to link clients to a client portal containing the
 A QR code does not itself authenticate a document. It provides a link; security depends on the destination system requiring authentication and maintaining an accurate record. A forged QR pointing to a fake page provides no protection.
     `,
     [
-      { question: 'Does a QR on a document prove it is genuine?', answer: 'Only if the destination is an authoritative system with a tamper-evident record. A link to a controlled fake page proves nothing.' },
-      { question: 'Can clients sign documents via a QR code?', answer: 'A QR can link to an e-signature platform. The legal validity depends on your jurisdiction and the e-signature standard used.' },
+      {
+        question: 'Does a QR on a document prove it is genuine?',
+        answer:
+          'Only if the destination is an authoritative system with a tamper-evident record. A link to a controlled fake page proves nothing.',
+      },
+      {
+        question: 'Can clients sign documents via a QR code?',
+        answer:
+          'A QR can link to an e-signature platform. The legal validity depends on your jurisdiction and the e-signature standard used.',
+      },
     ]
   ),
 ];

@@ -29,8 +29,15 @@ Attackers stick a counterfeit QR code over the legitimate one on a meter or sign
 * Provide a fast channel for reporting fake codes.
     `,
     [
-      { question: 'Is it safe to pay by QR at a parking meter?', answer: 'It can be if you verify the code is not a sticker and the domain matches the operator. Using the official app is safer.' },
-      { question: 'How can operators stop sticker overlays?', answer: 'Use tamper-evident or engraved codes and inspect them on a schedule.' },
+      {
+        question: 'Is it safe to pay by QR at a parking meter?',
+        answer:
+          'It can be if you verify the code is not a sticker and the domain matches the operator. Using the official app is safer.',
+      },
+      {
+        question: 'How can operators stop sticker overlays?',
+        answer: 'Use tamper-evident or engraved codes and inspect them on a schedule.',
+      },
     ]
   ),
   art(
@@ -62,8 +69,16 @@ Require out-of-band verification for any QR request involving credentials or pay
 Run simulations that include QR lures and teach staff to read the destination domain before opening it.
     `,
     [
-      { question: 'Why is quishing hard to filter?', answer: 'The malicious URL is inside an image, so basic text link scanning does not see it.' },
-      { question: 'What is the strongest single control?', answer: 'Phishing-resistant MFA, because it limits the damage when a user lands on a fake login page.' },
+      {
+        question: 'Why is quishing hard to filter?',
+        answer:
+          'The malicious URL is inside an image, so basic text link scanning does not see it.',
+      },
+      {
+        question: 'What is the strongest single control?',
+        answer:
+          'Phishing-resistant MFA, because it limits the damage when a user lands on a fake login page.',
+      },
     ]
   ),
   art(
@@ -90,8 +105,15 @@ Use a short path on a domain you own (example.com/menu). It is readable, brandab
 Before printing, check where the link actually lands, including any redirect chain, and confirm it uses HTTPS.
     `,
     [
-      { question: 'Are shortened links always unsafe?', answer: 'No, but they hide the destination and add a dependency. A branded domain you control is better.' },
-      { question: 'How do I check a short link?', answer: 'Use a link expander or open it in a safe environment and read the final address.' },
+      {
+        question: 'Are shortened links always unsafe?',
+        answer:
+          'No, but they hide the destination and add a dependency. A branded domain you control is better.',
+      },
+      {
+        question: 'How do I check a short link?',
+        answer: 'Use a link expander or open it in a safe environment and read the final address.',
+      },
     ]
   ),
   art(
@@ -120,8 +142,14 @@ Use branded domains, tamper-evident labels, and consistent design so staff know 
 Offer a single email alias or form. Quick reports let you remove fake stickers before they harm others.
     `,
     [
-      { question: 'Should employees scan any QR code on the office wall?', answer: 'Only if it is part of known signage. Unfamiliar stickers should be reported.' },
-      { question: 'Does scanning alone infect a phone?', answer: 'No. Harm usually comes from opening a link and acting on it.' },
+      {
+        question: 'Should employees scan any QR code on the office wall?',
+        answer: 'Only if it is part of known signage. Unfamiliar stickers should be reported.',
+      },
+      {
+        question: 'Does scanning alone infect a phone?',
+        answer: 'No. Harm usually comes from opening a link and acting on it.',
+      },
     ]
   ),
   art(
@@ -152,8 +180,16 @@ Install apps only from the official store, keep Play Protect enabled, and deny p
 Publish your app through official stores and link to the store listing in QR campaigns to avoid training users to sideload.
     `,
     [
-      { question: 'Can a QR code install malware by itself?', answer: 'No. The user must follow the link, download a file, and grant installation permission.' },
-      { question: 'What should I do if I installed a suspicious app?', answer: 'Uninstall it, run a security scan, change important passwords, and review accounts.' },
+      {
+        question: 'Can a QR code install malware by itself?',
+        answer:
+          'No. The user must follow the link, download a file, and grant installation permission.',
+      },
+      {
+        question: 'What should I do if I installed a suspicious app?',
+        answer:
+          'Uninstall it, run a security scan, change important passwords, and review accounts.',
+      },
     ]
   ),
   art(
@@ -185,8 +221,15 @@ An attacker can broadcast a network with the same name. Using WPA2 or WPA3 with 
 Place the code where staff can see it so overlays are noticed.
     `,
     [
-      { question: 'Is it safe to put my WiFi QR on a table?', answer: 'Yes for a properly isolated guest network. Do not use your main network password.' },
-      { question: 'How often should I change the key?', answer: 'Whenever staff change or if you suspect misuse, and at a regular interval such as quarterly.' },
+      {
+        question: 'Is it safe to put my WiFi QR on a table?',
+        answer: 'Yes for a properly isolated guest network. Do not use your main network password.',
+      },
+      {
+        question: 'How often should I change the key?',
+        answer:
+          'Whenever staff change or if you suspect misuse, and at a regular interval such as quarterly.',
+      },
     ]
   ),
   art(
@@ -218,8 +261,14 @@ Customers should confirm the payee name shown in their banking app matches the s
 Teach staff how the genuine code looks and to report any change immediately.
     `,
     [
-      { question: 'How do I know a payment arrived at my shop?', answer: 'Use transaction alerts from your bank or wallet and compare them to sales.' },
-      { question: 'Should customers verify the payee name?', answer: 'Yes. Most payment apps show the merchant name before confirmation.' },
+      {
+        question: 'How do I know a payment arrived at my shop?',
+        answer: 'Use transaction alerts from your bank or wallet and compare them to sales.',
+      },
+      {
+        question: 'Should customers verify the payee name?',
+        answer: 'Yes. Most payment apps show the merchant name before confirmation.',
+      },
     ]
   ),
   art(
@@ -250,8 +299,15 @@ A static code sends nothing before the visit. A dynamic code first contacts a re
 * Site owners should disclose analytics and honor privacy law.
     `,
     [
-      { question: 'Does the QR code know who scanned it?', answer: 'No. Only the destination or redirect server sees visit data after the link is opened.' },
-      { question: 'Do static QR codes track users?', answer: 'The code itself does not. Whatever website it points to can still collect data.' },
+      {
+        question: 'Does the QR code know who scanned it?',
+        answer:
+          'No. Only the destination or redirect server sees visit data after the link is opened.',
+      },
+      {
+        question: 'Do static QR codes track users?',
+        answer: 'The code itself does not. Whatever website it points to can still collect data.',
+      },
     ]
   ),
   art(
@@ -279,8 +335,15 @@ Guests may be on roaming data, so keep pages light. Offer multiple languages, la
 Use a branded domain, put the code on durable material, and print the short URL beside it. Replace damaged cards between stays, and keep tamper-evident sleeves on shared surfaces.
     `,
     [
-      { question: 'Should hotel QR pages require an app?', answer: 'No. Mobile web pages are faster and avoid roaming data and install friction.' },
-      { question: 'How do I support international guests?', answer: 'Offer language selection on the landing page rather than encoding different codes.' },
+      {
+        question: 'Should hotel QR pages require an app?',
+        answer: 'No. Mobile web pages are faster and avoid roaming data and install friction.',
+      },
+      {
+        question: 'How do I support international guests?',
+        answer:
+          'Offer language selection on the landing page rather than encoding different codes.',
+      },
     ]
   ),
   art(
@@ -311,8 +374,15 @@ Use UV-stable print on rigid coroplast or aluminum, matte finish, and level Q fo
 Use a different short path per property so you know which signs generate visits, and update the target page when a property sells.
     `,
     [
-      { question: 'What size QR for a for-sale sign?', answer: 'About 8 to 15 cm for pedestrians at 1 to 1.5 meters.' },
-      { question: 'Should the link change after the sale?', answer: 'Yes. Point it to a sold notice or your agent page. A redirect you control makes that easy.' },
+      {
+        question: 'What size QR for a for-sale sign?',
+        answer: 'About 8 to 15 cm for pedestrians at 1 to 1.5 meters.',
+      },
+      {
+        question: 'Should the link change after the sale?',
+        answer:
+          'Yes. Point it to a sold notice or your agent page. A redirect you control makes that easy.',
+      },
     ]
   ),
 ];

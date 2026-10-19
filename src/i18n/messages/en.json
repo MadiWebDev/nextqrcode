@@ -1,0 +1,318 @@
+{
+  "consent": {
+    "acceptAll": "Accept All",
+    "learnMore": "Learn more",
+    "message": "We use cookies for analytics and to serve relevant ads. By continuing you agree, or you can reject non-essential cookies.",
+    "rejectNonEssential": "Reject Non-Essential",
+    "title": "Cookie consent"
+  },
+  "footer": {
+    "columns": {
+      "company": "Company",
+      "generators": "Generators",
+      "specialty": "Specialty",
+      "tools": "Tools"
+    },
+    "cookies": "Cookie Policy",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved.",
+    "tagline": "Free QR Code Generator & Tools",
+    "terms": "Terms of Service"
+  },
+  "generator": {
+    "actions": {
+      "advanced": "Advanced options",
+      "copyDataUri": "Copy Data URI",
+      "copyImage": "Copy Image",
+      "customize": "Customize",
+      "downloadJpeg": "Download JPEG",
+      "downloadPdf": "Download PDF",
+      "downloadPng": "Download PNG",
+      "downloadSvg": "Download SVG",
+      "reset": "Reset",
+      "templates": "Templates"
+    },
+    "fields": {
+      "backgroundColor": "Background color",
+      "content": "Content",
+      "email": "Email",
+      "encryption": "Encryption",
+      "errorCorrection": "Error correction",
+      "firstName": "First name",
+      "foregroundColor": "Foreground color",
+      "format": "Format",
+      "hiddenNetwork": "Hidden network",
+      "jobTitle": "Job title",
+      "lastName": "Last name",
+      "margin": "Quiet zone margin",
+      "organization": "Organization",
+      "password": "Password",
+      "phone": "Phone",
+      "size": "Size",
+      "ssid": "Network name (SSID)",
+      "text": "Text",
+      "website": "Website",
+      "websiteUrl": "Website URL"
+    },
+    "steps": {
+      "content": {
+        "hint": "Fill in the details. Your code updates as you type.",
+        "label": "Content",
+        "title": "Add your content"
+      },
+      "design": {
+        "hint": "Choose a template, then fine-tune colors and shape.",
+        "label": "Design",
+        "title": "Style your code"
+      },
+      "download": {
+        "hint": "Check the preview, then save it in the format you need.",
+        "label": "Download",
+        "title": "Preview and download"
+      },
+      "type": {
+        "hint": "Pick what your code should do when someone scans it.",
+        "label": "Type",
+        "title": "Choose a QR type"
+      }
+    },
+    "typeLabels": {
+      "bitcoin": "Bitcoin",
+      "email": "Email",
+      "event": "Event",
+      "geo": "Location",
+      "paypal": "PayPal",
+      "phone": "Phone",
+      "sms": "SMS",
+      "text": "Text",
+      "upi": "UPI Payment",
+      "url": "URL",
+      "vcard": "vCard",
+      "whatsapp": "WhatsApp",
+      "wifi": "WiFi"
+    }
+  },
+  "hero": {
+    "badge": "Free forever · No sign-up required",
+    "primaryCta": "Start Generating",
+    "secondaryCta": "Explore Tools",
+    "subtitle": "Create beautiful, custom QR codes for free. 40+ types, custom colors, logo upload. Download PNG, SVG, PDF instantly. No sign-up needed.",
+    "title": "Free QR Code Generator",
+    "trustPoints": [
+      "100% client-side — nothing leaves your browser",
+      "Static codes never expire",
+      "Vector SVG & print-ready PDF exports"
+    ]
+  },
+  "home": {
+    "countries": {
+      "all": "All {count} countries",
+      "more": "+{count} more",
+      "subtitle": "Country-validated QR codes with correct calling codes, carrier prefixes, and local regulatory notes.",
+      "title": "WhatsApp QR Generators by Country"
+    },
+    "faq": {
+      "items": [
+        {
+          "a": "Yes. QR Code Tools generates all QR codes directly in your browser with zero server communication. Static QR codes generated here never expire, cannot be disabled, and require no account or subscription. The code you download is permanently yours.",
+          "q": "Is QR Code Tools really free with no hidden subscriptions?"
+        },
+        {
+          "a": "A static QR code encodes data directly into the module matrix and works permanently offline. A dynamic QR code encodes a proxy redirect URL that depends on an external server staying active — if the vendor shuts down or you stop paying, all printed codes break. QR Code Tools only generates static, permanent codes.",
+          "q": "What is the difference between static and dynamic QR codes?"
+        },
+        {
+          "a": "You can download lossless vector SVG (infinite scaling), print-ready PDF, high-resolution PNG (up to 4K), HD PNG, JPEG, or copy the raw data URI and embed HTML snippet. SVG and PDF are recommended for commercial printing.",
+          "q": "What file formats can I download?"
+        },
+        {
+          "a": "Yes. Upload any PNG or SVG logo via the customization panel. QR Code Tools automatically switches to Error Correction Level H (30% recovery) and validates that your logo covers less than 20% of the symbol area, preserving full scannability.",
+          "q": "Can I add my logo to a QR code?"
+        },
+        {
+          "a": "QR Code Tools generates spec-compliant payment codes for UPI (India), Raast (Pakistan), Pix BR Code (Brazil), SGQR (Singapore), Swiss QR-Bill, SEPA EPC QR Code, and more. Each generator validates fields per the official governing body specification.",
+          "q": "Which payment QR standards are supported?"
+        }
+      ],
+      "title": "Frequently Asked Questions"
+    },
+    "guides": {
+      "badge": "Standards & Research",
+      "readGuide": "Read Guide",
+      "subtitle": "Peer-reviewed technical tutorials on error correction mathematics, print sizing, and security.",
+      "title": "Technical Guides & Optical Standards",
+      "viewAll": "View All {count} Guides"
+    },
+    "hubs": {
+      "badge": "Specialized Knowledge Hubs",
+      "cards": [
+        {
+          "desc": "Print-ready QR sheet generators for 30+ Avery, Herma, Dymo, Brother, and Zebra label formats. Exact margin calibration, zero-drift layout.",
+          "title": "Label & Sticker Sheet Library"
+        },
+        {
+          "desc": "Country-specific WhatsApp QR generators with calling code auto-detection, carrier prefix validation, and local regulatory notes.",
+          "title": "WhatsApp QR by Country"
+        },
+        {
+          "desc": "Official spec generators for Pix, UPI, Raast, SGQR, Swiss QR-Bill, SEPA, PromptPay, and 25+ more payment networks.",
+          "title": "Payment QR Scheme Library"
+        },
+        {
+          "desc": "Tested troubleshooting guides for iPhone iOS 18, Android Pixel, Samsung Galaxy, Huawei HarmonyOS, Windows 11, and industrial Zebra scanners.",
+          "title": "Device & OS Scanning Guides"
+        },
+        {
+          "desc": "Pre-configured QR generators for Retail, Healthcare, Logistics, Hospitality, Education, Manufacturing, and 4 more industries.",
+          "title": "Industry Use-Case Generators"
+        },
+        {
+          "desc": "Pre-filled QR size calculators for 20 specific use cases: business cards, banners, wine labels, pill bottles, museum placards, and more.",
+          "title": "Size & Distance Calculator Hub"
+        },
+        {
+          "desc": "Technical reference: Reed-Solomon, Galois Field, finder patterns, EMVCo TLV, Micro QR, Data Matrix, PDF417, and 25+ more defined with math.",
+          "title": "QR & Barcode Glossary"
+        },
+        {
+          "desc": "Data-driven comparisons: QR vs NFC, static vs dynamic, SVG vs PNG vs PDF, iPhone vs Android scanner, UPI vs Raast vs PromptPay.",
+          "title": "Format Comparisons"
+        }
+      ],
+      "counts": {
+        "countries": "countries",
+        "labelSheets": "label sheets",
+        "paymentSchemes": "payment schemes"
+      },
+      "explore": "Explore",
+      "subtitle": "Structured data libraries with working generators, calculators, and technical guides for every dimension of QR code deployment.",
+      "title": "Deep-Dive Reference Libraries"
+    },
+    "meta": {
+      "description": "Generate beautiful, professional QR codes & barcodes 100% in your browser. 40+ types, instant vector SVG/PDF download, distance calculator, safety inspector, and offline file transfer. Zero tracking.",
+      "title": "Free QR Code Generator & Optical Engineering Suite — QR Code Tools"
+    },
+    "payments": {
+      "all": "All {count} schemes",
+      "subtitle": "Spec-compliant payment QR generators for global instant payment networks — Pix, UPI, Raast, SGQR, and more.",
+      "title": "Official Payment QR Standards"
+    },
+    "tools": {
+      "badge": "Full Engineering Suite",
+      "cards": [
+        {
+          "category": "Optical Math",
+          "desc": "Compute mathematically exact print dimensions using optical sensor focal physics and 10:1 viewing ratios.",
+          "title": "QR Size & Distance Calculator"
+        },
+        {
+          "category": "Security",
+          "desc": "Inspect suspicious QR codes client-side. Expose hidden URL shorteners, homograph attacks, and quishing scams.",
+          "title": "QR Safety & Phishing Checker"
+        },
+        {
+          "category": "Prepress Audit",
+          "desc": "Upload printed packaging photos to audit ISO luminance contrast, Laplacian edge blur, and camera decodability.",
+          "title": "Printed-QR Quality Tester"
+        },
+        {
+          "category": "Interactive Lab",
+          "desc": "Interactive scratch laboratory. Draw real-time physical damage across QR codes to test Reed-Solomon recovery.",
+          "title": "Error-Correction Damage Simulator"
+        },
+        {
+          "category": "Data Transfer",
+          "desc": "Split extensive text, certificates, or code into sequenced multi-part QR codes. Reassemble offline via camera.",
+          "title": "Large-Data Splitter & Scanner"
+        },
+        {
+          "category": "Air-Gap Stream",
+          "desc": "Stream text and files across air-gapped computers via high-speed animated optical frames at 1-8 FPS.",
+          "title": "Animated-QR Offline File Transfer"
+        },
+        {
+          "category": "Life Safety",
+          "desc": "Printable emergency wallet cards and lock-screen wallpaper with offline blood type, allergies, and ICE contacts.",
+          "title": "Emergency Medical ID QR Card"
+        },
+        {
+          "category": "Hospitality",
+          "desc": "Hospitality table tents and wall signs with native RTL Urdu and Arabic typography plus instant connect.",
+          "title": "Printable WiFi Signs (RTL Support)"
+        },
+        {
+          "category": "Fintech Rails",
+          "desc": "Official EMVCo Raast (Pakistan), JazzCash, Easypaisa, and Indian UPI payment codes with zero fee intermediary.",
+          "title": "Regional Payment QR (UPI / Raast)"
+        },
+        {
+          "category": "Batch Printing",
+          "desc": "Batch format QR codes on standard Avery 5160, 5163, and round stickers with sequential serial numbering.",
+          "title": "Avery Sticker Sheet Layout Printer"
+        },
+        {
+          "category": "Pet Safety",
+          "desc": "Double-sided printable collar tags with punch-hole guides, owner contact numbers, and critical medical alerts.",
+          "title": "Pet Tag Lost & Found QR"
+        },
+        {
+          "category": "Enterprise",
+          "desc": "Convert employee and conference attendee spreadsheets into hundreds of individual vCard 3.0 QR codes.",
+          "title": "Bulk vCard from CSV"
+        },
+        {
+          "category": "Attribution",
+          "desc": "Generate campaign-tagged URLs and instant QR codes tracked in Google Analytics 4 (GA4) with zero data loss.",
+          "title": "UTM Campaign QR Builder"
+        },
+        {
+          "category": "Substrates",
+          "desc": "Pre-flight guidelines for printing on glass, stainless steel, natural wood, fabric, and curved cylinders.",
+          "title": "Material Placement Checklist"
+        },
+        {
+          "category": "Retail 1D",
+          "desc": "GS1-compliant EAN-13, UPC-A, Code 128, and ISBN barcodes with real-time Modulo-10 checksum validation.",
+          "title": "1D Barcode Generator with Checksum"
+        }
+      ],
+      "exploreSitemap": "Explore Complete Sitemap",
+      "openTool": "Open Tool",
+      "subtitle": "Every tool operates 100% client-side with zero cloud dependency. Designed for prepress designers, cybersecurity engineers, and international merchants.",
+      "title": "Specialized Optical & QR Tool Cluster"
+    },
+    "valueProps": [
+      {
+        "desc": "No server uploads. WiFi passwords, contacts, and payment codes stay in your browser.",
+        "title": "100% Client-Side"
+      },
+      {
+        "desc": "Permanent static codes. No recurring subscriptions, paywalls, or broken redirects.",
+        "title": "Zero Latency & Expiry"
+      },
+      {
+        "desc": "Lossless commercial print exports up to 4K resolution with exact quiet zone margins.",
+        "title": "Vector SVG & Print PDF"
+      },
+      {
+        "desc": "Complies with ISO/IEC 18004, EMVCo, UPI, and native RTL Urdu/Arabic scripts.",
+        "title": "International Protocols"
+      }
+    ]
+  },
+  "nav": {
+    "close": "Close",
+    "dashboard": "Dashboard",
+    "groups": {
+      "generators": "QR Generators",
+      "guides": "Guides",
+      "regions": "Regions",
+      "tools": "Tools"
+    },
+    "menu": "Menu",
+    "searchPlaceholder": "Search tools and guides…",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "skipToContent": "Skip to content"
+  }
+}

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getDatabase, isMongoConfigured } from '@/lib/mongodb';
+import { siteConfig } from '@/config/site';
 import type { DigitalCard } from '@/types/card';
 
 export const runtime = 'nodejs';
@@ -54,17 +55,13 @@ export async function POST(req: NextRequest) {
     if (isMongoConfigured()) {
       const db = await getDatabase();
       const collection = db.collection<DigitalCard>('cards');
-      await collection.updateOne(
-        { slug },
-        { $set: newCard },
-        { upsert: true }
-      );
+      await collection.updateOne({ slug }, { $set: newCard }, { upsert: true });
     } else {
       // Store in in-memory fallback
       memoryCards.set(slug, newCard);
     }
 
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://freeqrcode.tools';
+    const siteUrl = siteConfig.url;
     const cardUrl = `${siteUrl}/card/${slug}`;
 
     return NextResponse.json({

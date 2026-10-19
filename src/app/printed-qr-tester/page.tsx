@@ -79,7 +79,7 @@ export default function PrintedQRTesterPage() {
       const step = 4; // Sample every 4th pixel for speed
       for (let y = 1; y < height - 1; y += step) {
         for (let x = 1; x < width - 1; x += step) {
-          const idx = (y * width + x);
+          const idx = y * width + x;
           const center = lumValues[idx];
           const top = lumValues[idx - width];
           const bottom = lumValues[idx + width];
@@ -102,28 +102,46 @@ export default function PrintedQRTesterPage() {
 
       if (!qrResult) {
         score -= 40;
-        recommendations.push('Camera decoders failed to resolve the symbol. Increase print size or verify quiet zones.');
+        recommendations.push(
+          'Camera decoders failed to resolve the symbol. Increase print size or verify quiet zones.'
+        );
       } else {
-        recommendations.push('Symbol successfully decoded: all finder and timing patterns are valid.');
+        recommendations.push(
+          'Symbol successfully decoded: all finder and timing patterns are valid.'
+        );
       }
 
       if (contrastRatio < 3.5) {
         score -= 25;
-        recommendations.push(`Low contrast ratio (${contrastRatio.toFixed(1)}:1). Darken foreground ink or use a brighter white substrate.`);
+        recommendations.push(
+          `Low contrast ratio (${contrastRatio.toFixed(1)}:1). Darken foreground ink or use a brighter white substrate.`
+        );
       } else {
-        recommendations.push(`Excellent contrast ratio (${contrastRatio.toFixed(1)}:1), exceeding ISO 4.0:1 threshold.`);
+        recommendations.push(
+          `Excellent contrast ratio (${contrastRatio.toFixed(1)}:1), exceeding ISO 4.0:1 threshold.`
+        );
       }
 
       if (blurVariance < 8) {
         score -= 20;
-        recommendations.push('Noticeable edge blur or low resolution. Export as vector SVG or 300+ DPI raster instead of lossy JPG.');
+        recommendations.push(
+          'Noticeable edge blur or low resolution. Export as vector SVG or 300+ DPI raster instead of lossy JPG.'
+        );
       } else {
         recommendations.push('Crisp edge transitions with high frequency sharpness.');
       }
 
       const finalScore = Math.max(10, score);
       const grade =
-        finalScore >= 90 ? 'A+' : finalScore >= 80 ? 'A' : finalScore >= 65 ? 'B' : finalScore >= 45 ? 'C' : 'Fail';
+        finalScore >= 90
+          ? 'A+'
+          : finalScore >= 80
+            ? 'A'
+            : finalScore >= 65
+              ? 'B'
+              : finalScore >= 45
+                ? 'C'
+                : 'Fail';
 
       setAudit({
         grade,
@@ -155,15 +173,18 @@ export default function PrintedQRTesterPage() {
   const faqs = [
     {
       question: 'How does this tool test printed QR code quality?',
-      answer: 'It calculates luminance contrast ratios using ISO Rec. 709 standards, measures edge gradient sharpness to identify optical blur, and runs client-side binarization to confirm whether smartphone sensors will decode the symbol.',
+      answer:
+        'It calculates luminance contrast ratios using ISO Rec. 709 standards, measures edge gradient sharpness to identify optical blur, and runs client-side binarization to confirm whether smartphone sensors will decode the symbol.',
     },
     {
       question: 'What contrast ratio is required for printed QR codes?',
-      answer: 'The international ISO/IEC 18004 specification recommends a luminance contrast ratio of at least 4.0:1 between the dark modules and the light background. Ratios below 3.0:1 often cause scan failure in low ambient lighting.',
+      answer:
+        'The international ISO/IEC 18004 specification recommends a luminance contrast ratio of at least 4.0:1 between the dark modules and the light background. Ratios below 3.0:1 often cause scan failure in low ambient lighting.',
     },
     {
       question: 'Why does my printed QR code look sharp to my eyes but fail to scan?',
-      answer: 'Human eyes perceive color contrast differently than monochromatic CMOS camera sensors. For example, vibrant red text on white looks sharp to humans, but camera sensors register red light as nearly white, destroying the contrast.',
+      answer:
+        'Human eyes perceive color contrast differently than monochromatic CMOS camera sensors. For example, vibrant red text on white looks sharp to humans, but camera sensors register red light as nearly white, destroying the contrast.',
     },
   ];
 
@@ -185,7 +206,8 @@ export default function PrintedQRTesterPage() {
           Printed QR Code Quality & Contrast Tester
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Upload a photo of your printed packaging, flyer, or business card to audit luminance contrast ratios, Laplacian edge blur, and real-world camera decodability.
+          Upload a photo of your printed packaging, flyer, or business card to audit luminance
+          contrast ratios, Laplacian edge blur, and real-world camera decodability.
         </p>
       </header>
 
@@ -220,7 +242,9 @@ export default function PrintedQRTesterPage() {
 
             {imageSrc && (
               <div className="mt-6 space-y-2">
-                <div className="text-xs font-semibold text-muted-foreground uppercase">Uploaded Sample:</div>
+                <div className="text-xs font-semibold text-muted-foreground uppercase">
+                  Uploaded Sample:
+                </div>
                 <div className="rounded-xl overflow-hidden border border-border/70 max-h-72 flex items-center justify-center bg-black/5 dark:bg-white/5">
                   <img src={imageSrc} alt="Printed QR Sample" className="max-h-72 object-contain" />
                 </div>
@@ -242,7 +266,9 @@ export default function PrintedQRTesterPage() {
               <div className="text-center py-10 text-muted-foreground space-y-2">
                 <FileCheck className="w-12 h-12 mx-auto stroke-1 opacity-40" />
                 <p className="text-sm font-medium">Awaiting image upload...</p>
-                <p className="text-xs">Upload a photo of your printed QR code to calculate contrast and blur metrics.</p>
+                <p className="text-xs">
+                  Upload a photo of your printed QR code to calculate contrast and blur metrics.
+                </p>
               </div>
             ) : (
               <div className="space-y-5">
@@ -262,14 +288,22 @@ export default function PrintedQRTesterPage() {
                 <div className="space-y-2.5 text-xs">
                   <div className="flex justify-between py-1.5 border-b border-border/50">
                     <span className="text-muted-foreground">Decodable by Camera:</span>
-                    <span className={`font-semibold flex items-center gap-1 ${audit.isDecodable ? 'text-emerald-600' : 'text-rose-600'}`}>
-                      {audit.isDecodable ? <CheckCircle2 className="w-3.5 h-3.5" /> : <XCircle className="w-3.5 h-3.5" />}
+                    <span
+                      className={`font-semibold flex items-center gap-1 ${audit.isDecodable ? 'text-emerald-600' : 'text-rose-600'}`}
+                    >
+                      {audit.isDecodable ? (
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      ) : (
+                        <XCircle className="w-3.5 h-3.5" />
+                      )}
                       {audit.isDecodable ? 'Passed' : 'Failed'}
                     </span>
                   </div>
                   <div className="flex justify-between py-1.5 border-b border-border/50">
                     <span className="text-muted-foreground">Luminance Contrast:</span>
-                    <span className="font-semibold text-foreground">{audit.contrastRatio}:1 (Target &gt; 4.0:1)</span>
+                    <span className="font-semibold text-foreground">
+                      {audit.contrastRatio}:1 (Target &gt; 4.0:1)
+                    </span>
                   </div>
                   <div className="flex justify-between py-1.5 border-b border-border/50">
                     <span className="text-muted-foreground">Edge Sharpness Index:</span>
@@ -301,21 +335,32 @@ export default function PrintedQRTesterPage() {
           The Science of Printed QR Code Readability and Quality Assurance
         </h2>
         <p className="text-base leading-relaxed">
-          In prepress and packaging manufacturing, print verification is a critical stage. Unlike high-resolution smartphone screens with self-illuminating OLED pixels, physical paper, vinyl, and corrugated cardboard rely on ambient reflected light. Substrate texture, ink absorption bleed, and gloss glare directly affect whether optical sensors can binarize the symbol.
+          In prepress and packaging manufacturing, print verification is a critical stage. Unlike
+          high-resolution smartphone screens with self-illuminating OLED pixels, physical paper,
+          vinyl, and corrugated cardboard rely on ambient reflected light. Substrate texture, ink
+          absorption bleed, and gloss glare directly affect whether optical sensors can binarize the
+          symbol.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           Understanding Luminance Contrast Ratios
         </h3>
         <p className="text-base leading-relaxed">
-          The contrast between dark modules and light spaces must be measured photometrically. When light hits paper, ink absorbs specific wavelengths while the paper base reflects them. If you print on uncoated kraft paper, brown cardboard, or gray recycled stock, the background reflects significantly less light than pure white stock, compressing the contrast range.
+          The contrast between dark modules and light spaces must be measured photometrically. When
+          light hits paper, ink absorbs specific wavelengths while the paper base reflects them. If
+          you print on uncoated kraft paper, brown cardboard, or gray recycled stock, the background
+          reflects significantly less light than pure white stock, compressing the contrast range.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           Laplacian Edge Variance: Diagnosing Blurry Prints
         </h3>
         <p className="text-base leading-relaxed">
-          Edge blur occurs when a raster image is resized or printed at low resolutions (such as 72 or 150 DPI). The boundary between a dark module and a light module becomes a gradient of gray pixels rather than a clean binary jump. Our tester computes high-frequency Laplacian variance across the image matrix to confirm whether the printed edges are sufficiently steep for camera focus circuits.
+          Edge blur occurs when a raster image is resized or printed at low resolutions (such as 72
+          or 150 DPI). The boundary between a dark module and a light module becomes a gradient of
+          gray pixels rather than a clean binary jump. Our tester computes high-frequency Laplacian
+          variance across the image matrix to confirm whether the printed edges are sufficiently
+          steep for camera focus circuits.
         </p>
       </article>
 

@@ -65,7 +65,8 @@ export interface QRData {
   [key: string]: string;
 }
 
-export type TemplateName = 'classic' | 'modern' | 'vibrant' | 'glassmorphism' | 'minimal' | 'corporate';
+export type TemplateName =
+  'classic' | 'modern' | 'vibrant' | 'glassmorphism' | 'minimal' | 'corporate';
 
 export interface TemplateStyle {
   name: TemplateName;
@@ -81,7 +82,8 @@ export interface TemplateStyle {
   iconColor: string;
 }
 
-export type DotStyle = 'square' | 'rounded' | 'dots' | 'classy' | 'classy-rounded' | 'extra-rounded';
+export type DotStyle =
+  'square' | 'rounded' | 'dots' | 'classy' | 'classy-rounded' | 'extra-rounded';
 export type EyeOuterStyle = 'square' | 'rounded' | 'circle';
 export type EyeInnerStyle = 'square' | 'dot' | 'diamond';
 export type FrameStyle = 'none' | 'simple' | 'rounded' | 'badge' | 'banner' | 'ticket';
@@ -105,9 +107,14 @@ export interface CustomizationOptions {
   frameCta: string;
   frameColor: string;
   frameFontSize: number;
+  /** Quiet zone width in modules (spec minimum: 4). */
+  quietZone: number;
+  /** Optional foreground gradient; null = solid fgColor. */
+  fgGradient: { from: string; to: string } | null;
 }
 
-export type ExportFormat = 'png' | 'png-hd' | 'svg' | 'jpeg' | 'pdf' | 'copy-image' | 'copy-datauri' | 'copy-embed';
+export type ExportFormat =
+  'png' | 'png-hd' | 'svg' | 'jpeg' | 'pdf' | 'copy-image' | 'copy-datauri' | 'copy-embed';
 
 export interface QRState {
   type: QRType;

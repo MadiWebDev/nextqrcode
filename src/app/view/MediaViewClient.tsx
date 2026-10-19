@@ -35,6 +35,13 @@ export function MediaViewClient() {
   const [duration, setDuration] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
 
+  // Waveform bar heights randomized once per mount (impure Math.random must not run during render)
+  const [waveHeights] = useState(() =>
+    [40, 70, 30, 90, 60, 100, 50, 80, 45, 95, 35, 75, 65, 85].map(
+      (h) => `${Math.max(15, Math.round(h * Math.random()))}%`
+    )
+  );
+
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -202,12 +209,7 @@ export function MediaViewClient() {
           {type === 'video' && (
             <div className="flex flex-col items-center">
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-lg">
-                <video
-                  src={url}
-                  controls
-                  playsInline
-                  className="w-full h-full object-contain"
-                >
+                <video src={url} controls playsInline className="w-full h-full object-contain">
                   Your browser does not support video playback.
                 </video>
               </div>
@@ -247,14 +249,14 @@ export function MediaViewClient() {
 
               {/* Animated Waveform Bars */}
               <div className="flex items-center gap-1 h-8 mb-6">
-                {[40, 70, 30, 90, 60, 100, 50, 80, 45, 95, 35, 75, 65, 85].map((h, i) => (
+                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((i) => (
                   <span
                     key={i}
                     className={`w-1 rounded-full bg-emerald-400/80 transition-all duration-300 ${
                       isPlaying ? 'animate-pulse' : 'opacity-40'
                     }`}
                     style={{
-                      height: isPlaying ? `${Math.max(15, Math.round(h * Math.random()))}%` : '20%',
+                      height: isPlaying ? waveHeights[i] : '20%',
                     }}
                   />
                 ))}

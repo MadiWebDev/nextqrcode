@@ -9,31 +9,38 @@ import { updateGoogleConsent } from '@/lib/gtag';
 const CONSENT_KEY = 'qrs_cookie_consent';
 
 export function CookieConsent() {
-  const [visible, setVisible] = useState(false);
+  // Read the stored choice lazily on first render (guarded for SSR) instead
+  // of setting state from a mount effect.
+  const [visible, setVisible] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    return localStorage.getItem(CONSENT_KEY) === null;
+  });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem(CONSENT_KEY);
-    if (stored === null) {
-      setVisible(true);
-    } else {
+    if (stored !== null) {
       // Sync Google Consent Mode with saved preference
       updateGoogleConsent(stored === 'accepted');
     }
     // Trigger slide-up animation after mount
-    requestAnimationFrame(() => setMounted(true));
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
-  function accept() {
-    localStorage.setItem(CONSENT_KEY, 'accepted');
-    updateGoogleConsent(true);
+  function persist(choice: 'accepted' | 'rejected') {
+    localStorage.setItem(CONSENT_KEY, choice);
+    updateGoogleConsent(choice === 'accepted');
+    window.dispatchEvent(new CustomEvent('qrs:consent-changed', { detail: choice }));
     setVisible(false);
   }
 
+  function accept() {
+    persist('accepted');
+  }
+
   function reject() {
-    localStorage.setItem(CONSENT_KEY, 'rejected');
-    updateGoogleConsent(false);
-    setVisible(false);
+    persist('rejected');
   }
 
   if (!visible) return null;

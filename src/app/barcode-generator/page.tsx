@@ -28,7 +28,11 @@ export default function BarcodeGeneratorPage() {
   const [barWidth, setBarWidth] = useState(2);
   const [barHeight, setBarHeight] = useState(80);
   const [displayValue, setDisplayValue] = useState(true);
-  const [checksumStatus, setChecksumStatus] = useState<{ valid: boolean; calculated?: string; message: string }>({
+  const [checksumStatus, setChecksumStatus] = useState<{
+    valid: boolean;
+    calculated?: string;
+    message: string;
+  }>({
     valid: true,
     message: 'Valid Checksum',
   });
@@ -53,7 +57,10 @@ export default function BarcodeGeneratorPage() {
       return {
         valid: checkDigit === expected,
         calculated: String(checkDigit),
-        message: checkDigit === expected ? 'Valid EAN/ISBN Modulo-10 Checksum' : `Invalid checksum digit. Expected: ${checkDigit}`,
+        message:
+          checkDigit === expected
+            ? 'Valid EAN/ISBN Modulo-10 Checksum'
+            : `Invalid checksum digit. Expected: ${checkDigit}`,
       };
     }
 
@@ -71,7 +78,10 @@ export default function BarcodeGeneratorPage() {
       return {
         valid: checkDigit === expected,
         calculated: String(checkDigit),
-        message: checkDigit === expected ? 'Valid UPC Modulo-10 Checksum' : `Invalid checksum digit. Expected: ${checkDigit}`,
+        message:
+          checkDigit === expected
+            ? 'Valid UPC Modulo-10 Checksum'
+            : `Invalid checksum digit. Expected: ${checkDigit}`,
       };
     }
 
@@ -104,7 +114,10 @@ export default function BarcodeGeneratorPage() {
   }, [format, value, barWidth, barHeight, displayValue]);
 
   const autoCorrectChecksum = () => {
-    if (checksumStatus.calculated && (format === 'EAN13' || format === 'UPC' || format === 'ISBN')) {
+    if (
+      checksumStatus.calculated &&
+      (format === 'EAN13' || format === 'UPC' || format === 'ISBN')
+    ) {
       const clean = value.replace(/\D/g, '');
       const corrected = clean.slice(0, clean.length - 1) + checksumStatus.calculated;
       setValue(corrected);
@@ -123,15 +136,18 @@ export default function BarcodeGeneratorPage() {
   const faqs = [
     {
       question: 'What is a barcode check digit and why does it matter?',
-      answer: 'The check digit is the final number in an EAN-13, UPC, or ISBN barcode. It is calculated mathematically using a Modulo-10 algorithm over all previous digits. Point-of-sale laser scanners compute this check on the fly to guarantee that misread bars are rejected immediately.',
+      answer:
+        'The check digit is the final number in an EAN-13, UPC, or ISBN barcode. It is calculated mathematically using a Modulo-10 algorithm over all previous digits. Point-of-sale laser scanners compute this check on the fly to guarantee that misread bars are rejected immediately.',
     },
     {
       question: 'What is the difference between UPC-A and EAN-13?',
-      answer: 'UPC-A is a 12-digit format predominantly used in the United States and Canada. EAN-13 is a 13-digit superset used throughout Europe, Asia, and globally. Adding a leading zero to any 12-digit UPC-A barcode converts it into a universally valid 13-digit EAN-13 code.',
+      answer:
+        'UPC-A is a 12-digit format predominantly used in the United States and Canada. EAN-13 is a 13-digit superset used throughout Europe, Asia, and globally. Adding a leading zero to any 12-digit UPC-A barcode converts it into a universally valid 13-digit EAN-13 code.',
     },
     {
       question: 'Can I use Code 128 for retail products?',
-      answer: 'No. Code 128 is designed for internal warehouse tracking, shipping container labels (GS1-128), and asset tags. Standard retail grocery checkout scanners expect GS1-registered EAN-13 or UPC-A barcodes.',
+      answer:
+        'No. Code 128 is designed for internal warehouse tracking, shipping container labels (GS1-128), and asset tags. Standard retail grocery checkout scanners expect GS1-registered EAN-13 or UPC-A barcodes.',
     },
   ];
 
@@ -153,14 +169,19 @@ export default function BarcodeGeneratorPage() {
           Barcode Generator with Checksum Validation (EAN, UPC, Code 128 & ISBN)
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Create high-precision linear 1D barcodes for retail packaging and warehouse inventory. Features automatic Modulo-10 check-digit calculation and SVG/PNG vector export.
+          Create high-precision linear 1D barcodes for retail packaging and warehouse inventory.
+          Features automatic Modulo-10 check-digit calculation and SVG/PNG vector export.
         </p>
       </header>
 
       {/* Format Selector Tabs */}
       <div className="flex flex-wrap gap-2 mb-8 border-b border-border pb-3">
         {[
-          { id: 'EAN13', label: 'EAN-13 (International Retail - 13 Digits)', sample: '5901234123457' },
+          {
+            id: 'EAN13',
+            label: 'EAN-13 (International Retail - 13 Digits)',
+            sample: '5901234123457',
+          },
           { id: 'UPC', label: 'UPC-A (US & Canada - 12 Digits)', sample: '012345678905' },
           { id: 'CODE128', label: 'Code 128 (Logistics & Inventory)', sample: 'SHIP-2026-X89' },
           { id: 'ISBN', label: 'ISBN-13 (Books & Publishing)', sample: '9780306406157' },
@@ -169,7 +190,7 @@ export default function BarcodeGeneratorPage() {
             key={item.id}
             type="button"
             onClick={() => {
-              setFormat(item.id as any);
+              setFormat(item.id as BarcodeFormat);
               setValue(item.sample);
             }}
             className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
@@ -189,7 +210,10 @@ export default function BarcodeGeneratorPage() {
           <Card className="p-6 border-border/80 shadow-xs space-y-4">
             <div>
               <div className="flex justify-between items-center mb-1">
-                <Label htmlFor="bar-val" className="text-xs font-semibold uppercase text-muted-foreground">
+                <Label
+                  htmlFor="bar-val"
+                  className="text-xs font-semibold uppercase text-muted-foreground"
+                >
                   Barcode Value:
                 </Label>
                 {checksumStatus.calculated && !checksumStatus.valid && (
@@ -312,12 +336,19 @@ export default function BarcodeGeneratorPage() {
           The Modulo-10 Barcode Checksum Algorithm Explained
         </h2>
         <p className="text-base leading-relaxed">
-          Standard consumer linear barcodes rely on mathematical parity check digits to prevent checkout scanners from recording inaccurate price lookups. In the GS1 standard (governing EAN-13 and UPC-A), the final digit is determined using an alternating weighting formula:
+          Standard consumer linear barcodes rely on mathematical parity check digits to prevent
+          checkout scanners from recording inaccurate price lookups. In the GS1 standard (governing
+          EAN-13 and UPC-A), the final digit is determined using an alternating weighting formula:
         </p>
         <ol className="list-decimal pl-6 space-y-2 text-sm">
-          <li>Starting from the rightmost data digit (excluding the check digit), alternate multiplying digits by 3 and 1.</li>
+          <li>
+            Starting from the rightmost data digit (excluding the check digit), alternate
+            multiplying digits by 3 and 1.
+          </li>
           <li>Sum all weighted values together.</li>
-          <li>Compute modulo 10: <code>(10 - (Sum % 10)) % 10</code>.</li>
+          <li>
+            Compute modulo 10: <code>(10 - (Sum % 10)) % 10</code>.
+          </li>
         </ol>
       </article>
 

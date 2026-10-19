@@ -54,11 +54,14 @@ Compare follower growth rate before and after QR deployment on each material typ
     [
       {
         question: 'Can I link a QR code directly to a specific TikTok video instead of my profile?',
-        answer: 'Yes. Each TikTok video has a unique URL. You can QR-code a specific video for packaging, flyers, or campaigns tied to that content. Consider that the video becomes outdated — a dynamic QR lets you swap the linked video for newer content without reprinting. For evergreen content (how-to, brand story), a static QR is fine.',
+        answer:
+          'Yes. Each TikTok video has a unique URL. You can QR-code a specific video for packaging, flyers, or campaigns tied to that content. Consider that the video becomes outdated — a dynamic QR lets you swap the linked video for newer content without reprinting. For evergreen content (how-to, brand story), a static QR is fine.',
       },
       {
-        question: 'Does a TikTok QR code work on packaging in countries where TikTok is restricted?',
-        answer: 'In countries where TikTok is restricted or banned, the QR link will fail to load the app or website for affected users. If your packaging is distributed internationally, consider linking to a landing page that offers multiple social media options (YouTube, Instagram) so customers in all markets can find your content. This is especially relevant for US market products given ongoing TikTok regulatory uncertainty.',
+        question:
+          'Does a TikTok QR code work on packaging in countries where TikTok is restricted?',
+        answer:
+          'In countries where TikTok is restricted or banned, the QR link will fail to load the app or website for affected users. If your packaging is distributed internationally, consider linking to a landing page that offers multiple social media options (YouTube, Instagram) so customers in all markets can find your content. This is especially relevant for US market products given ongoing TikTok regulatory uncertainty.',
       },
     ]
   ),
@@ -108,12 +111,15 @@ Many brands use a "link in bio" tool (Linktree, Later, Beacons) to share multipl
     `,
     [
       {
-        question: 'Should the Instagram QR code on product packaging link to the profile or a specific post?',
-        answer: 'Link to the profile for long-term materials (packaging, permanent signage) — the profile is always relevant. Link to a specific post or campaign page for time-limited materials (event flyers, promotional inserts) when that specific content is the reason for scanning. For packaging with a lifespan of 12+ months, the profile is the safer and more evergreen destination.',
+        question:
+          'Should the Instagram QR code on product packaging link to the profile or a specific post?',
+        answer:
+          'Link to the profile for long-term materials (packaging, permanent signage) — the profile is always relevant. Link to a specific post or campaign page for time-limited materials (event flyers, promotional inserts) when that specific content is the reason for scanning. For packaging with a lifespan of 12+ months, the profile is the safer and more evergreen destination.',
       },
       {
         question: 'How can a business measure Instagram follower growth from QR code placement?',
-        answer: 'Use a redirect URL with UTM parameters before your Instagram profile URL. Track scan/click volume in your link management platform. Compare follower count before and after major QR deployments. Instagram Insights shows follower source by traffic type but does not break down offline QR specifically — the UTM redirect provides the QR-specific data.',
+        answer:
+          'Use a redirect URL with UTM parameters before your Instagram profile URL. Track scan/click volume in your link management platform. Compare follower count before and after major QR deployments. Instagram Insights shows follower source by traffic type but does not break down offline QR specifically — the UTM redirect provides the QR-specific data.',
       },
     ]
   ),
@@ -166,12 +172,15 @@ Encode this URL in your QR code. When scanned, the user sees your channel with a
     `,
     [
       {
-        question: 'Can a QR code on product packaging link to a YouTube tutorial that plays automatically?',
-        answer: 'YouTube autoplay requires the user to be in the YouTube app with autoplay enabled — it cannot be forced via a URL. The QR should link to the specific video URL, which opens the YouTube app and displays the video ready to play. The user taps play. Designing the video thumbnail and title to be compelling increases the tap-to-play rate.',
+        question:
+          'Can a QR code on product packaging link to a YouTube tutorial that plays automatically?',
+        answer:
+          'YouTube autoplay requires the user to be in the YouTube app with autoplay enabled — it cannot be forced via a URL. The QR should link to the specific video URL, which opens the YouTube app and displays the video ready to play. The user taps play. Designing the video thumbnail and title to be compelling increases the tap-to-play rate.',
       },
       {
         question: 'Is it worth putting a YouTube QR on a business card?',
-        answer: 'Yes for creators, consultants, and educators who use YouTube as a primary content channel. A business card QR to your YouTube channel is more impactful than a link to your website if your best content and credibility-building material is on YouTube. Choose the channel or your most viewed video based on which best represents your expertise to the recipient.',
+        answer:
+          'Yes for creators, consultants, and educators who use YouTube as a primary content channel. A business card QR to your YouTube channel is more impactful than a link to your website if your best content and credibility-building material is on YouTube. Choose the channel or your most viewed video based on which best represents your expertise to the recipient.',
       },
     ]
   ),
@@ -227,15 +236,19 @@ For a focused campaign (product launch, event promotion, charity campaign):
     [
       {
         question: 'Is it better to use one QR code for all social platforms or one per platform?',
-        answer: 'One QR linking to a social hub page (with buttons for each platform) is simpler for the user and simpler to manage. One-per-platform QRs make sense when the audience for a specific material is clearly aligned with one platform — for example, a QR on music festival merchandise links to TikTok, not a general hub. Match the decision to the audience clarity of each material.',
+        answer:
+          'One QR linking to a social hub page (with buttons for each platform) is simpler for the user and simpler to manage. One-per-platform QRs make sense when the audience for a specific material is clearly aligned with one platform — for example, a QR on music festival merchandise links to TikTok, not a general hub. Match the decision to the audience clarity of each material.',
       },
       {
         question: 'Can QR codes in social media marketing replace paid social advertising?',
-        answer: 'They complement it — they do not replace it. QR codes convert existing physical brand presence into social following. Paid social advertising reaches new audiences who have never encountered your brand physically. Both are necessary: paid ads build awareness, physical QRs convert engaged customers into followers. The combination is more powerful than either alone.',
+        answer:
+          'They complement it — they do not replace it. QR codes convert existing physical brand presence into social following. Paid social advertising reaches new audiences who have never encountered your brand physically. Both are necessary: paid ads build awareness, physical QRs convert engaged customers into followers. The combination is more powerful than either alone.',
       },
       {
-        question: 'How do we prevent our social media QR code from pointing to a deleted or suspended account?',
-        answer: 'Use a dynamic QR pointing to a redirect URL you control. If your account is ever suspended, renamed, or moved to a new platform, update the redirect destination rather than reprinting all materials. Additionally, maintain backup social accounts and monitor your primary accounts for any policy violations that could trigger suspension.',
+        question:
+          'How do we prevent our social media QR code from pointing to a deleted or suspended account?',
+        answer:
+          'Use a dynamic QR pointing to a redirect URL you control. If your account is ever suspended, renamed, or moved to a new platform, update the redirect destination rather than reprinting all materials. Additionally, maintain backup social accounts and monitor your primary accounts for any policy violations that could trigger suspension.',
       },
     ]
   ),
@@ -288,12 +301,15 @@ Track scan-to-action conversion at each touchpoint. Define "action" specifically
     `,
     [
       {
-        question: 'What incentive works best to get customers to scan a social media QR on packaging?',
-        answer: 'The strongest incentive is the prospect of being featured by the brand — "Tag us for a chance to be featured on our feed." This motivates aspirational followers who want brand recognition. Secondary incentives: exclusive content or discount code behind the QR, entry to a giveaway, or access to a private community. For commodity products, no incentive may be needed if the brand is genuinely loved.',
+        question:
+          'What incentive works best to get customers to scan a social media QR on packaging?',
+        answer:
+          'The strongest incentive is the prospect of being featured by the brand — "Tag us for a chance to be featured on our feed." This motivates aspirational followers who want brand recognition. Secondary incentives: exclusive content or discount code behind the QR, entry to a giveaway, or access to a private community. For commodity products, no incentive may be needed if the brand is genuinely loved.',
       },
       {
         question: 'How do we moderate user-generated content collected via QR campaigns?',
-        answer: 'Set clear community guidelines on the campaign landing page. For hashtag campaigns, use a moderation tool (TINT, Bazaarvoice, or native platform moderation) to review tagged posts before featuring. Obtain consent before resharing UGC — most users grant implicit consent when tagging a brand, but an explicit comment ("love it, sharing this!") or a DM confirmation is better practice for high-profile use.',
+        answer:
+          'Set clear community guidelines on the campaign landing page. For hashtag campaigns, use a moderation tool (TINT, Bazaarvoice, or native platform moderation) to review tagged posts before featuring. Obtain consent before resharing UGC — most users grant implicit consent when tagging a brand, but an explicit comment ("love it, sharing this!") or a DM confirmation is better practice for high-profile use.',
       },
     ]
   ),

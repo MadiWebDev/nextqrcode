@@ -32,8 +32,17 @@ A QR on the shop window and in the shop links to the volunteer sign-up form. "Ca
 A QR on the shop door links to: the donation guidelines (what we accept/do not accept), drop-off hours, and a bulk collection booking form for large donations. Reduces unsuitable donations and increases usable donation volume.
     `,
     [
-      { question: 'Can a QR Gift Aid form replace the paper Gift Aid declaration in a charity shop?', answer: 'Yes. HMRC accepts digital Gift Aid declarations provided they contain all required elements: donor name, address, declaration text, and signature (electronic tick-box accepted). Retain digital records for the required period.' },
-      { question: 'Should charity shop QR codes be placed inside or outside the shop?', answer: 'Both. Inside for point-of-sale applications (payment, Gift Aid). Outside window for volunteer sign-up, donation guidelines, and opening hours. Outside placement needs weather-resistant materials.' },
+      {
+        question:
+          'Can a QR Gift Aid form replace the paper Gift Aid declaration in a charity shop?',
+        answer:
+          'Yes. HMRC accepts digital Gift Aid declarations provided they contain all required elements: donor name, address, declaration text, and signature (electronic tick-box accepted). Retain digital records for the required period.',
+      },
+      {
+        question: 'Should charity shop QR codes be placed inside or outside the shop?',
+        answer:
+          'Both. Inside for point-of-sale applications (payment, Gift Aid). Outside window for volunteer sign-up, donation guidelines, and opening hours. Outside placement needs weather-resistant materials.',
+      },
     ]
   ),
   art(
@@ -66,8 +75,16 @@ A QR on the common area noticeboard links to the co-working community events cal
 A QR at reception links to the visitor registration or day pass purchase form. Day pass buyers pay online and receive a time-limited WiFi access code and door PIN. Visitor registration creates an access log for security and fire evacuation purposes.
     `,
     [
-      { question: 'Should co-working QR codes require the member to be logged in to their account?', answer: 'For booking and check-in functions, yes — to attribute the booking to the correct member. For informational QRs (WiFi password, house rules, event calendar), no — keep these frictionless.' },
-      { question: 'Can a QR on a meeting room door prevent double-booking?', answer: 'The QR links to the booking system, which enforces single-booking logic. The QR itself does not prevent double-booking; the booking system does. The QR is the frictionless access interface to that system.' },
+      {
+        question: 'Should co-working QR codes require the member to be logged in to their account?',
+        answer:
+          'For booking and check-in functions, yes — to attribute the booking to the correct member. For informational QRs (WiFi password, house rules, event calendar), no — keep these frictionless.',
+      },
+      {
+        question: 'Can a QR on a meeting room door prevent double-booking?',
+        answer:
+          'The QR links to the booking system, which enforces single-booking logic. The QR itself does not prevent double-booking; the booking system does. The QR is the frictionless access interface to that system.',
+      },
     ]
   ),
   art(
@@ -100,8 +117,16 @@ A QR at the counter links to the local loyalty programme — either the shop's o
 A QR on the receipt or bag insert links to the Google Business review page. Independent retailers are disproportionately affected by review volume — a few negative reviews are visible on a small total count. A QR review prompt increases review volume from satisfied customers who would not otherwise think to leave one.
     `,
     [
-      { question: 'Does adding QR codes to an independent retail shop require technical expertise?', answer: 'No. Any smartphone can generate a QR code pointing to an existing URL (Google review page, product page, booking link) in under 2 minutes. The complexity is in the destination, not the QR. Start with one use case, prove value, then expand.' },
-      { question: 'What is the single highest-ROI QR use case for an independent retailer?', answer: 'Review generation consistently delivers the highest ROI. A QR review prompt costs near zero and compounds over time — each new review improves local search ranking, which drives organic footfall. Loyalty QR is second, given its direct impact on repeat visit frequency.' },
+      {
+        question: 'Does adding QR codes to an independent retail shop require technical expertise?',
+        answer:
+          'No. Any smartphone can generate a QR code pointing to an existing URL (Google review page, product page, booking link) in under 2 minutes. The complexity is in the destination, not the QR. Start with one use case, prove value, then expand.',
+      },
+      {
+        question: 'What is the single highest-ROI QR use case for an independent retailer?',
+        answer:
+          'Review generation consistently delivers the highest ROI. A QR review prompt costs near zero and compounds over time — each new review improves local search ranking, which drives organic footfall. Loyalty QR is second, given its direct impact on repeat visit frequency.',
+      },
     ]
   ),
   art(
@@ -134,8 +159,18 @@ A QR displayed in the lobby or on standees links to the film's official trailer,
 A QR in the post-visit email links to a film rating form and recommendation engine. Customer ratings feed personalised email recommendations for the following week's programme. Closed-loop personalisation from a single QR touchpoint.
     `,
     [
-      { question: 'Can cinema QR ticketing cope with 30 simultaneous queue scans at a popular opening?', answer: 'With a locally-validated, cached scan system (ticket token validated against a pre-downloaded session manifest), yes. Online-only validation creates scan failures at peak gates. Ensure the ticketing system supports offline token validation with sync-on-connectivity.' },
-      { question: 'How does a cinema prevent a ticket QR screenshot from being shared between two people?', answer: 'First-scan detection: the first gate scan marks the ticket as used. Any subsequent scan of the same QR triggers a "ALREADY SCANNED" alert. This is standard in all production cinema ticketing systems.' },
+      {
+        question:
+          'Can cinema QR ticketing cope with 30 simultaneous queue scans at a popular opening?',
+        answer:
+          'With a locally-validated, cached scan system (ticket token validated against a pre-downloaded session manifest), yes. Online-only validation creates scan failures at peak gates. Ensure the ticketing system supports offline token validation with sync-on-connectivity.',
+      },
+      {
+        question:
+          'How does a cinema prevent a ticket QR screenshot from being shared between two people?',
+        answer:
+          'First-scan detection: the first gate scan marks the ticket as used. Any subsequent scan of the same QR triggers a "ALREADY SCANNED" alert. This is standard in all production cinema ticketing systems.',
+      },
     ]
   ),
   art(
@@ -168,8 +203,18 @@ A QR on a professional's conference badge, brochure, or speaking profile links t
 For regulated professions (ICAEW, SRA, RICS, ARB), a QR on the professional's certificate or firm registration plaque links to the regulatory body's register entry. Clients and prospective clients verify registration status without navigating the regulatory body's website independently.
     `,
     [
-      { question: 'Can professional services firms use QR codes for anti-money laundering (AML) due diligence?', answer: 'A QR linking to a digital ID verification platform (e.g., Credas, Veriff) can streamline AML identity checks. However, QR-initiated checks must still meet the professional firm\'s AML policy and the relevant supervisory body\'s requirements.' },
-      { question: 'Should a professional services firm use a branded short domain for its QR codes?', answer: 'Yes. A branded short domain (e.g., links.yourfirm.com) reinforces professional credibility, maintains trust (clients are less likely to hesitate before scanning a firm-branded URL), and keeps analytics and redirect management under firm control.' },
+      {
+        question:
+          'Can professional services firms use QR codes for anti-money laundering (AML) due diligence?',
+        answer:
+          "A QR linking to a digital ID verification platform (e.g., Credas, Veriff) can streamline AML identity checks. However, QR-initiated checks must still meet the professional firm's AML policy and the relevant supervisory body's requirements.",
+      },
+      {
+        question:
+          'Should a professional services firm use a branded short domain for its QR codes?',
+        answer:
+          'Yes. A branded short domain (e.g., links.yourfirm.com) reinforces professional credibility, maintains trust (clients are less likely to hesitate before scanning a firm-branded URL), and keeps analytics and redirect management under firm control.',
+      },
     ]
   ),
   art(
@@ -207,8 +252,16 @@ When a quality issue is identified, the GS1 Digital Link data embedded in the pr
 A QR in post-recall communications (media statement, retailer notice) links to the full recall information page: FAQs, background on the issue, corrective actions taken, and a timeline to restored supply. Transparent communication via a well-designed QR-linked page maintains consumer confidence faster than any other channel.
     `,
     [
-      { question: 'How quickly can a QR-based recall alert reach consumers?', answer: 'Updating the destination URL behind a dynamic QR is a server-side change that takes minutes. From recall decision to consumer alert via QR is faster than any other channel — no packaging change, no retailer coordination, no press release cycle required.' },
-      { question: 'What if consumers scan the product QR after the recall is resolved?', answer: 'Update the destination page to reflect the resolution: "This product has been recalled. The issue has been resolved. Replacement products are now available." Keep recall pages live indefinitely — consumers may find affected stock in cupboards months after a recall.' },
+      {
+        question: 'How quickly can a QR-based recall alert reach consumers?',
+        answer:
+          'Updating the destination URL behind a dynamic QR is a server-side change that takes minutes. From recall decision to consumer alert via QR is faster than any other channel — no packaging change, no retailer coordination, no press release cycle required.',
+      },
+      {
+        question: 'What if consumers scan the product QR after the recall is resolved?',
+        answer:
+          'Update the destination page to reflect the resolution: "This product has been recalled. The issue has been resolved. Replacement products are now available." Keep recall pages live indefinitely — consumers may find affected stock in cupboards months after a recall.',
+      },
     ]
   ),
   art(
@@ -241,8 +294,16 @@ A QR links to the maintenance log for that facility: last inspection, outstandin
 A QR links to current occupancy or peak time information (anonymised sensor data). Visitors can check whether the facility is likely to be busy and plan accordingly. Useful in large venues (airports, shopping centres, universities) with multiple toilet blocks.
     `,
     [
-      { question: 'Can a QR in a public toilet increase cleanliness standards?', answer: 'Yes. Real-time reporting QRs with automated cleaning team alerts consistently reduce the time between an issue occurring and a cleaning response. The accountability created by visible reporting data also improves cleaning team performance.' },
-      { question: 'Is it safe to have a QR code in a public toilet context?', answer: 'The QR links to wherever it is programmed to link. Use a managed redirect URL so the destination can be controlled and updated. The hygiene concern is the phone being used in that environment — encourage hand washing before and after phone use.' },
+      {
+        question: 'Can a QR in a public toilet increase cleanliness standards?',
+        answer:
+          'Yes. Real-time reporting QRs with automated cleaning team alerts consistently reduce the time between an issue occurring and a cleaning response. The accountability created by visible reporting data also improves cleaning team performance.',
+      },
+      {
+        question: 'Is it safe to have a QR code in a public toilet context?',
+        answer:
+          'The QR links to wherever it is programmed to link. Use a managed redirect URL so the destination can be controlled and updated. The hygiene concern is the phone being used in that environment — encourage hand washing before and after phone use.',
+      },
     ]
   ),
   art(
@@ -275,8 +336,17 @@ A QR on the back cover or in the reading group guide links to the publisher's la
 A QR links to the Goodreads page or publisher's community platform for the book. Readers leave reviews, join discussion threads, and connect with other readers of the same book. Reviews are the most valuable marketing asset for a new title — a QR review prompt increases review volume significantly.
     `,
     [
-      { question: 'Should a QR code in a printed book link to a specific video or to a content hub?', answer: 'Both have merit. A specific video per QR (matched to a chapter or topic) provides the most relevant experience but requires more content production. A content hub QR on the back cover is simpler and allows the page to grow over the book\'s lifetime.' },
-      { question: 'How long must a book QR code remain active?', answer: 'Books remain in circulation for decades. QR destinations must be maintained for the book\'s likely commercial and library life. Use a publisher-managed short domain and commit to maintaining the redirect. Broken QR codes in books are a reader experience failure that erodes publisher trust.' },
+      {
+        question:
+          'Should a QR code in a printed book link to a specific video or to a content hub?',
+        answer:
+          "Both have merit. A specific video per QR (matched to a chapter or topic) provides the most relevant experience but requires more content production. A content hub QR on the back cover is simpler and allows the page to grow over the book's lifetime.",
+      },
+      {
+        question: 'How long must a book QR code remain active?',
+        answer:
+          "Books remain in circulation for decades. QR destinations must be maintained for the book's likely commercial and library life. Use a publisher-managed short domain and commit to maintaining the redirect. Broken QR codes in books are a reader experience failure that erodes publisher trust.",
+      },
     ]
   ),
   art(
@@ -318,8 +388,17 @@ TikTok's scan-to-profile QR is used heavily by creators at live events. Display 
 Use a redirect URL with UTM parameters (\`utm_source=qr-card\`, \`utm_medium=offline\`) before the platform profile URL. The redirect logs scan counts. Combine with follower growth data (exported from platform analytics) to attribute follower spikes to specific physical campaigns.
     `,
     [
-      { question: 'Do platform-native QR codes (Instagram, TikTok) require the app to be installed?', answer: 'They work best with the app installed — they deep-link directly to the profile. Without the app, they fall back to the web version of the profile page. For maximum conversion, the native app QR is always the best choice for social growth campaigns.' },
-      { question: 'Can a QR code on a product package grow a brand\'s social following?', answer: 'Yes. A QR with a clear CTA ("Follow us for recipes and tips") linked to the brand\'s most active platform consistently grows following from purchase touchpoints. Packaging is one of the highest-impression physical assets a brand has.' },
+      {
+        question:
+          'Do platform-native QR codes (Instagram, TikTok) require the app to be installed?',
+        answer:
+          'They work best with the app installed — they deep-link directly to the profile. Without the app, they fall back to the web version of the profile page. For maximum conversion, the native app QR is always the best choice for social growth campaigns.',
+      },
+      {
+        question: "Can a QR code on a product package grow a brand's social following?",
+        answer:
+          'Yes. A QR with a clear CTA ("Follow us for recipes and tips") linked to the brand\'s most active platform consistently grows following from purchase touchpoints. Packaging is one of the highest-impression physical assets a brand has.',
+      },
     ]
   ),
 ];

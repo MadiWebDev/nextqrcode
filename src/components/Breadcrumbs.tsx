@@ -12,10 +12,7 @@ interface BreadcrumbsProps {
 }
 
 export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
-  const fullBreadcrumbs = [
-    { label: 'Home', href: '/' },
-    ...items,
-  ];
+  const fullBreadcrumbs = [{ label: 'Home', href: '/' }, ...items];
 
   const jsonLd = {
     '@context': 'https://schema.org',

@@ -42,8 +42,16 @@ Technically deprecated by Google but still functional. Generates standard QR ima
 3. If the scanned URL is your actual destination URL directly, the code is static and permanent.
     `,
     [
-      { question: 'How can I tell if a QR code I have already printed will expire?', answer: 'Scan the code and check what URL loads. If it opens a redirect service URL before reaching your destination, or if it opens a "scan limit reached" or "upgrade to continue" page, the code is dynamic and subject to expiry. Regenerate as a static code and reprint.' },
-      { question: 'Is there any reason to use a dynamic QR code with an expiry risk?', answer: 'Only if you genuinely need to update the destination URL after printing AND you have a committed long-term hosting solution (ideally self-hosted). For most use cases — menus, business cards, packaging — a static QR pointing to a URL you control is the right choice.' },
+      {
+        question: 'How can I tell if a QR code I have already printed will expire?',
+        answer:
+          'Scan the code and check what URL loads. If it opens a redirect service URL before reaching your destination, or if it opens a "scan limit reached" or "upgrade to continue" page, the code is dynamic and subject to expiry. Regenerate as a static code and reprint.',
+      },
+      {
+        question: 'Is there any reason to use a dynamic QR code with an expiry risk?',
+        answer:
+          'Only if you genuinely need to update the destination URL after printing AND you have a committed long-term hosting solution (ideally self-hosted). For most use cases — menus, business cards, packaging — a static QR pointing to a URL you control is the right choice.',
+      },
     ]
   ),
   art(
@@ -96,8 +104,16 @@ If table ordering is not feasible, include a "Call Server" button. A digital men
 The single biggest advantage of a QR menu over printed: update it instantly. Change the specials board before service, remove sold-out items in real time, add seasonal items immediately. Diners who order an item and are then told it is unavailable have a frustrating experience. Real-time availability prevents this.
     `,
     [
-      { question: 'Do customers actually prefer QR menus to printed menus?', answer: 'Research is mixed by demographic. Under-35s consistently prefer QR menus (faster, more information, always updated). Over-55s generally prefer printed. Best practice for most restaurants is to offer both: a QR for those who prefer it and a printed menu available on request — never QR-only.' },
-      { question: 'Does a QR menu need to comply with UK allergen labelling regulations?', answer: 'Yes. A digital QR menu is a menu and must comply with UK Food Information Regulations allergen declaration requirements. The 14 major allergens must be clearly indicated for every dish. The advantage: a digital menu can be updated immediately when a recipe changes, unlike a printed menu.' },
+      {
+        question: 'Do customers actually prefer QR menus to printed menus?',
+        answer:
+          'Research is mixed by demographic. Under-35s consistently prefer QR menus (faster, more information, always updated). Over-55s generally prefer printed. Best practice for most restaurants is to offer both: a QR for those who prefer it and a printed menu available on request — never QR-only.',
+      },
+      {
+        question: 'Does a QR menu need to comply with UK allergen labelling regulations?',
+        answer:
+          'Yes. A digital QR menu is a menu and must comply with UK Food Information Regulations allergen declaration requirements. The 14 major allergens must be clearly indicated for every dish. The advantage: a digital menu can be updated immediately when a recipe changes, unlike a printed menu.',
+      },
     ]
   ),
   art(
@@ -152,8 +168,16 @@ PayPal generates a merchant QR in the PayPal Business app. Customers scan with t
 Always verify you are scanning a genuine merchant QR — not a sticker placed over the real code by a fraudster. In merchant-presented QR contexts, check the merchant name displayed by the payment app before confirming payment.
     `,
     [
-      { question: 'Is QR payment available in the UK like in China or India?', answer: 'QR payment in the UK is growing but has not reached the ubiquity of India (UPI) or China (WeChat/Alipay). PayPal QR, Open Banking PayByBank QR, and some POS systems support it. NFC contactless remains dominant in UK physical payments — QR is strongest in peer-to-peer and small merchant contexts.' },
-      { question: 'Can a UK business accept WeChat Pay or Alipay QR from Chinese tourists?', answer: 'Yes via Alipay+ partners (Adyen, Stripe, WorldFirst) and WeChat Pay global merchants. Requires onboarding with a payment processor that supports these schemes. Settlement is in GBP; the Chinese tourist pays in CNY through their app.' },
+      {
+        question: 'Is QR payment available in the UK like in China or India?',
+        answer:
+          'QR payment in the UK is growing but has not reached the ubiquity of India (UPI) or China (WeChat/Alipay). PayPal QR, Open Banking PayByBank QR, and some POS systems support it. NFC contactless remains dominant in UK physical payments — QR is strongest in peer-to-peer and small merchant contexts.',
+      },
+      {
+        question: 'Can a UK business accept WeChat Pay or Alipay QR from Chinese tourists?',
+        answer:
+          'Yes via Alipay+ partners (Adyen, Stripe, WorldFirst) and WeChat Pay global merchants. Requires onboarding with a payment processor that supports these schemes. Settlement is in GBP; the Chinese tourist pays in CNY through their app.',
+      },
     ]
   ),
   art(
@@ -221,8 +245,16 @@ For business use, register for WhatsApp Business (free). WhatsApp Business allow
 Test your link on both iPhone and Android. On iOS, the link opens WhatsApp if installed or prompts to install it. On Android, the same. If WhatsApp is not installed, the link opens the wa.me web interface — it still works, but in-browser rather than the app.
     `,
     [
-      { question: 'Does the wa.me QR code work if the person scanning does not have WhatsApp?', answer: 'If WhatsApp is not installed, the QR opens wa.me in the browser, which prompts the user to download WhatsApp or open WhatsApp Web. The conversation can be initiated via WhatsApp Web without the mobile app installed.' },
-      { question: 'Can I use a WhatsApp QR code for a WhatsApp group instead of a personal number?', answer: 'Yes. WhatsApp group invite links (wa.me/join/xxxxx) can be encoded in a QR. Encode the invite link exactly as it appears. Group invite links expire after a period — use a dynamic QR if you anticipate the group link changing.' },
+      {
+        question: 'Does the wa.me QR code work if the person scanning does not have WhatsApp?',
+        answer:
+          'If WhatsApp is not installed, the QR opens wa.me in the browser, which prompts the user to download WhatsApp or open WhatsApp Web. The conversation can be initiated via WhatsApp Web without the mobile app installed.',
+      },
+      {
+        question: 'Can I use a WhatsApp QR code for a WhatsApp group instead of a personal number?',
+        answer:
+          'Yes. WhatsApp group invite links (wa.me/join/xxxxx) can be encoded in a QR. Encode the invite link exactly as it appears. Group invite links expire after a period — use a dynamic QR if you anticipate the group link changing.',
+      },
     ]
   ),
   art(
@@ -274,8 +306,16 @@ Test your link on both iPhone and Android. On iOS, the link opens WhatsApp if in
 High-value use cases increasingly use both: a QR on the label for visual scanning and an NFC tag inside the packaging for tap-to-authenticate. The QR handles discovery and distance; NFC handles authentication and premium interaction. If budget allows only one, default to QR for maximum reach.
     `,
     [
-      { question: 'Is NFC more reliable than QR for payments?', answer: 'For proximity payments (tap-to-pay), NFC is faster and more reliable than QR — it requires no camera alignment, works in poor lighting, and is the global contactless payment standard. For merchant-presented QR payments (scanning a displayed code), QR is widely used and reliable at close range.' },
-      { question: 'Can an iPhone read both QR codes and NFC tags natively?', answer: 'Yes. iPhone 7+ reads NFC tags with the native Camera app or Settings (iOS 13+) without a third-party app. iPhones scan QR codes natively via the Camera app. Both are active on current iPhones with no special setup.' },
+      {
+        question: 'Is NFC more reliable than QR for payments?',
+        answer:
+          'For proximity payments (tap-to-pay), NFC is faster and more reliable than QR — it requires no camera alignment, works in poor lighting, and is the global contactless payment standard. For merchant-presented QR payments (scanning a displayed code), QR is widely used and reliable at close range.',
+      },
+      {
+        question: 'Can an iPhone read both QR codes and NFC tags natively?',
+        answer:
+          'Yes. iPhone 7+ reads NFC tags with the native Camera app or Settings (iOS 13+) without a third-party app. iPhones scan QR codes natively via the Camera app. Both are active on current iPhones with no special setup.',
+      },
     ]
   ),
   art(
@@ -322,8 +362,16 @@ A QR on the insert links to setup videos, recipes, care guides, or advanced usag
 Use a dedicated UTM source for Amazon insert traffic (\`utm_source=amazon-insert\`) so you can measure how many Amazon buyers convert to website visitors, newsletter subscribers, and direct repeat purchasers. This data quantifies the true ROI of insert campaigns.
     `,
     [
-      { question: 'Will Amazon penalise me for using a QR code on a packaging insert?', answer: 'QR codes themselves are not prohibited. The issue is what the QR links to and what you offer. A QR linking to a how-to guide or your website is fine. A QR offering a gift card for a 5-star review is a ToS violation. Review Amazon\'s packaging insert policy in Seller Central before launching any campaign.' },
-      { question: 'What is the best destination for a QR on an Amazon packaging insert?', answer: 'A product registration or warranty page that collects the buyer\'s email legitimately (with disclosure) and then delivers genuine value (extended warranty, exclusive content, priority support) is the highest-converting and most policy-safe destination for Amazon insert QRs.' },
+      {
+        question: 'Will Amazon penalise me for using a QR code on a packaging insert?',
+        answer:
+          "QR codes themselves are not prohibited. The issue is what the QR links to and what you offer. A QR linking to a how-to guide or your website is fine. A QR offering a gift card for a 5-star review is a ToS violation. Review Amazon's packaging insert policy in Seller Central before launching any campaign.",
+      },
+      {
+        question: 'What is the best destination for a QR on an Amazon packaging insert?',
+        answer:
+          "A product registration or warranty page that collects the buyer's email legitimately (with disclosure) and then delivers genuine value (extended warranty, exclusive content, priority support) is the highest-converting and most policy-safe destination for Amazon insert QRs.",
+      },
     ]
   ),
   art(
@@ -377,8 +425,16 @@ GS1's Sunrise 2027 initiative is transitioning retail from EAN-13 barcodes to GS
 This is the most significant change in retail scanning technology since the EAN barcode was introduced in 1976.
     `,
     [
-      { question: 'Can a supermarket checkout scan a QR code instead of a barcode?', answer: 'Under GS1 Sunrise 2027, yes — major retailers are deploying 2D-capable scanners that read GS1 Digital Link QR codes at checkout. This is already live in pilots at Walmart, Carrefour, and selected UK supermarkets. Full transition will be gradual through the late 2020s.' },
-      { question: 'Why do smartphones not scan traditional barcodes as easily as QR codes?', answer: 'Traditional 1D barcodes require alignment along the horizontal axis. Smartphone cameras are optimised for QR codes (2D area scanning). Many phones can scan EAN/UPC barcodes via Google Lens or dedicated barcode apps, but it is less reliable than native QR scanning.' },
+      {
+        question: 'Can a supermarket checkout scan a QR code instead of a barcode?',
+        answer:
+          'Under GS1 Sunrise 2027, yes — major retailers are deploying 2D-capable scanners that read GS1 Digital Link QR codes at checkout. This is already live in pilots at Walmart, Carrefour, and selected UK supermarkets. Full transition will be gradual through the late 2020s.',
+      },
+      {
+        question: 'Why do smartphones not scan traditional barcodes as easily as QR codes?',
+        answer:
+          'Traditional 1D barcodes require alignment along the horizontal axis. Smartphone cameras are optimised for QR codes (2D area scanning). Many phones can scan EAN/UPC barcodes via Google Lens or dedicated barcode apps, but it is less reliable than native QR scanning.',
+      },
     ]
   ),
   art(
@@ -443,8 +499,16 @@ Common errors: missing semicolons in the N: field, encoding issues with special 
 vCard 4.0 adds IMPP (WhatsApp, Telegram handles), PHOTO via URI (keeps QR small), and KIND (person/org/group). iOS and Android support 4.0. If maximum device compatibility is a priority (including older devices), vCard 3.0 is the safer choice.
     `,
     [
-      { question: 'Will a vCard QR code update an existing contact on the phone?', answer: 'When scanned, the phone shows a prompt asking whether to create a new contact or update an existing one (if it detects a matching name or email). The user chooses. The QR does not automatically overwrite existing data — it presents options to the user.' },
-      { question: 'What is the maximum size vCard that fits in a QR code on a business card?', answer: 'A typical vCard with name, title, company, one phone, one email, and website is approximately 200–300 characters — comfortably fitting in Version 5–7 QR at error correction Level M, which prints well at 25 × 25 mm. A vCard with address, multiple phones, and notes may push to Version 10+ — consider a redirect URL instead.' },
+      {
+        question: 'Will a vCard QR code update an existing contact on the phone?',
+        answer:
+          'When scanned, the phone shows a prompt asking whether to create a new contact or update an existing one (if it detects a matching name or email). The user chooses. The QR does not automatically overwrite existing data — it presents options to the user.',
+      },
+      {
+        question: 'What is the maximum size vCard that fits in a QR code on a business card?',
+        answer:
+          'A typical vCard with name, title, company, one phone, one email, and website is approximately 200–300 characters — comfortably fitting in Version 5–7 QR at error correction Level M, which prints well at 25 × 25 mm. A vCard with address, multiple phones, and notes may push to Version 10+ — consider a redirect URL instead.',
+      },
     ]
   ),
   art(
@@ -517,8 +581,16 @@ Weekly review per active campaign:
 Monthly: Identify bottom 20% placements by conversion rate. Investigate whether it is a scanning problem (low scan rate) or landing page problem (high scan rate, low conversion). Different interventions for each.
     `,
     [
-      { question: 'Can I track QR code scans without using a third-party URL shortener?', answer: 'Yes. Self-host a redirect script on your own domain (YOURLS, Shlink, or a simple server-side redirect with logging). Every request to the redirect URL is logged in your server access logs or analytics database. This gives you full control without third-party dependency.' },
-      { question: 'What is a good scan-to-conversion rate for a QR code campaign?', answer: 'There is no universal benchmark — it depends heavily on the landing page, the offer, and the audience intent. Typical ranges: restaurant table QR (order conversion) 40–70%; product packaging QR (web visit to purchase) 2–8%; event sign-up QR 15–35%. Set your own baseline and improve against it.' },
+      {
+        question: 'Can I track QR code scans without using a third-party URL shortener?',
+        answer:
+          'Yes. Self-host a redirect script on your own domain (YOURLS, Shlink, or a simple server-side redirect with logging). Every request to the redirect URL is logged in your server access logs or analytics database. This gives you full control without third-party dependency.',
+      },
+      {
+        question: 'What is a good scan-to-conversion rate for a QR code campaign?',
+        answer:
+          'There is no universal benchmark — it depends heavily on the landing page, the offer, and the audience intent. Typical ranges: restaurant table QR (order conversion) 40–70%; product packaging QR (web visit to purchase) 2–8%; event sign-up QR 15–35%. Set your own baseline and improve against it.',
+      },
     ]
   ),
 ];

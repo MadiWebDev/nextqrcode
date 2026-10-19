@@ -28,8 +28,16 @@ A QR links to the official fan community: forums, fan art contests, and exclusiv
 Limited runs carry a QR per unit linking to the edition registry. Collectors verify the edition number and track resale history. The registry also notifies owners of recalls or corrections.
     `,
     [
-      { question: 'How do I prevent counterfeits with a QR authentication tag?', answer: 'Pair the QR with a holographic label that cannot be replicated cheaply. Server-side serial tracking flags duplicates on the second scan.' },
-      { question: 'Can a QR on a trading card link to live stats?', answer: 'Yes. Link to a stats API endpoint for the player. Live stats make the card perpetually relevant beyond the print date.' },
+      {
+        question: 'How do I prevent counterfeits with a QR authentication tag?',
+        answer:
+          'Pair the QR with a holographic label that cannot be replicated cheaply. Server-side serial tracking flags duplicates on the second scan.',
+      },
+      {
+        question: 'Can a QR on a trading card link to live stats?',
+        answer:
+          'Yes. Link to a stats API endpoint for the player. Live stats make the card perpetually relevant beyond the print date.',
+      },
     ]
   ),
   art(
@@ -58,8 +66,16 @@ Each defect item in the digital report optionally links to a recommended contrac
 A QR beside a defect description links to the relevant building code or standards paragraph. Buyers understand why something is flagged without needing technical knowledge.
     `,
     [
-      { question: 'Should home inspection QR reports require a login?', answer: 'Usually yes. The report contains sensitive property data. Require a buyer-specific login link emailed by the inspector.' },
-      { question: 'Can QR codes remain on the property after inspection?', answer: 'Defect QR stickers placed at inspection are intended to be removed. Confirm the protocol with the inspector and seller.' },
+      {
+        question: 'Should home inspection QR reports require a login?',
+        answer:
+          'Usually yes. The report contains sensitive property data. Require a buyer-specific login link emailed by the inspector.',
+      },
+      {
+        question: 'Can QR codes remain on the property after inspection?',
+        answer:
+          'Defect QR stickers placed at inspection are intended to be removed. Confirm the protocol with the inspector and seller.',
+      },
     ]
   ),
   art(
@@ -88,8 +104,16 @@ A QR in waiting areas links to ward visitor policies, car park instructions, caf
 QR at emergency routes links to the nearest emergency exit map, muster point, and who to call. Supplementary to required printed emergency notices.
     `,
     [
-      { question: 'Can a QR wayfinding system replace signage in a hospital?', answer: 'No. Physical signage is mandatory for emergency and critical wayfinding. QR supplements with dynamic and detailed information.' },
-      { question: 'How do we keep the interactive map current during building works?', answer: 'Use a server-side map that is updated by facilities management. Printed QR codes remain valid because they link to the live map, not a static image.' },
+      {
+        question: 'Can a QR wayfinding system replace signage in a hospital?',
+        answer:
+          'No. Physical signage is mandatory for emergency and critical wayfinding. QR supplements with dynamic and detailed information.',
+      },
+      {
+        question: 'How do we keep the interactive map current during building works?',
+        answer:
+          'Use a server-side map that is updated by facilities management. Printed QR codes remain valid because they link to the live map, not a static image.',
+      },
     ]
   ),
   art(
@@ -118,8 +142,16 @@ A QR links to the current entry requirements for each destination: visa, health 
 A QR on the emergency card links to a landing page with the agency's 24-hour contact number, local emergency services, and the nearest embassy. Available offline if downloaded beforehand.
     `,
     [
-      { question: 'Should travel agency QR links work offline?', answer: 'Emergency contact pages should be downloadable before departure. Implement as a PWA so the client can cache key pages on hotel WiFi.' },
-      { question: 'Can a QR replace the paper travel pack entirely?', answer: 'For most content yes, but carry a printed emergency card as a backup for lost or dead phones.' },
+      {
+        question: 'Should travel agency QR links work offline?',
+        answer:
+          'Emergency contact pages should be downloadable before departure. Implement as a PWA so the client can cache key pages on hotel WiFi.',
+      },
+      {
+        question: 'Can a QR replace the paper travel pack entirely?',
+        answer:
+          'For most content yes, but carry a printed emergency card as a backup for lost or dead phones.',
+      },
     ]
   ),
   art(
@@ -148,8 +180,16 @@ When a homeowner scans the boiler QR, the system checks the service date in the 
 A QR near the stopcock links to a one-page guide showing how to turn off water, gas, and electricity in an emergency. Clear diagrams and short instructions in plain language.
     `,
     [
-      { question: 'Can a homeowner access the gas safety certificate via QR?', answer: 'Yes, if the engineer registers the certificate with a system that supports QR access. The tenant and landlord should both receive the link.' },
-      { question: 'Should emergency shutoff instructions require internet?', answer: 'No. Cache the shutoff guide as an offline-capable page. In an emergency, internet may be unavailable.' },
+      {
+        question: 'Can a homeowner access the gas safety certificate via QR?',
+        answer:
+          'Yes, if the engineer registers the certificate with a system that supports QR access. The tenant and landlord should both receive the link.',
+      },
+      {
+        question: 'Should emergency shutoff instructions require internet?',
+        answer:
+          'No. Cache the shutoff guide as an offline-capable page. In an emergency, internet may be unavailable.',
+      },
     ]
   ),
   art(
@@ -178,8 +218,16 @@ Each panel has a unique URL. Scan events show which panel, what time, and what t
 Bus shelter panels are read at 1 to 2 metres. A 10 to 15 cm QR is adequate. Place the code in the lower third of the creative, away from the headline.
     `,
     [
-      { question: 'Do bus stop QR codes scan in the rain?', answer: 'Yes. Standard phone cameras handle rain on the protective panel glass. Ensure the module contrast is high enough to overcome any reflection.' },
-      { question: 'Is each panel QR code different?', answer: 'Yes, for attribution. The server redirects all to the same campaign destination, but each URL carries the panel ID.' },
+      {
+        question: 'Do bus stop QR codes scan in the rain?',
+        answer:
+          'Yes. Standard phone cameras handle rain on the protective panel glass. Ensure the module contrast is high enough to overcome any reflection.',
+      },
+      {
+        question: 'Is each panel QR code different?',
+        answer:
+          'Yes, for attribution. The server redirects all to the same campaign destination, but each URL carries the panel ID.',
+      },
     ]
   ),
   art(
@@ -208,8 +256,16 @@ A QR links to a full allergen matrix covering every product. Customers with nut 
 A QR on the display card for a specialty item links to the recipe story: the origin, the technique, and what makes it different. Adds perceived value and converts browsers into buyers.
     `,
     [
-      { question: 'Should a bakery change its QR daily for the specials?', answer: 'No. Use a permanent QR linking to a page you update every morning. The code never changes; the content does.' },
-      { question: 'Can customers pay via QR at a bakery?', answer: 'Yes. A payment QR beside the till allows contactless payment via regional scheme (UPI, PayNow, Pix, etc.).' },
+      {
+        question: 'Should a bakery change its QR daily for the specials?',
+        answer:
+          'No. Use a permanent QR linking to a page you update every morning. The code never changes; the content does.',
+      },
+      {
+        question: 'Can customers pay via QR at a bakery?',
+        answer:
+          'Yes. A payment QR beside the till allows contactless payment via regional scheme (UPI, PayNow, Pix, etc.).',
+      },
     ]
   ),
   art(
@@ -238,8 +294,16 @@ A QR at the entrance links to accessibility features: grab rail positions, turni
 In a toilet environment, avoid touch surfaces around the code. Scan from a phone held at distance (25 to 40 cm). Use a robust, wipeable material and place at 120 to 130 cm height.
     `,
     [
-      { question: 'Is a QR cleaning log a legal record?', answer: 'It depends on jurisdiction. For regulated facilities (food service, healthcare), confirm the digital log meets the required audit standards.' },
-      { question: 'Should public toilet QR codes require an account?', answer: 'No. Fault reporting and cleaning logs must work without any sign-in. Anonymous submissions are sufficient for operational management.' },
+      {
+        question: 'Is a QR cleaning log a legal record?',
+        answer:
+          'It depends on jurisdiction. For regulated facilities (food service, healthcare), confirm the digital log meets the required audit standards.',
+      },
+      {
+        question: 'Should public toilet QR codes require an account?',
+        answer:
+          'No. Fault reporting and cleaning logs must work without any sign-in. Anonymous submissions are sufficient for operational management.',
+      },
     ]
   ),
   art(
@@ -268,8 +332,16 @@ A QR links to a custom order form: event date, occasion, preferred palette, stem
 A QR links to the weekly or monthly flower subscription sign-up. Recurring customers are higher lifetime value and plan better for the florist.
     `,
     [
-      { question: 'Can a QR show exactly what is available today in a florist?', answer: 'Yes if you update the linked page daily. Many florists use a simple CMS or a Google Sheet to manage their daily stock page.' },
-      { question: 'Should every bouquet have its own QR?', answer: 'No. A general care QR on the wrapping is sufficient. Use item-specific QRs only for premium or specialist arrangements.' },
+      {
+        question: 'Can a QR show exactly what is available today in a florist?',
+        answer:
+          'Yes if you update the linked page daily. Many florists use a simple CMS or a Google Sheet to manage their daily stock page.',
+      },
+      {
+        question: 'Should every bouquet have its own QR?',
+        answer:
+          'No. A general care QR on the wrapping is sufficient. Use item-specific QRs only for premium or specialist arrangements.',
+      },
     ]
   ),
   art(
@@ -298,8 +370,16 @@ A QR links to a lens comparison page: single vision versus varifocal, coatings, 
 A QR in the waiting room links to eye health guides: screen fatigue, early glaucoma symptoms, diabetic eye screening reminders, and children's vision milestones.
     `,
     [
-      { question: 'Can an optician use QR for appointment reminders?', answer: 'Yes. A QR on the appointment card links to a reminder sign-up page or directly to the practice calendar for reschedules.' },
-      { question: 'Does a virtual try-on QR require an app?', answer: 'Modern web-based try-on tools use the browser camera via WebRTC. No app install needed, which removes friction.' },
+      {
+        question: 'Can an optician use QR for appointment reminders?',
+        answer:
+          'Yes. A QR on the appointment card links to a reminder sign-up page or directly to the practice calendar for reschedules.',
+      },
+      {
+        question: 'Does a virtual try-on QR require an app?',
+        answer:
+          'Modern web-based try-on tools use the browser camera via WebRTC. No app install needed, which removes friction.',
+      },
     ]
   ),
 ];

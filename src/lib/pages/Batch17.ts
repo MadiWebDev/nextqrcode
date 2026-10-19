@@ -28,8 +28,15 @@ A QR on the studio window and business card links directly to the booking system
 A QR on the reception desk links to a pre-appointment consent and health history form. Clients complete it at home before arriving, saving time and reducing paper.
     `,
     [
-      { question: 'Should aftercare QR links expire?', answer: 'No. Use a permanent URL on your own domain. Clients may refer back months later.' },
-      { question: 'Can clients book a specific artist via QR?', answer: 'Yes. Encode the artist name or ID in the booking URL to pre-select them in the booking system.' },
+      {
+        question: 'Should aftercare QR links expire?',
+        answer: 'No. Use a permanent URL on your own domain. Clients may refer back months later.',
+      },
+      {
+        question: 'Can clients book a specific artist via QR?',
+        answer:
+          'Yes. Encode the artist name or ID in the booking URL to pre-select them in the booking system.',
+      },
     ]
   ),
   art(
@@ -58,15 +65,23 @@ A QR links to the club's score-tracking or handicap app entry page. Golfers subm
 A QR at the halfway house or cart return links to pro shop daily deals, equipment rental, and lesson bookings. Drives impulse purchases without a detour.
     `,
     [
-      { question: 'What size QR works on a tee marker post?', answer: 'Roughly 6 to 8 cm on a post read from standing distance (50 to 80 cm). Use a durable outdoor label or engraved plate.' },
-      { question: 'Can a phone navigate a golfer around the course?', answer: 'Yes if the linked page includes an interactive map. GPS-enabled browser maps can be embedded for turn-by-turn course navigation.' },
+      {
+        question: 'What size QR works on a tee marker post?',
+        answer:
+          'Roughly 6 to 8 cm on a post read from standing distance (50 to 80 cm). Use a durable outdoor label or engraved plate.',
+      },
+      {
+        question: 'Can a phone navigate a golfer around the course?',
+        answer:
+          'Yes if the linked page includes an interactive map. GPS-enabled browser maps can be embedded for turn-by-turn course navigation.',
+      },
     ]
   ),
   art(
     'qr-code-for-photography-prints',
     'QR Codes on Photography Prints: Behind-the-Shot Stories and Purchase Links',
     'qr code photography print gallery',
-    'Attach QR codes to prints and exhibition photos to share the photographer\'s story and drive sales.',
+    "Attach QR codes to prints and exhibition photos to share the photographer's story and drive sales.",
     'Business & Regional',
     '4 min read',
     '2026-12-24',
@@ -88,8 +103,16 @@ If the print is part of a series, the QR links to the full series gallery. Buyer
 A QR on a limited-edition print certificate links to the edition registry, showing the print number, total edition size, and issue date.
     `,
     [
-      { question: 'Should a photography QR contain the image metadata?', answer: 'Link to a page with the metadata rather than encoding it in the QR. A URL is shorter, keeps the symbol small, and the page can be updated.' },
-      { question: 'What material is best for a QR on a print mount?', answer: 'A matte black or white sticker label on the back of the mount. Keep it small and discreet.' },
+      {
+        question: 'Should a photography QR contain the image metadata?',
+        answer:
+          'Link to a page with the metadata rather than encoding it in the QR. A URL is shorter, keeps the symbol small, and the page can be updated.',
+      },
+      {
+        question: 'What material is best for a QR on a print mount?',
+        answer:
+          'A matte black or white sticker label on the back of the mount. Keep it small and discreet.',
+      },
     ]
   ),
   art(
@@ -118,8 +141,16 @@ A QR at a heritage site entrance links to a narrated virtual tour showing the si
 360-degree tours are data-heavy. Keep the entry page lightweight and progressive-load the 3D content. Test on older phones and slow connections typical of on-site visitors.
     `,
     [
-      { question: 'Can a virtual tour replace a physical viewing?', answer: 'It qualifies interest and reduces unnecessary visits, but most high-value decisions still require a physical inspection.' },
-      { question: 'What is the best format for a mobile virtual tour?', answer: 'A web-based viewer using WebGL or a lightweight 360 JavaScript library. No app install means no friction.' },
+      {
+        question: 'Can a virtual tour replace a physical viewing?',
+        answer:
+          'It qualifies interest and reduces unnecessary visits, but most high-value decisions still require a physical inspection.',
+      },
+      {
+        question: 'What is the best format for a mobile virtual tour?',
+        answer:
+          'A web-based viewer using WebGL or a lightweight 360 JavaScript library. No app install means no friction.',
+      },
     ]
   ),
   art(
@@ -152,8 +183,16 @@ A QR on the aftercare sheet links to hydration advice, contraindicated activitie
 A QR on sample packaging links to the full product range on the spa's retail page. Clients who liked a product during the treatment can purchase it easily.
     `,
     [
-      { question: 'Should spa QR codes require a login to book?', answer: 'Only if the client has an account. First-time bookings should work without registration to reduce friction.' },
-      { question: 'Can a QR replace the paper health form?', answer: 'Yes. A digital form with electronic signature is equally valid and easier to store and search.' },
+      {
+        question: 'Should spa QR codes require a login to book?',
+        answer:
+          'Only if the client has an account. First-time bookings should work without registration to reduce friction.',
+      },
+      {
+        question: 'Can a QR replace the paper health form?',
+        answer:
+          'Yes. A digital form with electronic signature is equally valid and easier to store and search.',
+      },
     ]
   ),
   art(
@@ -182,8 +221,16 @@ A QR near the water links to: life ring locations, man-overboard procedure, loca
 Marina labels face salt water, UV, and temperature extremes. Use marine-grade aluminium or UV-stable acrylic signs. Test scanning after a season of weathering.
     `,
     [
-      { question: 'Can a visiting boater check in at 2 am using a QR?', answer: 'Yes. A 24-hour self check-in system accessible via QR removes the need for staff at all hours.' },
-      { question: 'What material lasts longest in a marine environment?', answer: 'Anodised aluminium or UV-stable acrylic with marine-grade ink. Standard vinyl labels degrade rapidly in salt air.' },
+      {
+        question: 'Can a visiting boater check in at 2 am using a QR?',
+        answer:
+          'Yes. A 24-hour self check-in system accessible via QR removes the need for staff at all hours.',
+      },
+      {
+        question: 'What material lasts longest in a marine environment?',
+        answer:
+          'Anodised aluminium or UV-stable acrylic with marine-grade ink. Standard vinyl labels degrade rapidly in salt air.',
+      },
     ]
   ),
   art(
@@ -216,8 +263,15 @@ Include QR on materials that normalise help-seeking: talking to a GP, taking a m
 Test the linked content carefully. Avoid graphic descriptions of self-harm methods. Follow safe messaging guidelines from national mental health authorities.
     `,
     [
-      { question: 'Can a QR replace a phone crisis line?', answer: 'No. QR can surface the number and chat options quickly, but it does not replace the call. Make the crisis number the most prominent element on the linked page.' },
-      { question: 'Should mental health QR links require an account?', answer: 'Never. Anyone in crisis must reach resources instantly, without barriers.' },
+      {
+        question: 'Can a QR replace a phone crisis line?',
+        answer:
+          'No. QR can surface the number and chat options quickly, but it does not replace the call. Make the crisis number the most prominent element on the linked page.',
+      },
+      {
+        question: 'Should mental health QR links require an account?',
+        answer: 'Never. Anyone in crisis must reach resources instantly, without barriers.',
+      },
     ]
   ),
   art(
@@ -246,8 +300,16 @@ Cemetery plaques face decades of weather, moss, and cleaning. Use stainless stee
 The QR is permanent; the link must be too. Use a domain you control with a reliable hosting provider, or a memorial platform with a long-term sustainability commitment. Document access credentials for the family.
     `,
     [
-      { question: 'How long should a headstone QR remain active?', answer: 'Ideally in perpetuity. Use a stable domain and ensure the family or estate holds long-term hosting access.' },
-      { question: 'What QR material survives decades outdoors?', answer: 'Laser-engraved stainless steel or bronze with a UV-stable protective coat. Test with a scan after a simulated weathering period.' },
+      {
+        question: 'How long should a headstone QR remain active?',
+        answer:
+          'Ideally in perpetuity. Use a stable domain and ensure the family or estate holds long-term hosting access.',
+      },
+      {
+        question: 'What QR material survives decades outdoors?',
+        answer:
+          'Laser-engraved stainless steel or bronze with a UV-stable protective coat. Test with a scan after a simulated weathering period.',
+      },
     ]
   ),
   art(
@@ -276,8 +338,16 @@ A QR on consultation signage links to the survey form and background information
 Legal notices must contain accurate information. Test the link before posting and check that the linked page loads without authentication. A broken link on a legal notice is a compliance failure.
     `,
     [
-      { question: 'Can a QR replace the full text of a legal notice?', answer: 'Not in most jurisdictions. Minimum required text must appear in print. QR is supplementary for extended documents.' },
-      { question: 'What if the planning authority website is down?', answer: 'Use a URL you control that redirects to the authority portal. You can redirect to a cached backup if the authority site goes down.' },
+      {
+        question: 'Can a QR replace the full text of a legal notice?',
+        answer:
+          'Not in most jurisdictions. Minimum required text must appear in print. QR is supplementary for extended documents.',
+      },
+      {
+        question: 'What if the planning authority website is down?',
+        answer:
+          'Use a URL you control that redirects to the authority portal. You can redirect to a cached backup if the authority site goes down.',
+      },
     ]
   ),
   art(
@@ -306,8 +376,16 @@ A QR links to the brand's community forum, Instagram hashtag, or a private Faceb
 A QR on the packing slip links to an exclusive preview of next month's box, available only to current subscribers. Reduces cancellations by creating anticipation.
     `,
     [
-      { question: 'Can a subscription box QR be personalised per subscriber?', answer: 'Yes. Encode the subscriber ID in the URL. The server looks up their profile and renders personalised content.' },
-      { question: 'Should the QR be on the box or on a card inside?', answer: 'A card inside is better: it arrives clean, is held in the hand during unboxing, and can be kept as a reference.' },
+      {
+        question: 'Can a subscription box QR be personalised per subscriber?',
+        answer:
+          'Yes. Encode the subscriber ID in the URL. The server looks up their profile and renders personalised content.',
+      },
+      {
+        question: 'Should the QR be on the box or on a card inside?',
+        answer:
+          'A card inside is better: it arrives clean, is held in the hand during unboxing, and can be kept as a reference.',
+      },
     ]
   ),
 ];

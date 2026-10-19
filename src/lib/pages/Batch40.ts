@@ -36,8 +36,17 @@ A QR inside or on limited-edition merchandise links to an exclusive fan page: a 
 A QR on physical fan mail and in event programmes links to the fan club or Patreon. Physical-to-digital conversion from a live show audience is among the highest-intent fan acquisition channels — the attendee has already demonstrated financial commitment to the artist.
     `,
     [
-      { question: 'Can I put a QR inside a vinyl record sleeve without it being damaged by the sleeve?', answer: 'Yes. QR on the inner sleeve (printed on the sleeve itself, not a separate card) is durable. Use a matte finish to reduce reflection when scanning under typical listening room lighting.' },
-      { question: 'Should a music artist QR link to Spotify or a universal music link?', answer: 'Universal music link (Songlink/Odesli or similar) is almost always better. It removes platform preference as a barrier and the click-through data shows you which platforms your fans actually use.' },
+      {
+        question:
+          'Can I put a QR inside a vinyl record sleeve without it being damaged by the sleeve?',
+        answer:
+          'Yes. QR on the inner sleeve (printed on the sleeve itself, not a separate card) is durable. Use a matte finish to reduce reflection when scanning under typical listening room lighting.',
+      },
+      {
+        question: 'Should a music artist QR link to Spotify or a universal music link?',
+        answer:
+          'Universal music link (Songlink/Odesli or similar) is almost always better. It removes platform preference as a barrier and the click-through data shows you which platforms your fans actually use.',
+      },
     ]
   ),
   art(
@@ -70,8 +79,16 @@ A QR on exhibition banners and brochures at career fairs links to the company's 
 Each employee has a personalised referral QR encoding their unique referral code. When shared with a contact who applies and is hired, the referrer receives their bonus automatically. Digital referral programmes via QR achieve 3–5x the referral volume of email-based referral schemes because the friction of sharing is minimal.
     `,
     [
-      { question: 'Can a QR replace a CV at a career fair?', answer: 'A QR encoding a LinkedIn profile URL or a digital CV landing page is a compelling supplement to a printed CV. It lets candidates share a richer profile (portfolio, video introduction, endorsements) than a paper CV allows. Whether it replaces the CV depends on the employer\'s preference — offer both.' },
-      { question: 'How do I ensure a QR recruitment campaign is GDPR-compliant?', answer: 'The application form linked from the QR must include a privacy notice explaining how candidate data will be used, stored, and deleted. Data collected via QR-sourced applications is subject to the same GDPR obligations as any other application channel.' },
+      {
+        question: 'Can a QR replace a CV at a career fair?',
+        answer:
+          "A QR encoding a LinkedIn profile URL or a digital CV landing page is a compelling supplement to a printed CV. It lets candidates share a richer profile (portfolio, video introduction, endorsements) than a paper CV allows. Whether it replaces the CV depends on the employer's preference — offer both.",
+      },
+      {
+        question: 'How do I ensure a QR recruitment campaign is GDPR-compliant?',
+        answer:
+          'The application form linked from the QR must include a privacy notice explaining how candidate data will be used, stored, and deleted. Data collected via QR-sourced applications is subject to the same GDPR obligations as any other application channel.',
+      },
     ]
   ),
   art(
@@ -108,8 +125,17 @@ Each member has a referral QR encoding their unique referral code. Sharing earns
 Coalition loyalty programmes (e.g., earn at multiple brands) use QR codes at each partner's point of sale. The partner QR is unique to the coalition programme, allowing the central points engine to attribute transactions correctly across all participating brands.
     `,
     [
-      { question: 'Can a QR loyalty programme work for a small independent coffee shop?', answer: 'Yes. Free and low-cost digital stamp card platforms (Stamp Me, Loopy Loyalty, Yollty) provide QR-based digital loyalty for independent businesses at zero upfront cost. The customer scans a printed QR at the counter; the platform handles everything else.' },
-      { question: 'How do I prevent customers from scanning the loyalty QR multiple times for one purchase?', answer: 'Generate a transaction-specific QR at point of sale (expires after 60 seconds) rather than a static counter QR. The customer scans the transaction QR; it cannot be scanned again after expiry.' },
+      {
+        question: 'Can a QR loyalty programme work for a small independent coffee shop?',
+        answer:
+          'Yes. Free and low-cost digital stamp card platforms (Stamp Me, Loopy Loyalty, Yollty) provide QR-based digital loyalty for independent businesses at zero upfront cost. The customer scans a printed QR at the counter; the platform handles everything else.',
+      },
+      {
+        question:
+          'How do I prevent customers from scanning the loyalty QR multiple times for one purchase?',
+        answer:
+          'Generate a transaction-specific QR at point of sale (expires after 60 seconds) rather than a static counter QR. The customer scans the transaction QR; it cannot be scanned again after expiry.',
+      },
     ]
   ),
   art(
@@ -147,8 +173,16 @@ A QR at assembly points links to the site emergency plan: headcount procedure, r
 During a declared emergency (flood, chemical incident, severe weather), local authorities can deploy poster and digital QRs linking to the live emergency information page: evacuation instructions, shelter locations, helpline numbers, and health guidance. Central updates are immediately available to everyone who scans.
     `,
     [
-      { question: 'Should a medical ID QR be accessible without unlocking a phone?', answer: 'Yes — the value of a medical ID QR is in genuine emergency. Some platforms integrate with iOS Emergency Pass (accessible from the lock screen). The QR on a physical wristband is always accessible. Both provide redundancy in a true emergency.' },
-      { question: 'Can an AED QR help bystanders who have never used a defibrillator?', answer: 'Yes. A QR linking to a 90-second instructional video significantly reduces bystander hesitation. Modern AEDs also provide voice-guided instructions, but video guidance on the QR is a valuable supplement for the bystander\'s approach phase.' },
+      {
+        question: 'Should a medical ID QR be accessible without unlocking a phone?',
+        answer:
+          'Yes — the value of a medical ID QR is in genuine emergency. Some platforms integrate with iOS Emergency Pass (accessible from the lock screen). The QR on a physical wristband is always accessible. Both provide redundancy in a true emergency.',
+      },
+      {
+        question: 'Can an AED QR help bystanders who have never used a defibrillator?',
+        answer:
+          "Yes. A QR linking to a 90-second instructional video significantly reduces bystander hesitation. Modern AEDs also provide voice-guided instructions, but video guidance on the QR is a valuable supplement for the bystander's approach phase.",
+      },
     ]
   ),
   art(
@@ -181,8 +215,17 @@ A QR at the store entrance or manager's office links to the daily opening, mid-d
 A QR on the promotional brief links to the promotional execution guide: display locations, signage placement, stock levels required, and photo examples of correct execution. Staff photograph their completed display and upload via the same link for remote compliance verification.
     `,
     [
-      { question: 'Can QR-based planogram compliance replace store visits by area managers?', answer: 'It supplements them significantly. Digital compliance evidence (timestamped photos, signed checklists) gives area managers insight between visits and helps them prioritise which stores need physical attention, reducing unnecessary travel.' },
-      { question: 'What happens if a retail staff member does not have a personal smartphone for QR training?', answer: 'Provide shared store devices (inexpensive Android tablets) for training and operational QR scanning. Alternatively, wall-mounted QR displays with instructions for borrowing a device ensure all staff can access the content.' },
+      {
+        question: 'Can QR-based planogram compliance replace store visits by area managers?',
+        answer:
+          'It supplements them significantly. Digital compliance evidence (timestamped photos, signed checklists) gives area managers insight between visits and helps them prioritise which stores need physical attention, reducing unnecessary travel.',
+      },
+      {
+        question:
+          'What happens if a retail staff member does not have a personal smartphone for QR training?',
+        answer:
+          'Provide shared store devices (inexpensive Android tablets) for training and operational QR scanning. Alternatively, wall-mounted QR displays with instructions for borrowing a device ensure all staff can access the content.',
+      },
     ]
   ),
   art(
@@ -249,8 +292,16 @@ Large QR symbols split data into multiple blocks and interleave the codewords. I
 Standard decoding corrects errors (unknown location, unknown value): up to t errors per block. If the location of damage is known (erasure — e.g., the QR was printed with a logo covering a defined region), erasure decoding corrects up to 2t erasures per block. Knowing the location of damage doubles correction capacity.
     `,
     [
-      { question: 'How many modules can be damaged before a Level H QR becomes unreadable?', answer: 'Level H provides approximately 30% codeword recovery. The exact number of damaged modules depends on which modules are damaged (data vs format vs finder) and the distribution. Damage to the finder patterns or format information is disproportionately destructive compared to damage to the data area.' },
-      { question: 'Can I implement Reed-Solomon QR error correction from scratch?', answer: 'Yes. The ISO/IEC 18004 standard appendix contains the complete mathematical specification. Open-source reference implementations in Python (qrcode library), C (libqrencode), and JavaScript (qrcode-generator) are well-tested starting points for study.' },
+      {
+        question: 'How many modules can be damaged before a Level H QR becomes unreadable?',
+        answer:
+          'Level H provides approximately 30% codeword recovery. The exact number of damaged modules depends on which modules are damaged (data vs format vs finder) and the distribution. Damage to the finder patterns or format information is disproportionately destructive compared to damage to the data area.',
+      },
+      {
+        question: 'Can I implement Reed-Solomon QR error correction from scratch?',
+        answer:
+          'Yes. The ISO/IEC 18004 standard appendix contains the complete mathematical specification. Open-source reference implementations in Python (qrcode library), C (libqrencode), and JavaScript (qrcode-generator) are well-tested starting points for study.',
+      },
     ]
   ),
   art(
@@ -283,8 +334,16 @@ A QR on the bill and welcome pack links to the local network fault reporting pag
 A QR on the bill links to a personalised energy saving tips page based on the customer's usage profile and home type. Utilities that help customers reduce bills build stronger long-term loyalty than those that maximise billing.
     `,
     [
-      { question: 'Can a QR on a utility bill link to a live account balance?', answer: 'Yes if the QR encodes an authenticated deep link (session token tied to the account). The page then displays live balance, tariff, and usage data. Unauthenticated QRs should only link to generic account login pages.' },
-      { question: 'Should smart meter QRs be on the physical meter itself?', answer: 'A QR on the meter is useful for the meter serial number lookup and installer diagnostics, but consumer-facing QRs (reading submission, fault reporting) belong on the bill and correspondence where the customer\'s context and intent align.' },
+      {
+        question: 'Can a QR on a utility bill link to a live account balance?',
+        answer:
+          'Yes if the QR encodes an authenticated deep link (session token tied to the account). The page then displays live balance, tariff, and usage data. Unauthenticated QRs should only link to generic account login pages.',
+      },
+      {
+        question: 'Should smart meter QRs be on the physical meter itself?',
+        answer:
+          "A QR on the meter is useful for the meter serial number lookup and installer diagnostics, but consumer-facing QRs (reading submission, fault reporting) belong on the bill and correspondence where the customer's context and intent align.",
+      },
     ]
   ),
   art(
@@ -317,8 +376,16 @@ A QR inside the package (on the packing note or inside the box lid) links to the
 A QR in the parcel locker delivery notification links to the collection QR: a time-limited code that opens the assigned locker door. The locker scans the customer's collection QR; no PIN or card required. Collection QRs expire after 5 days to prompt timely collection.
     `,
     [
-      { question: 'Can a QR-based returns process reduce return fraud?', answer: 'Yes. A QR return process linked to the original order ID, combined with photography of the return item at drop-off, creates an evidence trail that significantly reduces false return claims vs paper-based processes.' },
-      { question: 'What is the QR collection code standard for parcel lockers?', answer: 'There is no single universal standard. Major operators (Amazon Locker, InPost, Royal Mail Parcel Collect) use proprietary QR formats. Carrier-agnostic parcel locker networks are emerging but remain fragmented in most markets.' },
+      {
+        question: 'Can a QR-based returns process reduce return fraud?',
+        answer:
+          'Yes. A QR return process linked to the original order ID, combined with photography of the return item at drop-off, creates an evidence trail that significantly reduces false return claims vs paper-based processes.',
+      },
+      {
+        question: 'What is the QR collection code standard for parcel lockers?',
+        answer:
+          'There is no single universal standard. Major operators (Amazon Locker, InPost, Royal Mail Parcel Collect) use proprietary QR formats. Carrier-agnostic parcel locker networks are emerging but remain fragmented in most markets.',
+      },
     ]
   ),
   art(
@@ -367,8 +434,17 @@ A high scan rate with low conversion indicates the landing page is failing. A lo
 Do not split-test QR codes in print runs where you cannot attribute physical placements precisely. Do not test more than two variants simultaneously unless you have the impression volume to support it. Do not change the landing page mid-test — keep both the QR and the destination consistent for the test duration.
     `,
     [
-      { question: 'How long should a QR A/B test run?', answer: 'Minimum two weeks, regardless of scan count, to account for day-of-week variation. If your campaign is time-limited (a short retail promotion), accept directional results and apply learnings to the next campaign.' },
-      { question: 'Can I A/B test different QR designs (colours) while keeping the same destination?', answer: 'Yes. Use the same redirect URL for both variants, differentiated only by a campaign parameter in the URL (utm_content=blue-qr vs utm_content=black-qr). Both scan to the same page; the parameter identifies which design drove the scan.' },
+      {
+        question: 'How long should a QR A/B test run?',
+        answer:
+          'Minimum two weeks, regardless of scan count, to account for day-of-week variation. If your campaign is time-limited (a short retail promotion), accept directional results and apply learnings to the next campaign.',
+      },
+      {
+        question:
+          'Can I A/B test different QR designs (colours) while keeping the same destination?',
+        answer:
+          'Yes. Use the same redirect URL for both variants, differentiated only by a campaign parameter in the URL (utm_content=blue-qr vs utm_content=black-qr). Both scan to the same page; the parameter identifies which design drove the scan.',
+      },
     ]
   ),
   art(
@@ -401,8 +477,16 @@ A QR on penalty charge notices (parking fines, council tax reminders) links to t
 UK government QR landing pages should comply with the GOV.UK Design System: clear typography, plain English, accessible colour contrast, and mobile-first layout. Pages accessible via QR are often the first government digital touchpoint for digitally-excluded citizens — accessibility standards are critical, not optional.
     `,
     [
-      { question: 'Should government QR codes link to GOV.UK or local authority sites?', answer: 'Follow the user\'s need. National services (DVLA, DWP, HMRC) link to GOV.UK. Local authority services (council tax, planning, bin collections) link to the council\'s own service page. Avoid linking to intermediaries that could become outdated.' },
-      { question: 'How do government QR codes protect against phishing overlays?', answer: 'Government QR materials should be tamper-evident (sealed in official correspondence, engraved on permanent signage) and always display the destination URL in plain text below the QR. Citizens should be advised never to scan QR codes that do not show the expected .gov.uk domain.' },
+      {
+        question: 'Should government QR codes link to GOV.UK or local authority sites?',
+        answer:
+          "Follow the user's need. National services (DVLA, DWP, HMRC) link to GOV.UK. Local authority services (council tax, planning, bin collections) link to the council's own service page. Avoid linking to intermediaries that could become outdated.",
+      },
+      {
+        question: 'How do government QR codes protect against phishing overlays?',
+        answer:
+          'Government QR materials should be tamper-evident (sealed in official correspondence, engraved on permanent signage) and always display the destination URL in plain text below the QR. Citizens should be advised never to scan QR codes that do not show the expected .gov.uk domain.',
+      },
     ]
   ),
 ];

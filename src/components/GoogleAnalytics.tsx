@@ -11,9 +11,7 @@ function PageViewTracker() {
 
   useEffect(() => {
     if (!pathname || !GA_TRACKING_ID) return;
-    const url = searchParams?.toString()
-      ? `${pathname}?${searchParams.toString()}`
-      : pathname;
+    const url = searchParams?.toString() ? `${pathname}?${searchParams.toString()}` : pathname;
     pageview(url);
   }, [pathname, searchParams]);
 

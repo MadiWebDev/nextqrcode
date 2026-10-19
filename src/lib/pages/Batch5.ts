@@ -31,8 +31,14 @@ If connectivity is poor, preload a signed ticket list to the scanner devices and
 Use level M, large modules, and matte stock for printed tickets.
     `,
     [
-      { question: 'Can someone copy my ticket QR code?', answer: 'Yes, so the first valid scan must invalidate it server-side.' },
-      { question: 'Should ticket QR codes be static?', answer: 'The symbol can be static if the token is unguessable and validated centrally.' },
+      {
+        question: 'Can someone copy my ticket QR code?',
+        answer: 'Yes, so the first valid scan must invalidate it server-side.',
+      },
+      {
+        question: 'Should ticket QR codes be static?',
+        answer: 'The symbol can be static if the token is unguessable and validated centrally.',
+      },
     ]
   ),
   art(
@@ -63,8 +69,15 @@ Provide a paper alternative, large type, and staff assistance for older patients
 Use wipeable, matte laminated surfaces and replace worn signs promptly.
     `,
     [
-      { question: 'Can I put patient names in a QR code?', answer: 'Avoid it. Anyone who sees the code can read the data. Use an authenticated link instead.' },
-      { question: 'Should I still offer paper forms?', answer: 'Yes, for accessibility and patients without a smartphone.' },
+      {
+        question: 'Can I put patient names in a QR code?',
+        answer:
+          'Avoid it. Anyone who sees the code can read the data. Use an authenticated link instead.',
+      },
+      {
+        question: 'Should I still offer paper forms?',
+        answer: 'Yes, for accessibility and patients without a smartphone.',
+      },
     ]
   ),
   art(
@@ -95,8 +108,15 @@ The same symbol can be read by point-of-sale scanners that extract the GTIN, and
 * Print to GS1 quality guidance and verify scanning at the point of sale.
     `,
     [
-      { question: 'Does GS1 Digital Link replace the EAN barcode?', answer: 'It is intended to coexist and gradually complement it. Retailers must support 2D scanning at checkout.' },
-      { question: 'Can I use any QR generator?', answer: 'The payload must follow the GS1 syntax, and print quality must meet GS1 guidance.' },
+      {
+        question: 'Does GS1 Digital Link replace the EAN barcode?',
+        answer:
+          'It is intended to coexist and gradually complement it. Retailers must support 2D scanning at checkout.',
+      },
+      {
+        question: 'Can I use any QR generator?',
+        answer: 'The payload must follow the GS1 syntax, and print quality must meet GS1 guidance.',
+      },
     ]
   ),
   art(
@@ -130,7 +150,10 @@ Static codes can omit the amount so the payer enters it. Always generate from th
     `,
     [
       { question: 'What currency code does Pix use?', answer: '986 for Brazilian real.' },
-      { question: 'Is the checksum required?', answer: 'Yes. The CRC16 in field 63 must be valid or banking apps will reject the code.' },
+      {
+        question: 'Is the checksum required?',
+        answer: 'Yes. The CRC16 in field 63 must be valid or banking apps will reject the code.',
+      },
     ]
   ),
   art(
@@ -162,7 +185,11 @@ Inside field 29 the recipient can be a mobile number, written with the 0066 coun
     `,
     [
       { question: 'What currency code does PromptPay use?', answer: '764 for Thai baht.' },
-      { question: 'Can I include an amount?', answer: 'Yes, in field 54, and then set initiation method accordingly. Omit it for an open-amount static code.' },
+      {
+        question: 'Can I include an amount?',
+        answer:
+          'Yes, in field 54, and then set initiation method accordingly. Omit it for an open-amount static code.',
+      },
     ]
   ),
   art(
@@ -203,7 +230,11 @@ Use error correction level M, keep the name and reference short, and check again
     `,
     [
       { question: 'Which currencies does the EPC QR support?', answer: 'Only euro.' },
-      { question: 'Do all banking apps scan it?', answer: 'Many European apps do, but support varies by country and bank. Test before rollout.' },
+      {
+        question: 'Do all banking apps scan it?',
+        answer:
+          'Many European apps do, but support varies by country and bank. Test before rollout.',
+      },
     ]
   ),
   art(
@@ -232,8 +263,15 @@ Keep at least 4 modules of blank space on all sides of the code, with no Urdu or
 Put the action in both languages ("Scan to see the menu" and its Urdu equivalent) and use a destination page that offers a language toggle. Have a native speaker proofread the final print.
     `,
     [
-      { question: 'Should I make two QR codes, one per language?', answer: 'Usually not. One code to a page with a language toggle is simpler and cheaper.' },
-      { question: 'Can I embed Urdu text directly in the code?', answer: 'It is possible with UTF-8, but a short URL to an Urdu page is more reliable and smaller.' },
+      {
+        question: 'Should I make two QR codes, one per language?',
+        answer: 'Usually not. One code to a page with a language toggle is simpler and cheaper.',
+      },
+      {
+        question: 'Can I embed Urdu text directly in the code?',
+        answer:
+          'It is possible with UTF-8, but a short URL to an Urdu page is more reliable and smaller.',
+      },
     ]
   ),
   art(
@@ -264,8 +302,14 @@ Provide the short URL in text and make sure pages work on shared devices and low
 Laminate printed codes with a matte finish, and keep a master list of each code and its destination.
     `,
     [
-      { question: 'Do students need their own phones?', answer: 'No. Use shared tablets or provide printed links as alternatives.' },
-      { question: 'How do I keep linked pages safe?', answer: 'Host them on school systems or review third-party pages regularly.' },
+      {
+        question: 'Do students need their own phones?',
+        answer: 'No. Use shared tablets or provide printed links as alternatives.',
+      },
+      {
+        question: 'How do I keep linked pages safe?',
+        answer: 'Host them on school systems or review third-party pages regularly.',
+      },
     ]
   ),
   art(
@@ -294,8 +338,16 @@ Use a different short path per placement or campaign so you can compare results,
 Show the organization's name, registration details, and a visible privacy statement on the page. Protect printed codes against sticker overlays, since fake donation codes are a known risk.
     `,
     [
-      { question: 'Should a donation QR use a dynamic service?', answer: 'Not necessarily. A short path on your own domain gives tracking and flexibility without third-party lock-in.' },
-      { question: 'Can I put a payment account directly in the code?', answer: 'Yes, in countries with standard payment QR formats, but a donation page also supports receipts and recurring giving.' },
+      {
+        question: 'Should a donation QR use a dynamic service?',
+        answer:
+          'Not necessarily. A short path on your own domain gives tracking and flexibility without third-party lock-in.',
+      },
+      {
+        question: 'Can I put a payment account directly in the code?',
+        answer:
+          'Yes, in countries with standard payment QR formats, but a donation page also supports receipts and recurring giving.',
+      },
     ]
   ),
   art(
@@ -324,8 +376,14 @@ Many galleries have weak signal. Keep pages small or provide on-site WiFi and a 
 Mount at a consistent height near the label, with a clear quiet zone and matte, non-reflective material. Add a short URL and a tactile marker so visitors with low vision can find the code.
     `,
     [
-      { question: 'Should every exhibit have its own code?', answer: 'Yes, and each should link to a specific page so visitors get relevant content.' },
-      { question: 'How do I help visitors with no signal?', answer: 'Provide on-site WiFi or pre-downloadable guides, and keep pages lightweight.' },
+      {
+        question: 'Should every exhibit have its own code?',
+        answer: 'Yes, and each should link to a specific page so visitors get relevant content.',
+      },
+      {
+        question: 'How do I help visitors with no signal?',
+        answer: 'Provide on-site WiFi or pre-downloadable guides, and keep pages lightweight.',
+      },
     ]
   ),
 ];

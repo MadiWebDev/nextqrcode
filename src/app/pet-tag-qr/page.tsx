@@ -8,15 +8,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import {
-  Heart,
-  Printer,
-  Download,
-  Shield,
-  Phone,
-  CheckCircle2,
-  Sparkles,
-} from 'lucide-react';
+import { Heart, Printer, Download, Shield, Phone, CheckCircle2, Sparkles } from 'lucide-react';
 
 export default function PetTagQRPage() {
   const [petName, setPetName] = useState('Charlie');
@@ -148,15 +140,18 @@ PLEASE HELP REUNITE ME WITH MY FAMILY!`;
   const faqs = [
     {
       question: 'Why is a QR code pet tag better than an engraved metal tag?',
-      answer: 'Engraved tags only have space for one phone number and a name. A QR pet tag stores multiple emergency phone numbers, microchip registration IDs, reward notices, and critical daily medical conditions (e.g., insulin needs, allergies) so anyone finding your pet knows how to care for them immediately.',
+      answer:
+        'Engraved tags only have space for one phone number and a name. A QR pet tag stores multiple emergency phone numbers, microchip registration IDs, reward notices, and critical daily medical conditions (e.g., insulin needs, allergies) so anyone finding your pet knows how to care for them immediately.',
     },
     {
       question: 'Why not rely solely on a pet microchip?',
-      answer: 'A microchip cannot be read by an ordinary person who finds your pet in their front yard. They have to capture the animal, transport it to a veterinary clinic or animal shelter, and have staff scan it with an RFID reader. A QR code lets any good Samaritan call you within seconds using their phone camera.',
+      answer:
+        'A microchip cannot be read by an ordinary person who finds your pet in their front yard. They have to capture the animal, transport it to a veterinary clinic or animal shelter, and have staff scan it with an RFID reader. A QR code lets any good Samaritan call you within seconds using their phone camera.',
     },
     {
       question: 'How can I make the printable tag waterproof?',
-      answer: 'Print the design on heavy paper, cut along the circular outline, fold in half along the dotted center line, and laminate it with self-adhesive clear luggage tag laminate before punching the top keyring hole.',
+      answer:
+        'Print the design on heavy paper, cut along the circular outline, fold in half along the dotted center line, and laminate it with self-adhesive clear luggage tag laminate before punching the top keyring hole.',
     },
   ];
 
@@ -178,7 +173,8 @@ PLEASE HELP REUNITE ME WITH MY FAMILY!`;
           Pet Tag & Lost-and-Found QR Code Generator
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Create printable, double-sided pet tags. Encode emergency owner phone numbers, microchip registration, and medical alerts directly inside the tag with zero subscription fees.
+          Create printable, double-sided pet tags. Encode emergency owner phone numbers, microchip
+          registration, and medical alerts directly inside the tag with zero subscription fees.
         </p>
       </header>
 
@@ -193,7 +189,9 @@ PLEASE HELP REUNITE ME WITH MY FAMILY!`;
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="pet-name" className="text-xs">Pet Name:</Label>
+                <Label htmlFor="pet-name" className="text-xs">
+                  Pet Name:
+                </Label>
                 <Input
                   id="pet-name"
                   value={petName}
@@ -203,7 +201,9 @@ PLEASE HELP REUNITE ME WITH MY FAMILY!`;
               </div>
 
               <div>
-                <Label htmlFor="pet-breed" className="text-xs">Species & Breed:</Label>
+                <Label htmlFor="pet-breed" className="text-xs">
+                  Species & Breed:
+                </Label>
                 <Input
                   id="pet-breed"
                   value={breed}
@@ -213,7 +213,10 @@ PLEASE HELP REUNITE ME WITH MY FAMILY!`;
               </div>
 
               <div>
-                <Label htmlFor="pet-p1" className="text-xs font-semibold text-rose-600 dark:text-rose-400">
+                <Label
+                  htmlFor="pet-p1"
+                  className="text-xs font-semibold text-rose-600 dark:text-rose-400"
+                >
                   Primary Owner Phone:
                 </Label>
                 <Input
@@ -225,7 +228,9 @@ PLEASE HELP REUNITE ME WITH MY FAMILY!`;
               </div>
 
               <div>
-                <Label htmlFor="pet-p2" className="text-xs">Secondary / Vet Phone:</Label>
+                <Label htmlFor="pet-p2" className="text-xs">
+                  Secondary / Vet Phone:
+                </Label>
                 <Input
                   id="pet-p2"
                   value={phone2}
@@ -237,7 +242,9 @@ PLEASE HELP REUNITE ME WITH MY FAMILY!`;
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="pet-micro" className="text-xs">Microchip ID (Optional):</Label>
+                <Label htmlFor="pet-micro" className="text-xs">
+                  Microchip ID (Optional):
+                </Label>
                 <Input
                   id="pet-micro"
                   value={microchip}
@@ -247,7 +254,9 @@ PLEASE HELP REUNITE ME WITH MY FAMILY!`;
               </div>
 
               <div>
-                <Label htmlFor="pet-rew" className="text-xs">Reward Notice:</Label>
+                <Label htmlFor="pet-rew" className="text-xs">
+                  Reward Notice:
+                </Label>
                 <Input
                   id="pet-rew"
                   value={reward}
@@ -258,7 +267,9 @@ PLEASE HELP REUNITE ME WITH MY FAMILY!`;
             </div>
 
             <div>
-              <Label htmlFor="pet-med" className="text-xs">Special Medical or Dietary Needs:</Label>
+              <Label htmlFor="pet-med" className="text-xs">
+                Special Medical or Dietary Needs:
+              </Label>
               <Input
                 id="pet-med"
                 placeholder="Allergic to chicken, deaf, needs daily thyroid pills..."
@@ -328,21 +339,29 @@ PLEASE HELP REUNITE ME WITH MY FAMILY!`;
           Why QR Code Pet Tags Reunite Lost Pets 5x Faster Than Microchips Alone
         </h2>
         <p className="text-base leading-relaxed">
-          Millions of pets are lost each year. While microchipping is a vital permanent identification layer, it has a severe operational limitation: everyday citizens do not possess universal 134.2 kHz RFID scanners.
+          Millions of pets are lost each year. While microchipping is a vital permanent
+          identification layer, it has a severe operational limitation: everyday citizens do not
+          possess universal 134.2 kHz RFID scanners.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           The Good Samaritan Friction Problem
         </h3>
         <p className="text-base leading-relaxed">
-          When an anxious neighbor spots your lost dog or cat in their garden, having a prominent QR code with the label <strong>"SCAN IF LOST"</strong> empowers them to immediately point their phone camera at the collar. Within two seconds, they can view your cell phone number, home neighborhood, and any life-threatening medical conditions without having to corral an unfamiliar animal into a car.
+          When an anxious neighbor spots your lost dog or cat in their garden, having a prominent QR
+          code with the label <strong>&quot;SCAN IF LOST&quot;</strong> empowers them to immediately
+          point their phone camera at the collar. Within two seconds, they can view your cell phone
+          number, home neighborhood, and any life-threatening medical conditions without having to
+          corral an unfamiliar animal into a car.
         </p>
 
         <h3 className="text-xl font-semibold text-foreground">
           Lamination and Waterproofing Guide
         </h3>
         <p className="text-base leading-relaxed">
-          To ensure the tag survives rain, puddle splashes, and playful scratching, print on waterproof polyester paper or sandwich the folded paper inside a 5-mil thermal laminating pouch before attaching the split ring to your pet's collar.
+          To ensure the tag survives rain, puddle splashes, and playful scratching, print on
+          waterproof polyester paper or sandwich the folded paper inside a 5-mil thermal laminating
+          pouch before attaching the split ring to your pet&apos;s collar.
         </p>
       </article>
 

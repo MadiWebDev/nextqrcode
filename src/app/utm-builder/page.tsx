@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import QRCode from 'qrcode';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { AdSlot } from '@/components/AdSlot';
@@ -8,22 +8,29 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import {
-  TrendingUp,
-  Download,
-  Copy,
-  Check,
-  BarChart3,
-  Sparkles,
-  ExternalLink,
-} from 'lucide-react';
+import { TrendingUp, Download, Copy, Check, BarChart3, Sparkles, ExternalLink } from 'lucide-react';
 
 const PRESETS = [
   { name: 'Print Flyer', source: 'print_flyer', medium: 'print', campaign: 'local_promo' },
-  { name: 'Trade Show Booth', source: 'tradeshow_booth', medium: 'offline_qr', campaign: 'expo_2026' },
+  {
+    name: 'Trade Show Booth',
+    source: 'tradeshow_booth',
+    medium: 'offline_qr',
+    campaign: 'expo_2026',
+  },
   { name: 'Restaurant Table', source: 'table_tent', medium: 'in_venue', campaign: 'dine_in_menu' },
-  { name: 'Product Packaging', source: 'product_box', medium: 'packaging', campaign: 'user_onboarding' },
-  { name: 'Direct Mail Letter', source: 'direct_mail', medium: 'postal', campaign: 'retargeting_q1' },
+  {
+    name: 'Product Packaging',
+    source: 'product_box',
+    medium: 'packaging',
+    campaign: 'user_onboarding',
+  },
+  {
+    name: 'Direct Mail Letter',
+    source: 'direct_mail',
+    medium: 'postal',
+    campaign: 'retargeting_q1',
+  },
 ];
 
 export default function UTMBuilderPage() {
@@ -34,35 +41,56 @@ export default function UTMBuilderPage() {
   const [term, setTerm] = useState('');
   const [content, setContent] = useState('front_cover');
 
-  const [fullUrl, setFullUrl] = useState('');
   const [qrDataUrl, setQrDataUrl] = useState('');
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
+  // The tagged URL is derived directly from the inputs (pure memo, no state sync)
+  const taggedUrl = useMemo(() => {
     try {
-      const cleanBase = baseUrl.trim().startsWith('http') ? baseUrl.trim() : `https://${baseUrl.trim()}`;
+      const cleanBase = baseUrl.trim().startsWith('http')
+        ? baseUrl.trim()
+        : `https://${baseUrl.trim()}`;
       const url = new URL(cleanBase);
 
-      if (source) url.searchParams.set('utm_source', source.trim().toLowerCase().replace(/\s+/g, '_'));
-      if (medium) url.searchParams.set('utm_medium', medium.trim().toLowerCase().replace(/\s+/g, '_'));
-      if (campaign) url.searchParams.set('utm_campaign', campaign.trim().toLowerCase().replace(/\s+/g, '_'));
+      if (source)
+        url.searchParams.set('utm_source', source.trim().toLowerCase().replace(/\s+/g, '_'));
+      if (medium)
+        url.searchParams.set('utm_medium', medium.trim().toLowerCase().replace(/\s+/g, '_'));
+      if (campaign)
+        url.searchParams.set('utm_campaign', campaign.trim().toLowerCase().replace(/\s+/g, '_'));
       if (term) url.searchParams.set('utm_term', term.trim().toLowerCase().replace(/\s+/g, '_'));
-      if (content) url.searchParams.set('utm_content', content.trim().toLowerCase().replace(/\s+/g, '_'));
+      if (content)
+        url.searchParams.set('utm_content', content.trim().toLowerCase().replace(/\s+/g, '_'));
 
-      const finalStr = url.toString();
-      setFullUrl(finalStr);
-
-      QRCode.toDataURL(finalStr, {
-        errorCorrectionLevel: 'M',
-        width: 340,
-        margin: 2,
-      }).then((data) => setQrDataUrl(data));
+      return { value: url.toString(), valid: true } as const;
     } catch {
-      setFullUrl(baseUrl);
+      return { value: baseUrl, valid: false } as const;
     }
   }, [baseUrl, source, medium, campaign, term, content]);
 
-  const applyPreset = (p: typeof PRESETS[0]) => {
+  const fullUrl = taggedUrl.value;
+
+  // Generate the QR image whenever the tagged URL changes (async callback only)
+  useEffect(() => {
+    // On invalid input the previous QR stays shown, matching prior behavior
+    if (!taggedUrl.valid) return;
+
+    let cancelled = false;
+
+    QRCode.toDataURL(taggedUrl.value, {
+      errorCorrectionLevel: 'M',
+      width: 340,
+      margin: 2,
+    }).then((data) => {
+      if (!cancelled) setQrDataUrl(data);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [taggedUrl]);
+
+  const applyPreset = (p: (typeof PRESETS)[0]) => {
     setSource(p.source);
     setMedium(p.medium);
     setCampaign(p.campaign);
@@ -77,15 +105,18 @@ export default function UTMBuilderPage() {
   const faqs = [
     {
       question: 'What are UTM parameters and why are they essential for QR codes?',
-      answer: 'UTM (Urchin Tracking Module) tags are query parameters appended to a URL that inform Google Analytics 4 (GA4) exactly where a visitor originated. Without UTM parameters on physical QR codes, physical scans appear as generic "Direct / None" traffic in GA4.',
+      answer:
+        'UTM (Urchin Tracking Module) tags are query parameters appended to a URL that inform Google Analytics 4 (GA4) exactly where a visitor originated. Without UTM parameters on physical QR codes, physical scans appear as generic "Direct / None" traffic in GA4.',
     },
     {
       question: 'Why should I always use lowercase characters in UTM tags?',
-      answer: 'Google Analytics is case-sensitive. If you use "Print_Flyer" on one batch and "print_flyer" on another, GA4 treats them as two completely separate campaigns, fragmenting your conversion analytics.',
+      answer:
+        'Google Analytics is case-sensitive. If you use "Print_Flyer" on one batch and "print_flyer" on another, GA4 treats them as two completely separate campaigns, fragmenting your conversion analytics.',
     },
     {
       question: 'Does adding UTM parameters make the QR code harder to scan?',
-      answer: 'UTM tags add characters to the URL, which slightly increases module density. For long URLs with UTM parameters, keep error correction at Level M or use a clean canonical domain structure to keep the code easy to scan.',
+      answer:
+        'UTM tags add characters to the URL, which slightly increases module density. For long URLs with UTM parameters, keep error correction at Level M or use a clean canonical domain structure to keep the code easy to scan.',
     },
   ];
 
@@ -107,13 +138,16 @@ export default function UTMBuilderPage() {
           QR Code UTM Builder & Campaign Planner
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Bridge offline print collateral and digital analytics. Generate campaign-tagged URLs and instant QR codes tracked in Google Analytics 4 (GA4) with zero tracking leakage.
+          Bridge offline print collateral and digital analytics. Generate campaign-tagged URLs and
+          instant QR codes tracked in Google Analytics 4 (GA4) with zero tracking leakage.
         </p>
       </header>
 
       {/* Quick Channel Presets */}
       <div className="mb-6 space-y-2">
-        <span className="text-xs font-semibold uppercase text-muted-foreground">Quick Presets:</span>
+        <span className="text-xs font-semibold uppercase text-muted-foreground">
+          Quick Presets:
+        </span>
         <div className="flex flex-wrap gap-2">
           {PRESETS.map((p) => (
             <button
@@ -228,7 +262,8 @@ export default function UTMBuilderPage() {
                   <img src={qrDataUrl} alt="Campaign QR" className="w-56 h-56" />
                 </div>
                 <div className="mt-2 text-xs font-semibold text-muted-foreground">
-                  Source: <span className="text-foreground">{source}</span> | Medium: <span className="text-foreground">{medium}</span>
+                  Source: <span className="text-foreground">{source}</span> | Medium:{' '}
+                  <span className="text-foreground">{medium}</span>
                 </div>
               </div>
             )}
@@ -267,19 +302,29 @@ export default function UTMBuilderPage() {
           Mastering Physical-to-Digital Campaign Attribution in Google Analytics 4
         </h2>
         <p className="text-base leading-relaxed">
-          When print marketers run billboard campaigns, distribute trade show brochures, or place tabletop restaurant signage without UTM parameters, every scan arrives in web analytics as untagged "Direct" traffic. This makes measuring actual return on investment (ROI) impossible.
+          When print marketers run billboard campaigns, distribute trade show brochures, or place
+          tabletop restaurant signage without UTM parameters, every scan arrives in web analytics as
+          untagged &quot;Direct&quot; traffic. This makes measuring actual return on investment
+          (ROI) impossible.
         </p>
 
-        <h3 className="text-xl font-semibold text-foreground">
-          GA4 Standard Taxonomy Rules
-        </h3>
+        <h3 className="text-xl font-semibold text-foreground">GA4 Standard Taxonomy Rules</h3>
         <p className="text-base leading-relaxed">
-          Google Analytics 4 classifies traffic into default channel groups based on strict medium rules:
+          Google Analytics 4 classifies traffic into default channel groups based on strict medium
+          rules:
         </p>
         <ul className="list-disc pl-6 space-y-2 text-sm">
-          <li><strong>utm_medium=print:</strong> Custom grouping for offline physical collateral.</li>
-          <li><strong>utm_source:</strong> The specific vehicle (e.g. <code>billboard_hwy101</code>, <code>menu_insert</code>).</li>
-          <li><strong>utm_content:</strong> Distinguishes variations within the same campaign (e.g., A/B testing a black vs red call-to-action button).</li>
+          <li>
+            <strong>utm_medium=print:</strong> Custom grouping for offline physical collateral.
+          </li>
+          <li>
+            <strong>utm_source:</strong> The specific vehicle (e.g. <code>billboard_hwy101</code>,{' '}
+            <code>menu_insert</code>).
+          </li>
+          <li>
+            <strong>utm_content:</strong> Distinguishes variations within the same campaign (e.g.,
+            A/B testing a black vs red call-to-action button).
+          </li>
         </ul>
       </article>
 

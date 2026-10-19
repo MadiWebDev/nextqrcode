@@ -52,15 +52,19 @@ QR codes that link to public YouTube videos or publicly-accessible Quizlet sets 
     [
       {
         question: 'What if a student does not have a smartphone at home to scan the QR?',
-        answer: 'Always include the full URL as text alongside the QR code on the homework sheet. Students can type it into a computer or tablet at home or at school. The QR is a convenience shortcut, not a barrier — the resource must be accessible without scanning for equity of access.',
+        answer:
+          'Always include the full URL as text alongside the QR code on the homework sheet. Students can type it into a computer or tablet at home or at school. The QR is a convenience shortcut, not a barrier — the resource must be accessible without scanning for equity of access.',
       },
       {
-        question: 'Can QR codes on homework sheets work for students with dyslexia or reading difficulties?',
-        answer: 'Yes, and they are particularly valuable. A QR linking to an audio version of the task instructions or a teacher-recorded explanation removes the reading barrier entirely. Consider providing a QR to a text-to-speech version of written instructions as standard on all homework sheets for accessibility.',
+        question:
+          'Can QR codes on homework sheets work for students with dyslexia or reading difficulties?',
+        answer:
+          'Yes, and they are particularly valuable. A QR linking to an audio version of the task instructions or a teacher-recorded explanation removes the reading barrier entirely. Consider providing a QR to a text-to-speech version of written instructions as standard on all homework sheets for accessibility.',
       },
       {
         question: 'How do I update the QR code if the linked video changes?',
-        answer: 'If you used a static QR, you must regenerate and reprint. To avoid reprinting, use a redirect URL (via a URL shortener you control) as the QR destination. Update the redirect target URL whenever the resource changes — the QR code itself never changes and does not need reprinting.',
+        answer:
+          'If you used a static QR, you must regenerate and reprint. To avoid reprinting, use a redirect URL (via a URL shortener you control) as the QR destination. Update the redirect target URL whenever the resource changes — the QR code itself never changes and does not need reprinting.',
       },
     ]
   ),
@@ -115,11 +119,14 @@ This reduces the volume of questions to reception and the exams officer during t
     [
       {
         question: 'Can QR codes on timetable boards replace the printed timetable entirely?',
-        answer: 'Not recommended. QR-only timetables exclude students without smartphones and create access problems if the network is down. Use QR codes to supplement — not replace — printed timetables. The printed version handles daily use; the QR links to the live version for changes and updates.',
+        answer:
+          'Not recommended. QR-only timetables exclude students without smartphones and create access problems if the network is down. Use QR codes to supplement — not replace — printed timetables. The printed version handles daily use; the QR links to the live version for changes and updates.',
       },
       {
-        question: 'How do we prevent students from scanning QR codes on classroom doors and going off-task?',
-        answer: 'Link classroom QR codes to specific, relevant resources rather than general internet pages. A QR on a science classroom door linking to today\'s lesson objectives is purposeful. If off-task scanning is a concern, discuss acceptable use with students and include QR scanning in your school\'s digital citizenship curriculum.',
+        question:
+          'How do we prevent students from scanning QR codes on classroom doors and going off-task?',
+        answer:
+          "Link classroom QR codes to specific, relevant resources rather than general internet pages. A QR on a science classroom door linking to today's lesson objectives is purposeful. If off-task scanning is a concern, discuss acceptable use with students and include QR scanning in your school's digital citizenship curriculum.",
       },
     ]
   ),
@@ -127,7 +134,7 @@ This reduces the volume of questions to reception and the exams officer during t
     'qr-code-parent-teacher-communication',
     'QR Codes for Parent-Teacher Communication: Reports, Meetings, and Updates',
     'qr code parent teacher communication',
-    'Streamline parent-teacher communication with QR codes — booking parents\' evening appointments, accessing reports, and receiving updates.',
+    "Streamline parent-teacher communication with QR codes — booking parents' evening appointments, accessing reports, and receiving updates.",
     'Business & Regional',
     '5 min read',
     '2027-03-04',
@@ -171,15 +178,19 @@ Never link parent communication QR codes to resources containing other students'
     [
       {
         question: 'Can QR codes help engage parents who do not speak English as a first language?',
-        answer: 'Yes significantly. A QR on a letter can link to a translated version of the content in the top 5 languages spoken by your school community. Google Translate links or pre-translated PDFs can be provided via a single QR with language selection. This dramatically improves accessibility for EAL families.',
+        answer:
+          'Yes significantly. A QR on a letter can link to a translated version of the content in the top 5 languages spoken by your school community. Google Translate links or pre-translated PDFs can be provided via a single QR with language selection. This dramatically improves accessibility for EAL families.',
       },
       {
-        question: 'Is it safe to use QR codes in communication with parents of primary school children?',
-        answer: 'Yes, with appropriate safeguards. QR codes in parent-facing communications link to resources intended for adults, not children. Ensure any linked pages requiring login use the school\'s parent portal authentication, and that no child\'s personal data is accessible to non-authenticated users via the linked URL.',
+        question:
+          'Is it safe to use QR codes in communication with parents of primary school children?',
+        answer:
+          "Yes, with appropriate safeguards. QR codes in parent-facing communications link to resources intended for adults, not children. Ensure any linked pages requiring login use the school's parent portal authentication, and that no child's personal data is accessible to non-authenticated users via the linked URL.",
       },
       {
         question: 'How can we track whether parents are scanning the QR codes in letters?',
-        answer: 'Use a UTM-tagged URL or a redirect URL that logs click counts. This gives you open rate data equivalent to email analytics — you can see how many parents engaged with each communication. Track by communication type over time to identify which messages generate the most engagement.',
+        answer:
+          'Use a UTM-tagged URL or a redirect URL that logs click counts. This gives you open rate data equivalent to email analytics — you can see how many parents engaged with each communication. Track by communication type over time to identify which messages generate the most engagement.',
       },
     ]
   ),
@@ -231,16 +242,20 @@ Leading UK MIS providers:
     `,
     [
       {
-        question: 'Can a student scan someone else\'s QR card to fraudulently register them as present?',
-        answer: 'Buddy scanning is a known risk in student self-scan systems. Mitigate it by displaying the student\'s name and photo on the confirmation screen — staff can spot-check. Rotating QR codes (regenerated every 5 minutes) prevent screenshot-based scanning. Cross-referencing with teacher observation for persistent discrepancies is good practice.',
+        question:
+          "Can a student scan someone else's QR card to fraudulently register them as present?",
+        answer:
+          "Buddy scanning is a known risk in student self-scan systems. Mitigate it by displaying the student's name and photo on the confirmation screen — staff can spot-check. Rotating QR codes (regenerated every 5 minutes) prevent screenshot-based scanning. Cross-referencing with teacher observation for persistent discrepancies is good practice.",
       },
       {
         question: 'Does QR attendance work for PE and outdoor lessons?',
-        answer: 'Outdoor lessons present challenges: glare on phone screens, rain on student cards, and lack of stable Wi-Fi. Consider a paper backup for outdoor lessons or use the teacher-scans-student method with a robust tablet and offline sync capability. Most MIS-integrated QR apps support offline registration that syncs when back in range.',
+        answer:
+          'Outdoor lessons present challenges: glare on phone screens, rain on student cards, and lack of stable Wi-Fi. Consider a paper backup for outdoor lessons or use the teacher-scans-student method with a robust tablet and offline sync capability. Most MIS-integrated QR apps support offline registration that syncs when back in range.',
       },
       {
         question: 'What data protection obligations apply to student QR codes?',
-        answer: 'Student QR codes that encode a student ID constitute personal data under UK GDPR. Schools must include QR attendance data in their data protection impact assessment, ensure the system supplier has a signed DPA, and document the lawful basis for processing (legitimate interest in education delivery is typically cited). Data must not be stored longer than necessary.',
+        answer:
+          'Student QR codes that encode a student ID constitute personal data under UK GDPR. Schools must include QR attendance data in their data protection impact assessment, ensure the system supplier has a signed DPA, and document the lawful basis for processing (legitimate interest in education delivery is typically cited). Data must not be stored longer than necessary.',
       },
     ]
   ),
@@ -291,11 +306,13 @@ Always provide a paper fallback for students without device access. The QR is a 
     [
       {
         question: 'Can QR submission systems handle large files like video projects?',
-        answer: 'Google Drive, OneDrive, and Dropbox integrations in assignment systems support large file uploads. Alternatively, students upload video to a private YouTube or Google Drive link and submit the URL via the QR form. Set clear file size and format expectations in the assignment brief so students prepare appropriately.',
+        answer:
+          'Google Drive, OneDrive, and Dropbox integrations in assignment systems support large file uploads. Alternatively, students upload video to a private YouTube or Google Drive link and submit the URL via the QR form. Set clear file size and format expectations in the assignment brief so students prepare appropriately.',
       },
       {
-        question: 'How do teachers verify that submitted digital work is the student\'s own?',
-        answer: 'Plagiarism detection tools like Turnitin integrate with Google Classroom and Microsoft Teams. For handwritten work submitted as photos, the handwriting itself provides authenticity. Requiring students to include a reflection or self-assessment alongside their submission adds a layer that is harder to plagiarise.',
+        question: "How do teachers verify that submitted digital work is the student's own?",
+        answer:
+          'Plagiarism detection tools like Turnitin integrate with Google Classroom and Microsoft Teams. For handwritten work submitted as photos, the handwriting itself provides authenticity. Requiring students to include a reflection or self-assessment alongside their submission adds a layer that is harder to plagiarise.',
       },
     ]
   ),

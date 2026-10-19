@@ -45,16 +45,21 @@ Review the most current FSA guidance before designing QR allergen communications
     `,
     [
       {
-        question: 'Can a restaurant menu that is only accessible via QR satisfy allergen disclosure requirements?',
-        answer: 'A QR menu that clearly declares all 14 allergens per dish satisfies the requirement if it is always accessible and accurately maintained. However, the Food Standards Agency guidance states that verbal allergen information must be available from staff for customers who cannot or prefer not to use the QR. A QR-only menu must have a human backup for allergen queries.',
+        question:
+          'Can a restaurant menu that is only accessible via QR satisfy allergen disclosure requirements?',
+        answer:
+          'A QR menu that clearly declares all 14 allergens per dish satisfies the requirement if it is always accessible and accurately maintained. However, the Food Standards Agency guidance states that verbal allergen information must be available from staff for customers who cannot or prefer not to use the QR. A QR-only menu must have a human backup for allergen queries.',
       },
       {
-        question: 'If we update our recipe after packaging has already printed, does the QR-linked page update automatically?',
-        answer: 'The QR-linked digital page can be updated immediately — but consumers scanning old physical packs will see new recipe information while the physical label still shows the old. This creates a discrepancy risk. Manage recipe changes carefully: implement a label revision alongside the recipe change, and use the digital page transition period only for corrections, not material ingredient changes.',
+        question:
+          'If we update our recipe after packaging has already printed, does the QR-linked page update automatically?',
+        answer:
+          'The QR-linked digital page can be updated immediately — but consumers scanning old physical packs will see new recipe information while the physical label still shows the old. This creates a discrepancy risk. Manage recipe changes carefully: implement a label revision alongside the recipe change, and use the digital page transition period only for corrections, not material ingredient changes.',
       },
       {
         question: 'Are QR allergen links accessible for blind or partially-sighted consumers?',
-        answer: 'Partially — screen reader-accessible web pages work with phone screen readers, but locating and scanning a QR code requires sufficient vision. For blind consumers, QR-linked allergen information is not accessible without assistance. Ensure your customer service line can provide allergen information verbally, and consider RNIB-standard large-print labels for SKUs popular with visually impaired consumers.',
+        answer:
+          'Partially — screen reader-accessible web pages work with phone screen readers, but locating and scanning a QR code requires sufficient vision. For blind consumers, QR-linked allergen information is not accessible without assistance. Ensure your customer service line can provide allergen information verbally, and consider RNIB-standard large-print labels for SKUs popular with visually impaired consumers.',
       },
     ]
   ),
@@ -114,11 +119,13 @@ If nutritional values change (reformulation, new testing), the QR-linked page up
     [
       {
         question: 'Can a QR code on food packaging link to a calorie-tracking app?',
-        answer: 'Yes. A QR can link to the product\'s page in MyFitnessPal, Cronometer, or a similar tracking app, or to a custom product page that allows one-tap addition to these apps. Some manufacturers partner with tracking apps to ensure accurate data. The QR provides the bridge between the physical product and the digital tracking ecosystem.',
+        answer:
+          "Yes. A QR can link to the product's page in MyFitnessPal, Cronometer, or a similar tracking app, or to a custom product page that allows one-tap addition to these apps. Some manufacturers partner with tracking apps to ensure accurate data. The QR provides the bridge between the physical product and the digital tracking ecosystem.",
       },
       {
         question: 'Do QR nutrition links need to be updated if the recipe changes slightly?',
-        answer: 'Any change that materially affects the nutritional values should trigger an update to both the physical label (for mandatory values) and the QR-linked page. Minor variation within declared ranges (allowed under food labelling tolerances) does not require immediate update, but the digital page should reflect the most accurate current values as a best practice.',
+        answer:
+          'Any change that materially affects the nutritional values should trigger an update to both the physical label (for mandatory values) and the QR-linked page. Minor variation within declared ranges (allowed under food labelling tolerances) does not require immediate update, but the digital page should reflect the most accurate current values as a best practice.',
       },
     ]
   ),
@@ -174,15 +181,19 @@ This precision reduces over-broad recalls (recalling all stock when only specifi
     [
       {
         question: 'Is blockchain-based QR traceability worth the cost for small food producers?',
-        answer: 'Blockchain adds immutability to traceability records — data once written cannot be altered, which is valuable for fraud prevention in high-value supply chains (luxury seafood, premium spirits, infant formula). For small producers selling direct-to-consumer, a well-maintained database-backed QR traceability system provides equivalent consumer value at a fraction of the cost. Blockchain is appropriate at scale where multiple parties need to trust a shared record.',
+        answer:
+          'Blockchain adds immutability to traceability records — data once written cannot be altered, which is valuable for fraud prevention in high-value supply chains (luxury seafood, premium spirits, infant formula). For small producers selling direct-to-consumer, a well-maintained database-backed QR traceability system provides equivalent consumer value at a fraction of the cost. Blockchain is appropriate at scale where multiple parties need to trust a shared record.',
       },
       {
-        question: 'How do we handle traceability QR codes if a supplier changes mid-production run?',
-        answer: 'Assign supplier IDs in your traceability system. When a supplier changes, update the batch record with the new supplier ID — the QR code itself does not change, but the data associated with each batch accurately reflects which supplier\'s ingredients are in that batch. Ensure your QR links to a system with granular batch-level records, not a generic "our suppliers" page.',
+        question:
+          'How do we handle traceability QR codes if a supplier changes mid-production run?',
+        answer:
+          'Assign supplier IDs in your traceability system. When a supplier changes, update the batch record with the new supplier ID — the QR code itself does not change, but the data associated with each batch accurately reflects which supplier\'s ingredients are in that batch. Ensure your QR links to a system with granular batch-level records, not a generic "our suppliers" page.',
       },
       {
         question: 'Can QR traceability codes be used to combat food fraud in import supply chains?',
-        answer: 'Yes. A QR with GS1 Digital Link encoding and blockchain-backed provenance records is extremely difficult to counterfeit at scale. Regulators and trading standards officers can scan a QR on an imported product and verify the entire declared supply chain against the immutable record. Several major customs authorities are now piloting QR-based import verification for high-risk food categories.',
+        answer:
+          'Yes. A QR with GS1 Digital Link encoding and blockchain-backed provenance records is extremely difficult to counterfeit at scale. Regulators and trading standards officers can scan a QR on an imported product and verify the entire declared supply chain against the immutable record. Several major customs authorities are now piloting QR-based import verification for high-risk food categories.',
       },
     ]
   ),
@@ -232,11 +243,14 @@ When a recipe changes:
     [
       {
         question: 'Can a QR link to ingredient information in multiple languages on a single page?',
-        answer: 'Yes. A single QR can link to a page with a language selector showing the ingredient list in English, French, Arabic, Polish, or any required languages. This is particularly useful for products distributed across multiple markets. Include an auto-language-detection feature (based on browser locale) as the default, with manual override for the user\'s preference.',
+        answer:
+          "Yes. A single QR can link to a page with a language selector showing the ingredient list in English, French, Arabic, Polish, or any required languages. This is particularly useful for products distributed across multiple markets. Include an auto-language-detection feature (based on browser locale) as the default, with manual override for the user's preference.",
       },
       {
-        question: 'What if the QR on a food product stops working — does the consumer have no ingredient information?',
-        answer: 'The physical mandatory label on the pack remains the authoritative source. UK law requires this on the packaging. The QR is a supplementary convenience — its failure does not remove the consumer\'s access to mandatory label information. This is why mandatory information must always be on-pack, not QR-only.',
+        question:
+          'What if the QR on a food product stops working — does the consumer have no ingredient information?',
+        answer:
+          "The physical mandatory label on the pack remains the authoritative source. UK law requires this on the packaging. The QR is a supplementary convenience — its failure does not remove the consumer's access to mandatory label information. This is why mandatory information must always be on-pack, not QR-only.",
       },
     ]
   ),
@@ -302,15 +316,18 @@ Cost: near zero for existing producers with a basic website. The content creatio
     [
       {
         question: 'Can retailers use farm-to-fork QR codes on their own-brand products?',
-        answer: 'Yes. Major UK retailers already use QR codes on own-brand products to deliver provenance stories — Waitrose\'s farm profiles and M&S\'s Farming for the Future programme are examples. Retailers work with their supplier farms to generate the content. The retailer provides the QR infrastructure on packaging; the farm provides the story content.',
+        answer:
+          "Yes. Major UK retailers already use QR codes on own-brand products to deliver provenance stories — Waitrose's farm profiles and M&S's Farming for the Future programme are examples. Retailers work with their supplier farms to generate the content. The retailer provides the QR infrastructure on packaging; the farm provides the story content.",
       },
       {
         question: 'How do we handle farm-to-fork QR content if we change suppliers?',
-        answer: 'Use dynamic QR codes that point to a redirect URL you control. When a supplier changes, update the linked content to reflect the new supply chain. Do not allow QR codes to display outdated provenance information — a consumer scanning a pack that was produced from one farm but sees the story of a previous supplier is a misleading trade description risk.',
+        answer:
+          'Use dynamic QR codes that point to a redirect URL you control. When a supplier changes, update the linked content to reflect the new supply chain. Do not allow QR codes to display outdated provenance information — a consumer scanning a pack that was produced from one farm but sees the story of a previous supplier is a misleading trade description risk.',
       },
       {
         question: 'Is there a certification standard for farm-to-fork QR traceability claims?',
-        answer: 'GS1 Digital Link provides the technical standard for encoding traceability identifiers. Trading Standards and the Advertising Standards Authority (ASA) apply to the accuracy of claims made on QR-linked pages. Certifications like Red Tractor, Rainforest Alliance, and Soil Association provide third-party verification of the production practices claimed. Display current, active certification numbers with links to the certifying body\'s verification portal.',
+        answer:
+          "GS1 Digital Link provides the technical standard for encoding traceability identifiers. Trading Standards and the Advertising Standards Authority (ASA) apply to the accuracy of claims made on QR-linked pages. Certifications like Red Tractor, Rainforest Alliance, and Soil Association provide third-party verification of the production practices claimed. Display current, active certification numbers with links to the certifying body's verification portal.",
       },
     ]
   ),

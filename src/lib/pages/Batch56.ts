@@ -64,15 +64,18 @@ Upsell conversion via in-flow offers is typically 5–15% higher than at-recepti
     [
       {
         question: 'What happens when a guest does not have a smartphone for QR hotel check-in?',
-        answer: 'Physical reception remains available alongside QR check-in. Guests without smartphones complete the traditional check-in. The QR flow is an option that improves the experience for the majority while never excluding the minority who prefer or need human interaction. Never make contactless-only check-in the sole option.',
+        answer:
+          'Physical reception remains available alongside QR check-in. Guests without smartphones complete the traditional check-in. The QR flow is an option that improves the experience for the majority while never excluding the minority who prefer or need human interaction. Never make contactless-only check-in the sole option.',
       },
       {
         question: 'Is QR mobile key secure enough to replace physical key cards?',
-        answer: 'Yes when properly implemented. Mobile key systems use AES-128 encryption over BLE or NFC, and keys can be instantly remotely deactivated from the PMS. This is more secure than a physical key card, which cannot be remotely invalidated if lost. Guest credentials are stored on the device in a secure enclave.',
+        answer:
+          'Yes when properly implemented. Mobile key systems use AES-128 encryption over BLE or NFC, and keys can be instantly remotely deactivated from the PMS. This is more secure than a physical key card, which cannot be remotely invalidated if lost. Guest credentials are stored on the device in a secure enclave.',
       },
       {
         question: 'How do we handle groups checking in with QR codes when some guests are minors?',
-        answer: 'Groups and families require a group booking workflow. The primary booking holder completes the QR pre-arrival form. Additional room keys (mobile or physical) are issued at check-in under the group booking. Minor guests do not receive separate QR check-in flows — they check in as part of the adult\'s booking.',
+        answer:
+          "Groups and families require a group booking workflow. The primary booking holder completes the QR pre-arrival form. Additional room keys (mobile or physical) are issued at check-in under the group booking. Minor guests do not receive separate QR check-in flows — they check in as part of the adult's booking.",
       },
     ]
   ),
@@ -137,15 +140,18 @@ Average spend per order increases 15–25% with digital upsell prompts compared 
     [
       {
         question: 'Can guests order room service via QR without downloading an app?',
-        answer: 'Yes and they should. A web-based ordering page (no app required) accessible via QR scan provides the best experience. App-based ordering creates a barrier — guests will not download an app just for room service. A mobile-optimised website that allows ordering and payment with no download is the right approach.',
+        answer:
+          'Yes and they should. A web-based ordering page (no app required) accessible via QR scan provides the best experience. App-based ordering creates a barrier — guests will not download an app just for room service. A mobile-optimised website that allows ordering and payment with no download is the right approach.',
       },
       {
         question: 'How do we handle allergen requirements for QR room service menus legally?',
-        answer: 'UK Food Information Regulations require the 14 major allergens to be clearly declared for every dish on any menu, including digital menus accessed via QR. Update allergen information in the digital menu immediately when recipes change. A digital menu makes this easier than reprinting — but the legal obligation to maintain accuracy is the same.',
+        answer:
+          'UK Food Information Regulations require the 14 major allergens to be clearly declared for every dish on any menu, including digital menus accessed via QR. Update allergen information in the digital menu immediately when recipes change. A digital menu makes this easier than reprinting — but the legal obligation to maintain accuracy is the same.',
       },
       {
         question: 'What if the hotel WiFi is too slow for the QR room service page to load?',
-        answer: 'Optimise the digital menu for low-bandwidth connections: compress images below 100KB each, use progressive loading, and consider a lightweight Progressive Web App that caches content after first load. Test the menu on a 3G simulated connection using browser dev tools before deployment.',
+        answer:
+          'Optimise the digital menu for low-bandwidth connections: compress images below 100KB each, use progressive loading, and consider a lightweight Progressive Web App that caches content after first load. Test the menu on a 3G simulated connection using browser dev tools before deployment.',
       },
     ]
   ),
@@ -202,11 +208,13 @@ When a guest gives a 4 or 5 star in-stay rating, the thank-you confirmation page
     [
       {
         question: 'What response rate can hotels expect from QR feedback links?',
-        answer: 'In-stay QR feedback typically achieves 8–15% response rates when placed contextually (e.g., on the checkout folio or after F&B). Post-stay email surveys average 2–5%. The in-stay QR advantage is both higher response rate and the ability to intervene before checkout when issues can still be resolved.',
+        answer:
+          'In-stay QR feedback typically achieves 8–15% response rates when placed contextually (e.g., on the checkout folio or after F&B). Post-stay email surveys average 2–5%. The in-stay QR advantage is both higher response rate and the ability to intervene before checkout when issues can still be resolved.',
       },
       {
         question: 'Should hotel feedback QR codes require guests to log in before submitting?',
-        answer: 'No. Requiring login drastically reduces completion rates. Accept anonymous feedback with an optional email field for guests who want follow-up. Room number auto-population (from a room-specific QR) is fine as it does not require the guest to create an account.',
+        answer:
+          'No. Requiring login drastically reduces completion rates. Accept anonymous feedback with an optional email field for guests who want follow-up. Room number auto-population (from a room-specific QR) is fine as it does not require the guest to create an account.',
       },
     ]
   ),
@@ -266,11 +274,13 @@ A guide with 50 restaurants is less useful than one with 10 genuinely recommende
     [
       {
         question: 'Can a hotel earn commission from QR-linked restaurant recommendations?',
-        answer: 'Yes through affiliate arrangements with booking platforms (OpenTable, Resy have referral programs) or direct arrangements with local restaurants. A small commission per booking from hotel referrals is common practice. Disclose any commercial arrangements in your guide for transparency, particularly if recommending businesses the hotel has a financial relationship with.',
+        answer:
+          'Yes through affiliate arrangements with booking platforms (OpenTable, Resy have referral programs) or direct arrangements with local restaurants. A small commission per booking from hotel referrals is common practice. Disclose any commercial arrangements in your guide for transparency, particularly if recommending businesses the hotel has a financial relationship with.',
       },
       {
         question: 'Should the local guide QR be password-protected so only guests can access it?',
-        answer: 'For most hotels, a publicly accessible guide is preferable. It provides no competitive disadvantage, and a public URL allows guests to share it with travelling companions or access it before arrival for trip planning. If the guide includes exclusive guest discounts or hotel-specific information, a simple token-based access control is sufficient.',
+        answer:
+          'For most hotels, a publicly accessible guide is preferable. It provides no competitive disadvantage, and a public URL allows guests to share it with travelling companions or access it before arrival for trip planning. If the guide includes exclusive guest discounts or hotel-specific information, a simple token-based access control is sufficient.',
       },
     ]
   ),
@@ -343,16 +353,20 @@ On the checkout confirmation, a QR links to the hotel's loyalty programme sign-u
     `,
     [
       {
-        question: 'How do small independent hotels implement QR strategies without a large tech budget?',
-        answer: 'Start with free tools: Google Forms for feedback, a Google Sites page for the local guide, a static QR for the WiFi password, and a QR on the breakfast menu linking to a Google Doc. None of these require paid software. Scale to integrated PMS solutions as the budget grows. The QR strategy itself is technology-agnostic.',
+        question:
+          'How do small independent hotels implement QR strategies without a large tech budget?',
+        answer:
+          'Start with free tools: Google Forms for feedback, a Google Sites page for the local guide, a static QR for the WiFi password, and a QR on the breakfast menu linking to a Google Doc. None of these require paid software. Scale to integrated PMS solutions as the budget grows. The QR strategy itself is technology-agnostic.',
       },
       {
         question: 'Do older hotel guests engage with QR codes?',
-        answer: 'Smartphone QR scanning has become mainstream across all age groups since 2020, accelerated by the pandemic dining experience. Research suggests 70%+ of UK adults 55–64 own smartphones and use QR codes. Always provide alternatives — printed menus available on request, staff assistance for check-in — so no guest is excluded.',
+        answer:
+          'Smartphone QR scanning has become mainstream across all age groups since 2020, accelerated by the pandemic dining experience. Research suggests 70%+ of UK adults 55–64 own smartphones and use QR codes. Always provide alternatives — printed menus available on request, staff assistance for check-in — so no guest is excluded.',
       },
       {
         question: 'What is the single most impactful QR implementation for a budget hotel?',
-        answer: 'The WiFi QR code. Every guest needs WiFi; every guest appreciates scanning rather than typing a 20-character password. A QR on the welcome card and bedside table that connects to WiFi instantly sets a positive first impression for technology in the hotel and takes 10 minutes to create.',
+        answer:
+          'The WiFi QR code. Every guest needs WiFi; every guest appreciates scanning rather than typing a 20-character password. A QR on the welcome card and bedside table that connects to WiFi instantly sets a positive first impression for technology in the hotel and takes 10 minutes to create.',
       },
     ]
   ),

@@ -28,8 +28,16 @@ A QR in the prescribing information pamphlet (SmPC) links to the professional re
 Many regulators (EMA, FDA, MHRA) accept electronic adverse event reports. Ensure the QR links to an official portal or a licensed pharmacovigilance system that forwards to the regulator. Verify compliance before launch.
     `,
     [
-      { question: 'Does a QR on medicine packaging satisfy regulatory reporting obligations?', answer: 'It facilitates reporting but does not satisfy the MAH\'s own signal detection and reporting obligations, which are separate.' },
-      { question: 'Should the reporting QR work offline?', answer: 'No. Reports require submission to a live system. Prompt the user to save a draft if they have no connection.' },
+      {
+        question: 'Does a QR on medicine packaging satisfy regulatory reporting obligations?',
+        answer:
+          "It facilitates reporting but does not satisfy the MAH's own signal detection and reporting obligations, which are separate.",
+      },
+      {
+        question: 'Should the reporting QR work offline?',
+        answer:
+          'No. Reports require submission to a live system. Prompt the user to save a draft if they have no connection.',
+      },
     ]
   ),
   art(
@@ -62,8 +70,16 @@ A QR links to the emergency contacts page: property address for emergency servic
 A QR on the fridge or notice board links to the checkout checklist: where to leave keys, how to set the heating, and what to do with rubbish. Reduces checkout mistakes.
     `,
     [
-      { question: 'Should a holiday let QR code be the same for all guests?', answer: 'Yes for general guides and WiFi. Use a guest-specific code only if you personalise the guide with their name or check-in date.' },
-      { question: 'What if guests arrive after the host goes to bed?', answer: 'A QR with the entry code and full welcome guide allows self check-in at any hour without the host being present.' },
+      {
+        question: 'Should a holiday let QR code be the same for all guests?',
+        answer:
+          'Yes for general guides and WiFi. Use a guest-specific code only if you personalise the guide with their name or check-in date.',
+      },
+      {
+        question: 'What if guests arrive after the host goes to bed?',
+        answer:
+          'A QR with the entry code and full welcome guide allows self check-in at any hour without the host being present.',
+      },
     ]
   ),
   art(
@@ -92,8 +108,16 @@ A QR on the feedback card (left on the kitchen counter) links to a three-questio
 A QR on supply bottles links to a stock level log. The cleaner updates when a product runs low. The office orders before the next visit without a separate call.
     `,
     [
-      { question: 'Should client homes have a fixed QR sticker for the cleaner?', answer: 'Yes. A permanent QR on the client\'s inside door or utility cupboard gives the cleaner instant access to the job sheet every visit.' },
-      { question: 'Is photo evidence required for commercial cleaning contracts?', answer: 'Often yes, especially in regulated environments like healthcare or hospitality. QR-triggered photo submission makes this frictionless.' },
+      {
+        question: 'Should client homes have a fixed QR sticker for the cleaner?',
+        answer:
+          "Yes. A permanent QR on the client's inside door or utility cupboard gives the cleaner instant access to the job sheet every visit.",
+      },
+      {
+        question: 'Is photo evidence required for commercial cleaning contracts?',
+        answer:
+          'Often yes, especially in regulated environments like healthcare or hospitality. QR-triggered photo submission makes this frictionless.',
+      },
     ]
   ),
   art(
@@ -122,8 +146,16 @@ A QR on the official count notice links to the live results page. Journalists an
 Election authority QRs must be strictly non-partisan. Candidate QRs are inherently partisan. Keep campaign QRs on campaign materials and official QRs on official notices — never mix them.
     `,
     [
-      { question: 'Can official election QR codes point to candidate pages?', answer: 'No. Official authority QRs must only link to non-partisan government information. Candidate links appear only on campaign material.' },
-      { question: 'Is there a risk that a campaign QR points to false information?', answer: 'Yes. Campaign QRs are the responsibility of the candidate. Voters should verify the domain matches the official campaign website.' },
+      {
+        question: 'Can official election QR codes point to candidate pages?',
+        answer:
+          'No. Official authority QRs must only link to non-partisan government information. Candidate links appear only on campaign material.',
+      },
+      {
+        question: 'Is there a risk that a campaign QR points to false information?',
+        answer:
+          'Yes. Campaign QRs are the responsibility of the candidate. Voters should verify the domain matches the official campaign website.',
+      },
     ]
   ),
   art(
@@ -152,8 +184,16 @@ A QR on the aftercare leaflet links to breed-specific coat care tips, recommende
 A QR in the reception area links to a breed care library. Owners waiting for their pet browse tips for their breed, discover products available in the salon, and ask informed questions.
     `,
     [
-      { question: 'Should a grooming salon QR booking system require pre-payment?', answer: 'Optional pre-payment with a small deposit reduces no-shows. The booking QR can trigger the payment flow before confirming the slot.' },
-      { question: 'Can a QR track which groom style was used for each visit?', answer: 'Yes if the groomer completes a QR-triggered session form with style and product notes. The client history builds automatically.' },
+      {
+        question: 'Should a grooming salon QR booking system require pre-payment?',
+        answer:
+          'Optional pre-payment with a small deposit reduces no-shows. The booking QR can trigger the payment flow before confirming the slot.',
+      },
+      {
+        question: 'Can a QR track which groom style was used for each visit?',
+        answer:
+          'Yes if the groomer completes a QR-triggered session form with style and product notes. The client history builds automatically.',
+      },
     ]
   ),
   art(
@@ -182,8 +222,16 @@ A QR at each repair station links to a guide for the tools available: how to fix
 Cycling trail signs get wet. Use laminated aluminium or acrylic signs with UV-printed QR codes. Place at handlebar height (about 100 to 110 cm) so cyclists can scan without fully dismounting.
     `,
     [
-      { question: 'Can a cyclist scan a QR while riding?', answer: 'No. Design the placement for stopped riders. Use clear "stop here to scan" call to action at designated points.' },
-      { question: 'Should cycling route QR pages work offline?', answer: 'Yes. Implement as a PWA. Riders who scan at the trailhead can access the route map and safety notes without signal mid-trail.' },
+      {
+        question: 'Can a cyclist scan a QR while riding?',
+        answer:
+          'No. Design the placement for stopped riders. Use clear "stop here to scan" call to action at designated points.',
+      },
+      {
+        question: 'Should cycling route QR pages work offline?',
+        answer:
+          'Yes. Implement as a PWA. Riders who scan at the trailhead can access the route map and safety notes without signal mid-trail.',
+      },
     ]
   ),
   art(
@@ -212,8 +260,16 @@ A QR links to the weekly order form so regular customers pre-order their box. Pr
 A "follow this farm" QR links to a sign-up page for seasonal availability notifications. Customers receive an email or SMS when asparagus season starts or the orchard harvest begins.
     `,
     [
-      { question: 'Should farmers market QR codes be printed on reusable tags?', answer: 'Yes. Laminated cards or wooden tags that can be updated work well. Avoid single-use stickers on every item.' },
-      { question: 'Can a QR verify organic certification?', answer: "Link to the certification body's register page or the farm's certification document. The buyer can cross-check against the official registry." },
+      {
+        question: 'Should farmers market QR codes be printed on reusable tags?',
+        answer:
+          'Yes. Laminated cards or wooden tags that can be updated work well. Avoid single-use stickers on every item.',
+      },
+      {
+        question: 'Can a QR verify organic certification?',
+        answer:
+          "Link to the certification body's register page or the farm's certification document. The buyer can cross-check against the official registry.",
+      },
     ]
   ),
   art(
@@ -246,8 +302,16 @@ A QR on welfare tent signage links to drug harm reduction resources, mental heal
 Many modern festivals encode a cashless payment token on the wristband. A QR on the wristband activation card links to the top-up page and balance check.
     `,
     [
-      { question: 'Should festival QR codes work without mobile data in a crowded field?', answer: 'Festival sites often have poor signal. Partner with a telecom sponsor for temporary capacity, and implement an offline-cached PWA for the schedule.' },
-      { question: 'Can the wristband QR and information QR be the same code?', answer: 'No. The wristband encodes an account token; the information QR links to public content. Use separate codes for each function.' },
+      {
+        question: 'Should festival QR codes work without mobile data in a crowded field?',
+        answer:
+          'Festival sites often have poor signal. Partner with a telecom sponsor for temporary capacity, and implement an offline-cached PWA for the schedule.',
+      },
+      {
+        question: 'Can the wristband QR and information QR be the same code?',
+        answer:
+          'No. The wristband encodes an account token; the information QR links to public content. Use separate codes for each function.',
+      },
     ]
   ),
   art(
@@ -276,8 +340,16 @@ A QR links to the studio's on-demand class library. Members who miss a class or 
 A QR on the welcome pack links to studio etiquette, what to bring, and a beginner guide to the first class. Reduces new member anxiety and improves retention.
     `,
     [
-      { question: 'Should a yoga studio QR schedule require a login?', answer: 'Public schedule: no login needed. Booking a spot and accessing on-demand content: login required.' },
-      { question: 'Can a QR replace the printed studio timetable?', answer: 'For most members yes, but keep a small printed version for members who prefer paper or have limited smartphone access.' },
+      {
+        question: 'Should a yoga studio QR schedule require a login?',
+        answer:
+          'Public schedule: no login needed. Booking a spot and accessing on-demand content: login required.',
+      },
+      {
+        question: 'Can a QR replace the printed studio timetable?',
+        answer:
+          'For most members yes, but keep a small printed version for members who prefer paper or have limited smartphone access.',
+      },
     ]
   ),
   art(
@@ -306,8 +378,16 @@ Club administrators scan all new coaches before they take their first session. T
 Volunteer club coaches often have multiple certifications: first aid, safeguarding awareness, and the sport-specific qualification. Each certificate can carry its own QR, or a combined profile page lists all.
     `,
     [
-      { question: 'Does a QR on a certificate prove it has not been tampered with?', answer: 'Only if the QR links to the awarding body\'s own registry. A self-generated certificate with a QR to a self-controlled page can still be faked.' },
-      { question: 'Should parents scan a coach\'s certificate QR?', answer: 'Encouraged. Transparent verification builds trust. Coaches with genuine qualifications welcome the practice.' },
+      {
+        question: 'Does a QR on a certificate prove it has not been tampered with?',
+        answer:
+          "Only if the QR links to the awarding body's own registry. A self-generated certificate with a QR to a self-controlled page can still be faked.",
+      },
+      {
+        question: "Should parents scan a coach's certificate QR?",
+        answer:
+          'Encouraged. Transparent verification builds trust. Coaches with genuine qualifications welcome the practice.',
+      },
     ]
   ),
 ];

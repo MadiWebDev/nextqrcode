@@ -54,15 +54,18 @@ CTA text placed **below** the QR performs better than above in eye-tracking stud
     [
       {
         question: 'Can a QR code frame be too decorative and reduce scannability?',
-        answer: 'Yes if the frame encroaches on the quiet zone (the white margin around the QR matrix). The quiet zone must be at least 4 modules wide and completely clear of any design element. A frame that visually merges with the QR edge or overlaps the quiet zone will confuse scanners. Keep decorative elements strictly outside this boundary.',
+        answer:
+          'Yes if the frame encroaches on the quiet zone (the white margin around the QR matrix). The quiet zone must be at least 4 modules wide and completely clear of any design element. A frame that visually merges with the QR edge or overlaps the quiet zone will confuse scanners. Keep decorative elements strictly outside this boundary.',
       },
       {
         question: 'Does the QR code frame need to be the same colour as the QR code foreground?',
-        answer: 'No. The frame is visually separate from the QR matrix. Use any colour combination that fits your brand and context. Many effective designs use a contrasting frame colour to make the QR pop — dark frame on a light page background, or a bright brand colour frame with a white QR area inside.',
+        answer:
+          'No. The frame is visually separate from the QR matrix. Use any colour combination that fits your brand and context. Many effective designs use a contrasting frame colour to make the QR pop — dark frame on a light page background, or a bright brand colour frame with a white QR area inside.',
       },
       {
         question: 'How do I export a QR code with a frame for use in design software?',
-        answer: 'Most QR generators with frame support export the full composition (frame + QR) as SVG or PNG. In design software (Adobe Illustrator, Canva, Affinity Designer), place the exported QR and build the frame separately around it. Keeping the frame and QR as separate layers lets you adjust the frame design without regenerating the QR.',
+        answer:
+          'Most QR generators with frame support export the full composition (frame + QR) as SVG or PNG. In design software (Adobe Illustrator, Canva, Affinity Designer), place the exported QR and build the frame separately around it. Keeping the frame and QR as separate layers lets you adjust the frame design without regenerating the QR.',
       },
     ]
   ),
@@ -134,11 +137,13 @@ Only use urgency language if it is genuine. False urgency erodes trust when the 
     [
       {
         question: 'Should the CTA text match the content of the destination page?',
-        answer: 'Absolutely. A "Scan to see today\'s specials" CTA that links to a general homepage creates a mismatch — the user expected the specials and got something else. Ensure the QR destination delivers exactly what the CTA promises, within the first screen the user sees after scanning. Mismatched CTAs and destinations are the most common cause of poor QR scan completion rates.',
+        answer:
+          'Absolutely. A "Scan to see today\'s specials" CTA that links to a general homepage creates a mismatch — the user expected the specials and got something else. Ensure the QR destination delivers exactly what the CTA promises, within the first screen the user sees after scanning. Mismatched CTAs and destinations are the most common cause of poor QR scan completion rates.',
       },
       {
         question: 'Can I use emoji in a QR code frame CTA text?',
-        answer: 'Emoji can draw the eye and add personality in digital contexts. In print, they depend entirely on the font and rendering. If your print workflow supports it, a single relevant emoji (a phone icon, a fork for a food CTA) can reinforce the message. Test on physical print before finalising — some print workflows render emoji inconsistently.',
+        answer:
+          'Emoji can draw the eye and add personality in digital contexts. In print, they depend entirely on the font and rendering. If your print workflow supports it, a single relevant emoji (a phone icon, a fork for a food CTA) can reinforce the message. Test on physical print before finalising — some print workflows render emoji inconsistently.',
       },
     ]
   ),
@@ -196,15 +201,18 @@ This combination consistently achieves 50–70% higher scan rates than an unfram
     [
       {
         question: 'Do animated frames on digital screens perform better than static frames?',
-        answer: 'Yes — movement draws the eye on digital displays where static content competes with other elements. A subtle animation (pulsing border, scan-beam animation across the QR) increases engagement on digital signage and web pages. On print, animation is not possible, so high-contrast static frame design is the equivalent attention mechanism.',
+        answer:
+          'Yes — movement draws the eye on digital displays where static content competes with other elements. A subtle animation (pulsing border, scan-beam animation across the QR) increases engagement on digital signage and web pages. On print, animation is not possible, so high-contrast static frame design is the equivalent attention mechanism.',
       },
       {
         question: 'Is there a point of diminishing returns on frame complexity?',
-        answer: 'Yes. Highly complex frames with multiple design elements, text blocks, and decorative graphics around the QR create visual noise that reduces clarity. The frame\'s purpose is to direct attention to the QR and the CTA — every additional element that does not serve this purpose reduces effectiveness. Simplicity and clarity consistently outperform elaborate design.',
+        answer:
+          "Yes. Highly complex frames with multiple design elements, text blocks, and decorative graphics around the QR create visual noise that reduces clarity. The frame's purpose is to direct attention to the QR and the CTA — every additional element that does not serve this purpose reduces effectiveness. Simplicity and clarity consistently outperform elaborate design.",
       },
       {
         question: 'Should the frame include the destination URL as text alongside the QR?',
-        answer: 'For important materials, yes — include a short, readable URL below the QR as a fallback. This also increases trust (users can see where they are scanning to) and provides a typing option for users without QR-capable devices. Use a branded short URL rather than the full destination URL for readability.',
+        answer:
+          'For important materials, yes — include a short, readable URL below the QR as a fallback. This also increases trust (users can see where they are scanning to) and provides a typing option for users without QR-capable devices. Use a branded short URL rather than the full destination URL for readability.',
       },
     ]
   ),
@@ -256,11 +264,13 @@ For digital display contexts (screens, digital signage), combine a dynamic QR wi
     [
       {
         question: 'Can we test different frame CTA texts without reprinting physical materials?',
-        answer: 'For physical print, A/B testing requires two separate print runs with different CTAs and separate QR codes tracking each. For digital applications (email, website, digital signage), standard A/B testing frameworks apply — show different CTA variants to different user segments and compare scan rates. Use this digital A/B data to inform future print CTA decisions.',
+        answer:
+          'For physical print, A/B testing requires two separate print runs with different CTAs and separate QR codes tracking each. For digital applications (email, website, digital signage), standard A/B testing frameworks apply — show different CTA variants to different user segments and compare scan rates. Use this digital A/B data to inform future print CTA decisions.',
       },
       {
         question: 'Is it better to use "Scan" or "Tap" in the frame CTA?',
-        answer: '"Scan" is the established and widely understood term for QR interaction. "Tap" is more associated with NFC or screen touch interactions. Use "Scan" for QR codes — it is unambiguous. In multilingual contexts, the universal scan icon (phone + QR) communicates the action without requiring translation.',
+        answer:
+          '"Scan" is the established and widely understood term for QR interaction. "Tap" is more associated with NFC or screen touch interactions. Use "Scan" for QR codes — it is unambiguous. In multilingual contexts, the universal scan icon (phone + QR) communicates the action without requiring translation.',
       },
     ]
   ),
@@ -322,11 +332,14 @@ With a documented QR frame design system, any team member can create a consisten
     [
       {
         question: 'How do we handle QR code frames on dark-background materials like packaging?',
-        answer: 'On dark backgrounds, use a white or light-coloured frame background to provide the necessary contrast for the QR modules (which must be dark on light). This creates a "panel" or "label" effect — a light rectangular area containing the QR, surrounded by the dark material. Ensure the QR module area inside the frame still maintains dark-on-light contrast.',
+        answer:
+          'On dark backgrounds, use a white or light-coloured frame background to provide the necessary contrast for the QR modules (which must be dark on light). This creates a "panel" or "label" effect — a light rectangular area containing the QR, surrounded by the dark material. Ensure the QR module area inside the frame still maintains dark-on-light contrast.',
       },
       {
-        question: 'Should different departments within an organisation use different frame designs?',
-        answer: 'No. QR frame design consistency across the organisation is more valuable than departmental variation. A unified frame design system means every QR code from your organisation looks like it belongs to the same brand, building recognition over time. Allow variation only in the CTA text — the visual design should be consistent.',
+        question:
+          'Should different departments within an organisation use different frame designs?',
+        answer:
+          'No. QR frame design consistency across the organisation is more valuable than departmental variation. A unified frame design system means every QR code from your organisation looks like it belongs to the same brand, building recognition over time. Allow variation only in the CTA text — the visual design should be consistent.',
       },
     ]
   ),

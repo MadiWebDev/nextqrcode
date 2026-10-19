@@ -59,15 +59,18 @@ Use a dynamic QR or a redirect URL you control. When you update your portfolio, 
     [
       {
         question: 'Will a recruiter actually scan the QR on my CV?',
-        answer: 'Research on recruiter behaviour suggests that intrigued recruiters — those who have read your CV and want to see more — do scan CV QR codes. QRs are less effective as cold attention-grabbers (a recruiter scanning every code on every CV is unlikely). Design the QR as a conversion tool for already-interested recruiters, not as a gimmick to be noticed.',
+        answer:
+          'Research on recruiter behaviour suggests that intrigued recruiters — those who have read your CV and want to see more — do scan CV QR codes. QRs are less effective as cold attention-grabbers (a recruiter scanning every code on every CV is unlikely). Design the QR as a conversion tool for already-interested recruiters, not as a gimmick to be noticed.',
       },
       {
         question: 'Is a QR code on a CV appropriate for all industries?',
-        answer: 'Yes, though the linked content should match industry expectations. For technical roles (developers, designers, engineers), a GitHub or portfolio QR is expected and impressive. For traditional sectors (law, finance, medicine), link to a polished LinkedIn or personal website rather than a code repository. The QR demonstrates digital literacy in any field — the linked content demonstrates domain expertise.',
+        answer:
+          'Yes, though the linked content should match industry expectations. For technical roles (developers, designers, engineers), a GitHub or portfolio QR is expected and impressive. For traditional sectors (law, finance, medicine), link to a polished LinkedIn or personal website rather than a code repository. The QR demonstrates digital literacy in any field — the linked content demonstrates domain expertise.',
       },
       {
         question: 'Should the QR code on my CV link to a private or public portfolio?',
-        answer: 'Public, with appropriate content curation. Remove any client work that is under NDA or that you do not have permission to showcase. Use a "View case study on request" placeholder for protected work. Your public portfolio should represent your best work — do not link to a raw GitHub profile full of abandoned or unfinished projects without curating it first.',
+        answer:
+          'Public, with appropriate content curation. Remove any client work that is under NDA or that you do not have permission to showcase. Use a "View case study on request" placeholder for protected work. Your public portfolio should represent your best work — do not link to a raw GitHub profile full of abandoned or unfinished projects without curating it first.',
       },
     ]
   ),
@@ -119,12 +122,15 @@ Hiring managers and recruiters who are hiring for roles can include a LinkedIn Q
     `,
     [
       {
-        question: 'Does the LinkedIn QR code require the person scanning to have a LinkedIn account?',
-        answer: 'Without a LinkedIn account, scanning the QR opens the public LinkedIn profile page in a browser — visible to anyone for profiles set to public view. The person can see your photo, headline, and summary without an account. Connecting, messaging, or viewing full experience details requires a LinkedIn account. The QR is accessible to all; full functionality requires login.',
+        question:
+          'Does the LinkedIn QR code require the person scanning to have a LinkedIn account?',
+        answer:
+          'Without a LinkedIn account, scanning the QR opens the public LinkedIn profile page in a browser — visible to anyone for profiles set to public view. The person can see your photo, headline, and summary without an account. Connecting, messaging, or viewing full experience details requires a LinkedIn account. The QR is accessible to all; full functionality requires login.',
       },
       {
         question: 'Can I use my LinkedIn QR to grow my connections from offline networking events?',
-        answer: 'Yes — this is one of the strongest use cases. Displaying your LinkedIn QR at your networking station or on a placard means anyone who passes can connect with you digitally without exchanging cards. Display it with "Scan to connect" and accept the incoming connection requests same day. The QR reduces the awkwardness of asking for connection details in person.',
+        answer:
+          'Yes — this is one of the strongest use cases. Displaying your LinkedIn QR at your networking station or on a placard means anyone who passes can connect with you digitally without exchanging cards. Display it with "Scan to connect" and accept the incoming connection requests same day. The QR reduces the awkwardness of asking for connection details in person.',
       },
     ]
   ),
@@ -187,15 +193,18 @@ Provide a "Full case study" link per portfolio piece for recruiters who want dep
     [
       {
         question: 'How long should each portfolio case study be on a QR-linked portfolio page?',
-        answer: 'Aim for 200–400 words per case study with visuals. The structure: context (what was the challenge?), contribution (what did you specifically do?), outcome (what measurably changed?). This format respects a recruiter\'s time while providing enough depth to evaluate relevance. Longer case studies can be offered as downloadable PDFs linked from the page.',
+        answer:
+          "Aim for 200–400 words per case study with visuals. The structure: context (what was the challenge?), contribution (what did you specifically do?), outcome (what measurably changed?). This format respects a recruiter's time while providing enough depth to evaluate relevance. Longer case studies can be offered as downloadable PDFs linked from the page.",
       },
       {
         question: 'What if I cannot share client work publicly due to confidentiality?',
-        answer: 'Include the project with enough context to be meaningful, without proprietary details. For example: "Redesigned the onboarding flow for a fintech client with 50,000+ users — resulted in a 32% improvement in completion rate." Metrics and structure can usually be shared; proprietary data and client names can be withheld. Offer "Full case study available under NDA on request" for particularly sensitive work.',
+        answer:
+          'Include the project with enough context to be meaningful, without proprietary details. For example: "Redesigned the onboarding flow for a fintech client with 50,000+ users — resulted in a 32% improvement in completion rate." Metrics and structure can usually be shared; proprietary data and client names can be withheld. Offer "Full case study available under NDA on request" for particularly sensitive work.',
       },
       {
         question: 'Can a QR portfolio work for a first-time job seeker with no work history?',
-        answer: 'Yes — include university projects, freelance work, personal projects, volunteer contributions, and any speculative work (a mock campaign brief, a redesign concept, a personal code project). Recruiters for entry-level roles understand that university-leavers have limited paid experience. A thoughtfully curated student portfolio is significantly more impressive than no portfolio at all.',
+        answer:
+          'Yes — include university projects, freelance work, personal projects, volunteer contributions, and any speculative work (a mock campaign brief, a redesign concept, a personal code project). Recruiters for entry-level roles understand that university-leavers have limited paid experience. A thoughtfully curated student portfolio is significantly more impressive than no portfolio at all.',
       },
     ]
   ),
@@ -242,11 +251,13 @@ After distributing cards, connect on LinkedIn with a personalised note: "Great t
     [
       {
         question: 'Should a job seeker business card say "unemployed" or their current status?',
-        answer: 'No. Include your target role title and key skills, not your employment status. "Frontend Developer" is your professional identity. Your current employment situation is not relevant on the card. If directly asked, explain you are actively seeking new opportunities — but the card itself is a professional presentation tool, not a disclosure document.',
+        answer:
+          'No. Include your target role title and key skills, not your employment status. "Frontend Developer" is your professional identity. Your current employment situation is not relevant on the card. If directly asked, explain you are actively seeking new opportunities — but the card itself is a professional presentation tool, not a disclosure document.',
       },
       {
         question: 'How many job seeker business cards should I print?',
-        answer: 'Print 100–200 for an active search period. This typically costs under £20 from UK online printers (Vistaprint, Moo, Printed.com). Reprint when details change (new phone number, updated portfolio URL). Since the QR uses a dynamic redirect, your portfolio can be updated without reprinting.',
+        answer:
+          'Print 100–200 for an active search period. This typically costs under £20 from UK online printers (Vistaprint, Moo, Printed.com). Reprint when details change (new phone number, updated portfolio URL). Since the QR uses a dynamic redirect, your portfolio can be updated without reprinting.',
       },
     ]
   ),
@@ -318,15 +329,19 @@ A single professional URL and QR that you maintain as your authoritative career 
     [
       {
         question: 'Should a professional profile page be public or gated behind a login?',
-        answer: 'Public. A gated profile defeats the purpose — recruiters and contacts who scan your QR expect immediate access to your information. Keep personally sensitive details (full home address, personal phone) off the public page, using a contact form instead. Your professional experience, portfolio, and career highlights should be freely accessible to anyone who scans.',
+        answer:
+          'Public. A gated profile defeats the purpose — recruiters and contacts who scan your QR expect immediate access to your information. Keep personally sensitive details (full home address, personal phone) off the public page, using a contact form instead. Your professional experience, portfolio, and career highlights should be freely accessible to anyone who scans.',
       },
       {
         question: 'How often should I update my professional profile page?',
-        answer: 'Update it whenever something material changes: a new role, a significant project completion, a new certification, a published piece of work. Quarterly review is good practice. Keep the "currently available" or "open to opportunities" status current — an outdated status misleads recruiters who scan your QR from old materials.',
+        answer:
+          'Update it whenever something material changes: a new role, a significant project completion, a new certification, a published piece of work. Quarterly review is good practice. Keep the "currently available" or "open to opportunities" status current — an outdated status misleads recruiters who scan your QR from old materials.',
       },
       {
-        question: 'Can a professional profile page help with freelance client acquisition as well as job seeking?',
-        answer: 'Yes and it is often more effective for freelancers than job seekers. A freelance profile page replaces the traditional agency portfolio for solo practitioners. Include services, pricing guidance (or "from" rates), client case studies, and a direct booking or enquiry mechanism. QR codes on your business card and in your email signature convert warm contacts into enquiries efficiently.',
+        question:
+          'Can a professional profile page help with freelance client acquisition as well as job seeking?',
+        answer:
+          'Yes and it is often more effective for freelancers than job seekers. A freelance profile page replaces the traditional agency portfolio for solo practitioners. Include services, pricing guidance (or "from" rates), client case studies, and a direct booking or enquiry mechanism. QR codes on your business card and in your email signature convert warm contacts into enquiries efficiently.',
       },
     ]
   ),
