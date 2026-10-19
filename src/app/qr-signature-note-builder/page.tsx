@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { PenLine, Copy, CheckCircle2, Download } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 async function sha256Hex(text: string): Promise<string> {
   const bytes = new TextEncoder().encode(text);
@@ -138,6 +139,9 @@ export default function QRSignatureNoteBuilderPage() {
           { label: 'QR Signature Note Builder', href: '/qr-signature-note-builder' },
         ]}
       />
+
+      <AdSlot id="qr-signature-note-builder-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <PenLine className="w-3.5 h-3.5" />
@@ -233,6 +237,8 @@ export default function QRSignatureNoteBuilderPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-signature-note-builder-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How a verification note makes a QR code checkable
@@ -254,6 +260,9 @@ export default function QRSignatureNoteBuilderPage() {
           The check compares two independent sources, and independence is what gives the comparison
           its power.
         </p>
+
+        <AdSlot id="qr-signature-note-builder-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Precision matters as much as independence. A hash is computed over bytes, so the payload
           in the note must match the payload in the code exactly — same capitalisation, same
@@ -281,6 +290,8 @@ export default function QRSignatureNoteBuilderPage() {
         </p>
       </article>
 
+      <AdSlot id="qr-signature-note-builder-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Signature Notes
@@ -298,6 +309,9 @@ export default function QRSignatureNoteBuilderPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-signature-note-builder-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

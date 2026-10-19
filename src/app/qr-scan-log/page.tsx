@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { NotebookPen, Download, Trash2 } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 type Verdict = 'safe' | 'suspicious' | 'blocked';
 
@@ -188,6 +189,9 @@ export default function QRScanLogPage() {
           { label: 'QR Scan Log', href: '/qr-scan-log' },
         ]}
       />
+
+      <AdSlot id="qr-scan-log-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <NotebookPen className="w-3.5 h-3.5" />
@@ -335,6 +339,8 @@ export default function QRScanLogPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-scan-log-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">Why keep a log of QR codes you scan</h2>
         <p className="text-base leading-relaxed">
@@ -354,6 +360,9 @@ export default function QRScanLogPage() {
           reconstruct. Over time, your own log becomes a personal reputation database for the places
           and senders whose codes you encounter.
         </p>
+
+        <AdSlot id="qr-scan-log-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           For teams, a shared habit of logging is even more powerful. Facilities staff who log the
           codes they inspect, marketing staff who log the codes they publish, and support staff who
@@ -379,6 +388,8 @@ export default function QRScanLogPage() {
         </p>
       </article>
 
+      <AdSlot id="qr-scan-log-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Scan Logs
@@ -396,6 +407,9 @@ export default function QRScanLogPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-scan-log-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

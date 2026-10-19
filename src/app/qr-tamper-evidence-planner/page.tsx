@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { ShieldAlert, Copy, CheckCircle2 } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 type Placement = 'indoor' | 'outdoor' | 'vehicle' | 'public-street';
 type Risk = 'low' | 'medium' | 'high';
@@ -301,6 +302,7 @@ export default function QRTamperEvidencePlannerPage() {
           </Card>
         </div>
       </div>
+      <AdSlot id="qr-tamper-evidence-planner-after-tool" format="horizontal-banner" />
 
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
@@ -323,6 +325,7 @@ export default function QRTamperEvidencePlannerPage() {
           simpler spec — but they still deserve an owner and a schedule, because an unowned code is
           a code nobody checks.
         </p>
+        <AdSlot id="qr-tamper-evidence-planner-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           Materials matter, and each has a trade-off. Destructible vinyl fragments when peeled,
           which makes removal obvious but also means weather damage can look like tampering. Void
@@ -355,6 +358,7 @@ export default function QRTamperEvidencePlannerPage() {
         </p>
       </article>
 
+      <AdSlot id="qr-tamper-evidence-planner-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Tamper Evidence
@@ -372,6 +376,7 @@ export default function QRTamperEvidencePlannerPage() {
           ))}
         </div>
       </section>
+      <AdSlot id="qr-tamper-evidence-planner-bottom" format="horizontal-banner" />
     </div>
   );
 }

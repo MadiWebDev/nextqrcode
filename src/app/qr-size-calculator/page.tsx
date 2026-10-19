@@ -115,6 +115,8 @@ export default function QRSizeCalculatorPage() {
         ]}
       />
 
+      <AdSlot id="qr-size-calculator-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Calculator className="w-3.5 h-3.5" />
@@ -386,6 +388,8 @@ export default function QRSizeCalculatorPage() {
           </li>
         </ul>
 
+        <AdSlot id="qr-size-calculator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           When to Use the Conservative 8:1 Ratio
         </h3>
@@ -436,6 +440,8 @@ export default function QRSizeCalculatorPage() {
         </ul>
       </article>
 
+      <AdSlot id="qr-size-calculator-pre-related" format="horizontal-banner" />
+
       {/* Structured FAQ Section */}
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
@@ -454,6 +460,9 @@ export default function QRSizeCalculatorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-size-calculator-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

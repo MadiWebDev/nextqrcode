@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Download } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -284,6 +285,7 @@ export default function QrSvgPngPdfExporterPage() {
           )}
         </Card>
       </div>
+      <AdSlot id="qr-svg-png-pdf-exporter-after-tool" format="horizontal-banner" />
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Which Export Format Should You Choose for a QR Code
@@ -306,6 +308,7 @@ export default function QrSvgPngPdfExporterPage() {
           uploaders, do not accept SVG. In those cases, export a PNG at a generous pixel size
           instead of fighting the tool.
         </p>
+        <AdSlot id="qr-svg-png-pdf-exporter-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           PNG is the right choice for web pages, slides, documents, and quick proofs. Pick the pixel
           size from the final use, not from habit. A good rule is to multiply the printed size in
@@ -335,6 +338,7 @@ export default function QrSvgPngPdfExporterPage() {
           quiet zone is a broken code.
         </p>
       </article>
+      <AdSlot id="qr-svg-png-pdf-exporter-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -352,6 +356,7 @@ export default function QrSvgPngPdfExporterPage() {
           ))}
         </div>
       </section>
+      <AdSlot id="qr-svg-png-pdf-exporter-bottom" format="horizontal-banner" />
     </div>
   );
 }

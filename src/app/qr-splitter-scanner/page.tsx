@@ -169,6 +169,8 @@ export default function QRSplitterScannerPage() {
         ]}
       />
 
+      <AdSlot id="qr-splitter-scanner-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Layers className="w-3.5 h-3.5" />
@@ -451,6 +453,8 @@ export default function QRSplitterScannerPage() {
           milliseconds.
         </p>
 
+        <AdSlot id="qr-splitter-scanner-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           Applications in Air-Gapped and Cold Storage Security
         </h3>
@@ -462,6 +466,8 @@ export default function QRSplitterScannerPage() {
           hardware connectivity.
         </p>
       </article>
+
+      <AdSlot id="qr-splitter-scanner-pre-related" format="horizontal-banner" />
 
       {/* Structured FAQ Section */}
       <section className="mt-12 pt-8 border-t border-border/60">
@@ -481,6 +487,9 @@ export default function QRSplitterScannerPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-splitter-scanner-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

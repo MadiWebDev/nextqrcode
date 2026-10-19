@@ -3,6 +3,7 @@ import { siteConfig } from '@/config/site';
 import { BreadcrumbJsonLd } from '@/lib/seo/jsonld';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ScannerClient } from './ScannerClient';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'QR Code Scanner — Read QR Codes with Camera or Image',
@@ -29,6 +30,9 @@ export default function QrScannerPage() {
         baseUrl={siteConfig.url}
       />
       <Breadcrumbs items={[{ label: 'QR Scanner', href: '/qr-scanner' }]} />
+
+      <AdSlot id="qr-scanner-top" format="horizontal-banner" />
+
       <header className="space-y-3">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">QR Code Scanner</h1>
         <p className="text-muted-foreground max-w-2xl">
@@ -38,6 +42,9 @@ export default function QrScannerPage() {
         </p>
       </header>
       <ScannerClient />
+
+      <AdSlot id="qr-scanner-after-tool" format="horizontal-banner" />
+
     </div>
   );
 }

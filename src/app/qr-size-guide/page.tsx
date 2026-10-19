@@ -5,6 +5,7 @@ import { siteConfig } from '@/config/site';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { BreadcrumbJsonLd, WebPageJsonLd } from '@/lib/seo/jsonld';
 import { Ruler, ArrowRight } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: `QR Code Size Guide: Print Sizes for Every Use Case | ${siteConfig.name}`,
@@ -40,6 +41,8 @@ export default function SizeGuideHubPage() {
       />
 
       <Breadcrumbs items={[{ label: 'QR Size Guides', href: '/qr-size-guide' }]} />
+
+      <AdSlot id="qr-size-guide-top" format="horizontal-banner" />
 
       <header className="mb-10 text-center sm:text-left">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
@@ -92,6 +95,8 @@ export default function SizeGuideHubPage() {
         ))}
       </div>
 
+      <AdSlot id="qr-size-guide-after-tool" format="horizontal-banner" />
+
       <section className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
@@ -112,6 +117,9 @@ export default function SizeGuideHubPage() {
           </Link>
         </div>
       </section>
+
+      <AdSlot id="qr-size-guide-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

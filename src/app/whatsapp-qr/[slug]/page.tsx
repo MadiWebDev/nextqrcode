@@ -125,6 +125,7 @@ export default async function WhatsAppCountryPage({ params }: Props) {
         </div>
       </section>
 
+      <AdSlot id={`whatsapp-${country.slug}-pre-related`} format="horizontal-banner" />
       {/* Other Country Hub Links */}
       <section className="space-y-4">
         <h3 className="text-lg font-bold text-foreground">
@@ -145,6 +146,7 @@ export default async function WhatsAppCountryPage({ params }: Props) {
           ))}
         </div>
       </section>
+      <AdSlot id={`whatsapp-${country.slug}-bottom`} format="horizontal-banner" />
     </div>
   );
 }

@@ -127,6 +127,8 @@ export default function QRStickerSheetPrinterPage() {
         ]}
       />
 
+      <AdSlot id="qr-sticker-sheet-printer-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Grid className="w-3.5 h-3.5" />
@@ -310,6 +312,8 @@ export default function QRStickerSheetPrinterPage() {
           when browser print drivers apply automatic margins or scaling adjustments.
         </p>
 
+        <AdSlot id="qr-sticker-sheet-printer-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           Printer Dialog Calibration Checklist
         </h3>
@@ -334,6 +338,8 @@ export default function QRStickerSheetPrinterPage() {
         </ol>
       </article>
 
+      <AdSlot id="qr-sticker-sheet-printer-pre-related" format="horizontal-banner" />
+
       {/* Structured FAQ Section */}
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
@@ -352,6 +358,9 @@ export default function QRStickerSheetPrinterPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-sticker-sheet-printer-bottom" format="horizontal-banner" />
+
     </div>
   );
 }
