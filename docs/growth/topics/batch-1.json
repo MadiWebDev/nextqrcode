@@ -1,0 +1,902 @@
+[
+  {
+    "slug": "qr-payments-in-brazil",
+    "title": "QR Payments in Brazil: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-01",
+    "readTime": "5 min read",
+    "index": 0
+  },
+  {
+    "slug": "qr-payments-in-mexico",
+    "title": "QR Payments in Mexico: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-01",
+    "readTime": "6 min read",
+    "index": 1
+  },
+  {
+    "slug": "qr-payments-in-colombia",
+    "title": "QR Payments in Colombia: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-01",
+    "readTime": "7 min read",
+    "index": 2
+  },
+  {
+    "slug": "qr-payments-in-argentina",
+    "title": "QR Payments in Argentina: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-02",
+    "readTime": "5 min read",
+    "index": 3
+  },
+  {
+    "slug": "qr-payments-in-chile",
+    "title": "QR Payments in Chile: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-02",
+    "readTime": "6 min read",
+    "index": 4
+  },
+  {
+    "slug": "qr-payments-in-peru",
+    "title": "QR Payments in Peru: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-02",
+    "readTime": "7 min read",
+    "index": 5
+  },
+  {
+    "slug": "qr-payments-in-ecuador",
+    "title": "QR Payments in Ecuador: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-03",
+    "readTime": "5 min read",
+    "index": 6
+  },
+  {
+    "slug": "qr-payments-in-venezuela",
+    "title": "QR Payments in Venezuela: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-03",
+    "readTime": "6 min read",
+    "index": 7
+  },
+  {
+    "slug": "qr-payments-in-bolivia",
+    "title": "QR Payments in Bolivia: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-03",
+    "readTime": "7 min read",
+    "index": 8
+  },
+  {
+    "slug": "qr-payments-in-paraguay",
+    "title": "QR Payments in Paraguay: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-04",
+    "readTime": "5 min read",
+    "index": 9
+  },
+  {
+    "slug": "qr-payments-in-uruguay",
+    "title": "QR Payments in Uruguay: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-04",
+    "readTime": "6 min read",
+    "index": 10
+  },
+  {
+    "slug": "qr-payments-in-guatemala",
+    "title": "QR Payments in Guatemala: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-04",
+    "readTime": "7 min read",
+    "index": 11
+  },
+  {
+    "slug": "qr-payments-in-honduras",
+    "title": "QR Payments in Honduras: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-05",
+    "readTime": "5 min read",
+    "index": 12
+  },
+  {
+    "slug": "qr-payments-in-el-salvador",
+    "title": "QR Payments in El Salvador: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-05",
+    "readTime": "6 min read",
+    "index": 13
+  },
+  {
+    "slug": "qr-payments-in-nicaragua",
+    "title": "QR Payments in Nicaragua: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-05",
+    "readTime": "7 min read",
+    "index": 14
+  },
+  {
+    "slug": "qr-payments-in-costa-rica",
+    "title": "QR Payments in Costa Rica: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-06",
+    "readTime": "5 min read",
+    "index": 15
+  },
+  {
+    "slug": "qr-payments-in-panama",
+    "title": "QR Payments in Panama: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-06",
+    "readTime": "6 min read",
+    "index": 16
+  },
+  {
+    "slug": "qr-payments-in-dominican-republic",
+    "title": "QR Payments in Dominican Republic: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-06",
+    "readTime": "7 min read",
+    "index": 17
+  },
+  {
+    "slug": "qr-payments-in-cuba",
+    "title": "QR Payments in Cuba: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-07",
+    "readTime": "5 min read",
+    "index": 18
+  },
+  {
+    "slug": "qr-payments-in-jamaica",
+    "title": "QR Payments in Jamaica: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-07",
+    "readTime": "6 min read",
+    "index": 19
+  },
+  {
+    "slug": "qr-payments-in-trinidad-and-tobago",
+    "title": "QR Payments in Trinidad And Tobago: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-07",
+    "readTime": "7 min read",
+    "index": 20
+  },
+  {
+    "slug": "qr-payments-in-thailand",
+    "title": "QR Payments in Thailand: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-08",
+    "readTime": "5 min read",
+    "index": 21
+  },
+  {
+    "slug": "qr-payments-in-vietnam",
+    "title": "QR Payments in Vietnam: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-08",
+    "readTime": "6 min read",
+    "index": 22
+  },
+  {
+    "slug": "qr-payments-in-indonesia",
+    "title": "QR Payments in Indonesia: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-08",
+    "readTime": "7 min read",
+    "index": 23
+  },
+  {
+    "slug": "qr-payments-in-malaysia",
+    "title": "QR Payments in Malaysia: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-09",
+    "readTime": "5 min read",
+    "index": 24
+  },
+  {
+    "slug": "qr-payments-in-singapore",
+    "title": "QR Payments in Singapore: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-09",
+    "readTime": "6 min read",
+    "index": 25
+  },
+  {
+    "slug": "qr-payments-in-philippines",
+    "title": "QR Payments in Philippines: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-09",
+    "readTime": "7 min read",
+    "index": 26
+  },
+  {
+    "slug": "qr-payments-in-cambodia",
+    "title": "QR Payments in Cambodia: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-10",
+    "readTime": "5 min read",
+    "index": 27
+  },
+  {
+    "slug": "qr-payments-in-laos",
+    "title": "QR Payments in Laos: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-10",
+    "readTime": "6 min read",
+    "index": 28
+  },
+  {
+    "slug": "qr-payments-in-myanmar",
+    "title": "QR Payments in Myanmar: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-10",
+    "readTime": "7 min read",
+    "index": 29
+  },
+  {
+    "slug": "qr-payments-in-bangladesh",
+    "title": "QR Payments in Bangladesh: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-11",
+    "readTime": "5 min read",
+    "index": 30
+  },
+  {
+    "slug": "qr-payments-in-nepal",
+    "title": "QR Payments in Nepal: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-11",
+    "readTime": "6 min read",
+    "index": 31
+  },
+  {
+    "slug": "qr-payments-in-sri-lanka",
+    "title": "QR Payments in Sri Lanka: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-11",
+    "readTime": "7 min read",
+    "index": 32
+  },
+  {
+    "slug": "qr-payments-in-mongolia",
+    "title": "QR Payments in Mongolia: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-12",
+    "readTime": "5 min read",
+    "index": 33
+  },
+  {
+    "slug": "qr-payments-in-south-korea",
+    "title": "QR Payments in South Korea: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-12",
+    "readTime": "6 min read",
+    "index": 34
+  },
+  {
+    "slug": "qr-payments-in-japan",
+    "title": "QR Payments in Japan: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-12",
+    "readTime": "7 min read",
+    "index": 35
+  },
+  {
+    "slug": "qr-payments-in-taiwan",
+    "title": "QR Payments in Taiwan: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-13",
+    "readTime": "5 min read",
+    "index": 36
+  },
+  {
+    "slug": "qr-payments-in-australia",
+    "title": "QR Payments in Australia: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-13",
+    "readTime": "6 min read",
+    "index": 37
+  },
+  {
+    "slug": "qr-payments-in-new-zealand",
+    "title": "QR Payments in New Zealand: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-13",
+    "readTime": "7 min read",
+    "index": 38
+  },
+  {
+    "slug": "qr-payments-in-egypt",
+    "title": "QR Payments in Egypt: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-14",
+    "readTime": "5 min read",
+    "index": 39
+  },
+  {
+    "slug": "qr-payments-in-nigeria",
+    "title": "QR Payments in Nigeria: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-14",
+    "readTime": "6 min read",
+    "index": 40
+  },
+  {
+    "slug": "qr-payments-in-kenya",
+    "title": "QR Payments in Kenya: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-14",
+    "readTime": "7 min read",
+    "index": 41
+  },
+  {
+    "slug": "qr-payments-in-ghana",
+    "title": "QR Payments in Ghana: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-15",
+    "readTime": "5 min read",
+    "index": 42
+  },
+  {
+    "slug": "qr-payments-in-south-africa",
+    "title": "QR Payments in South Africa: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-15",
+    "readTime": "6 min read",
+    "index": 43
+  },
+  {
+    "slug": "qr-payments-in-ethiopia",
+    "title": "QR Payments in Ethiopia: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-15",
+    "readTime": "7 min read",
+    "index": 44
+  },
+  {
+    "slug": "qr-payments-in-morocco",
+    "title": "QR Payments in Morocco: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-16",
+    "readTime": "5 min read",
+    "index": 45
+  },
+  {
+    "slug": "qr-payments-in-tunisia",
+    "title": "QR Payments in Tunisia: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-16",
+    "readTime": "6 min read",
+    "index": 46
+  },
+  {
+    "slug": "qr-payments-in-turkey",
+    "title": "QR Payments in Turkey: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-16",
+    "readTime": "7 min read",
+    "index": 47
+  },
+  {
+    "slug": "qr-payments-in-saudi-arabia",
+    "title": "QR Payments in Saudi Arabia: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-17",
+    "readTime": "5 min read",
+    "index": 48
+  },
+  {
+    "slug": "qr-payments-in-uae",
+    "title": "QR Payments in UAE: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-17",
+    "readTime": "6 min read",
+    "index": 49
+  },
+  {
+    "slug": "qr-payments-in-qatar",
+    "title": "QR Payments in Qatar: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-17",
+    "readTime": "7 min read",
+    "index": 50
+  },
+  {
+    "slug": "qr-payments-in-kuwait",
+    "title": "QR Payments in Kuwait: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-18",
+    "readTime": "5 min read",
+    "index": 51
+  },
+  {
+    "slug": "qr-payments-in-oman",
+    "title": "QR Payments in Oman: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-18",
+    "readTime": "6 min read",
+    "index": 52
+  },
+  {
+    "slug": "qr-payments-in-jordan",
+    "title": "QR Payments in Jordan: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-18",
+    "readTime": "7 min read",
+    "index": 53
+  },
+  {
+    "slug": "qr-payments-in-lebanon",
+    "title": "QR Payments in Lebanon: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-19",
+    "readTime": "5 min read",
+    "index": 54
+  },
+  {
+    "slug": "qr-payments-in-israel",
+    "title": "QR Payments in Israel: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-19",
+    "readTime": "6 min read",
+    "index": 55
+  },
+  {
+    "slug": "qr-payments-in-poland",
+    "title": "QR Payments in Poland: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-19",
+    "readTime": "7 min read",
+    "index": 56
+  },
+  {
+    "slug": "qr-payments-in-ukraine",
+    "title": "QR Payments in Ukraine: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-20",
+    "readTime": "5 min read",
+    "index": 57
+  },
+  {
+    "slug": "qr-payments-in-romania",
+    "title": "QR Payments in Romania: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-20",
+    "readTime": "6 min read",
+    "index": 58
+  },
+  {
+    "slug": "qr-payments-in-kazakhstan",
+    "title": "QR Payments in Kazakhstan: How They Work and How to Accept Them",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-20",
+    "readTime": "7 min read",
+    "index": 59
+  },
+  {
+    "slug": "qr-payments-with-pix",
+    "title": "QR Payments with PIX: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-21",
+    "readTime": "5 min read",
+    "index": 60
+  },
+  {
+    "slug": "qr-payments-with-promptpay",
+    "title": "QR Payments with Promptpay: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-21",
+    "readTime": "6 min read",
+    "index": 61
+  },
+  {
+    "slug": "qr-payments-with-m-pesa",
+    "title": "QR Payments with M Pesa: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-21",
+    "readTime": "7 min read",
+    "index": 62
+  },
+  {
+    "slug": "qr-payments-with-wechat-pay",
+    "title": "QR Payments with Wechat Pay: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-22",
+    "readTime": "5 min read",
+    "index": 63
+  },
+  {
+    "slug": "qr-payments-with-alipay",
+    "title": "QR Payments with Alipay: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-22",
+    "readTime": "6 min read",
+    "index": 64
+  },
+  {
+    "slug": "qr-payments-with-paypay",
+    "title": "QR Payments with Paypay: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-22",
+    "readTime": "7 min read",
+    "index": 65
+  },
+  {
+    "slug": "qr-payments-with-kakaopay",
+    "title": "QR Payments with Kakaopay: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-23",
+    "readTime": "5 min read",
+    "index": 66
+  },
+  {
+    "slug": "qr-payments-with-gcash",
+    "title": "QR Payments with Gcash: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-23",
+    "readTime": "6 min read",
+    "index": 67
+  },
+  {
+    "slug": "qr-payments-with-paytm",
+    "title": "QR Payments with Paytm: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-23",
+    "readTime": "7 min read",
+    "index": 68
+  },
+  {
+    "slug": "qr-payments-with-phonepe",
+    "title": "QR Payments with Phonepe: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-24",
+    "readTime": "5 min read",
+    "index": 69
+  },
+  {
+    "slug": "qr-payments-with-dana",
+    "title": "QR Payments with DANA: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-24",
+    "readTime": "6 min read",
+    "index": 70
+  },
+  {
+    "slug": "qr-payments-with-ovo",
+    "title": "QR Payments with OVO: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-24",
+    "readTime": "7 min read",
+    "index": 71
+  },
+  {
+    "slug": "qr-payments-with-touch-n-go",
+    "title": "QR Payments with Touch N Go: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-25",
+    "readTime": "5 min read",
+    "index": 72
+  },
+  {
+    "slug": "qr-payments-with-vietqr",
+    "title": "QR Payments with Vietqr: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-25",
+    "readTime": "6 min read",
+    "index": 73
+  },
+  {
+    "slug": "qr-payments-with-qrph",
+    "title": "QR Payments with QRPH: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-25",
+    "readTime": "7 min read",
+    "index": 74
+  },
+  {
+    "slug": "qr-payments-with-sgqr",
+    "title": "QR Payments with SGQR: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-26",
+    "readTime": "5 min read",
+    "index": 75
+  },
+  {
+    "slug": "qr-payments-with-khqr",
+    "title": "QR Payments with KHQR: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-26",
+    "readTime": "6 min read",
+    "index": 76
+  },
+  {
+    "slug": "qr-payments-with-laoqr",
+    "title": "QR Payments with Laoqr: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-26",
+    "readTime": "7 min read",
+    "index": 77
+  },
+  {
+    "slug": "qr-payments-with-emvco",
+    "title": "QR Payments with Emvco: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-27",
+    "readTime": "5 min read",
+    "index": 78
+  },
+  {
+    "slug": "qr-payments-with-mvisa",
+    "title": "QR Payments with Mvisa: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-27",
+    "readTime": "6 min read",
+    "index": 79
+  },
+  {
+    "slug": "qr-payments-with-swish",
+    "title": "QR Payments with Swish: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-27",
+    "readTime": "7 min read",
+    "index": 80
+  },
+  {
+    "slug": "qr-payments-with-vipps",
+    "title": "QR Payments with Vipps: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-28",
+    "readTime": "5 min read",
+    "index": 81
+  },
+  {
+    "slug": "qr-payments-with-mobilepay",
+    "title": "QR Payments with Mobilepay: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-28",
+    "readTime": "6 min read",
+    "index": 82
+  },
+  {
+    "slug": "qr-payments-with-bizum",
+    "title": "QR Payments with Bizum: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-28",
+    "readTime": "7 min read",
+    "index": 83
+  },
+  {
+    "slug": "qr-payments-with-twint",
+    "title": "QR Payments with Twint: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-29",
+    "readTime": "5 min read",
+    "index": 84
+  },
+  {
+    "slug": "qr-payments-with-mb-way",
+    "title": "QR Payments with Mb Way: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-29",
+    "readTime": "6 min read",
+    "index": 85
+  },
+  {
+    "slug": "qr-payments-with-bancontact",
+    "title": "QR Payments with Bancontact: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-29",
+    "readTime": "7 min read",
+    "index": 86
+  },
+  {
+    "slug": "qr-payments-with-blik",
+    "title": "QR Payments with BLIK: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-30",
+    "readTime": "5 min read",
+    "index": 87
+  },
+  {
+    "slug": "qr-payments-with-mir",
+    "title": "QR Payments with MIR: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-30",
+    "readTime": "6 min read",
+    "index": 88
+  },
+  {
+    "slug": "qr-payments-with-fps",
+    "title": "QR Payments with FPS: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-30",
+    "readTime": "7 min read",
+    "index": 89
+  },
+  {
+    "slug": "qr-payments-with-fast",
+    "title": "QR Payments with FAST: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-31",
+    "readTime": "5 min read",
+    "index": 90
+  },
+  {
+    "slug": "qr-payments-with-duitnow",
+    "title": "QR Payments with Duitnow: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-31",
+    "readTime": "6 min read",
+    "index": 91
+  },
+  {
+    "slug": "qr-payments-with-paylib",
+    "title": "QR Payments with Paylib: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-01-31",
+    "readTime": "7 min read",
+    "index": 92
+  },
+  {
+    "slug": "qr-payments-with-satispay",
+    "title": "QR Payments with Satispay: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-02-01",
+    "readTime": "5 min read",
+    "index": 93
+  },
+  {
+    "slug": "qr-payments-with-yoomoney",
+    "title": "QR Payments with Yoomoney: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-02-01",
+    "readTime": "6 min read",
+    "index": 94
+  },
+  {
+    "slug": "qr-payments-with-rakuten-pay",
+    "title": "QR Payments with Rakuten Pay: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-02-01",
+    "readTime": "7 min read",
+    "index": 95
+  },
+  {
+    "slug": "qr-payments-with-line-pay",
+    "title": "QR Payments with Line Pay: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-02-02",
+    "readTime": "5 min read",
+    "index": 96
+  },
+  {
+    "slug": "qr-payments-with-naver-pay",
+    "title": "QR Payments with Naver Pay: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-02-02",
+    "readTime": "6 min read",
+    "index": 97
+  },
+  {
+    "slug": "qr-payments-with-toss-pay",
+    "title": "QR Payments with Toss Pay: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-02-02",
+    "readTime": "7 min read",
+    "index": 98
+  },
+  {
+    "slug": "qr-payments-with-payconiq",
+    "title": "QR Payments with Payconiq: Setup, Fees, and Best Uses",
+    "cluster": "payments-by-country",
+    "category": "Business & Regional",
+    "publishedAt": "2027-02-03",
+    "readTime": "5 min read",
+    "index": 99
+  }
+]

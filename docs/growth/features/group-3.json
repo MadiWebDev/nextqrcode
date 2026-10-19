@@ -1,0 +1,162 @@
+[
+  {
+    "route": "bulk-ticket-qr-generator",
+    "title": "Bulk Ticket QR Generator",
+    "spec": "Generate many ticket QR codes with unique serials from attendee rows; printable ticket layouts and ZIP download.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 1
+  },
+  {
+    "route": "bulk-pdf-qr-generator",
+    "title": "Bulk PDF QR Generator",
+    "spec": "Generate QR codes for many PDF URLs from pasted rows; validates URLs and downloads a ZIP.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 2
+  },
+  {
+    "route": "bulk-inventory-qr-generator",
+    "title": "Bulk Inventory QR Generator",
+    "spec": "Generate QR labels for inventory SKUs from pasted SKU/name rows; label-sheet layout and ZIP download.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 3
+  },
+  {
+    "route": "bulk-asset-tag-qr-generator",
+    "title": "Bulk Asset Tag QR Generator",
+    "spec": "Generate asset-tag QR codes with IDs, categories, and locations from pasted rows; tag-sheet layout and ZIP.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 4
+  },
+  {
+    "route": "bulk-student-id-qr-generator",
+    "title": "Bulk Student ID QR Generator",
+    "spec": "Generate student-ID QR codes from name/ID/photo-note rows; ID-card layout preview and ZIP download.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 5
+  },
+  {
+    "route": "bulk-event-badge-qr-generator",
+    "title": "Bulk Event Badge QR Generator",
+    "spec": "Generate event-badge QR codes from attendee rows; badge layout preview and ZIP download.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 6
+  },
+  {
+    "route": "bulk-table-tent-qr-generator",
+    "title": "Bulk Table Tent QR Generator",
+    "spec": "Generate table-tent QR codes for many tables/rooms from pasted rows; tent-card layout and ZIP download.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 7
+  },
+  {
+    "route": "bulk-feedback-qr-generator",
+    "title": "Bulk Feedback QR Generator",
+    "spec": "Generate feedback QR codes per location/branch from pasted rows; per-branch tracking suffixes and ZIP download.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 8
+  },
+  {
+    "route": "bulk-donation-qr-generator",
+    "title": "Bulk Donation QR Generator",
+    "spec": "Generate donation QR codes per campaign/cause from pasted rows; printable appeal cards and ZIP download.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 9
+  },
+  {
+    "route": "bulk-business-card-qr-generator",
+    "title": "Bulk Business Card QR Generator",
+    "spec": "Generate contact QR codes for a whole team from pasted name/title/phone rows; card layout and ZIP download.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 10
+  },
+  {
+    "route": "restaurant-qr-suite",
+    "title": "Restaurant QR Suite",
+    "spec": "Restaurant toolkit: menu QR, table-tent QR, review QR, order-ahead presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 11
+  },
+  {
+    "route": "retail-qr-suite",
+    "title": "Retail QR Suite",
+    "spec": "Retail toolkit: price-tag QR, product-info QR, review QR, loyalty QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 12
+  },
+  {
+    "route": "clinic-qr-suite",
+    "title": "Clinic QR Suite",
+    "spec": "Clinic toolkit: intake-form QR, appointment QR, aftercare QR, feedback QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 13
+  },
+  {
+    "route": "school-qr-suite",
+    "title": "School QR Suite",
+    "spec": "School toolkit: newsletter QR, homework QR, event QR, permission-slip QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 14
+  },
+  {
+    "route": "gym-qr-suite",
+    "title": "Gym QR Suite",
+    "spec": "Gym toolkit: membership QR, class-booking QR, trainer-profile QR, feedback QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 15
+  },
+  {
+    "route": "hotel-qr-suite",
+    "title": "Hotel QR Suite",
+    "spec": "Hotel toolkit: check-in QR, WiFi QR, room-service QR, local-guide QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 16
+  },
+  {
+    "route": "real-estate-qr-suite",
+    "title": "Real Estate QR Suite",
+    "spec": "Real-estate toolkit: listing QR, viewing-booking QR, agent-card QR, brochure QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 17
+  },
+  {
+    "route": "salon-qr-suite",
+    "title": "Salon QR Suite",
+    "spec": "Salon toolkit: booking QR, price-list QR, stylist-profile QR, review QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 18
+  },
+  {
+    "route": "pharmacy-qr-suite",
+    "title": "Pharmacy QR Suite",
+    "spec": "Pharmacy toolkit: refill QR, medication-info QR, opening-hours QR, feedback QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 19
+  },
+  {
+    "route": "church-qr-suite",
+    "title": "Church QR Suite",
+    "spec": "Church toolkit: service-sheet QR, donation QR, event QR, prayer-request QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 3,
+    "position": 20
+  }
+]

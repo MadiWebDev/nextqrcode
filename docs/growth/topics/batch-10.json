@@ -1,0 +1,902 @@
+[
+  {
+    "slug": "how-to-measure-qr-scan-rate",
+    "title": "How to Measure QR Scan Rate",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-28",
+    "readTime": "5 min read",
+    "index": 900
+  },
+  {
+    "slug": "how-to-improve-qr-scan-rate",
+    "title": "How to Improve QR Scan Rate",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-28",
+    "readTime": "6 min read",
+    "index": 901
+  },
+  {
+    "slug": "qr-scan-rate-benchmarks-explained",
+    "title": "QR Scan Rate Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-28",
+    "readTime": "7 min read",
+    "index": 902
+  },
+  {
+    "slug": "qr-scan-rate-mistakes-to-avoid",
+    "title": "QR Scan Rate Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-29",
+    "readTime": "5 min read",
+    "index": 903
+  },
+  {
+    "slug": "how-to-measure-qr-conversion-rate",
+    "title": "How to Measure QR Conversion Rate",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-29",
+    "readTime": "6 min read",
+    "index": 904
+  },
+  {
+    "slug": "how-to-improve-qr-conversion-rate",
+    "title": "How to Improve QR Conversion Rate",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-29",
+    "readTime": "7 min read",
+    "index": 905
+  },
+  {
+    "slug": "qr-conversion-rate-benchmarks-explained",
+    "title": "QR Conversion Rate Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-30",
+    "readTime": "5 min read",
+    "index": 906
+  },
+  {
+    "slug": "qr-conversion-rate-mistakes-to-avoid",
+    "title": "QR Conversion Rate Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-30",
+    "readTime": "6 min read",
+    "index": 907
+  },
+  {
+    "slug": "how-to-measure-qr-cost-per-scan",
+    "title": "How to Measure QR Cost Per Scan",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-30",
+    "readTime": "7 min read",
+    "index": 908
+  },
+  {
+    "slug": "how-to-improve-qr-cost-per-scan",
+    "title": "How to Improve QR Cost Per Scan",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-31",
+    "readTime": "5 min read",
+    "index": 909
+  },
+  {
+    "slug": "qr-cost-per-scan-benchmarks-explained",
+    "title": "QR Cost Per Scan Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-31",
+    "readTime": "6 min read",
+    "index": 910
+  },
+  {
+    "slug": "qr-cost-per-scan-mistakes-to-avoid",
+    "title": "QR Cost Per Scan Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-31",
+    "readTime": "7 min read",
+    "index": 911
+  },
+  {
+    "slug": "how-to-measure-qr-unique-vs-repeat-scans",
+    "title": "How to Measure QR Unique Vs Repeat Scans",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-01",
+    "readTime": "5 min read",
+    "index": 912
+  },
+  {
+    "slug": "how-to-improve-qr-unique-vs-repeat-scans",
+    "title": "How to Improve QR Unique Vs Repeat Scans",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-01",
+    "readTime": "6 min read",
+    "index": 913
+  },
+  {
+    "slug": "qr-unique-vs-repeat-scans-benchmarks-explained",
+    "title": "QR Unique Vs Repeat Scans Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-01",
+    "readTime": "7 min read",
+    "index": 914
+  },
+  {
+    "slug": "qr-unique-vs-repeat-scans-mistakes-to-avoid",
+    "title": "QR Unique Vs Repeat Scans Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-02",
+    "readTime": "5 min read",
+    "index": 915
+  },
+  {
+    "slug": "how-to-measure-qr-time-to-scan",
+    "title": "How to Measure QR Time To Scan",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-02",
+    "readTime": "6 min read",
+    "index": 916
+  },
+  {
+    "slug": "how-to-improve-qr-time-to-scan",
+    "title": "How to Improve QR Time To Scan",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-02",
+    "readTime": "7 min read",
+    "index": 917
+  },
+  {
+    "slug": "qr-time-to-scan-benchmarks-explained",
+    "title": "QR Time To Scan Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-03",
+    "readTime": "5 min read",
+    "index": 918
+  },
+  {
+    "slug": "qr-time-to-scan-mistakes-to-avoid",
+    "title": "QR Time To Scan Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-03",
+    "readTime": "6 min read",
+    "index": 919
+  },
+  {
+    "slug": "how-to-measure-qr-device-mix",
+    "title": "How to Measure QR Device Mix",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-03",
+    "readTime": "7 min read",
+    "index": 920
+  },
+  {
+    "slug": "how-to-improve-qr-device-mix",
+    "title": "How to Improve QR Device Mix",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-04",
+    "readTime": "5 min read",
+    "index": 921
+  },
+  {
+    "slug": "qr-device-mix-benchmarks-explained",
+    "title": "QR Device Mix Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-04",
+    "readTime": "6 min read",
+    "index": 922
+  },
+  {
+    "slug": "qr-device-mix-mistakes-to-avoid",
+    "title": "QR Device Mix Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-04",
+    "readTime": "7 min read",
+    "index": 923
+  },
+  {
+    "slug": "how-to-measure-qr-location-mix",
+    "title": "How to Measure QR Location Mix",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-05",
+    "readTime": "5 min read",
+    "index": 924
+  },
+  {
+    "slug": "how-to-improve-qr-location-mix",
+    "title": "How to Improve QR Location Mix",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-05",
+    "readTime": "6 min read",
+    "index": 925
+  },
+  {
+    "slug": "qr-location-mix-benchmarks-explained",
+    "title": "QR Location Mix Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-05",
+    "readTime": "7 min read",
+    "index": 926
+  },
+  {
+    "slug": "qr-location-mix-mistakes-to-avoid",
+    "title": "QR Location Mix Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-06",
+    "readTime": "5 min read",
+    "index": 927
+  },
+  {
+    "slug": "how-to-measure-qr-campaign-roi",
+    "title": "How to Measure QR Campaign Roi",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-06",
+    "readTime": "6 min read",
+    "index": 928
+  },
+  {
+    "slug": "how-to-improve-qr-campaign-roi",
+    "title": "How to Improve QR Campaign Roi",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-06",
+    "readTime": "7 min read",
+    "index": 929
+  },
+  {
+    "slug": "qr-campaign-roi-benchmarks-explained",
+    "title": "QR Campaign Roi Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-07",
+    "readTime": "5 min read",
+    "index": 930
+  },
+  {
+    "slug": "qr-campaign-roi-mistakes-to-avoid",
+    "title": "QR Campaign Roi Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-07",
+    "readTime": "6 min read",
+    "index": 931
+  },
+  {
+    "slug": "how-to-measure-qr-a-b-testing",
+    "title": "How to Measure QR A/B Testing",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-07",
+    "readTime": "7 min read",
+    "index": 932
+  },
+  {
+    "slug": "how-to-improve-qr-a-b-testing",
+    "title": "How to Improve QR A/B Testing",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-08",
+    "readTime": "5 min read",
+    "index": 933
+  },
+  {
+    "slug": "qr-a-b-testing-benchmarks-explained",
+    "title": "QR A/B Testing Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-08",
+    "readTime": "6 min read",
+    "index": 934
+  },
+  {
+    "slug": "qr-a-b-testing-mistakes-to-avoid",
+    "title": "QR A/B Testing Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-08",
+    "readTime": "7 min read",
+    "index": 935
+  },
+  {
+    "slug": "how-to-measure-qr-utm-tracking",
+    "title": "How to Measure QR Utm Tracking",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-09",
+    "readTime": "5 min read",
+    "index": 936
+  },
+  {
+    "slug": "how-to-improve-qr-utm-tracking",
+    "title": "How to Improve QR Utm Tracking",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-09",
+    "readTime": "6 min read",
+    "index": 937
+  },
+  {
+    "slug": "qr-utm-tracking-benchmarks-explained",
+    "title": "QR Utm Tracking Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-09",
+    "readTime": "7 min read",
+    "index": 938
+  },
+  {
+    "slug": "qr-utm-tracking-mistakes-to-avoid",
+    "title": "QR Utm Tracking Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-10",
+    "readTime": "5 min read",
+    "index": 939
+  },
+  {
+    "slug": "how-to-measure-qr-funnel-analysis",
+    "title": "How to Measure QR Funnel Analysis",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-10",
+    "readTime": "6 min read",
+    "index": 940
+  },
+  {
+    "slug": "how-to-improve-qr-funnel-analysis",
+    "title": "How to Improve QR Funnel Analysis",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-10",
+    "readTime": "7 min read",
+    "index": 941
+  },
+  {
+    "slug": "qr-funnel-analysis-benchmarks-explained",
+    "title": "QR Funnel Analysis Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-11",
+    "readTime": "5 min read",
+    "index": 942
+  },
+  {
+    "slug": "qr-funnel-analysis-mistakes-to-avoid",
+    "title": "QR Funnel Analysis Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-11",
+    "readTime": "6 min read",
+    "index": 943
+  },
+  {
+    "slug": "how-to-measure-qr-retention",
+    "title": "How to Measure QR Retention",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-11",
+    "readTime": "7 min read",
+    "index": 944
+  },
+  {
+    "slug": "how-to-improve-qr-retention",
+    "title": "How to Improve QR Retention",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-12",
+    "readTime": "5 min read",
+    "index": 945
+  },
+  {
+    "slug": "qr-retention-benchmarks-explained",
+    "title": "QR Retention Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-12",
+    "readTime": "6 min read",
+    "index": 946
+  },
+  {
+    "slug": "qr-retention-mistakes-to-avoid",
+    "title": "QR Retention Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-12",
+    "readTime": "7 min read",
+    "index": 947
+  },
+  {
+    "slug": "how-to-measure-qr-break-even-point",
+    "title": "How to Measure QR Break-Even Point",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-13",
+    "readTime": "5 min read",
+    "index": 948
+  },
+  {
+    "slug": "how-to-improve-qr-break-even-point",
+    "title": "How to Improve QR Break-Even Point",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-13",
+    "readTime": "6 min read",
+    "index": 949
+  },
+  {
+    "slug": "qr-break-even-point-benchmarks-explained",
+    "title": "QR Break-Even Point Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-13",
+    "readTime": "7 min read",
+    "index": 950
+  },
+  {
+    "slug": "qr-break-even-point-mistakes-to-avoid",
+    "title": "QR Break-Even Point Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-14",
+    "readTime": "5 min read",
+    "index": 951
+  },
+  {
+    "slug": "how-to-measure-qr-print-vs-digital-roi",
+    "title": "How to Measure QR Print Vs Digital Roi",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-14",
+    "readTime": "6 min read",
+    "index": 952
+  },
+  {
+    "slug": "how-to-improve-qr-print-vs-digital-roi",
+    "title": "How to Improve QR Print Vs Digital Roi",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-14",
+    "readTime": "7 min read",
+    "index": 953
+  },
+  {
+    "slug": "qr-print-vs-digital-roi-benchmarks-explained",
+    "title": "QR Print Vs Digital Roi Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-15",
+    "readTime": "5 min read",
+    "index": 954
+  },
+  {
+    "slug": "qr-print-vs-digital-roi-mistakes-to-avoid",
+    "title": "QR Print Vs Digital Roi Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-15",
+    "readTime": "6 min read",
+    "index": 955
+  },
+  {
+    "slug": "how-to-measure-qr-seasonal-trends",
+    "title": "How to Measure QR Seasonal Trends",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-15",
+    "readTime": "7 min read",
+    "index": 956
+  },
+  {
+    "slug": "how-to-improve-qr-seasonal-trends",
+    "title": "How to Improve QR Seasonal Trends",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-16",
+    "readTime": "5 min read",
+    "index": 957
+  },
+  {
+    "slug": "qr-seasonal-trends-benchmarks-explained",
+    "title": "QR Seasonal Trends Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-16",
+    "readTime": "6 min read",
+    "index": 958
+  },
+  {
+    "slug": "qr-seasonal-trends-mistakes-to-avoid",
+    "title": "QR Seasonal Trends Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-16",
+    "readTime": "7 min read",
+    "index": 959
+  },
+  {
+    "slug": "how-to-measure-qr-benchmarking",
+    "title": "How to Measure QR Benchmarking",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-17",
+    "readTime": "5 min read",
+    "index": 960
+  },
+  {
+    "slug": "how-to-improve-qr-benchmarking",
+    "title": "How to Improve QR Benchmarking",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-17",
+    "readTime": "6 min read",
+    "index": 961
+  },
+  {
+    "slug": "qr-benchmarking-benchmarks-explained",
+    "title": "QR Benchmarking Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-17",
+    "readTime": "7 min read",
+    "index": 962
+  },
+  {
+    "slug": "qr-benchmarking-mistakes-to-avoid",
+    "title": "QR Benchmarking Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-18",
+    "readTime": "5 min read",
+    "index": 963
+  },
+  {
+    "slug": "how-to-measure-qr-dashboards",
+    "title": "How to Measure QR Dashboards",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-18",
+    "readTime": "6 min read",
+    "index": 964
+  },
+  {
+    "slug": "how-to-improve-qr-dashboards",
+    "title": "How to Improve QR Dashboards",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-18",
+    "readTime": "7 min read",
+    "index": 965
+  },
+  {
+    "slug": "qr-dashboards-benchmarks-explained",
+    "title": "QR Dashboards Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-19",
+    "readTime": "5 min read",
+    "index": 966
+  },
+  {
+    "slug": "qr-dashboards-mistakes-to-avoid",
+    "title": "QR Dashboards Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-19",
+    "readTime": "6 min read",
+    "index": 967
+  },
+  {
+    "slug": "how-to-measure-qr-reporting",
+    "title": "How to Measure QR Reporting",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-19",
+    "readTime": "7 min read",
+    "index": 968
+  },
+  {
+    "slug": "how-to-improve-qr-reporting",
+    "title": "How to Improve QR Reporting",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-20",
+    "readTime": "5 min read",
+    "index": 969
+  },
+  {
+    "slug": "qr-reporting-benchmarks-explained",
+    "title": "QR Reporting Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-20",
+    "readTime": "6 min read",
+    "index": 970
+  },
+  {
+    "slug": "qr-reporting-mistakes-to-avoid",
+    "title": "QR Reporting Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-20",
+    "readTime": "7 min read",
+    "index": 971
+  },
+  {
+    "slug": "how-to-measure-qr-attribution",
+    "title": "How to Measure QR Attribution",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-21",
+    "readTime": "5 min read",
+    "index": 972
+  },
+  {
+    "slug": "how-to-improve-qr-attribution",
+    "title": "How to Improve QR Attribution",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-21",
+    "readTime": "6 min read",
+    "index": 973
+  },
+  {
+    "slug": "qr-attribution-benchmarks-explained",
+    "title": "QR Attribution Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-21",
+    "readTime": "7 min read",
+    "index": 974
+  },
+  {
+    "slug": "qr-attribution-mistakes-to-avoid",
+    "title": "QR Attribution Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-22",
+    "readTime": "5 min read",
+    "index": 975
+  },
+  {
+    "slug": "how-to-measure-qr-incrementality",
+    "title": "How to Measure QR Incrementality",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-22",
+    "readTime": "6 min read",
+    "index": 976
+  },
+  {
+    "slug": "how-to-improve-qr-incrementality",
+    "title": "How to Improve QR Incrementality",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-22",
+    "readTime": "7 min read",
+    "index": 977
+  },
+  {
+    "slug": "qr-incrementality-benchmarks-explained",
+    "title": "QR Incrementality Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-23",
+    "readTime": "5 min read",
+    "index": 978
+  },
+  {
+    "slug": "qr-incrementality-mistakes-to-avoid",
+    "title": "QR Incrementality Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-23",
+    "readTime": "6 min read",
+    "index": 979
+  },
+  {
+    "slug": "how-to-measure-qr-cohorts",
+    "title": "How to Measure QR Cohorts",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-23",
+    "readTime": "7 min read",
+    "index": 980
+  },
+  {
+    "slug": "how-to-improve-qr-cohorts",
+    "title": "How to Improve QR Cohorts",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-24",
+    "readTime": "5 min read",
+    "index": 981
+  },
+  {
+    "slug": "qr-cohorts-benchmarks-explained",
+    "title": "QR Cohorts Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-24",
+    "readTime": "6 min read",
+    "index": 982
+  },
+  {
+    "slug": "qr-cohorts-mistakes-to-avoid",
+    "title": "QR Cohorts Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-24",
+    "readTime": "7 min read",
+    "index": 983
+  },
+  {
+    "slug": "how-to-measure-qr-engagement",
+    "title": "How to Measure QR Engagement",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-25",
+    "readTime": "5 min read",
+    "index": 984
+  },
+  {
+    "slug": "how-to-improve-qr-engagement",
+    "title": "How to Improve QR Engagement",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-25",
+    "readTime": "6 min read",
+    "index": 985
+  },
+  {
+    "slug": "qr-engagement-benchmarks-explained",
+    "title": "QR Engagement Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-25",
+    "readTime": "7 min read",
+    "index": 986
+  },
+  {
+    "slug": "qr-engagement-mistakes-to-avoid",
+    "title": "QR Engagement Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-26",
+    "readTime": "5 min read",
+    "index": 987
+  },
+  {
+    "slug": "how-to-measure-qr-drop-off",
+    "title": "How to Measure QR Drop-Off",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-26",
+    "readTime": "6 min read",
+    "index": 988
+  },
+  {
+    "slug": "how-to-improve-qr-drop-off",
+    "title": "How to Improve QR Drop-Off",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-26",
+    "readTime": "7 min read",
+    "index": 989
+  },
+  {
+    "slug": "qr-drop-off-benchmarks-explained",
+    "title": "QR Drop-Off Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-27",
+    "readTime": "5 min read",
+    "index": 990
+  },
+  {
+    "slug": "qr-drop-off-mistakes-to-avoid",
+    "title": "QR Drop-Off Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-27",
+    "readTime": "6 min read",
+    "index": 991
+  },
+  {
+    "slug": "how-to-measure-qr-fraud-detection",
+    "title": "How to Measure QR Fraud Detection",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-27",
+    "readTime": "7 min read",
+    "index": 992
+  },
+  {
+    "slug": "how-to-improve-qr-fraud-detection",
+    "title": "How to Improve QR Fraud Detection",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-28",
+    "readTime": "5 min read",
+    "index": 993
+  },
+  {
+    "slug": "qr-fraud-detection-benchmarks-explained",
+    "title": "QR Fraud Detection Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-28",
+    "readTime": "6 min read",
+    "index": 994
+  },
+  {
+    "slug": "qr-fraud-detection-mistakes-to-avoid",
+    "title": "QR Fraud Detection Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-28",
+    "readTime": "7 min read",
+    "index": 995
+  },
+  {
+    "slug": "how-to-measure-qr-lifetime-value",
+    "title": "How to Measure QR Lifetime Value",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-29",
+    "readTime": "5 min read",
+    "index": 996
+  },
+  {
+    "slug": "how-to-improve-qr-lifetime-value",
+    "title": "How to Improve QR Lifetime Value",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-29",
+    "readTime": "6 min read",
+    "index": 997
+  },
+  {
+    "slug": "qr-lifetime-value-benchmarks-explained",
+    "title": "QR Lifetime Value Benchmarks Explained",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-29",
+    "readTime": "7 min read",
+    "index": 998
+  },
+  {
+    "slug": "qr-lifetime-value-mistakes-to-avoid",
+    "title": "QR Lifetime Value Mistakes to Avoid",
+    "cluster": "analytics-roi",
+    "category": "Business & Regional",
+    "publishedAt": "2027-11-30",
+    "readTime": "5 min read",
+    "index": 999
+  }
+]

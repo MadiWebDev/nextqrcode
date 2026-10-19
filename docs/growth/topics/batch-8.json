@@ -1,0 +1,902 @@
+[
+  {
+    "slug": "qr-color-rules",
+    "title": "QR Color Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-22",
+    "readTime": "6 min read",
+    "index": 700
+  },
+  {
+    "slug": "qr-color-examples-that-work",
+    "title": "QR Color Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-22",
+    "readTime": "7 min read",
+    "index": 701
+  },
+  {
+    "slug": "qr-color-mistakes-to-avoid",
+    "title": "QR Color Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-23",
+    "readTime": "5 min read",
+    "index": 702
+  },
+  {
+    "slug": "how-to-test-qr-color",
+    "title": "How to Test QR Color",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-23",
+    "readTime": "6 min read",
+    "index": 703
+  },
+  {
+    "slug": "qr-contrast-rules",
+    "title": "QR Contrast Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-23",
+    "readTime": "7 min read",
+    "index": 704
+  },
+  {
+    "slug": "qr-contrast-examples-that-work",
+    "title": "QR Contrast Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-24",
+    "readTime": "5 min read",
+    "index": 705
+  },
+  {
+    "slug": "qr-contrast-mistakes-to-avoid",
+    "title": "QR Contrast Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-24",
+    "readTime": "6 min read",
+    "index": 706
+  },
+  {
+    "slug": "how-to-test-qr-contrast",
+    "title": "How to Test QR Contrast",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-24",
+    "readTime": "7 min read",
+    "index": 707
+  },
+  {
+    "slug": "qr-logo-placement-rules",
+    "title": "QR Logo Placement Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-25",
+    "readTime": "5 min read",
+    "index": 708
+  },
+  {
+    "slug": "qr-logo-placement-examples-that-work",
+    "title": "QR Logo Placement Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-25",
+    "readTime": "6 min read",
+    "index": 709
+  },
+  {
+    "slug": "qr-logo-placement-mistakes-to-avoid",
+    "title": "QR Logo Placement Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-25",
+    "readTime": "7 min read",
+    "index": 710
+  },
+  {
+    "slug": "how-to-test-qr-logo-placement",
+    "title": "How to Test QR Logo Placement",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-26",
+    "readTime": "5 min read",
+    "index": 711
+  },
+  {
+    "slug": "qr-frames-rules",
+    "title": "QR Frames Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-26",
+    "readTime": "6 min read",
+    "index": 712
+  },
+  {
+    "slug": "qr-frames-examples-that-work",
+    "title": "QR Frames Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-26",
+    "readTime": "7 min read",
+    "index": 713
+  },
+  {
+    "slug": "qr-frames-mistakes-to-avoid",
+    "title": "QR Frames Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-27",
+    "readTime": "5 min read",
+    "index": 714
+  },
+  {
+    "slug": "how-to-test-qr-frames",
+    "title": "How to Test QR Frames",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-27",
+    "readTime": "6 min read",
+    "index": 715
+  },
+  {
+    "slug": "qr-cta-text-rules",
+    "title": "QR Cta Text Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-27",
+    "readTime": "7 min read",
+    "index": 716
+  },
+  {
+    "slug": "qr-cta-text-examples-that-work",
+    "title": "QR Cta Text Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-28",
+    "readTime": "5 min read",
+    "index": 717
+  },
+  {
+    "slug": "qr-cta-text-mistakes-to-avoid",
+    "title": "QR Cta Text Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-28",
+    "readTime": "6 min read",
+    "index": 718
+  },
+  {
+    "slug": "how-to-test-qr-cta-text",
+    "title": "How to Test QR Cta Text",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-28",
+    "readTime": "7 min read",
+    "index": 719
+  },
+  {
+    "slug": "qr-quiet-zone-rules",
+    "title": "QR Quiet Zone Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-29",
+    "readTime": "5 min read",
+    "index": 720
+  },
+  {
+    "slug": "qr-quiet-zone-examples-that-work",
+    "title": "QR Quiet Zone Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-29",
+    "readTime": "6 min read",
+    "index": 721
+  },
+  {
+    "slug": "qr-quiet-zone-mistakes-to-avoid",
+    "title": "QR Quiet Zone Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-29",
+    "readTime": "7 min read",
+    "index": 722
+  },
+  {
+    "slug": "how-to-test-qr-quiet-zone",
+    "title": "How to Test QR Quiet Zone",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-30",
+    "readTime": "5 min read",
+    "index": 723
+  },
+  {
+    "slug": "qr-rounded-modules-rules",
+    "title": "QR Rounded Modules Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-30",
+    "readTime": "6 min read",
+    "index": 724
+  },
+  {
+    "slug": "qr-rounded-modules-examples-that-work",
+    "title": "QR Rounded Modules Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-30",
+    "readTime": "7 min read",
+    "index": 725
+  },
+  {
+    "slug": "qr-rounded-modules-mistakes-to-avoid",
+    "title": "QR Rounded Modules Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-31",
+    "readTime": "5 min read",
+    "index": 726
+  },
+  {
+    "slug": "how-to-test-qr-rounded-modules",
+    "title": "How to Test QR Rounded Modules",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-31",
+    "readTime": "6 min read",
+    "index": 727
+  },
+  {
+    "slug": "qr-gradients-rules",
+    "title": "QR Gradients Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-08-31",
+    "readTime": "7 min read",
+    "index": 728
+  },
+  {
+    "slug": "qr-gradients-examples-that-work",
+    "title": "QR Gradients Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-01",
+    "readTime": "5 min read",
+    "index": 729
+  },
+  {
+    "slug": "qr-gradients-mistakes-to-avoid",
+    "title": "QR Gradients Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-01",
+    "readTime": "6 min read",
+    "index": 730
+  },
+  {
+    "slug": "how-to-test-qr-gradients",
+    "title": "How to Test QR Gradients",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-01",
+    "readTime": "7 min read",
+    "index": 731
+  },
+  {
+    "slug": "qr-background-patterns-rules",
+    "title": "QR Background Patterns Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-02",
+    "readTime": "5 min read",
+    "index": 732
+  },
+  {
+    "slug": "qr-background-patterns-examples-that-work",
+    "title": "QR Background Patterns Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-02",
+    "readTime": "6 min read",
+    "index": 733
+  },
+  {
+    "slug": "qr-background-patterns-mistakes-to-avoid",
+    "title": "QR Background Patterns Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-02",
+    "readTime": "7 min read",
+    "index": 734
+  },
+  {
+    "slug": "how-to-test-qr-background-patterns",
+    "title": "How to Test QR Background Patterns",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-03",
+    "readTime": "5 min read",
+    "index": 735
+  },
+  {
+    "slug": "qr-backgrounds-rules",
+    "title": "QR Backgrounds Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-03",
+    "readTime": "6 min read",
+    "index": 736
+  },
+  {
+    "slug": "qr-backgrounds-examples-that-work",
+    "title": "QR Backgrounds Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-03",
+    "readTime": "7 min read",
+    "index": 737
+  },
+  {
+    "slug": "qr-backgrounds-mistakes-to-avoid",
+    "title": "QR Backgrounds Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-04",
+    "readTime": "5 min read",
+    "index": 738
+  },
+  {
+    "slug": "how-to-test-qr-backgrounds",
+    "title": "How to Test QR Backgrounds",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-04",
+    "readTime": "6 min read",
+    "index": 739
+  },
+  {
+    "slug": "qr-sizing-rules",
+    "title": "QR Sizing Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-04",
+    "readTime": "7 min read",
+    "index": 740
+  },
+  {
+    "slug": "qr-sizing-examples-that-work",
+    "title": "QR Sizing Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-05",
+    "readTime": "5 min read",
+    "index": 741
+  },
+  {
+    "slug": "qr-sizing-mistakes-to-avoid",
+    "title": "QR Sizing Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-05",
+    "readTime": "6 min read",
+    "index": 742
+  },
+  {
+    "slug": "how-to-test-qr-sizing",
+    "title": "How to Test QR Sizing",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-05",
+    "readTime": "7 min read",
+    "index": 743
+  },
+  {
+    "slug": "qr-placement-rules",
+    "title": "QR Placement Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-06",
+    "readTime": "5 min read",
+    "index": 744
+  },
+  {
+    "slug": "qr-placement-examples-that-work",
+    "title": "QR Placement Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-06",
+    "readTime": "6 min read",
+    "index": 745
+  },
+  {
+    "slug": "qr-placement-mistakes-to-avoid",
+    "title": "QR Placement Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-06",
+    "readTime": "7 min read",
+    "index": 746
+  },
+  {
+    "slug": "how-to-test-qr-placement",
+    "title": "How to Test QR Placement",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-07",
+    "readTime": "5 min read",
+    "index": 747
+  },
+  {
+    "slug": "qr-typography-rules",
+    "title": "QR Typography Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-07",
+    "readTime": "6 min read",
+    "index": 748
+  },
+  {
+    "slug": "qr-typography-examples-that-work",
+    "title": "QR Typography Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-07",
+    "readTime": "7 min read",
+    "index": 749
+  },
+  {
+    "slug": "qr-typography-mistakes-to-avoid",
+    "title": "QR Typography Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-08",
+    "readTime": "5 min read",
+    "index": 750
+  },
+  {
+    "slug": "how-to-test-qr-typography",
+    "title": "How to Test QR Typography",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-08",
+    "readTime": "6 min read",
+    "index": 751
+  },
+  {
+    "slug": "qr-borders-rules",
+    "title": "QR Borders Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-08",
+    "readTime": "7 min read",
+    "index": 752
+  },
+  {
+    "slug": "qr-borders-examples-that-work",
+    "title": "QR Borders Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-09",
+    "readTime": "5 min read",
+    "index": 753
+  },
+  {
+    "slug": "qr-borders-mistakes-to-avoid",
+    "title": "QR Borders Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-09",
+    "readTime": "6 min read",
+    "index": 754
+  },
+  {
+    "slug": "how-to-test-qr-borders",
+    "title": "How to Test QR Borders",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-09",
+    "readTime": "7 min read",
+    "index": 755
+  },
+  {
+    "slug": "qr-shadows-rules",
+    "title": "QR Shadows Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-10",
+    "readTime": "5 min read",
+    "index": 756
+  },
+  {
+    "slug": "qr-shadows-examples-that-work",
+    "title": "QR Shadows Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-10",
+    "readTime": "6 min read",
+    "index": 757
+  },
+  {
+    "slug": "qr-shadows-mistakes-to-avoid",
+    "title": "QR Shadows Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-10",
+    "readTime": "7 min read",
+    "index": 758
+  },
+  {
+    "slug": "how-to-test-qr-shadows",
+    "title": "How to Test QR Shadows",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-11",
+    "readTime": "5 min read",
+    "index": 759
+  },
+  {
+    "slug": "qr-transparency-rules",
+    "title": "QR Transparency Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-11",
+    "readTime": "6 min read",
+    "index": 760
+  },
+  {
+    "slug": "qr-transparency-examples-that-work",
+    "title": "QR Transparency Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-11",
+    "readTime": "7 min read",
+    "index": 761
+  },
+  {
+    "slug": "qr-transparency-mistakes-to-avoid",
+    "title": "QR Transparency Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-12",
+    "readTime": "5 min read",
+    "index": 762
+  },
+  {
+    "slug": "how-to-test-qr-transparency",
+    "title": "How to Test QR Transparency",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-12",
+    "readTime": "6 min read",
+    "index": 763
+  },
+  {
+    "slug": "qr-dark-mode-rules",
+    "title": "QR Dark Mode Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-12",
+    "readTime": "7 min read",
+    "index": 764
+  },
+  {
+    "slug": "qr-dark-mode-examples-that-work",
+    "title": "QR Dark Mode Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-13",
+    "readTime": "5 min read",
+    "index": 765
+  },
+  {
+    "slug": "qr-dark-mode-mistakes-to-avoid",
+    "title": "QR Dark Mode Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-13",
+    "readTime": "6 min read",
+    "index": 766
+  },
+  {
+    "slug": "how-to-test-qr-dark-mode",
+    "title": "How to Test QR Dark Mode",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-13",
+    "readTime": "7 min read",
+    "index": 767
+  },
+  {
+    "slug": "qr-brand-palette-rules",
+    "title": "QR Brand Palette Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-14",
+    "readTime": "5 min read",
+    "index": 768
+  },
+  {
+    "slug": "qr-brand-palette-examples-that-work",
+    "title": "QR Brand Palette Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-14",
+    "readTime": "6 min read",
+    "index": 769
+  },
+  {
+    "slug": "qr-brand-palette-mistakes-to-avoid",
+    "title": "QR Brand Palette Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-14",
+    "readTime": "7 min read",
+    "index": 770
+  },
+  {
+    "slug": "how-to-test-qr-brand-palette",
+    "title": "How to Test QR Brand Palette",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-15",
+    "readTime": "5 min read",
+    "index": 771
+  },
+  {
+    "slug": "qr-seasonal-themes-rules",
+    "title": "QR Seasonal Themes Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-15",
+    "readTime": "6 min read",
+    "index": 772
+  },
+  {
+    "slug": "qr-seasonal-themes-examples-that-work",
+    "title": "QR Seasonal Themes Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-15",
+    "readTime": "7 min read",
+    "index": 773
+  },
+  {
+    "slug": "qr-seasonal-themes-mistakes-to-avoid",
+    "title": "QR Seasonal Themes Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-16",
+    "readTime": "5 min read",
+    "index": 774
+  },
+  {
+    "slug": "how-to-test-qr-seasonal-themes",
+    "title": "How to Test QR Seasonal Themes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-16",
+    "readTime": "6 min read",
+    "index": 775
+  },
+  {
+    "slug": "qr-minimal-design-rules",
+    "title": "QR Minimal Design Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-16",
+    "readTime": "7 min read",
+    "index": 776
+  },
+  {
+    "slug": "qr-minimal-design-examples-that-work",
+    "title": "QR Minimal Design Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-17",
+    "readTime": "5 min read",
+    "index": 777
+  },
+  {
+    "slug": "qr-minimal-design-mistakes-to-avoid",
+    "title": "QR Minimal Design Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-17",
+    "readTime": "6 min read",
+    "index": 778
+  },
+  {
+    "slug": "how-to-test-qr-minimal-design",
+    "title": "How to Test QR Minimal Design",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-17",
+    "readTime": "7 min read",
+    "index": 779
+  },
+  {
+    "slug": "qr-maximal-design-rules",
+    "title": "QR Maximal Design Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-18",
+    "readTime": "5 min read",
+    "index": 780
+  },
+  {
+    "slug": "qr-maximal-design-examples-that-work",
+    "title": "QR Maximal Design Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-18",
+    "readTime": "6 min read",
+    "index": 781
+  },
+  {
+    "slug": "qr-maximal-design-mistakes-to-avoid",
+    "title": "QR Maximal Design Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-18",
+    "readTime": "7 min read",
+    "index": 782
+  },
+  {
+    "slug": "how-to-test-qr-maximal-design",
+    "title": "How to Test QR Maximal Design",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-19",
+    "readTime": "5 min read",
+    "index": 783
+  },
+  {
+    "slug": "qr-accessibility-rules",
+    "title": "QR Accessibility Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-19",
+    "readTime": "6 min read",
+    "index": 784
+  },
+  {
+    "slug": "qr-accessibility-examples-that-work",
+    "title": "QR Accessibility Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-19",
+    "readTime": "7 min read",
+    "index": 785
+  },
+  {
+    "slug": "qr-accessibility-mistakes-to-avoid",
+    "title": "QR Accessibility Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-20",
+    "readTime": "5 min read",
+    "index": 786
+  },
+  {
+    "slug": "how-to-test-qr-accessibility",
+    "title": "How to Test QR Accessibility",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-20",
+    "readTime": "6 min read",
+    "index": 787
+  },
+  {
+    "slug": "qr-print-vs-screen-rules",
+    "title": "QR Print Vs Screen Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-20",
+    "readTime": "7 min read",
+    "index": 788
+  },
+  {
+    "slug": "qr-print-vs-screen-examples-that-work",
+    "title": "QR Print Vs Screen Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-21",
+    "readTime": "5 min read",
+    "index": 789
+  },
+  {
+    "slug": "qr-print-vs-screen-mistakes-to-avoid",
+    "title": "QR Print Vs Screen Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-21",
+    "readTime": "6 min read",
+    "index": 790
+  },
+  {
+    "slug": "how-to-test-qr-print-vs-screen",
+    "title": "How to Test QR Print Vs Screen",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-21",
+    "readTime": "7 min read",
+    "index": 791
+  },
+  {
+    "slug": "qr-co-branding-rules",
+    "title": "QR Co-Branding Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-22",
+    "readTime": "5 min read",
+    "index": 792
+  },
+  {
+    "slug": "qr-co-branding-examples-that-work",
+    "title": "QR Co-Branding Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-22",
+    "readTime": "6 min read",
+    "index": 793
+  },
+  {
+    "slug": "qr-co-branding-mistakes-to-avoid",
+    "title": "QR Co-Branding Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-22",
+    "readTime": "7 min read",
+    "index": 794
+  },
+  {
+    "slug": "how-to-test-qr-co-branding",
+    "title": "How to Test QR Co-Branding",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-23",
+    "readTime": "5 min read",
+    "index": 795
+  },
+  {
+    "slug": "qr-iconography-rules",
+    "title": "QR Iconography Rules for Scannable Codes",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-23",
+    "readTime": "6 min read",
+    "index": 796
+  },
+  {
+    "slug": "qr-iconography-examples-that-work",
+    "title": "QR Iconography Examples That Work",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-23",
+    "readTime": "7 min read",
+    "index": 797
+  },
+  {
+    "slug": "qr-iconography-mistakes-to-avoid",
+    "title": "QR Iconography Mistakes to Avoid",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-24",
+    "readTime": "5 min read",
+    "index": 798
+  },
+  {
+    "slug": "how-to-test-qr-iconography",
+    "title": "How to Test QR Iconography",
+    "cluster": "design-branding",
+    "category": "Printing & Sizing",
+    "publishedAt": "2027-09-24",
+    "readTime": "6 min read",
+    "index": 799
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "route": "email-qr-code-generator",
+    "title": "Email QR Code Generator",
+    "spec": "Build a QR code that opens a pre-addressed email with subject and body; live preview, PNG/SVG/PDF download.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 1
+  },
+  {
+    "route": "sms-qr-code-generator",
+    "title": "SMS QR Code Generator",
+    "spec": "Build a QR code that opens a prefilled text message to a chosen number; live preview and downloads.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 2
+  },
+  {
+    "route": "calendar-event-qr-code-generator",
+    "title": "Calendar Event QR Code Generator",
+    "spec": "Build a QR code that adds an event (title, start/end, location, description) to the scanner phone calendar.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 3
+  },
+  {
+    "route": "app-store-qr-code-generator",
+    "title": "App Store QR Code Generator",
+    "spec": "Build a QR code linking to an App Store / Google Play listing with store-badge preview and install CTA text.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 4
+  },
+  {
+    "route": "pdf-qr-code-generator",
+    "title": "PDF QR Code Generator",
+    "spec": "Build a QR code linking to a hosted PDF (URL input) with download/view guidance and print checklist.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 5
+  },
+  {
+    "route": "zoom-meeting-qr-code-generator",
+    "title": "Zoom Meeting QR Code Generator",
+    "spec": "Build a QR code that joins a Zoom meeting from a meeting URL or ID + passcode, with join instructions.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 6
+  },
+  {
+    "route": "crypto-wallet-qr-code-generator",
+    "title": "Crypto Wallet QR Code Generator",
+    "spec": "Build a QR code encoding a wallet address (BTC/ETH/LTC) with optional amount and label, plus address validation.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 7
+  },
+  {
+    "route": "coupon-qr-code-generator",
+    "title": "Coupon QR Code Generator",
+    "spec": "Build a redeemable coupon QR code: offer text, code, expiry, terms; printable coupon layout with scissor line.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 8
+  },
+  {
+    "route": "ticket-qr-code-generator",
+    "title": "Ticket QR Code Generator",
+    "spec": "Build an event ticket QR code (event, attendee, seat, date) with printable ticket layout and serial number.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 9
+  },
+  {
+    "route": "survey-qr-code-generator",
+    "title": "Survey QR Code Generator",
+    "spec": "Build a QR code linking to a survey/form URL with response-tracking UTM builder and printable survey card.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 10
+  },
+  {
+    "route": "social-profile-qr-code-generator",
+    "title": "Social Profile QR Code Generator",
+    "spec": "Build a QR code linking to a social profile (platform picker, handle validation) with follow-CTA card.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 11
+  },
+  {
+    "route": "playlist-qr-code-generator",
+    "title": "Playlist QR Code Generator",
+    "spec": "Build a QR code linking to a Spotify/Apple Music/YouTube playlist with cover-style card and listen CTA.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 12
+  },
+  {
+    "route": "podcast-qr-code-generator",
+    "title": "Podcast QR Code Generator",
+    "spec": "Build a QR code linking to a podcast episode with show notes, listen CTA, and subscribe hint.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 13
+  },
+  {
+    "route": "resume-qr-code-generator",
+    "title": "Resume QR Code Generator",
+    "spec": "Build a QR code linking to an online resume/portfolio with a printable resume-header card.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 14
+  },
+  {
+    "route": "menu-qr-code-generator",
+    "title": "Menu QR Code Generator",
+    "spec": "Build a QR code linking to a digital menu URL with a printable table-tent card and dietary-note field.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 15
+  },
+  {
+    "route": "feedback-qr-code-generator",
+    "title": "Feedback QR Code Generator",
+    "spec": "Build a QR code linking to a feedback/review form with a printable feedback card and rating prompt.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 16
+  },
+  {
+    "route": "donation-qr-code-generator",
+    "title": "Donation QR Code Generator",
+    "spec": "Build a QR code linking to a donation page with suggested amounts, cause text, and printable appeal card.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 17
+  },
+  {
+    "route": "event-rsvp-qr-code-generator",
+    "title": "Event RSVP QR Code Generator",
+    "spec": "Build a QR code linking to an RSVP form with event details card and deadline display.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 18
+  },
+  {
+    "route": "loyalty-card-qr-code-generator",
+    "title": "Loyalty Card QR Code Generator",
+    "spec": "Build a loyalty-card QR code (program, member ID, stamps) with a wallet-style card layout.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 19
+  },
+  {
+    "route": "mecard-qr-code-generator",
+    "title": "MeCard QR Code Generator",
+    "spec": "Build a MeCard-format contact QR code (compact alternative to vCard) with compatibility notes for older phones.",
+    "sitemap_section": "generators",
+    "group": 1,
+    "position": 20
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "route": "qr-gradient-maker",
+    "title": "QR Gradient Maker",
+    "spec": "Design a QR code with a two-color gradient (with contrast guardrails) and export PNG/SVG; warns when contrast is unsafe.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 1
+  },
+  {
+    "route": "qr-frame-designer",
+    "title": "QR Frame Designer",
+    "spec": "Design a frame + call-to-action around a QR code (shape, text, colors); live preview and PNG export.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 2
+  },
+  {
+    "route": "qr-quiet-zone-adder",
+    "title": "QR Quiet Zone Adder",
+    "spec": "Add a correct quiet zone (white or transparent) around an uploaded QR image; exports the padded image.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 3
+  },
+  {
+    "route": "qr-svg-png-pdf-exporter",
+    "title": "QR SVG PNG PDF Exporter",
+    "spec": "Paste any text/URL and export the QR code as SVG, PNG (multiple sizes), or a one-page PDF.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 4
+  },
+  {
+    "route": "qr-size-presets",
+    "title": "QR Size Presets",
+    "spec": "Pick a use case (business card, flyer, poster, billboard) and get exact QR dimensions in mm/inches/px with a preview box.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 5
+  },
+  {
+    "route": "qr-color-pair-tester",
+    "title": "QR Color Pair Tester",
+    "spec": "Test foreground/background color pairs for scan safety: contrast ratio, verdict, and suggested fixes.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 6
+  },
+  {
+    "route": "qr-batch-renamer",
+    "title": "QR Batch Renamer",
+    "spec": "Rename many downloaded QR files by pattern (prefix + counter + label) entirely in-browser, then download the ZIP.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 7
+  },
+  {
+    "route": "qr-zip-packager",
+    "title": "QR ZIP Packager",
+    "spec": "Package uploaded QR images into a ZIP with a manifest CSV (filename, payload, notes) for handoff to print.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 8
+  },
+  {
+    "route": "qr-print-sheet-planner",
+    "title": "QR Print Sheet Planner",
+    "spec": "Plan an A4/Letter sheet: code size, margins, rows/columns, cut guides; renders a printable sheet layout.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 9
+  },
+  {
+    "route": "qr-scan-instruction-card",
+    "title": "QR Scan Instruction Card",
+    "spec": "Generate a printable \"How to scan\" instruction card (iPhone + Android steps) in several languages/layouts.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 10
+  },
+  {
+    "route": "qr-embed-code-builder",
+    "title": "QR Embed Code Builder",
+    "spec": "Build copy-paste HTML/iframe embed code for a QR image with size, alt text, and link options.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 11
+  },
+  {
+    "route": "qr-api-playground",
+    "title": "QR API Playground",
+    "spec": "Interactive API docs: build a QR-generation request from parameters and copy the fetch snippet; explains each parameter.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 12
+  },
+  {
+    "route": "qr-to-pdf-converter",
+    "title": "QR to PDF Converter",
+    "spec": "Convert a QR image or text into a printable one-page PDF with title, instructions, and quiet-zone-safe margins.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 13
+  },
+  {
+    "route": "qr-image-enhancer",
+    "title": "QR Image Enhancer",
+    "spec": "Enhance a blurry/low-contrast QR photo in-browser (contrast, sharpen, threshold) to make it scannable again.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 14
+  },
+  {
+    "route": "qr-code-rotator",
+    "title": "QR Code Rotator",
+    "spec": "Rotate a QR image by 90/180/270 degrees or arbitrary angle in-browser and download the result.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 15
+  },
+  {
+    "route": "qr-code-cropper",
+    "title": "QR Code Cropper",
+    "spec": "Crop a QR image in-browser with a quiet-zone guard that warns if the crop would cut the margin.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 16
+  },
+  {
+    "route": "qr-call-to-action-builder",
+    "title": "QR Call to Action Builder",
+    "spec": "Write and style a call-to-action line for a QR code (text, arrow, urgency) with a live preview card.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 17
+  },
+  {
+    "route": "qr-analytics-simulator",
+    "title": "QR Analytics Simulator",
+    "spec": "Enter your own assumptions (prints, scan rate, conversion); see projected scans/conversions math with every formula shown.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 18
+  },
+  {
+    "route": "qr-a-b-test-planner",
+    "title": "QR A/B Test Planner",
+    "spec": "Plan a QR A/B test: variants, sample sizes, success metric, and a printable test plan with decision rules.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 19
+  },
+  {
+    "route": "qr-campaign-planner",
+    "title": "QR Campaign Planner",
+    "spec": "Plan a QR campaign: goals, placements, quantities, timeline, and QA steps; exports a printable campaign brief.",
+    "sitemap_section": "tools",
+    "group": 5,
+    "position": 20
+  }
+]

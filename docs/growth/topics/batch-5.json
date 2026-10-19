@@ -1,0 +1,902 @@
+[
+  {
+    "slug": "how-to-create-a-qr-code-that-never-expires",
+    "title": "How to Create a QR code that never expires",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-14",
+    "readTime": "6 min read",
+    "index": 400
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-pdf",
+    "title": "How to Make a QR code for a PDF",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-14",
+    "readTime": "7 min read",
+    "index": 401
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-video",
+    "title": "How to Make a QR code for a video",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-15",
+    "readTime": "5 min read",
+    "index": 402
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-an-mp3",
+    "title": "How to Make a QR code for an MP3",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-15",
+    "readTime": "6 min read",
+    "index": 403
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-google-form",
+    "title": "How to Make a QR code for a Google Form",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-15",
+    "readTime": "7 min read",
+    "index": 404
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-zoom-meeting",
+    "title": "How to Make a QR code for a Zoom meeting",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-16",
+    "readTime": "5 min read",
+    "index": 405
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-teams-meeting",
+    "title": "How to Make a QR code for a Teams meeting",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-16",
+    "readTime": "6 min read",
+    "index": 406
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-google-meet-link",
+    "title": "How to Make a QR code for a Google Meet link",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-16",
+    "readTime": "7 min read",
+    "index": 407
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-whatsapp-group",
+    "title": "How to Make a QR code for a WhatsApp group",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-17",
+    "readTime": "5 min read",
+    "index": 408
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-telegram-channel",
+    "title": "How to Make a QR code for a Telegram channel",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-17",
+    "readTime": "6 min read",
+    "index": 409
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-an-instagram-profile",
+    "title": "How to Make a QR code for an Instagram profile",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-17",
+    "readTime": "7 min read",
+    "index": 410
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-tiktok-profile",
+    "title": "How to Make a QR code for a TikTok profile",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-18",
+    "readTime": "5 min read",
+    "index": 411
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-youtube-channel",
+    "title": "How to Make a QR code for a YouTube channel",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-18",
+    "readTime": "6 min read",
+    "index": 412
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-spotify-playlist",
+    "title": "How to Make a QR code for a Spotify playlist",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-18",
+    "readTime": "7 min read",
+    "index": 413
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-podcast-episode",
+    "title": "How to Make a QR code for a podcast episode",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-19",
+    "readTime": "5 min read",
+    "index": 414
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-an-app-store-link",
+    "title": "How to Make a QR code for an App Store link",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-19",
+    "readTime": "6 min read",
+    "index": 415
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-google-play-link",
+    "title": "How to Make a QR code for a Google Play link",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-19",
+    "readTime": "7 min read",
+    "index": 416
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-restaurant-menu",
+    "title": "How to Make a QR code for a restaurant menu",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-20",
+    "readTime": "5 min read",
+    "index": 417
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-hotel-check-in",
+    "title": "How to Make a QR code for a hotel check-in",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-20",
+    "readTime": "6 min read",
+    "index": 418
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-wedding-rsvp",
+    "title": "How to Make a QR code for a wedding RSVP",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-20",
+    "readTime": "7 min read",
+    "index": 419
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-an-event-ticket",
+    "title": "How to Make a QR code for an event ticket",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-21",
+    "readTime": "5 min read",
+    "index": 420
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-coupon",
+    "title": "How to Make a QR code for a coupon",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-21",
+    "readTime": "6 min read",
+    "index": 421
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-loyalty-card",
+    "title": "How to Make a QR code for a loyalty card",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-21",
+    "readTime": "7 min read",
+    "index": 422
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-business-card",
+    "title": "How to Make a QR code for a business card",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-22",
+    "readTime": "5 min read",
+    "index": 423
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-cv",
+    "title": "How to Make a QR code for a CV",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-22",
+    "readTime": "6 min read",
+    "index": 424
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-real-estate-listing",
+    "title": "How to Make a QR code for a real estate listing",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-22",
+    "readTime": "7 min read",
+    "index": 425
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-car-sale-listing",
+    "title": "How to Make a QR code for a car sale listing",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-23",
+    "readTime": "5 min read",
+    "index": 426
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-donation-page",
+    "title": "How to Make a QR code for a donation page",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-23",
+    "readTime": "6 min read",
+    "index": 427
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-church-service",
+    "title": "How to Make a QR code for a church service",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-23",
+    "readTime": "7 min read",
+    "index": 428
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-school-newsletter",
+    "title": "How to Make a QR code for a school newsletter",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-24",
+    "readTime": "5 min read",
+    "index": 429
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-patient-intake-form",
+    "title": "How to Make a QR code for a patient intake form",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-24",
+    "readTime": "6 min read",
+    "index": 430
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-gym-membership",
+    "title": "How to Make a QR code for a gym membership",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-24",
+    "readTime": "7 min read",
+    "index": 431
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-salon-booking",
+    "title": "How to Make a QR code for a salon booking",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-25",
+    "readTime": "5 min read",
+    "index": 432
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-taxi-booking",
+    "title": "How to Make a QR code for a taxi booking",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-25",
+    "readTime": "6 min read",
+    "index": 433
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-delivery-tracking-page",
+    "title": "How to Make a QR code for a delivery tracking page",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-25",
+    "readTime": "7 min read",
+    "index": 434
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-product-manual",
+    "title": "How to Make a QR code for a product manual",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-26",
+    "readTime": "5 min read",
+    "index": 435
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-warranty-registration",
+    "title": "How to Make a QR code for a warranty registration",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-26",
+    "readTime": "6 min read",
+    "index": 436
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-feedback-survey",
+    "title": "How to Make a QR code for a feedback survey",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-26",
+    "readTime": "7 min read",
+    "index": 437
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-job-application",
+    "title": "How to Make a QR code for a job application",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-27",
+    "readTime": "5 min read",
+    "index": 438
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-training-certificate",
+    "title": "How to Make a QR code for a training certificate",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-27",
+    "readTime": "6 min read",
+    "index": 439
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-gift-card",
+    "title": "How to Make a QR code for a gift card",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-27",
+    "readTime": "7 min read",
+    "index": 440
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-wifi-network-without-sharing-the-password-in-text",
+    "title": "How to Make a QR code for a WiFi network without sharing the password in text",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-28",
+    "readTime": "5 min read",
+    "index": 441
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-contact-that-works-on-iphone-and-android",
+    "title": "How to Make a QR code for a contact that works on iPhone and Android",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-28",
+    "readTime": "6 min read",
+    "index": 442
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-calendar-event-with-a-reminder",
+    "title": "How to Make a QR code for a calendar event with a reminder",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-28",
+    "readTime": "7 min read",
+    "index": 443
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-an-email-with-a-prefilled-subject",
+    "title": "How to Make a QR code for an email with a prefilled subject",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-29",
+    "readTime": "5 min read",
+    "index": 444
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-an-sms-with-a-prefilled-message",
+    "title": "How to Make a QR code for an SMS with a prefilled message",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-29",
+    "readTime": "6 min read",
+    "index": 445
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-bitcoin-payment-request",
+    "title": "How to Make a QR code for a Bitcoin payment request",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-29",
+    "readTime": "7 min read",
+    "index": 446
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-an-ethereum-payment-request",
+    "title": "How to Make a QR code for an Ethereum payment request",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-30",
+    "readTime": "5 min read",
+    "index": 447
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-upi-payment-request",
+    "title": "How to Make a QR code for a UPI payment request",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-30",
+    "readTime": "6 min read",
+    "index": 448
+  },
+  {
+    "slug": "how-to-make-a-qr-code-for-a-bank-transfer",
+    "title": "How to Make a QR code for a bank transfer",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-30",
+    "readTime": "7 min read",
+    "index": 449
+  },
+  {
+    "slug": "how-to-test-a-qr-code-before-printing-it",
+    "title": "How to Test a QR code before printing it",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-31",
+    "readTime": "5 min read",
+    "index": 450
+  },
+  {
+    "slug": "how-to-print-a-qr-code-on-a-business-card",
+    "title": "How to Print a QR code on a business card",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-31",
+    "readTime": "6 min read",
+    "index": 451
+  },
+  {
+    "slug": "how-to-print-a-qr-code-on-a-flyer",
+    "title": "How to Print a QR code on a flyer",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-05-31",
+    "readTime": "7 min read",
+    "index": 452
+  },
+  {
+    "slug": "how-to-print-a-qr-code-on-a-poster",
+    "title": "How to Print a QR code on a poster",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-01",
+    "readTime": "5 min read",
+    "index": 453
+  },
+  {
+    "slug": "how-to-print-a-qr-code-on-a-banner",
+    "title": "How to Print a QR code on a banner",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-01",
+    "readTime": "6 min read",
+    "index": 454
+  },
+  {
+    "slug": "how-to-print-a-qr-code-on-a-vehicle",
+    "title": "How to Print a QR code on a vehicle",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-01",
+    "readTime": "7 min read",
+    "index": 455
+  },
+  {
+    "slug": "how-to-print-a-qr-code-on-a-t-shirt",
+    "title": "How to Print a QR code on a T-shirt",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-02",
+    "readTime": "5 min read",
+    "index": 456
+  },
+  {
+    "slug": "how-to-print-a-qr-code-on-a-mug",
+    "title": "How to Print a QR code on a mug",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-02",
+    "readTime": "6 min read",
+    "index": 457
+  },
+  {
+    "slug": "how-to-print-a-qr-code-on-a-sticker",
+    "title": "How to Print a QR code on a sticker",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-02",
+    "readTime": "7 min read",
+    "index": 458
+  },
+  {
+    "slug": "how-to-print-a-qr-code-on-packaging",
+    "title": "How to Print a QR code on packaging",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-03",
+    "readTime": "5 min read",
+    "index": 459
+  },
+  {
+    "slug": "how-to-add-a-logo-to-a-qr-code-safely",
+    "title": "How to Add a logo to a QR code safely",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-03",
+    "readTime": "6 min read",
+    "index": 460
+  },
+  {
+    "slug": "how-to-change-the-color-of-a-qr-code",
+    "title": "How to Change the color of a QR code",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-03",
+    "readTime": "7 min read",
+    "index": 461
+  },
+  {
+    "slug": "how-to-add-a-frame-to-a-qr-code",
+    "title": "How to Add a frame to a QR code",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-04",
+    "readTime": "5 min read",
+    "index": 462
+  },
+  {
+    "slug": "how-to-add-a-call-to-action-to-a-qr-code",
+    "title": "How to Add a call to action to a QR code",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-04",
+    "readTime": "6 min read",
+    "index": 463
+  },
+  {
+    "slug": "how-to-resize-a-qr-code-without-losing-quality",
+    "title": "How to Resize a QR code without losing quality",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-04",
+    "readTime": "7 min read",
+    "index": 464
+  },
+  {
+    "slug": "how-to-export-a-qr-code-as-svg",
+    "title": "How to Export a QR code as SVG",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-05",
+    "readTime": "5 min read",
+    "index": 465
+  },
+  {
+    "slug": "how-to-export-a-qr-code-as-a-high-resolution-png",
+    "title": "How to Export a QR code as a high-resolution PNG",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-05",
+    "readTime": "6 min read",
+    "index": 466
+  },
+  {
+    "slug": "how-to-embed-a-qr-code-in-a-pdf",
+    "title": "How to Embed a QR code in a PDF",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-05",
+    "readTime": "7 min read",
+    "index": 467
+  },
+  {
+    "slug": "how-to-embed-a-qr-code-in-an-email-signature",
+    "title": "How to Embed a QR code in an email signature",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-06",
+    "readTime": "5 min read",
+    "index": 468
+  },
+  {
+    "slug": "how-to-embed-a-qr-code-in-a-powerpoint-slide",
+    "title": "How to Embed a QR code in a PowerPoint slide",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-06",
+    "readTime": "6 min read",
+    "index": 469
+  },
+  {
+    "slug": "how-to-embed-a-qr-code-in-a-word-document",
+    "title": "How to Embed a QR code in a Word document",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-06",
+    "readTime": "7 min read",
+    "index": 470
+  },
+  {
+    "slug": "how-to-track-scans-on-a-qr-code",
+    "title": "How to Track scans on a QR code",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-07",
+    "readTime": "5 min read",
+    "index": 471
+  },
+  {
+    "slug": "how-to-measure-the-roi-of-a-qr-code-campaign",
+    "title": "How to Measure the ROI of a QR code campaign",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-07",
+    "readTime": "6 min read",
+    "index": 472
+  },
+  {
+    "slug": "how-to-a-b-test-two-qr-code-designs",
+    "title": "How to A/B test two QR code designs",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-07",
+    "readTime": "7 min read",
+    "index": 473
+  },
+  {
+    "slug": "how-to-shorten-a-url-for-a-qr-code",
+    "title": "How to Shorten a URL for a QR code",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-08",
+    "readTime": "5 min read",
+    "index": 474
+  },
+  {
+    "slug": "how-to-create-a-dynamic-qr-code",
+    "title": "How to Create a dynamic QR code",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-08",
+    "readTime": "6 min read",
+    "index": 475
+  },
+  {
+    "slug": "how-to-update-the-destination-of-a-printed-qr-code",
+    "title": "How to Update the destination of a printed QR code",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-08",
+    "readTime": "7 min read",
+    "index": 476
+  },
+  {
+    "slug": "how-to-set-an-expiry-date-on-a-qr-code",
+    "title": "How to Set an expiry date on a QR code",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-09",
+    "readTime": "5 min read",
+    "index": 477
+  },
+  {
+    "slug": "how-to-password-protect-a-qr-code",
+    "title": "How to Password-protect a QR code",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-09",
+    "readTime": "6 min read",
+    "index": 478
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-multi-link-landing-page",
+    "title": "How to Create a QR code for a multi-link landing page",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-09",
+    "readTime": "7 min read",
+    "index": 479
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-an-age-gated-page",
+    "title": "How to Create a QR code for an age-gated page",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-10",
+    "readTime": "5 min read",
+    "index": 480
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-members-only-page",
+    "title": "How to Create a QR code for a members-only page",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-10",
+    "readTime": "6 min read",
+    "index": 481
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-file-download",
+    "title": "How to Create a QR code for a file download",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-10",
+    "readTime": "7 min read",
+    "index": 482
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-map-location",
+    "title": "How to Create a QR code for a map location",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-11",
+    "readTime": "5 min read",
+    "index": 483
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-review-page",
+    "title": "How to Create a QR code for a review page",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-11",
+    "readTime": "6 min read",
+    "index": 484
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-booking-page",
+    "title": "How to Create a QR code for a booking page",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-11",
+    "readTime": "7 min read",
+    "index": 485
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-waitlist-signup",
+    "title": "How to Create a QR code for a waitlist signup",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-12",
+    "readTime": "5 min read",
+    "index": 486
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-newsletter-signup",
+    "title": "How to Create a QR code for a newsletter signup",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-12",
+    "readTime": "6 min read",
+    "index": 487
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-course-enrollment",
+    "title": "How to Create a QR code for a course enrollment",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-12",
+    "readTime": "7 min read",
+    "index": 488
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-library-book",
+    "title": "How to Create a QR code for a library book",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-13",
+    "readTime": "5 min read",
+    "index": 489
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-museum-exhibit",
+    "title": "How to Create a QR code for a museum exhibit",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-13",
+    "readTime": "6 min read",
+    "index": 490
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-parking-payment",
+    "title": "How to Create a QR code for a parking payment",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-13",
+    "readTime": "7 min read",
+    "index": 491
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-toll-payment",
+    "title": "How to Create a QR code for a toll payment",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-14",
+    "readTime": "5 min read",
+    "index": 492
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-utility-bill",
+    "title": "How to Create a QR code for a utility bill",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-14",
+    "readTime": "6 min read",
+    "index": 493
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-prescription-refill",
+    "title": "How to Create a QR code for a prescription refill",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-14",
+    "readTime": "7 min read",
+    "index": 494
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-pet-id-tag",
+    "title": "How to Create a QR code for a pet ID tag",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-15",
+    "readTime": "5 min read",
+    "index": 495
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-luggage-tag",
+    "title": "How to Create a QR code for a luggage tag",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-15",
+    "readTime": "6 min read",
+    "index": 496
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-plant-label",
+    "title": "How to Create a QR code for a plant label",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-15",
+    "readTime": "7 min read",
+    "index": 497
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-classroom-quiz",
+    "title": "How to Create a QR code for a classroom quiz",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-16",
+    "readTime": "5 min read",
+    "index": 498
+  },
+  {
+    "slug": "how-to-create-a-qr-code-for-a-conference-badge",
+    "title": "How to Create a QR code for a conference badge",
+    "cluster": "how-to-guides",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-16",
+    "readTime": "6 min read",
+    "index": 499
+  }
+]

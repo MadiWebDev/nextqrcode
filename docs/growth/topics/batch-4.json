@@ -1,0 +1,902 @@
+[
+  {
+    "slug": "qr-codes-for-restaurants-getting-started",
+    "title": "QR Codes for Restaurants: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-11",
+    "readTime": "5 min read",
+    "index": 300
+  },
+  {
+    "slug": "qr-workflows-for-restaurants-advanced",
+    "title": "Restaurants QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-11",
+    "readTime": "6 min read",
+    "index": 301
+  },
+  {
+    "slug": "qr-mistakes-restaurants-avoid",
+    "title": "QR Mistakes Restaurants Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-11",
+    "readTime": "7 min read",
+    "index": 302
+  },
+  {
+    "slug": "measuring-qr-results-for-restaurants",
+    "title": "Measuring QR Results for Restaurants",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-12",
+    "readTime": "5 min read",
+    "index": 303
+  },
+  {
+    "slug": "qr-codes-for-cafes-getting-started",
+    "title": "QR Codes for Cafes: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-12",
+    "readTime": "6 min read",
+    "index": 304
+  },
+  {
+    "slug": "qr-workflows-for-cafes-advanced",
+    "title": "Cafes QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-12",
+    "readTime": "7 min read",
+    "index": 305
+  },
+  {
+    "slug": "qr-mistakes-cafes-avoid",
+    "title": "QR Mistakes Cafes Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-13",
+    "readTime": "5 min read",
+    "index": 306
+  },
+  {
+    "slug": "measuring-qr-results-for-cafes",
+    "title": "Measuring QR Results for Cafes",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-13",
+    "readTime": "6 min read",
+    "index": 307
+  },
+  {
+    "slug": "qr-codes-for-bakeries-getting-started",
+    "title": "QR Codes for Bakeries: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-13",
+    "readTime": "7 min read",
+    "index": 308
+  },
+  {
+    "slug": "qr-workflows-for-bakeries-advanced",
+    "title": "Bakeries QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-14",
+    "readTime": "5 min read",
+    "index": 309
+  },
+  {
+    "slug": "qr-mistakes-bakeries-avoid",
+    "title": "QR Mistakes Bakeries Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-14",
+    "readTime": "6 min read",
+    "index": 310
+  },
+  {
+    "slug": "measuring-qr-results-for-bakeries",
+    "title": "Measuring QR Results for Bakeries",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-14",
+    "readTime": "7 min read",
+    "index": 311
+  },
+  {
+    "slug": "qr-codes-for-retail-shops-getting-started",
+    "title": "QR Codes for Retail Shops: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-15",
+    "readTime": "5 min read",
+    "index": 312
+  },
+  {
+    "slug": "qr-workflows-for-retail-shops-advanced",
+    "title": "Retail Shops QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-15",
+    "readTime": "6 min read",
+    "index": 313
+  },
+  {
+    "slug": "qr-mistakes-retail-shops-avoid",
+    "title": "QR Mistakes Retail Shops Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-15",
+    "readTime": "7 min read",
+    "index": 314
+  },
+  {
+    "slug": "measuring-qr-results-for-retail-shops",
+    "title": "Measuring QR Results for Retail Shops",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-16",
+    "readTime": "5 min read",
+    "index": 315
+  },
+  {
+    "slug": "qr-codes-for-supermarkets-getting-started",
+    "title": "QR Codes for Supermarkets: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-16",
+    "readTime": "6 min read",
+    "index": 316
+  },
+  {
+    "slug": "qr-workflows-for-supermarkets-advanced",
+    "title": "Supermarkets QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-16",
+    "readTime": "7 min read",
+    "index": 317
+  },
+  {
+    "slug": "qr-mistakes-supermarkets-avoid",
+    "title": "QR Mistakes Supermarkets Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-17",
+    "readTime": "5 min read",
+    "index": 318
+  },
+  {
+    "slug": "measuring-qr-results-for-supermarkets",
+    "title": "Measuring QR Results for Supermarkets",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-17",
+    "readTime": "6 min read",
+    "index": 319
+  },
+  {
+    "slug": "qr-codes-for-pharmacies-getting-started",
+    "title": "QR Codes for Pharmacies: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-17",
+    "readTime": "7 min read",
+    "index": 320
+  },
+  {
+    "slug": "qr-workflows-for-pharmacies-advanced",
+    "title": "Pharmacies QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-18",
+    "readTime": "5 min read",
+    "index": 321
+  },
+  {
+    "slug": "qr-mistakes-pharmacies-avoid",
+    "title": "QR Mistakes Pharmacies Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-18",
+    "readTime": "6 min read",
+    "index": 322
+  },
+  {
+    "slug": "measuring-qr-results-for-pharmacies",
+    "title": "Measuring QR Results for Pharmacies",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-18",
+    "readTime": "7 min read",
+    "index": 323
+  },
+  {
+    "slug": "qr-codes-for-clinics-getting-started",
+    "title": "QR Codes for Clinics: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-19",
+    "readTime": "5 min read",
+    "index": 324
+  },
+  {
+    "slug": "qr-workflows-for-clinics-advanced",
+    "title": "Clinics QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-19",
+    "readTime": "6 min read",
+    "index": 325
+  },
+  {
+    "slug": "qr-mistakes-clinics-avoid",
+    "title": "QR Mistakes Clinics Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-19",
+    "readTime": "7 min read",
+    "index": 326
+  },
+  {
+    "slug": "measuring-qr-results-for-clinics",
+    "title": "Measuring QR Results for Clinics",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-20",
+    "readTime": "5 min read",
+    "index": 327
+  },
+  {
+    "slug": "qr-codes-for-dental-practices-getting-started",
+    "title": "QR Codes for Dental Practices: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-20",
+    "readTime": "6 min read",
+    "index": 328
+  },
+  {
+    "slug": "qr-workflows-for-dental-practices-advanced",
+    "title": "Dental Practices QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-20",
+    "readTime": "7 min read",
+    "index": 329
+  },
+  {
+    "slug": "qr-mistakes-dental-practices-avoid",
+    "title": "QR Mistakes Dental Practices Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-21",
+    "readTime": "5 min read",
+    "index": 330
+  },
+  {
+    "slug": "measuring-qr-results-for-dental-practices",
+    "title": "Measuring QR Results for Dental Practices",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-21",
+    "readTime": "6 min read",
+    "index": 331
+  },
+  {
+    "slug": "qr-codes-for-veterinary-clinics-getting-started",
+    "title": "QR Codes for Veterinary Clinics: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-21",
+    "readTime": "7 min read",
+    "index": 332
+  },
+  {
+    "slug": "qr-workflows-for-veterinary-clinics-advanced",
+    "title": "Veterinary Clinics QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-22",
+    "readTime": "5 min read",
+    "index": 333
+  },
+  {
+    "slug": "qr-mistakes-veterinary-clinics-avoid",
+    "title": "QR Mistakes Veterinary Clinics Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-22",
+    "readTime": "6 min read",
+    "index": 334
+  },
+  {
+    "slug": "measuring-qr-results-for-veterinary-clinics",
+    "title": "Measuring QR Results for Veterinary Clinics",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-22",
+    "readTime": "7 min read",
+    "index": 335
+  },
+  {
+    "slug": "qr-codes-for-gyms-getting-started",
+    "title": "QR Codes for Gyms: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-23",
+    "readTime": "5 min read",
+    "index": 336
+  },
+  {
+    "slug": "qr-workflows-for-gyms-advanced",
+    "title": "Gyms QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-23",
+    "readTime": "6 min read",
+    "index": 337
+  },
+  {
+    "slug": "qr-mistakes-gyms-avoid",
+    "title": "QR Mistakes Gyms Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-23",
+    "readTime": "7 min read",
+    "index": 338
+  },
+  {
+    "slug": "measuring-qr-results-for-gyms",
+    "title": "Measuring QR Results for Gyms",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-24",
+    "readTime": "5 min read",
+    "index": 339
+  },
+  {
+    "slug": "qr-codes-for-yoga-studios-getting-started",
+    "title": "QR Codes for Yoga Studios: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-24",
+    "readTime": "6 min read",
+    "index": 340
+  },
+  {
+    "slug": "qr-workflows-for-yoga-studios-advanced",
+    "title": "Yoga Studios QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-24",
+    "readTime": "7 min read",
+    "index": 341
+  },
+  {
+    "slug": "qr-mistakes-yoga-studios-avoid",
+    "title": "QR Mistakes Yoga Studios Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-25",
+    "readTime": "5 min read",
+    "index": 342
+  },
+  {
+    "slug": "measuring-qr-results-for-yoga-studios",
+    "title": "Measuring QR Results for Yoga Studios",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-25",
+    "readTime": "6 min read",
+    "index": 343
+  },
+  {
+    "slug": "qr-codes-for-hotels-getting-started",
+    "title": "QR Codes for Hotels: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-25",
+    "readTime": "7 min read",
+    "index": 344
+  },
+  {
+    "slug": "qr-workflows-for-hotels-advanced",
+    "title": "Hotels QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-26",
+    "readTime": "5 min read",
+    "index": 345
+  },
+  {
+    "slug": "qr-mistakes-hotels-avoid",
+    "title": "QR Mistakes Hotels Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-26",
+    "readTime": "6 min read",
+    "index": 346
+  },
+  {
+    "slug": "measuring-qr-results-for-hotels",
+    "title": "Measuring QR Results for Hotels",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-26",
+    "readTime": "7 min read",
+    "index": 347
+  },
+  {
+    "slug": "qr-codes-for-hostels-getting-started",
+    "title": "QR Codes for Hostels: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-27",
+    "readTime": "5 min read",
+    "index": 348
+  },
+  {
+    "slug": "qr-workflows-for-hostels-advanced",
+    "title": "Hostels QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-27",
+    "readTime": "6 min read",
+    "index": 349
+  },
+  {
+    "slug": "qr-mistakes-hostels-avoid",
+    "title": "QR Mistakes Hostels Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-27",
+    "readTime": "7 min read",
+    "index": 350
+  },
+  {
+    "slug": "measuring-qr-results-for-hostels",
+    "title": "Measuring QR Results for Hostels",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-28",
+    "readTime": "5 min read",
+    "index": 351
+  },
+  {
+    "slug": "qr-codes-for-real-estate-agencies-getting-started",
+    "title": "QR Codes for Real Estate Agencies: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-28",
+    "readTime": "6 min read",
+    "index": 352
+  },
+  {
+    "slug": "qr-workflows-for-real-estate-agencies-advanced",
+    "title": "Real Estate Agencies QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-28",
+    "readTime": "7 min read",
+    "index": 353
+  },
+  {
+    "slug": "qr-mistakes-real-estate-agencies-avoid",
+    "title": "QR Mistakes Real Estate Agencies Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-29",
+    "readTime": "5 min read",
+    "index": 354
+  },
+  {
+    "slug": "measuring-qr-results-for-real-estate-agencies",
+    "title": "Measuring QR Results for Real Estate Agencies",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-29",
+    "readTime": "6 min read",
+    "index": 355
+  },
+  {
+    "slug": "qr-codes-for-car-dealerships-getting-started",
+    "title": "QR Codes for Car Dealerships: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-29",
+    "readTime": "7 min read",
+    "index": 356
+  },
+  {
+    "slug": "qr-workflows-for-car-dealerships-advanced",
+    "title": "Car Dealerships QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-30",
+    "readTime": "5 min read",
+    "index": 357
+  },
+  {
+    "slug": "qr-mistakes-car-dealerships-avoid",
+    "title": "QR Mistakes Car Dealerships Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-30",
+    "readTime": "6 min read",
+    "index": 358
+  },
+  {
+    "slug": "measuring-qr-results-for-car-dealerships",
+    "title": "Measuring QR Results for Car Dealerships",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-04-30",
+    "readTime": "7 min read",
+    "index": 359
+  },
+  {
+    "slug": "qr-codes-for-salons-getting-started",
+    "title": "QR Codes for Salons: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-01",
+    "readTime": "5 min read",
+    "index": 360
+  },
+  {
+    "slug": "qr-workflows-for-salons-advanced",
+    "title": "Salons QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-01",
+    "readTime": "6 min read",
+    "index": 361
+  },
+  {
+    "slug": "qr-mistakes-salons-avoid",
+    "title": "QR Mistakes Salons Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-01",
+    "readTime": "7 min read",
+    "index": 362
+  },
+  {
+    "slug": "measuring-qr-results-for-salons",
+    "title": "Measuring QR Results for Salons",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-02",
+    "readTime": "5 min read",
+    "index": 363
+  },
+  {
+    "slug": "qr-codes-for-barbershops-getting-started",
+    "title": "QR Codes for Barbershops: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-02",
+    "readTime": "6 min read",
+    "index": 364
+  },
+  {
+    "slug": "qr-workflows-for-barbershops-advanced",
+    "title": "Barbershops QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-02",
+    "readTime": "7 min read",
+    "index": 365
+  },
+  {
+    "slug": "qr-mistakes-barbershops-avoid",
+    "title": "QR Mistakes Barbershops Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-03",
+    "readTime": "5 min read",
+    "index": 366
+  },
+  {
+    "slug": "measuring-qr-results-for-barbershops",
+    "title": "Measuring QR Results for Barbershops",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-03",
+    "readTime": "6 min read",
+    "index": 367
+  },
+  {
+    "slug": "qr-codes-for-spas-getting-started",
+    "title": "QR Codes for Spas: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-03",
+    "readTime": "7 min read",
+    "index": 368
+  },
+  {
+    "slug": "qr-workflows-for-spas-advanced",
+    "title": "Spas QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-04",
+    "readTime": "5 min read",
+    "index": 369
+  },
+  {
+    "slug": "qr-mistakes-spas-avoid",
+    "title": "QR Mistakes Spas Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-04",
+    "readTime": "6 min read",
+    "index": 370
+  },
+  {
+    "slug": "measuring-qr-results-for-spas",
+    "title": "Measuring QR Results for Spas",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-04",
+    "readTime": "7 min read",
+    "index": 371
+  },
+  {
+    "slug": "qr-codes-for-schools-getting-started",
+    "title": "QR Codes for Schools: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-05",
+    "readTime": "5 min read",
+    "index": 372
+  },
+  {
+    "slug": "qr-workflows-for-schools-advanced",
+    "title": "Schools QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-05",
+    "readTime": "6 min read",
+    "index": 373
+  },
+  {
+    "slug": "qr-mistakes-schools-avoid",
+    "title": "QR Mistakes Schools Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-05",
+    "readTime": "7 min read",
+    "index": 374
+  },
+  {
+    "slug": "measuring-qr-results-for-schools",
+    "title": "Measuring QR Results for Schools",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-06",
+    "readTime": "5 min read",
+    "index": 375
+  },
+  {
+    "slug": "qr-codes-for-universities-getting-started",
+    "title": "QR Codes for Universities: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-06",
+    "readTime": "6 min read",
+    "index": 376
+  },
+  {
+    "slug": "qr-workflows-for-universities-advanced",
+    "title": "Universities QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-06",
+    "readTime": "7 min read",
+    "index": 377
+  },
+  {
+    "slug": "qr-mistakes-universities-avoid",
+    "title": "QR Mistakes Universities Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-07",
+    "readTime": "5 min read",
+    "index": 378
+  },
+  {
+    "slug": "measuring-qr-results-for-universities",
+    "title": "Measuring QR Results for Universities",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-07",
+    "readTime": "6 min read",
+    "index": 379
+  },
+  {
+    "slug": "qr-codes-for-libraries-getting-started",
+    "title": "QR Codes for Libraries: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-07",
+    "readTime": "7 min read",
+    "index": 380
+  },
+  {
+    "slug": "qr-workflows-for-libraries-advanced",
+    "title": "Libraries QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-08",
+    "readTime": "5 min read",
+    "index": 381
+  },
+  {
+    "slug": "qr-mistakes-libraries-avoid",
+    "title": "QR Mistakes Libraries Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-08",
+    "readTime": "6 min read",
+    "index": 382
+  },
+  {
+    "slug": "measuring-qr-results-for-libraries",
+    "title": "Measuring QR Results for Libraries",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-08",
+    "readTime": "7 min read",
+    "index": 383
+  },
+  {
+    "slug": "qr-codes-for-museums-getting-started",
+    "title": "QR Codes for Museums: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-09",
+    "readTime": "5 min read",
+    "index": 384
+  },
+  {
+    "slug": "qr-workflows-for-museums-advanced",
+    "title": "Museums QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-09",
+    "readTime": "6 min read",
+    "index": 385
+  },
+  {
+    "slug": "qr-mistakes-museums-avoid",
+    "title": "QR Mistakes Museums Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-09",
+    "readTime": "7 min read",
+    "index": 386
+  },
+  {
+    "slug": "measuring-qr-results-for-museums",
+    "title": "Measuring QR Results for Museums",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-10",
+    "readTime": "5 min read",
+    "index": 387
+  },
+  {
+    "slug": "qr-codes-for-churches-getting-started",
+    "title": "QR Codes for Churches: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-10",
+    "readTime": "6 min read",
+    "index": 388
+  },
+  {
+    "slug": "qr-workflows-for-churches-advanced",
+    "title": "Churches QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-10",
+    "readTime": "7 min read",
+    "index": 389
+  },
+  {
+    "slug": "qr-mistakes-churches-avoid",
+    "title": "QR Mistakes Churches Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-11",
+    "readTime": "5 min read",
+    "index": 390
+  },
+  {
+    "slug": "measuring-qr-results-for-churches",
+    "title": "Measuring QR Results for Churches",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-11",
+    "readTime": "6 min read",
+    "index": 391
+  },
+  {
+    "slug": "qr-codes-for-food-trucks-getting-started",
+    "title": "QR Codes for Food Trucks: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-11",
+    "readTime": "7 min read",
+    "index": 392
+  },
+  {
+    "slug": "qr-workflows-for-food-trucks-advanced",
+    "title": "Food Trucks QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-12",
+    "readTime": "5 min read",
+    "index": 393
+  },
+  {
+    "slug": "qr-mistakes-food-trucks-avoid",
+    "title": "QR Mistakes Food Trucks Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-12",
+    "readTime": "6 min read",
+    "index": 394
+  },
+  {
+    "slug": "measuring-qr-results-for-food-trucks",
+    "title": "Measuring QR Results for Food Trucks",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-12",
+    "readTime": "7 min read",
+    "index": 395
+  },
+  {
+    "slug": "qr-codes-for-farmers-markets-getting-started",
+    "title": "QR Codes for Farmers Markets: Getting Started Guide",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-13",
+    "readTime": "5 min read",
+    "index": 396
+  },
+  {
+    "slug": "qr-workflows-for-farmers-markets-advanced",
+    "title": "Farmers Markets QR Workflows: Advanced Setup",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-13",
+    "readTime": "6 min read",
+    "index": 397
+  },
+  {
+    "slug": "qr-mistakes-farmers-markets-avoid",
+    "title": "QR Mistakes Farmers Markets Businesses Should Avoid",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-13",
+    "readTime": "7 min read",
+    "index": 398
+  },
+  {
+    "slug": "measuring-qr-results-for-farmers-markets",
+    "title": "Measuring QR Results for Farmers Markets",
+    "cluster": "industry-use-cases",
+    "category": "Business & Regional",
+    "publishedAt": "2027-05-14",
+    "readTime": "5 min read",
+    "index": 399
+  }
+]
