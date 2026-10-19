@@ -1,0 +1,902 @@
+[
+  {
+    "slug": "qr-code-vs-barcode",
+    "title": "QR code vs barcode",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-16",
+    "readTime": "7 min read",
+    "index": 500
+  },
+  {
+    "slug": "when-to-choose-qr-code-over-barcode",
+    "title": "When to Choose QR code Over barcode",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-17",
+    "readTime": "5 min read",
+    "index": 501
+  },
+  {
+    "slug": "static-qr-vs-dynamic-qr",
+    "title": "static QR vs dynamic QR",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-17",
+    "readTime": "6 min read",
+    "index": 502
+  },
+  {
+    "slug": "when-to-choose-static-qr-over-dynamic-qr",
+    "title": "When to Choose static QR Over dynamic QR",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-17",
+    "readTime": "7 min read",
+    "index": 503
+  },
+  {
+    "slug": "svg-vs-png-for-qr-codes",
+    "title": "SVG vs PNG for QR codes",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-18",
+    "readTime": "5 min read",
+    "index": 504
+  },
+  {
+    "slug": "when-to-choose-svg-over-png-for-qr-codes",
+    "title": "When to Choose SVG Over PNG for QR codes",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-18",
+    "readTime": "6 min read",
+    "index": 505
+  },
+  {
+    "slug": "qr-code-vs-nfc",
+    "title": "QR code vs NFC",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-18",
+    "readTime": "7 min read",
+    "index": 506
+  },
+  {
+    "slug": "when-to-choose-qr-code-over-nfc",
+    "title": "When to Choose QR code Over NFC",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-19",
+    "readTime": "5 min read",
+    "index": 507
+  },
+  {
+    "slug": "qr-code-vs-rfid",
+    "title": "QR code vs RFID",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-19",
+    "readTime": "6 min read",
+    "index": 508
+  },
+  {
+    "slug": "when-to-choose-qr-code-over-rfid",
+    "title": "When to Choose QR code Over RFID",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-19",
+    "readTime": "7 min read",
+    "index": 509
+  },
+  {
+    "slug": "qr-code-vs-data-matrix-2",
+    "title": "QR code vs Data Matrix",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-20",
+    "readTime": "5 min read",
+    "index": 510
+  },
+  {
+    "slug": "when-to-choose-qr-code-over-data-matrix",
+    "title": "When to Choose QR code Over Data Matrix",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-20",
+    "readTime": "6 min read",
+    "index": 511
+  },
+  {
+    "slug": "qr-code-vs-short-link",
+    "title": "QR code vs short link",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-20",
+    "readTime": "7 min read",
+    "index": 512
+  },
+  {
+    "slug": "when-to-choose-qr-code-over-short-link",
+    "title": "When to Choose QR code Over short link",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-21",
+    "readTime": "5 min read",
+    "index": 513
+  },
+  {
+    "slug": "vcard-vs-mecard",
+    "title": "vCard vs MeCard",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-21",
+    "readTime": "6 min read",
+    "index": 514
+  },
+  {
+    "slug": "when-to-choose-vcard-over-mecard",
+    "title": "When to Choose vCard Over MeCard",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-21",
+    "readTime": "7 min read",
+    "index": 515
+  },
+  {
+    "slug": "wifi-qr-vs-printed-password",
+    "title": "WiFi QR vs printed password",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-22",
+    "readTime": "5 min read",
+    "index": 516
+  },
+  {
+    "slug": "when-to-choose-wifi-qr-over-printed-password",
+    "title": "When to Choose WiFi QR Over printed password",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-22",
+    "readTime": "6 min read",
+    "index": 517
+  },
+  {
+    "slug": "sms-qr-vs-short-code",
+    "title": "SMS QR vs short code",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-22",
+    "readTime": "7 min read",
+    "index": 518
+  },
+  {
+    "slug": "when-to-choose-sms-qr-over-short-code",
+    "title": "When to Choose SMS QR Over short code",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-23",
+    "readTime": "5 min read",
+    "index": 519
+  },
+  {
+    "slug": "upi-qr-vs-bank-transfer",
+    "title": "UPI QR vs bank transfer",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-23",
+    "readTime": "6 min read",
+    "index": 520
+  },
+  {
+    "slug": "when-to-choose-upi-qr-over-bank-transfer",
+    "title": "When to Choose UPI QR Over bank transfer",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-23",
+    "readTime": "7 min read",
+    "index": 521
+  },
+  {
+    "slug": "bitcoin-qr-vs-lightning-invoice",
+    "title": "Bitcoin QR vs Lightning invoice",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-24",
+    "readTime": "5 min read",
+    "index": 522
+  },
+  {
+    "slug": "when-to-choose-bitcoin-qr-over-lightning-invoice",
+    "title": "When to Choose Bitcoin QR Over Lightning invoice",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-24",
+    "readTime": "6 min read",
+    "index": 523
+  },
+  {
+    "slug": "logo-qr-vs-plain-qr",
+    "title": "logo QR vs plain QR",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-24",
+    "readTime": "7 min read",
+    "index": 524
+  },
+  {
+    "slug": "when-to-choose-logo-qr-over-plain-qr",
+    "title": "When to Choose logo QR Over plain QR",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-25",
+    "readTime": "5 min read",
+    "index": 525
+  },
+  {
+    "slug": "color-qr-vs-black-and-white-qr",
+    "title": "color QR vs black-and-white QR",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-25",
+    "readTime": "6 min read",
+    "index": 526
+  },
+  {
+    "slug": "when-to-choose-color-qr-over-black-and-white-qr",
+    "title": "When to Choose color QR Over black-and-white QR",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-25",
+    "readTime": "7 min read",
+    "index": 527
+  },
+  {
+    "slug": "framed-qr-vs-frameless-qr",
+    "title": "framed QR vs frameless QR",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-26",
+    "readTime": "5 min read",
+    "index": 528
+  },
+  {
+    "slug": "when-to-choose-framed-qr-over-frameless-qr",
+    "title": "When to Choose framed QR Over frameless QR",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-26",
+    "readTime": "6 min read",
+    "index": 529
+  },
+  {
+    "slug": "high-error-correction-vs-low-error-correction",
+    "title": "high error correction vs low error correction",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-26",
+    "readTime": "7 min read",
+    "index": 530
+  },
+  {
+    "slug": "when-to-choose-high-error-correction-over-low-error-correction",
+    "title": "When to Choose high error correction Over low error correction",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-27",
+    "readTime": "5 min read",
+    "index": 531
+  },
+  {
+    "slug": "300-dpi-vs-72-dpi-qr-prints",
+    "title": "300 DPI vs 72 DPI QR prints",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-27",
+    "readTime": "6 min read",
+    "index": 532
+  },
+  {
+    "slug": "when-to-choose-300-dpi-over-72-dpi-qr-prints",
+    "title": "When to Choose 300 DPI Over 72 DPI QR prints",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-27",
+    "readTime": "7 min read",
+    "index": 533
+  },
+  {
+    "slug": "matte-vs-glossy-qr-labels",
+    "title": "matte vs glossy QR labels",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-28",
+    "readTime": "5 min read",
+    "index": 534
+  },
+  {
+    "slug": "when-to-choose-matte-over-glossy-qr-labels",
+    "title": "When to Choose matte Over glossy QR labels",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-28",
+    "readTime": "6 min read",
+    "index": 535
+  },
+  {
+    "slug": "vinyl-vs-paper-qr-stickers",
+    "title": "vinyl vs paper QR stickers",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-28",
+    "readTime": "7 min read",
+    "index": 536
+  },
+  {
+    "slug": "when-to-choose-vinyl-over-paper-qr-stickers",
+    "title": "When to Choose vinyl Over paper QR stickers",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-29",
+    "readTime": "5 min read",
+    "index": 537
+  },
+  {
+    "slug": "large-qr-vs-small-qr-for-posters",
+    "title": "large QR vs small QR for posters",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-29",
+    "readTime": "6 min read",
+    "index": 538
+  },
+  {
+    "slug": "when-to-choose-large-qr-over-small-qr-for-posters",
+    "title": "When to Choose large QR Over small QR for posters",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-29",
+    "readTime": "7 min read",
+    "index": 539
+  },
+  {
+    "slug": "table-tent-qr-vs-wall-qr",
+    "title": "table tent QR vs wall QR",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-30",
+    "readTime": "5 min read",
+    "index": 540
+  },
+  {
+    "slug": "when-to-choose-table-tent-qr-over-wall-qr",
+    "title": "When to Choose table tent QR Over wall QR",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-30",
+    "readTime": "6 min read",
+    "index": 541
+  },
+  {
+    "slug": "single-qr-vs-multi-link-qr",
+    "title": "single QR vs multi-link QR",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-06-30",
+    "readTime": "7 min read",
+    "index": 542
+  },
+  {
+    "slug": "when-to-choose-single-qr-over-multi-link-qr",
+    "title": "When to Choose single QR Over multi-link QR",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-01",
+    "readTime": "5 min read",
+    "index": 543
+  },
+  {
+    "slug": "qr-menu-vs-paper-menu",
+    "title": "QR menu vs paper menu",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-01",
+    "readTime": "6 min read",
+    "index": 544
+  },
+  {
+    "slug": "when-to-choose-qr-menu-over-paper-menu",
+    "title": "When to Choose QR menu Over paper menu",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-01",
+    "readTime": "7 min read",
+    "index": 545
+  },
+  {
+    "slug": "qr-ticket-vs-paper-ticket",
+    "title": "QR ticket vs paper ticket",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-02",
+    "readTime": "5 min read",
+    "index": 546
+  },
+  {
+    "slug": "when-to-choose-qr-ticket-over-paper-ticket",
+    "title": "When to Choose QR ticket Over paper ticket",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-02",
+    "readTime": "6 min read",
+    "index": 547
+  },
+  {
+    "slug": "qr-feedback-vs-comment-card",
+    "title": "QR feedback vs comment card",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-02",
+    "readTime": "7 min read",
+    "index": 548
+  },
+  {
+    "slug": "when-to-choose-qr-feedback-over-comment-card",
+    "title": "When to Choose QR feedback Over comment card",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-03",
+    "readTime": "5 min read",
+    "index": 549
+  },
+  {
+    "slug": "qr-payment-vs-card-terminal",
+    "title": "QR payment vs card terminal",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-03",
+    "readTime": "6 min read",
+    "index": 550
+  },
+  {
+    "slug": "when-to-choose-qr-payment-over-card-terminal",
+    "title": "When to Choose QR payment Over card terminal",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-03",
+    "readTime": "7 min read",
+    "index": 551
+  },
+  {
+    "slug": "qr-check-in-vs-sign-in-sheet",
+    "title": "QR check-in vs sign-in sheet",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-04",
+    "readTime": "5 min read",
+    "index": 552
+  },
+  {
+    "slug": "when-to-choose-qr-check-in-over-sign-in-sheet",
+    "title": "When to Choose QR check-in Over sign-in sheet",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-04",
+    "readTime": "6 min read",
+    "index": 553
+  },
+  {
+    "slug": "qr-coupon-vs-paper-coupon",
+    "title": "QR coupon vs paper coupon",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-04",
+    "readTime": "7 min read",
+    "index": 554
+  },
+  {
+    "slug": "when-to-choose-qr-coupon-over-paper-coupon",
+    "title": "When to Choose QR coupon Over paper coupon",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-05",
+    "readTime": "5 min read",
+    "index": 555
+  },
+  {
+    "slug": "qr-business-card-vs-traditional-card",
+    "title": "QR business card vs traditional card",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-05",
+    "readTime": "6 min read",
+    "index": 556
+  },
+  {
+    "slug": "when-to-choose-qr-business-card-over-traditional-card",
+    "title": "When to Choose QR business card Over traditional card",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-05",
+    "readTime": "7 min read",
+    "index": 557
+  },
+  {
+    "slug": "qr-survey-vs-email-survey",
+    "title": "QR survey vs email survey",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-06",
+    "readTime": "5 min read",
+    "index": 558
+  },
+  {
+    "slug": "when-to-choose-qr-survey-over-email-survey",
+    "title": "When to Choose QR survey Over email survey",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-06",
+    "readTime": "6 min read",
+    "index": 559
+  },
+  {
+    "slug": "qr-donation-vs-cash-collection",
+    "title": "QR donation vs cash collection",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-06",
+    "readTime": "7 min read",
+    "index": 560
+  },
+  {
+    "slug": "when-to-choose-qr-donation-over-cash-collection",
+    "title": "When to Choose QR donation Over cash collection",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-07",
+    "readTime": "5 min read",
+    "index": 561
+  },
+  {
+    "slug": "qr-rsvp-vs-mailed-rsvp",
+    "title": "QR RSVP vs mailed RSVP",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-07",
+    "readTime": "6 min read",
+    "index": 562
+  },
+  {
+    "slug": "when-to-choose-qr-rsvp-over-mailed-rsvp",
+    "title": "When to Choose QR RSVP Over mailed RSVP",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-07",
+    "readTime": "7 min read",
+    "index": 563
+  },
+  {
+    "slug": "qr-inventory-vs-barcode-inventory",
+    "title": "QR inventory vs barcode inventory",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-08",
+    "readTime": "5 min read",
+    "index": 564
+  },
+  {
+    "slug": "when-to-choose-qr-inventory-over-barcode-inventory",
+    "title": "When to Choose QR inventory Over barcode inventory",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-08",
+    "readTime": "6 min read",
+    "index": 565
+  },
+  {
+    "slug": "qr-asset-tag-vs-metal-plate",
+    "title": "QR asset tag vs metal plate",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-08",
+    "readTime": "7 min read",
+    "index": 566
+  },
+  {
+    "slug": "when-to-choose-qr-asset-tag-over-metal-plate",
+    "title": "When to Choose QR asset tag Over metal plate",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-09",
+    "readTime": "5 min read",
+    "index": 567
+  },
+  {
+    "slug": "qr-student-id-vs-plastic-card",
+    "title": "QR student ID vs plastic card",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-09",
+    "readTime": "6 min read",
+    "index": 568
+  },
+  {
+    "slug": "when-to-choose-qr-student-id-over-plastic-card",
+    "title": "When to Choose QR student ID Over plastic card",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-09",
+    "readTime": "7 min read",
+    "index": 569
+  },
+  {
+    "slug": "qr-event-badge-vs-wristband",
+    "title": "QR event badge vs wristband",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-10",
+    "readTime": "5 min read",
+    "index": 570
+  },
+  {
+    "slug": "when-to-choose-qr-event-badge-over-wristband",
+    "title": "When to Choose QR event badge Over wristband",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-10",
+    "readTime": "6 min read",
+    "index": 571
+  },
+  {
+    "slug": "qr-table-tent-vs-counter-sign",
+    "title": "QR table tent vs counter sign",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-10",
+    "readTime": "7 min read",
+    "index": 572
+  },
+  {
+    "slug": "when-to-choose-qr-table-tent-over-counter-sign",
+    "title": "When to Choose QR table tent Over counter sign",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-11",
+    "readTime": "5 min read",
+    "index": 573
+  },
+  {
+    "slug": "qr-parking-permit-vs-hangtag",
+    "title": "QR parking permit vs hangtag",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-11",
+    "readTime": "6 min read",
+    "index": 574
+  },
+  {
+    "slug": "when-to-choose-qr-parking-permit-over-hangtag",
+    "title": "When to Choose QR parking permit Over hangtag",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-11",
+    "readTime": "7 min read",
+    "index": 575
+  },
+  {
+    "slug": "qr-prescription-vs-paper-prescription",
+    "title": "QR prescription vs paper prescription",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-12",
+    "readTime": "5 min read",
+    "index": 576
+  },
+  {
+    "slug": "when-to-choose-qr-prescription-over-paper-prescription",
+    "title": "When to Choose QR prescription Over paper prescription",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-12",
+    "readTime": "6 min read",
+    "index": 577
+  },
+  {
+    "slug": "qr-pet-tag-vs-engraved-tag",
+    "title": "QR pet tag vs engraved tag",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-12",
+    "readTime": "7 min read",
+    "index": 578
+  },
+  {
+    "slug": "when-to-choose-qr-pet-tag-over-engraved-tag",
+    "title": "When to Choose QR pet tag Over engraved tag",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-13",
+    "readTime": "5 min read",
+    "index": 579
+  },
+  {
+    "slug": "qr-luggage-tag-vs-paper-tag",
+    "title": "QR luggage tag vs paper tag",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-13",
+    "readTime": "6 min read",
+    "index": 580
+  },
+  {
+    "slug": "when-to-choose-qr-luggage-tag-over-paper-tag",
+    "title": "When to Choose QR luggage tag Over paper tag",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-13",
+    "readTime": "7 min read",
+    "index": 581
+  },
+  {
+    "slug": "qr-plant-label-vs-handwritten-label",
+    "title": "QR plant label vs handwritten label",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-14",
+    "readTime": "5 min read",
+    "index": 582
+  },
+  {
+    "slug": "when-to-choose-qr-plant-label-over-handwritten-label",
+    "title": "When to Choose QR plant label Over handwritten label",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-14",
+    "readTime": "6 min read",
+    "index": 583
+  },
+  {
+    "slug": "qr-museum-label-vs-audio-guide",
+    "title": "QR museum label vs audio guide",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-14",
+    "readTime": "7 min read",
+    "index": 584
+  },
+  {
+    "slug": "when-to-choose-qr-museum-label-over-audio-guide",
+    "title": "When to Choose QR museum label Over audio guide",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-15",
+    "readTime": "5 min read",
+    "index": 585
+  },
+  {
+    "slug": "qr-library-book-vs-barcode",
+    "title": "QR library book vs barcode",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-15",
+    "readTime": "6 min read",
+    "index": 586
+  },
+  {
+    "slug": "when-to-choose-qr-library-book-over-barcode",
+    "title": "When to Choose QR library book Over barcode",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-15",
+    "readTime": "7 min read",
+    "index": 587
+  },
+  {
+    "slug": "qr-parking-payment-vs-coin-meter",
+    "title": "QR parking payment vs coin meter",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-16",
+    "readTime": "5 min read",
+    "index": 588
+  },
+  {
+    "slug": "when-to-choose-qr-parking-payment-over-coin-meter",
+    "title": "When to Choose QR parking payment Over coin meter",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-16",
+    "readTime": "6 min read",
+    "index": 589
+  },
+  {
+    "slug": "qr-toll-payment-vs-toll-booth",
+    "title": "QR toll payment vs toll booth",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-16",
+    "readTime": "7 min read",
+    "index": 590
+  },
+  {
+    "slug": "when-to-choose-qr-toll-payment-over-toll-booth",
+    "title": "When to Choose QR toll payment Over toll booth",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-17",
+    "readTime": "5 min read",
+    "index": 591
+  },
+  {
+    "slug": "qr-utility-bill-vs-paper-bill",
+    "title": "QR utility bill vs paper bill",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-17",
+    "readTime": "6 min read",
+    "index": 592
+  },
+  {
+    "slug": "when-to-choose-qr-utility-bill-over-paper-bill",
+    "title": "When to Choose QR utility bill Over paper bill",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-17",
+    "readTime": "7 min read",
+    "index": 593
+  },
+  {
+    "slug": "qr-prescription-refill-vs-phone-refill",
+    "title": "QR prescription refill vs phone refill",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-18",
+    "readTime": "5 min read",
+    "index": 594
+  },
+  {
+    "slug": "when-to-choose-qr-prescription-refill-over-phone-refill",
+    "title": "When to Choose QR prescription refill Over phone refill",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-18",
+    "readTime": "6 min read",
+    "index": 595
+  },
+  {
+    "slug": "qr-classroom-quiz-vs-paper-quiz",
+    "title": "QR classroom quiz vs paper quiz",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-18",
+    "readTime": "7 min read",
+    "index": 596
+  },
+  {
+    "slug": "when-to-choose-qr-classroom-quiz-over-paper-quiz",
+    "title": "When to Choose QR classroom quiz Over paper quiz",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-19",
+    "readTime": "5 min read",
+    "index": 597
+  },
+  {
+    "slug": "qr-conference-badge-vs-printed-badge",
+    "title": "QR conference badge vs printed badge",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-19",
+    "readTime": "6 min read",
+    "index": 598
+  },
+  {
+    "slug": "when-to-choose-qr-conference-badge-over-printed-badge",
+    "title": "When to Choose QR conference badge Over printed badge",
+    "cluster": "comparisons",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-19",
+    "readTime": "7 min read",
+    "index": 599
+  }
+]

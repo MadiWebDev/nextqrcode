@@ -1,0 +1,162 @@
+[
+  {
+    "route": "museum-qr-suite",
+    "title": "Museum QR Suite",
+    "spec": "Museum toolkit: exhibit QR, audio-guide QR, ticket QR, donation QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 1
+  },
+  {
+    "route": "library-qr-suite",
+    "title": "Library QR Suite",
+    "spec": "Library toolkit: catalogue QR, event QR, membership QR, book-label QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 2
+  },
+  {
+    "route": "warehouse-qr-suite",
+    "title": "Warehouse QR Suite",
+    "spec": "Warehouse toolkit: bin-location QR, stock-check QR, pick-list QR, asset QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 3
+  },
+  {
+    "route": "farm-qr-suite",
+    "title": "Farm QR Suite",
+    "spec": "Farm toolkit: produce-traceability QR, farm-shop QR, market-stall QR, CSA-signup QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 4
+  },
+  {
+    "route": "taxi-qr-suite",
+    "title": "Taxi QR Suite",
+    "spec": "Taxi toolkit: booking QR, driver-profile QR, fare-estimate QR, receipt QR presets \u2014 each generating a working QR code.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 5
+  },
+  {
+    "route": "qr-redirect-chain-viewer",
+    "title": "QR Redirect Chain Viewer",
+    "spec": "Paste a QR destination URL; parses redirects in the chain client-side (host/path/params per hop) and flags risky hops.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 6
+  },
+  {
+    "route": "qr-payload-inspector",
+    "title": "QR Payload Inspector",
+    "spec": "Upload a QR image; decodes it in-browser (jsQR), then classifies the payload type and lists every field it contains.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 7
+  },
+  {
+    "route": "qr-allowlist-builder",
+    "title": "QR Allowlist Builder",
+    "spec": "Build a domain allowlist for your QR codes: add/remove domains, import/export JSON, and test URLs against it.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 8
+  },
+  {
+    "route": "qr-metadata-stripper",
+    "title": "QR Metadata Stripper",
+    "spec": "Strip EXIF/metadata from a QR image in-browser (canvas re-encode) before you share it; shows what was removed.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 9
+  },
+  {
+    "route": "qr-offline-verifier",
+    "title": "QR Offline Verifier",
+    "spec": "Verify a QR payload without network: format checks, length, encoding, and a scannability self-test checklist.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 10
+  },
+  {
+    "route": "qr-tamper-evidence-planner",
+    "title": "QR Tamper Evidence Planner",
+    "spec": "Answer placement/material questions; generates a tamper-evidence spec (seal type, inspection cadence, escalation).",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 11
+  },
+  {
+    "route": "qr-expiry-checker",
+    "title": "QR Expiry Checker",
+    "spec": "Check whether a QR destination is expired, redirected, or dead via a client-side fetch attempt with clear verdicts and caveats.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 12
+  },
+  {
+    "route": "qr-checksum-generator",
+    "title": "QR Checksum Generator",
+    "spec": "Generate SHA-256 checksums for QR payloads so recipients can verify a printed code has not been altered.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 13
+  },
+  {
+    "route": "qr-scan-log",
+    "title": "QR Scan Log",
+    "spec": "Log your own QR scans locally (browser storage): date, location note, verdict; filter and export the log as CSV.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 14
+  },
+  {
+    "route": "qr-consent-note-builder",
+    "title": "QR Consent Note Builder",
+    "spec": "Build a short consent/privacy note to place next to a data-collecting QR code, from purpose + retention answers.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 15
+  },
+  {
+    "route": "qr-print-proof-checklist",
+    "title": "QR Print Proof Checklist",
+    "spec": "Interactive pre-press checklist (size, contrast, quiet zone, test scans); produces a printable sign-off sheet.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 16
+  },
+  {
+    "route": "qr-signature-note-builder",
+    "title": "QR Signature Note Builder",
+    "spec": "Build a signed-URL note template: payload + checksum + verification steps a recipient can follow.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 17
+  },
+  {
+    "route": "qr-batch-validator",
+    "title": "QR Batch Validator",
+    "spec": "Validate many QR destination URLs at once (format, scheme, length, duplicate detection) with a pass/fail table.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 18
+  },
+  {
+    "route": "qr-typosquat-checker",
+    "title": "QR Typosquat Checker",
+    "spec": "Compare a domain against common typo variants (omission, swap, homoglyph lookalikes) and flag risky lookalikes.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 19
+  },
+  {
+    "route": "qr-phishing-pattern-trainer",
+    "title": "QR Phishing Pattern Trainer",
+    "spec": "Interactive trainer: 10 realistic QR scenarios; you judge safe/unsafe and get an explanation for each.",
+    "sitemap_section": "tools",
+    "group": 4,
+    "position": 20
+  }
+]

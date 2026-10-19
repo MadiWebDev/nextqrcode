@@ -26,7 +26,36 @@ A QR links to a quick poll for next month's book choice. Members vote from their
 ### 4. Archive
 
 Link to a reading history page showing every book the club has read, member ratings, and highlights. A living record that grows each month.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Should book club QR links require a login?',
@@ -36,6 +65,11 @@ Link to a reading history page showing every book the club has read, member rati
       {
         question: 'Can I change the discussion questions after printing?',
         answer: 'Yes. The QR links to a page you control. Update the content without reprinting.',
+      },
+      {
+        question: 'How do I test a QR code before sharing it?',
+        answer:
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),
@@ -63,7 +97,36 @@ A QR on the item links to drop-off location map, return process steps, and the c
 ### 4. Maintenance Log
 
 Staff scan to log servicing: cleaned, checked, any faults found. The history builds automatically per item and flags items due for major service.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Can a customer start a rental with just a QR scan?',
@@ -74,6 +137,11 @@ Staff scan to log servicing: cleaned, checked, any faults found. The history bui
         question: 'What if a returned item has damage not on the departure report?',
         answer:
           'The timestamped photo baseline from check-out is evidence. New damage appearing on return is chargeable.',
+      },
+      {
+        question: 'What should a property QR code link to?',
+        answer:
+          'Link to a listing page with photos, price, availability, and contact details. A code that opens only a phone number wastes the chance to show the property before the caller decides.',
       },
     ]
   ),
@@ -101,7 +169,36 @@ A QR on social media posts and printed flyers links to a pre-order form. Custome
 ### 4. Social Follow
 
 A single QR can link to a micro-page with menu, location, and social follow buttons. One scan covers everything a new customer needs.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Should a food truck QR go on the window or on flyers?',
@@ -112,6 +209,11 @@ A single QR can link to a micro-page with menu, location, and social follow butt
         question: 'How do I show sold-out items on the digital menu?',
         answer:
           'Update the menu page and mark items unavailable. Changes are immediate; no reprinting needed.',
+      },
+      {
+        question: 'What size should a printed QR code be?',
+        answer:
+          'Size depends on scan distance and module count. As a starting point, keep the printed code at least as wide as the distance-to-scan ratio your generator recommends, then test a print at full size before ordering a full run.',
       },
     ]
   ),
@@ -139,7 +241,36 @@ A QR links to the tap room address, opening hours, and upcoming events. Craft be
 ### 4. Food Pairing Guide
 
 Link to a food pairing page for the style. A QR on an IPA linking to a charcuterie pairing guide adds genuine consumer value.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- Check print proofs with the [printed QR tester](/printed-qr-tester) so problems show up before a full run.
+- The [QR placement guide](/qr-placement-guide) covers height, lighting, glare, and surfaces that affect scan success.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+`,
     [
       {
         question: 'Can I use one QR for all cans of the same SKU?',
@@ -150,6 +281,11 @@ Link to a food pairing page for the style. A QR on an IPA linking to a charcuter
         question: 'Does a beer label QR need to meet any regulations?',
         answer:
           'Linked ingredient and nutritional data must meet the same accuracy requirements as printed information in your market.',
+      },
+      {
+        question: 'What size should a printed QR code be?',
+        answer:
+          'Size depends on scan distance and module count. As a starting point, keep the printed code at least as wide as the distance-to-scan ratio your generator recommends, then test a print at full size before ordering a full run.',
       },
     ]
   ),
@@ -181,7 +317,36 @@ QR on each piece of plant links to the operator manual, pre-start checklist, and
 ### 5. Label Durability
 
 Construction labels face mud, water, and UV. Use self-laminating outdoor-rated labels on metalised stock. Replace on a regular schedule.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Can a QR induction replace a formal site briefing?',
@@ -192,6 +357,11 @@ Construction labels face mud, water, and UV. Use self-laminating outdoor-rated l
         question: 'What happens if a worker loses connectivity on site?',
         answer:
           'Cache the induction and drawing content as an offline-capable PWA. The most recent version loads without signal.',
+      },
+      {
+        question: 'How can I tell whether a QR code is safe to scan?',
+        answer:
+          'Preview the destination before opening it, confirm the domain matches the expected business, and avoid codes that ask for passwords or payment details on an unfamiliar page. When in doubt, type the address yourself instead of scanning.',
       },
     ]
   ),
@@ -219,7 +389,36 @@ A QR by the DJ booth or stage links to the current artist's profile, social acco
 ### 4. Durability in Dark Environments
 
 Dark venues with flashing lights challenge camera autofocus. Use high-contrast codes at larger sizes than usual (8 to 12 cm), and place them where there is some ambient light rather than under direct strobes.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Can table ordering via QR replace servers in a nightclub?',
@@ -230,6 +429,11 @@ Dark venues with flashing lights challenge camera autofocus. Use high-contrast c
         question: 'Do QR codes work under UV lighting?',
         answer:
           'UV light can wash out the contrast between dark modules and white background. Test in actual venue conditions before deploying.',
+      },
+      {
+        question: 'How do I test a QR code before sharing it?',
+        answer:
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),
@@ -257,7 +461,36 @@ Residents request a single-day visitor permit via a web form. The system emails 
 ### 4. Revocation
 
 If a permit is cancelled, the database flags the token immediately. The next enforcement scan returns "not valid" even if the physical QR is unchanged.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Can a printed QR parking permit be forged?',
@@ -268,6 +501,11 @@ If a permit is cancelled, the database flags the token immediately. The next enf
         question: 'What if the visitor does not have a printer?',
         answer:
           'Display the QR on a phone screen in the windscreen. The enforcement scanner reads it equally from paper or screen.',
+      },
+      {
+        question: 'How do I test a QR code before sharing it?',
+        answer:
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),
@@ -295,7 +533,36 @@ After collection, a QR on the medication bag links to the patient information le
 ### 4. Refill Requests
 
 A QR on the bag or on the pharmacy's loyalty card links to the repeat prescription request page. Patients request their next supply from home without a phone call.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [medical ID QR](/medical-id-qr) page explains how emergency information codes should be structured.
+- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+`,
     [
       {
         question: 'Does a pharmacy QR need to comply with healthcare privacy law?',
@@ -306,6 +573,11 @@ A QR on the bag or on the pharmacy's loyalty card links to the repeat prescripti
         question: 'Can the QR wait-time display help reduce walk-outs?',
         answer:
           'Yes. Patients who know the wait is 15 minutes are less likely to leave than patients facing an unknown queue.',
+      },
+      {
+        question: 'What belongs on a medical ID QR code?',
+        answer:
+          'Include only the details a responder needs, such as conditions, allergies, medications, and an emergency contact. Avoid full medical histories, and review the information with the person it belongs to before printing.',
       },
     ]
   ),
@@ -333,7 +605,36 @@ A QR links to discussion questions, curriculum connections, and suggested read-a
 ### 4. Age-Appropriate Content Safety
 
 Content behind a children's book QR must be safe and moderated. Never link to platforms with user-generated content or social features. Use a hosted, controlled page.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: "Does a children's book QR work without a parent helping?",
@@ -344,6 +645,11 @@ Content behind a children's book QR must be safe and moderated. Never link to pl
         question: 'Should the audio be free or behind a paywall?',
         answer:
           'Free audio for the core read-along converts best. Optional premium content (bonus stories, activities) can be behind a paywall.',
+      },
+      {
+        question: 'What should a property QR code link to?',
+        answer:
+          'Link to a listing page with photos, price, availability, and contact details. A code that opens only a phone number wastes the chance to show the property before the caller decides.',
       },
     ]
   ),
@@ -371,7 +677,36 @@ A QR on the windscreen, rear window, or door seal links to a fast-track glass cl
 ### 4. Privacy
 
 Claim data is sensitive. Require authentication before any policy or claim detail is displayed. Log access attempts for audit.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Can I start a claim from a QR without an internet connection?',
@@ -382,6 +717,11 @@ Claim data is sensitive. Require authentication before any policy or claim detai
         question: 'Does a QR on the car speed up accident claims?',
         answer:
           'Yes. Launching a pre-filled form at the scene captures accurate, timely information and reduces processing time.',
+      },
+      {
+        question: 'How do I test a QR code before sharing it?',
+        answer:
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),

@@ -36,7 +36,36 @@ Scan with BHIM or any UPI-enabled bank app before printing. Confirm the payee na
 ### 4. Error Correction
 
 Use level M for screen display and level Q or H for printed signage.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Is the amount mandatory in a UPI QR?',
@@ -47,6 +76,11 @@ Use level M for screen display and level Q or H for printed signage.
         question: 'What is a VPA?',
         answer:
           'A Virtual Payment Address, also called a UPI ID, such as name@bank. It routes the payment to the correct account.',
+      },
+      {
+        question: 'Do payment QR codes expire?',
+        answer:
+          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
       },
     ]
   ),
@@ -78,13 +112,47 @@ Raast is Pakistan's instant payment system, operated by the State Bank of Pakist
 ### 3. Implementation
 
 Follow the published SBP Raast QR specification for exact sub-tag numbers and length limits. Verify by scanning with a Raast-enabled banking app before deploying.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       { question: 'What currency code does Raast use?', answer: '586 for the Pakistani rupee.' },
       {
         question: 'Is CRC16 required?',
         answer:
           'Yes. Banking apps validate the checksum and will reject a code with an incorrect value.',
+      },
+      {
+        question: 'Do payment QR codes expire?',
+        answer:
+          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
       },
     ]
   ),
@@ -118,7 +186,36 @@ DuitNow QR codes must be issued through a participating financial institution. I
 ### 4. Interoperability
 
 DuitNow is interoperable with other ASEAN instant payment QR schemes including Singapore PayNow, Thailand PromptPay, and the Philippines InstaPay, under the ASEAN cross-border payment framework.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Can anyone generate a DuitNow QR code?',
@@ -126,6 +223,11 @@ DuitNow is interoperable with other ASEAN instant payment QR schemes including S
           'Merchants must register through a participating bank. Self-generated payloads will not link to a verified account.',
       },
       { question: 'What currency code does DuitNow use?', answer: '458 for Malaysian ringgit.' },
+      {
+        question: 'Do payment QR codes expire?',
+        answer:
+          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
+      },
     ]
   ),
   art(
@@ -152,12 +254,46 @@ Merchants register through their bank or fintech provider. The QR is generated a
 ### 4. Consumer App
 
 NQR works with mobile banking apps and licensed payment apps. The consumer scans, reviews the amount and merchant name, then authorises using their PIN or biometric.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       { question: 'What currency code does NQR use?', answer: '566 for the Nigerian naira.' },
       {
         question: 'Can I generate an NQR code manually?',
         answer: 'No. NQR codes must be issued through a NIBSS-certified financial institution.',
+      },
+      {
+        question: 'Do payment QR codes expire?',
+        answer:
+          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
       },
     ]
   ),
@@ -189,12 +325,46 @@ PayNow links to Malaysia DuitNow, Thailand PromptPay, India UPI, and other ASEAN
 ### 4. Dynamic Codes
 
 Dynamic PayNow QR codes include an amount and a reference so the payer's bank pre-fills both fields. Always validate the generated payload by scanning with a Singapore banking app before going live.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- When a one-dimensional symbol fits better, the [barcode generator](/barcode-generator) covers retail and inventory formats.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+`,
     [
       { question: 'What currency code does PayNow use?', answer: '702 for the Singapore dollar.' },
       {
         question: 'Can tourists pay with PayNow from their home banking app?',
         answer: 'Yes, under the ASEAN cross-border QR framework, if their bank participates.',
+      },
+      {
+        question: 'Do payment QR codes expire?',
+        answer:
+          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
       },
     ]
   ),
@@ -228,7 +398,36 @@ The customer scans with the M-Pesa app or the Safaricom app. The app pre-fills t
 ### 4. Display Tips
 
 Print the till number and paybill in plain text beside the code so customers who prefer to type can still pay.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Can I scan an M-Pesa QR with a generic QR reader?',
@@ -238,6 +437,11 @@ Print the till number and paybill in plain text beside the code so customers who
       {
         question: 'Do I need to register to get a merchant QR?',
         answer: 'Yes. Register as a Lipa na M-Pesa merchant through Safaricom or your bank.',
+      },
+      {
+        question: 'Do payment QR codes expire?',
+        answer:
+          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
       },
     ]
   ),
@@ -265,7 +469,36 @@ STC Pay is a Telco-backed wallet. Merchants display an STC Pay QR and consumers 
 ### 4. General Guidance
 
 For any Saudi payment QR deployment, obtain the QR through the acquiring bank or payment service provider. Self-generated codes that mimic the payload format may not route correctly. Verify by scanning in the target app before going live.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Are Saudi payment QR codes based on EMV?',
@@ -276,6 +509,11 @@ For any Saudi payment QR deployment, obtain the QR through the acquiring bank or
         question: 'Can a merchant generate their own mada QR?',
         answer:
           'No. The QR must be issued by a certified acquirer linked to the merchants registered account.',
+      },
+      {
+        question: 'Do payment QR codes expire?',
+        answer:
+          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
       },
     ]
   ),
@@ -303,7 +541,36 @@ Merchants apply through their acquiring bank or JPQR-participating payment servi
 ### 4. Limitations
 
 Participation varies by app and region. Not every Japanese payment service supports JPQR. Check the current list of enrolled providers before promising full coverage to customers.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Does JPQR work with all Japanese payment apps?',
@@ -314,6 +581,11 @@ Participation varies by app and region. Not every Japanese payment service suppo
         question: 'Is JPQR based on a standard protocol?',
         answer:
           'The payload uses a URL scheme that enrolled apps resolve. The underlying QR is a standard Model 2 symbol.',
+      },
+      {
+        question: 'Do payment QR codes expire?',
+        answer:
+          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
       },
     ]
   ),
@@ -342,7 +614,36 @@ A simple version: each scan adds a stamp entry in a database; no NFC or app need
 ### 4. App-less Entry
 
 For small businesses, a campaign QR linking to a web form with the customer's email can substitute for a full loyalty app. Keep the form short and the reward clear.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [templates](/templates) collection offers ready-made layouts for common QR use cases.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Can a screenshot be used to cheat a loyalty QR?',
@@ -352,6 +653,11 @@ For small businesses, a campaign QR linking to a web form with the customer's em
       {
         question: 'Do I need a mobile app for a QR loyalty program?',
         answer: 'No. A web-based flow with email or phone authentication can work without an app.',
+      },
+      {
+        question: 'Can I put a logo in the middle of a QR code?',
+        answer:
+          'Yes, if you use a high error correction level and keep the logo small enough that it covers only the center data area. Never cover the three corner finder patterns, and test the result on several phones.',
       },
     ]
   ),
@@ -379,7 +685,36 @@ Offline-verified tokens cannot be instantly revoked. For high-value access, requ
 ### 4. Display in App
 
 Show the QR on a screen that refreshes periodically, with a clear expiry indicator so subscribers do not present an expired code.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+`,
     [
       {
         question: 'How do I revoke access if a subscription is cancelled?',
@@ -390,6 +725,11 @@ Show the QR on a screen that refreshes periodically, with a clear expiry indicat
         question: 'Can a subscriber share their QR code?',
         answer:
           'They can share a screenshot, but a rotating token limits its useful life. Biometric confirmation adds another layer.',
+      },
+      {
+        question: 'Do payment QR codes expire?',
+        answer:
+          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
       },
     ]
   ),

@@ -58,7 +58,17 @@ A QR on the physical thank-you card sent to donors links to an impact report vid
 - Use a static QR for permanent donation pages; use a dynamic QR (redirect) only if you expect the donation page URL to change between campaigns
 - Always include a clear call-to-action around the QR: "Scan to donate in 30 seconds" performs better than a bare QR with no context
 - Test on both iOS and Android before printing at scale
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Can a QR code be used to set up a recurring donation?',
@@ -138,7 +148,17 @@ Many trade shows provide badge scanners for lead capture. Use both: badge scanni
 - **Track in GA4:** sessions, form completions, demo bookings
 - **Post-show:** compare scan count to badge scans to calculate QR conversion rate
 - **Per-show ROI:** revenue from show leads ÷ (stand cost + print cost + QR setup time)
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'How many QR codes should a trade show stand have?',
@@ -220,7 +240,34 @@ If your SSID or password contains \`;\`, \`:\`, \`"\`, or \`\\\`, escape them wi
 - SSID \`Cafe;Guest\` → \`Cafe\\;Guest\`
 
 Failure to escape special characters is the most common cause of WiFi QR codes that fail to connect.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- The [WiFi QR code generator](/wifi-qr-code-generator) builds codes that join a network without typing a password.
+- The [WiFi sign generator](/wifi-sign-generator) turns a network code into a printable guest sign.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+`,
     [
       {
         question: 'Does a WiFi QR code work for both 2.4 GHz and 5 GHz networks?',
@@ -308,7 +355,17 @@ Physical album buyers are high-value fans. Rewarding them with exclusive digital
 ### Gig Setlist QR
 
 A QR on the printed setlist (or photographed setlist on the stage monitor) links to a Spotify playlist of the night's songs in order. Fans who Shazam a song mid-set can scan the setlist QR afterwards and find everything. This drives post-gig streams — often the highest stream day for independent artists.
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Does Spotify have its own QR code format?',
@@ -324,94 +381,6 @@ A QR on the printed setlist (or photographed setlist on the stage monitor) links
         question: 'Can I put a QR on a T-shirt that fans will actually scan?',
         answer:
           'Yes, if it is framed as an invitation: "Scan for exclusive content" near the QR. Placement matters — back of neck label, inner hem, or sleeve cuff. QR on the front of a T-shirt risks being obscured when worn. The inside collar or a small sleeve placement makes it discoverable when someone inspects the garment without being intrusive when worn.',
-      },
-    ]
-  ),
-  art(
-    'qr-code-for-construction-sites',
-    'QR Codes on Construction Sites: Safety, Permits, Asset Tracking, and Worker Check-In',
-    'qr code construction site safety permits asset tracking',
-    'Deploy QR codes on construction sites for safety data sheets, permit display, asset tracking, worker check-in, and subcontractor management.',
-    'Business & Regional',
-    '5 min read',
-    '2027-02-05',
-    `
-### Why Construction Sites Are Ideal for QR
-
-Construction sites are information-dense environments where workers need access to safety data, equipment manuals, permit records, and daily briefings — often in physically demanding conditions where carrying paperwork is impractical. QR codes on equipment, scaffolding, site hoardings, and permit boards give workers instant access to the right document via a phone scan, without paper handling.
-
-### Safety Data Sheet (SDS) QR
-
-COSHH regulations require safety data sheets to be accessible wherever hazardous substances are used. A QR label on each hazardous substance container links to the current SDS PDF hosted on your health and safety management system. Advantages:
-- Always current — update the SDS centrally without replacing labels
-- No A4 binder to locate in a site office
-- Timestamps on scans provide an audit trail for toolbox talks and training
-
-### Permit to Work QR
-
-A QR on the permit board links to the live permit register. Site managers can see which permits are active, what work is authorised, and who the permit holder is — from their phone anywhere on site. Subcontractors can scan to verify their permit is current before starting a high-risk activity.
-
-### Plant and Equipment Asset QR
-
-Asset labels with QR codes on plant and equipment link to:
-- Equipment inspection records and certificates (LOLER, PUWER)
-- Operator manual
-- Defect reporting form
-- Service and maintenance history
-- Next inspection due date
-
-A plant operative scans the QR before use to check the inspection status. If an inspection is overdue, the system can flag it — preventing use of non-compliant plant.
-
-### Worker Check-In QR
-
-A QR at the site entrance gate links to a check-in form. Workers scan on arrival and departure — generating an automatic digital attendance record that replaces paper signing-in books. Benefits:
-- Real-time muster list in an emergency evacuation
-- Automated time and attendance records for payroll
-- Subcontractor presence tracking for health and safety reporting
-
-This replaces paper signing-in books entirely and works without dedicated hardware — any smartphone scans the QR.
-
-### Induction and Toolbox Talk QR
-
-A QR on the site induction board or in the welfare cabin links to:
-- Site-specific induction video or presentation
-- Toolbox talk acknowledgment form (worker confirms they attended)
-- Daily briefing updates
-
-Workers complete the induction form on their own phone — removing the need for printed induction packs and providing a timestamped digital record.
-
-### Site Hoarding Public Information QR
-
-Hoardings around construction sites are high-visibility surfaces. A QR on the public-facing hoarding links to:
-- Project information page (what is being built, expected completion)
-- Community consultation portal
-- Site manager contact for enquiries or complaints
-
-This satisfies planning conditions that often require public communication and gives local residents an easy way to engage — reducing formal complaints.
-
-### Durability Considerations
-
-Construction site QR labels must withstand:
-- Water and mud — use waterproof polypropylene labels
-- UV exposure — UV-laminated labels last 2+ years outdoors
-- Physical impact — avoid placing QRs where heavy equipment passes close
-- Low light — ensure there is adequate lighting for phone camera to scan; illuminated QR signage is available for underground or nighttime work
-    `,
-    [
-      {
-        question: 'Are QR codes compliant with UK construction health and safety regulations?',
-        answer:
-          'QR codes are a delivery mechanism, not a regulatory standard. The regulation requires the information to be accessible — a QR linking to a current, correct SDS or permit record satisfies this. The HSE has confirmed digital records are acceptable as long as they are readily accessible to workers. Physical backup copies should be available where workers may lack mobile signal or devices.',
-      },
-      {
-        question: 'What happens if a worker does not have a smartphone on site?',
-        answer:
-          'Ensure physical fallback access to all critical documents. The site office should have printed SDS binders, permit records, and emergency procedures as required by regulation. QR codes supplement physical records — they do not replace the paper trail required by UK CDM and COSHH regulations. Workers without smartphones can access documents via site office tablets or printed copies.',
-      },
-      {
-        question: 'Can QR codes be used to track tool and equipment theft on a construction site?',
-        answer:
-          'Yes. A QR asset tag on tools, linked to an asset register with owner and site details, creates a record. If tagged tools are found off-site, the QR scan reveals the registered owner. This deters opportunistic theft and supports insurance claims. Combine with a tool crib check-in/check-out system for full accountability.',
       },
     ]
   ),
@@ -472,7 +441,17 @@ Before ordering 500 cards:
 4. Check the landing page loads in under 3 seconds
 
 For premium card stock (thick, textured, spot UV coating): test a physical proof from the printer. Spot UV over the QR area significantly reduces scan reliability — keep the QR area in matte finish.
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [scan guide](/scan-guide) explains how phone cameras find and decode a code.
+- The [templates](/templates) collection offers ready-made layouts for common QR use cases.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+`,
     [
       {
         question: 'Should I use a dynamic or static QR code on a business card?',
@@ -541,7 +520,17 @@ An escape room is built on information reveals: the right clue at the right time
 - **Notion / Coda:** For multi-step clue pages with reveal controls
 - **Thinkific / Teachable:** For structured game flows with user authentication
 - **Custom HTML page:** Maximum control; host on Netlify or Vercel for free
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Do escape room players need a specific app to scan QR codes?',

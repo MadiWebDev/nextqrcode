@@ -1,0 +1,902 @@
+[
+  {
+    "slug": "why-your-qr-code-wont-scan-at-all",
+    "title": "Why Your QR Code Won'T Scan At All and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-20",
+    "readTime": "5 min read",
+    "index": 600
+  },
+  {
+    "slug": "wont-scan-at-all-step-by-step-fix",
+    "title": "Won'T Scan At All: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-20",
+    "readTime": "6 min read",
+    "index": 601
+  },
+  {
+    "slug": "why-your-qr-code-scans-slowly",
+    "title": "Why Your QR Code Scans Slowly and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-20",
+    "readTime": "7 min read",
+    "index": 602
+  },
+  {
+    "slug": "scans-slowly-step-by-step-fix",
+    "title": "Scans Slowly: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-21",
+    "readTime": "5 min read",
+    "index": 603
+  },
+  {
+    "slug": "why-your-qr-code-scans-on-iphone-but-not-android",
+    "title": "Why Your QR Code Scans On Iphone But Not Android and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-21",
+    "readTime": "6 min read",
+    "index": 604
+  },
+  {
+    "slug": "scans-on-iphone-but-not-android-step-by-step-fix",
+    "title": "Scans On Iphone But Not Android: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-21",
+    "readTime": "7 min read",
+    "index": 605
+  },
+  {
+    "slug": "why-your-qr-code-scans-on-android-but-not-iphone",
+    "title": "Why Your QR Code Scans On Android But Not Iphone and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-22",
+    "readTime": "5 min read",
+    "index": 606
+  },
+  {
+    "slug": "scans-on-android-but-not-iphone-step-by-step-fix",
+    "title": "Scans On Android But Not Iphone: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-22",
+    "readTime": "6 min read",
+    "index": 607
+  },
+  {
+    "slug": "why-your-qr-code-works-on-screen-but-not-in-print",
+    "title": "Why Your QR Code Works On Screen But Not In Print and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-22",
+    "readTime": "7 min read",
+    "index": 608
+  },
+  {
+    "slug": "works-on-screen-but-not-in-print-step-by-step-fix",
+    "title": "Works On Screen But Not In Print: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-23",
+    "readTime": "5 min read",
+    "index": 609
+  },
+  {
+    "slug": "why-your-qr-code-works-in-print-but-not-on-screen",
+    "title": "Why Your QR Code Works In Print But Not On Screen and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-23",
+    "readTime": "6 min read",
+    "index": 610
+  },
+  {
+    "slug": "works-in-print-but-not-on-screen-step-by-step-fix",
+    "title": "Works In Print But Not On Screen: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-23",
+    "readTime": "7 min read",
+    "index": 611
+  },
+  {
+    "slug": "why-your-qr-code-scans-in-daylight-but-not-at-night",
+    "title": "Why Your QR Code Scans In Daylight But Not At Night and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-24",
+    "readTime": "5 min read",
+    "index": 612
+  },
+  {
+    "slug": "scans-in-daylight-but-not-at-night-step-by-step-fix",
+    "title": "Scans In Daylight But Not At Night: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-24",
+    "readTime": "6 min read",
+    "index": 613
+  },
+  {
+    "slug": "why-your-qr-code-scans-up-close-but-not-from-a-distance",
+    "title": "Why Your QR Code Scans Up Close But Not From A Distance and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-24",
+    "readTime": "7 min read",
+    "index": 614
+  },
+  {
+    "slug": "scans-up-close-but-not-from-a-distance-step-by-step-fix",
+    "title": "Scans Up Close But Not From A Distance: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-25",
+    "readTime": "5 min read",
+    "index": 615
+  },
+  {
+    "slug": "why-your-qr-code-scans-from-a-distance-but-not-up-close",
+    "title": "Why Your QR Code Scans From A Distance But Not Up Close and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-25",
+    "readTime": "6 min read",
+    "index": 616
+  },
+  {
+    "slug": "scans-from-a-distance-but-not-up-close-step-by-step-fix",
+    "title": "Scans From A Distance But Not Up Close: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-25",
+    "readTime": "7 min read",
+    "index": 617
+  },
+  {
+    "slug": "why-your-qr-code-opens-the-wrong-url",
+    "title": "Why Your QR Code Opens The Wrong Url and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-26",
+    "readTime": "5 min read",
+    "index": 618
+  },
+  {
+    "slug": "opens-the-wrong-url-step-by-step-fix",
+    "title": "Opens The Wrong Url: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-26",
+    "readTime": "6 min read",
+    "index": 619
+  },
+  {
+    "slug": "why-your-qr-code-opens-a-blank-page",
+    "title": "Why Your QR Code Opens A Blank Page and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-26",
+    "readTime": "7 min read",
+    "index": 620
+  },
+  {
+    "slug": "opens-a-blank-page-step-by-step-fix",
+    "title": "Opens A Blank Page: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-27",
+    "readTime": "5 min read",
+    "index": 621
+  },
+  {
+    "slug": "why-your-qr-code-shows-a-404-error",
+    "title": "Why Your QR Code Shows A 404 Error and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-27",
+    "readTime": "6 min read",
+    "index": 622
+  },
+  {
+    "slug": "shows-a-404-error-step-by-step-fix",
+    "title": "Shows A 404 Error: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-27",
+    "readTime": "7 min read",
+    "index": 623
+  },
+  {
+    "slug": "why-your-qr-code-shows-a-security-warning",
+    "title": "Why Your QR Code Shows A Security Warning and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-28",
+    "readTime": "5 min read",
+    "index": 624
+  },
+  {
+    "slug": "shows-a-security-warning-step-by-step-fix",
+    "title": "Shows A Security Warning: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-28",
+    "readTime": "6 min read",
+    "index": 625
+  },
+  {
+    "slug": "why-your-qr-code-redirects-too-many-times",
+    "title": "Why Your QR Code Redirects Too Many Times and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-28",
+    "readTime": "7 min read",
+    "index": 626
+  },
+  {
+    "slug": "redirects-too-many-times-step-by-step-fix",
+    "title": "Redirects Too Many Times: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-29",
+    "readTime": "5 min read",
+    "index": 627
+  },
+  {
+    "slug": "why-your-qr-code-loads-very-slowly",
+    "title": "Why Your QR Code Loads Very Slowly and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-29",
+    "readTime": "6 min read",
+    "index": 628
+  },
+  {
+    "slug": "loads-very-slowly-step-by-step-fix",
+    "title": "Loads Very Slowly: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-29",
+    "readTime": "7 min read",
+    "index": 629
+  },
+  {
+    "slug": "why-your-qr-code-asks-for-a-login",
+    "title": "Why Your QR Code Asks For A Login and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-30",
+    "readTime": "5 min read",
+    "index": 630
+  },
+  {
+    "slug": "asks-for-a-login-step-by-step-fix",
+    "title": "Asks For A Login: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-30",
+    "readTime": "6 min read",
+    "index": 631
+  },
+  {
+    "slug": "why-your-qr-code-downloads-a-file-instead-of-opening-a-page",
+    "title": "Why Your QR Code Downloads A File Instead Of Opening A Page and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-30",
+    "readTime": "7 min read",
+    "index": 632
+  },
+  {
+    "slug": "downloads-a-file-instead-of-opening-a-page-step-by-step-fix",
+    "title": "Downloads A File Instead Of Opening A Page: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-31",
+    "readTime": "5 min read",
+    "index": 633
+  },
+  {
+    "slug": "why-your-qr-code-triggers-an-app-store-page",
+    "title": "Why Your QR Code Triggers An App Store Page and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-31",
+    "readTime": "6 min read",
+    "index": 634
+  },
+  {
+    "slug": "triggers-an-app-store-page-step-by-step-fix",
+    "title": "Triggers An App Store Page: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-07-31",
+    "readTime": "7 min read",
+    "index": 635
+  },
+  {
+    "slug": "why-your-qr-code-shows-the-wrong-language",
+    "title": "Why Your QR Code Shows The Wrong Language and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-01",
+    "readTime": "5 min read",
+    "index": 636
+  },
+  {
+    "slug": "shows-the-wrong-language-step-by-step-fix",
+    "title": "Shows The Wrong Language: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-01",
+    "readTime": "6 min read",
+    "index": 637
+  },
+  {
+    "slug": "why-your-qr-code-shows-an-outdated-page",
+    "title": "Why Your QR Code Shows An Outdated Page and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-01",
+    "readTime": "7 min read",
+    "index": 638
+  },
+  {
+    "slug": "shows-an-outdated-page-step-by-step-fix",
+    "title": "Shows An Outdated Page: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-02",
+    "readTime": "5 min read",
+    "index": 639
+  },
+  {
+    "slug": "why-your-qr-code-shows-someone-elses-content",
+    "title": "Why Your QR Code Shows Someone Else'S Content and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-02",
+    "readTime": "6 min read",
+    "index": 640
+  },
+  {
+    "slug": "shows-someone-elses-content-step-by-step-fix",
+    "title": "Shows Someone Else'S Content: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-02",
+    "readTime": "7 min read",
+    "index": 641
+  },
+  {
+    "slug": "why-your-qr-code-prints-blurry",
+    "title": "Why Your QR Code Prints Blurry and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-03",
+    "readTime": "5 min read",
+    "index": 642
+  },
+  {
+    "slug": "prints-blurry-step-by-step-fix",
+    "title": "Prints Blurry: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-03",
+    "readTime": "6 min read",
+    "index": 643
+  },
+  {
+    "slug": "why-your-qr-code-prints-too-small",
+    "title": "Why Your QR Code Prints Too Small and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-03",
+    "readTime": "7 min read",
+    "index": 644
+  },
+  {
+    "slug": "prints-too-small-step-by-step-fix",
+    "title": "Prints Too Small: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-04",
+    "readTime": "5 min read",
+    "index": 645
+  },
+  {
+    "slug": "why-your-qr-code-prints-with-wrong-colors",
+    "title": "Why Your QR Code Prints With Wrong Colors and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-04",
+    "readTime": "6 min read",
+    "index": 646
+  },
+  {
+    "slug": "prints-with-wrong-colors-step-by-step-fix",
+    "title": "Prints With Wrong Colors: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-04",
+    "readTime": "7 min read",
+    "index": 647
+  },
+  {
+    "slug": "why-your-qr-code-prints-with-a-cut-off-quiet-zone",
+    "title": "Why Your QR Code Prints With A Cut-Off Quiet Zone and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-05",
+    "readTime": "5 min read",
+    "index": 648
+  },
+  {
+    "slug": "prints-with-a-cut-off-quiet-zone-step-by-step-fix",
+    "title": "Prints With A Cut-Off Quiet Zone: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-05",
+    "readTime": "6 min read",
+    "index": 649
+  },
+  {
+    "slug": "why-your-qr-code-prints-with-banding-lines",
+    "title": "Why Your QR Code Prints With Banding Lines and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-05",
+    "readTime": "7 min read",
+    "index": 650
+  },
+  {
+    "slug": "prints-with-banding-lines-step-by-step-fix",
+    "title": "Prints With Banding Lines: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-06",
+    "readTime": "5 min read",
+    "index": 651
+  },
+  {
+    "slug": "why-your-qr-code-prints-with-faded-modules",
+    "title": "Why Your QR Code Prints With Faded Modules and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-06",
+    "readTime": "6 min read",
+    "index": 652
+  },
+  {
+    "slug": "prints-with-faded-modules-step-by-step-fix",
+    "title": "Prints With Faded Modules: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-06",
+    "readTime": "7 min read",
+    "index": 653
+  },
+  {
+    "slug": "why-your-qr-code-prints-with-smudged-ink",
+    "title": "Why Your QR Code Prints With Smudged Ink and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-07",
+    "readTime": "5 min read",
+    "index": 654
+  },
+  {
+    "slug": "prints-with-smudged-ink-step-by-step-fix",
+    "title": "Prints With Smudged Ink: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-07",
+    "readTime": "6 min read",
+    "index": 655
+  },
+  {
+    "slug": "why-your-qr-code-prints-with-low-contrast",
+    "title": "Why Your QR Code Prints With Low Contrast and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-07",
+    "readTime": "7 min read",
+    "index": 656
+  },
+  {
+    "slug": "prints-with-low-contrast-step-by-step-fix",
+    "title": "Prints With Low Contrast: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-08",
+    "readTime": "5 min read",
+    "index": 657
+  },
+  {
+    "slug": "why-your-qr-code-prints-mirrored",
+    "title": "Why Your QR Code Prints Mirrored and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-08",
+    "readTime": "6 min read",
+    "index": 658
+  },
+  {
+    "slug": "prints-mirrored-step-by-step-fix",
+    "title": "Prints Mirrored: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-08",
+    "readTime": "7 min read",
+    "index": 659
+  },
+  {
+    "slug": "why-your-qr-code-prints-inverted",
+    "title": "Why Your QR Code Prints Inverted and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-09",
+    "readTime": "5 min read",
+    "index": 660
+  },
+  {
+    "slug": "prints-inverted-step-by-step-fix",
+    "title": "Prints Inverted: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-09",
+    "readTime": "6 min read",
+    "index": 661
+  },
+  {
+    "slug": "why-your-qr-code-prints-stretched",
+    "title": "Why Your QR Code Prints Stretched and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-09",
+    "readTime": "7 min read",
+    "index": 662
+  },
+  {
+    "slug": "prints-stretched-step-by-step-fix",
+    "title": "Prints Stretched: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-10",
+    "readTime": "5 min read",
+    "index": 663
+  },
+  {
+    "slug": "why-your-qr-code-prints-pixelated",
+    "title": "Why Your QR Code Prints Pixelated and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-10",
+    "readTime": "6 min read",
+    "index": 664
+  },
+  {
+    "slug": "prints-pixelated-step-by-step-fix",
+    "title": "Prints Pixelated: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-10",
+    "readTime": "7 min read",
+    "index": 665
+  },
+  {
+    "slug": "why-your-qr-code-prints-with-a-missing-finder-pattern",
+    "title": "Why Your QR Code Prints With A Missing Finder Pattern and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-11",
+    "readTime": "5 min read",
+    "index": 666
+  },
+  {
+    "slug": "prints-with-a-missing-finder-pattern-step-by-step-fix",
+    "title": "Prints With A Missing Finder Pattern: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-11",
+    "readTime": "6 min read",
+    "index": 667
+  },
+  {
+    "slug": "why-your-qr-code-prints-on-the-wrong-paper",
+    "title": "Why Your QR Code Prints On The Wrong Paper and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-11",
+    "readTime": "7 min read",
+    "index": 668
+  },
+  {
+    "slug": "prints-on-the-wrong-paper-step-by-step-fix",
+    "title": "Prints On The Wrong Paper: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-12",
+    "readTime": "5 min read",
+    "index": 669
+  },
+  {
+    "slug": "why-your-qr-code-prints-with-the-logo-covering-a-finder-pattern",
+    "title": "Why Your QR Code Prints With The Logo Covering A Finder Pattern and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-12",
+    "readTime": "6 min read",
+    "index": 670
+  },
+  {
+    "slug": "prints-with-the-logo-covering-a-finder-pattern-step-by-step-fix",
+    "title": "Prints With The Logo Covering A Finder Pattern: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-12",
+    "readTime": "7 min read",
+    "index": 671
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-coupon-does-not-apply",
+    "title": "Why Your QR Code Scans But The Coupon Does Not Apply and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-13",
+    "readTime": "5 min read",
+    "index": 672
+  },
+  {
+    "slug": "scans-but-the-coupon-does-not-apply-step-by-step-fix",
+    "title": "Scans But The Coupon Does Not Apply: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-13",
+    "readTime": "6 min read",
+    "index": 673
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-payment-fails",
+    "title": "Why Your QR Code Scans But The Payment Fails and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-13",
+    "readTime": "7 min read",
+    "index": 674
+  },
+  {
+    "slug": "scans-but-the-payment-fails-step-by-step-fix",
+    "title": "Scans But The Payment Fails: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-14",
+    "readTime": "5 min read",
+    "index": 675
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-form-is-empty",
+    "title": "Why Your QR Code Scans But The Form Is Empty and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-14",
+    "readTime": "6 min read",
+    "index": 676
+  },
+  {
+    "slug": "scans-but-the-form-is-empty-step-by-step-fix",
+    "title": "Scans But The Form Is Empty: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-14",
+    "readTime": "7 min read",
+    "index": 677
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-video-will-not-play",
+    "title": "Why Your QR Code Scans But The Video Will Not Play and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-15",
+    "readTime": "5 min read",
+    "index": 678
+  },
+  {
+    "slug": "scans-but-the-video-will-not-play-step-by-step-fix",
+    "title": "Scans But The Video Will Not Play: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-15",
+    "readTime": "6 min read",
+    "index": 679
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-wifi-will-not-connect",
+    "title": "Why Your QR Code Scans But The Wifi Will Not Connect and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-15",
+    "readTime": "7 min read",
+    "index": 680
+  },
+  {
+    "slug": "scans-but-the-wifi-will-not-connect-step-by-step-fix",
+    "title": "Scans But The Wifi Will Not Connect: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-16",
+    "readTime": "5 min read",
+    "index": 681
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-contact-will-not-save",
+    "title": "Why Your QR Code Scans But The Contact Will Not Save and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-16",
+    "readTime": "6 min read",
+    "index": 682
+  },
+  {
+    "slug": "scans-but-the-contact-will-not-save-step-by-step-fix",
+    "title": "Scans But The Contact Will Not Save: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-16",
+    "readTime": "7 min read",
+    "index": 683
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-calendar-event-is-wrong",
+    "title": "Why Your QR Code Scans But The Calendar Event Is Wrong and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-17",
+    "readTime": "5 min read",
+    "index": 684
+  },
+  {
+    "slug": "scans-but-the-calendar-event-is-wrong-step-by-step-fix",
+    "title": "Scans But The Calendar Event Is Wrong: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-17",
+    "readTime": "6 min read",
+    "index": 685
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-email-has-no-subject",
+    "title": "Why Your QR Code Scans But The Email Has No Subject and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-17",
+    "readTime": "7 min read",
+    "index": 686
+  },
+  {
+    "slug": "scans-but-the-email-has-no-subject-step-by-step-fix",
+    "title": "Scans But The Email Has No Subject: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-18",
+    "readTime": "5 min read",
+    "index": 687
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-sms-goes-to-the-wrong-number",
+    "title": "Why Your QR Code Scans But The Sms Goes To The Wrong Number and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-18",
+    "readTime": "6 min read",
+    "index": 688
+  },
+  {
+    "slug": "scans-but-the-sms-goes-to-the-wrong-number-step-by-step-fix",
+    "title": "Scans But The Sms Goes To The Wrong Number: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-18",
+    "readTime": "7 min read",
+    "index": 689
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-app-will-not-open",
+    "title": "Why Your QR Code Scans But The App Will Not Open and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-19",
+    "readTime": "5 min read",
+    "index": 690
+  },
+  {
+    "slug": "scans-but-the-app-will-not-open-step-by-step-fix",
+    "title": "Scans But The App Will Not Open: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-19",
+    "readTime": "6 min read",
+    "index": 691
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-map-shows-the-wrong-place",
+    "title": "Why Your QR Code Scans But The Map Shows The Wrong Place and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-19",
+    "readTime": "7 min read",
+    "index": 692
+  },
+  {
+    "slug": "scans-but-the-map-shows-the-wrong-place-step-by-step-fix",
+    "title": "Scans But The Map Shows The Wrong Place: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-20",
+    "readTime": "5 min read",
+    "index": 693
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-review-page-will-not-load",
+    "title": "Why Your QR Code Scans But The Review Page Will Not Load and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-20",
+    "readTime": "6 min read",
+    "index": 694
+  },
+  {
+    "slug": "scans-but-the-review-page-will-not-load-step-by-step-fix",
+    "title": "Scans But The Review Page Will Not Load: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-20",
+    "readTime": "7 min read",
+    "index": 695
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-booking-page-errors",
+    "title": "Why Your QR Code Scans But The Booking Page Errors and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-21",
+    "readTime": "5 min read",
+    "index": 696
+  },
+  {
+    "slug": "scans-but-the-booking-page-errors-step-by-step-fix",
+    "title": "Scans But The Booking Page Errors: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-21",
+    "readTime": "6 min read",
+    "index": 697
+  },
+  {
+    "slug": "why-your-qr-code-scans-but-the-download-stops-halfway",
+    "title": "Why Your QR Code Scans But The Download Stops Halfway and How to Fix It",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-21",
+    "readTime": "7 min read",
+    "index": 698
+  },
+  {
+    "slug": "scans-but-the-download-stops-halfway-step-by-step-fix",
+    "title": "Scans But The Download Stops Halfway: Step-by-Step Fix",
+    "cluster": "troubleshooting",
+    "category": "Fundamentals",
+    "publishedAt": "2027-08-22",
+    "readTime": "5 min read",
+    "index": 699
+  }
+]

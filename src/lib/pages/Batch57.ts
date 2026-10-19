@@ -50,7 +50,34 @@ The frame sits outside the QR's quiet zone, so its colour has no impact on scann
 ### CTA Text Placement
 
 CTA text placed **below** the QR performs better than above in eye-tracking studies — viewers see the QR first, then read the instruction. Exception: on tall vertical formats (poster, banner), text above the QR at eye level may be seen first. Test placement for your specific format.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- Check print proofs with the [printed QR tester](/printed-qr-tester) so problems show up before a full run.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [scan guide](/scan-guide) explains how phone cameras find and decode a code.
+- The [templates](/templates) collection offers ready-made layouts for common QR use cases.
+- The [QR placement guide](/qr-placement-guide) covers height, lighting, glare, and surfaces that affect scan success.
+`,
     [
       {
         question: 'Can a QR code frame be too decorative and reduce scannability?',
@@ -133,7 +160,34 @@ Adding urgency or scarcity increases scan rates for time-limited campaigns:
 - "Scan to enter — draw closes Sunday"
 
 Only use urgency language if it is genuine. False urgency erodes trust when the "deadline" has passed but the link still works normally.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- Check print proofs with the [printed QR tester](/printed-qr-tester) so problems show up before a full run.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [scan guide](/scan-guide) explains how phone cameras find and decode a code.
+- The [QR placement guide](/qr-placement-guide) covers height, lighting, glare, and surfaces that affect scan success.
+- When a one-dimensional symbol fits better, the [barcode generator](/barcode-generator) covers retail and inventory formats.
+`,
     [
       {
         question: 'Should the CTA text match the content of the destination page?',
@@ -144,6 +198,11 @@ Only use urgency language if it is genuine. False urgency erodes trust when the 
         question: 'Can I use emoji in a QR code frame CTA text?',
         answer:
           'Emoji can draw the eye and add personality in digital contexts. In print, they depend entirely on the font and rendering. If your print workflow supports it, a single relevant emoji (a phone icon, a fork for a food CTA) can reinforce the message. Test on physical print before finalising — some print workflows render emoji inconsistently.',
+      },
+      {
+        question: 'Why does my phone camera not scan a QR code?',
+        answer:
+          'Check lighting, focus distance, and whether the code is too small, damaged, or printed with low contrast. Cleaning the lens and holding the phone steady at a moderate distance resolves most failures.',
       },
     ]
   ),
@@ -197,7 +256,34 @@ Based on the above variables, the highest-converting frame design:
 5. **Brand colour** used consistently with your other materials
 
 This combination consistently achieves 50–70% higher scan rates than an unframed, unlabelled QR code.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- Check print proofs with the [printed QR tester](/printed-qr-tester) so problems show up before a full run.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [scan guide](/scan-guide) explains how phone cameras find and decode a code.
+- The [templates](/templates) collection offers ready-made layouts for common QR use cases.
+- The [QR placement guide](/qr-placement-guide) covers height, lighting, glare, and surfaces that affect scan success.
+`,
     [
       {
         question: 'Do animated frames on digital screens perform better than static frames?',
@@ -260,7 +346,34 @@ Consider users with visual impairments:
 ### Dynamic Text with Dynamic QR Codes
 
 For digital display contexts (screens, digital signage), combine a dynamic QR with dynamically updating frame text. When a sale starts, the frame CTA automatically changes from "Scan to see the full range" to "Scan to claim 30% off — today only." This requires a digital signage CMS that supports text variable injection alongside QR display.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- Check print proofs with the [printed QR tester](/printed-qr-tester) so problems show up before a full run.
+- The [QR placement guide](/qr-placement-guide) covers height, lighting, glare, and surfaces that affect scan success.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- When a one-dimensional symbol fits better, the [barcode generator](/barcode-generator) covers retail and inventory formats.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Can we test different frame CTA texts without reprinting physical materials?',
@@ -271,6 +384,11 @@ For digital display contexts (screens, digital signage), combine a dynamic QR wi
         question: 'Is it better to use "Scan" or "Tap" in the frame CTA?',
         answer:
           '"Scan" is the established and widely understood term for QR interaction. "Tap" is more associated with NFC or screen touch interactions. Use "Scan" for QR codes — it is unambiguous. In multilingual contexts, the universal scan icon (phone + QR) communicates the action without requiring translation.',
+      },
+      {
+        question: 'What should a property QR code link to?',
+        answer:
+          'Link to a listing page with photos, price, availability, and contact details. A code that opens only a phone number wastes the chance to show the property before the caller decides.',
       },
     ]
   ),
@@ -328,7 +446,34 @@ Provide the following for each approved frame style:
 ### Applying the Design System
 
 With a documented QR frame design system, any team member can create a consistently branded QR for any material without design expertise. Consistency across materials builds brand recognition and increases the likelihood that repeat audiences recognise and trust your QR codes.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- Check print proofs with the [printed QR tester](/printed-qr-tester) so problems show up before a full run.
+- The [templates](/templates) collection offers ready-made layouts for common QR use cases.
+- The [QR placement guide](/qr-placement-guide) covers height, lighting, glare, and surfaces that affect scan success.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- When a one-dimensional symbol fits better, the [barcode generator](/barcode-generator) covers retail and inventory formats.
+`,
     [
       {
         question: 'How do we handle QR code frames on dark-background materials like packaging?',
@@ -340,6 +485,11 @@ With a documented QR frame design system, any team member can create a consisten
           'Should different departments within an organisation use different frame designs?',
         answer:
           'No. QR frame design consistency across the organisation is more valuable than departmental variation. A unified frame design system means every QR code from your organisation looks like it belongs to the same brand, building recognition over time. Allow variation only in the CTA text — the visual design should be consistent.',
+      },
+      {
+        question: 'Can I put a logo in the middle of a QR code?',
+        answer:
+          'Yes, if you use a high error correction level and keep the logo small enough that it covers only the center data area. Never cover the three corner finder patterns, and test the result on several phones.',
       },
     ]
   ),

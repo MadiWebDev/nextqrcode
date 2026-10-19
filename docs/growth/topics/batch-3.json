@@ -1,0 +1,902 @@
+[
+  {
+    "slug": "how-to-spot-quishing-attack",
+    "title": "How to Spot a Quishing Attack Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-08",
+    "readTime": "7 min read",
+    "index": 200
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-quishing-attack",
+    "title": "What to Do If You Scanned a Quishing Attack",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-09",
+    "readTime": "5 min read",
+    "index": 201
+  },
+  {
+    "slug": "how-to-spot-sticker-overlay-scam",
+    "title": "How to Spot a Sticker Overlay Scam Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-09",
+    "readTime": "6 min read",
+    "index": 202
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-sticker-overlay-scam",
+    "title": "What to Do If You Scanned a Sticker Overlay Scam",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-09",
+    "readTime": "7 min read",
+    "index": 203
+  },
+  {
+    "slug": "how-to-spot-fake-parking-ticket",
+    "title": "How to Spot a Fake Parking Ticket Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-10",
+    "readTime": "5 min read",
+    "index": 204
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-parking-ticket",
+    "title": "What to Do If You Scanned a Fake Parking Ticket",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-10",
+    "readTime": "6 min read",
+    "index": 205
+  },
+  {
+    "slug": "how-to-spot-fake-parcel-notice",
+    "title": "How to Spot a Fake Parcel Notice Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-10",
+    "readTime": "7 min read",
+    "index": 206
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-parcel-notice",
+    "title": "What to Do If You Scanned a Fake Parcel Notice",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-11",
+    "readTime": "5 min read",
+    "index": 207
+  },
+  {
+    "slug": "how-to-spot-fake-invoice-qr",
+    "title": "How to Spot a Fake Invoice Qr Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-11",
+    "readTime": "6 min read",
+    "index": 208
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-invoice-qr",
+    "title": "What to Do If You Scanned a Fake Invoice Qr",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-11",
+    "readTime": "7 min read",
+    "index": 209
+  },
+  {
+    "slug": "how-to-spot-malicious-redirect",
+    "title": "How to Spot a Malicious Redirect Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-12",
+    "readTime": "5 min read",
+    "index": 210
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-malicious-redirect",
+    "title": "What to Do If You Scanned a Malicious Redirect",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-12",
+    "readTime": "6 min read",
+    "index": 211
+  },
+  {
+    "slug": "how-to-spot-typosquat-domain",
+    "title": "How to Spot a Typosquat Domain Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-12",
+    "readTime": "7 min read",
+    "index": 212
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-typosquat-domain",
+    "title": "What to Do If You Scanned a Typosquat Domain",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-13",
+    "readTime": "5 min read",
+    "index": 213
+  },
+  {
+    "slug": "how-to-spot-url-shortener-abuse",
+    "title": "How to Spot a Url Shortener Abuse Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-13",
+    "readTime": "6 min read",
+    "index": 214
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-url-shortener-abuse",
+    "title": "What to Do If You Scanned a Url Shortener Abuse",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-13",
+    "readTime": "7 min read",
+    "index": 215
+  },
+  {
+    "slug": "how-to-spot-open-redirect",
+    "title": "How to Spot a Open Redirect Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-14",
+    "readTime": "5 min read",
+    "index": 216
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-open-redirect",
+    "title": "What to Do If You Scanned a Open Redirect",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-14",
+    "readTime": "6 min read",
+    "index": 217
+  },
+  {
+    "slug": "how-to-spot-session-hijack-via-qr",
+    "title": "How to Spot a Session Hijack Via Qr Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-14",
+    "readTime": "7 min read",
+    "index": 218
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-session-hijack-via-qr",
+    "title": "What to Do If You Scanned a Session Hijack Via Qr",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-15",
+    "readTime": "5 min read",
+    "index": 219
+  },
+  {
+    "slug": "how-to-spot-wifi-evil-twin",
+    "title": "How to Spot a Wifi Evil Twin Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-15",
+    "readTime": "6 min read",
+    "index": 220
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-wifi-evil-twin",
+    "title": "What to Do If You Scanned a Wifi Evil Twin",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-15",
+    "readTime": "7 min read",
+    "index": 221
+  },
+  {
+    "slug": "how-to-spot-payment-qr-swap",
+    "title": "How to Spot a Payment Qr Swap Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-16",
+    "readTime": "5 min read",
+    "index": 222
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-payment-qr-swap",
+    "title": "What to Do If You Scanned a Payment Qr Swap",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-16",
+    "readTime": "6 min read",
+    "index": 223
+  },
+  {
+    "slug": "how-to-spot-clipboard-hijack",
+    "title": "How to Spot a Clipboard Hijack Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-16",
+    "readTime": "7 min read",
+    "index": 224
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-clipboard-hijack",
+    "title": "What to Do If You Scanned a Clipboard Hijack",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-17",
+    "readTime": "5 min read",
+    "index": 225
+  },
+  {
+    "slug": "how-to-spot-fake-app-download",
+    "title": "How to Spot a Fake App Download Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-17",
+    "readTime": "6 min read",
+    "index": 226
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-app-download",
+    "title": "What to Do If You Scanned a Fake App Download",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-17",
+    "readTime": "7 min read",
+    "index": 227
+  },
+  {
+    "slug": "how-to-spot-fake-survey-qr",
+    "title": "How to Spot a Fake Survey Qr Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-18",
+    "readTime": "5 min read",
+    "index": 228
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-survey-qr",
+    "title": "What to Do If You Scanned a Fake Survey Qr",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-18",
+    "readTime": "6 min read",
+    "index": 229
+  },
+  {
+    "slug": "how-to-spot-crypto-drainer-qr",
+    "title": "How to Spot a Crypto Drainer Qr Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-18",
+    "readTime": "7 min read",
+    "index": 230
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-crypto-drainer-qr",
+    "title": "What to Do If You Scanned a Crypto Drainer Qr",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-19",
+    "readTime": "5 min read",
+    "index": 231
+  },
+  {
+    "slug": "how-to-spot-fake-customer-support",
+    "title": "How to Spot a Fake Customer Support Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-19",
+    "readTime": "6 min read",
+    "index": 232
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-customer-support",
+    "title": "What to Do If You Scanned a Fake Customer Support",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-19",
+    "readTime": "7 min read",
+    "index": 233
+  },
+  {
+    "slug": "how-to-spot-fake-charity-qr",
+    "title": "How to Spot a Fake Charity Qr Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-20",
+    "readTime": "5 min read",
+    "index": 234
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-charity-qr",
+    "title": "What to Do If You Scanned a Fake Charity Qr",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-20",
+    "readTime": "6 min read",
+    "index": 235
+  },
+  {
+    "slug": "how-to-spot-fake-event-ticket",
+    "title": "How to Spot a Fake Event Ticket Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-20",
+    "readTime": "7 min read",
+    "index": 236
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-event-ticket",
+    "title": "What to Do If You Scanned a Fake Event Ticket",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-21",
+    "readTime": "5 min read",
+    "index": 237
+  },
+  {
+    "slug": "how-to-spot-fake-boarding-pass",
+    "title": "How to Spot a Fake Boarding Pass Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-21",
+    "readTime": "6 min read",
+    "index": 238
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-boarding-pass",
+    "title": "What to Do If You Scanned a Fake Boarding Pass",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-21",
+    "readTime": "7 min read",
+    "index": 239
+  },
+  {
+    "slug": "how-to-spot-fake-loyalty-card",
+    "title": "How to Spot a Fake Loyalty Card Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-22",
+    "readTime": "5 min read",
+    "index": 240
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-loyalty-card",
+    "title": "What to Do If You Scanned a Fake Loyalty Card",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-22",
+    "readTime": "6 min read",
+    "index": 241
+  },
+  {
+    "slug": "how-to-spot-fake-menu-qr",
+    "title": "How to Spot a Fake Menu Qr Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-22",
+    "readTime": "7 min read",
+    "index": 242
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-menu-qr",
+    "title": "What to Do If You Scanned a Fake Menu Qr",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-23",
+    "readTime": "5 min read",
+    "index": 243
+  },
+  {
+    "slug": "how-to-spot-fake-check-in-qr",
+    "title": "How to Spot a Fake Check In Qr Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-23",
+    "readTime": "6 min read",
+    "index": 244
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-check-in-qr",
+    "title": "What to Do If You Scanned a Fake Check In Qr",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-23",
+    "readTime": "7 min read",
+    "index": 245
+  },
+  {
+    "slug": "how-to-spot-fake-vaccine-pass",
+    "title": "How to Spot a Fake Vaccine Pass Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-24",
+    "readTime": "5 min read",
+    "index": 246
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-vaccine-pass",
+    "title": "What to Do If You Scanned a Fake Vaccine Pass",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-24",
+    "readTime": "6 min read",
+    "index": 247
+  },
+  {
+    "slug": "how-to-spot-fake-parking-meter",
+    "title": "How to Spot a Fake Parking Meter Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-24",
+    "readTime": "7 min read",
+    "index": 248
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-parking-meter",
+    "title": "What to Do If You Scanned a Fake Parking Meter",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-25",
+    "readTime": "5 min read",
+    "index": 249
+  },
+  {
+    "slug": "how-to-spot-fake-atm-overlay",
+    "title": "How to Spot a Fake Atm Overlay Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-25",
+    "readTime": "6 min read",
+    "index": 250
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-atm-overlay",
+    "title": "What to Do If You Scanned a Fake Atm Overlay",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-25",
+    "readTime": "7 min read",
+    "index": 251
+  },
+  {
+    "slug": "how-to-spot-fake-delivery-locker",
+    "title": "How to Spot a Fake Delivery Locker Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-26",
+    "readTime": "5 min read",
+    "index": 252
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-delivery-locker",
+    "title": "What to Do If You Scanned a Fake Delivery Locker",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-26",
+    "readTime": "6 min read",
+    "index": 253
+  },
+  {
+    "slug": "how-to-spot-fake-job-offer",
+    "title": "How to Spot a Fake Job Offer Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-26",
+    "readTime": "7 min read",
+    "index": 254
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-job-offer",
+    "title": "What to Do If You Scanned a Fake Job Offer",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-27",
+    "readTime": "5 min read",
+    "index": 255
+  },
+  {
+    "slug": "how-to-spot-fake-giveaway-qr",
+    "title": "How to Spot a Fake Giveaway Qr Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-27",
+    "readTime": "6 min read",
+    "index": 256
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-giveaway-qr",
+    "title": "What to Do If You Scanned a Fake Giveaway Qr",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-27",
+    "readTime": "7 min read",
+    "index": 257
+  },
+  {
+    "slug": "how-to-spot-fake-tax-refund",
+    "title": "How to Spot a Fake Tax Refund Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-28",
+    "readTime": "5 min read",
+    "index": 258
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-tax-refund",
+    "title": "What to Do If You Scanned a Fake Tax Refund",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-28",
+    "readTime": "6 min read",
+    "index": 259
+  },
+  {
+    "slug": "how-to-spot-fake-bank-alert",
+    "title": "How to Spot a Fake Bank Alert Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-28",
+    "readTime": "7 min read",
+    "index": 260
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-bank-alert",
+    "title": "What to Do If You Scanned a Fake Bank Alert",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-29",
+    "readTime": "5 min read",
+    "index": 261
+  },
+  {
+    "slug": "how-to-spot-fake-2fa-prompt",
+    "title": "How to Spot a Fake 2Fa Prompt Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-29",
+    "readTime": "6 min read",
+    "index": 262
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-2fa-prompt",
+    "title": "What to Do If You Scanned a Fake 2Fa Prompt",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-29",
+    "readTime": "7 min read",
+    "index": 263
+  },
+  {
+    "slug": "how-to-spot-fake-software-update",
+    "title": "How to Spot a Fake Software Update Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-30",
+    "readTime": "5 min read",
+    "index": 264
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-software-update",
+    "title": "What to Do If You Scanned a Fake Software Update",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-30",
+    "readTime": "6 min read",
+    "index": 265
+  },
+  {
+    "slug": "how-to-spot-fake-public-wifi-login",
+    "title": "How to Spot a Fake Public Wifi Login Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-30",
+    "readTime": "7 min read",
+    "index": 266
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-public-wifi-login",
+    "title": "What to Do If You Scanned a Fake Public Wifi Login",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-31",
+    "readTime": "5 min read",
+    "index": 267
+  },
+  {
+    "slug": "how-to-spot-fake-hotel-wifi",
+    "title": "How to Spot a Fake Hotel Wifi Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-31",
+    "readTime": "6 min read",
+    "index": 268
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-hotel-wifi",
+    "title": "What to Do If You Scanned a Fake Hotel Wifi",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-03-31",
+    "readTime": "7 min read",
+    "index": 269
+  },
+  {
+    "slug": "how-to-spot-fake-restaurant-ordering",
+    "title": "How to Spot a Fake Restaurant Ordering Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-01",
+    "readTime": "5 min read",
+    "index": 270
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-restaurant-ordering",
+    "title": "What to Do If You Scanned a Fake Restaurant Ordering",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-01",
+    "readTime": "6 min read",
+    "index": 271
+  },
+  {
+    "slug": "how-to-spot-fake-museum-ticket",
+    "title": "How to Spot a Fake Museum Ticket Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-01",
+    "readTime": "7 min read",
+    "index": 272
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-museum-ticket",
+    "title": "What to Do If You Scanned a Fake Museum Ticket",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-02",
+    "readTime": "5 min read",
+    "index": 273
+  },
+  {
+    "slug": "how-to-spot-fake-transport-ticket",
+    "title": "How to Spot a Fake Transport Ticket Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-02",
+    "readTime": "6 min read",
+    "index": 274
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-transport-ticket",
+    "title": "What to Do If You Scanned a Fake Transport Ticket",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-02",
+    "readTime": "7 min read",
+    "index": 275
+  },
+  {
+    "slug": "how-to-spot-fake-toll-payment",
+    "title": "How to Spot a Fake Toll Payment Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-03",
+    "readTime": "5 min read",
+    "index": 276
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-toll-payment",
+    "title": "What to Do If You Scanned a Fake Toll Payment",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-03",
+    "readTime": "6 min read",
+    "index": 277
+  },
+  {
+    "slug": "how-to-spot-fake-utility-bill",
+    "title": "How to Spot a Fake Utility Bill Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-03",
+    "readTime": "7 min read",
+    "index": 278
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-utility-bill",
+    "title": "What to Do If You Scanned a Fake Utility Bill",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-04",
+    "readTime": "5 min read",
+    "index": 279
+  },
+  {
+    "slug": "how-to-spot-fake-insurance-claim",
+    "title": "How to Spot a Fake Insurance Claim Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-04",
+    "readTime": "6 min read",
+    "index": 280
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-insurance-claim",
+    "title": "What to Do If You Scanned a Fake Insurance Claim",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-04",
+    "readTime": "7 min read",
+    "index": 281
+  },
+  {
+    "slug": "how-to-spot-fake-car-sale",
+    "title": "How to Spot a Fake Car Sale Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-05",
+    "readTime": "5 min read",
+    "index": 282
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-car-sale",
+    "title": "What to Do If You Scanned a Fake Car Sale",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-05",
+    "readTime": "6 min read",
+    "index": 283
+  },
+  {
+    "slug": "how-to-spot-fake-rental-listing",
+    "title": "How to Spot a Fake Rental Listing Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-05",
+    "readTime": "7 min read",
+    "index": 284
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-rental-listing",
+    "title": "What to Do If You Scanned a Fake Rental Listing",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-06",
+    "readTime": "5 min read",
+    "index": 285
+  },
+  {
+    "slug": "how-to-spot-fake-dating-profile",
+    "title": "How to Spot a Fake Dating Profile Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-06",
+    "readTime": "6 min read",
+    "index": 286
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-dating-profile",
+    "title": "What to Do If You Scanned a Fake Dating Profile",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-06",
+    "readTime": "7 min read",
+    "index": 287
+  },
+  {
+    "slug": "how-to-spot-fake-crypto-giveaway",
+    "title": "How to Spot a Fake Crypto Giveaway Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-07",
+    "readTime": "5 min read",
+    "index": 288
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-crypto-giveaway",
+    "title": "What to Do If You Scanned a Fake Crypto Giveaway",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-07",
+    "readTime": "6 min read",
+    "index": 289
+  },
+  {
+    "slug": "how-to-spot-fake-airdrop",
+    "title": "How to Spot a Fake Airdrop Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-07",
+    "readTime": "7 min read",
+    "index": 290
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-airdrop",
+    "title": "What to Do If You Scanned a Fake Airdrop",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-08",
+    "readTime": "5 min read",
+    "index": 291
+  },
+  {
+    "slug": "how-to-spot-fake-nft-mint",
+    "title": "How to Spot a Fake Nft Mint Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-08",
+    "readTime": "6 min read",
+    "index": 292
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-nft-mint",
+    "title": "What to Do If You Scanned a Fake Nft Mint",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-08",
+    "readTime": "7 min read",
+    "index": 293
+  },
+  {
+    "slug": "how-to-spot-fake-government-notice",
+    "title": "How to Spot a Fake Government Notice Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-09",
+    "readTime": "5 min read",
+    "index": 294
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-government-notice",
+    "title": "What to Do If You Scanned a Fake Government Notice",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-09",
+    "readTime": "6 min read",
+    "index": 295
+  },
+  {
+    "slug": "how-to-spot-fake-census-qr",
+    "title": "How to Spot a Fake Census Qr Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-09",
+    "readTime": "7 min read",
+    "index": 296
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-census-qr",
+    "title": "What to Do If You Scanned a Fake Census Qr",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-10",
+    "readTime": "5 min read",
+    "index": 297
+  },
+  {
+    "slug": "how-to-spot-fake-voting-info",
+    "title": "How to Spot a Fake Voting Info Before You Scan",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-10",
+    "readTime": "6 min read",
+    "index": 298
+  },
+  {
+    "slug": "what-to-do-if-you-scanned-fake-voting-info",
+    "title": "What to Do If You Scanned a Fake Voting Info",
+    "cluster": "security-scanning",
+    "category": "Security & Scanning",
+    "publishedAt": "2027-04-10",
+    "readTime": "7 min read",
+    "index": 299
+  }
+]

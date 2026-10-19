@@ -1,0 +1,902 @@
+[
+  {
+    "slug": "bulk-qr-codes-for-product-labels-setup",
+    "title": "Bulk QR Codes for Product Labels: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-24",
+    "readTime": "7 min read",
+    "index": 800
+  },
+  {
+    "slug": "csv-formatting-for-bulk-product-labels-qr-codes",
+    "title": "CSV Formatting for Bulk Product Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-25",
+    "readTime": "5 min read",
+    "index": 801
+  },
+  {
+    "slug": "qa-checklist-for-bulk-product-labels-qr-codes",
+    "title": "QA Checklist for Bulk Product Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-25",
+    "readTime": "6 min read",
+    "index": 802
+  },
+  {
+    "slug": "printing-bulk-product-labels-qr-codes",
+    "title": "Printing Bulk Product Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-25",
+    "readTime": "7 min read",
+    "index": 803
+  },
+  {
+    "slug": "cost-of-bulk-product-labels-qr-codes",
+    "title": "Cost of Bulk Product Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-26",
+    "readTime": "5 min read",
+    "index": 804
+  },
+  {
+    "slug": "bulk-qr-codes-for-event-badges-setup",
+    "title": "Bulk QR Codes for Event Badges: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-26",
+    "readTime": "6 min read",
+    "index": 805
+  },
+  {
+    "slug": "csv-formatting-for-bulk-event-badges-qr-codes",
+    "title": "CSV Formatting for Bulk Event Badges QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-26",
+    "readTime": "7 min read",
+    "index": 806
+  },
+  {
+    "slug": "qa-checklist-for-bulk-event-badges-qr-codes",
+    "title": "QA Checklist for Bulk Event Badges QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-27",
+    "readTime": "5 min read",
+    "index": 807
+  },
+  {
+    "slug": "printing-bulk-event-badges-qr-codes",
+    "title": "Printing Bulk Event Badges QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-27",
+    "readTime": "6 min read",
+    "index": 808
+  },
+  {
+    "slug": "cost-of-bulk-event-badges-qr-codes",
+    "title": "Cost of Bulk Event Badges QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-27",
+    "readTime": "7 min read",
+    "index": 809
+  },
+  {
+    "slug": "bulk-qr-codes-for-table-tents-setup",
+    "title": "Bulk QR Codes for Table Tents: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-28",
+    "readTime": "5 min read",
+    "index": 810
+  },
+  {
+    "slug": "csv-formatting-for-bulk-table-tents-qr-codes",
+    "title": "CSV Formatting for Bulk Table Tents QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-28",
+    "readTime": "6 min read",
+    "index": 811
+  },
+  {
+    "slug": "qa-checklist-for-bulk-table-tents-qr-codes",
+    "title": "QA Checklist for Bulk Table Tents QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-28",
+    "readTime": "7 min read",
+    "index": 812
+  },
+  {
+    "slug": "printing-bulk-table-tents-qr-codes",
+    "title": "Printing Bulk Table Tents QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-29",
+    "readTime": "5 min read",
+    "index": 813
+  },
+  {
+    "slug": "cost-of-bulk-table-tents-qr-codes",
+    "title": "Cost of Bulk Table Tents QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-29",
+    "readTime": "6 min read",
+    "index": 814
+  },
+  {
+    "slug": "bulk-qr-codes-for-asset-tags-setup",
+    "title": "Bulk QR Codes for Asset Tags: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-29",
+    "readTime": "7 min read",
+    "index": 815
+  },
+  {
+    "slug": "csv-formatting-for-bulk-asset-tags-qr-codes",
+    "title": "CSV Formatting for Bulk Asset Tags QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-30",
+    "readTime": "5 min read",
+    "index": 816
+  },
+  {
+    "slug": "qa-checklist-for-bulk-asset-tags-qr-codes",
+    "title": "QA Checklist for Bulk Asset Tags QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-30",
+    "readTime": "6 min read",
+    "index": 817
+  },
+  {
+    "slug": "printing-bulk-asset-tags-qr-codes",
+    "title": "Printing Bulk Asset Tags QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-09-30",
+    "readTime": "7 min read",
+    "index": 818
+  },
+  {
+    "slug": "cost-of-bulk-asset-tags-qr-codes",
+    "title": "Cost of Bulk Asset Tags QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-01",
+    "readTime": "5 min read",
+    "index": 819
+  },
+  {
+    "slug": "bulk-qr-codes-for-inventory-labels-setup",
+    "title": "Bulk QR Codes for Inventory Labels: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-01",
+    "readTime": "6 min read",
+    "index": 820
+  },
+  {
+    "slug": "csv-formatting-for-bulk-inventory-labels-qr-codes",
+    "title": "CSV Formatting for Bulk Inventory Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-01",
+    "readTime": "7 min read",
+    "index": 821
+  },
+  {
+    "slug": "qa-checklist-for-bulk-inventory-labels-qr-codes",
+    "title": "QA Checklist for Bulk Inventory Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-02",
+    "readTime": "5 min read",
+    "index": 822
+  },
+  {
+    "slug": "printing-bulk-inventory-labels-qr-codes",
+    "title": "Printing Bulk Inventory Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-02",
+    "readTime": "6 min read",
+    "index": 823
+  },
+  {
+    "slug": "cost-of-bulk-inventory-labels-qr-codes",
+    "title": "Cost of Bulk Inventory Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-02",
+    "readTime": "7 min read",
+    "index": 824
+  },
+  {
+    "slug": "bulk-qr-codes-for-student-ids-setup",
+    "title": "Bulk QR Codes for Student Ids: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-03",
+    "readTime": "5 min read",
+    "index": 825
+  },
+  {
+    "slug": "csv-formatting-for-bulk-student-ids-qr-codes",
+    "title": "CSV Formatting for Bulk Student Ids QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-03",
+    "readTime": "6 min read",
+    "index": 826
+  },
+  {
+    "slug": "qa-checklist-for-bulk-student-ids-qr-codes",
+    "title": "QA Checklist for Bulk Student Ids QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-03",
+    "readTime": "7 min read",
+    "index": 827
+  },
+  {
+    "slug": "printing-bulk-student-ids-qr-codes",
+    "title": "Printing Bulk Student Ids QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-04",
+    "readTime": "5 min read",
+    "index": 828
+  },
+  {
+    "slug": "cost-of-bulk-student-ids-qr-codes",
+    "title": "Cost of Bulk Student Ids QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-04",
+    "readTime": "6 min read",
+    "index": 829
+  },
+  {
+    "slug": "bulk-qr-codes-for-business-cards-setup",
+    "title": "Bulk QR Codes for Business Cards: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-04",
+    "readTime": "7 min read",
+    "index": 830
+  },
+  {
+    "slug": "csv-formatting-for-bulk-business-cards-qr-codes",
+    "title": "CSV Formatting for Bulk Business Cards QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-05",
+    "readTime": "5 min read",
+    "index": 831
+  },
+  {
+    "slug": "qa-checklist-for-bulk-business-cards-qr-codes",
+    "title": "QA Checklist for Bulk Business Cards QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-05",
+    "readTime": "6 min read",
+    "index": 832
+  },
+  {
+    "slug": "printing-bulk-business-cards-qr-codes",
+    "title": "Printing Bulk Business Cards QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-05",
+    "readTime": "7 min read",
+    "index": 833
+  },
+  {
+    "slug": "cost-of-bulk-business-cards-qr-codes",
+    "title": "Cost of Bulk Business Cards QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-06",
+    "readTime": "5 min read",
+    "index": 834
+  },
+  {
+    "slug": "bulk-qr-codes-for-coupons-setup",
+    "title": "Bulk QR Codes for Coupons: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-06",
+    "readTime": "6 min read",
+    "index": 835
+  },
+  {
+    "slug": "csv-formatting-for-bulk-coupons-qr-codes",
+    "title": "CSV Formatting for Bulk Coupons QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-06",
+    "readTime": "7 min read",
+    "index": 836
+  },
+  {
+    "slug": "qa-checklist-for-bulk-coupons-qr-codes",
+    "title": "QA Checklist for Bulk Coupons QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-07",
+    "readTime": "5 min read",
+    "index": 837
+  },
+  {
+    "slug": "printing-bulk-coupons-qr-codes",
+    "title": "Printing Bulk Coupons QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-07",
+    "readTime": "6 min read",
+    "index": 838
+  },
+  {
+    "slug": "cost-of-bulk-coupons-qr-codes",
+    "title": "Cost of Bulk Coupons QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-07",
+    "readTime": "7 min read",
+    "index": 839
+  },
+  {
+    "slug": "bulk-qr-codes-for-tickets-setup",
+    "title": "Bulk QR Codes for Tickets: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-08",
+    "readTime": "5 min read",
+    "index": 840
+  },
+  {
+    "slug": "csv-formatting-for-bulk-tickets-qr-codes",
+    "title": "CSV Formatting for Bulk Tickets QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-08",
+    "readTime": "6 min read",
+    "index": 841
+  },
+  {
+    "slug": "qa-checklist-for-bulk-tickets-qr-codes",
+    "title": "QA Checklist for Bulk Tickets QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-08",
+    "readTime": "7 min read",
+    "index": 842
+  },
+  {
+    "slug": "printing-bulk-tickets-qr-codes",
+    "title": "Printing Bulk Tickets QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-09",
+    "readTime": "5 min read",
+    "index": 843
+  },
+  {
+    "slug": "cost-of-bulk-tickets-qr-codes",
+    "title": "Cost of Bulk Tickets QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-09",
+    "readTime": "6 min read",
+    "index": 844
+  },
+  {
+    "slug": "bulk-qr-codes-for-feedback-cards-setup",
+    "title": "Bulk QR Codes for Feedback Cards: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-09",
+    "readTime": "7 min read",
+    "index": 845
+  },
+  {
+    "slug": "csv-formatting-for-bulk-feedback-cards-qr-codes",
+    "title": "CSV Formatting for Bulk Feedback Cards QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-10",
+    "readTime": "5 min read",
+    "index": 846
+  },
+  {
+    "slug": "qa-checklist-for-bulk-feedback-cards-qr-codes",
+    "title": "QA Checklist for Bulk Feedback Cards QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-10",
+    "readTime": "6 min read",
+    "index": 847
+  },
+  {
+    "slug": "printing-bulk-feedback-cards-qr-codes",
+    "title": "Printing Bulk Feedback Cards QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-10",
+    "readTime": "7 min read",
+    "index": 848
+  },
+  {
+    "slug": "cost-of-bulk-feedback-cards-qr-codes",
+    "title": "Cost of Bulk Feedback Cards QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-11",
+    "readTime": "5 min read",
+    "index": 849
+  },
+  {
+    "slug": "bulk-qr-codes-for-donation-slips-setup",
+    "title": "Bulk QR Codes for Donation Slips: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-11",
+    "readTime": "6 min read",
+    "index": 850
+  },
+  {
+    "slug": "csv-formatting-for-bulk-donation-slips-qr-codes",
+    "title": "CSV Formatting for Bulk Donation Slips QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-11",
+    "readTime": "7 min read",
+    "index": 851
+  },
+  {
+    "slug": "qa-checklist-for-bulk-donation-slips-qr-codes",
+    "title": "QA Checklist for Bulk Donation Slips QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-12",
+    "readTime": "5 min read",
+    "index": 852
+  },
+  {
+    "slug": "printing-bulk-donation-slips-qr-codes",
+    "title": "Printing Bulk Donation Slips QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-12",
+    "readTime": "6 min read",
+    "index": 853
+  },
+  {
+    "slug": "cost-of-bulk-donation-slips-qr-codes",
+    "title": "Cost of Bulk Donation Slips QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-12",
+    "readTime": "7 min read",
+    "index": 854
+  },
+  {
+    "slug": "bulk-qr-codes-for-menus-setup",
+    "title": "Bulk QR Codes for Menus: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-13",
+    "readTime": "5 min read",
+    "index": 855
+  },
+  {
+    "slug": "csv-formatting-for-bulk-menus-qr-codes",
+    "title": "CSV Formatting for Bulk Menus QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-13",
+    "readTime": "6 min read",
+    "index": 856
+  },
+  {
+    "slug": "qa-checklist-for-bulk-menus-qr-codes",
+    "title": "QA Checklist for Bulk Menus QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-13",
+    "readTime": "7 min read",
+    "index": 857
+  },
+  {
+    "slug": "printing-bulk-menus-qr-codes",
+    "title": "Printing Bulk Menus QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-14",
+    "readTime": "5 min read",
+    "index": 858
+  },
+  {
+    "slug": "cost-of-bulk-menus-qr-codes",
+    "title": "Cost of Bulk Menus QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-14",
+    "readTime": "6 min read",
+    "index": 859
+  },
+  {
+    "slug": "bulk-qr-codes-for-price-tags-setup",
+    "title": "Bulk QR Codes for Price Tags: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-14",
+    "readTime": "7 min read",
+    "index": 860
+  },
+  {
+    "slug": "csv-formatting-for-bulk-price-tags-qr-codes",
+    "title": "CSV Formatting for Bulk Price Tags QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-15",
+    "readTime": "5 min read",
+    "index": 861
+  },
+  {
+    "slug": "qa-checklist-for-bulk-price-tags-qr-codes",
+    "title": "QA Checklist for Bulk Price Tags QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-15",
+    "readTime": "6 min read",
+    "index": 862
+  },
+  {
+    "slug": "printing-bulk-price-tags-qr-codes",
+    "title": "Printing Bulk Price Tags QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-15",
+    "readTime": "7 min read",
+    "index": 863
+  },
+  {
+    "slug": "cost-of-bulk-price-tags-qr-codes",
+    "title": "Cost of Bulk Price Tags QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-16",
+    "readTime": "5 min read",
+    "index": 864
+  },
+  {
+    "slug": "bulk-qr-codes-for-shelf-labels-setup",
+    "title": "Bulk QR Codes for Shelf Labels: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-16",
+    "readTime": "6 min read",
+    "index": 865
+  },
+  {
+    "slug": "csv-formatting-for-bulk-shelf-labels-qr-codes",
+    "title": "CSV Formatting for Bulk Shelf Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-16",
+    "readTime": "7 min read",
+    "index": 866
+  },
+  {
+    "slug": "qa-checklist-for-bulk-shelf-labels-qr-codes",
+    "title": "QA Checklist for Bulk Shelf Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-17",
+    "readTime": "5 min read",
+    "index": 867
+  },
+  {
+    "slug": "printing-bulk-shelf-labels-qr-codes",
+    "title": "Printing Bulk Shelf Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-17",
+    "readTime": "6 min read",
+    "index": 868
+  },
+  {
+    "slug": "cost-of-bulk-shelf-labels-qr-codes",
+    "title": "Cost of Bulk Shelf Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-17",
+    "readTime": "7 min read",
+    "index": 869
+  },
+  {
+    "slug": "bulk-qr-codes-for-parking-permits-setup",
+    "title": "Bulk QR Codes for Parking Permits: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-18",
+    "readTime": "5 min read",
+    "index": 870
+  },
+  {
+    "slug": "csv-formatting-for-bulk-parking-permits-qr-codes",
+    "title": "CSV Formatting for Bulk Parking Permits QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-18",
+    "readTime": "6 min read",
+    "index": 871
+  },
+  {
+    "slug": "qa-checklist-for-bulk-parking-permits-qr-codes",
+    "title": "QA Checklist for Bulk Parking Permits QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-18",
+    "readTime": "7 min read",
+    "index": 872
+  },
+  {
+    "slug": "printing-bulk-parking-permits-qr-codes",
+    "title": "Printing Bulk Parking Permits QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-19",
+    "readTime": "5 min read",
+    "index": 873
+  },
+  {
+    "slug": "cost-of-bulk-parking-permits-qr-codes",
+    "title": "Cost of Bulk Parking Permits QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-19",
+    "readTime": "6 min read",
+    "index": 874
+  },
+  {
+    "slug": "bulk-qr-codes-for-membership-cards-setup",
+    "title": "Bulk QR Codes for Membership Cards: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-19",
+    "readTime": "7 min read",
+    "index": 875
+  },
+  {
+    "slug": "csv-formatting-for-bulk-membership-cards-qr-codes",
+    "title": "CSV Formatting for Bulk Membership Cards QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-20",
+    "readTime": "5 min read",
+    "index": 876
+  },
+  {
+    "slug": "qa-checklist-for-bulk-membership-cards-qr-codes",
+    "title": "QA Checklist for Bulk Membership Cards QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-20",
+    "readTime": "6 min read",
+    "index": 877
+  },
+  {
+    "slug": "printing-bulk-membership-cards-qr-codes",
+    "title": "Printing Bulk Membership Cards QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-20",
+    "readTime": "7 min read",
+    "index": 878
+  },
+  {
+    "slug": "cost-of-bulk-membership-cards-qr-codes",
+    "title": "Cost of Bulk Membership Cards QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-21",
+    "readTime": "5 min read",
+    "index": 879
+  },
+  {
+    "slug": "bulk-qr-codes-for-certificates-setup",
+    "title": "Bulk QR Codes for Certificates: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-21",
+    "readTime": "6 min read",
+    "index": 880
+  },
+  {
+    "slug": "csv-formatting-for-bulk-certificates-qr-codes",
+    "title": "CSV Formatting for Bulk Certificates QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-21",
+    "readTime": "7 min read",
+    "index": 881
+  },
+  {
+    "slug": "qa-checklist-for-bulk-certificates-qr-codes",
+    "title": "QA Checklist for Bulk Certificates QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-22",
+    "readTime": "5 min read",
+    "index": 882
+  },
+  {
+    "slug": "printing-bulk-certificates-qr-codes",
+    "title": "Printing Bulk Certificates QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-22",
+    "readTime": "6 min read",
+    "index": 883
+  },
+  {
+    "slug": "cost-of-bulk-certificates-qr-codes",
+    "title": "Cost of Bulk Certificates QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-22",
+    "readTime": "7 min read",
+    "index": 884
+  },
+  {
+    "slug": "bulk-qr-codes-for-invoices-setup",
+    "title": "Bulk QR Codes for Invoices: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-23",
+    "readTime": "5 min read",
+    "index": 885
+  },
+  {
+    "slug": "csv-formatting-for-bulk-invoices-qr-codes",
+    "title": "CSV Formatting for Bulk Invoices QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-23",
+    "readTime": "6 min read",
+    "index": 886
+  },
+  {
+    "slug": "qa-checklist-for-bulk-invoices-qr-codes",
+    "title": "QA Checklist for Bulk Invoices QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-23",
+    "readTime": "7 min read",
+    "index": 887
+  },
+  {
+    "slug": "printing-bulk-invoices-qr-codes",
+    "title": "Printing Bulk Invoices QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-24",
+    "readTime": "5 min read",
+    "index": 888
+  },
+  {
+    "slug": "cost-of-bulk-invoices-qr-codes",
+    "title": "Cost of Bulk Invoices QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-24",
+    "readTime": "6 min read",
+    "index": 889
+  },
+  {
+    "slug": "bulk-qr-codes-for-shipping-labels-setup",
+    "title": "Bulk QR Codes for Shipping Labels: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-24",
+    "readTime": "7 min read",
+    "index": 890
+  },
+  {
+    "slug": "csv-formatting-for-bulk-shipping-labels-qr-codes",
+    "title": "CSV Formatting for Bulk Shipping Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-25",
+    "readTime": "5 min read",
+    "index": 891
+  },
+  {
+    "slug": "qa-checklist-for-bulk-shipping-labels-qr-codes",
+    "title": "QA Checklist for Bulk Shipping Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-25",
+    "readTime": "6 min read",
+    "index": 892
+  },
+  {
+    "slug": "printing-bulk-shipping-labels-qr-codes",
+    "title": "Printing Bulk Shipping Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-25",
+    "readTime": "7 min read",
+    "index": 893
+  },
+  {
+    "slug": "cost-of-bulk-shipping-labels-qr-codes",
+    "title": "Cost of Bulk Shipping Labels QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-26",
+    "readTime": "5 min read",
+    "index": 894
+  },
+  {
+    "slug": "bulk-qr-codes-for-wristbands-setup",
+    "title": "Bulk QR Codes for Wristbands: Setup Guide",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-26",
+    "readTime": "6 min read",
+    "index": 895
+  },
+  {
+    "slug": "csv-formatting-for-bulk-wristbands-qr-codes",
+    "title": "CSV Formatting for Bulk Wristbands QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-26",
+    "readTime": "7 min read",
+    "index": 896
+  },
+  {
+    "slug": "qa-checklist-for-bulk-wristbands-qr-codes",
+    "title": "QA Checklist for Bulk Wristbands QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-27",
+    "readTime": "5 min read",
+    "index": 897
+  },
+  {
+    "slug": "printing-bulk-wristbands-qr-codes",
+    "title": "Printing Bulk Wristbands QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-27",
+    "readTime": "6 min read",
+    "index": 898
+  },
+  {
+    "slug": "cost-of-bulk-wristbands-qr-codes",
+    "title": "Cost of Bulk Wristbands QR Codes",
+    "cluster": "bulk-workflows",
+    "category": "Business & Regional",
+    "publishedAt": "2027-10-27",
+    "readTime": "7 min read",
+    "index": 899
+  }
+]

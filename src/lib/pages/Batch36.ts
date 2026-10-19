@@ -38,7 +38,17 @@ This AI-driven QA process replaces the labor-intensive practice of printing phys
 ### 5. Integration with Marketing Technology Stacks
 
 Modern AI QR platforms expose REST APIs and webhook endpoints that integrate natively with marketing automation tools like HubSpot, Salesforce Marketing Cloud, and Marketo. When a QR scan event fires, the AI layer can trigger personalized email follow-ups, update CRM lead scores, append scan geolocation to customer profiles, and initiate retargeting pixel fires — all without manual intervention. The QR code has effectively become an AI-orchestrated marketing touchpoint that adapts dynamically to each scanner's journey stage.
-    `,
+    
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [scan guide](/scan-guide) explains how phone cameras find and decode a code.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+`,
     [
       {
         question: 'How does AI reduce QR code payload size automatically?',
@@ -93,7 +103,17 @@ For regulated industries, all LLM-generated content must be reviewed by a human 
 ### 5. Implementation Stack and Cost Estimates
 
 A practical implementation uses Next.js with React Server Components for the landing page, the OpenAI Node.js SDK for streaming API calls, Vercel Edge Functions for geographic distribution, and Upstash Redis for rate limiting. At a volume of 100,000 QR scans per month with an average prompt of 500 tokens and response of 300 tokens, monthly LLM API costs using GPT-4o Mini are approximately \$60 to \$120 — well within the budget of mid-market marketing campaigns.
-    `,
+    
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question:
@@ -149,7 +169,17 @@ These machine-derived segments feed directly into advertising platforms (Google 
 ### 5. Privacy-Preserving ML with Federated Learning
 
 Enterprise QR platforms operating across multiple retail partners face a challenge: pooling raw scan telemetry violates data sharing agreements and GDPR's data minimization principle. Federated learning addresses this by training shared ML models (e.g., for churn prediction) across partner datasets without centralizing raw data. Each partner trains a local model on their own scan telemetry, and only the encrypted model gradients — not the underlying data — are aggregated at the central server using secure multi-party computation (SMPC) or differential privacy mechanisms. This architecture allows the platform to build a more accurate global model than any single partner could achieve in isolation, while maintaining regulatory compliance.
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [scan guide](/scan-guide) explains how phone cameras find and decode a code.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'What machine learning models work best for QR scan churn prediction?',
@@ -200,7 +230,17 @@ Regardless of the AI tool used, five technical constraints must be respected to 
 ### 5. Commercial and Licensing Considerations
 
 AI-generated images used in commercial QR campaigns raise intellectual property questions. Stable Diffusion outputs are generally considered the property of the user under the CreativeML Open RAIL-M license (with restrictions on harmful uses). DALL-E 3 outputs are owned by the user under OpenAI's commercial terms as of 2024. However, if the text prompt or ControlNet reference image incorporates copyrighted artwork (e.g., a specific artist's style), the output may carry copyright risk. Always document the generation parameters, model versions, and prompt text for each AI QR design to maintain an IP provenance record.
-    `,
+    
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- Check print proofs with the [printed QR tester](/printed-qr-tester) so problems show up before a full run.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [scan guide](/scan-guide) explains how phone cameras find and decode a code.
+- The [templates](/templates) collection offers ready-made layouts for common QR use cases.
+- The [QR placement guide](/qr-placement-guide) covers height, lighting, glare, and surfaces that affect scan success.
+`,
     [
       {
         question: 'What ControlNet model produces the best scannable QR art?',
@@ -253,7 +293,17 @@ Scanning QR codes on cylindrical packaging (beverage cans, bottles) requires unw
 ### 5. Edge Deployment and Model Compression
 
 Deploying these CV models on resource-constrained edge devices (IoT scanners, embedded kiosk cameras, handheld industrial imagers) requires model compression. Techniques include: quantization (converting FP32 weights to INT8 reduces model size by 4× with less than 2% accuracy loss), knowledge distillation (training a small student network to mimic a large teacher model), and neural architecture search (NAS) to find the most efficient architecture for a given hardware target. The resulting compressed models for QR detection typically occupy 1 to 5 MB of flash storage and run at 25 to 60 fps on ARM Cortex-M55 or RISC-V vector processors.
-    `,
+    
+
+### Related tools and guides
+
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [scan guide](/scan-guide) explains how phone cameras find and decode a code.
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+`,
     [
       {
         question: 'Can deep learning decode a QR code that has been physically torn in half?',
@@ -308,7 +358,17 @@ Isolation Forest, Autoencoder, and LSTM-based anomaly detectors trained on histo
 ### 5. Holographic and Multi-Spectral QR Codes
 
 The most tamper-resistant authentication QR codes combine digital cryptographic verification with physical security features that are computationally infeasible to replicate. Holographic QR codes embed the module pattern in a holographic foil substrate (produced by De La Rue or 3M) that generates a distinctive iridescent diffraction pattern visible under a point light source. Multi-spectral QR codes use UV-fluorescent inks for alternate modules, visible only under 365 nm UV illumination, creating a secondary QR layer that counterfeiters cannot reproduce without specialized printing equipment. AI-powered verification apps detect these multi-spectral features using the phone's camera combined with UV LED attachments or standard visible-light analysis of the holographic diffraction gradient.
-    `,
+    
+
+### Related tools and guides
+
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+`,
     [
       {
         question: 'How does ECDSA cryptographic signing prevent QR code forgery?',
@@ -365,7 +425,17 @@ Practical implementations include: NFC tags placed adjacent to QR codes that tri
 ### 5. Tactile QR Codes and Braille Augmentation
 
 Physical accessibility solutions include tactile QR code overlays — laser-cut or 3D-printed raised dot patterns — that allow users to locate the QR code by touch before using their phone camera. Braille labels placed adjacent to QR codes can communicate the code's content category and call to action in Braille, enabling a visually impaired user to understand the purpose of the code before scanning. Organizations such as the Royal National Institute of Blind People (RNIB) have published guidelines recommending that all physical QR code deployments in UK public spaces include a printed text equivalent of the QR destination URL or a telephone alternative.
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Can a blind person use a QR code without assistance?',
@@ -418,7 +488,17 @@ Practical privacy-preserving personalization uses contextual signals only (locat
 ### 5. Measuring Personalization Lift with Experimentation
 
 The gold standard for measuring AI personalization lift is a holdout experiment: a random 10 to 20% of scan traffic receives the generic non-personalized experience, while the remainder receives AI-personalized content. The difference in conversion rate, dwell time, and downstream purchase behavior between the two groups provides an unbiased estimate of the personalization system's causal impact. Statistical significance should be established using a two-sample z-test with a minimum detectable effect of 5% and 80% statistical power before making optimization decisions.
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [scan guide](/scan-guide) explains how phone cameras find and decode a code.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question:
@@ -473,7 +553,17 @@ The most robust production-ready architectures use neural networks as a pre-proc
 ### 5. Dataset Construction and Training Considerations
 
 Training effective QR neural correction models requires large, diverse datasets of damaged QR codes. Synthetic generation approaches include: random uniform masking (modeling soiling or printing defects), structured rectangular masking (modeling sticker overlays), gradient masking (modeling photographic fade), and physically printed-then-photographed degradation (ground truth from inkjet-aged samples). The QR-Damage dataset (publicly available on Hugging Face) contains 85,000 damaged QR image-label pairs across these damage categories and serves as the primary benchmark for this research area. Augmentations including random rotation, perspective warp, and HSV color jitter are applied to improve generalization to real-world camera conditions.
-    `,
+    
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Can a neural network decode a QR code that is more than 30% damaged?',
@@ -531,7 +621,17 @@ This sandboxed detonation approach adds 5 to 15 seconds of analysis latency but 
 Enterprise QR spam defense requires both technical controls and user awareness. On the technical side, email administrators configure policies in Microsoft Defender XDR or Proofpoint TAP to: quarantine emails containing QR codes from external senders for security review, strip QR code images from email previews and replace with a warning banner, and redirect all QR-extracted URLs through the corporate web proxy for real-time filtering even when scanned from a personal device.
 
 User training programs should include simulated quishing attacks — where the security team sends test QR phishing emails to employees and tracks scan rates — as part of regular security awareness campaigns. Organizations using KnowBe4, Proofpoint Security Awareness, or Cofense report that QR-specific phishing simulation training reduces employee quishing click rates by 65 to 75% within 90 days.
-    `,
+    
+
+### Related tools and guides
+
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+`,
     [
       {
         question: 'How do AI email gateways detect malicious QR codes that classical OCR misses?',

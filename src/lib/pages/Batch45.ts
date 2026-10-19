@@ -30,7 +30,34 @@ A QR on the equipment links to the maintenance guide: cleaning procedures, stora
 ### 5. Performance Data Integration QR
 
 For smart sports equipment (connected sensors, smart balls, wearable monitors), a QR links to the platform for syncing and reviewing performance data. The QR is the most reliable cross-platform entry point for connecting physical equipment to its digital ecosystem.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Can a QR authentication check be beaten by counterfeiters?',
@@ -42,6 +69,11 @@ For smart sports equipment (connected sensors, smart balls, wearable monitors), 
           'Should sports equipment QR codes be placed where they will be exposed to sweat and outdoor conditions?',
         answer:
           'No. Place QRs in protected locations: inside the tongue of footwear, inside the shaft of a racket, or on the inside of a carry bag pocket. Outdoor-exposed QRs must use weatherproof materials and UV-resistant printing.',
+      },
+      {
+        question: 'How do I test a QR code before sharing it?',
+        answer:
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),
@@ -73,7 +105,34 @@ A QR on the price card links to the price match guarantee page and current promo
 ### 5. Special Dietary Filter QR
 
 A QR at the entrance to the free-from, vegan, or kosher aisle links to the store's online shopping filtered by that dietary category. Shoppers new to a dietary requirement get a comprehensive product list; habitual shoppers discover new products in their category.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Are QR codes on supermarket shelf edges effective for most shoppers?',
@@ -84,6 +143,11 @@ A QR at the entrance to the free-from, vegan, or kosher aisle links to the store
         question: 'Who manages the content behind supermarket shelf-edge QR codes?',
         answer:
           'Typically a joint responsibility: the retailer manages the placement infrastructure (shelf labels, retailer app integration), and the supplier provides the product-specific content. Contractual clarity on content responsibility prevents broken or outdated links at scale.',
+      },
+      {
+        question: 'Where should a business place its QR code?',
+        answer:
+          'Place it where customers naturally pause, such as a table, counter, or entrance, at eye level or within easy reach. Avoid glare, curved surfaces, and spots where queues block access to the code.',
       },
     ]
   ),
@@ -121,7 +185,34 @@ A QR on the ATM receipt links to: balance check, transaction query, report a pro
 ### 5. ATM Availability QR
 
 A QR on an out-of-service ATM links to the nearest alternative ATMs on a live map and the bank's ATM availability service status. Customers who arrive at a non-functional ATM are guided immediately to an alternative rather than leaving frustrated.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Is cardless QR ATM withdrawal secure?',
@@ -132,6 +223,11 @@ A QR on an out-of-service ATM links to the nearest alternative ATMs on a live ma
         question: 'Can I use a cardless QR withdrawal to send cash to a family member?',
         answer:
           'Some banks support "share cash" functionality: generate a withdrawal QR in your app and share the code with a family member who scans it at the ATM. The amount is debited from your account; the cash is collected by them. Check your specific bank\'s cardless withdrawal product features.',
+      },
+      {
+        question: 'Do payment QR codes expire?',
+        answer:
+          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
       },
     ]
   ),
@@ -170,7 +266,34 @@ A QR in campaign updates and backer communications links to the social media fee
 ### 5. Fulfilment and Progress QR
 
 A QR in backer update emails links to the fulfilment progress page: current production stage, estimated delivery date, and quality photos. Backers who are kept informed with regular QR-linked updates have significantly lower refund request rates.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question:
@@ -183,6 +306,11 @@ A QR in backer update emails links to the fulfilment progress page: current prod
           'Can a QR code on a product prototype at a live demo event drive significant backer numbers?',
         answer:
           'Yes. Live demo QRs convert at among the highest rates of any channel — the prospect has just experienced the product in person, which is the strongest possible social proof. Always have the QR prominently available at the moment of demonstration.',
+      },
+      {
+        question: 'How do I test a QR code before sharing it?',
+        answer:
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),
@@ -214,7 +342,34 @@ A dynamic QR on a sticker or branded surface rotates its destination daily or we
 ### 5. Location-Specific QR Art
 
 A QR embedded in street art or location-specific murals links to content specific to that location: the story behind the artwork, the artist's profile, and related creative work. Location-bound QR art creates a reason to visit a specific place — an analogue of a geofenced digital experience.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [QR sticker sheet printer](/qr-sticker-sheet-printer) lays out many codes for label printing.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Are QR codes on stickers in public spaces legal in the UK?',
@@ -225,6 +380,11 @@ A QR embedded in street art or location-specific murals links to content specifi
         question: 'What makes a sticker QR get scanned by passersby?',
         answer:
           'Visual intrigue (unusual design, hint of mystery), clear CTA ("scan to unlock"), and placement at eye level in a low-distraction environment. Sticker QRs competing with advertising clutter in a busy area scan less than a single QR in a calm, focused context.',
+      },
+      {
+        question: 'What size should a printed QR code be?',
+        answer:
+          'Size depends on scan distance and module count. As a starting point, keep the printed code at least as wide as the distance-to-scan ratio your generator recommends, then test a print at full size before ordering a full run.',
       },
     ]
   ),
@@ -274,7 +434,34 @@ The three functions: analytics, updatability, and URL shortening (reducing QR co
 **Weaknesses:** Requires technical setup and maintenance. Reliability depends on your hosting infrastructure. No built-in support.
 
 **Best for:** Businesses with technical resources, high QR volume, or strong data sovereignty requirements. The right choice for most serious QR deployments at scale.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'What happens to my QR codes if my URL shortener service shuts down?',
@@ -285,6 +472,11 @@ The three functions: analytics, updatability, and URL shortening (reducing QR co
         question: 'Do URL shortener redirects affect QR code SEO?',
         answer:
           "Directly, no — QR codes are not indexed by search engines. Indirectly, the destination page's SEO is unaffected by a 301 redirect via a shortener in most practical implementations.",
+      },
+      {
+        question: 'Can I put a logo in the middle of a QR code?',
+        answer:
+          'Yes, if you use a high error correction level and keep the logo small enough that it covers only the center data area. Never cover the three corner finder patterns, and test the result on several phones.',
       },
     ]
   ),
@@ -320,7 +512,34 @@ Emerging print technologies combine lenticular (depth-shifting) and holographic 
 ### 6. QR in Spatial Computing (Apple Vision Pro and successors)
 
 Spatial computing platforms recognise QR codes in the physical environment and overlay digital content directly at the code's location without a separate scan action. The QR becomes an anchor for AR spatial content — walking past a QR in a spatial computing device activates the associated experience automatically.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Will QR codes eventually be replaced by a superior technology?',
@@ -332,6 +551,11 @@ Spatial computing platforms recognise QR codes in the physical environment and o
           'When will GS1 Digital Link QR replace the standard 1D barcode at retail checkouts?',
         answer:
           'GS1\'s "Sunrise 2027" programme targeted 2027 for retail checkout systems to be able to scan GS1 Digital Link QR codes. This is a capability target, not a replacement mandate. Full retail transition to QR-first barcoding will be a gradual process spanning the late 2020s and early 2030s.',
+      },
+      {
+        question: 'How do I test a QR code before sharing it?',
+        answer:
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),
@@ -375,7 +599,34 @@ Outdoor QR campaigns should use placement-specific UTM parameters (\`utm_content
 ### 5. Digital Out of Home (DOOH) QR
 
 Digital screens (DOOH) can display rotating QR codes, time-specific campaigns, and daypart targeting. A QR displayed on a DOOH panel can change destination by time of day (morning commute vs evening leisure) using dynamic QR with redirect-layer time-based routing.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- Check print proofs with the [printed QR tester](/printed-qr-tester) so problems show up before a full run.
+- The [QR size guide](/qr-size-guide) gives size recommendations for common placements.
+- The [QR placement guide](/qr-placement-guide) covers height, lighting, glare, and surfaces that affect scan success.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- When a one-dimensional symbol fits better, the [barcode generator](/barcode-generator) covers retail and inventory formats.
+`,
     [
       {
         question: 'Should I put a QR code on a motorway billboard?',
@@ -386,6 +637,11 @@ Digital screens (DOOH) can display rotating QR codes, time-specific campaigns, a
         question: 'What is the typical scan rate for a bus shelter QR in a UK high street?',
         answer:
           'Well-positioned bus shelter QR campaigns with compelling CTAs in high footfall locations typically achieve 0.3–1.5% scan rates of estimated daily footfall impressions. A small percentage of a large number can still be significant volume — a stop with 10,000 daily impressions at 0.5% is 50 scans per day.',
+      },
+      {
+        question: 'How far from a QR code will people scan it?',
+        answer:
+          'Estimate the typical viewing distance first, then size the code so its modules stay clearly visible at that distance. Always test at the real distance, because screen previews hide how small modules become in print.',
       },
     ]
   ),
@@ -417,7 +673,34 @@ QR order data feeds directly into the EPOS system, which coordinates kitchen pro
 ### 5. Post-Event Feedback QR
 
 A QR on the event closing slides or delegate packs links to the catering feedback form: food quality, service speed, dietary accommodation, and overall satisfaction. Post-event catering feedback via QR achieves higher response rates and more structured data than verbal feedback or email surveys.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question:
@@ -430,55 +713,10 @@ A QR on the event closing slides or delegate packs links to the catering feedbac
         answer:
           "No. Each event should have a unique QR linked to that event's ordering system. Reusing QRs risks routing delegates from a future event to a past event's order system, causing confusion and incorrect orders.",
       },
-    ]
-  ),
-  art(
-    'qr-code-for-disaster-relief',
-    'QR Codes in Disaster Relief and Humanitarian Aid: Registration, Resource Distribution, and Communication',
-    'qr code disaster relief humanitarian aid registration',
-    'Deploy QR codes in humanitarian operations for survivor registration, resource distribution, health communication, and family reunification.',
-    'Business & Regional',
-    '5 min read',
-    '2027-01-10',
-    `
-### 1. Survivor Registration QR
-
-A QR at registration points in displacement camps or emergency centres links to the survivor registration form: name, family composition, location of origin, and special needs (medical conditions, unaccompanied children). Digital registration feeds databases shared between relief agencies, improving coordination and preventing double registration.
-
-### 2. Aid Distribution Tracking QR
-
-Each registered individual or household receives a wristband or card with a QR. At distribution points, relief workers scan the QR to:
-- Confirm the household's entitlement.
-- Record items distributed.
-- Flag if distribution has already occurred (preventing duplicate distribution).
-
-QR-based distribution tracking reduces diversion and ensures equitable access to limited resources.
-
-### 3. Health Information QR
-
-A QR on posters and information cards links to health information in the population's language: cholera prevention, water treatment, vaccination schedules, and sanitation guidance. Multi-language digital content is far more practical to update than printed materials in a rapidly evolving emergency.
-
-### 4. Family Reunification QR
-
-A QR links to a family reunification registry where separated family members register to find each other. Used in coordination with ICRC's Restoring Family Links database. QR access via shared phones lowers the barrier for people without personal devices.
-
-### 5. Connectivity-Resilient Design
-
-Humanitarian QR deployments must function in low-connectivity environments:
-- Key forms must work offline (data queued locally, synced when connectivity returns).
-- Aid distribution QRs should validate against a locally cached manifest, not a real-time database call.
-- Printed QR distribution cards must be readable after water exposure (weather-resistant materials).
-    `,
-    [
       {
-        question: 'Do disaster-affected populations have smartphones to scan QR codes?',
+        question: 'Do payment QR codes expire?',
         answer:
-          'Smartphone penetration is significant even in low-income contexts, and shared-phone usage extends QR access further. QR is one access method among several in humanitarian operations — it is not assumed to be universal and is used alongside non-digital processes for populations without device access.',
-      },
-      {
-        question: 'How is displaced person QR data protected in a humanitarian context?',
-        answer:
-          'ICRC and UNHCR have strict data protection frameworks for displaced person data. QR-collected registration data must be encrypted in transit and at rest, access-controlled, not shared with government authorities without legal basis, and subject to data minimisation principles.',
+          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
       },
     ]
   ),

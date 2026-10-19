@@ -42,7 +42,17 @@ QR code interaction requires the user to open a camera app, point the camera at 
 Choose NFC when: contactless payment is required (NFC is the standard for Apple Pay, Google Pay, NFC card emulation); access control demands cryptographic mutual authentication; the deployment surface is a physical product with a per-unit cost above \$5 (NFC cost is absorbed); the user is performing a repeated frequent action (transit tap-in, office badge swipe).
 
 Choose QR when: massive scale print deployment makes per-unit cost critical; the code must be visible from a distance (signage, billboards, displays); the deployment is digital (screen-displayed QR for payment or login); the target audience includes users with older smartphones lacking NFC; or offline functionality (WiFi credentials, contact cards, static text) is required without server dependency.
-    `,
+    
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Is NFC more secure than QR codes for payment applications?',
@@ -99,7 +109,17 @@ For industrial IoT (IIoT) equipment, diagnostic QR codes on PLCs, sensors, and a
 ### 5. Security Considerations for QR-Onboarded IoT Devices
 
 QR codes on device labels are printed once and ship with the product, meaning the encoded provisioning credential (DPP public key, Matter setup passcode) is fixed from manufacturing. If a device label QR is photographed and shared publicly (for example, in an unboxing video), an attacker who obtains the device claim code before the legitimate owner can claim the device in their account. To mitigate this, Matter and DPP implementations use challenge-response authentication that binds the claim to the device's hardware-embedded private key — the QR code alone cannot complete setup without the cooperation of the physical device's secure element.
-    `,
+    
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'What is Wi-Fi DPP and how does it use QR codes for IoT setup?',
@@ -152,7 +172,17 @@ In pharmaceutical and food safety applications, hybrid NFC+QR packaging enables 
 ### 5. Cost-Benefit Analysis for FMCG
 
 Adding NFC to existing packaging incurs a cost of \$0.05 to \$0.25 per unit at volume (depending on NFC chip specification), representing a 5% to 25% increase in label costs for a typical mid-tier FMCG product. Brand protection analytics from SCANTRUST and Kezzler show that hybrid NFC+QR packaging reduces brand protection investigation costs by 40 to 60% (fewer physical sample analysis requests) and increases consumer scan engagement by 30 to 45% compared to QR-only. For premium products (spirits, cosmetics, pharmaceutical) where a single counterfeiting incident can cost millions in brand damage, the ROI calculation strongly favors hybrid deployment.
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- Check print proofs with the [printed QR tester](/printed-qr-tester) so problems show up before a full run.
+- The [QR placement guide](/qr-placement-guide) covers height, lighting, glare, and surfaces that affect scan success.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+`,
     [
       {
         question: 'Can the same URL be used for both the NFC tag and QR code on hybrid packaging?',
@@ -208,7 +238,17 @@ For Airbnb and short-term rental hosts, room-specific QR codes linked to propert
 ### 5. QR Codes for Smart Home Troubleshooting
 
 Device manufacturer QR codes on routers, mesh Wi-Fi nodes, and smart hubs encode diagnostic deep links that pre-fill support chat forms with device model, firmware version, and network status data collected from the local network by the scanning smartphone app. This dramatically reduces the time support agents spend on information collection and increases first-contact resolution rates. Eero's support QR workflow, for example, automatically retrieves the mesh network topology and speed test history when scanned through the Eero app, providing the support agent with complete diagnostic context before the first message.
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'What QR format is used to share Wi-Fi credentials in a smart home?',
@@ -263,7 +303,17 @@ The fault report feeds into the network operator's maintenance management system
 ### 5. Accessibility and Inclusion at EV Charging Points
 
 QR codes at EV chargers must comply with UK Public Sector Bodies Accessibility Regulations 2018 and similar EU requirements. Best practices include: placing QR codes at wheelchair-accessible height (60 to 120 cm from ground, not at the top of tall pedestal units); providing an equivalent telephone number printed adjacent to the QR for users who cannot use smartphone cameras; ensuring the web payment page served by the QR is WCAG 2.2 Level AA compliant; and testing the scan flow with a range of smartphone models including low-end Android devices common among cost-sensitive EV owners.
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'How does OCPP 2.0.1 support QR code-based EV charging authorization?',
@@ -322,7 +372,17 @@ QR-encoded Bluetooth pairing credentials carry the same physical security risks 
 ### 5. Comparison with NFC Pairing
 
 NFC pairing (using NFC Forum Handover records embedded in an NFC tag) offers a compelling alternative to QR Bluetooth pairing: the tap interaction requires physical proximity (< 2 cm) rather than line-of-sight camera scan, reducing the risk of accidental pairing in dense device environments. However, NFC requires NFC hardware in the device (adding \$0.50 to \$1.50 to unit cost) and an NFC-capable smartphone. QR pairing requires only a camera — universal in all smartphones since 2015. For high-volume consumer audio products where unit cost is sensitive and camera is universal, QR pairing dominates; for premium industrial devices where security and precision pairing matter more than cost, NFC pairing is preferred.
-    `,
+    
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question:
@@ -380,7 +440,17 @@ The provenance record accessible via the QR includes: manufacturer name, facilit
 Industrial QR labels face extreme environmental conditions: temperatures from -40°C to +150°C in metal finishing and paint shop environments; oil, solvent, and chemical exposure in machining areas; high-pressure wash-down in food and pharmaceutical production; and UV radiation in outdoor storage yards. Standard paper or polypropylene labels fail within days in these conditions.
 
 Recommended substrates for industrial QR labels include: laser-engraved stainless steel tags (permanent, tolerates all chemical exposure, temperature stable to +300°C); anodized aluminum labels with QR chemically etched or laser engraved; ceramic-coated metal plates for ultra-high temperature environments; and polyester labels with aggressive permanent adhesive and chemical-resistant overlaminate for standard indoor industrial use. The QR module size should be a minimum of 0.8 mm per module (producing a code at least 20 mm × 20 mm) to maintain scannability after surface aging.
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'What CMMS platforms support QR code-based mobile asset access?',
@@ -436,7 +506,17 @@ QR codes fail when labels are damaged, soiled, or improperly oriented relative t
 ### 5. Decision Framework for Warehouse Technology Selection
 
 Use RFID when: items are high value (the per-tag cost is justified), bulk simultaneous reads are required (full pallet scanning, inventory cycle counting without item removal), the item is not metallic or liquid-filled, and throughput exceeds 500 items per minute per read point. Use QR codes when: label cost must be minimized, existing scanner infrastructure can be reused, item substrate is unsuitable for RFID (metal cans, foil packaging, liquid containers), and throughput is below 600 items per minute. Use 1D barcodes only when legacy system compatibility requires it; QR offers all 1D barcode capabilities plus higher data density at equivalent label cost.
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- When a one-dimensional symbol fits better, the [barcode generator](/barcode-generator) covers retail and inventory formats.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Can one warehouse use QR codes and RFID simultaneously on the same items?',
@@ -491,7 +571,17 @@ Smart parking systems integrate QR scan events with ANPR (Automatic Number Plate
 ### 5. Civic Service Requests and Feedback
 
 QR codes on public infrastructure — lamp posts, road signs, park benches, public toilets — enable residents to report faults (broken lights, graffiti, damaged fixtures) or provide satisfaction feedback in under 20 seconds. The QR links to a pre-populated fault report form (asset type and location auto-filled from the QR parameters), which submits directly into the council's CRM or works management system (Confirm, Alloy, Salesforce Public Sector Cloud). This eliminates the friction of the traditional reporting path (calling a customer service line, navigating a council website) that historically captured only a fraction of resident-observed infrastructure faults.
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'How many cities have deployed QR codes as standard transit infrastructure?',
@@ -546,7 +636,17 @@ Professional cycling teams and triathlon federations use QR-linked athlete dashb
 ### 5. Privacy and Data Security for Medical QR Wristbands
 
 Medical QR wristbands raise distinct privacy considerations compared to other QR applications. The linked medical profile contains highly sensitive personal health information (PHI) subject to HIPAA (US), GDPR Article 9 (EU), and equivalent regulations in other jurisdictions. Key design requirements: the QR landing page must use HTTPS with TLS 1.3; access logging must record who accessed the profile, when, and from what IP address; the profile owner must be able to revoke or update the profile at any time; and the profile should not be indexable by search engines (use noindex meta tag and robots.txt exclusion). For minors' medical wristbands, parental guardian consent for data processing and access by third parties (emergency responders) must be explicitly obtained and documented.
-    `,
+    
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [vCard QR code generator](/vcard-qr-code-generator) builds contact codes that import cleanly on phones.
+- The [bulk vCard QR](/bulk-vcard-qr) tool builds contact codes for a whole team at once.
+- The [medical ID QR](/medical-id-qr) page explains how emergency information codes should be structured.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+`,
     [
       {
         question:

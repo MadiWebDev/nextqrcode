@@ -1,0 +1,162 @@
+[
+  {
+    "route": "qr-contrast-checker",
+    "title": "QR Contrast Checker",
+    "spec": "Enter foreground/background hex colors; computes WCAG contrast ratio and a scan-safety verdict with fix suggestions.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 1
+  },
+  {
+    "route": "qr-print-cost-calculator",
+    "title": "QR Print Cost Calculator",
+    "spec": "Estimate label/sticker print cost from quantity, size, material, and finish with a per-unit breakdown.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 2
+  },
+  {
+    "route": "qr-billboard-size-calculator",
+    "title": "Billboard QR Size Calculator",
+    "spec": "Compute the minimum QR width for billboards/large signage from viewing distance, speed, and dwell time.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 3
+  },
+  {
+    "route": "qr-quiet-zone-calculator",
+    "title": "Quiet Zone Calculator",
+    "spec": "Compute the required quiet-zone margin in mm/inches from QR version, module size, and print size.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 4
+  },
+  {
+    "route": "qr-dpi-calculator",
+    "title": "QR DPI Calculator",
+    "spec": "Compute required DPI and pixel dimensions for a QR code at a target print size, with export guidance.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 5
+  },
+  {
+    "route": "qr-data-capacity-calculator",
+    "title": "QR Data Capacity Calculator",
+    "spec": "Show how much text/URL/numeric data fits at each version and error-correction level for a chosen payload.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 6
+  },
+  {
+    "route": "qr-logo-safe-area-calculator",
+    "title": "Logo Safe Area Calculator",
+    "spec": "Compute the maximum safe logo size and placement for a QR code at a chosen error-correction level.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 7
+  },
+  {
+    "route": "qr-label-count-calculator",
+    "title": "QR Label Count Calculator",
+    "spec": "Compute how many labels fit per sheet/roll and total sheets needed for a label run.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 8
+  },
+  {
+    "route": "qr-batch-cost-calculator",
+    "title": "QR Batch Cost Calculator",
+    "spec": "Estimate total cost of a QR batch campaign (design, print, placement, tracking) with editable line items.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 9
+  },
+  {
+    "route": "qr-ink-coverage-estimator",
+    "title": "QR Ink Coverage Estimator",
+    "spec": "Estimate ink/toner coverage percentage for a QR design from module density, size, and color choices.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 10
+  },
+  {
+    "route": "qr-curved-surface-calculator",
+    "title": "Curved Surface QR Calculator",
+    "spec": "Estimate the maximum QR size that stays scannable on cylinders/bottles from diameter and wrap angle.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 11
+  },
+  {
+    "route": "qr-fade-risk-checker",
+    "title": "QR Fade Risk Checker",
+    "spec": "Score fade risk for outdoor QR codes from sun exposure, material, laminate, and placement; suggests mitigations.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 12
+  },
+  {
+    "route": "qr-module-size-calculator",
+    "title": "QR Module Size Calculator",
+    "spec": "Compute individual module size in mm from version, print size, and quiet zone; flags sub-0.35mm risk.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 13
+  },
+  {
+    "route": "qr-error-budget-calculator",
+    "title": "QR Error Budget Calculator",
+    "spec": "Show how much damage each error-correction level tolerates for a given version and payload, with logo/overlay budget.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 14
+  },
+  {
+    "route": "qr-minimum-size-checker",
+    "title": "QR Minimum Size Checker",
+    "spec": "Check whether a planned QR size is safe for a given scan distance, device class, and lighting condition.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 15
+  },
+  {
+    "route": "bulk-url-qr-generator",
+    "title": "Bulk URL QR Generator",
+    "spec": "Paste up to 500 URLs; generate all QR codes at once, preview grid, download as ZIP of PNG/SVG files.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 16
+  },
+  {
+    "route": "bulk-sms-qr-generator",
+    "title": "Bulk SMS QR Generator",
+    "spec": "Generate many SMS QR codes from pasted number/message rows; validates numbers and downloads a ZIP.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 17
+  },
+  {
+    "route": "bulk-email-qr-generator",
+    "title": "Bulk Email QR Generator",
+    "spec": "Generate many email QR codes from pasted address/subject/body rows; validates addresses and downloads a ZIP.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 18
+  },
+  {
+    "route": "bulk-wifi-qr-generator",
+    "title": "Bulk WiFi QR Generator",
+    "spec": "Generate WiFi QR codes for many networks (e.g. hotel rooms, offices) from pasted SSID rows; downloads a ZIP.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 19
+  },
+  {
+    "route": "bulk-coupon-qr-generator",
+    "title": "Bulk Coupon QR Generator",
+    "spec": "Generate many unique coupon QR codes from offer + code rows; printable coupon sheets and ZIP download.",
+    "sitemap_section": "tools",
+    "group": 2,
+    "position": 20
+  }
+]
