@@ -54,7 +54,34 @@ Several dedicated services provide QR pet tags:
 ### Self-Made QR Pet Tag
 
 You do not need a dedicated service. Create a profile page (Google Sites, a simple one-page website, or a Notion public page), include your contact details, and generate a static QR linking to this page. Print on a weatherproof vinyl sticker and apply to the tag. Cost: near zero. Update the page anytime without reprinting the tag.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [vCard QR code generator](/vcard-qr-code-generator) builds contact codes that import cleanly on phones.
+- The [bulk vCard QR](/bulk-vcard-qr) tool builds contact codes for a whole team at once.
+- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+`,
     [
       {
         question: 'Are QR pet tags waterproof enough for dogs that swim regularly?',
@@ -121,7 +148,34 @@ Pet health records linked from a QR should require authentication for full recor
 ### Travelling with Pets and QR Health Records
 
 For international pet travel (UK to EU requires an Animal Health Certificate and valid rabies vaccination), a QR on the pet's travel documentation links to the digital copy of the certificate. Emergency vets abroad can access vaccination status without language barriers from a digital record.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [medical ID QR](/medical-id-qr) page explains how emergency information codes should be structured.
+- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+`,
     [
       {
         question: 'Can a QR code replace the physical pet vaccination booklet required for travel?',
@@ -132,6 +186,11 @@ For international pet travel (UK to EU requires an Animal Health Certificate and
         question: 'How do vets access QR-linked pet records in practice?',
         answer:
           "An emergency vet or out-of-hours service scanning the QR on the pet's tag or owner's pet card accesses a summary page immediately. For practices adopting shared records, the QR links to a vet-facing authenticated portal where clinical staff can view the full record. This requires the owner's primary vet to have participated in a shared record system — adoption is growing but not yet universal in UK veterinary practice.",
+      },
+      {
+        question: 'What belongs on a medical ID QR code?',
+        answer:
+          'Include only the details a responder needs, such as conditions, allergies, medications, and an emergency contact. Avoid full medical histories, and review the information with the person it belongs to before printing.',
       },
     ]
   ),
@@ -183,7 +242,34 @@ Lost pet posters on lamp posts benefit from a QR rather than (or in addition to)
 - Finders can contact the owner at any time via the QR link, even if they do not want to make a phone call
 - The QR page can be updated in real time ("FOUND — thank you!" removes confusion)
 - Photo and description on the linked page helps finders confirm identification before contacting
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'How quickly should a lost pet QR page be updated when the pet is found?',
@@ -194,6 +280,11 @@ Lost pet posters on lamp posts benefit from a QR rather than (or in addition to)
         question: 'Can lost pet QR posters be printed at home for free?',
         answer:
           'Yes. Design the poster in Canva (free), include the QR code generated from any free QR generator, and print on any home printer. Laminate if possible for weather resistance. Multiple A4 copies printed at home and distributed across the local area within the first hour of a pet going missing is more effective than waiting for professional printing.',
+      },
+      {
+        question: 'How do I test a QR code before sharing it?',
+        answer:
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),
@@ -248,7 +339,34 @@ What a QR tag does NOT do:
 | Location tracking | GPS collar | Real-time location (separate technology) |
 
 Using all three layers (microchip + QR tag + engraved tag) provides redundancy — each failure mode of one technology is covered by another.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'If a dog is found with no collar, can a QR tag still help?',
@@ -259,6 +377,11 @@ Using all three layers (microchip + QR tag + engraved tag) provides redundancy �
         question: 'Are QR pet tags suitable for cats as well as dogs?',
         answer:
           'Yes, with some considerations. Cats are more likely to lose collars (breakaway collars are recommended for cat safety). Choose a lightweight QR tag (under 5g) appropriate for a cat collar. Test that the QR is scannable at the smaller size that fits a cat tag. Engraved tags with name and phone number remain the most practical primary identification for cats alongside microchipping.',
+      },
+      {
+        question: 'How do I test a QR code before sharing it?',
+        answer:
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),
@@ -311,7 +434,34 @@ Create separate profile pages for each pet — a QR per pet, not a shared page. 
 ### Offline Considerations
 
 If the profile is hosted on a platform that requires internet access, and the finder is in an area with no signal, the QR may not load. Include the owner's phone number on the tag surface itself (engraved or printed) as a no-internet fallback alongside the QR.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [vCard QR code generator](/vcard-qr-code-generator) builds contact codes that import cleanly on phones.
+- The [bulk vCard QR](/bulk-vcard-qr) tool builds contact codes for a whole team at once.
+- The [medical ID QR](/medical-id-qr) page explains how emergency information codes should be structured.
+- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
+`,
     [
       {
         question: 'Can the QR pet emergency page include a GPS location or last-seen map?',
@@ -322,6 +472,11 @@ If the profile is hosted on a platform that requires internet access, and the fi
         question: "Should the pet QR profile include the owner's full home address?",
         answer:
           'No. Including a full home address creates a privacy and security risk — the profile is publicly accessible to anyone who scans. Use city/district only. If you want to provide a collection address, share it directly with the finder via phone or message after initial contact, not on the public profile page.',
+      },
+      {
+        question: 'What information should a vCard QR code include?',
+        answer:
+          'Include a name, phone number, email, and organization at minimum. Add a website or address only when it helps the recipient, since every extra field makes the code denser and harder to scan.',
       },
     ]
   ),
