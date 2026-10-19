@@ -233,3 +233,15 @@ rate-limit tests 8/8.
 `npm run build` PASS · `playwright` 24/24 (14 smoke + 1 locale + 3 roundtrip + 6 a11y).
 
 **UNVERIFIED:** `npm audit` (sandbox proxy 403); Lighthouse scores (no GPU Chrome).
+
+## Phase 10 — Launch package ✅
+
+**Done:** `docs/DEPLOY.md` (Vercel/Atlas/Cloudinary/Auth/domain/AdSense/Sentry +
+pre-launch checklist); `.env.example` audited (27 vars, 7 added); `scripts/seed.ts`
+(idempotent Template upserts); `scripts/content-publish.ts` (read-only publish report);
+`docs/FINAL_REPORT.md`; project zip `~/workspace/nextqrcode-phase10.zip` (3.0MB).
+
+**Final gate numbers:** `typecheck` clean · `vitest run` 239/239 ·
+`npm run build` PASS · `playwright` 24/24 (from Phase 9, unchanged).
+
+**Content inventory:** 166 published / 581 held back (blog, noindex + sitemap-excluded).
