@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { ScanSearch, AlertTriangle, CheckCircle2, Info } from 'lucide-react';
 import jsQR from 'jsqr';
+import { AdSlot } from '@/components/AdSlot';
 
 interface Field {
   key: string;
@@ -282,6 +283,9 @@ export default function QRPayloadInspectorPage() {
           { label: 'QR Payload Inspector', href: '/qr-payload-inspector' },
         ]}
       />
+
+      <AdSlot id="qr-payload-inspector-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <ScanSearch className="w-3.5 h-3.5" />
@@ -389,6 +393,8 @@ export default function QRPayloadInspectorPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-payload-inspector-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Why inspecting a QR payload beats trusting the label next to it
@@ -410,6 +416,9 @@ export default function QRPayloadInspectorPage() {
           a premium-rate number. A payment payload asks your wallet to send money that cannot be
           reversed. Knowing the type tells you which question to ask next.
         </p>
+
+        <AdSlot id="qr-payload-inspector-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           For URL payloads, read the host from the right, because that is where the registrable
           domain lives. Everything left of it is a subdomain the owner controls, which is why
@@ -437,6 +446,8 @@ export default function QRPayloadInspectorPage() {
         </p>
       </article>
 
+      <AdSlot id="qr-payload-inspector-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Payload Inspection
@@ -454,6 +465,9 @@ export default function QRPayloadInspectorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-payload-inspector-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

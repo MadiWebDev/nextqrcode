@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { MousePointerClick } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -274,6 +275,9 @@ export default function QrCallToActionBuilderPage() {
           </p>
         </Card>
       </div>
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-call-to-action-builder-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Write a Call to Action People Actually Follow
@@ -287,6 +291,10 @@ export default function QrCallToActionBuilderPage() {
           for an offer, because it names the number. Specificity is the whole technique; everything
           else is presentation.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-call-to-action-builder-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Length is the enemy. A call to action is read at a glance, from a distance, often while
           the reader is walking. One short line works. Two lines sometimes work if the type is
@@ -325,6 +333,9 @@ export default function QrCallToActionBuilderPage() {
           fast enough to act on it.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-call-to-action-builder-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -342,6 +353,9 @@ export default function QrCallToActionBuilderPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-call-to-action-builder-bottom" format="horizontal-banner" />
     </div>
   );
 }

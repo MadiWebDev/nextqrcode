@@ -138,6 +138,8 @@ export default function QRPlacementGuidePage() {
         ]}
       />
 
+      <AdSlot id="qr-placement-guide-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Compass className="w-3.5 h-3.5" />
@@ -302,6 +304,8 @@ export default function QRPlacementGuidePage() {
           reflect light unevenly across camera sensors.
         </p>
 
+        <AdSlot id="qr-placement-guide-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           The Destructive Impact of Specular Highlights
         </h3>
@@ -313,6 +317,8 @@ export default function QRPlacementGuidePage() {
           immediate scan failure.
         </p>
       </article>
+
+      <AdSlot id="qr-placement-guide-pre-related" format="horizontal-banner" />
 
       {/* Structured FAQ Section */}
       <section className="mt-12 pt-8 border-t border-border/60">
@@ -332,6 +338,9 @@ export default function QRPlacementGuidePage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-placement-guide-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Files } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -252,6 +253,9 @@ export default function QrBatchRenamerPage() {
           )}
         </Card>
       </div>
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-batch-renamer-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Rename a Batch of QR Files Without Losing Track
@@ -265,6 +269,10 @@ export default function QrBatchRenamerPage() {
           produces names like menu-001-window or campaign-012-receipt, which sort correctly, read
           clearly, and survive being emailed, zipped, and handed to a printer.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-batch-renamer-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Zero padding is the detail that makes sorting work. Without it, a computer sorts menu-1,
           menu-10, menu-11, menu-2, which scrambles any batch larger than nine files. With
@@ -304,6 +312,9 @@ export default function QrBatchRenamerPage() {
           opens the batch finds the map with the territory.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-batch-renamer-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -321,6 +332,9 @@ export default function QrBatchRenamerPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-batch-renamer-bottom" format="horizontal-banner" />
     </div>
   );
 }

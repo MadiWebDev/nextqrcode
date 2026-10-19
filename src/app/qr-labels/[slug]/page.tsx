@@ -57,6 +57,8 @@ export default async function LabelSheetPage({ params }: Props) {
         ]}
       />
 
+      <AdSlot id={`qr-labels-${sheet.slug}-top`} format="horizontal-banner" />
+
       {/* Generator */}
       <LandingGenerator
         type="url"
@@ -142,6 +144,8 @@ export default async function LabelSheetPage({ params }: Props) {
         </div>
       </section>
 
+      <AdSlot id={`qr-labels-${sheet.slug}-in-content`} format="in-article" />
+
       {/* FAQs */}
       {sheet.faqs.length > 0 && (
         <section className="space-y-4">
@@ -156,6 +160,8 @@ export default async function LabelSheetPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      <AdSlot id={`qr-labels-${sheet.slug}-pre-related`} format="horizontal-banner" />
 
       {/* Other label sheets */}
       <section className="space-y-4">
@@ -179,6 +185,9 @@ export default async function LabelSheetPage({ params }: Props) {
           ))}
         </div>
       </section>
+
+      <AdSlot id={`qr-labels-${sheet.slug}-bottom`} format="horizontal-banner" />
+
     </div>
   );
 }

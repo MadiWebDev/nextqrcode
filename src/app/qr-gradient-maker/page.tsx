@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Palette } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -190,6 +191,9 @@ export default function QrGradientMakerPage() {
           { label: 'QR Gradient Maker', href: '/qr-gradient-maker' },
         ]}
       />
+
+      <AdSlot id="qr-gradient-maker-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Palette className="w-3.5 h-3.5" />
@@ -286,6 +290,9 @@ export default function QrGradientMakerPage() {
           </p>
         </Card>
       </div>
+
+      <AdSlot id="qr-gradient-maker-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Use a Gradient on a QR Code Without Breaking Scans
@@ -310,6 +317,9 @@ export default function QrGradientMakerPage() {
           work, not a suggestion. Screens are forgiving; printed paper, sunlight, and budget phone
           cameras are not.
         </p>
+
+        <AdSlot id="qr-gradient-maker-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Keep the background solid and light. A gradient background behind a gradient code is a
           common way to ruin an otherwise good design, because modules at the light end of the code
@@ -337,6 +347,9 @@ export default function QrGradientMakerPage() {
           code whose contrast has failed.
         </p>
       </article>
+
+      <AdSlot id="qr-gradient-maker-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -354,6 +367,9 @@ export default function QrGradientMakerPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-gradient-maker-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

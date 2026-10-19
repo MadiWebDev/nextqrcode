@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { DollarSign } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRPrintCostCalculatorPage() {
   const [qty, setQty] = useState(1000);
@@ -93,6 +94,9 @@ export default function QRPrintCostCalculatorPage() {
           { label: 'QR Print Cost Calculator', href: '/qr-print-cost-calculator' },
         ]}
       />
+
+      <AdSlot id="qr-print-cost-calculator-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <DollarSign className="w-3.5 h-3.5" />
@@ -271,6 +275,8 @@ export default function QRPrintCostCalculatorPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-print-cost-calculator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Budget a QR Label Run Without Surprises
@@ -295,6 +301,9 @@ export default function QRPrintCostCalculatorPage() {
           less material than the square it is cut from, while custom die-cut shapes add tooling
           cost.
         </p>
+
+        <AdSlot id="qr-print-cost-calculator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           Quantity, waste, and the reorder trap
         </h3>
@@ -331,6 +340,9 @@ export default function QRPrintCostCalculatorPage() {
           number on a one-line quote.
         </p>
       </article>
+
+      <AdSlot id="qr-print-cost-calculator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -348,6 +360,9 @@ export default function QRPrintCostCalculatorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-print-cost-calculator-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

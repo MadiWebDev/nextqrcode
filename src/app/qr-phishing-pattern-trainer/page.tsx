@@ -5,6 +5,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { GraduationCap, CheckCircle2, XCircle, RotateCcw } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 interface Scenario {
   title: string;
@@ -198,6 +199,9 @@ export default function QRPhishingPatternTrainerPage() {
           { label: 'QR Phishing Pattern Trainer', href: '/qr-phishing-pattern-trainer' },
         ]}
       />
+
+      <AdSlot id="qr-phishing-pattern-trainer-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <GraduationCap className="w-3.5 h-3.5" />
@@ -323,6 +327,8 @@ export default function QRPhishingPatternTrainerPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-phishing-pattern-trainer-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Learning to see QR phishing before you scan
@@ -343,6 +349,9 @@ export default function QRPhishingPatternTrainerPage() {
           from the rest of the poster. If anything looks added rather than printed, do not scan it —
           report it to whoever owns the sign.
         </p>
+
+        <AdSlot id="qr-phishing-pattern-trainer-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           The second pattern is manufactured urgency. Parcel problems, account suspensions, expiring
           verifications, and giveaway countdowns all push the same button: act now, think later.
@@ -370,6 +379,8 @@ export default function QRPhishingPatternTrainerPage() {
         </p>
       </article>
 
+      <AdSlot id="qr-phishing-pattern-trainer-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Phishing
@@ -387,6 +398,9 @@ export default function QRPhishingPatternTrainerPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-phishing-pattern-trainer-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

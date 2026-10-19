@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Droplets } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRInkCoverageEstimatorPage() {
   const [version, setVersion] = useState(5);
@@ -87,6 +88,9 @@ export default function QRInkCoverageEstimatorPage() {
           { label: 'QR Ink Coverage Estimator', href: '/qr-ink-coverage-estimator' },
         ]}
       />
+
+      <AdSlot id="qr-ink-coverage-estimator-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Droplets className="w-3.5 h-3.5" />
@@ -266,6 +270,8 @@ export default function QRInkCoverageEstimatorPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-ink-coverage-estimator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Why Ink Coverage Matters for QR Codes
@@ -289,6 +295,9 @@ export default function QRInkCoverageEstimatorPage() {
           run. The calculator&apos;s estimate gives you a number to plan around: multiply the
           per-code ink area by the run length and you have a sense of the toner load.
         </p>
+
+        <AdSlot id="qr-ink-coverage-estimator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">The levers you can pull</h3>
         <p className="text-base leading-relaxed">
           The most powerful lever is the payload: a shorter payload means a lower version, larger
@@ -322,6 +331,9 @@ export default function QRInkCoverageEstimatorPage() {
           printer would, so the code that leaves the press is the code your customers can scan.
         </p>
       </article>
+
+      <AdSlot id="qr-ink-coverage-estimator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -339,6 +351,9 @@ export default function QRInkCoverageEstimatorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-ink-coverage-estimator-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

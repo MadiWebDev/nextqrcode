@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Droplets } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -278,6 +279,9 @@ export default function QrColorPairTesterPage() {
           </p>
         </Card>
       </div>
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-color-pair-tester-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Choose QR Colors That Still Scan
@@ -291,6 +295,10 @@ export default function QrColorPairTesterPage() {
           that ratio with the same math used by the WCAG accessibility standard, and it gives you a
           verdict you can act on before anything goes to print.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-color-pair-tester-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           The thresholds in this tool are deliberately stricter than the bare minimum. A ratio of
           4.5:1 or better is the safe zone for print, because paper, ink, sunlight, and aging all
@@ -329,6 +337,9 @@ export default function QrColorPairTesterPage() {
           of thing that changes silently between tools.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-color-pair-tester-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -346,6 +357,9 @@ export default function QrColorPairTesterPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-color-pair-tester-bottom" format="horizontal-banner" />
     </div>
   );
 }

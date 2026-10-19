@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Database } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRDataCapacityCalculatorPage() {
   const [payload, setPayload] = useState('https://example.com/summer-menu');
@@ -234,6 +235,9 @@ export default function QRDataCapacityCalculatorPage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-data-capacity-calculator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">How Much Data Fits in a QR Code?</h2>
         <p className="text-base leading-relaxed">
@@ -245,6 +249,10 @@ export default function QRDataCapacityCalculatorPage() {
           payload. Capacity is therefore a three-way trade-off between how much you encode, how much
           damage you want to survive, and how large you are willing to print.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-data-capacity-calculator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           What the four error-correction levels buy you
         </h3>
@@ -295,6 +303,9 @@ export default function QRDataCapacityCalculatorPage() {
           actually works.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-data-capacity-calculator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -312,6 +323,9 @@ export default function QRDataCapacityCalculatorPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-data-capacity-calculator-bottom" format="horizontal-banner" />
     </div>
   );
 }
