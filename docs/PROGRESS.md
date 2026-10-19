@@ -152,3 +152,24 @@ Auth.js users collection for the old cards feature is untouched (cards predate a
 
 **Known gaps:** no true HTTP 410 for deleted codes (D4.1); /q/ page + OG untested against a
 live DB (no creds in sandbox) → mark UNVERIFIED end-to-end.
+
+## Phase 5 — Content system + 166 new pages ✅
+
+**Done:**
+
+- Typed content system: `src/content/schema.ts` (Zod, §7.4 minima), `src/content/families/`
+  (5 adapters), `src/content/audit.ts` (manifest reader), `scripts/content-audit.ts`
+  (build-blocking via `prebuild`; corrupt data exits 1, quality failures → manifest).
+- 5 programmatic families, all routes with generateStaticParams, audit-gated robots,
+  JSON-LD (Article/FAQPage/Breadcrumb/WebPage), byline + Last reviewed + sources:
+  /industries (40), /glossary (40), /scan-guide (30), /qr-size-guide (26), /templates (30).
+- Blog wired to the gate: failing articles noindex + sitemap-excluded.
+- Sitemap: family URLs only when audit-passing; blog only when passing (currently 0).
+- `docs/ROLLOUT.md` (waves), `docs/CONTENT_AUDIT.md` (auto-generated).
+- Coordinator fix: glossary adapter title double "| QR Studio" suffix removed.
+
+**Final gate numbers:** `format:check` PASS · `lint` 0 errors (84 warnings) · `typecheck` clean ·
+`vitest run` 221/221 · `npm run build` PASS (816 static pages) · audit 166/747 pass.
+
+**Known gaps:** 581/581 blog pages fail the gate (thin: 299 under 150 words) → noindex until
+remediated (D5.2, roadmap in ROLLOUT.md). Total indexed pages ~216 of ~816 built.

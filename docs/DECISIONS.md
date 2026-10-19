@@ -199,3 +199,31 @@ The user asked for zero questions — the best default is chosen and recorded he
 - **Decision:** `opengraph-image.tsx` (nodejs runtime) generates the QR PNG with the
   `qrcode` package and embeds it in the ImageResponse.
 - **Reason:** Real QR in social previews; graceful brand-art fallback when DB/unconfigured.
+
+## Phase 5
+
+### D5.1 — One phase-5 commit, not per-batch content commits
+
+- **Decision:** All Phase 5 content work ships in the single `phase-5` commit, not in
+  `content: <family> batch N` commits.
+- **Reason:** Standing constraint (one local commit per phase; pushes happen phase-by-phase
+  at the very end) overrides the spec's per-batch commit convention, which assumed
+  per-batch pushing. The ordered push plan still shows phase-5 as one unit.
+
+### D5.2 — Quality gate applies to the legacy blog; failing pages noindexed
+
+- **Decision:** `scripts/content-audit.ts` enforces the §7.4 minima (≥400 words, 3–6 unique
+  FAQs, ≥5 working internal links, byline, last-reviewed) on the legacy blog as well as
+  the new typed families. Result: 0/581 blog pages pass → all noindex + sitemap-excluded
+  until remediated (backlog in docs/CONTENT_AUDIT.md). 25 duplicate slugs fail closed.
+- **Reason:** Standing constraint 11 is unconditional ("Failing pages → noindex"). 299
+  articles are under 150 words — textbook thin content that risks domain-wide quality
+  penalties. Noindexing protects the domain; pages are restorable once remediated.
+  Remediation (expand + interlink) is the documented follow-up, not silent deletion.
+
+### D5.3 — Audit is page-gating, not build-failing (except corrupt data)
+
+- **Decision:** `prebuild` runs the audit. Schema violations / duplicate slugs in typed
+  families exit 1 (build-blocking). Per-page quality failures exit 0 but write the
+  manifest that drives noindex + sitemap exclusion.
+- **Reason:** A single thin page must never block a deploy; corrupt data must never ship.

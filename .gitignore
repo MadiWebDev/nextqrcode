@@ -55,3 +55,5 @@ next-env.d.ts
 # content tooling outputs
 docs/CONTENT_AUDIT.md
 content-draft/
+# generated content audit manifest
+src/content/__generated__/

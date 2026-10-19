@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllArticles, getArticleBySlug } from '@/lib/articles';
+import { auditVerdict } from '@/content/audit';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { AdSlot } from '@/components/AdSlot';
 import { Calendar, Clock, UserCheck, ArrowRight, ShieldCheck } from 'lucide-react';
@@ -25,9 +26,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Article Not Found | QR Code Tools' };
   }
 
+  // Quality gate (§7.5): failing pages are noindex until remediated.
+  const verdict = auditVerdict(`/blog/${article.slug}`);
+
   return {
     title: `${article.title} — QR Code Tools`,
     description: article.description,
+    robots: verdict.passed ? undefined : { index: false, follow: false },
     alternates: {
       canonical: `https://freeqrcode.tools/blog/${article.slug}`,
     },

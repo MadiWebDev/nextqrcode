@@ -112,7 +112,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // ── SECTION: Blog / Technical Guides ────────────────────────────────────
-  const articleEntries = getAllArticles().map((art) =>
+  // Only audit-passing articles are indexed (§7.5).
+  const articleEntries = (await auditedBlogArticles()).map((art) =>
     entry(`/blog/${art.slug}`, {
       lastModified: new Date(art.updatedAt),
       changeFrequency: monthly,
@@ -150,9 +151,81 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...articleEntries,
     ...trustEntries,
     ...(await indexableQrEntries()),
+    ...(await familyEntries()),
   ];
 }
 
+/**
+ * Blog articles that pass the content audit. Reads the audit manifest written
+ * by scripts/content-audit.ts (prebuild); failing articles are excluded.
+ */
+async function auditedBlogArticles(): Promise<{ slug: string; updatedAt: string }[]> {
+  try {
+    const { readFileSync, existsSync } = await import('node:fs');
+    const { join } = await import('node:path');
+    const manifestPath = join(
+      process.cwd(),
+      'src',
+      'content',
+      '__generated__',
+      'audit-manifest.json'
+    );
+    const manifest: Record<string, { passed: boolean }> = existsSync(manifestPath)
+      ? JSON.parse(readFileSync(manifestPath, 'utf8'))
+      : {};
+    const hasManifest = Object.keys(manifest).length > 0;
+    return getAllArticles().filter((art) => {
+      if (!hasManifest) return true; // dev without prebuild: keep everything
+      const verdict = manifest[`/blog/${art.slug}`];
+      return verdict?.passed === true; // audited + passed only (fail closed)
+    });
+  } catch {
+    return getAllArticles();
+  }
+}
+
+/**
+ * Family content entries (/industries/*, /glossary/*, ...): ONLY pages that
+ * pass the content audit appear in the sitemap. Reads the audit manifest
+ * written by scripts/content-audit.ts (prebuild).
+ */
+async function familyEntries(): Promise<MetadataRoute.Sitemap> {
+  try {
+    const { familyLoaders } = await import('@/content/families/index');
+    const { FAMILY_PREFIXES, CONTENT_FAMILIES } = await import('@/content/schema');
+    const { readFileSync, existsSync } = await import('node:fs');
+    const { join } = await import('node:path');
+    const manifestPath = join(
+      process.cwd(),
+      'src',
+      'content',
+      '__generated__',
+      'audit-manifest.json'
+    );
+    const manifest: Record<string, { passed: boolean }> = existsSync(manifestPath)
+      ? JSON.parse(readFileSync(manifestPath, 'utf8'))
+      : {};
+    const hasManifest = Object.keys(manifest).length > 0;
+    const out: MetadataRoute.Sitemap = [];
+    for (const family of CONTENT_FAMILIES) {
+      const prefix = FAMILY_PREFIXES[family];
+      const entries = await familyLoaders[family]();
+      for (const e of entries) {
+        const url = `${prefix}/${e.slug}`;
+        if (!hasManifest) {
+          out.push(entry(url, { changeFrequency: 'monthly' as const, priority: 0.75 }));
+          continue;
+        }
+        const verdict = manifest[url];
+        if (verdict?.passed !== true) continue; // failing or unaudited → excluded
+        out.push(entry(url, { changeFrequency: 'monthly' as const, priority: 0.75 }));
+      }
+    }
+    return out;
+  } catch {
+    return [];
+  }
+}
 /**
  * /q/[publicId] entries: ONLY public + moderation-passed QRs with a unique
  * owner-written title (mirrors qrPageEligibility). Best-effort: any DB failure

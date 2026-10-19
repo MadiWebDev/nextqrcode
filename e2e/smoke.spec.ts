@@ -50,6 +50,14 @@ test('public QR page 404s for unknown codes', async ({ page }) => {
   expect(res?.status()).toBe(404);
 });
 
+test('family content pages render', async ({ page }) => {
+  for (const path of ['/glossary/finder-pattern', '/industries', '/scan-guide', '/templates']) {
+    const res = await page.goto(path);
+    expect(res?.status()).toBeLessThan(400);
+    await expect(page.locator('main').first()).toBeVisible();
+  }
+});
+
 test('dashboard redirects anonymous visitors to login', async ({ page }) => {
   const res = await page.goto('/dashboard');
   expect(res?.url()).toContain('/login');
