@@ -1,0 +1,727 @@
+[
+  {
+    "path": "src/app/qr-svg-png-pdf-exporter/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-tamper-evidence-planner/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-to-pdf-converter/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-tracking-parameter-auditor/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-typosquat-checker/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-url-anatomy-checker/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-utm-audit-checker/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-version-estimator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-wear-lifetime-estimator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-zip-packager/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/quote-request-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/real-estate-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/recipe-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/regional-payment-qr/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 0,
+    "positions": [],
+    "status": "done",
+    "reason": "One-line re-export of pakistan-payment-qr/page, which carries 4 slots. Rendered page has 4.",
+    "importStyle": "none-added",
+    "rendered": 4
+  },
+  {
+    "path": "src/app/restaurant-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/resume-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/retail-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/room-booking-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/salon-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/scan-guide/[slug]/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": [
+      "top",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Kept existing in-content slot; added top/pre-related/bottom with eligible={verdict.passed}, slot from siteConfig.adsense.slotInContent",
+    "importStyle": "canonical"
+  },
+  {
+    "path": "src/app/scan-guide/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "top",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Hub page, no tool: 4 slots at top/in-content/pre-related/bottom",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/school-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/seat-finder-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/shipment-tracking-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/sitemap-page/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "top",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Directory page: 4 slots between SitemapSection groups",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/sms-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/social-profile-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/spa-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/survey-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/table-order-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/taxi-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/templates/[slug]/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Kept existing in-content slot; added top/after-tool/bottom with eligible={verdict.passed}, slot from siteConfig.adsense.slotInContent. After-tool sits between spec grid and article (pre-related would have been back-to-back with the existing in-content slot)",
+    "importStyle": "canonical"
+  },
+  {
+    "path": "src/app/templates/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 2,
+    "positions": [
+      "top",
+      "bottom"
+    ],
+    "status": "flagged-short",
+    "reason": "Single template grid rendered by one .map() \u2014 cannot split for in-content/pre-related slots without touching logic; top + bottom only",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/terms/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "top",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Legal page with 11 sections: 4 slots between sections",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/ticket-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/unlock/[publicId]/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 0,
+    "positions": [],
+    "status": "skipped",
+    "reason": "ineligible per docs/ADSENSE.md",
+    "importStyle": "none-added"
+  },
+  {
+    "path": "src/app/upi-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 1,
+    "positions": [
+      "bottom"
+    ],
+    "status": "flagged-short",
+    "reason": "Thin wrapper around LandingGenerator: only one anchor exists in page.tsx (after the component); no in-page sections for after-tool/in-content/pre-related without back-to-back ads, and top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/url-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 1,
+    "positions": [
+      "bottom"
+    ],
+    "status": "flagged-short",
+    "reason": "Thin wrapper around LandingGenerator: only one anchor exists in page.tsx (after the component); no in-page sections for after-tool/in-content/pre-related without back-to-back ads, and top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/utm-builder/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/vcard-photo-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/vcard-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 1,
+    "positions": [
+      "bottom"
+    ],
+    "status": "flagged-short",
+    "reason": "Thin wrapper around LandingGenerator: only one anchor exists in page.tsx (after the component); no in-page sections for after-tool/in-content/pre-related without back-to-back ads, and top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/vet-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/view/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 0,
+    "positions": [],
+    "status": "flagged-short",
+    "reason": "Thin Suspense wrapper around MediaViewClient with no content sections in page.tsx \u2014 slots not forced",
+    "importStyle": "none-added"
+  },
+  {
+    "path": "src/app/visitor-badge-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/warehouse-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/warranty-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/webinar-join-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/whatsapp-order-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/whatsapp-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 1,
+    "positions": [
+      "bottom"
+    ],
+    "status": "flagged-short",
+    "reason": "Thin wrapper around LandingGenerator: only one anchor exists in page.tsx (after the component); no in-page sections for after-tool/in-content/pre-related without back-to-back ads, and top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/whatsapp-qr/[slug]/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 3,
+    "positions": [
+      "after-tool",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "flagged-short",
+    "reason": "Kept existing after-tool slot; added pre-related/bottom. Country guide prose is a single block that cannot be split for an in-content slot, and top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/whatsapp-qr/page.tsx",
+    "adsBefore": 2,
+    "adsAfter": 2,
+    "positions": [
+      "top",
+      "bottom"
+    ],
+    "status": "flagged-short",
+    "reason": "Existing top + bottom slots kept; single country grid rendered by one .map() cannot be split for in-content/pre-related slots without touching logic",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/wifi-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/wifi-sign-generator/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/zoom-meeting-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "4 slots at after-tool/in-content/pre-related/bottom; top skipped to keep tool above fold on mobile",
+    "importStyle": "legacy"
+  }
+]

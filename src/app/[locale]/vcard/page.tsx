@@ -9,6 +9,7 @@ import { setRequestLocale } from 'next-intl/server';
 import VcardLandingPage from '@/app/vcard-qr-code-generator/page';
 import { localizedLanguages } from '@/i18n/metadata';
 import { siteConfig } from '@/config/site';
+import { AdSlot } from '@/components/AdSlot';
 
 export async function generateMetadata({
   params,
@@ -35,5 +36,11 @@ export default async function LocalizedVcardPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <VcardLandingPage />;
+  return (
+    <>
+      <AdSlot id={`locale-vcard-${locale}-top`} format="horizontal-banner" />
+      <VcardLandingPage />
+      <AdSlot id={`locale-vcard-${locale}-bottom`} format="horizontal-banner" />
+    </>
+  );
 }

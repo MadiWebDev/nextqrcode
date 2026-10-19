@@ -1,0 +1,774 @@
+[
+  {
+    "path": "src/app/qr-fade-risk-checker/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-footfall-scan-estimator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-frame-designer/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-frame-text-size-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-glare-risk-checker/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-gradient-maker/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-homograph-detector/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-image-enhancer/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-image-metadata-auditor/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-incident-report-builder/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-ink-coverage-estimator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-label-count-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-labels/[slug]/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Existing after-tool slot kept (label-${sheet.slug}-mid); added top/in-content/pre-related/bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-labels/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 2,
+    "positions": [
+      "top",
+      "bottom"
+    ],
+    "status": "flagged-short",
+    "reason": "Index grid page: single label-sheets grid, no article/FAQ/related sections; no safe mid-grid break without touching list logic.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-link-menu-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-logo-safe-area-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-metadata-stripper/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-minimum-size-checker/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-module-size-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-off-axis-scan-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-offline-verifier/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-payload-hash-verifier/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-payload-inspector/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-payload-linter/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-permission-explainer/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-phishing-pattern-trainer/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-placement-guide/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Existing after-tool slot kept; added top/in-content/pre-related/bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-print-area-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-print-cost-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-print-proof-checklist/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-print-sheet-planner/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-print-waste-estimator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-quiet-zone-adder/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-quiet-zone-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-readability-score-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-redirect-chain-viewer/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-roll-label-planner/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-safe-scan-checklist-builder/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-safety-checker/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Existing after-tool slot kept; added top/in-content/pre-related/bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-scan-funnel-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-scan-instruction-card/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-scan-log/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-scan-test-sample-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-scanner/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 2,
+    "positions": [
+      "top",
+      "after-tool"
+    ],
+    "status": "flagged-short",
+    "reason": "Thin tool-only page: header + ScannerClient only, no article/FAQ/related sections; a third slot would sit adjacent to another ad.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-scheme-safety-checker/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-signature-note-builder/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-size-calculator/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Existing after-tool slot kept; added top/in-content/pre-related/bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-size-guide/[slug]/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Existing canonical in-content slot kept; new leaderboard slots use slot={siteConfig.adsense.slotInContent} + eligible={verdict.passed} mirroring the existing slot (no separate leaderboard slot inventory exists in siteConfig).",
+    "importStyle": "canonical"
+  },
+  {
+    "path": "src/app/qr-size-guide/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 3,
+    "positions": [
+      "top",
+      "after-tool",
+      "bottom"
+    ],
+    "status": "flagged-short",
+    "reason": "Hub grid page: single guides grid + CTA section, no article/FAQ; no safe mid-grid break without touching list logic.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-size-presets/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-splitter-scanner/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Existing after-tool slot kept; added top/in-content/pre-related/bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-sticker-sheet-printer/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 5,
+    "positions": [
+      "top",
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Existing after-tool slot kept; added top/in-content/pre-related/bottom.",
+    "importStyle": "legacy"
+  }
+]

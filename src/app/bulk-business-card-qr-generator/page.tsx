@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 type Item = { label: string; payload: string; dataUrl: string; fileName: string };
 
@@ -373,6 +374,8 @@ export default function BulkBusinessCardQrGeneratorPage() {
         )}
       </Card>
 
+      <AdSlot id="bulk-business-card-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Use the Bulk Business Card QR Generator
@@ -392,6 +395,8 @@ export default function BulkBusinessCardQrGeneratorPage() {
           confuse the people receiving them. Decide whether to include direct lines or a main
           switchboard number, and use the same choice across the team.
         </p>
+
+        <AdSlot id="bulk-business-card-qr-generator-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off is between a full vCard and a minimal one. A full vCard with company,
           address, website, and social links is convenient but produces a dense code that needs a
@@ -419,6 +424,8 @@ export default function BulkBusinessCardQrGeneratorPage() {
         </p>
       </article>
 
+      <AdSlot id="bulk-business-card-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -436,6 +443,8 @@ export default function BulkBusinessCardQrGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-business-card-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

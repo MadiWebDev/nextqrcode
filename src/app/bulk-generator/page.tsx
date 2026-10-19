@@ -3,6 +3,7 @@ import { siteConfig } from '@/config/site';
 import { BreadcrumbJsonLd } from '@/lib/seo/jsonld';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { BulkClient } from './BulkClient';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'Bulk QR Code Generator — CSV to ZIP',
@@ -39,6 +40,7 @@ export default function BulkGeneratorPage() {
         </p>
       </header>
       <BulkClient />
+      <AdSlot id="bulk-generator-after-tool" format="horizontal-banner" />
     </div>
   );
 }

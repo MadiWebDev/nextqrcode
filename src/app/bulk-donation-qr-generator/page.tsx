@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 type Item = { label: string; payload: string; dataUrl: string; fileName: string };
 
@@ -379,6 +380,8 @@ export default function BulkDonationQrGeneratorPage() {
         )}
       </Card>
 
+      <AdSlot id="bulk-donation-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Use the Bulk Donation QR Generator
@@ -399,6 +402,8 @@ export default function BulkDonationQrGeneratorPage() {
           donor change it freely. A suggested amount that cannot be changed will cost you both
           smaller gifts and larger ones.
         </p>
+
+        <AdSlot id="bulk-donation-qr-generator-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off with donation codes is between speed and trust. The fastest path is a code
           that lands directly on a payment form with the amount prefilled, but donors who have never
@@ -427,6 +432,8 @@ export default function BulkDonationQrGeneratorPage() {
         </p>
       </article>
 
+      <AdSlot id="bulk-donation-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -444,6 +451,8 @@ export default function BulkDonationQrGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-donation-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

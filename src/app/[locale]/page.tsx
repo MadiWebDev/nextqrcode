@@ -8,6 +8,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { HomePageContent } from '@/components/home/HomePage';
+import { AdSlot } from '@/components/AdSlot';
 
 export async function generateMetadata({
   params,
@@ -32,5 +33,11 @@ export default async function LocalizedHomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <HomePageContent />;
+  return (
+    <>
+      <AdSlot id={`locale-${locale}-top`} format="horizontal-banner" />
+      <HomePageContent />
+      <AdSlot id={`locale-${locale}-bottom`} format="horizontal-banner" />
+    </>
+  );
 }

@@ -1,0 +1,108 @@
+# TOOLS — 100 More: Verification (100 tools)
+
+Coordinator-merged verification for the 100-more-tools program on branch `growth/100-more-tools`.
+Each line: route + what was verified by its batch builder. Batch files remain as the per-batch
+source records (docs/TOOLS-100-MORE-VERIFICATION-batch-N.md). Final whole-project gates
+(typecheck, build, content:audit, analyze-batches) were run by the coordinator on the
+finished tree — see the program report for the quoted outputs.
+
+- `/qr-link-menu-generator` — QR encodes the entered menu page URL via `qrcode` toDataURL; add/remove link rows update a live clickable menu preview; invalid menu or link URLs block generation with an inline error; PNG + SVG downloads wired.
+- `/app-review-link-qr-generator` — platform select builds the correct review URL (iOS `apps.apple.com/app/id…?action=write-review`, Android Play details URL with `showAllReviews=true`); iOS App ID must be digits, Android package-name shape validated; payload shown verbatim; PNG + SVG downloads wired.
+- `/vcard-photo-qr-generator` — uploaded photo is resized client-side via canvas to max 240px JPEG and embedded as a vCard 3.0 `PHOTO;ENCODING=b;TYPE=JPEG:` line; contact-card preview shows the photo; payload character count displayed; PNG + SVG downloads wired.
+- `/event-countdown-qr-generator` — 1-second ticker countdown (days/hours/minutes/seconds) to the entered start time, "event has started" state after it passes; QR encodes the event page URL; PNG + SVG downloads wired.
+- `/gift-card-qr-generator` — code / amount / currency / expiry render a styled gift-card preview; QR encodes a structured `GIFTCARD:CODE=…;AMOUNT=…;EXPIRES=…` payload (plus recipient / redeem URL when given); PNG + SVG downloads wired.
+- `/membership-card-qr-generator` — card preview shows tier badge + expiry; QR encodes a structured `MEMBERSHIP:ORG=…;ID=…;TIER=…;EXP=…;NAME=…` payload; PNG + SVG downloads wired.
+- `/parking-spot-qr-generator` — spot number + action (pay/extend/report) are appended as query parameters to the parking page URL; spot-label preview shows the spot number large; PNG + SVG downloads wired.
+- `/table-order-qr-generator` — table number is appended as a `table` query parameter to the ordering URL; table-stand preview shows the restaurant + table number; PNG + SVG downloads wired.
+- `/room-booking-qr-generator` — room name is appended as a `room` query parameter to the booking URL; room-label preview shows room name + capacity; PNG + SVG downloads wired.
+- `/shipment-tracking-qr-generator` — tracking number + carrier build the carrier tracking URL (UPS / FedEx / DHL / USPS patterns, Custom uses the entered tracking page URL with a `tracking` parameter); tracking summary card shown; PNG + SVG downloads wired.
+- `/invoice-payment-qr-generator` — invoice number + amount are appended as query parameters to the payment URL; invoice summary shows number, amount, due date, bill-to; PNG + SVG downloads wired.
+- `/fundraiser-qr-generator` — goal / raised render a live progress bar with percentage, remaining amount, and days left; QR encodes the campaign URL; PNG + SVG downloads wired.
+- `/course-enrollment-qr-generator` — course code is appended as a `code` query parameter to the enrollment URL; course card shows title, code, instructor; PNG + SVG downloads wired.
+- `/webinar-join-qr-generator` — QR encodes the join URL verbatim (any platform, nothing rewritten); join card shows title, host, and formatted start time; PNG + SVG downloads wired.
+- `/pet-adoption-qr-generator` — QR encodes the adoption page URL; adoption profile card shows pet name, breed, age, sex, shelter, and description; PNG + SVG downloads wired.
+- `/job-application-qr-generator` — QR encodes the application form URL; job card shows title, company, location, reference; PNG + SVG downloads wired.
+- `/car-listing-qr-generator` — QR encodes the listing URL; listing card shows title, price, year, mileage, VIN; VIN validated as 17 characters excluding I/O/Q; PNG + SVG downloads wired.
+- `/property-tour-qr-generator` — QR encodes the virtual tour URL; tour card shows title, address, price, bedrooms, bathrooms; PNG + SVG downloads wired.
+- `/prescription-refill-qr-generator` — Rx number is appended as an `rx` query parameter to the refill URL; refill card shows pharmacy, Rx number, optional medication; PNG + SVG downloads wired.
+- `/geo-qr-code-generator` — latitude / longitude validated to −90…90 / −180…180 produce a scannable QR via `qrcode` toDataURL from a `geo:lat,lng` payload (optional `?q=` label); coordinates shown with an OpenStreetMap pin link; PNG + SVG downloads wired.
+- `/whatsapp-order-qr-generator` — phone + product + quantity + note build a `wa.me` link with the order message pre-filled; QR via `toDataURL`; PNG + SVG download and copy payload wired; phone digit-count and quantity validation with `role="alert"`.
+- `/live-stream-qr-generator` — stream URL + title + start time + platform produce a QR of the stream URL plus a card showing title, platform, and formatted start time; URL validation.
+- `/google-review-qr-generator` — review link or Place ID (ChIJ…) produce a QR: a Place ID builds `search.google.com/local/writereview?placeid=…`; review-prompt card shows the business name.
+- `/boarding-pass-qr-generator` — check-in URL + booking reference produce a QR of the check-in URL plus a check-in card (passenger, flight, booking ref shown as text); copy states this is a check-in link, not an airline boarding pass.
+- `/luggage-tag-qr-generator` — owner + contact + flight + destination build a plain-text QR plus a tag preview; owner and at least one contact required.
+- `/plant-care-qr-generator` — plant + light + water + notes produce a QR: care-page URL when given, otherwise the care summary as plain text; care card mirrors the inputs.
+- `/recipe-qr-generator` — recipe URL + title + time + servings produce a QR of the recipe URL plus a recipe summary card; servings validated ≥ 1.
+- `/warranty-qr-generator` — registration URL + product + serial + purchase date produce a QR of the registration URL plus a warranty card (serial and formatted purchase date shown as text).
+- `/visitor-badge-qr-generator` — visitor + host + company + expiry + purpose build a plain-text badge QR plus a badge preview with VISITOR heading, host, and formatted valid-until date.
+- `/seat-finder-qr-generator` — venue + section + row + seat produce a QR: seat-map URL when given, otherwise the seat locator as plain text; seat-label preview (Section · Row · Seat).
+- `/appointment-booking-qr-generator` — booking URL + service + provider produce a QR of the booking URL plus a booking card; copy states this opens a booking page, not a calendar entry.
+- `/quote-request-qr-generator` — quote-form URL + service + reference produce a QR of the form URL plus a quote card with the reference shown as text.
+- `/kid-safe-qr-card-generator` — destination URL + label + adult note produce a QR of the destination URL plus a permission card ("Ask a grown-up first", label, grown-up note); copy states the card is a reminder, not a safety filter.
+- `/qr-batch-failure-estimator` — sample size + failures + batch size recompute the estimated failure % with a Wilson 95% confidence interval, expected failures in the batch, and the plausible range, on every input change; failures > sample size is rejected.
+- `/qr-cost-per-scan-calculator` — spend + scans recompute cost per scan, cost per 1,000 scans, and scans per $100 on every input change.
+- `/qr-dynamic-vs-static-roi-calculator` — static/dynamic costs + expected scans + value per scan recompute both ROI figures, the winner, and the extra scans the pricier option needs to break even, on every input change; zero cost yields "not defined" rather than an invented percentage.
+- `/qr-frame-text-size-calculator` — distance + viewing conditions recompute minimum cap height (mm) and font size (pt, rounded up, plus px at 96 dpi) via the 10-arcminute angular-size rule with stated condition factors, on every input change.
+- `/qr-roll-label-planner` — outer diameter + core diameter + thickness + label height + gap + total labels recompute roll length (annulus formula), labels per roll, rolls needed, leftover labels, and pitch, on every input change.
+- `/qr-off-axis-scan-calculator` — code width + viewing-angle slider recompute effective width (cosine), width lost, size uplift, and recommended printed width, on every change; angles above 60° show a reposition warning.
+- `/qr-glare-risk-checker` — surface finish + lighting selections recompute a 0–6 glare-risk score, a Low/Moderate/High verdict, and matching mitigation, on every selection change.
+- `/qr-wear-lifetime-estimator` — recomputes lifetime + replacement/inspection dates on every select/date change; lifetime = material baseline × environment factor × lamination factor.
+- `/qr-print-waste-estimator` — recomputes on every change; hand-checked: 1,000 good codes at 3% waste → 1,031 total prints.
+- `/qr-campaign-break-even-calculator` — recomputes on every change; hand-checked: 500 fixed cost ÷ 2.50 margin = 200 break-even scans; shows "Never" when margin ≤ 0.
+- `/qr-dot-gain-tolerance-checker` — recomputes pass/fail + minimum safe module on every slider change; pass rule total spread ≤ 25% of module.
+- `/qr-footfall-scan-estimator` — recomputes expected-scans range (0.6×–1.6× central estimate) on every change.
+- `/qr-scan-funnel-calculator` — recomputes stage counts + overall conversion % on every change; funnel bars scale with stage counts.
+- `/qr-ab-test-significance-calculator` — real chi-square (2×2, 1 df) + p-value via Abramowitz & Stegun erf; hand-checked defaults A 50/1000 vs B 68/1000 → χ² ≈ 2.92, p ≈ 0.088, not significant; warns when any expected cell < 5.
+- `/qr-scan-test-sample-calculator` — one-sample n = z²·p(1−p)/E² and two-sample per-variant n = (zα+zβ)²·[p₁(1−p₁)+p₂(1−p₂)]/(p₂−p₁)²; recomputes on every change.
+- `/qr-utm-audit-checker` — real `URL` parsing on every edit; flags missing/empty utm_source/medium/campaign, uppercase, spaces, unusual chars, duplicates, non-https.
+- `/qr-version-estimator` — byte-mode capacity table (all 40 versions × L/M/Q/H) lookup on every edit; hand-checked: "https://example.com/menu" (24 bytes) at M → version 2, 25×25 modules.
+- `/qr-print-area-calculator` — recomputes usable width/height/area + % lost on every change; warns when margins + bleed consume the stock.
+- `/qr-readability-score-calculator` — recomputes weighted 0–100 score (30/30/20/20) + grade + weakest factor on every change.
+- `/qr-code-retirement-planner` — retirement date = earliest of campaign end / link expiry with reason; next review = last review + cadence; recomputes on every change.
+- `/qr-homograph-detector` — real confusable table (Cyrillic/Greek/fullwidth lookalikes) with per-character position, code point, script, and ASCII skeleton; flags mixed scripts.
+- `/qr-payload-linter` — real per-scheme linting (URL, mailto:, tel:, sms:, geo: with lat/lng ranges, WIFI: fields, vCard, VEVENT, dangerous schemes) + length/whitespace checks on every edit.
+- `/qr-allowlist-tester` — real wildcard matching (exact host, `*.domain`, scheme prefix, path `*`); recomputes allow/deny + matched rules on every edit.
+- `/qr-blocklist-tester` — same real matcher as allowlist; recomputes block/allow + matched rules on every edit.
+- `/qr-scheme-safety-checker` — real scheme extraction + fixed classification table (https/http/mailto/tel/sms/geo/WIFI:/bitcoin/javascript:/data:/file:/intent:/unknown) with risk verdict on every edit.
+- `/qr-expiry-policy-builder` — generates policy text + review schedule + 30/7/1-day reminders from campaign dates + cadence; copy + download .txt both work.
+- `/qr-clone-risk-scorer` — recomputes 0–100 points score + risk band + per-factor breakdown + mitigations tied to the highest factors on every change.
+- /qr-permission-explainer — selecting an OS + scan context shows the permission list for that pair, what each permission is for, and where to control it, with tick-box progress.
+- /qr-image-metadata-auditor — uploading a JPEG parses the real EXIF/TIFF blocks (camera, software, dates, GPS coordinates) and PNG text/EXIF chunks via DataView, listing each field with its privacy warning; files are read locally only.
+- /qr-url-anatomy-checker — editing the URL re-parses it with the URL parser and lists scheme, host, registrable domain, TLD, subdomain depth, path, fragment, and every query parameter, with risk flags for HTTP, IP host, punycode, deep subdomains, embedded credentials, and long URLs.
+- /qr-payload-hash-verifier — hash verifier computes the real SHA-256 / SHA-384 / SHA-512 / SHA-1 of the payload via crypto.subtle and compares it against the pasted expected hash (normalised for case/whitespace) with a match/mismatch verdict.
+- /qr-batch-duplicate-detector — editing the pasted list recomputes exact duplicate groups after normalisation (case, trailing slash, scheme, www.) plus near-duplicate pairs via Levenshtein edit distance.
+- /qr-tracking-parameter-auditor — editing the URL re-classifies every query parameter as tracking (utm_*, gclid, fbclid, etc.), personal data (email/phone/name/token names, email-shaped values), possible identifier, or other, with counts and a privacy-risk verdict.
+- /qr-safe-scan-checklist-builder — selecting a context regenerates the checklist for that context (base checks + context checks) with tick boxes, progress bar, copy, and print.
+- /qr-incident-report-builder — entering the details generates a filled structured incident report (payload, location, behaviour, actions, evidence) with copy and .txt download.
+- /qr-brand-impersonation-checker — entering a brand + suspect domain scores impersonation tricks (prefix/suffix, trust keywords, brand-in-subdomain, near-miss spelling via edit distance, digit lookalikes, punycode, unusual TLD) and lists each trick found.
+- /qr-destination-change-detector — pasting a current destination compares it against the baseline saved in localStorage and lists scheme/host/path/port/parameter changes; saving and clearing the baseline work.
+- /bulk-calendar-qr-generator — bulk tool generates one VEVENT QR per pasted CSV row; per-row PNG download + ZIP download wired; per-row errors reported without blocking valid rows.
+- /bulk-mecard-generator — bulk tool generates one MeCard QR per pasted CSV row; per-row PNG download + ZIP download wired; per-row errors reported without blocking valid rows.
+- /bulk-survey-qr-generator — bulk tool generates one survey QR per pasted CSV row, with cohort/respondent parameters appended to the survey URL; per-row PNG download + ZIP download wired.
+- /bulk-menu-item-qr-generator — bulk tool generates one per-dish QR per pasted CSV row (dish URL when given, otherwise dish details as text); per-row PNG download + ZIP download wired.
+- /bulk-shipping-label-qr-generator — bulk tool generates one shipping-label QR per pasted CSV row (tracking, carrier, recipient, order); per-row PNG download + ZIP download wired.
+- /bulk-shelf-label-qr-generator — bulk tool generates one shelf-label QR per pasted CSV row (product, SKU, price, aisle); per-row PNG download + ZIP download wired.
+- /bulk-certificate-qr-generator — bulk tool generates one certificate QR per pasted CSV row with a per-recipient verification code (entered, or deterministically derived from recipient + course + issue date when blank); per-row PNG download + ZIP download wired.
+- /bulk-coupon-expiry-auditor — bulk tool audits a pasted CSV of coupons, flagging each row expired / expiring soon (configurable window) / valid / invalid date / missing code, with counts, status filters, copyable summary, and audited CSV download.
+- /bulk-check-in-qr-generator — bulk tool generates one check-in QR per pasted CSV row (attendee, event, session, ticket); per-row PNG download + ZIP download wired.
+- /bulk-rsvp-qr-generator — bulk tool generates one per-guest RSVP QR per pasted CSV row (guest parameter appended to the RSVP URL, or guest details as text when no URL); per-row PNG download + ZIP download wired.
+- `/bulk-loyalty-card-qr-generator` — bulk tool: pasting the sample CSV yields one QR per row via qrcode toDataURL; per-row PNG + SVG downloads wired; Download All (ZIP) via JSZip wired; per-row errors reported without blocking valid rows; sample CSV download + CSV file upload wired.
+- `/bulk-seat-qr-generator` — bulk tool: pasting the sample CSV yields one QR per row via qrcode toDataURL; per-row PNG + SVG downloads wired; Download All (ZIP) via JSZip wired; per-row errors reported without blocking valid rows; sample CSV download + CSV file upload wired.
+- `/bulk-pet-tag-qr-generator` — bulk tool: pasting the sample CSV yields one QR per row via qrcode toDataURL; per-row PNG + SVG downloads wired; Download All (ZIP) via JSZip wired; per-row errors reported without blocking valid rows; sample CSV download + CSV file upload wired.
+- `/bulk-invoice-qr-generator` — bulk tool: pasting the sample CSV yields one QR per row via qrcode toDataURL; per-row PNG + SVG downloads wired; Download All (ZIP) via JSZip wired; per-row errors reported without blocking valid rows; sample CSV download + CSV file upload wired.
+- `/bulk-review-qr-generator` — bulk tool: pasting the sample CSV yields one QR per row via qrcode toDataURL; per-row PNG + SVG downloads wired; Download All (ZIP) via JSZip wired; per-row errors reported without blocking valid rows; sample CSV download + CSV file upload wired.
+- `/bakery-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/barber-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/boutique-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/car-wash-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/co-working-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/courier-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/dentist-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/driving-school-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/florist-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/food-truck-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/hostel-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/laundromat-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/spa-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/vet-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired
+- `/event-venue-qr-suite` — suite: each preset generates a scannable QR via qrcode toDataURL; PNG + SVG downloads wired

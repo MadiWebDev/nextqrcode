@@ -1,0 +1,712 @@
+[
+  {
+    "path": "src/app/parking-spot-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/payment-qr/[slug]/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the generator above the fold; existing mid slot kept as after-tool; added in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/payment-qr/page.tsx",
+    "adsBefore": 2,
+    "adsAfter": 2,
+    "positions": [
+      "top",
+      "bottom"
+    ],
+    "status": "flagged-short",
+    "reason": "Hub listing page with no prose or related sections; the scheme grid is the content, so additional slots would sit adjacent to the existing top/bottom slots.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/pdf-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/pet-adoption-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/pet-tag-qr/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/pharmacy-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/plant-care-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/playlist-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/podcast-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/prescription-refill-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/printed-qr-tester/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/privacy/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "top",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Content page (no tool): slots placed top, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/property-tour-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/q/[publicId]/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 2,
+    "positions": [
+      "in-content",
+      "bottom"
+    ],
+    "status": "flagged-short",
+    "reason": "QR display page has no related grid and the owner-tools section is conditional, so additional slots would sit adjacent to the existing/bottom slots or inside the QR tool column.",
+    "importStyle": "canonical"
+  },
+  {
+    "path": "src/app/qr-a-b-test-planner/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-ab-test-significance-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-allowlist-builder/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-allowlist-tester/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-analytics-simulator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-api-playground/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-batch-cost-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-batch-duplicate-detector/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-batch-failure-estimator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-batch-renamer/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-batch-validator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-billboard-size-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-blocklist-tester/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-brand-impersonation-checker/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-call-to-action-builder/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-campaign-break-even-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-campaign-planner/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-checksum-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-clone-risk-scorer/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-code-cropper/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-code-retirement-planner/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-code-rotator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-color-pair-tester/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-consent-note-builder/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-contrast-checker/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-cost-per-scan-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-curved-surface-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-data-capacity-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-destination-change-detector/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-dot-gain-tolerance-checker/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-dpi-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-dynamic-vs-static-roi-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-embed-code-builder/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-error-budget-calculator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-expiry-checker/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/qr-expiry-policy-builder/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": [
+      "after-tool",
+      "in-content",
+      "pre-related",
+      "bottom"
+    ],
+    "status": "done",
+    "reason": "Top skipped to keep the tool above the fold on mobile; slots placed after-tool, in-content, pre-related, bottom.",
+    "importStyle": "legacy"
+  }
+]

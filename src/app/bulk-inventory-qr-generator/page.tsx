@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 type Item = { label: string; payload: string; dataUrl: string; fileName: string };
 
@@ -375,6 +376,8 @@ export default function BulkInventoryQrGeneratorPage() {
         )}
       </Card>
 
+      <AdSlot id="bulk-inventory-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Use the Bulk Inventory QR Generator
@@ -395,6 +398,8 @@ export default function BulkInventoryQrGeneratorPage() {
           record where the item actually lives, not where it is supposed to live, because the label
           will be trusted on the shelf.
         </p>
+
+        <AdSlot id="bulk-inventory-qr-generator-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The main trade-off is between encoding a short SKU-only payload and a richer payload with
           name and location. SKU-only codes are smaller, scan faster, and stay valid if you rename
@@ -422,6 +427,8 @@ export default function BulkInventoryQrGeneratorPage() {
         </p>
       </article>
 
+      <AdSlot id="bulk-inventory-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -439,6 +446,8 @@ export default function BulkInventoryQrGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-inventory-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }
