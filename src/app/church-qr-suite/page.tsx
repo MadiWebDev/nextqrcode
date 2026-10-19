@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Church, Download, QrCode, CheckCircle2, HelpCircle, AlertTriangle } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 type Preset = {
   id: string;
@@ -306,6 +307,7 @@ export default function ChurchQrSuitePage() {
         </div>
       </div>
 
+      <AdSlot id="church-qr-suite-after-tool" format="horizontal-banner" />
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">How to Use the Church QR Suite</h2>
         <p className="text-base leading-relaxed">
@@ -325,6 +327,8 @@ export default function ChurchQrSuitePage() {
           should open a form that is private by default, with a clear statement of who will see the
           request and how it will be used, because prayer requests are deeply personal.
         </p>
+
+        <AdSlot id="church-qr-suite-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off is between convenience and inclusion. QR codes help members who are
           comfortable with phones, but a service that depends on them excludes those who are not.
@@ -352,6 +356,7 @@ export default function ChurchQrSuitePage() {
         </p>
       </article>
 
+      <AdSlot id="church-qr-suite-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -369,6 +374,8 @@ export default function ChurchQrSuitePage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="church-qr-suite-bottom" format="horizontal-banner" />
     </div>
   );
 }

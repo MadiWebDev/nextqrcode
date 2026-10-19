@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Building2, Download, QrCode, CheckCircle2, HelpCircle, AlertTriangle } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 type Preset = {
   id: string;
@@ -309,6 +310,7 @@ export default function RealEstateQrSuitePage() {
           </Card>
         </div>
       </div>
+      <AdSlot id="real-estate-qr-suite-after-tool" format="horizontal-banner" />
 
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">How to Use the Real Estate QR Suite</h2>
@@ -330,6 +332,7 @@ export default function RealEstateQrSuitePage() {
           brochure or brochure page, and the brochure must match the listing, because a mismatch
           between the two destroys trust.
         </p>
+        <AdSlot id="real-estate-qr-suite-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off is between a code that points to your own listing and one that points to a
           portal. Your own page can be updated the moment the price changes or the property goes
@@ -357,6 +360,7 @@ export default function RealEstateQrSuitePage() {
         </p>
       </article>
 
+      <AdSlot id="real-estate-qr-suite-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -374,6 +378,7 @@ export default function RealEstateQrSuitePage() {
           ))}
         </div>
       </section>
+      <AdSlot id="real-estate-qr-suite-bottom" format="horizontal-banner" />
     </div>
   );
 }

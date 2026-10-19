@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Hotel, Download, QrCode, CheckCircle2, HelpCircle, AlertTriangle } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 type Preset = {
   id: string;
@@ -312,6 +313,7 @@ export default function HotelQrSuitePage() {
         </div>
       </div>
 
+      <AdSlot id="hotel-qr-suite-after-tool" format="horizontal-banner" />
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">How to Use the Hotel QR Suite</h2>
         <p className="text-base leading-relaxed">
@@ -331,6 +333,8 @@ export default function HotelQrSuitePage() {
           Local-guide codes should lead to a page with the information guests actually ask about:
           breakfast times, checkout time, transport, and nearby restaurants.
         </p>
+
+        <AdSlot id="hotel-qr-suite-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off with WiFi codes is security. A WiFi QR code contains the network password in
           readable form, so anyone who scans it can read the password. That is acceptable for a
@@ -359,6 +363,7 @@ export default function HotelQrSuitePage() {
         </p>
       </article>
 
+      <AdSlot id="hotel-qr-suite-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -376,6 +381,8 @@ export default function HotelQrSuitePage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="hotel-qr-suite-bottom" format="horizontal-banner" />
     </div>
   );
 }

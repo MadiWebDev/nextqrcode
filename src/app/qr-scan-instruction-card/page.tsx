@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Smartphone } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -135,6 +136,9 @@ export default function QrScanInstructionCardPage() {
           { label: 'QR Scan Instruction Card', href: '/qr-scan-instruction-card' },
         ]}
       />
+
+      <AdSlot id="qr-scan-instruction-card-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Smartphone className="w-3.5 h-3.5" />
@@ -231,6 +235,9 @@ export default function QrScanInstructionCardPage() {
           </div>
         </Card>
       </div>
+
+      <AdSlot id="qr-scan-instruction-card-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Why a Scan Instruction Card Earns You More Scans
@@ -253,6 +260,9 @@ export default function QrScanInstructionCardPage() {
           sentence on the card is the note that no special app is needed, because the fear of
           installing something unknown is the biggest barrier for cautious users.
         </p>
+
+        <AdSlot id="qr-scan-instruction-card-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Language choice is a practical decision, not a decorative one. A card in the language your
           visitors actually read will outperform a prettier card in the wrong language every time.
@@ -281,6 +291,9 @@ export default function QrScanInstructionCardPage() {
           off.
         </p>
       </article>
+
+      <AdSlot id="qr-scan-instruction-card-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -298,6 +311,9 @@ export default function QrScanInstructionCardPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-scan-instruction-card-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

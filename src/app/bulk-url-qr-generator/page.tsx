@@ -10,6 +10,7 @@ import { Slider } from '@/components/ui/slider';
 import { Link2 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function BulkURLQRGeneratorPage() {
   const [raw, setRaw] = useState(
@@ -262,6 +263,8 @@ export default function BulkURLQRGeneratorPage() {
         </div>
       </div>
 
+      <AdSlot id="bulk-url-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Generating Hundreds of QR Codes Without the Drudgery
@@ -275,6 +278,8 @@ export default function BulkURLQRGeneratorPage() {
           browser, so the list never leaves your computer, and it caps batches at 500 rows so the
           browser stays responsive.
         </p>
+
+        <AdSlot id="bulk-url-qr-generator-in-content" format="in-article" />
         <h3 className="text-xl font-semibold text-foreground">Preparing a clean list</h3>
         <p className="text-base leading-relaxed">
           Bulk output is only as good as the input list, so the preparation matters more than the
@@ -322,6 +327,8 @@ export default function BulkURLQRGeneratorPage() {
           the list and the proof, which is where the quality actually lives.
         </p>
       </article>
+      <AdSlot id="bulk-url-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -339,6 +346,8 @@ export default function BulkURLQRGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-url-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

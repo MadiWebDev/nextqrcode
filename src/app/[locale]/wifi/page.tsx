@@ -35,5 +35,8 @@ export default async function LocalizedWifiPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  // No wrapper slots: WifiQRPage (src/app/wifi-qr-code-generator/page.tsx)
+  // already carries 4 slots, so the rendered page has 4. Adding wrapper
+  // slots here would double up ads on the rendered page.
   return <WifiQRPage />;
 }

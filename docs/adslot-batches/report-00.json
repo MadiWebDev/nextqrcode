@@ -1,0 +1,476 @@
+[
+  {
+    "path": "src/app/[locale]/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 2,
+    "positions": ["top", "bottom"],
+    "status": "done",
+    "reason": "2 wrapper slots + 3 pre-existing slots in shared HomePageContent = 5 rendered.",
+    "importStyle": "legacy",
+    "rendered": 5
+  },
+  {
+    "path": "src/app/[locale]/text/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 2,
+    "positions": ["top", "bottom"],
+    "status": "flagged-short",
+    "reason": "Rendered page has 2 slots (wrapper only; LandingGenerator carries none). No further safe breaks in the wrapper.",
+    "importStyle": "legacy",
+    "rendered": 2
+  },
+  {
+    "path": "src/app/[locale]/url/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 2,
+    "positions": ["top", "bottom"],
+    "status": "flagged-short",
+    "reason": "Rendered page has 3 slots (2 wrapper + 1 in embedded url page). No further safe breaks in the wrapper.",
+    "importStyle": "legacy",
+    "rendered": 3
+  },
+  {
+    "path": "src/app/[locale]/vcard/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 2,
+    "positions": ["top", "bottom"],
+    "status": "flagged-short",
+    "reason": "Rendered page has 3 slots (2 wrapper + 1 in embedded vcard page). No further safe breaks in the wrapper.",
+    "importStyle": "legacy",
+    "rendered": 3
+  },
+  {
+    "path": "src/app/[locale]/wifi/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 0,
+    "positions": [],
+    "status": "done",
+    "reason": "Wrapper slots removed: the embedded wifi page already carries 4 slots, so the rendered page has 4. Adding wrapper slots would have doubled ads.",
+    "importStyle": "legacy",
+    "rendered": 4
+  },
+  {
+    "path": "src/app/about/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 5,
+    "positions": ["top", "in-content", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/animated-qr-transfer/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/app-review-link-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/app-store-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/appointment-booking-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bakery-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/barber-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/barcode-generator/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 3,
+    "positions": ["after-tool", "pre-related", "bottom"],
+    "status": "flagged-short",
+    "reason": "Guide article is a single h2 + paragraph + list with no safe inter-paragraph break; only after-tool (existing) + pre-related + bottom fit without splitting a paragraph-list block.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bitcoin-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 2,
+    "positions": ["top", "bottom"],
+    "status": "flagged-short",
+    "reason": "Thin wrapper rendering a single <LandingGenerator />; no content sections in page.tsx for mid-page slots without editing the shared child.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/blog/[slug]/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": ["top", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "canonical"
+  },
+  {
+    "path": "src/app/blog/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 2,
+    "positions": ["top", "bottom"],
+    "status": "flagged-short",
+    "reason": "Article grid is a single .map() loop \u2014 no safe mid-grid break without touching logic; only top (existing) + bottom fit.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/boarding-pass-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/boutique-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-asset-tag-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-business-card-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-calendar-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-certificate-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-check-in-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-coupon-expiry-auditor/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-coupon-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-donation-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-email-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-event-badge-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-feedback-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 1,
+    "positions": ["after-tool"],
+    "status": "flagged-short",
+    "reason": "Single-section page (header + BulkClient only); top skipped to keep the tool above the fold and no further content breaks exist without adjacent ads.",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-inventory-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-invoice-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-loyalty-card-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-mecard-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-menu-item-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-pdf-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-pet-tag-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-review-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-rsvp-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-seat-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-shelf-label-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-shipping-label-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-sms-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-student-id-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-survey-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-table-tent-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-ticket-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-url-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-vcard-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 0,
+    "positions": [],
+    "status": "done",
+    "reason": "One-line re-export of bulk-vcard-qr/page, which carries 4 slots. Rendered page has 4.",
+    "importStyle": "none-added",
+    "rendered": 4
+  },
+  {
+    "path": "src/app/bulk-vcard-qr/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/bulk-wifi-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/calendar-event-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "",
+    "importStyle": "legacy"
+  }
+]

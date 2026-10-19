@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Megaphone } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -243,6 +244,9 @@ export default function QrCampaignPlannerPage() {
           </ul>
         </Card>
       </div>
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-campaign-planner-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Plan a QR Campaign That Survives Contact with Reality
@@ -256,6 +260,10 @@ export default function QrCampaignPlannerPage() {
           money is spent. A campaign with a written brief is a plan; a campaign without one is a
           hope with a print order attached.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-campaign-planner-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           The goal is the first line of the brief for a reason. A goal like get 800 menu views from
           in-store codes in four weeks can be measured, and it tells you what to count and when to
@@ -296,6 +304,9 @@ export default function QrCampaignPlannerPage() {
           that nothing went wrong in the handoffs, which is exactly when things go wrong.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-campaign-planner-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -313,6 +324,9 @@ export default function QrCampaignPlannerPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-campaign-planner-bottom" format="horizontal-banner" />
     </div>
   );
 }

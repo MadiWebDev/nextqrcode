@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T12:58:27.017Z",
+  "generatedAt": "2026-10-19T14:33:23.813Z",
   "summary": {
     "totalArticles": 1581,
     "passing": 1581,
@@ -13,7 +13,7 @@
     "missingByline": 0,
     "missingDate": 0,
     "duplicateSlugs": [],
-    "staticRouteCount": 146
+    "staticRouteCount": 246
   },
   "brokenLinkTargets": {},
   "articles": {

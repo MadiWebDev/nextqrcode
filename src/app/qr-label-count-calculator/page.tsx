@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { LayoutGrid } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRLabelCountCalculatorPage() {
   const [sheetW, setSheetW] = useState(210);
@@ -90,6 +91,9 @@ export default function QRLabelCountCalculatorPage() {
           { label: 'QR Label Count Calculator', href: '/qr-label-count-calculator' },
         ]}
       />
+
+      <AdSlot id="qr-label-count-calculator-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <LayoutGrid className="w-3.5 h-3.5" />
@@ -259,6 +263,8 @@ export default function QRLabelCountCalculatorPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-label-count-calculator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Fitting Labels on a Sheet Without Wasting Stock
@@ -285,6 +291,9 @@ export default function QRLabelCountCalculatorPage() {
           roll printing, the same logic applies along the web width, with the added constraint that
           the roll&apos;s usable width is fixed by the press.
         </p>
+
+        <AdSlot id="qr-label-count-calculator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">Small changes, large savings</h3>
         <p className="text-base leading-relaxed">
           When a layout wastes a strip of sheet along one edge, a small change often recovers it:
@@ -317,6 +326,9 @@ export default function QRLabelCountCalculatorPage() {
           before the artwork, not after.
         </p>
       </article>
+
+      <AdSlot id="qr-label-count-calculator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -334,6 +346,9 @@ export default function QRLabelCountCalculatorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-label-count-calculator-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

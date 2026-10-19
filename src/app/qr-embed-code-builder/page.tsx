@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { CodeXml } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -194,6 +195,9 @@ export default function QrEmbedCodeBuilderPage() {
           </p>
         </Card>
       </div>
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-embed-code-builder-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Embed a QR Code on a Web Page Properly
@@ -207,6 +211,10 @@ export default function QrEmbedCodeBuilderPage() {
           screen-reader user what the code does, and it optionally wraps the image in a link to the
           same destination, so desktop visitors who cannot scan can still click through.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-embed-code-builder-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Alt text deserves more care than it usually gets. A QR code is not decorative, so an empty
           alt attribute is wrong, and a filename such as qr-code-final-v3.png is worse. The alt text
@@ -244,6 +252,9 @@ export default function QrEmbedCodeBuilderPage() {
           confuses visitors and search engines alike.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-embed-code-builder-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -261,6 +272,9 @@ export default function QrEmbedCodeBuilderPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-embed-code-builder-bottom" format="horizontal-banner" />
     </div>
   );
 }

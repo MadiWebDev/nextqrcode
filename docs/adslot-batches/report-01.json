@@ -1,0 +1,498 @@
+[
+  {
+    "path": "src/app/car-listing-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/car-wash-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/card/[slug]/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 0,
+    "positions": [],
+    "status": "flagged-short",
+    "reason": "thin wrapper returning only CardViewClient with no content sections in page.tsx; forcing slots would place ads around a personal digital card with no content break",
+    "importStyle": "none-added"
+  },
+  {
+    "path": "src/app/church-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/clinic-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/co-working-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/contact/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["top", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "content page; slots placed at section breaks, none inside forms",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/cookie-policy/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["top", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "content page; slots placed at section breaks, none inside forms",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/coupon-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/courier-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/course-enrollment-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/crypto-wallet-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/dashboard/[id]/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 0,
+    "positions": [],
+    "status": "skipped",
+    "reason": "ineligible per docs/ADSENSE.md",
+    "importStyle": "none-added"
+  },
+  {
+    "path": "src/app/dashboard/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 0,
+    "positions": [],
+    "status": "skipped",
+    "reason": "ineligible per docs/ADSENSE.md",
+    "importStyle": "none-added"
+  },
+  {
+    "path": "src/app/dashboard/settings/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 0,
+    "positions": [],
+    "status": "skipped",
+    "reason": "ineligible per docs/ADSENSE.md",
+    "importStyle": "none-added"
+  },
+  {
+    "path": "src/app/dentist-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/disclaimer/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["top", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "content page; slots placed at section breaks, none inside forms",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/donation-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/driving-school-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/email-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/error-correction-simulator/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/event-countdown-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/event-rsvp-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/event-venue-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/farm-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/feedback-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/florist-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/food-truck-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/fundraiser-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/geo-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/gift-card-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/glossary/[slug]/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": ["top", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "existing in-content slot kept; top/pre-related/bottom added at content breaks",
+    "importStyle": "canonical"
+  },
+  {
+    "path": "src/app/glossary/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 3,
+    "positions": ["top", "in-content", "bottom"],
+    "status": "flagged-short",
+    "reason": "category sections render via a single .map loop; cannot split between categories without restructuring, so only 3 safe top-level placements exist",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/google-review-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/gym-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/hostel-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/hotel-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/industries/[slug]/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": ["top", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "existing in-content slot kept; top/pre-related/bottom added at content breaks",
+    "importStyle": "canonical"
+  },
+  {
+    "path": "src/app/industries/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 3,
+    "positions": ["top", "in-content", "bottom"],
+    "status": "flagged-short",
+    "reason": "category sections render via a single .map loop; cannot split between categories without restructuring, so only 3 safe top-level placements exist",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/invoice-payment-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/job-application-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/kid-safe-qr-card-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/laundromat-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/library-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/live-stream-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/login/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 0,
+    "positions": [],
+    "status": "skipped",
+    "reason": "ineligible per docs/ADSENSE.md",
+    "importStyle": "none-added"
+  },
+  {
+    "path": "src/app/loyalty-card-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/luggage-tag-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/mecard-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/medical-id-qr/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/membership-card-qr-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/menu-qr-code-generator/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/museum-qr-suite/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  },
+  {
+    "path": "src/app/page.tsx",
+    "adsBefore": 0,
+    "adsAfter": 1,
+    "positions": ["bottom"],
+    "status": "done",
+    "reason": "1 bottom slot in page.tsx + 3 pre-existing slots in shared HomePageContent = 4 rendered. ID home-bottom-2 avoids collision with HomePageContent's home-bottom.",
+    "importStyle": "none-added",
+    "rendered": 4
+  },
+  {
+    "path": "src/app/pakistan-payment-qr/page.tsx",
+    "adsBefore": 1,
+    "adsAfter": 4,
+    "positions": ["after-tool", "in-content", "pre-related", "bottom"],
+    "status": "done",
+    "reason": "top skipped to keep tool above the fold; after-tool/in-content/pre-related/bottom placed at content breaks (FAQ section used as pre-related anchor; no related-items grid on tool pages)",
+    "importStyle": "legacy"
+  }
+]

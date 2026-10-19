@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'About QR Code Tools — Built by codexengr | Free Browser-Based QR Tools',
@@ -88,6 +89,8 @@ export default function AboutPage() {
         </ol>
       </nav>
 
+      <AdSlot id="about-top" format="horizontal-banner" />
+
       {/* H1 */}
       <header>
         <h1 className="text-3xl font-extrabold tracking-tight">About QR Code Tools</h1>
@@ -140,6 +143,8 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <AdSlot id="about-in-content" format="in-article" />
+
       {/* Our Mission */}
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Our Mission</h2>
@@ -180,6 +185,8 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
+
+      <AdSlot id="about-in-content-2" format="in-article" />
 
       {/* Key Features */}
       <section>
@@ -252,6 +259,8 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ */}
+      <AdSlot id="about-pre-related" format="horizontal-banner" />
+
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Frequently Asked Questions</h2>
         <div className="space-y-6">
@@ -275,6 +284,8 @@ export default function AboutPage() {
           — we respond within 48 hours on weekdays.
         </p>
       </section>
+
+      <AdSlot id="about-bottom" format="horizontal-banner" />
     </div>
   );
 }

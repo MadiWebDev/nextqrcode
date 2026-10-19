@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Frame } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -181,6 +182,9 @@ export default function QrFrameDesignerPage() {
           { label: 'QR Frame Designer', href: '/qr-frame-designer' },
         ]}
       />
+
+      <AdSlot id="qr-frame-designer-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Frame className="w-3.5 h-3.5" />
@@ -284,6 +288,9 @@ export default function QrFrameDesignerPage() {
           </p>
         </Card>
       </div>
+
+      <AdSlot id="qr-frame-designer-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Frame a QR Code So People Actually Scan It
@@ -305,6 +312,9 @@ export default function QrFrameDesignerPage() {
           directly under the code where the eye lands after looking at the pattern. If the line
           wraps to two lines or shrinks to fit, shorten the words instead of shrinking the type.
         </p>
+
+        <AdSlot id="qr-frame-designer-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Shape and color choices should serve readability, not decoration. A rounded rectangle
           reads as friendly and modern, a square reads as formal, and a pill shape works well on
@@ -333,6 +343,9 @@ export default function QrFrameDesignerPage() {
           are where framed codes fail.
         </p>
       </article>
+
+      <AdSlot id="qr-frame-designer-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -350,6 +363,9 @@ export default function QrFrameDesignerPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-frame-designer-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

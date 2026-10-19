@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Monitor } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRDPICalculatorPage() {
   const [sizeMm, setSizeMm] = useState(50);
@@ -211,6 +212,9 @@ export default function QRDPICalculatorPage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-dpi-calculator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           DPI, Pixels, and Why QR Codes Go Soft in Print
@@ -224,6 +228,10 @@ export default function QRDPICalculatorPage() {
           scanned perfectly on screen fails on paper. The fix is to decide the print size and DPI
           first, then export pixels to match.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-dpi-calculator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           What DPI actually means for a QR code
         </h3>
@@ -271,6 +279,9 @@ export default function QRDPICalculatorPage() {
           recover sharpness from a blurry one. Export generously, then let the printer do its job.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-dpi-calculator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -288,6 +299,9 @@ export default function QRDPICalculatorPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-dpi-calculator-bottom" format="horizontal-banner" />
     </div>
   );
 }

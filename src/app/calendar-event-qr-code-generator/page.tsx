@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { CalendarDays } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 type FieldDef = { key: string; label: string; ph: string; kind: string; options?: string[] };
 
@@ -314,6 +315,8 @@ export default function Page() {
         </div>
       </div>
 
+      <AdSlot id="calendar-event-qr-code-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to use the Calendar Event QR Code Generator
@@ -327,6 +330,8 @@ export default function Page() {
           depending on the calendar app. Use the venue&apos;s full address in the location field so
           the calendar entry can link to maps.
         </p>
+
+        <AdSlot id="calendar-event-qr-code-generator-in-content" format="in-article" />
         <h3 className="text-xl font-semibold text-foreground">What to put around the code</h3>
         <p className="text-base leading-relaxed">
           Before you print, think about what the scanner sees first. A QR code without context gets
@@ -364,6 +369,8 @@ export default function Page() {
         </p>
       </article>
 
+      <AdSlot id="calendar-event-qr-code-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -381,6 +388,8 @@ export default function Page() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="calendar-event-qr-code-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

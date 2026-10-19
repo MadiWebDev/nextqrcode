@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { ShieldCheck, CheckCircle2, AlertTriangle, XCircle } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 type EcLevel = 'L' | 'M' | 'Q' | 'H';
 
@@ -202,6 +203,9 @@ export default function QROfflineVerifierPage() {
           { label: 'QR Offline Verifier', href: '/qr-offline-verifier' },
         ]}
       />
+
+      <AdSlot id="qr-offline-verifier-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <ShieldCheck className="w-3.5 h-3.5" />
@@ -313,6 +317,8 @@ export default function QROfflineVerifierPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-offline-verifier-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           What offline verification can and cannot prove
@@ -334,6 +340,9 @@ export default function QROfflineVerifierPage() {
           test it on the weakest phone your audience uses. Density is not a defect, but it raises
           the price of every other mistake.
         </p>
+
+        <AdSlot id="qr-offline-verifier-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Encoding pitfalls are subtler. Plain ASCII text is the safest payload: every scanner
           handles it. Non-ASCII characters — accented letters, emoji, non-Latin scripts — encode as
@@ -361,6 +370,8 @@ export default function QROfflineVerifierPage() {
         </p>
       </article>
 
+      <AdSlot id="qr-offline-verifier-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Offline Verification
@@ -378,6 +389,9 @@ export default function QROfflineVerifierPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-offline-verifier-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

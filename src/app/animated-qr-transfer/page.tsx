@@ -500,6 +500,8 @@ export default function AnimatedQRTransferPage() {
           of information without introducing USB hardware firmware attack vectors.
         </p>
 
+        <AdSlot id="animated-qr-transfer-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           Fountain Codes and Shutter Synchronization
         </h3>
@@ -522,6 +524,8 @@ export default function AnimatedQRTransferPage() {
       </article>
 
       {/* Structured FAQ Section */}
+      <AdSlot id="animated-qr-transfer-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Animated QR Transfer
@@ -539,6 +543,8 @@ export default function AnimatedQRTransferPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="animated-qr-transfer-bottom" format="horizontal-banner" />
     </div>
   );
 }

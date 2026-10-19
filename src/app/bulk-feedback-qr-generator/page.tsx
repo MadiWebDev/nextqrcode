@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 type Item = { label: string; payload: string; dataUrl: string; fileName: string };
 
@@ -368,6 +369,8 @@ export default function BulkFeedbackQrGeneratorPage() {
         )}
       </Card>
 
+      <AdSlot id="bulk-feedback-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Use the Bulk Feedback QR Generator
@@ -387,6 +390,8 @@ export default function BulkFeedbackQrGeneratorPage() {
           form per branch, because a single form is far easier to maintain and compare across
           locations.
         </p>
+
+        <AdSlot id="bulk-feedback-qr-generator-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off is between anonymous feedback and identified feedback. Anonymous forms get
           more responses and more honest criticism, but you cannot follow up with the customer or
@@ -414,6 +419,8 @@ export default function BulkFeedbackQrGeneratorPage() {
         </p>
       </article>
 
+      <AdSlot id="bulk-feedback-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -431,6 +438,8 @@ export default function BulkFeedbackQrGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-feedback-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Sprout, Download, Copy, CheckCircle2 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 interface PresetField {
   key: string;
@@ -275,6 +276,7 @@ export default function FarmQRSuitePage() {
         </div>
       </div>
 
+      <AdSlot id="farm-qr-suite-after-tool" format="horizontal-banner" />
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           QR codes for farms, markets, and box schemes
@@ -296,6 +298,8 @@ export default function FarmQRSuitePage() {
           the lot facts directly — rather than a link — keeps working in a cold store with no
           signal, which is exactly where traceability is checked.
         </p>
+
+        <AdSlot id="farm-qr-suite-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           Farm-shop and market-stall codes live outdoors, in sun, rain, and condensation, and they
           are read by people holding bags in one hand and a phone in the other. Print them larger
@@ -324,6 +328,7 @@ export default function FarmQRSuitePage() {
         </p>
       </article>
 
+      <AdSlot id="farm-qr-suite-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Farm QR Codes
@@ -341,6 +346,8 @@ export default function FarmQRSuitePage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="farm-qr-suite-bottom" format="horizontal-banner" />
     </div>
   );
 }

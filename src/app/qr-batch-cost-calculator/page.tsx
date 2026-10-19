@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Receipt } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRBatchCostCalculatorPage() {
   type Item = { name: string; qty: number; unit: number };
@@ -234,6 +235,9 @@ export default function QRBatchCostCalculatorPage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-batch-cost-calculator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">Budgeting a QR Campaign Honestly</h2>
         <p className="text-base leading-relaxed">
@@ -244,6 +248,10 @@ export default function QRBatchCostCalculatorPage() {
           a dead link. This calculator lays the whole campaign out as editable line items so the
           total, the cost per code, and the cost per scan are all visible before you commit.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-batch-cost-calculator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">The line items people forget</h3>
         <p className="text-base leading-relaxed">
           Design and proofing are the first forgotten costs: a code that is checked on screen but
@@ -297,6 +305,9 @@ export default function QRBatchCostCalculatorPage() {
           assumptions are explicit, and the decision to run it is made with eyes open.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-batch-cost-calculator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -314,6 +325,9 @@ export default function QRBatchCostCalculatorPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-batch-cost-calculator-bottom" format="horizontal-banner" />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Grid3x3 } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -86,6 +87,9 @@ export default function QrPrintSheetPlannerPage() {
           { label: 'QR Print Sheet Planner', href: '/qr-print-sheet-planner' },
         ]}
       />
+
+      <AdSlot id="qr-print-sheet-planner-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Grid3x3 className="w-3.5 h-3.5" />
@@ -234,6 +238,9 @@ export default function QrPrintSheetPlannerPage() {
           </p>
         </Card>
       </div>
+
+      <AdSlot id="qr-print-sheet-planner-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Plan a QR Print Sheet Without Wasting Paper
@@ -258,6 +265,9 @@ export default function QrPrintSheetPlannerPage() {
           hand cutting with a guillotine, and a little more is wise if the sheets will be cut by
           hand with scissors or a craft knife.
         </p>
+
+        <AdSlot id="qr-print-sheet-planner-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Code size on a sheet is decided by the scanning distance, not by how many codes you wish
           fit on the page. A sheet of tiny codes that nobody can scan is not efficient; it is a
@@ -286,6 +296,9 @@ export default function QrPrintSheetPlannerPage() {
           instead of requiring the layout to be rebuilt from memory.
         </p>
       </article>
+
+      <AdSlot id="qr-print-sheet-planner-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -303,6 +316,9 @@ export default function QrPrintSheetPlannerPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-print-sheet-planner-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 type Item = { label: string; payload: string; dataUrl: string; fileName: string };
 
@@ -371,6 +372,8 @@ export default function BulkEventBadgeQrGeneratorPage() {
         )}
       </Card>
 
+      <AdSlot id="bulk-event-badge-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Use the Bulk Event Badge QR Generator
@@ -390,6 +393,8 @@ export default function BulkEventBadgeQrGeneratorPage() {
           session. If your event has tiers, put the tier in the role column, for example Attendee
           VIP, rather than inventing a separate code.
         </p>
+
+        <AdSlot id="bulk-event-badge-qr-generator-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off with badge codes is between openness and control. A code that anyone can
           scan and read is friendly for networking, since attendees can exchange details by scanning
@@ -416,6 +421,8 @@ export default function BulkEventBadgeQrGeneratorPage() {
         </p>
       </article>
 
+      <AdSlot id="bulk-event-badge-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -433,6 +440,8 @@ export default function BulkEventBadgeQrGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-event-badge-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

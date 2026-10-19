@@ -10,6 +10,7 @@ import { Slider } from '@/components/ui/slider';
 import { Mail } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function BulkEmailQRGeneratorPage() {
   const [raw, setRaw] = useState(
@@ -269,6 +270,8 @@ export default function BulkEmailQRGeneratorPage() {
         </div>
       </div>
 
+      <AdSlot id="bulk-email-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Email QR Codes for Whole Teams and Campaigns
@@ -282,6 +285,8 @@ export default function BulkEmailQRGeneratorPage() {
           generation takes a pasted table and produces the whole set in one pass, with validation
           that catches malformed addresses before they reach print.
         </p>
+
+        <AdSlot id="bulk-email-qr-generator-in-content" format="in-article" />
         <h3 className="text-xl font-semibold text-foreground">
           Writing rows that survive validation
         </h3>
@@ -329,6 +334,8 @@ export default function BulkEmailQRGeneratorPage() {
           point, scan, send.
         </p>
       </article>
+      <AdSlot id="bulk-email-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -346,6 +353,8 @@ export default function BulkEmailQRGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-email-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

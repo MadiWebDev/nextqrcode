@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { RefreshCw } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRCurvedSurfaceCalculatorPage() {
   const [diameter, setDiameter] = useState(66);
@@ -191,6 +192,9 @@ export default function QRCurvedSurfaceCalculatorPage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-curved-surface-calculator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           QR Codes on Bottles, Cans, and Other Curves
@@ -204,6 +208,10 @@ export default function QRCurvedSurfaceCalculatorPage() {
           turns that intuition into a number by limiting how many degrees of the cylinder the code
           is allowed to wrap.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-curved-surface-calculator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">The wrap-angle idea</h3>
         <p className="text-base leading-relaxed">
           Think of the code as an arc on the cylinder&apos;s circumference. A 45° wrap means the
@@ -250,6 +258,9 @@ export default function QRCurvedSurfaceCalculatorPage() {
           than an ambitious one that scans sometimes.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-curved-surface-calculator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -267,6 +278,9 @@ export default function QRCurvedSurfaceCalculatorPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-curved-surface-calculator-bottom" format="horizontal-banner" />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Ruler } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRQuietZoneCalculatorPage() {
   const [version, setVersion] = useState(5);
@@ -76,6 +77,9 @@ export default function QRQuietZoneCalculatorPage() {
           { label: 'Quiet Zone Calculator', href: '/qr-quiet-zone-calculator' },
         ]}
       />
+
+      <AdSlot id="qr-quiet-zone-calculator-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Ruler className="w-3.5 h-3.5" />
@@ -193,6 +197,8 @@ export default function QRQuietZoneCalculatorPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-quiet-zone-calculator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           The Quiet Zone: Four Modules That Decide Everything
@@ -218,6 +224,9 @@ export default function QRQuietZoneCalculatorPage() {
           everything, including the margin, shrinks together. Shortening the payload or enlarging
           the print restores margin and module size at the same time.
         </p>
+
+        <AdSlot id="qr-quiet-zone-calculator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           What counts as breaking the quiet zone
         </h3>
@@ -258,6 +267,9 @@ export default function QRQuietZoneCalculatorPage() {
           and it is the cheapest insurance in print production.
         </p>
       </article>
+
+      <AdSlot id="qr-quiet-zone-calculator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -275,6 +287,9 @@ export default function QRQuietZoneCalculatorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-quiet-zone-calculator-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

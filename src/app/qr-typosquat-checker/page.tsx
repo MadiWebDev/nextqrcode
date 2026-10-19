@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Eye, AlertTriangle, Info } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 interface Variant {
   domain: string;
@@ -325,6 +326,7 @@ export default function QRTyposquatCheckerPage() {
           </Card>
         </div>
       </div>
+      <AdSlot id="qr-typosquat-checker-after-tool" format="horizontal-banner" />
 
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
@@ -349,6 +351,7 @@ export default function QRTyposquatCheckerPage() {
           reader sees the familiar name, stops reading, and never notices that the ending changed
           from .com to .co or .xyz.
         </p>
+        <AdSlot id="qr-typosquat-checker-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           Defence starts with seeing the neighbours. Generating the variant list for your own brand
           shows you which lookalikes are closest and therefore most dangerous. The TLD swaps and
@@ -376,6 +379,7 @@ export default function QRTyposquatCheckerPage() {
         </p>
       </article>
 
+      <AdSlot id="qr-typosquat-checker-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Typosquatting
@@ -393,6 +397,7 @@ export default function QRTyposquatCheckerPage() {
           ))}
         </div>
       </section>
+      <AdSlot id="qr-typosquat-checker-bottom" format="horizontal-banner" />
     </div>
   );
 }

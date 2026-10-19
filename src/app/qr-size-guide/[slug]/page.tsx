@@ -191,6 +191,12 @@ export default async function SizeGuidePage({ params }: PageProps) {
         ]}
       />
 
+      <AdSlot
+        slot={`qr-size-guide-${slug}-top`}
+        format="leaderboard"
+        eligible={verdict.passed}
+      />
+
       <header className="mb-8 border-b border-border/60 pb-6">
         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <span>{guide.useCase}</span>
@@ -259,6 +265,12 @@ export default async function SizeGuidePage({ params }: PageProps) {
         </div>
       </section>
 
+      <AdSlot
+        slot={`qr-size-guide-${slug}-after-tool`}
+        format="leaderboard"
+        eligible={verdict.passed}
+      />
+
       {/* Guide content */}
       <article className="text-slate-700 dark:text-slate-300 leading-relaxed">
         <div dangerouslySetInnerHTML={{ __html: markdownToHtml(entry.content) }} />
@@ -307,6 +319,12 @@ export default async function SizeGuidePage({ params }: PageProps) {
         </section>
       )}
 
+      <AdSlot
+        slot={`qr-size-guide-${slug}-pre-related`}
+        format="leaderboard"
+        eligible={verdict.passed}
+      />
+
       {/* Related guides */}
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">Related Size Guides</h2>
@@ -349,6 +367,13 @@ export default async function SizeGuidePage({ params }: PageProps) {
           </Link>
         </div>
       </section>
+
+      <AdSlot
+        slot={`qr-size-guide-${slug}-bottom`}
+        format="leaderboard"
+        eligible={verdict.passed}
+      />
+
     </div>
   );
 }

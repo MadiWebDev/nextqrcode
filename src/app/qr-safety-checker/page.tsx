@@ -238,6 +238,8 @@ export default function QRSafetyCheckerPage() {
         ]}
       />
 
+      <AdSlot id="qr-safety-checker-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-3">
           <ShieldCheck className="w-3.5 h-3.5" />
@@ -436,6 +438,8 @@ export default function QRSafetyCheckerPage() {
           </li>
         </ol>
 
+        <AdSlot id="qr-safety-checker-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           Physical Tampering Defense Protocol
         </h3>
@@ -447,6 +451,8 @@ export default function QRSafetyCheckerPage() {
           edge, do not proceed with payment.
         </p>
       </article>
+
+      <AdSlot id="qr-safety-checker-pre-related" format="horizontal-banner" />
 
       {/* Structured FAQ Section */}
       <section className="mt-12 pt-8 border-t border-border/60">
@@ -466,6 +472,9 @@ export default function QRSafetyCheckerPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-safety-checker-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

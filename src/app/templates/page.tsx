@@ -5,6 +5,7 @@ import { getAllTemplates } from '@/data/templates-gallery';
 import { siteConfig } from '@/config/site';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { BreadcrumbJsonLd, WebPageJsonLd } from '@/lib/seo/jsonld';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'QR Code Design Templates Gallery | QR Studio',
@@ -49,6 +50,7 @@ export default async function TemplatesHubPage() {
       />
 
       <Breadcrumbs items={[{ label: 'QR Templates', href: '/templates' }]} />
+      <AdSlot id="templates-top" format="horizontal-banner" />
 
       <header className="mb-10 max-w-3xl">
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-4">
@@ -91,6 +93,7 @@ export default async function TemplatesHubPage() {
           </Link>
         ))}
       </div>
+      <AdSlot id="templates-bottom" format="horizontal-banner" />
     </div>
   );
 }

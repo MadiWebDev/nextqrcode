@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { WandSparkles } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -193,6 +194,9 @@ export default function QrImageEnhancerPage() {
           { label: 'QR Image Enhancer', href: '/qr-image-enhancer' },
         ]}
       />
+
+      <AdSlot id="qr-image-enhancer-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <WandSparkles className="w-3.5 h-3.5" />
@@ -298,6 +302,9 @@ export default function QrImageEnhancerPage() {
           </div>
         </Card>
       </div>
+
+      <AdSlot id="qr-image-enhancer-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Rescue a Faded or Blurry QR Photo
@@ -320,6 +327,9 @@ export default function QrImageEnhancerPage() {
           background itself is dark; in that case the photo may be unrecoverable, and the right
           answer is a fresh print, not more processing.
         </p>
+
+        <AdSlot id="qr-image-enhancer-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Threshold is the most powerful control and the easiest to get wrong. Set it too low and
           pale modules turn white and disappear; set it too high and grey background noise turns
@@ -348,6 +358,9 @@ export default function QrImageEnhancerPage() {
           no longer have the source for, not a substitute for keeping the original export.
         </p>
       </article>
+
+      <AdSlot id="qr-image-enhancer-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -365,6 +378,9 @@ export default function QrImageEnhancerPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-image-enhancer-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

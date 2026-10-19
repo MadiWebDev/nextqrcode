@@ -79,6 +79,8 @@ export default function BlogIndexPage() {
           </article>
         ))}
       </div>
+
+      <AdSlot id="blog-bottom" format="horizontal-banner" />
     </div>
   );
 }

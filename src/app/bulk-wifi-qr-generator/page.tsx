@@ -10,6 +10,7 @@ import { Slider } from '@/components/ui/slider';
 import { Wifi } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function BulkWiFiQRGeneratorPage() {
   const [raw, setRaw] = useState(
@@ -275,6 +276,8 @@ export default function BulkWiFiQRGeneratorPage() {
         </div>
       </div>
 
+      <AdSlot id="bulk-wifi-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           WiFi Codes for Every Room, Branch, and Floor
@@ -288,6 +291,8 @@ export default function BulkWiFiQRGeneratorPage() {
           and produces the whole set in one pass, with validation that catches short passwords and
           blank network names before they reach the printer.
         </p>
+
+        <AdSlot id="bulk-wifi-qr-generator-in-content" format="in-article" />
         <h3 className="text-xl font-semibold text-foreground">
           One network per line, honestly specified
         </h3>
@@ -331,6 +336,8 @@ export default function BulkWiFiQRGeneratorPage() {
           place it thoughtfully, and rotate it like the credential it is.
         </p>
       </article>
+      <AdSlot id="bulk-wifi-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -348,6 +355,8 @@ export default function BulkWiFiQRGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-wifi-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

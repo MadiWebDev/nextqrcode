@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { ClipboardCheck, Printer, CheckCircle2 } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 interface Item {
   id: string;
@@ -165,6 +166,9 @@ export default function QRPrintProofChecklistPage() {
           { label: 'QR Print Proof Checklist', href: '/qr-print-proof-checklist' },
         ]}
       />
+
+      <AdSlot id="qr-print-proof-checklist-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <ClipboardCheck className="w-3.5 h-3.5" />
@@ -310,6 +314,8 @@ export default function QRPrintProofChecklistPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-print-proof-checklist-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Why print proofing deserves its own checklist
@@ -331,6 +337,9 @@ export default function QRPrintProofChecklistPage() {
           desk chair may fail at poster distance, and a code that scans at poster distance may fail
           when a customer holds a card at arm&apos;s length.
         </p>
+
+        <AdSlot id="qr-print-proof-checklist-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Contrast and the quiet zone are the next pair, and they fail together. Designers love
           reversed codes, coloured codes, and codes tucked against photography — and each of those
@@ -359,6 +368,8 @@ export default function QRPrintProofChecklistPage() {
         </p>
       </article>
 
+      <AdSlot id="qr-print-proof-checklist-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Print Proofing
@@ -376,6 +387,9 @@ export default function QRPrintProofChecklistPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-print-proof-checklist-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

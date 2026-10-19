@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { ChartColumn } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -245,6 +246,9 @@ export default function QrAnalyticsSimulatorPage() {
           </p>
         </Card>
       </div>
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-analytics-simulator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Forecast a QR Campaign Without Inventing Numbers
@@ -259,6 +263,10 @@ export default function QrAnalyticsSimulatorPage() {
           it supplied would be invented. Your job is to bring rates from your own past campaigns, a
           pilot run, or an explicit scenario you are willing to defend.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-analytics-simulator-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           The most honest way to get a scan rate is a small pilot. Print a few hundred pieces, place
           them exactly as the full run would place them, and count real scans for a week. That pilot
@@ -296,6 +304,9 @@ export default function QrAnalyticsSimulatorPage() {
           that improves.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-analytics-simulator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -313,6 +324,9 @@ export default function QrAnalyticsSimulatorPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-analytics-simulator-bottom" format="horizontal-banner" />
     </div>
   );
 }

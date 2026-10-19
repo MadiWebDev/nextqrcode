@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 type Item = { label: string; payload: string; dataUrl: string; fileName: string };
 
@@ -373,6 +374,8 @@ export default function BulkAssetTagQrGeneratorPage() {
         )}
       </Card>
 
+      <AdSlot id="bulk-asset-tag-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Use the Bulk Asset Tag QR Generator
@@ -392,6 +395,8 @@ export default function BulkAssetTagQrGeneratorPage() {
           update your register and reprint its tag rather than leaving a tag that points to the
           wrong room.
         </p>
+
+        <AdSlot id="bulk-asset-tag-qr-generator-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off with asset tags is between a code that encodes the details and a code that
           encodes only the ID. An ID-only code is small, scans fast, and never goes stale, but it is
@@ -418,6 +423,8 @@ export default function BulkAssetTagQrGeneratorPage() {
         </p>
       </article>
 
+      <AdSlot id="bulk-asset-tag-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -435,6 +442,8 @@ export default function BulkAssetTagQrGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-asset-tag-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { ListChecks, CheckCircle2, XCircle, Download, Copy } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 interface Entry {
   domain: string;
@@ -334,6 +335,9 @@ export default function QRAllowlistBuilderPage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-allowlist-builder-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How a QR domain allowlist actually protects you
@@ -347,6 +351,10 @@ export default function QRAllowlistBuilderPage() {
           that slow drift into a visible decision: if a domain is not on the list, the code does not
           ship.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-allowlist-builder-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           The hard part is not the list; it is the ownership. Every entry needs a named owner and a
           reason, even if that record lives outside this tool in your own tracker. An entry nobody
@@ -382,6 +390,9 @@ export default function QRAllowlistBuilderPage() {
         </p>
       </article>
 
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-allowlist-builder-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Allowlists
@@ -399,6 +410,9 @@ export default function QRAllowlistBuilderPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-allowlist-builder-bottom" format="horizontal-banner" />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { ShieldCheck } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRErrorBudgetCalculatorPage() {
   const [version, setVersion] = useState(5);
@@ -251,6 +252,9 @@ export default function QRErrorBudgetCalculatorPage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-error-budget-calculator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Your QR Code&apos;s Error Budget Is Not Free Money
@@ -265,6 +269,10 @@ export default function QRErrorBudgetCalculatorPage() {
           for your version, and how much of it a logo can safely consume while leaving headroom for
           reality.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-error-budget-calculator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           Why the budget is smaller than it looks
         </h3>
@@ -314,6 +322,9 @@ export default function QRErrorBudgetCalculatorPage() {
           of it on purpose, keep half in reserve, and the code will survive the surprises.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-error-budget-calculator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -331,6 +342,9 @@ export default function QRErrorBudgetCalculatorPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-error-budget-calculator-bottom" format="horizontal-banner" />
     </div>
   );
 }

@@ -310,6 +310,8 @@ export default function RegionalPaymentQRPage() {
           billions of monthly retail payments.
         </p>
 
+        <AdSlot id="pakistan-payment-qr-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           The EMVCo Merchant-Presented QR Architecture
         </h3>
@@ -323,6 +325,7 @@ export default function RegionalPaymentQRPage() {
       </article>
 
       {/* Structured FAQ Section */}
+      <AdSlot id="pakistan-payment-qr-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Payment QR Codes
@@ -340,6 +343,8 @@ export default function RegionalPaymentQRPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="pakistan-payment-qr-bottom" format="horizontal-banner" />
     </div>
   );
 }
