@@ -206,3 +206,17 @@ placements on blog (audit-gated) + 5 content families + /q/ (qrPageEligibility-g
 `playwright` 17/17.
 
 **Known gaps:** AdSense IDs/CMP account owner-configured → no live ad render UNVERIFIED.
+
+## Phase 8 — i18n + regional payments ✅
+
+**Done:** next-intl 4.x (14 locales, `as-needed` prefix, ar/ur RTL, hreflang + x-default);
+`[locale]` routes for home + wifi/vcard/url/text; en catalog + 13 scaffolded message
+files (English fallback, marked for human translation); `flags.i18n` on.
+Regional: `pixQr` (BCB, byte-for-byte incl. CRC), `upiIntent` (NPCI), `girocode`
+(EPC069-12) — all with Zod + unit tests; Raast omitted (unverifiable).
+
+**Final gate numbers:** `typecheck` clean · `vitest run` 238/238 · `npm run build` PASS ·
+`playwright` 18/18 (17 + 1 new locale test).
+
+**Fixes during gate:** wired `createNextIntlPlugin` into next.config.ts (build was failing
+on missing next-intl config); removed next-intl middleware (was 404ing non-locale routes).

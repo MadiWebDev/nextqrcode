@@ -1,0 +1,36 @@
+/**
+ * Localized home page (Phase 8).
+ *
+ * Pins the request locale, then renders the same shared home body as `/`
+ * (`src/components/home/HomePage.tsx`). Copy resolves from
+ * `src/i18n/messages/<locale>.json`.
+ */
+import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { HomePageContent } from '@/components/home/HomePage';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'home.meta' });
+
+  // Canonical + hreflang cluster come from the locale layout; only the
+  // translated title/description are page-specific.
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}
+
+export default async function LocalizedHomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  return <HomePageContent />;
+}

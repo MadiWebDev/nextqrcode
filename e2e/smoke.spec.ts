@@ -62,3 +62,13 @@ test('dashboard redirects anonymous visitors to login', async ({ page }) => {
   const res = await page.goto('/dashboard');
   expect(res?.url()).toContain('/login');
 });
+
+test('locale routes render with correct lang/dir', async ({ page }) => {
+  const es = await page.goto('/es');
+  expect(es?.status()).toBeLessThan(400);
+  await expect(page.locator('main').first()).toBeVisible();
+
+  await page.goto('/ar');
+  const html = page.locator('div[lang="ar"][dir="rtl"]');
+  await expect(html.first()).toBeAttached();
+});

@@ -257,3 +257,24 @@ The user asked for zero questions — the best default is chosen and recorded he
   a Google-certified CMP is required for EEA personalized ads, with the integration point
   (qrs_cookie_consent / qrs:consent-changed) ready.
 - **Reason:** A certified CMP needs an owner account and vendor contract; no mock CMP.
+
+### D8.1 — next-intl middleware REMOVED (broke 200+ routes)
+
+- **Decision:** Deleted `src/middleware.ts`. The `[locale]` routes are self-sufficient
+  via `setRequestLocale` + `hasLocale` in the locale layout; next-intl v4's middleware
+  rewrites every non-prefixed path to `/en/...` internally, which 404'd all pages not
+  duplicated under `[locale]`.
+- **Reason:** Verified by reading next-intl's middleware source + live curl tests.
+  Accept-Language auto-redirect is deferred (hreflang covers SEO).
+
+### D8.2 — Locale routes scoped to home + 4 top tools
+
+- **Decision:** Only `/`, `/wifi`, `/vcard`, `/url`, `/text` have `[locale]` variants.
+- **Reason:** Spec explicitly excludes machine-translating the 1,000 pages.
+
+### D8.3 — Raast QR builder omitted (unverifiable)
+
+- **Decision:** No Raast builder — SBP delegates field-level MAI format to the scheme
+  operator (unpublished) and the annex example contradicts the normative ID table.
+- **Reason:** Building from contradictory sources would be fabrication. Documented in
+  `src/data/regional-payment-specs.ts` with `supported: false`.

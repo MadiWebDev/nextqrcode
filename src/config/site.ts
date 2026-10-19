@@ -19,6 +19,10 @@ export const siteConfig = {
   /** Canonical base URL. Override with NEXT_PUBLIC_SITE_URL in production. */
   url: envSiteUrl || 'https://freeqrcode.tools',
   locale: 'en',
+  /** Supported next-intl locales (Phase 8). Source of truth: `src/i18n/routing.ts`. */
+  locales: ['en', 'es', 'fr', 'de', 'pt', 'ar', 'ur', 'hi', 'id', 'tr', 'ru', 'ja', 'ko', 'zh'],
+  /** Locales rendered right-to-left. */
+  rtlLocales: ['ar', 'ur'],
   author: 'codexengr',
   contactEmail: process.env.CONTACT_EMAIL || 'hello@freeqrcode.tools',
 
@@ -37,8 +41,8 @@ export const siteConfig = {
     dynamicQr: true,
     /** Scan analytics. Shipped in Phase 3. */
     analytics: true,
-    /** Locale-prefixed routes + hreflang. Off until Phase 8 ships. */
-    i18n: false,
+    /** Locale-prefixed routes + hreflang. Shipped in Phase 8. */
+    i18n: true,
   },
 
   /** AdSense slot IDs (env-driven; empty = slot not rendered). */
