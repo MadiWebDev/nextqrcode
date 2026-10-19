@@ -68,6 +68,106 @@ import { batch66 } from './Batch66';
 import { batch67 } from './Batch67';
 import { batch68 } from './Batch68';
 import { batch69 } from './Batch69';
+import { batch70 } from './Batch70';
+import { batch71 } from './Batch71';
+import { batch72 } from './Batch72';
+import { batch73 } from './Batch73';
+import { batch74 } from './Batch74';
+import { batch75 } from './Batch75';
+import { batch76 } from './Batch76';
+import { batch77 } from './Batch77';
+import { batch78 } from './Batch78';
+import { batch79 } from './Batch79';
+import { batch80 } from './Batch80';
+import { batch81 } from './Batch81';
+import { batch82 } from './Batch82';
+import { batch83 } from './Batch83';
+import { batch84 } from './Batch84';
+import { batch85 } from './Batch85';
+import { batch86 } from './Batch86';
+import { batch87 } from './Batch87';
+import { batch88 } from './Batch88';
+import { batch89 } from './Batch89';
+import { batch90 } from './Batch90';
+import { batch91 } from './Batch91';
+import { batch92 } from './Batch92';
+import { batch93 } from './Batch93';
+import { batch94 } from './Batch94';
+import { batch95 } from './Batch95';
+import { batch96 } from './Batch96';
+import { batch97 } from './Batch97';
+import { batch98 } from './Batch98';
+import { batch99 } from './Batch99';
+import { batch100 } from './Batch100';
+import { batch101 } from './Batch101';
+import { batch102 } from './Batch102';
+import { batch103 } from './Batch103';
+import { batch104 } from './Batch104';
+import { batch105 } from './Batch105';
+import { batch106 } from './Batch106';
+import { batch107 } from './Batch107';
+import { batch108 } from './Batch108';
+import { batch109 } from './Batch109';
+import { batch110 } from './Batch110';
+import { batch111 } from './Batch111';
+import { batch112 } from './Batch112';
+import { batch113 } from './Batch113';
+import { batch114 } from './Batch114';
+import { batch115 } from './Batch115';
+import { batch116 } from './Batch116';
+import { batch117 } from './Batch117';
+import { batch118 } from './Batch118';
+import { batch119 } from './Batch119';
+import { batch120 } from './Batch120';
+import { batch121 } from './Batch121';
+import { batch122 } from './Batch122';
+import { batch123 } from './Batch123';
+import { batch124 } from './Batch124';
+import { batch125 } from './Batch125';
+import { batch126 } from './Batch126';
+import { batch127 } from './Batch127';
+import { batch128 } from './Batch128';
+import { batch129 } from './Batch129';
+import { batch130 } from './Batch130';
+import { batch131 } from './Batch131';
+import { batch132 } from './Batch132';
+import { batch133 } from './Batch133';
+import { batch134 } from './Batch134';
+import { batch135 } from './Batch135';
+import { batch136 } from './Batch136';
+import { batch137 } from './Batch137';
+import { batch138 } from './Batch138';
+import { batch139 } from './Batch139';
+import { batch140 } from './Batch140';
+import { batch141 } from './Batch141';
+import { batch142 } from './Batch142';
+import { batch143 } from './Batch143';
+import { batch144 } from './Batch144';
+import { batch145 } from './Batch145';
+import { batch146 } from './Batch146';
+import { batch147 } from './Batch147';
+import { batch148 } from './Batch148';
+import { batch149 } from './Batch149';
+import { batch150 } from './Batch150';
+import { batch151 } from './Batch151';
+import { batch152 } from './Batch152';
+import { batch153 } from './Batch153';
+import { batch154 } from './Batch154';
+import { batch155 } from './Batch155';
+import { batch156 } from './Batch156';
+import { batch157 } from './Batch157';
+import { batch158 } from './Batch158';
+import { batch159 } from './Batch159';
+import { batch160 } from './Batch160';
+import { batch161 } from './Batch161';
+import { batch162 } from './Batch162';
+import { batch163 } from './Batch163';
+import { batch164 } from './Batch164';
+import { batch165 } from './Batch165';
+import { batch166 } from './Batch166';
+import { batch167 } from './Batch167';
+import { batch168 } from './Batch168';
+import { batch169 } from './Batch169';
 
 export const NEW_ARTICLES: Article[] = [
   ...batch1,
@@ -139,6 +239,106 @@ export const NEW_ARTICLES: Article[] = [
   ...batch67,
   ...batch68,
   ...batch69,
+  ...batch70,
+  ...batch71,
+  ...batch72,
+  ...batch73,
+  ...batch74,
+  ...batch75,
+  ...batch76,
+  ...batch77,
+  ...batch78,
+  ...batch79,
+  ...batch80,
+  ...batch81,
+  ...batch82,
+  ...batch83,
+  ...batch84,
+  ...batch85,
+  ...batch86,
+  ...batch87,
+  ...batch88,
+  ...batch89,
+  ...batch90,
+  ...batch91,
+  ...batch92,
+  ...batch93,
+  ...batch94,
+  ...batch95,
+  ...batch96,
+  ...batch97,
+  ...batch98,
+  ...batch99,
+  ...batch100,
+  ...batch101,
+  ...batch102,
+  ...batch103,
+  ...batch104,
+  ...batch105,
+  ...batch106,
+  ...batch107,
+  ...batch108,
+  ...batch109,
+  ...batch110,
+  ...batch111,
+  ...batch112,
+  ...batch113,
+  ...batch114,
+  ...batch115,
+  ...batch116,
+  ...batch117,
+  ...batch118,
+  ...batch119,
+  ...batch120,
+  ...batch121,
+  ...batch122,
+  ...batch123,
+  ...batch124,
+  ...batch125,
+  ...batch126,
+  ...batch127,
+  ...batch128,
+  ...batch129,
+  ...batch130,
+  ...batch131,
+  ...batch132,
+  ...batch133,
+  ...batch134,
+  ...batch135,
+  ...batch136,
+  ...batch137,
+  ...batch138,
+  ...batch139,
+  ...batch140,
+  ...batch141,
+  ...batch142,
+  ...batch143,
+  ...batch144,
+  ...batch145,
+  ...batch146,
+  ...batch147,
+  ...batch148,
+  ...batch149,
+  ...batch150,
+  ...batch151,
+  ...batch152,
+  ...batch153,
+  ...batch154,
+  ...batch155,
+  ...batch156,
+  ...batch157,
+  ...batch158,
+  ...batch159,
+  ...batch160,
+  ...batch161,
+  ...batch162,
+  ...batch163,
+  ...batch164,
+  ...batch165,
+  ...batch166,
+  ...batch167,
+  ...batch168,
+  ...batch169,
 ];
 
 // Build-time guard. Word-count floor is 120 for these seed articles;
