@@ -3,113 +3,6 @@ import { art } from './helper';
 
 export const batch55: Article[] = [
   art(
-    'qr-code-url-shortener-comparison',
-    'QR Code URL Shorteners Compared: Bit.ly, Rebrandly, Custom Shortener, and Static QR',
-    'qr code url shortener comparison',
-    'Compare QR code URL shortener options — Bit.ly, Rebrandly, self-hosted solutions, and static QR codes — to choose the right approach.',
-    'Fundamentals',
-    '6 min read',
-    '2027-03-17',
-    `
-### Why the Shortener Choice Matters
-
-Every dynamic QR code routes through a redirect URL. The redirect service is the invisible infrastructure behind your QR — it handles every scan, tracks clicks, and controls where the QR ultimately leads. Choosing the wrong provider means your QR codes expire, lose their data, or stop working when you change plans.
-
-### Option 1: Bit.ly
-
-**What it is:** The world's most widely used URL shortener. Generates short links like \`bit.ly/3aBcDef\` and provides basic click analytics.
-
-**Pros:**
-- Widely recognised and trusted by scanners
-- Good analytics on the free tier (click count, referrer, geography)
-- Reliable infrastructure with high uptime
-
-**Cons:**
-- Free plan limits: 5 Branded Links and monthly click caps apply
-- Short links on free tier use the bit.ly domain — not your own brand
-- If you exceed free tier limits or cancel, your QR codes may redirect incorrectly
-- No offline fallback — if Bit.ly is down, your QR fails
-
-**Best for:** Testing, low-volume personal projects, or users who do not need branded URLs.
-
-### Option 2: Rebrandly
-
-**What it is:** A link management platform focused on branded short links — \`brand.link/product\` rather than generic domains.
-
-**Pros:**
-- Custom domain included in all paid plans
-- Excellent team/workspace management for agencies
-- Detailed analytics including conversion tracking
-- QR code generation built in
-
-**Cons:**
-- Free plan is very limited (5 links total)
-- More expensive than Bit.ly for comparable features
-
-**Best for:** Brands and agencies that want QR codes with custom branded redirect domains.
-
-### Option 3: Self-Hosted (YOURLS, Shlink)
-
-**What it is:** Open-source URL shortening software you install on your own server.
-
-**Pros:**
-- Full ownership — links never expire, no subscription required
-- Custom domain (\`go.yourbrand.com\`)
-- No per-link or per-click fees
-- Privacy — scan data stays on your server
-
-**Cons:**
-- Requires server setup and maintenance
-- No support — you are responsible for uptime
-- Analytics dashboard requires additional setup
-
-**Best for:** Developers and tech-forward businesses who want full control and zero ongoing cost.
-
-### Option 4: Static QR (No Shortener)
-
-**What it is:** A QR that directly encodes the destination URL — no redirect service involved.
-
-**Pros:**
-- Zero cost to maintain
-- No dependency on a third party
-- Never expires if the destination URL is under your control
-- Cannot be remotely deactivated
-
-**Cons:**
-- Cannot be updated after printing
-- Longer URLs create denser QR codes (more complex pattern, harder to scan at small sizes)
-- No click tracking
-
-**Best for:** Permanent materials (packaging, signage) where the destination will never change.
-
-### Decision Framework
-
-| Need | Best Option |
-|---|---|
-| Permanent print, URL never changes | Static QR |
-| Needs updating, own domain | Self-hosted (Shlink/YOURLS) |
-| Needs updating, commercial support | Rebrandly or Bit.ly paid |
-| Testing or personal use | Bit.ly free |
-    `,
-    [
-      {
-        question: 'What happens to my QR codes if I cancel my Bit.ly or Rebrandly subscription?',
-        answer:
-          'Your dynamic QR codes stop working or redirect incorrectly if the links are deactivated on account downgrade or cancellation. Before cancelling, migrate all active QR destinations to a new redirect service and update your QR codes. This is why long-term print materials should use static QR codes or self-hosted redirects that you fully control.',
-      },
-      {
-        question: 'Can I use a static QR code for a URL that changes occasionally?',
-        answer:
-          'If the final destination URL changes, you cannot update a static QR — you must reprint. The workaround: use a static QR that points to a landing page URL on your own domain that you control. Change the content of that landing page freely. The QR URL itself never changes, but what users see when they scan can be updated.',
-      },
-      {
-        question: 'Is Bit.ly reliable enough for important marketing campaigns?',
-        answer:
-          'Bit.ly has strong infrastructure and high uptime historically. For mission-critical campaigns, consider redundancy: a self-hosted shortener that mirrors the redirect as a fallback. For the vast majority of marketing uses, Bit.ly paid tier is reliable enough. Evaluate their current SLA at bitly.com before committing at scale.',
-      },
-    ]
-  ),
-  art(
     'bitly-vs-static-qr-code',
     'Bit.ly vs Static QR Code: When to Use Each (and Why It Matters)',
     'bitly vs static qr code',
@@ -147,7 +40,34 @@ Every dynamic QR code routes through a redirect URL. The redirect service is the
 ### The Bit.ly Free Tier Risk
 
 Bit.ly's free tier limits mean heavy-use QR campaigns may need a paid plan. Free plan links do not guarantee permanence — review Bit.ly's current terms before relying on the free tier for print materials with long lifespans.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Can I convert a Bit.ly QR to a static QR without reprinting?',
@@ -158,6 +78,11 @@ Bit.ly's free tier limits mean heavy-use QR campaigns may need a paid plan. Free
         question: 'Is there a free dynamic QR option that does not rely on Bit.ly?',
         answer:
           "Yes. Self-host a redirect using free tools like YOURLS on a cheap server or VPS (from £2/month). The QR points to your own domain's redirect, which you control entirely. No subscription, no limits, no third-party dependency. Requires basic technical setup but is the most robust long-term option.",
+      },
+      {
+        question: 'How do I test a QR code before sharing it?',
+        answer:
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),
@@ -230,7 +155,34 @@ Once your shortener is running:
 2. Copy the short URL
 3. Generate a static QR code from this URL (no need for another dynamic layer — the shortener IS the dynamic layer)
 4. The QR is now permanent; update destinations in the shortener dashboard as needed
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'How difficult is it to self-host Shlink for a non-developer?',
@@ -304,7 +256,34 @@ For a multi-placement campaign:
 5. Review analytics weekly — compare scan-to-conversion by placement
 
 This granularity shows you which placements are performing and which are wasted spend.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question:
@@ -316,6 +295,11 @@ This granularity shows you which placements are performing and which are wasted 
         question: 'How do I audit all the active QR redirects across a large organisation?',
         answer:
           'Use a link management platform with campaign tagging or workspace organisation. Export a CSV of all active links regularly — it should show short code, destination URL, campaign, creation date, last updated date, and scan count. This audit list helps identify stale redirects, expired campaigns, and links pointing to old pages.',
+      },
+      {
+        question: 'How do I test a QR code before sharing it?',
+        answer:
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),
@@ -381,7 +365,34 @@ If using a third-party shortener, maintain a fallback plan:
 4. Have a plan to quickly deploy a simple redirect on your hosting if needed
 
 The most resilient setup: static QR codes pointing to URLs on your own domain for permanent materials; dynamic QR on your own shortener for anything that may need updating.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
+- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
+- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question:
@@ -393,6 +404,11 @@ The most resilient setup: static QR codes pointing to URLs on your own domain fo
         question: 'How do I handle QR codes that were printed years ago and still generate scans?',
         answer:
           'This is the best possible problem to have. If the QR uses a redirect you control, update the destination to the most relevant current content. If the QR is static and the original URL still resolves, add UTM parameters on the destination page load to identify these old-QR visitors. Consider the old QR as a long-tail traffic source worth optimising.',
+      },
+      {
+        question: 'How do I test a QR code before sharing it?',
+        answer:
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),

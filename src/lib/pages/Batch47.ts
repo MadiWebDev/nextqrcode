@@ -30,7 +30,34 @@ A QR on the gallery delivery card links to the referral page: "Refer a couple an
 ### 5. Print and Product Sales QR
 
 A QR in the gallery email links to the print store pre-populated with images from this couple's gallery: canvas prints, framed prints, photo books, and gift items. Post-gallery product sales are the highest-margin revenue stream in wedding photography — a QR at the moment of gallery viewing maximises conversion.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question:
@@ -43,91 +70,10 @@ A QR in the gallery email links to the print store pre-populated with images fro
         answer:
           'Wedding galleries are emotionally significant and referenced for decades. At minimum, maintain the QR link for 5 years post-wedding. Many photographers offer lifetime gallery hosting — it is a meaningful differentiator that commands a pricing premium.',
       },
-    ]
-  ),
-  art(
-    'qr-code-for-florists',
-    'QR Codes for Florists: Care Instructions, Subscription Flowers, and Corporate Events',
-    'qr code florist care instructions subscription corporate',
-    'Use QR codes in florist businesses for flower care guides, seasonal availability, subscription sign-up, and corporate event portfolio.',
-    'Business & Regional',
-    '3 min read',
-    '2027-01-22',
-    `
-### 1. Flower Care QR
-
-A QR on the bouquet wrap or care card links to the care instructions for the specific flowers in the arrangement: water change frequency, stem cutting guidance, temperature and light requirements, and expected vase life. Customers who keep their flowers longer are more satisfied and more likely to return.
-
-### 2. Subscription Flower QR
-
-A QR on the care card and in-store display links to the subscription sign-up: weekly, fortnightly, or monthly delivery, size and budget selection, and delivery day preference. The moment a customer receives and loves an arrangement is the highest-intent subscription sign-up moment.
-
-### 3. Corporate Event Portfolio QR
-
-A QR on corporate client communications links to the event floristry portfolio: gallery of previous event work by event type (weddings, galas, conferences), pricing guide, and consultation booking. Corporate clients buy on evidence — a comprehensive portfolio QR is the florist's most powerful B2B sales tool.
-
-### 4. Seasonal Availability QR
-
-A QR links to the current seasonal availability list: flowers in season this week, their approximate vase life, and suggested pairings. Updated weekly by the florist. Customers who understand seasonality make more satisfying purchases and have more realistic expectations.
-
-### 5. Same-Day Delivery QR
-
-A QR on the shop window and on flyers links to the same-day local delivery order form: available arrangements at this moment, cut-off time for today's deliveries, and the delivery radius map. Time-sensitive intent (birthday, anniversary) converts best when the delivery capability is immediately visible.
-    `,
-    [
       {
-        question: "Can a QR on a bouquet increase a florist's Instagram following?",
+        question: 'Should event QR codes be printed or shown on a screen?',
         answer:
-          'Yes. A QR care card with a CTA ("Tag us in your photos for a chance to be featured: @yourflorist") drives social tagging and follower growth from people who have just received a beautiful arrangement — the optimal moment for social engagement.',
-      },
-      {
-        question:
-          "Should a florist's subscription QR link directly to a payment page or an information page first?",
-        answer:
-          "An information page first works better for new customers (what's included, example arrangements, cancellation terms). A direct payment page works better for returning customers who already know the product. Consider using a simple landing page with a clear CTA for the first tier of information.",
-      },
-    ]
-  ),
-  art(
-    'qr-code-for-cleaning-services',
-    'QR Codes for Domestic Cleaning Services: Booking, Checklist, and Quality Review',
-    'qr code domestic cleaning service booking checklist review',
-    'Use QR codes in domestic cleaning businesses for instant quote requests, digital cleaning checklists, staff verification, and client feedback.',
-    'Business & Regional',
-    '3 min read',
-    '2027-01-23',
-    `
-### 1. Instant Quote QR
-
-A QR on leaflets, a van, and local Facebook group posts links to the cleaning quote form: property size, bedrooms, bathrooms, frequency, and any special requirements. Instant online quotes convert better than "call for a quote" for a domestic audience who prefer asynchronous communication.
-
-### 2. Cleaning Checklist QR
-
-A QR on the cleaner's completion card links to the digital cleaning checklist for that visit: all tasks completed, any items noted, and any products running low. The client receives a completion record and the business maintains a quality log per property.
-
-### 3. Staff Verification QR
-
-A QR on the cleaner's ID card links to the company's staff verification page: the cleaner's name, photo, employment status, and DBS check date. Clients scan to verify the person at their door is a legitimate employee of the cleaning company — a significant trust and safety feature.
-
-### 4. Re-Book and Refer QR
-
-A QR on the completion card links to the rebooking calendar and the referral page ("Refer a neighbour, get a free clean"). Domestic cleaning is neighbourhood-dense — referral within a local area is the highest-volume acquisition channel.
-
-### 5. Feedback QR
-
-A QR on the completion card links to a 3-question feedback form: overall satisfaction, specific praise or concerns, and likelihood to recommend. Feedback that arrives while the client is still in their freshly cleaned home is the most positive feedback you will ever receive — capture it immediately.
-    `,
-    [
-      {
-        question:
-          'Can a QR staff verification system build client trust for a domestic cleaning business?',
-        answer:
-          "Yes significantly. Clients letting strangers into their home have a legitimate security concern. A QR verification that confirms the cleaner's identity, DBS check, and employment status directly addresses this concern and differentiates the business from unverified independent cleaners.",
-      },
-      {
-        question: 'Should domestic cleaning QR codes be on physical cards or sent digitally?',
-        answer:
-          'Physical cards left after each clean perform best — they are visible, tangible, and a natural prompt to leave feedback or rebook. Digital follow-up via text/WhatsApp with a QR link is a complementary channel for clients who prefer digital interaction.',
+          'Use printed codes for signage and tickets that guests keep, and screens for codes that change, such as live schedules. Test screen codes under event lighting, since glare can block scans.',
       },
     ]
   ),
@@ -159,7 +105,34 @@ A QR in the tax computation letter links to a plain-English video explanation of
 ### 5. Making Tax Digital (MTD) QR
 
 A QR in MTD preparation communications links to the practice's MTD guide: what MTD means for the client's business, which software is compatible, and how the practice will help with the transition. MTD readiness is a current urgency for many small business clients — a QR-linked guide positions the accountant as proactive advisor.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question: 'Does a QR document upload portal satisfy HMRC record-keeping requirements?',
@@ -171,47 +144,10 @@ A QR in MTD preparation communications links to the practice's MTD guide: what M
         answer:
           'Yes. Client portals containing financial documents are high-value targets. Two-factor authentication is a proportionate security measure and is now expected by professional indemnity insurers. Most dedicated client portal platforms include 2FA as standard.',
       },
-    ]
-  ),
-  art(
-    'qr-code-for-driving-schools',
-    'QR Codes for Driving Schools: Lesson Booking, Theory Test Prep, and Progress Tracking',
-    'qr code driving school lesson booking theory test progress',
-    'Use QR codes in driving instructor and driving school businesses for lesson booking, DVSA theory test resources, pupil progress reports, and referrals.',
-    'Business & Regional',
-    '3 min read',
-    '2027-01-25',
-    `
-### 1. Lesson Booking QR
-
-A QR on the driving instructor's car window sticker, business card, and social media links to the lesson booking calendar. Prospective pupils book directly without calling — reducing the barrier for people who prefer digital communication to phone calls (a large and growing demographic).
-
-### 2. Theory Test Preparation QR
-
-A QR in the pupil's lesson pack links to the recommended theory test preparation resources: DVSA official revision app, hazard perception clips, and the driving instructor's recommended practice schedule. Pupils who pass the theory test sooner progress faster and are more motivated — benefiting both pupil and instructor.
-
-### 3. Pupil Progress Report QR
-
-A QR in the weekly lesson summary message links to the pupil's progress report: skills completed, skills in progress, skills not yet started, and estimated test readiness. Parents of younger pupils particularly value access to progress data. Transparent progress reporting differentiates the instructor and justifies the investment.
-
-### 4. Mock Test Feedback QR
-
-A QR on the mock test debrief sheet links to the digital feedback form: faults recorded (minors and serials), areas for focus, and recommended additional practice before the test. Digital feedback records allow the pupil to review and prepare between sessions.
-
-### 5. Referral QR
-
-A QR on the pass certificate envelope links to the referral page: "Passed? Refer a friend and both get a lesson discount." Driving test passes are shared widely on social media — a QR on the pass certificate captures that sharing moment and routes referrals systematically.
-    `,
-    [
       {
-        question: 'Can a QR progress report replace the ADI pupil record card?',
+        question: 'How do I test a QR code before sharing it?',
         answer:
-          'No. The DVSA ADI record card (or approved equivalent) must be completed and available for DVSA inspection. A digital progress report via QR is a valuable supplement for pupil communication but does not replace the statutory record.',
-      },
-      {
-        question: 'Should a driving school QR for booking show price per lesson?',
-        answer:
-          'Yes. Price transparency reduces abandoned booking attempts. Pupils who see the lesson price before booking have realistic expectations and lower cancellation rates than those who discover the price during a confirmation call.',
+          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
       },
     ]
   ),
@@ -243,7 +179,34 @@ A QR on the aftercare card links to the post-treatment care guide specific to th
 ### 5. Loyalty and Gift Card QR
 
 A QR on the loyalty card or in loyalty emails links to the digital loyalty programme: points balance, reward options, and gift card purchase. Gift cards sold via QR are the highest-margin product in a beauty salon — a QR on the welcome desk and on social media during gifting seasons significantly increases gift card revenue.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+`,
     [
       {
         question:
@@ -256,47 +219,10 @@ A QR on the loyalty card or in loyalty emails links to the digital loyalty progr
         answer:
           'Yes. Pre-treatment forms that capture allergies, medications (e.g., Roaccutane for facials and waxing, blood thinners for advanced treatments), and contraindications allow therapists to modify or decline treatments that carry risk for that specific client — directly reducing adverse events and the associated liability.',
       },
-    ]
-  ),
-  art(
-    'qr-code-for-music-festivals',
-    'QR Codes at Music Festivals: Cashless Payments, Lineup Schedules, and Welfare Services',
-    'qr code music festival cashless lineup welfare services',
-    'Deploy QR codes across music festival sites for cashless wristband top-up, stage schedules, welfare support access, and lost property.',
-    'Business & Regional',
-    '5 min read',
-    '2027-01-27',
-    `
-### 1. Cashless Wristband Top-Up QR
-
-A QR at top-up stations and in the festival app links to the wristband balance top-up page pre-filled with the wristband ID (encoded in the QR on the wristband itself). Festivalgoers top up without queuing at a top-up station — reducing top-up queue length during peak demand (before headline sets).
-
-### 2. Stage Schedule and Set Times QR
-
-A QR on signage across the festival site links to the live schedule: set times, stage map, and clashing set recommendation engine ("You can't see both — which do you prefer?"). Schedule QRs are updated instantly if a set time changes or an artist drops out — paper programmes become outdated within hours.
-
-### 3. Welfare and Mental Health Services QR
-
-A QR prominently placed across the festival site (toilets, bars, camping, main stage area) links to the welfare services map and contact: on-site welfare tent location, Samaritans festival presence, drug harm reduction information, and safeguarding contact. Access to welfare support must be immediate and non-stigmatising — a QR reduces the barrier to seeking help.
-
-### 4. Lost Property and Missing Person QR
-
-A QR links to the lost property registration form and the missing person alert system. A lost or found item QR creates a digital record immediately — more reliable than paper forms that get wet or lost at busy festival sites.
-
-### 5. Sustainability and Leave No Trace QR
-
-A QR on waste stations, camping areas, and site signage links to the festival's sustainability guide: recycling instructions, water refill station map, composting points, and pledge to leave the site clean. Festivals are increasingly evaluated on sustainability performance — QR-accessed guidance demonstrably improves visitor behaviour.
-    `,
-    [
       {
-        question: 'Can festival QR codes work in a field with no mobile signal?',
+        question: 'What size should a printed QR code be?',
         answer:
-          'Festival sites are increasingly investing in temporary mobile infrastructure (COW — Cell on Wheels) and site WiFi for operational reasons. Key safety QR content (welfare, lost property) should also be available offline via a PWA cache. Always test QR connectivity in the actual site conditions before the event.',
-      },
-      {
-        question: 'Should festival wristband QR codes be permanent or session-specific?',
-        answer:
-          "Festival wristband QRs should be permanent for the wristband's lifetime (the festival duration) but time-limited in their authentication scope. The wristband QR can be scanned for top-up, entry, and welfare as many times as needed during the event, but becomes inactive after the event closes.",
+          'Size depends on scan distance and module count. As a starting point, keep the printed code at least as wide as the distance-to-scan ratio your generator recommends, then test a print at full size before ordering a full run.',
       },
     ]
   ),
@@ -328,7 +254,34 @@ A QR on the charge point links to the network's subscription sign-up page: month
 ### 5. EV Driver Education QR
 
 A QR on the charge point links to the driver education hub: charging etiquette, how to report cable hogging, cable types and compatibility guide, and charging speed explainer. New EV drivers encounter information gaps at charging points — a QR resource directly addresses the moment of uncertainty.
-    `,
+    
+
+### Putting this into practice
+
+Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+
+### Common mistakes to avoid
+
+The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+
+### Quick checklist
+
+- Keep the payload as short as practical so modules stay large.
+- Keep dark modules on a light background with strong contrast.
+- Leave a clear quiet zone on all four sides of the symbol.
+- Test the printed code at the real viewing distance and lighting.
+- Confirm the destination page loads fast on a phone.
+- Recheck the code after any change to the link, design, or placement.
+
+### Related tools and guides
+
+- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
+- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
+- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
+- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
+- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
+- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+`,
     [
       {
         question: 'Is QR payment at EV charging points legally required in the UK?',
@@ -340,90 +293,10 @@ A QR on the charge point links to the driver education hub: charging etiquette, 
         answer:
           'Underground installations need dedicated WiFi or cellular repeaters for QR payment to function. The OZEV regulations account for network coverage requirements. Where signal cannot be guaranteed, the charge point should also accept contactless card directly at the terminal.',
       },
-    ]
-  ),
-  art(
-    'qr-code-for-swimming-pools',
-    'QR Codes for Swimming Pools and Leisure Centres: Lane Booking, Timetables, and Membership',
-    'qr code swimming pool leisure centre lane booking timetable',
-    'Use QR codes at swimming pools and leisure centres for lane and class booking, live timetables, membership management, and accessibility information.',
-    'Business & Regional',
-    '3 min read',
-    '2027-01-29',
-    `
-### 1. Lane and Class Booking QR
-
-A QR at the pool entrance and on marketing materials links to the lane or class booking system. Lane swimming capacity management via pre-booking is now standard in most public leisure centres. A QR removes the "where do I find the booking system?" barrier for casual swimmers.
-
-### 2. Live Timetable QR
-
-A QR on facility signage and in changing rooms links to the live timetable: current session status, upcoming sessions, cancellations, and any temporary closures. Swimmers who have travelled to find a session cancelled are the highest-churn customer segment — proactive QR timetable access reduces avoidable disappointment.
-
-### 3. Membership Management QR
-
-A QR on the membership card or in the membership app links to the self-service membership portal: upgrade, freeze, cancel, add a family member, or update payment details. Self-service membership management reduces retention-damaging friction — a member who can pause their membership during a holiday is less likely to cancel than one who cannot easily manage their account.
-
-### 4. Pool Water Quality QR
-
-A QR on the poolside display links to the current water quality report: pH, chlorine level, water temperature, and last test time. Swimmers with sensitivities or regulatory concerns access real-time data. Transparency about water quality builds trust with health-conscious swimmers.
-
-### 5. Accessibility and Hoist QR
-
-A QR at the poolside links to the accessibility information page: pool hoist availability and booking, accessible changing facilities, lifeguard first aid capability, and contact for additional assistance. Disabled swimmers benefit most from advance access to accessibility information before making a journey.
-    `,
-    [
       {
-        question: 'Can a QR replace the physical membership card at a leisure centre?',
+        question: 'Do payment QR codes expire?',
         answer:
-          'Yes. A QR in Apple Wallet or Google Wallet serves as the entry pass at turnstiles and reception. Most modern leisure management systems support QR or barcode-based access. The physical card can be retired when the QR wallet pass is deployed — reducing plastic and administration cost.',
-      },
-      {
-        question: 'Should swimming lesson progress be accessible via QR for parents?',
-        answer:
-          "Yes. A QR in the lesson confirmation links to the child's swimming lesson progress record: current stage, skills achieved, and next stage goals. ASA Swim Star and similar frameworks have defined progression milestones — a QR progress page aligned to the framework helps parents understand and celebrate their child's development.",
-      },
-    ]
-  ),
-  art(
-    'qr-code-for-veterinary-practices',
-    'QR Codes for Veterinary Practices: Pet Health Records, Appointment Booking, and Prescription Labels',
-    'qr code veterinary practice pet health record appointment',
-    'Use QR codes in veterinary practices for patient record access, appointment scheduling, digital prescription labels, and pet health education.',
-    'Business & Regional',
-    '4 min read',
-    '2027-01-30',
-    `
-### 1. Pet Health Record QR
-
-A QR on the pet's record card or vaccination certificate links to the digital health record: vaccination history, weight records, parasite treatment schedule, and previous diagnoses. Owners access their pet's history from any device — critical when visiting an emergency out-of-hours vet who has no access to the regular practice's system.
-
-### 2. Appointment Booking QR
-
-A QR on the practice window, business card, and reminder text links to the online appointment booking system. Vets that offer 24/7 online booking via QR capture appointments at the moment of concern — often late at night when an owner notices a health change in their pet.
-
-### 3. Digital Prescription Label QR
-
-A QR on the prescription label links to the full prescription information: drug name and generic equivalent, dose instructions, warnings, and what to do if a dose is missed. Particularly valuable for complex multi-drug regimes where label space is insufficient for complete instructions.
-
-### 4. Post-Operation Care QR
-
-A QR on the discharge sheet links to the specific post-operative care instructions: wound care, exercise restrictions, feeding guidance, and signs of complications to watch for. Video demonstrations of wound care techniques significantly reduce incorrect home care.
-
-### 5. Pet Health Education QR
-
-A QR in the waiting room links to the practice's health education hub: seasonal health alerts (tick prevention, grass seeds, heatstroke), life stage guides (puppy, kitten, senior), and breed-specific health information. Educated pet owners identify health issues earlier and present pets sooner — improving outcomes and reducing emergency consultations.
-    `,
-    [
-      {
-        question: 'Can a QR pet health record replace the physical vaccination certificate?',
-        answer:
-          'For travel purposes (pet passports, entry to kennels or groomers), physical documentation is still required. A QR digital record is a valuable supplement for daily reference and emergency situations. Maintain physical records for all regulated purposes.',
-      },
-      {
-        question:
-          'Should a veterinary practice QR appointment system allow booking without a registered account?',
-        answer:
-          'For existing clients, a QR that deep-links to their account (via a session token in the QR URL) provides the smoothest experience. For new clients, a lightweight registration during the booking flow is necessary. Avoid requiring a full account setup before allowing a first appointment to be booked.',
+          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
       },
     ]
   ),
