@@ -13,7 +13,7 @@ export const batch5: Article[] = [
     `
 ### 1. A QR Code Is Not a Secret
 
-Anyone who photographs a ticket QR can present it. Security must come from the backend, not the symbol.
+Anyone who photographs a ticket QR can present it. Security must come from the backend, not the symbol. Generate secure tickets with our [URL QR code generator](/url-qr-code-generator) encoding unique tokens, and verify scans with a [QR scanner](/qr-scanner) app connected to your validation system.
 
 ### 2. Design Pattern
 
@@ -24,11 +24,11 @@ Anyone who photographs a ticket QR can present it. Security must come from the b
 
 ### 3. Offline Gates
 
-If connectivity is poor, preload a signed ticket list to the scanner devices and sync scans when back online.
+If connectivity is poor, preload a signed ticket list to the scanner devices and sync scans when back online. Use our [bulk generator](/bulk-generator) for creating multiple unique tickets efficiently.
 
 ### 4. Printing
 
-Use level M, large modules, and matte stock for printed tickets.
+Use level M, large modules sized with our [QR size calculator](/qr-size-calculator), and matte stock for printed tickets. Follow our [QR placement guide](/qr-placement-guide) for positioning on ticket stock. Test quality with our [printed QR tester](/printed-qr-tester) before mass printing. Track redemption rates with our [UTM builder](/utm-builder) if linking to validation pages.
     `,
     [
       {
@@ -38,6 +38,11 @@ Use level M, large modules, and matte stock for printed tickets.
       {
         question: 'Should ticket QR codes be static?',
         answer: 'The symbol can be static if the token is unguessable and validated centrally.',
+      },
+      {
+        question: 'How do rotating QR codes prevent screenshot fraud?',
+        answer:
+          'The code changes every 30-60 seconds in the app, so a screenshot becomes invalid quickly. The backend validates timestamp and signature.',
       },
     ]
   ),
@@ -52,21 +57,21 @@ Use level M, large modules, and matte stock for printed tickets.
     `
 ### 1. Useful Applications
 
-* Waiting-room check-in and intake forms.
+* Waiting-room check-in and intake forms created with our [URL QR code generator](/url-qr-code-generator).
 * Appointment booking pages on reception signage.
-* Post-visit instructions and feedback links.
+* Post-visit instructions and feedback links tracked with our [UTM builder](/utm-builder).
 
 ### 2. Privacy First
 
-Never encode patient identifiers or medical details in a printed QR code. Link to an authenticated page. Follow local health data rules such as HIPAA, GDPR, or applicable national law, and use HTTPS only.
+Never encode patient identifiers or medical details in a printed QR code. Link to an authenticated page. Follow local health data rules such as HIPAA, GDPR, or applicable national law, and use HTTPS only. Verify security with our [QR safety checker](/qr-safety-checker) guidelines.
 
 ### 3. Patient Experience
 
-Provide a paper alternative, large type, and staff assistance for older patients. Keep forms mobile-friendly and short.
+Provide a paper alternative, large type, and staff assistance for older patients. Keep forms mobile-friendly and short. Size codes with our [QR size calculator](/qr-size-calculator) for easy scanning, and test with a [QR scanner](/qr-scanner) on various devices.
 
 ### 4. Hygiene Durability
 
-Use wipeable, matte laminated surfaces and replace worn signs promptly.
+Use wipeable, matte laminated surfaces following our [QR placement guide](/qr-placement-guide) and replace worn signs promptly. Verify quality with our [printed QR tester](/printed-qr-tester). Use our [error correction simulator](/error-correction-simulator) to understand how surface wear affects scannability.
     `,
     [
       {
@@ -77,6 +82,11 @@ Use wipeable, matte laminated surfaces and replace worn signs promptly.
       {
         question: 'Should I still offer paper forms?',
         answer: 'Yes, for accessibility and patients without a smartphone.',
+      },
+      {
+        question: 'How do I make clinic QR codes HIPAA compliant?',
+        answer:
+          'Never encode PHI in the QR itself. Link to secure authenticated pages with proper access controls and audit logging.',
       },
     ]
   ),
@@ -97,15 +107,19 @@ GS1 Digital Link places identifiers in a web address, with each identifier intro
 * 10 is the batch or lot.
 * 21 is the serial number.
 
+Generate these structured URLs with proper format, then create codes using our [URL QR code generator](/url-qr-code-generator) or [barcode generator](/barcode-generator).
+
 ### 2. One Code, Two Jobs
 
-The same symbol can be read by point-of-sale scanners that extract the GTIN, and by consumers whose phones open a product page with ingredients, recycling guidance, or authenticity checks.
+The same symbol can be read by point-of-sale [scanners](/qr-scanner) that extract the GTIN, and by consumers whose phones open a product page with ingredients, recycling guidance, or authenticity checks. Size codes appropriately with our [QR size calculator](/qr-size-calculator) for both retail and consumer use.
 
 ### 3. Implementation Notes
 
 * Use a stable resolver domain you control.
 * Keep identifiers valid, including the GTIN check digit.
-* Print to GS1 quality guidance and verify scanning at the point of sale.
+* Print to GS1 quality guidance using our [printed QR tester](/printed-qr-tester) and verify scanning at the point of sale.
+* Follow our [QR placement guide](/qr-placement-guide) for packaging positioning.
+* Use our [error correction simulator](/error-correction-simulator) to select appropriate error correction for retail environments.
     `,
     [
       {
@@ -116,6 +130,11 @@ The same symbol can be read by point-of-sale scanners that extract the GTIN, and
       {
         question: 'Can I use any QR generator?',
         answer: 'The payload must follow the GS1 syntax, and print quality must meet GS1 guidance.',
+      },
+      {
+        question: 'What error correction level do GS1 Digital Link codes need?',
+        answer:
+          'GS1 recommends level M for most retail applications, providing good balance between density and error recovery.',
       },
     ]
   ),
@@ -130,7 +149,7 @@ The same symbol can be read by point-of-sale scanners that extract the GTIN, and
     `
 ### 1. Standard Basis
 
-Pix QR codes follow the EMV merchant-presented format, published by the Central Bank of Brazil as BR Code. The payload is a string of tag-length-value fields.
+Pix QR codes follow the EMV merchant-presented format, published by the Central Bank of Brazil as BR Code. The payload is a string of tag-length-value fields. While specialized generators exist for Pix, understanding the structure helps with troubleshooting. Test generated codes with a [QR scanner](/qr-scanner) in actual banking apps.
 
 ### 2. Key Fields
 
@@ -146,13 +165,18 @@ Pix QR codes follow the EMV merchant-presented format, published by the Central 
 
 ### 3. Notes
 
-Static codes can omit the amount so the payer enters it. Always generate from the official specification and verify by scanning with a banking app. Check the Central Bank's current manual for field limits before implementing.
+Static codes can omit the amount so the payer enters it. Always generate from the official specification and verify by scanning with a banking app. Check the Central Bank's current manual for field limits before implementing. For general payment QR needs, see our [URL QR code generator](/url-qr-code-generator). Size codes with our [QR size calculator](/qr-size-calculator), position using our [QR placement guide](/qr-placement-guide), and verify with our [printed QR tester](/printed-qr-tester). Understand error tolerance with our [error correction simulator](/error-correction-simulator).
     `,
     [
       { question: 'What currency code does Pix use?', answer: '986 for Brazilian real.' },
       {
         question: 'Is the checksum required?',
         answer: 'Yes. The CRC16 in field 63 must be valid or banking apps will reject the code.',
+      },
+      {
+        question: 'Can I manually construct a Pix QR payload?',
+        answer:
+          'Technically yes, but use official Pix QR generators or SDKs to ensure compliance with current Central Bank specifications.',
       },
     ]
   ),
@@ -167,21 +191,21 @@ Static codes can omit the amount so the payer enters it. Always generate from th
     `
 ### 1. Standard Basis
 
-PromptPay QR codes use the EMV merchant-presented format. Currency is 764 (Thai baht) and country is TH.
+PromptPay QR codes use the EMVCo merchant-presented format. Currency is 764 (Thai baht) and country is TH. Test generated codes with a [QR scanner](/qr-scanner) in Thai banking apps before deployment.
 
-### 2. Key Fields
+### 2. Payload Highlights
 
-* **00:** Payload format indicator
-* **01:** Initiation method, 11 for static or 12 for dynamic
-* **29:** PromptPay merchant account information, with application identifier A000000677010111
-* **54:** Amount (optional)
-* **53:** Currency 764
-* **58:** Country TH
-* **63:** CRC16 checksum
+* **00:** Payload format indicator 01.
+* **01:** Initiation method 11 for static, 12 for dynamic.
+* **29:** PromptPay merchant account information, with application identifier A000000677010111.
+* **54:** Amount (optional).
+* **53:** Currency 764.
+* **58:** Country TH.
+* **63:** CRC16 checksum.
 
 ### 3. Recipient Formats
 
-Inside field 29 the recipient can be a mobile number, written with the 0066 country prefix in place of the leading zero, or a national or tax ID. Verify the sub-tag layout against the current Bank of Thailand and operator documentation before you ship.
+Inside field 29 the recipient can be a mobile number, written with the 0066 country prefix in place of the leading zero, or a national or tax ID. Verify the sub-tag layout against the current Bank of Thailand and operator documentation before you ship. For general payment QR needs, see our [URL QR code generator](/url-qr-code-generator). Size codes with our [QR size calculator](/qr-size-calculator), position using our [QR placement guide](/qr-placement-guide), and verify with our [printed QR tester](/printed-qr-tester). Plan error correction with our [error correction simulator](/error-correction-simulator).
     `,
     [
       { question: 'What currency code does PromptPay use?', answer: '764 for Thai baht.' },
@@ -189,6 +213,11 @@ Inside field 29 the recipient can be a mobile number, written with the 0066 coun
         question: 'Can I include an amount?',
         answer:
           'Yes, in field 54, and then set initiation method accordingly. Omit it for an open-amount static code.',
+      },
+      {
+        question: 'Are PromptPay QR codes interoperable with other countries?',
+        answer:
+          'Yes, through the ASEAN cross-border QR framework with participating countries like Singapore, Malaysia, and Indonesia.',
       },
     ]
   ),
@@ -217,6 +246,8 @@ EUR12.50
 Invoice 2026-118
 \`\`\`
 
+Generate these using specialized tools, then create QR codes with our [URL QR code generator](/url-qr-code-generator) or dedicated payment code generators. Test with a [QR scanner](/qr-scanner) in European banking apps.
+
 ### 2. Field Notes
 
 * Service tag BCD, version 001 or 002, character set 1 for UTF-8, identification SCT.
@@ -226,7 +257,7 @@ Invoice 2026-118
 
 ### 3. Tips
 
-Use error correction level M, keep the name and reference short, and check against your own banking app before printing invoices.
+Use error correction level M, keep the name and reference short, and check against your own banking app before printing invoices. Size codes with our [QR size calculator](/qr-size-calculator), position using our [QR placement guide](/qr-placement-guide), and verify with our [printed QR tester](/printed-qr-tester). Understand error tolerance with our [error correction simulator](/error-correction-simulator).
     `,
     [
       { question: 'Which currencies does the EPC QR support?', answer: 'Only euro.' },
@@ -234,6 +265,11 @@ Use error correction level M, keep the name and reference short, and check again
         question: 'Do all banking apps scan it?',
         answer:
           'Many European apps do, but support varies by country and bank. Test before rollout.',
+      },
+      {
+        question: 'Can I use EPC QR codes for recurring payments?',
+        answer:
+          'Each code represents a single payment. For recurring, generate unique codes per invoice or use SEPA direct debit mandates instead.',
       },
     ]
   ),
@@ -248,7 +284,7 @@ Use error correction level M, keep the name and reference short, and check again
     `
 ### 1. Reading Direction
 
-English reads left to right and Urdu right to left. Place each instruction block aligned to its own language and put the QR code on a neutral central axis, or below both blocks.
+English reads left to right and Urdu right to left. Place each instruction block aligned to its own language and put the QR code generated with our [URL QR code generator](/url-qr-code-generator) on a neutral central axis, or below both blocks. Test readability with a [QR scanner](/qr-scanner) from typical viewing distances.
 
 ### 2. Typography
 
@@ -256,11 +292,11 @@ Urdu is usually set in Nastaliq or a clear Naskh style. Nastaliq needs generous 
 
 ### 3. Quiet Zone
 
-Keep at least 4 modules of blank space on all sides of the code, with no Urdu or English text touching it. Do not tuck calligraphic flourishes into the margin.
+Keep at least 4 modules of blank space on all sides of the code sized with our [QR size calculator](/qr-size-calculator), with no Urdu or English text touching it. Do not tuck calligraphic flourishes into the margin. Follow our [QR placement guide](/qr-placement-guide) for proper spacing.
 
 ### 4. Content
 
-Put the action in both languages ("Scan to see the menu" and its Urdu equivalent) and use a destination page that offers a language toggle. Have a native speaker proofread the final print.
+Put the action in both languages ("Scan to see the menu" and its Urdu equivalent) and use a destination page that offers a language toggle created with our [UTM builder](/utm-builder) for tracking. Have a native speaker proofread the final print. Verify quality with our [printed QR tester](/printed-qr-tester) before mass production. Use our [error correction simulator](/error-correction-simulator) to plan for any print quality variations.
     `,
     [
       {
@@ -271,6 +307,11 @@ Put the action in both languages ("Scan to see the menu" and its Urdu equivalent
         question: 'Can I embed Urdu text directly in the code?',
         answer:
           'It is possible with UTF-8, but a short URL to an Urdu page is more reliable and smaller.',
+      },
+      {
+        question: 'What font size works best for Urdu on signage?',
+        answer:
+          'Minimum 14pt for body text, larger for headings. Nastaliq requires more vertical space than Naskh.',
       },
     ]
   ),
@@ -285,21 +326,21 @@ Put the action in both languages ("Scan to see the menu" and its Urdu equivalent
     `
 ### 1. Good Uses
 
-* Link posters to reading lists, videos, and worksheets.
+* Link posters to reading lists, videos, and worksheets using our [URL QR code generator](/url-qr-code-generator).
 * Label library shelves with catalog pages.
-* Give parents quick links to calendars and forms.
+* Give parents quick links to calendars and forms tracked with our [UTM builder](/utm-builder).
 
 ### 2. Safety
 
-Link only to vetted, school-controlled pages. Check pages periodically, because third-party sites can change content. Avoid collecting student data via unmanaged forms and follow your school's privacy policy.
+Link only to vetted, school-controlled pages verified with our [QR safety checker](/qr-safety-checker) guidelines. Check pages periodically with a [QR scanner](/qr-scanner), because third-party sites can change content. Avoid collecting student data via unmanaged forms and follow your school's privacy policy.
 
 ### 3. Accessibility
 
-Provide the short URL in text and make sure pages work on shared devices and low-end phones. Offer alternatives for students without phones.
+Provide the short URL in text and make sure pages work on shared devices and low-end phones. Offer alternatives for students without phones. Size codes with our [QR size calculator](/qr-size-calculator) for easy scanning at typical viewing distances.
 
 ### 4. Durability
 
-Laminate printed codes with a matte finish, and keep a master list of each code and its destination.
+Laminate printed codes with a matte finish following our [QR placement guide](/qr-placement-guide), and keep a master list of each code and its destination. Test quality with our [printed QR tester](/printed-qr-tester). Use our [error correction simulator](/error-correction-simulator) to understand how lamination affects scannability.
     `,
     [
       {
@@ -309,6 +350,11 @@ Laminate printed codes with a matte finish, and keep a master list of each code 
       {
         question: 'How do I keep linked pages safe?',
         answer: 'Host them on school systems or review third-party pages regularly.',
+      },
+      {
+        question: 'Can QR codes help with classroom management?',
+        answer:
+          'Yes - attendance tracking, assignment submission, quick polls, and behavior check-ins all work well with QR workflows.',
       },
     ]
   ),
@@ -323,19 +369,19 @@ Laminate printed codes with a matte finish, and keep a master list of each code 
     `
 ### 1. Fast Mobile Donation Flow
 
-Most abandonment happens on slow, long forms. Link to a mobile-first page with preset amounts, wallet payment options, and minimal fields.
+Most abandonment happens on slow, long forms. Link to a mobile-first page with preset amounts, wallet payment options, and minimal fields created with our [URL QR code generator](/url-qr-code-generator). Test the flow with a [QR scanner](/qr-scanner) on various devices.
 
 ### 2. Placement and Context
 
-Put codes on posters, receipts, event tables, and thank-you cards. Give a reason: "Scan to give 500 rupees for a school meal" is better than a bare code.
+Put codes sized with our [QR size calculator](/qr-size-calculator) on posters, receipts, event tables, and thank-you cards. Give a reason: "Scan to give 500 rupees for a school meal" is better than a bare code. Follow our [QR placement guide](/qr-placement-guide) for optimal positioning.
 
 ### 3. Tracking
 
-Use a different short path per placement or campaign so you can compare results, and keep the mapping documented.
+Use a different short path per placement or campaign created with our [UTM builder](/utm-builder) so you can compare results, and keep the mapping documented. Generate unique codes efficiently with our [bulk generator](/bulk-generator) for multiple locations.
 
 ### 4. Trust
 
-Show the organization's name, registration details, and a visible privacy statement on the page. Protect printed codes against sticker overlays, since fake donation codes are a known risk.
+Show the organization's name, registration details, and a visible privacy statement on the page. Protect printed codes against sticker overlays using our [QR safety checker](/qr-safety-checker) guidelines and our [printed QR tester](/printed-qr-tester) verification, since fake donation codes are a known risk. Use our [error correction simulator](/error-correction-simulator) to plan for outdoor poster durability.
     `,
     [
       {
@@ -347,6 +393,11 @@ Show the organization's name, registration details, and a visible privacy statem
         question: 'Can I put a payment account directly in the code?',
         answer:
           'Yes, in countries with standard payment QR formats, but a donation page also supports receipts and recurring giving.',
+      },
+      {
+        question: 'What donation response rate can I expect from QR codes?',
+        answer:
+          'Event table codes see 10-30% scan rates with clear calls-to-action. Poster codes typically see 1-5%. Mobile-optimized pages matter more than placement.',
       },
     ]
   ),
@@ -361,19 +412,19 @@ Show the organization's name, registration details, and a visible privacy statem
     `
 ### 1. Content Approach
 
-Link each exhibit code to a lightweight page with short text, audio, and images. Avoid auto-playing sound, and support captions and transcripts.
+Link each exhibit code generated with our [URL QR code generator](/url-qr-code-generator) to a lightweight page with short text, audio, and images. Avoid auto-playing sound, and support captions and transcripts. Test with a [QR scanner](/qr-scanner) on various devices.
 
 ### 2. Languages
 
-Offer language selection on arrival rather than separate codes. Test right-to-left languages such as Urdu and Arabic on real devices.
+Offer language selection on arrival rather than separate codes. Test right-to-left languages such as Urdu and Arabic on real devices. Track language preferences with our [UTM builder](/utm-builder).
 
 ### 3. Connectivity
 
-Many galleries have weak signal. Keep pages small or provide on-site WiFi and a caching progressive web app.
+Many galleries have weak signal. Keep pages small or provide on-site WiFi and a caching progressive web app. Generate WiFi access codes with our [WiFi QR code generator](/wifi-qr-code-generator) for visitor convenience.
 
 ### 4. Physical Design
 
-Mount at a consistent height near the label, with a clear quiet zone and matte, non-reflective material. Add a short URL and a tactile marker so visitors with low vision can find the code.
+Mount at a consistent height near the label sized with our [QR size calculator](/qr-size-calculator), with a clear quiet zone and matte, non-reflective material following our [QR placement guide](/qr-placement-guide). Add a short URL and a tactile marker so visitors with low vision can find the code. Test quality with our [printed QR tester](/printed-qr-tester). Use our [error correction simulator](/error-correction-simulator) to plan for indoor lighting challenges.
     `,
     [
       {
@@ -383,6 +434,11 @@ Mount at a consistent height near the label, with a clear quiet zone and matte, 
       {
         question: 'How do I help visitors with no signal?',
         answer: 'Provide on-site WiFi or pre-downloadable guides, and keep pages lightweight.',
+      },
+      {
+        question: 'What accessibility features should museum QR pages include?',
+        answer:
+          'Screen reader compatibility, audio descriptions, adjustable text size, high contrast mode, and keyboard navigation.',
       },
     ]
   ),

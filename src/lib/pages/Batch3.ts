@@ -13,21 +13,22 @@ export const batch3: Article[] = [
     `
 ### 1. Distance Math
 
-Visitors usually scan from 1 to 3 meters. At the 10:1 rule, that means 10 to 30 cm. Crowded halls and poor lighting justify the conservative 8:1 ratio, so budget 15 to 40 cm.
+Visitors usually scan from 1 to 3 meters. At the 10:1 rule from our [QR size calculator](/qr-size-calculator), that means 10 to 30 cm. Crowded halls and poor lighting justify the conservative 8:1 ratio, so budget 15 to 40 cm.
 
 ### 2. Placement
 
 * Position the code between chest and eye level (about 120 to 160 cm from the floor).
 * Keep it away from the bottom third, where people block it.
-* Leave a clear quiet zone; do not overlap it with graphics.
+* Leave a clear quiet zone; do not overlap it with graphics—review our [QR placement guide](/qr-placement-guide).
+* Test visibility with a [QR scanner](/qr-scanner) from the intended viewing distance.
 
 ### 3. Call to Action
 
-State what the scan delivers ("Scan for the 2-minute demo"). Large banners also help to include a short typed URL as a fallback.
+State what the scan delivers ("Scan for the 2-minute demo"). Large banners also help to include a short typed URL as a fallback. Generate trackable short URLs with our [UTM builder](/utm-builder). Before printing, verify scan quality using our [printed QR tester](/printed-qr-tester) on the actual banner material.
 
 ### 4. Printing
 
-Use vector files at the finished banner size and matte material to limit glare from booth lighting.
+Use vector files at the finished banner size and matte material to limit glare from booth lighting. Generate high-quality codes with our [URL QR code generator](/url-qr-code-generator). For understanding how error correction affects large format prints, use our [error correction simulator](/error-correction-simulator).
     `,
     [
       {
@@ -37,6 +38,11 @@ Use vector files at the finished banner size and matte material to limit glare f
       {
         question: 'Should I add a short URL under the code?',
         answer: 'Yes. It helps people without scanning and serves as a backup if lighting is poor.',
+      },
+      {
+        question: 'How do I account for banner curl or wrinkles?',
+        answer:
+          'Use larger codes with higher error correction (level Q or H) and ensure proper tensioning when mounting the banner.',
       },
     ]
   ),
@@ -51,7 +57,7 @@ Use vector files at the finished banner size and matte material to limit glare f
     `
 ### 1. Size and Placement
 
-Fabric folds and stretches, so go larger: 8 to 12 cm is common. Place the code on the flat area of the chest or back and avoid seams, underarms, and collars.
+Fabric folds and stretches, so go larger: 8 to 12 cm is common. Use our [QR size calculator](/qr-size-calculator) to determine optimal dimensions. Place the code on the flat area of the chest or back and avoid seams, underarms, and collars. Follow our [QR placement guide](/qr-placement-guide) for apparel-specific positioning.
 
 ### 2. Methods
 
@@ -61,11 +67,11 @@ Fabric folds and stretches, so go larger: 8 to 12 cm is common. Place the code o
 
 ### 3. Design Rules
 
-Use level Q or H, a high-contrast dark-on-light layout, and keep the payload short. Print a solid light patch behind the code on dark garments.
+Use level Q or H with our [error correction simulator](/error-correction-simulator) to understand tolerance, a high-contrast dark-on-light layout, and keep the payload short using our [URL generator](/url-qr-code-generator). Print a solid light patch behind the code on dark garments. Test with a [QR scanner](/qr-scanner) on actual fabric samples before bulk production. Verify final quality using our [printed QR tester](/printed-qr-tester).
 
 ### 4. Test
 
-Wash and wear a sample at least five times, then scan it at a normal distance.
+Wash and wear a sample at least five times, then scan it at a normal distance. Test various lighting conditions to ensure reliability.
     `,
     [
       {
@@ -77,6 +83,11 @@ Wash and wear a sample at least five times, then scan it at a normal distance.
         question: 'Can I print a white QR on a black shirt?',
         answer:
           'Inverted codes are unreliable on many scanners. Use a dark code on a light patch instead.',
+      },
+      {
+        question: 'What error correction level works best for apparel?',
+        answer:
+          'Level H provides maximum tolerance for fabric distortion, stretching, and wear. The denser symbol is worth the reliability gain.',
       },
     ]
   ),
@@ -91,19 +102,19 @@ Wash and wear a sample at least five times, then scan it at a normal distance.
     `
 ### 1. Reverse Printing
 
-If the graphic is applied to the inside face of the glass and viewed from outside, the artwork must be mirrored so it reads correctly through the pane. Many scanners can decode a mirrored code, but do not rely on it. Confirm by scanning from the viewing side.
+If the graphic is applied to the inside face of the glass and viewed from outside, the artwork must be mirrored so it reads correctly through the pane. Many scanners can decode a mirrored code, but do not rely on it. Confirm by scanning from the viewing side with a [QR scanner](/qr-scanner). Generate your codes using our [URL QR code generator](/url-qr-code-generator) before mirroring for print.
 
 ### 2. Background Problem
 
-Window codes lose contrast because the background changes with daylight and what is behind the glass. Use an opaque white backing panel behind the code, or print a solid light patch.
+Window codes lose contrast because the background changes with daylight and what is behind the glass. Use an opaque white backing panel behind the code, or print a solid light patch. Use our [QR size calculator](/qr-size-calculator) to ensure adequate module size for challenging lighting conditions.
 
 ### 3. Glare
 
-Reflections from sun and street lights can wash out modules. Prefer matte film and angle the placement away from direct reflections.
+Reflections from sun and street lights can wash out modules. Prefer matte film and angle the placement away from direct reflections. Test at different times of day using our [printed QR tester](/printed-qr-tester) methodology. Follow our [QR placement guide](/qr-placement-guide) for optimal positioning that minimizes glare. Consider using our [error correction simulator](/error-correction-simulator) to plan for partial obstruction from reflections.
 
 ### 4. Height and Safety
 
-Place it at a comfortable standing height, away from traffic where people might step off the pavement to scan.
+Place it at a comfortable standing height, away from traffic where people might step off the pavement to scan. Create trackable URLs with our [UTM builder](/utm-builder) to measure window signage effectiveness.
     `,
     [
       {
@@ -115,6 +126,11 @@ Place it at a comfortable standing height, away from traffic where people might 
         question: 'Can I put a QR code on a backlit window?',
         answer:
           'Only with sufficient contrast and a solid light backing. Test at different times of day.',
+      },
+      {
+        question: 'How do I handle changing backgrounds through the window?',
+        answer:
+          'Use a solid opaque backing patch in white or light color to maintain consistent contrast regardless of what is behind the glass.',
       },
     ]
   ),
@@ -129,7 +145,7 @@ Place it at a comfortable standing height, away from traffic where people might 
     `
 ### 1. Why DPM
 
-Labels burn, peel, or wear off in harsh environments. Direct part marking engraves the symbol into the surface so it lasts for the life of the part.
+Labels burn, peel, or wear off in harsh environments. Direct part marking engraves the symbol into the surface so it lasts for the life of the part. Critical for industrial applications where [barcode systems](/barcode-generator) aren't durable enough.
 
 ### 2. Methods
 
@@ -139,11 +155,11 @@ Labels burn, peel, or wear off in harsh environments. Direct part marking engrav
 
 ### 3. Reading Challenges
 
-Reflective, curved, or low-contrast surfaces need controlled lighting and industrial imagers. Quality guidance for these marks is given in ISO/IEC TR 29158.
+Reflective, curved, or low-contrast surfaces need controlled lighting and industrial imagers. Quality guidance for these marks is given in ISO/IEC TR 29158. Test readability with specialized [QR scanners](/qr-scanner) designed for DPM, not consumer phone cameras.
 
 ### 4. Design Tips
 
-Use Data Matrix where space is tight, error correction at the higher end, and verify every mark with a dedicated verifier rather than a phone.
+Use Data Matrix where space is tight, error correction at the higher end, and verify every mark with a dedicated verifier rather than a phone. Plan module sizing with our [QR size calculator](/qr-size-calculator) before marking. For QR codes, use our [error correction simulator](/error-correction-simulator) to understand damage tolerance. Follow our [QR placement guide](/qr-placement-guide) for positioning on complex part geometries. Test final marks with our [printed QR tester](/printed-qr-tester) methodology adapted for metal surfaces.
     `,
     [
       {
@@ -154,6 +170,11 @@ Use Data Matrix where space is tight, error correction at the higher end, and ve
         question: 'Which symbology is best for metal parts?',
         answer:
           'Data Matrix is common because of its compact size, though QR works when scanners support it.',
+      },
+      {
+        question: 'How do I verify DPM mark quality?',
+        answer:
+          'Use a calibrated ISO-compliant verifier designed for DPM. Phone cameras cannot provide accurate quality grades for industrial marks.',
       },
     ]
   ),
@@ -168,19 +189,19 @@ Use Data Matrix where space is tight, error correction at the higher end, and ve
     `
 ### 1. Use 100% K
 
-For offset and digital print, set the code to 0C 0M 0Y 100K. A rich black built from four inks can misregister slightly, creating colored fringes on small modules and softening edges.
+For offset and digital print, set the code to 0C 0M 0Y 100K. A rich black built from four inks can misregister slightly, creating colored fringes on small modules and softening edges. Generate codes with our [URL QR code generator](/url-qr-code-generator) and ensure proper color specification before sending to print.
 
 ### 2. Avoid Conversion Surprises
 
-RGB black (0,0,0) converted automatically to CMYK can become a four-ink mix. Create the code in CMYK or convert it deliberately and check the separations.
+RGB black (0,0,0) converted automatically to CMYK can become a four-ink mix. Create the code in CMYK or convert it deliberately and check the separations. Use our [QR size calculator](/qr-size-calculator) to ensure adequate module size that tolerates minor registration variance.
 
 ### 3. Overprint
 
-Make sure black overprint settings do not cause modules to merge with light-colored knockout areas in the background.
+Make sure black overprint settings do not cause modules to merge with light-colored knockout areas in the background. Test final output with our [printed QR tester](/printed-qr-tester) methodology.
 
 ### 4. Brand Colors
 
-If you must use a color, choose a dark one with strong luminance contrast against the background. See our contrast guide for numeric targets.
+If you must use a color, choose a dark one with strong luminance contrast against the background. See our contrast guide (use our [error correction simulator](/error-correction-simulator) to understand how color choices affect readability). Follow our [QR placement guide](/qr-placement-guide) for maintaining adequate quiet zones with colored designs. Verify final codes with a [QR scanner](/qr-scanner) on actual print stock.
     `,
     [
       {
@@ -191,6 +212,11 @@ If you must use a color, choose a dark one with strong luminance contrast agains
         question: 'Is a dark brand color acceptable?',
         answer:
           'Yes, if luminance contrast is strong, but pure black on white remains the safest choice.',
+      },
+      {
+        question: 'What happens if my QR code uses four-color black?',
+        answer:
+          'Slight misregistration between the four plates can create colored edges that reduce contrast and may cause scan failures on smaller codes.',
       },
     ]
   ),
@@ -205,21 +231,21 @@ If you must use a color, choose a dark one with strong luminance contrast agains
     `
 ### 1. What Is Print Growth
 
-Ink spreads on paper fibers. Dark modules grow, and light gaps shrink. If growth is large, isolated light modules fill in and adjacent dark modules merge.
+Ink spreads on paper fibers. Dark modules grow, and light gaps shrink. If growth is large, isolated light modules fill in and adjacent dark modules merge. Use our [QR size calculator](/qr-size-calculator) to plan adequate module sizes that tolerate expected dot gain.
 
 ### 2. Where It Is Worst
 
-Uncoated paper, newsprint, and corrugated board spread ink most. Coated and synthetic stocks spread the least.
+Uncoated paper, newsprint, and corrugated board spread ink most. Coated and synthetic stocks spread the least. Test on actual substrates using our [printed QR tester](/printed-qr-tester) before production runs.
 
 ### 3. Compensation
 
 * Use larger modules on absorbent stock.
 * Ask the printer for a slightly reduced dark module size (a few percent) if their proofing shows growth.
-* Avoid very high version numbers on rough substrates.
+* Avoid very high version numbers on rough substrates—keep payloads short with our [URL generator](/url-qr-code-generator).
 
 ### 4. Verify
 
-Print a proof on the real stock and test on older phones in typical lighting. Formal grading under ISO/IEC 15415 reports a print growth measurement.
+Print a proof on the real stock and test on older phones in typical lighting with a [QR scanner](/qr-scanner). Formal grading under ISO/IEC 15415 reports a print growth measurement. Follow our [QR placement guide](/qr-placement-guide) to ensure adequate quiet zones that don't get consumed by dot gain. Use our [error correction simulator](/error-correction-simulator) to understand how print quality affects error recovery.
     `,
     [
       {
@@ -230,6 +256,11 @@ Print a proof on the real stock and test on older phones in typical lighting. Fo
       {
         question: 'Does a bigger QR code fix it?',
         answer: 'Larger modules reduce the relative effect, which usually helps.',
+      },
+      {
+        question: 'Can I compensate digitally before printing?',
+        answer:
+          'Some RIPs support dot gain compensation. Alternatively, reduce dark module width by 2-5% in the artwork for highly absorbent stocks.',
       },
     ]
   ),
@@ -244,7 +275,7 @@ Print a proof on the real stock and test on older phones in typical lighting. Fo
     `
 ### 1. Dots, Not Millimeters
 
-A 203 dpi printhead lays down about 8 dots per mm, so one dot is about 0.125 mm. A 300 dpi head has dots about 0.085 mm.
+A 203 dpi printhead lays down about 8 dots per mm, so one dot is about 0.125 mm. A 300 dpi head has dots about 0.085 mm. Use our [QR size calculator](/qr-size-calculator) to convert between dots and physical dimensions.
 
 ### 2. Use Whole-Dot Modules
 
@@ -256,10 +287,11 @@ Fractional scaling creates uneven modules. Pick an integer number of dots per mo
 
 A Version 2 code (25 modules) plus an 8-module quiet zone is 33 modules. At 4 dots each on 203 dpi:
 $$33 \\times 4 = 132\\text{ dots} \\approx 16.5\\text{ mm}$$
+Generate codes with our [URL QR code generator](/url-qr-code-generator) or [barcode generator](/barcode-generator) at the calculated exact pixel dimensions.
 
 ### 4. Tips
 
-Set darkness and speed so modules neither fade nor bloom, and print the code from a vector or exact-pixel bitmap, not a resampled image.
+Set darkness and speed so modules neither fade nor bloom, and print the code from a vector or exact-pixel bitmap, not a resampled image. Test output with a [QR scanner](/qr-scanner) and verify quality using our [printed QR tester](/printed-qr-tester) methodology. Follow our [QR placement guide](/qr-placement-guide) for label positioning. Use our [error correction simulator](/error-correction-simulator) to understand how thermal print quality affects readability.
     `,
     [
       {
@@ -271,6 +303,11 @@ Set darkness and speed so modules neither fade nor bloom, and print the code fro
         question: 'What module size works on 203 dpi?',
         answer:
           'Four dots (about 0.5 mm) is a solid baseline; three dots (about 0.38 mm) is near the limit.',
+      },
+      {
+        question: 'Can I use the same artwork for 203 and 300 dpi printers?',
+        answer:
+          'No. Each requires artwork scaled to whole-dot multiples for that specific resolution. Generate resolution-specific versions.',
       },
     ]
   ),
@@ -292,13 +329,15 @@ Set darkness and speed so modules neither fade nor bloom, and print the code fro
 | A3 poster at a wall | 1 to 1.5 m | 10 to 15 cm |
 | Large wall display | 2 to 3 m | 20 to 30 cm |
 
+Use our [QR size calculator](/qr-size-calculator) for precise sizing based on your specific viewing distance and payload.
+
 ### 2. Placement
 
-Place the code in the lower third so people can hold a phone comfortably, and never at the extreme corner where trimming can cut the quiet zone.
+Place the code in the lower third so people can hold a phone comfortably, and never at the extreme corner where trimming can cut the quiet zone. Follow our [QR placement guide](/qr-placement-guide) for optimal positioning on various poster formats.
 
 ### 3. Add Context
 
-Include a short call to action and a fallback URL. Use matte paper to avoid glare from overhead lights.
+Include a short call to action and a fallback URL created with our [UTM builder](/utm-builder) for tracking. Use matte paper to avoid glare from overhead lights. Generate high-quality codes with our [URL QR code generator](/url-qr-code-generator). Test print quality with our [printed QR tester](/printed-qr-tester) before bulk printing. Use our [error correction simulator](/error-correction-simulator) to select appropriate error correction for your printing method.
     `,
     [
       {
@@ -309,6 +348,11 @@ Include a short call to action and a fallback URL. Use matte paper to avoid glar
         question: 'Should posters use level H?',
         answer:
           'Only when adding a logo or expecting wear. Otherwise level M gives a less dense code.',
+      },
+      {
+        question: 'What if my poster will be viewed from varying distances?',
+        answer:
+          'Size for the furthest expected scanning distance using the 10:1 rule. Closer viewers will scan easily.',
       },
     ]
   ),
@@ -323,7 +367,7 @@ Include a short call to action and a fallback URL. Use matte paper to avoid glar
     `
 ### 1. The Grading Scale
 
-ISO/IEC 15415 grades 2D symbols from 4 (A) down to 0 (F). The overall grade is the lowest of the individual parameter grades, so one weak parameter lowers the whole result.
+ISO/IEC 15415 grades 2D symbols from 4 (A) down to 0 (F). The overall grade is the lowest of the individual parameter grades, so one weak parameter lowers the whole result. Use our [printed QR tester](/printed-qr-tester) for field testing before formal verification.
 
 ### 2. Parameters
 
@@ -336,13 +380,15 @@ ISO/IEC 15415 grades 2D symbols from 4 (A) down to 0 (F). The overall grade is t
 * Unused error correction
 * Print growth
 
+Understand how these parameters interact using our [error correction simulator](/error-correction-simulator).
+
 ### 3. Practical Targets
 
-Commercial specifications commonly require grade C (2.0) or better, with B (3.0) preferred for critical applications. Grading uses a calibrated verifier, not a phone.
+Commercial specifications commonly require grade C (2.0) or better, with B (3.0) preferred for critical applications. Grading uses a calibrated verifier, not a [phone scanner](/qr-scanner). Size codes appropriately with our [QR size calculator](/qr-size-calculator) and follow our [QR placement guide](/qr-placement-guide) to avoid issues.
 
 ### 4. Using Grades
 
-Grading helps printers fix specific faults, such as low contrast or uneven print growth, before a full production run.
+Grading helps printers fix specific faults, such as low contrast or uneven print growth, before a full production run. Generate test codes with our [URL QR code generator](/url-qr-code-generator) or [barcode generator](/barcode-generator) for pre-press verification.
     `,
     [
       {
@@ -352,6 +398,11 @@ Grading helps printers fix specific faults, such as low contrast or uneven print
       {
         question: 'What grade should I target?',
         answer: 'Aim for C or better, B or better for critical labels.',
+      },
+      {
+        question: 'If my code gets grade D, will phones scan it?',
+        answer:
+          'Maybe, but unreliably. Grade D indicates significant quality problems. Investigate and fix the root cause before production.',
       },
     ]
   ),
@@ -370,9 +421,11 @@ Grading helps printers fix specific faults, such as low contrast or uneven print
 * A code on a surface where one would not expect it, such as a meter that has no payment sticker elsewhere.
 * Different print quality compared with the rest of the sign.
 
+Use our [QR safety checker](/qr-safety-checker) guidance for identifying tampered codes.
+
 ### 2. Check the Link Before Opening
 
-Most camera apps show the destination URL before opening. Read the domain carefully. Look for misspellings, extra words, unusual endings, or a shortener that hides the real target.
+Most camera apps show the destination URL before opening. Read the domain carefully with a [QR scanner](/qr-scanner). Look for misspellings, extra words, unusual endings, or a shortener that hides the real target.
 
 ### 3. Behavior Red Flags
 
@@ -382,7 +435,7 @@ Most camera apps show the destination URL before opening. Read the domain carefu
 
 ### 4. If In Doubt
 
-Type the official web address yourself or use the organization's app instead of the code.
+Type the official web address yourself or use the organization's app instead of the code. For legitimate codes, verify using our [printed QR tester](/printed-qr-tester) methodology if you manage the signage. Generate secure codes with proper tracking using our [URL QR code generator](/url-qr-code-generator) and [UTM builder](/utm-builder). Follow our [QR placement guide](/qr-placement-guide) for tamper-evident positioning. Understand security risks with our [error correction simulator](/error-correction-simulator)—high error correction can make overlaid tampering harder to detect visually.
     `,
     [
       {
@@ -394,6 +447,11 @@ Type the official web address yourself or use the organization's app instead of 
         question: 'What should I do if I opened a suspicious link?',
         answer:
           'Close it, do not enter details, and change passwords if you did. Report it to the organization concerned.',
+      },
+      {
+        question: 'Are QR codes on stickers always fake?',
+        answer:
+          'Not always, but stickers are easy to overlay on legitimate codes. Verify the sticker matches the expected design and check for edges or bubbles.',
       },
     ]
   ),

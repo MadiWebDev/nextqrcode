@@ -13,21 +13,22 @@ export const batch2: Article[] = [
     `
 ### 1. The Density Problem
 
-A full UTM string such as utm_source, utm_medium, and utm_campaign can add 60 or more characters. That increases the QR version and shrinks modules.
+A full UTM string such as utm_source, utm_medium, and utm_campaign can add 60 or more characters. That increases the QR version and shrinks modules, making scanning harder at the planned print size. Our [QR size calculator](/qr-size-calculator) shows how payload length affects symbol density.
 
 ### 2. A Cleaner Pattern
 
-1. Give each placement a short path on your own site, e.g. example.com/m1 for the lobby poster.
+1. Give each placement a short path on your own site, e.g. example.com/m1 for the lobby poster—use our [UTM builder](/utm-builder) to plan your tracking structure.
 2. Have your web server redirect that path to the long UTM URL.
 3. Analytics then attributes the visit correctly while the printed code stays small.
+4. Generate the short-URL code with our [URL QR code generator](/url-qr-code-generator).
 
 ### 3. Naming Conventions
 
-Use utm_medium=qr consistently, lowercase values, and one utm_campaign per print run. Use a different path per location so you can compare placements.
+Use utm_medium=qr consistently, lowercase values, and one utm_campaign per print run. Use a different path per location so you can compare placements. Before printing, verify scan quality with our [printed QR tester](/printed-qr-tester) and review [placement guidelines](/qr-placement-guide) for optimal results.
 
 ### 4. Trade-off
 
-A redirect you control is still a redirect: if you lose the domain or break the path, printed codes fail. Keep the mapping documented.
+A redirect you control is still a redirect: if you lose the domain or break the path, printed codes fail. Keep the mapping documented. Consider using our [bulk generator](/bulk-generator) if you need many trackable codes for different locations.
     `,
     [
       {
@@ -38,6 +39,11 @@ A redirect you control is still a redirect: if you lose the domain or break the 
       {
         question: 'What should utm_medium be for QR codes?',
         answer: 'Use a consistent value such as qr so reports group all QR traffic.',
+      },
+      {
+        question: 'How many characters can I save with short URLs?',
+        answer:
+          'A full UTM URL with parameters can be 100+ characters. A short redirect like example.com/m1 is under 20, potentially dropping you from Version 5 to Version 2.',
       },
     ]
   ),
@@ -55,17 +61,18 @@ A redirect you control is still a redirect: if you lose the domain or break the 
 * \`SMSTO:+15551234567:Hello there\`
 * \`sms:+15551234567?body=Hello%20there\`
 
-The first is the older scanner convention and the second follows URI style. Behavior differs between phones and apps, so test both on iOS and Android.
+The first is the older scanner convention and the second follows URI style. Behavior differs between phones and apps, so test both on iOS and Android. Unlike our [URL QR code generator](/url-qr-code-generator) or [WiFi generator](/wifi-qr-code-generator), SMS QR codes must account for platform-specific parsing.
 
 ### 2. Encoding Tips
 
 * Use international E.164 numbers with a leading plus sign.
 * URL-encode spaces and special characters in the sms: form.
-* Keep the message short, since long bodies enlarge the code.
+* Keep the message short, since long bodies enlarge the code—check the impact with our [QR size calculator](/qr-size-calculator).
+* Test with a [QR scanner](/qr-scanner) on multiple devices before printing.
 
 ### 3. Use Cases
 
-Opt-in keywords ("text JOIN to 12345"), quick feedback lines, and appointment confirmations. Check local regulations on marketing messages before launching a campaign.
+Opt-in keywords ("text JOIN to 12345"), quick feedback lines, and appointment confirmations. Check local regulations on marketing messages before launching a campaign. For printed deployment, follow our [QR placement guide](/qr-placement-guide) and verify quality using the [printed QR tester](/printed-qr-tester).
     `,
     [
       {
@@ -76,6 +83,11 @@ Opt-in keywords ("text JOIN to 12345"), quick feedback lines, and appointment co
         question: 'Which format should I choose?',
         answer:
           'Test both. If you target a single platform, use whichever opens correctly on your test devices.',
+      },
+      {
+        question: 'Can I include a recipient number and message body in one code?',
+        answer:
+          'Yes, using either format. The sms: URI format with ?body= is more standards-compliant.',
       },
     ]
   ),
@@ -92,17 +104,18 @@ Opt-in keywords ("text JOIN to 12345"), quick feedback lines, and appointment co
 
 \`mailto:hello@example.com?subject=Quote%20request&body=Hi%2C%20I%20would%20like%20a%20quote.\`
 
-Spaces become %20, commas %2C, and line breaks %0A. Multiple parameters are joined with an ampersand.
+Spaces become %20, commas %2C, and line breaks %0A. Multiple parameters are joined with an ampersand. Generate these easily with our [URL QR code generator](/url-qr-code-generator) by encoding the full mailto URI. Test the resulting code with a [QR scanner](/qr-scanner) on both desktop and mobile devices.
 
 ### 2. Alternative Format
 
-Some older scanners use the MATMSG format (MATMSG:TO:...;SUB:...;BODY:...;;). Phone cameras handle mailto reliably, so prefer it.
+Some older scanners use the MATMSG format (MATMSG:TO:...;SUB:...;BODY:...;;). Phone cameras handle mailto reliably, so prefer it. For business contact sharing, consider our [vCard QR code generator](/vcard-qr-code-generator) as an alternative that includes email along with other contact details.
 
 ### 3. Tips
 
-* Keep the body short to avoid dense symbols.
+* Keep the body short to avoid dense symbols—our [QR size calculator](/qr-size-calculator) helps estimate the result.
 * Use a monitored shared inbox, not a personal address.
 * Printed email addresses attract spam, so consider a dedicated alias.
+* Verify print quality with our [printed QR tester](/printed-qr-tester) and follow [placement best practices](/qr-placement-guide).
     `,
     [
       {
@@ -112,6 +125,11 @@ Some older scanners use the MATMSG format (MATMSG:TO:...;SUB:...;BODY:...;;). Ph
       {
         question: 'Does mailto work on all phones?',
         answer: 'Yes, provided a default mail app is configured.',
+      },
+      {
+        question: 'How long can the subject and body be?',
+        answer:
+          'Technically unlimited, but long text creates a dense QR code. Keep combined text under 100 characters for best results.',
       },
     ]
   ),
@@ -126,15 +144,15 @@ Some older scanners use the MATMSG format (MATMSG:TO:...;SUB:...;BODY:...;;). Ph
     `
 ### 1. The geo URI
 
-\`geo:24.8607,67.0011\` follows RFC 5870. Android opens it in a maps app. iOS support is less consistent.
+\`geo:24.8607,67.0011\` follows RFC 5870. Android opens it in a maps app. iOS support is less consistent. Test both formats with a [QR scanner](/qr-scanner) on your target devices.
 
 ### 2. Web Map Links
 
-\`https://maps.google.com/?q=24.8607,67.0011\` works on both platforms through the browser or map app. For a named business, link its map listing so the visitor sees reviews and opening hours.
+\`https://maps.google.com/?q=24.8607,67.0011\` works on both platforms through the browser or map app. For a named business, link its map listing so the visitor sees reviews and opening hours. Generate these links easily using our [URL QR code generator](/url-qr-code-generator).
 
 ### 3. Recommendation
 
-For mixed audiences, encode a web map link. Use geo: only when targeting Android in a controlled environment. Verify coordinates by pasting them into a map before printing.
+For mixed audiences, encode a web map link. Use geo: only when targeting Android in a controlled environment. Verify coordinates by pasting them into a map before printing. Check QR code density using our [QR size calculator](/qr-size-calculator) and ensure proper sizing with the [printed QR tester](/printed-qr-tester). For optimal placement on signage, consult our [QR placement guide](/qr-placement-guide).
     `,
     [
       {
@@ -144,6 +162,11 @@ For mixed audiences, encode a web map link. Use geo: only when targeting Android
       {
         question: 'How precise should coordinates be?',
         answer: 'Four to five decimal places (about 1 to 10 meters) is enough.',
+      },
+      {
+        question: 'Can I add a label or place name to a geo URI?',
+        answer:
+          'Yes, using geo:24.8607,67.0011?q=Restaurant%20Name but support varies. Web map links are more reliable for labeled locations.',
       },
     ]
   ),
@@ -167,15 +190,15 @@ LOCATION:Main Hall
 END:VEVENT
 \`\`\`
 
-Times use UTC (Z suffix) or a defined time zone. Some readers expect the block wrapped in BEGIN:VCALENDAR and END:VCALENDAR.
+Times use UTC (Z suffix) or a defined time zone. Some readers expect the block wrapped in BEGIN:VCALENDAR and END:VCALENDAR. Test the payload with a [QR scanner](/qr-scanner) on multiple devices before printing.
 
 ### 2. Compatibility
 
-Behavior varies by reader. The most reliable approach is to encode a short link to a hosted .ics file, which both iOS and Android handle well.
+Behavior varies by reader. The most reliable approach is to encode a short link to a hosted .ics file using our [URL QR code generator](/url-qr-code-generator), which both iOS and Android handle well. This also keeps the QR symbol smaller—verify with our [QR size calculator](/qr-size-calculator).
 
 ### 3. Tips
 
-Convert times to UTC carefully, keep summary and location short, and test with your own phones.
+Convert times to UTC carefully, keep summary and location short, and test with your own phones. For printed event materials, use our [printed QR tester](/printed-qr-tester) to verify scannability and follow the [QR placement guide](/qr-placement-guide) for optimal positioning.
     `,
     [
       {
@@ -185,6 +208,11 @@ Convert times to UTC carefully, keep summary and location short, and test with y
       {
         question: 'Is a hosted .ics link better?',
         answer: 'Usually, because it keeps the symbol small and is widely supported.',
+      },
+      {
+        question: 'Can I include recurring events in a QR code?',
+        answer:
+          'Yes, using RRULE in the vEvent format, but the payload becomes large. A hosted .ics file is more practical.',
       },
     ]
   ),
@@ -201,17 +229,18 @@ Convert times to UTC carefully, keep summary and location short, and test with y
 
 \`tel:+923001234567\`
 
-Use E.164: a plus sign, country code, then the national number without the leading zero. A Pakistani mobile number written locally as 0300 1234567 becomes +92 300 1234567.
+Use E.164: a plus sign, country code, then the national number without the leading zero. A Pakistani mobile number written locally as 0300 1234567 becomes +92 300 1234567. Generate these using our [URL QR code generator](/url-qr-code-generator) by encoding the tel: URI.
 
 ### 2. Behavior
 
-Phones show a call prompt, and the user must confirm. No call is placed automatically.
+Phones show a call prompt, and the user must confirm. No call is placed automatically. Test with a [QR scanner](/qr-scanner) to ensure the number displays correctly before printing.
 
 ### 3. Tips
 
 * Never include spaces or dashes in the payload.
-* Add the number in plain text near the code for accessibility and as a fallback.
-* For business contacts consider a vCard so people can save the number.
+* Add the number in plain text near the code for accessibility and as a fallback—see our [QR placement guide](/qr-placement-guide).
+* For business contacts consider a [vCard QR code](/vcard-qr-code-generator) so people can save the full contact.
+* Verify print quality with our [printed QR tester](/printed-qr-tester) before mass production.
     `,
     [
       {
@@ -221,6 +250,11 @@ Phones show a call prompt, and the user must confirm. No call is placed automati
       {
         question: 'Can the code dial an extension?',
         answer: 'Pause characters are inconsistently supported. Use a direct line instead.',
+      },
+      {
+        question: 'Will international callers be charged more?',
+        answer:
+          'Callers pay their normal international rates. Make this clear on signage if targeting tourists.',
       },
     ]
   ),
@@ -237,17 +271,18 @@ Phones show a call prompt, and the user must confirm. No call is placed automati
 
 \`bitcoin:<address>?amount=0.001&label=Shop&message=Order%20118\`
 
-The amount is in BTC, not satoshis. Label and message are optional URL-encoded text. Many wallets also accept a bare address.
+The amount is in BTC, not satoshis. Label and message are optional URL-encoded text. Many wallets also accept a bare address. Generate these using our [Bitcoin QR code generator](/bitcoin-qr-code-generator) for proper formatting.
 
 ### 2. Safety Practices
 
 * Generate a fresh address per invoice where your wallet supports it.
 * Compare the first and last characters of the address shown in the wallet with your records before sending.
-* On printed or counter displays, protect the code against sticker overlays.
+* On printed or counter displays, protect the code against sticker overlays using our [QR safety checker](/qr-safety-checker) guidance.
+* Verify the code scans correctly with a [QR scanner](/qr-scanner) on multiple wallet apps before deployment.
 
 ### 3. Fiat Volatility
 
-Because prices move, show the fiat value and a payment deadline on checkout pages rather than on permanent printed signs.
+Because prices move, show the fiat value and a payment deadline on checkout pages rather than on permanent printed signs. Use our [QR size calculator](/qr-size-calculator) to plan the appropriate size for counter displays and follow the [QR placement guide](/qr-placement-guide) for optimal positioning.
     `,
     [
       { question: 'Is the amount in BTC or satoshis?', answer: 'BTC, expressed as a decimal.' },
@@ -255,6 +290,11 @@ Because prices move, show the fiat value and a payment deadline on checkout page
         question: 'Can I reuse one address on a printed sign?',
         answer:
           'You can, but address reuse reduces privacy and makes tampering harder to notice. Rotate where practical.',
+      },
+      {
+        question: 'How do I protect against sticker overlay attacks?',
+        answer:
+          'Use tamper-evident materials, regular inspections, and educate customers to verify the payment address before confirming.',
       },
     ]
   ),
@@ -272,15 +312,15 @@ Because prices move, show the fiat value and a payment deadline on checkout page
 * App Store: \`https://apps.apple.com/app/id<APP_ID>\`
 * Google Play: \`https://play.google.com/store/apps/details?id=com.example.app\`
 
-A static code can hold only one of these.
+A static code can hold only one of these. Generate the URL with our [URL QR code generator](/url-qr-code-generator) after setting up the redirect.
 
 ### 2. One Code for Both
 
-Encode a URL on your own domain, such as example.com/app. A tiny server-side script reads the User-Agent header and redirects iOS to the App Store, Android to Google Play, and desktop to a landing page. A client-side script on a landing page can do the same.
+Encode a URL on your own domain, such as example.com/app. A tiny server-side script reads the User-Agent header and redirects iOS to the App Store, Android to Google Play, and desktop to a landing page. A client-side script on a landing page can do the same. Track installations using our [UTM builder](/utm-builder) conventions.
 
 ### 3. Tips
 
-Keep a fallback landing page with both store badges. Test with real devices before printing.
+Keep a fallback landing page with both store badges. Test with real devices before printing using a [QR scanner](/qr-scanner) on iOS and Android. Verify print quality with our [printed QR tester](/printed-qr-tester) and follow [placement guidelines](/qr-placement-guide) for optimal results.
     `,
     [
       {
@@ -292,6 +332,11 @@ Keep a fallback landing page with both store badges. Test with real devices befo
         question: 'What if the app listing URL changes?',
         answer:
           'Because your domain performs the redirect, you update the target without reprinting.',
+      },
+      {
+        question: 'Should I create separate QR codes for iOS and Android?',
+        answer:
+          'No need if you use a smart redirect. One code keeps signage cleaner and reduces user confusion.',
       },
     ]
   ),
@@ -306,19 +351,19 @@ Keep a fallback landing page with both store badges. Test with real devices befo
     `
 ### 1. Dimensions
 
-A business card is held about 20 to 30 cm from the camera. Using the 10:1 rule, the minimum is 2 to 3 cm. Aim for 2.5 cm (about 1 inch) for comfort, never below 2 cm on smooth stock.
+A business card is held about 20 to 30 cm from the camera. Using the 10:1 rule from our [QR size calculator](/qr-size-calculator), the minimum is 2 to 3 cm. Aim for 2.5 cm (about 1 inch) for comfort, never below 2 cm on smooth stock.
 
 ### 2. Quiet Zone
 
-Leave 4 modules of blank margin. For a Version 2 code (25 modules) at 2.5 cm total symbol width, each module is 1 mm, so the margin is 4 mm. Printed designs often forget this on the back of a card.
+Leave 4 modules of blank margin. For a Version 2 code (25 modules) at 2.5 cm total symbol width, each module is 1 mm, so the margin is 4 mm. Printed designs often forget this on the back of a card. Review our [QR placement guide](/qr-placement-guide) for proper spacing.
 
 ### 3. Payload Advice
 
-Link to a short URL. A full vCard with several fields can produce a dense symbol that struggles at this size.
+Link to a short URL created with our [URL QR code generator](/url-qr-code-generator). A full vCard with several fields can produce a dense symbol that struggles at this size—our [vCard QR generator](/vcard-qr-code-generator) can create optimized versions, or use a profile link instead. Test the final card with a [QR scanner](/qr-scanner) and verify quality with our [printed QR tester](/printed-qr-tester).
 
 ### 4. Finish
 
-Matte uncoated or matte laminate scans better than glossy foil. Avoid embossing or spot UV across the modules.
+Matte uncoated or matte laminate scans better than glossy foil. Avoid embossing or spot UV across the modules. Use our [error correction simulator](/error-correction-simulator) to understand how surface treatments affect scannability.
     `,
     [
       {
@@ -329,6 +374,11 @@ Matte uncoated or matte laminate scans better than glossy foil. Avoid embossing 
       {
         question: 'Can I use gold foil for the code?',
         answer: 'Not recommended. Low contrast and reflections reduce reliability.',
+      },
+      {
+        question: 'What if my card design has no space for a 2.5cm code?',
+        answer:
+          'Reduce the payload length to lower the version, or accept that 2cm is the practical minimum on high-quality stock.',
       },
     ]
   ),
@@ -343,23 +393,24 @@ Matte uncoated or matte laminate scans better than glossy foil. Avoid embossing 
     `
 ### 1. Start From the Module
 
-Packaging QR sizing begins with module width, not overall size. Use at least 0.5 mm per module on coated stock and more on corrugated.
+Packaging QR sizing begins with module width, not overall size. Use at least 0.5 mm per module on coated stock and more on corrugated. Our [QR size calculator](/qr-size-calculator) helps determine the total symbol dimensions based on payload and module size.
 
 ### 2. Worked Example
 
 A Version 2 code has 25 modules. Add an 8-module total quiet zone (4 on each side) and you have 33 modules across. At 0.5 mm per module:
 $$33 \\times 0.5 = 16.5\\text{ mm}$$
-A Version 3 code needs (29 + 8) x 0.5 = 18.5 mm.
+A Version 3 code needs (29 + 8) x 0.5 = 18.5 mm. Generate and test with our [URL QR code generator](/url-qr-code-generator).
 
 ### 3. Surface Considerations
 
 * Flexo on kraft or corrugated: 0.85 mm modules or larger.
-* Curved or shrink-sleeve surfaces: place on the flattest area.
+* Curved or shrink-sleeve surfaces: place on the flattest area using our [QR placement guide](/qr-placement-guide).
 * Avoid placing across folds, seams, or glue flaps.
+* Verify scannability with our [printed QR tester](/printed-qr-tester) on actual product samples.
 
 ### 4. Verify
 
-Run a print proof and grade it, or at minimum scan on an older budget phone.
+Run a print proof and grade it, or at minimum scan on an older budget phone with a [QR scanner](/qr-scanner). Understand how print processes affect quality using our [error correction simulator](/error-correction-simulator).
     `,
     [
       {
@@ -370,6 +421,11 @@ Run a print proof and grade it, or at minimum scan on an older budget phone.
       {
         question: 'Does shrink film hurt scanning?',
         answer: 'It can distort and add glare. Test on filled, finished packs.',
+      },
+      {
+        question: 'How do I calculate module size for my printer?',
+        answer:
+          'Divide your desired total QR size by (modules per side + 8 for quiet zone). For a 20mm code at Version 2: 20/(25+8) = 0.606mm per module.',
       },
     ]
   ),
