@@ -7,6 +7,7 @@ import { loadScanGuide } from '@/content/families/scan-guide';
 import type { ContentEntry } from '@/content/schema';
 import { BreadcrumbJsonLd, JsonLd, WebPageJsonLd } from '@/lib/seo/jsonld';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { AdSlot } from '@/components/ads/AdSlot';
 
 export const dynamicParams = false;
 
@@ -190,6 +191,13 @@ export default async function ScanGuidePage({ params }: { params: Promise<{ slug
         <div
           className="prose prose-neutral mt-8 max-w-none dark:prose-invert"
           dangerouslySetInnerHTML={{ __html: renderMarkdown(entry.content) }}
+        />
+
+        {/* In-content ad slot — renders only on audit-passing pages */}
+        <AdSlot
+          slot={siteConfig.adsense.slotInContent}
+          format="in-article"
+          eligible={verdict.passed}
         />
 
         <section className="mt-12" aria-labelledby="faq-heading">

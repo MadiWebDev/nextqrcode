@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { getAllArticles, getArticleBySlug } from '@/lib/articles';
 import { auditVerdict } from '@/content/audit';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { AdSlot } from '@/components/AdSlot';
+import { AdSlot } from '@/components/ads/AdSlot';
+import { siteConfig } from '@/config/site';
 import { Calendar, Clock, UserCheck, ArrowRight, ShieldCheck } from 'lucide-react';
 
 interface Props {
@@ -136,9 +137,6 @@ export default async function ArticlePage({ params }: Props) {
         </div>
       </header>
 
-      {/* Zero-CLS Top Ad Slot */}
-      <AdSlot id={`blog-top-${article.slug}`} format="horizontal-banner" />
-
       {/* Main Editorial Content */}
       <article className="prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed space-y-4">
         <div
@@ -168,8 +166,12 @@ export default async function ArticlePage({ params }: Props) {
         />
       </article>
 
-      {/* Mid-Article Zero-CLS Ad Slot */}
-      <AdSlot id={`blog-mid-${article.slug}`} format="in-article" />
+      {/* Mid-article ad slot — renders only on audit-passing pages */}
+      <AdSlot
+        slot={siteConfig.adsense.slotInContent || 'test-slot'}
+        format="in-article"
+        eligible={auditVerdict('/blog/' + slug).passed}
+      />
 
       {/* FAQ Section */}
       {article.faqs.length > 0 && (

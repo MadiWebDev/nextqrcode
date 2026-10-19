@@ -192,3 +192,17 @@ remediated (D5.2, roadmap in ROLLOUT.md). Total indexed pages ~216 of ~816 built
 
 **Known gaps:** Lighthouse budgets UNVERIFIED in sandbox (no headless Chrome with GPU);
 documented for Phase 9.
+
+## Phase 7 — AdSense ✅
+
+**Done:** `src/components/ads/AdSlot.tsx` (consent+flag+eligible gating, reserved space,
+"Advertisement" label, lazy IntersectionObserver injection); legacy
+`src/components/AdSlot.tsx` kept as a compatibility adapter for 32 existing callers;
+placements on blog (audit-gated) + 5 content families + /q/ (qrPageEligibility-gated);
+`/ads.txt` served from `ADSENSE_PUBLISHER_ID` (legacy static file removed);
+`docs/ADSENSE.md` (eligibility, placements, CMP notes).
+
+**Final gate numbers:** `typecheck` clean · `vitest run` 221/221 · `npm run build` PASS ·
+`playwright` 17/17.
+
+**Known gaps:** AdSense IDs/CMP account owner-configured → no live ad render UNVERIFIED.

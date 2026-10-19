@@ -242,3 +242,18 @@ The user asked for zero questions — the best default is chosen and recorded he
 - **Decision:** Added a single permanent redirect (/home → /). /view exists as a real
   page, so no redirect was added for it.
 - **Reason:** No invented redirects; each entry justified from the repo.
+
+### D7.1 — Legacy public/ads.txt removed (shadowed the env route)
+
+- **Decision:** Moved the hardcoded `public/ads.txt` (pub-4860681021797211, non-standard
+  relationship ID) to recoverable trash; the new `src/app/ads.txt/route.ts` now serves
+  the file from `ADSENSE_PUBLISHER_ID`.
+- **Reason:** In Next.js a static public/ file shadows an app route; keeping it would
+  serve a stale hardcoded publisher ID forever. Recoverable via trash.
+
+### D7.2 — Certified CMP deferred to EEA config
+
+- **Decision:** Kept the custom Consent Mode v2 banner; documented in docs/ADSENSE.md that
+  a Google-certified CMP is required for EEA personalized ads, with the integration point
+  (qrs_cookie_consent / qrs:consent-changed) ready.
+- **Reason:** A certified CMP needs an owner account and vendor contract; no mock CMP.

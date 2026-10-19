@@ -10,6 +10,7 @@ import { getQrTypeMeta } from '@/lib/qr/type-meta';
 import { qrPageEligibility } from '@/lib/ads/eligibility';
 import { BreadcrumbJsonLd, WebPageJsonLd } from '@/lib/seo/jsonld';
 import { QrPageClient } from './QrPageClient';
+import { AdSlot } from '@/components/ads/AdSlot';
 
 export const dynamic = 'force-dynamic';
 
@@ -121,10 +122,11 @@ export default async function QrPage({ params }: { params: Promise<{ publicId: s
   const encoded = qrEncodedText(qr);
   const userId = await getUserId();
   const isOwner = userId !== null && qr.ownerId.toString() === userId;
-  const { indexable } = qrPageEligibility({
+  const { indexable, adsEligible } = qrPageEligibility({
     visibility: qr.visibility,
     moderationStatus: qr.moderation.status,
     title: qr.title,
+    scanCount: qr.scanCount,
   });
   const title = qr.title?.trim() || `${meta.label} QR Code`;
   const pageUrl = `${siteConfig.url}/q/${publicId}`;
@@ -198,6 +200,13 @@ export default async function QrPage({ params }: { params: Promise<{ publicId: s
                 </div>
               </dl>
             </div>
+
+            {/* In-content ad slot — renders only on ads-eligible active QR pages */}
+            <AdSlot
+              slot={siteConfig.adsense.slotInContent}
+              format="in-article"
+              eligible={adsEligible}
+            />
 
             <section aria-labelledby="about-type">
               <h2 id="about-type" className="text-lg font-semibold">

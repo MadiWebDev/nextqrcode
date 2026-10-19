@@ -7,6 +7,7 @@ import { auditVerdict } from '@/content/audit';
 import { siteConfig } from '@/config/site';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { JsonLd, BreadcrumbJsonLd, WebPageJsonLd } from '@/lib/seo/jsonld';
+import { AdSlot } from '@/components/ads/AdSlot';
 
 export const dynamicParams = false;
 
@@ -262,6 +263,13 @@ export default async function SizeGuidePage({ params }: PageProps) {
       <article className="text-slate-700 dark:text-slate-300 leading-relaxed">
         <div dangerouslySetInnerHTML={{ __html: markdownToHtml(entry.content) }} />
       </article>
+
+      {/* In-content ad slot — renders only on audit-passing pages */}
+      <AdSlot
+        slot={siteConfig.adsense.slotInContent}
+        format="in-article"
+        eligible={verdict.passed}
+      />
 
       {/* FAQ */}
       <section className="mt-12 pt-8 border-t border-border/60">

@@ -5,6 +5,7 @@ import { siteConfig } from '@/config/site';
 import { loadIndustries } from '@/content/families/industries';
 import { auditVerdict } from '@/content/audit';
 import { BreadcrumbJsonLd, WebPageJsonLd, JsonLd } from '@/lib/seo/jsonld';
+import { AdSlot } from '@/components/ads/AdSlot';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -185,6 +186,13 @@ export default async function IndustryUseCasePage({ params }: Props) {
       <div
         className="mt-8 space-y-5 leading-relaxed text-slate-700 [&_a]:text-blue-700 [&_a]:underline [&_code]:rounded [&_code]:bg-slate-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm [&_h2]:pt-4 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-slate-900 [&_h3]:pt-4 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-slate-900 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-6 [&_p]:text-[1.02rem] [&_strong]:text-slate-900 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6"
         dangerouslySetInnerHTML={{ __html: mdToHtml(entry.content) }}
+      />
+
+      {/* In-content ad slot — renders only on audit-passing pages */}
+      <AdSlot
+        slot={siteConfig.adsense.slotInContent}
+        format="in-article"
+        eligible={verdict.passed}
       />
 
       <section aria-labelledby="faq-heading" className="mt-12">

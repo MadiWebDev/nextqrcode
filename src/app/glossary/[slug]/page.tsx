@@ -6,6 +6,7 @@ import { loadGlossary } from '@/content/families/glossary';
 import { getGlossaryEntryBySlug, type GlossaryEntry } from '@/data/glossary';
 import { auditVerdict } from '@/content/audit';
 import { JsonLd, BreadcrumbJsonLd, WebPageJsonLd, DefinedTermJsonLd } from '@/lib/seo/jsonld';
+import { AdSlot } from '@/components/ads/AdSlot';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -316,6 +317,13 @@ export default async function GlossaryTermPage({ params }: Props) {
       </p>
 
       <article dangerouslySetInnerHTML={{ __html: renderMarkdown(entry.content) }} />
+
+      {/* In-content ad slot — renders only on audit-passing pages */}
+      <AdSlot
+        slot={siteConfig.adsense.slotInContent}
+        format="in-article"
+        eligible={verdict.passed}
+      />
 
       {entry.faqs.length > 0 && (
         <section className="mt-10" aria-label="Frequently asked questions">
