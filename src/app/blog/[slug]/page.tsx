@@ -6,6 +6,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { AdSlot } from '@/components/ads/AdSlot';
 import { siteConfig } from '@/config/site';
 import { Calendar, Clock, UserCheck, ArrowRight, ShieldCheck } from 'lucide-react';
+import { auditVerdict } from '@/content/audit';
 
 interface Props {
   params: Promise<{ slug: string }>;
