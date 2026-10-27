@@ -4,7 +4,7 @@
  * Legacy compatibility path for AdSlot.
  *
  * The canonical implementation now lives at src/components/ads/AdSlot.tsx
- * with a stricter props contract (consent-gated, lazy-loaded AdSense).
+ * with a stricter props contract (consent-gated, lazy-loaded Adsterra).
  * This wrapper keeps the old `id`/`format` API working for existing page
  * imports by adapting them to the canonical component.
  */
@@ -29,9 +29,7 @@ const FORMAT_MAP: Record<LegacyAdSlotFormat, AdSlotFormat> = {
   'horizontal-banner': 'leaderboard',
   'medium-rectangle': 'rectangle',
   'in-article': 'in-article',
-  // Legacy 300x600 sidebar has no modern equivalent; rectangle is the
-  // closest supported format for the remaining 300px column placements.
-  sidebar: 'rectangle',
+  sidebar: 'sidebar',
 };
 
 export function AdSlot({
