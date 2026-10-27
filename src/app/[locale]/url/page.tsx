@@ -9,6 +9,7 @@ import { setRequestLocale } from 'next-intl/server';
 import UrlLandingPage from '@/app/url-qr-code-generator/page';
 import { localizedLanguages } from '@/i18n/metadata';
 import { siteConfig } from '@/config/site';
+import { AdSlot } from '@/components/AdSlot';
 
 export async function generateMetadata({
   params,
@@ -35,5 +36,11 @@ export default async function LocalizedUrlPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <UrlLandingPage />;
+  return (
+    <>
+      <AdSlot id={`locale-url-${locale}-top`} format="horizontal-banner" />
+      <UrlLandingPage />
+      <AdSlot id={`locale-url-${locale}-bottom`} format="horizontal-banner" />
+    </>
+  );
 }

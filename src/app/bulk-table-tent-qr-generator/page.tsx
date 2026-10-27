@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 type Item = { label: string; payload: string; dataUrl: string; fileName: string };
 
@@ -368,6 +369,8 @@ export default function BulkTableTentQrGeneratorPage() {
         )}
       </Card>
 
+      <AdSlot id="bulk-table-tent-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Use the Bulk Table Tent QR Generator
@@ -387,6 +390,8 @@ export default function BulkTableTentQrGeneratorPage() {
           outdoor tables in the same batch so nothing is missed, and keep a master list of which
           card belongs on which table for reprints and replacements.
         </p>
+
+        <AdSlot id="bulk-table-tent-qr-generator-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off is between one shared menu URL for all tables and a distinct URL per table.
           A shared URL is simpler and the printed cards are interchangeable, but your system cannot
@@ -413,6 +418,8 @@ export default function BulkTableTentQrGeneratorPage() {
         </p>
       </article>
 
+      <AdSlot id="bulk-table-tent-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -430,6 +437,8 @@ export default function BulkTableTentQrGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-table-tent-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

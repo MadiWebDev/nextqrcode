@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { FileText } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -271,6 +272,7 @@ export default function QrToPdfConverterPage() {
           )}
         </Card>
       </div>
+      <AdSlot id="qr-to-pdf-converter-after-tool" format="horizontal-banner" />
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Turn a QR Code into a Printable PDF That Works
@@ -293,6 +295,7 @@ export default function QrToPdfConverterPage() {
           generate a bigger code rather than scaling the page in the printer dialog, because printer
           scaling can soften the module edges and trim the margins unpredictably.
         </p>
+        <AdSlot id="qr-to-pdf-converter-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The instructions line should describe the action in plain language: open the camera, point
           it at the code, tap the link. Avoid telling readers to download an app, because modern
@@ -321,6 +324,7 @@ export default function QrToPdfConverterPage() {
           confidence, because what you tested is exactly what everyone else will receive.
         </p>
       </article>
+      <AdSlot id="qr-to-pdf-converter-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -338,6 +342,7 @@ export default function QrToPdfConverterPage() {
           ))}
         </div>
       </section>
+      <AdSlot id="qr-to-pdf-converter-bottom" format="horizontal-banner" />
     </div>
   );
 }

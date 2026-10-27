@@ -15,6 +15,7 @@ import {
   AlertTriangle,
 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 type Preset = {
   id: string;
@@ -318,6 +319,7 @@ export default function RestaurantQrSuitePage() {
           </Card>
         </div>
       </div>
+      <AdSlot id="restaurant-qr-suite-after-tool" format="horizontal-banner" />
 
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">How to Use the Restaurant QR Suite</h2>
@@ -338,6 +340,7 @@ export default function RestaurantQrSuitePage() {
           ordering flow that works without an account, because forcing a signup at the moment of
           hunger loses orders.
         </p>
+        <AdSlot id="restaurant-qr-suite-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off with digital menus is between a menu you control and a menu a platform
           controls. Your own menu page can be updated in minutes when a dish sells out, and it keeps
@@ -366,6 +369,7 @@ export default function RestaurantQrSuitePage() {
         </p>
       </article>
 
+      <AdSlot id="restaurant-qr-suite-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -383,6 +387,7 @@ export default function RestaurantQrSuitePage() {
           ))}
         </div>
       </section>
+      <AdSlot id="restaurant-qr-suite-bottom" format="horizontal-banner" />
     </div>
   );
 }

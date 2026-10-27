@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Package } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -229,6 +230,7 @@ export default function QrZipPackagerPage() {
           )}
         </Card>
       </div>
+      <AdSlot id="qr-zip-packager-after-tool" format="horizontal-banner" />
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Hand Off QR Artwork to Print Without Errors
@@ -251,6 +253,7 @@ export default function QrZipPackagerPage() {
           seconds. Do this before you send the ZIP, not after, because a mismatch caught at your
           desk costs a minute and a mismatch caught after printing costs the whole run.
         </p>
+        <AdSlot id="qr-zip-packager-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           Notes should answer the three questions the printer will ask: where does this go, how big
           should it be, and how many do I print. Window, 150 millimeters, two copies is a complete
@@ -279,6 +282,7 @@ export default function QrZipPackagerPage() {
           trusted.
         </p>
       </article>
+      <AdSlot id="qr-zip-packager-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -296,6 +300,7 @@ export default function QrZipPackagerPage() {
           ))}
         </div>
       </section>
+      <AdSlot id="qr-zip-packager-bottom" format="horizontal-banner" />
     </div>
   );
 }

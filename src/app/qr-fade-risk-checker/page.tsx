@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Sun } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRFadeRiskCheckerPage() {
   const [sun, setSun] = useState('high');
@@ -112,6 +113,9 @@ export default function QRFadeRiskCheckerPage() {
           { label: 'QR Fade Risk Checker', href: '/qr-fade-risk-checker' },
         ]}
       />
+
+      <AdSlot id="qr-fade-risk-checker-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Sun className="w-3.5 h-3.5" />
@@ -276,6 +280,8 @@ export default function QRFadeRiskCheckerPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-fade-risk-checker-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">Outdoor QR Codes Fade — Plan for It</h2>
         <p className="text-base leading-relaxed">
@@ -300,6 +306,9 @@ export default function QRFadeRiskCheckerPage() {
           Duration multiplies everything — a setup that survives a summer may not survive three
           years, and the score reflects that.
         </p>
+
+        <AdSlot id="qr-fade-risk-checker-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">Designing for a long outdoor life</h3>
         <p className="text-base leading-relaxed">
           Start with the strongest contrast you can: black on white gives the most headroom to lose.
@@ -328,6 +337,9 @@ export default function QRFadeRiskCheckerPage() {
           lifetime in mind will still be scanning when the campaign ends.
         </p>
       </article>
+
+      <AdSlot id="qr-fade-risk-checker-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -345,6 +357,9 @@ export default function QRFadeRiskCheckerPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-fade-risk-checker-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

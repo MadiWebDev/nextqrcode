@@ -307,6 +307,7 @@ export default function UTMBuilderPage() {
           untagged &quot;Direct&quot; traffic. This makes measuring actual return on investment
           (ROI) impossible.
         </p>
+        <AdSlot id="utm-builder-in-content" format="in-article" />
 
         <h3 className="text-xl font-semibold text-foreground">GA4 Standard Taxonomy Rules</h3>
         <p className="text-base leading-relaxed">
@@ -329,6 +330,7 @@ export default function UTMBuilderPage() {
       </article>
 
       {/* Structured FAQ Section */}
+      <AdSlot id="utm-builder-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Campaign QR Codes
@@ -346,6 +348,7 @@ export default function UTMBuilderPage() {
           ))}
         </div>
       </section>
+      <AdSlot id="utm-builder-bottom" format="horizontal-banner" />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Contrast } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRContrastCheckerPage() {
   const [fg, setFg] = useState('#000000');
@@ -220,6 +221,9 @@ export default function QRContrastCheckerPage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-contrast-checker-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Why QR Contrast Decides Whether a Code Scans
@@ -232,6 +236,10 @@ export default function QRContrastCheckerPage() {
           not taste, is the first thing to check on any branded QR code. A beautiful code that does
           not scan is not a design choice, it is a broken link printed on paper.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-contrast-checker-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">How the ratio works</h3>
         <p className="text-base leading-relaxed">
           The WCAG contrast formula compares the relative luminance of the two colours, which is a
@@ -279,6 +287,9 @@ export default function QRContrastCheckerPage() {
           nothing.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-contrast-checker-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -296,6 +307,9 @@ export default function QRContrastCheckerPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-contrast-checker-bottom" format="horizontal-banner" />
     </div>
   );
 }

@@ -112,6 +112,12 @@ export default async function ArticlePage({ params }: Props) {
         ]}
       />
 
+      <AdSlot
+        slot={`blog-${slug}-top`}
+        format="leaderboard"
+        eligible={auditVerdict('/blog/' + slug).passed}
+      />
+
       {/* Header */}
       <header className="mb-8 border-b border-border/60 pb-6">
         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
@@ -196,6 +202,12 @@ export default async function ArticlePage({ params }: Props) {
         </section>
       )}
 
+      <AdSlot
+        slot={`blog-${slug}-pre-related`}
+        format="leaderboard"
+        eligible={auditVerdict('/blog/' + slug).passed}
+      />
+
       {/* Internal Linking Box: Direct link to related tool */}
       <section className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -217,6 +229,12 @@ export default async function ArticlePage({ params }: Props) {
           </Link>
         </div>
       </section>
+
+      <AdSlot
+        slot={`blog-${slug}-bottom`}
+        format="leaderboard"
+        eligible={auditVerdict('/blog/' + slug).passed}
+      />
     </div>
   );
 }

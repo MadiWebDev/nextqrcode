@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'Terms of Service — QR Code Tools',
@@ -57,6 +58,7 @@ export default function TermsPage() {
           Last updated: <time dateTime="2026-10-05">October 5, 2026</time>
         </p>
       </header>
+      <AdSlot id="terms-top" format="horizontal-banner" />
 
       {/* Acceptance */}
       <section>
@@ -129,6 +131,7 @@ export default function TermsPage() {
       </section>
 
       {/* Intellectual Property */}
+      <AdSlot id="terms-in-content" format="in-article" />
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Intellectual Property</h2>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -257,6 +260,7 @@ export default function TermsPage() {
       </section>
 
       {/* Contact */}
+      <AdSlot id="terms-pre-related" format="horizontal-banner" />
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Contact</h2>
         <p className="text-muted-foreground leading-relaxed">
@@ -266,6 +270,7 @@ export default function TermsPage() {
           </a>
         </p>
       </section>
+      <AdSlot id="terms-bottom" format="horizontal-banner" />
     </div>
   );
 }

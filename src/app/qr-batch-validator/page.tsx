@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { ListFilter, Download, CheckCircle2, AlertTriangle, XCircle } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 type Status = 'pass' | 'warn' | 'fail';
 
@@ -307,6 +308,9 @@ export default function QRBatchValidatorPage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-batch-validator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Validating a batch of QR destinations before anything goes to print
@@ -319,6 +323,10 @@ export default function QRBatchValidatorPage() {
           person to find a mistake is a customer. The discipline is simple — validate the whole
           list, fix every failure, review every warning, and only then generate the codes.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-batch-validator-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           The failures this tool catches are the quiet ones. A missing scheme turns a URL into plain
           text that no scanner will open. Whitespace copied from a spreadsheet cell breaks the link
@@ -354,6 +362,9 @@ export default function QRBatchValidatorPage() {
         </p>
       </article>
 
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-batch-validator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Batch Validation
@@ -371,6 +382,9 @@ export default function QRBatchValidatorPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-batch-validator-bottom" format="horizontal-banner" />
     </div>
   );
 }

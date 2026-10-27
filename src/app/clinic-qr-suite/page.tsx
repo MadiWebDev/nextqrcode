@@ -15,6 +15,7 @@ import {
   AlertTriangle,
 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 type Preset = {
   id: string;
@@ -313,6 +314,7 @@ export default function ClinicQrSuitePage() {
         </div>
       </div>
 
+      <AdSlot id="clinic-qr-suite-after-tool" format="horizontal-banner" />
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">How to Use the Clinic QR Suite</h2>
         <p className="text-base leading-relaxed">
@@ -332,6 +334,8 @@ export default function ClinicQrSuitePage() {
           what they hear in the room. Feedback codes should be short and anonymous by default,
           because patients are more honest when the form is quick and private.
         </p>
+
+        <AdSlot id="clinic-qr-suite-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off in a clinic is between convenience and privacy. QR codes make it easy to
           collect information, but health information is sensitive, and a code that collects patient
@@ -359,6 +363,7 @@ export default function ClinicQrSuitePage() {
         </p>
       </article>
 
+      <AdSlot id="clinic-qr-suite-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -376,6 +381,8 @@ export default function ClinicQrSuitePage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="clinic-qr-suite-bottom" format="horizontal-banner" />
     </div>
   );
 }

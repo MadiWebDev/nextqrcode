@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Landmark, Download, Copy, CheckCircle2 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 interface PresetField {
   key: string;
@@ -274,6 +275,7 @@ export default function MuseumQRSuitePage() {
         </div>
       </div>
 
+      <AdSlot id="museum-qr-suite-after-tool" format="horizontal-banner" />
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">How museums use QR codes well</h2>
         <p className="text-base leading-relaxed">
@@ -294,6 +296,8 @@ export default function MuseumQRSuitePage() {
           distance a visitor will stand, on more than one phone, and check that the page loads
           quickly on gallery Wi-Fi or a weak mobile signal.
         </p>
+
+        <AdSlot id="museum-qr-suite-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           Audio-guide codes solve a different problem: they replace a queue for a rented device with
           a page that plays in the browser. The trade-off is that visitors now depend on their own
@@ -324,6 +328,7 @@ export default function MuseumQRSuitePage() {
         </p>
       </article>
 
+      <AdSlot id="museum-qr-suite-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Museum QR Codes
@@ -341,6 +346,8 @@ export default function MuseumQRSuitePage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="museum-qr-suite-bottom" format="horizontal-banner" />
     </div>
   );
 }

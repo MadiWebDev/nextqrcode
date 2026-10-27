@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 type Item = { label: string; payload: string; dataUrl: string; fileName: string };
 
@@ -371,6 +372,8 @@ export default function BulkStudentIdQrGeneratorPage() {
         )}
       </Card>
 
+      <AdSlot id="bulk-student-id-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Use the Bulk Student ID QR Generator
@@ -390,6 +393,8 @@ export default function BulkStudentIdQrGeneratorPage() {
           the student&apos;s whole enrollment while the class is printed text that can be updated at
           the next reprint.
         </p>
+
+        <AdSlot id="bulk-student-id-qr-generator-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The important trade-off is privacy. A student ID code is convenient, but it is also
           personal data about a minor, so it must be treated with care. Encode only what the card
@@ -416,6 +421,8 @@ export default function BulkStudentIdQrGeneratorPage() {
         </p>
       </article>
 
+      <AdSlot id="bulk-student-id-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -433,6 +440,8 @@ export default function BulkStudentIdQrGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-student-id-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

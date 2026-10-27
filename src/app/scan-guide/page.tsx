@@ -4,6 +4,7 @@ import { siteConfig } from '@/config/site';
 import { loadScanGuide } from '@/content/families/scan-guide';
 import { BreadcrumbJsonLd, WebPageJsonLd } from '@/lib/seo/jsonld';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { AdSlot } from '@/components/AdSlot';
 
 const HUB_URL = `${siteConfig.url}/scan-guide`;
 
@@ -44,6 +45,7 @@ export default function ScanGuideHubPage() {
       />
 
       <Breadcrumbs items={[{ label: 'Scan Guides', href: '/scan-guide' }]} />
+      <AdSlot id="scan-guide-top" format="horizontal-banner" />
 
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">QR Code Scanning Guides</h1>
       <p className="mt-4 max-w-2xl text-muted-foreground">
@@ -73,6 +75,7 @@ export default function ScanGuideHubPage() {
         </ul>
       </section>
 
+      <AdSlot id="scan-guide-in-content" format="in-article" />
       <section className="mt-12" aria-labelledby="troubleshooting-heading">
         <h2 id="troubleshooting-heading" className="text-2xl font-semibold">
           Fix scanning problems
@@ -94,6 +97,7 @@ export default function ScanGuideHubPage() {
         </ul>
       </section>
 
+      <AdSlot id="scan-guide-pre-related" format="horizontal-banner" />
       <section className="mt-12 rounded-lg border p-6" aria-labelledby="tools-heading">
         <h2 id="tools-heading" className="text-xl font-semibold">
           Useful QR tools
@@ -118,6 +122,7 @@ export default function ScanGuideHubPage() {
           ))}
         </ul>
       </section>
+      <AdSlot id="scan-guide-bottom" format="horizontal-banner" />
     </main>
   );
 }

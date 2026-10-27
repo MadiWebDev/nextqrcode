@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { FileText, Copy, CheckCircle2 } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 const DATA_OPTIONS = [
   'Scan time and date',
@@ -231,6 +232,9 @@ export default function QRConsentNoteBuilderPage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-consent-note-builder-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Writing a consent note people actually read
@@ -243,6 +247,10 @@ export default function QRConsentNoteBuilderPage() {
           honest: what scanning does, what data it collects, how long the data is kept, who to
           contact, and the fact that scanning is optional.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-consent-note-builder-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Concreteness is the difference between a note that informs and a note that decorates.
           &quot;We may collect certain information to improve your experience&quot; informs nobody.
@@ -279,6 +287,9 @@ export default function QRConsentNoteBuilderPage() {
         </p>
       </article>
 
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-consent-note-builder-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Consent Notes
@@ -296,6 +307,9 @@ export default function QRConsentNoteBuilderPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-consent-note-builder-bottom" format="horizontal-banner" />
     </div>
   );
 }

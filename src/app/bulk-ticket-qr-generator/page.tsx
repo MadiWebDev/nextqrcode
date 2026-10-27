@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 type Item = { label: string; payload: string; dataUrl: string; fileName: string };
 
@@ -376,6 +377,8 @@ export default function BulkTicketQrGeneratorPage() {
         )}
       </Card>
 
+      <AdSlot id="bulk-ticket-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Use the Bulk Ticket QR Generator
@@ -397,6 +400,8 @@ export default function BulkTicketQrGeneratorPage() {
           inside names unless you switch to pipe or tab separators, since a stray comma will split
           one attendee into two columns and produce a wrong ticket.
         </p>
+
+        <AdSlot id="bulk-ticket-qr-generator-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off with plain-text ticket payloads is that anyone who can read the QR content
           can also forge a ticket with the same format. For free community events that risk is
@@ -424,6 +429,8 @@ export default function BulkTicketQrGeneratorPage() {
         </p>
       </article>
 
+      <AdSlot id="bulk-ticket-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -441,6 +448,8 @@ export default function BulkTicketQrGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-ticket-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

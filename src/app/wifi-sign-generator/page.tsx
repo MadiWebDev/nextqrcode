@@ -313,6 +313,7 @@ export default function WifiSignGeneratorPage() {
           phrasing and proper ligature rendering so your international guests feel welcomed
           immediately upon taking their seats.
         </p>
+        <AdSlot id="wifi-sign-generator-in-content" format="in-article" />
 
         <h3 className="text-xl font-semibold text-foreground">
           Table Tent Material and Durability Advice
@@ -325,6 +326,7 @@ export default function WifiSignGeneratorPage() {
       </article>
 
       {/* Structured FAQ Section */}
+      <AdSlot id="wifi-sign-generator-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About WiFi Signs
@@ -342,6 +344,7 @@ export default function WifiSignGeneratorPage() {
           ))}
         </div>
       </section>
+      <AdSlot id="wifi-sign-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

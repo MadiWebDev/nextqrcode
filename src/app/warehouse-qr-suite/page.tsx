@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Package, Download, Copy, CheckCircle2 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 interface PresetField {
   key: string;
@@ -265,6 +266,7 @@ export default function WarehouseQRSuitePage() {
           </Card>
         </div>
       </div>
+      <AdSlot id="warehouse-qr-suite-after-tool" format="horizontal-banner" />
 
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
@@ -288,6 +290,7 @@ export default function WarehouseQRSuitePage() {
           in between: the pick-list reference goes in the code, while the line items stay in the
           system where they can be updated if an order changes mid-shift.
         </p>
+        <AdSlot id="warehouse-qr-suite-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The second decision is size and placement. Measure the real scanning distance for each
           use, not the distance you imagine. A handheld scanner at arm length is a different problem
@@ -317,6 +320,7 @@ export default function WarehouseQRSuitePage() {
         </p>
       </article>
 
+      <AdSlot id="warehouse-qr-suite-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Warehouse QR Codes
@@ -334,6 +338,7 @@ export default function WarehouseQRSuitePage() {
           ))}
         </div>
       </section>
+      <AdSlot id="warehouse-qr-suite-bottom" format="horizontal-banner" />
     </div>
   );
 }

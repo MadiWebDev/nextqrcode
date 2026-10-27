@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { loadIndustries } from '@/content/families/industries';
 import { BreadcrumbJsonLd } from '@/lib/seo/jsonld';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'QR Codes by Industry — QR Studio',
@@ -69,6 +70,8 @@ export default function IndustriesHubPage() {
         </ol>
       </nav>
 
+      <AdSlot id="industries-top" format="horizontal-banner" />
+
       <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
         QR Codes by Industry
       </h1>
@@ -78,6 +81,7 @@ export default function IndustriesHubPage() {
         configured for the job.
       </p>
 
+      <AdSlot id="industries-in-content" format="in-article" />
       {ordered.map(({ industry, items }) => (
         <section key={industry} aria-labelledby={`industry-${industry}`} className="mt-12">
           <h2
@@ -103,6 +107,8 @@ export default function IndustriesHubPage() {
           </ul>
         </section>
       ))}
+
+      <AdSlot id="industries-bottom" format="horizontal-banner" />
     </div>
   );
 }

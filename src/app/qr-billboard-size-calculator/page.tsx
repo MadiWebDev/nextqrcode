@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { RectangleHorizontal } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRBillboardSizeCalculatorPage() {
   const [distance, setDistance] = useState(30);
@@ -226,6 +227,9 @@ export default function QRBillboardSizeCalculatorPage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-billboard-size-calculator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">Why Billboard QR Codes Fail So Often</h2>
         <p className="text-base leading-relaxed">
@@ -236,6 +240,10 @@ export default function QRBillboardSizeCalculatorPage() {
           sensor, and distance eats pixels fast. That is why a code that looks enormous on a proof
           can be a postage stamp from the pavement across the road.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-billboard-size-calculator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           Start from the 10:1 rule, then adjust for motion
         </h3>
@@ -289,6 +297,9 @@ export default function QRBillboardSizeCalculatorPage() {
           ignores them is an expensive decoration.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-billboard-size-calculator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -306,6 +317,9 @@ export default function QRBillboardSizeCalculatorPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-billboard-size-calculator-bottom" format="horizontal-banner" />
     </div>
   );
 }

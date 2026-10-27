@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { Fingerprint, CheckCircle2, XCircle, Copy, Download } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 async function sha256Hex(text: string): Promise<string> {
   const bytes = new TextEncoder().encode(text);
@@ -273,6 +274,9 @@ export default function QRChecksumGeneratorPage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-checksum-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Using checksums to prove a printed QR code was not altered
@@ -286,6 +290,10 @@ export default function QRChecksumGeneratorPage() {
           If a single character differs — a swapped digit, a changed letter, an extra space — the
           checksum changes completely, and the mismatch is obvious.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-checksum-generator-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           The separate channel is the whole point, and it is where checksum schemes usually fail. A
           checksum printed on the same label as the code, or embedded inside the payload itself,
@@ -320,6 +328,9 @@ export default function QRChecksumGeneratorPage() {
         </p>
       </article>
 
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-checksum-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Checksums
@@ -337,6 +348,9 @@ export default function QRChecksumGeneratorPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-checksum-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

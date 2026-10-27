@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'Disclaimer — QR Code Tools',
@@ -50,6 +51,8 @@ export default function DisclaimerPage() {
           </li>
         </ol>
       </nav>
+
+      <AdSlot id="disclaimer-top" format="horizontal-banner" />
 
       <header>
         <h1 className="text-3xl font-extrabold tracking-tight">Disclaimer</h1>
@@ -133,6 +136,7 @@ export default function DisclaimerPage() {
         </div>
       </section>
 
+      <AdSlot id="disclaimer-in-content" format="in-article" />
       {/* QR Scannability */}
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">QR Code Scannability</h2>
@@ -183,6 +187,7 @@ export default function DisclaimerPage() {
         </p>
       </section>
 
+      <AdSlot id="disclaimer-pre-related" format="horizontal-banner" />
       {/* Changes */}
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Changes to This Disclaimer</h2>
@@ -203,6 +208,8 @@ export default function DisclaimerPage() {
           </a>
         </p>
       </section>
+
+      <AdSlot id="disclaimer-bottom" format="horizontal-banner" />
     </div>
   );
 }

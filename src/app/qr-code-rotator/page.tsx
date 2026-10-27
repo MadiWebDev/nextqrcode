@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { RotateCw } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -295,6 +296,9 @@ export default function QrCodeRotatorPage() {
           </p>
         </Card>
       </div>
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-code-rotator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">When and How to Rotate a QR Code</h2>
         <p className="text-base leading-relaxed">
@@ -306,6 +310,10 @@ export default function QrCodeRotatorPage() {
           or a layout tool, and it is why the quarter-turn buttons on this tool are the ones to
           reach for first.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-code-rotator-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           The practical use cases are mostly about fixing other people&apos;s orientation mistakes.
           A photo of a printed code taken with the phone sideways, a scan that saved the image
@@ -345,6 +353,9 @@ export default function QrCodeRotatorPage() {
           original.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-code-rotator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -362,6 +373,9 @@ export default function QrCodeRotatorPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-code-rotator-bottom" format="horizontal-banner" />
     </div>
   );
 }

@@ -11,6 +11,7 @@ import { HomePageContent } from '@/components/home/HomePage';
 import { localizedLanguages } from '@/i18n/metadata';
 import { defaultLocale } from '@/i18n/routing';
 import { siteConfig } from '@/config/site';
+import { AdSlot } from '@/components/AdSlot';
 
 export async function generateMetadata({
   params,
@@ -37,5 +38,11 @@ export default async function LocalizedHomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <HomePageContent />;
+  return (
+    <>
+      <AdSlot id={`locale-${locale}-top`} format="horizontal-banner" />
+      <HomePageContent />
+      <AdSlot id={`locale-${locale}-bottom`} format="horizontal-banner" />
+    </>
+  );
 }

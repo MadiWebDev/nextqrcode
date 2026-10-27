@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { HomePageContent } from '@/components/home/HomePage';
 import { localizedLanguages } from '@/i18n/metadata';
 import { siteConfig } from '@/config/site';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'Free QR Code Generator & Optical Engineering Suite — QR Code Tools',
@@ -26,5 +27,12 @@ export const metadata: Metadata = {
  * `src/components/home/HomePage.tsx` so `/[locale]` renders the same content.
  */
 export default function HomePage() {
-  return <HomePageContent />;
+  return (
+    <>
+      <HomePageContent />
+      {/* Bottom slot. ID is home-bottom-2 (not home-bottom) to stay unique
+          against the pre-existing home-bottom slot inside HomePageContent. */}
+      <AdSlot id="home-bottom-2" format="horizontal-banner" />
+    </>
+  );
 }

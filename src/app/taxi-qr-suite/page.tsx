@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Car, Download, Copy, CheckCircle2 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 interface PresetField {
   key: string;
@@ -261,6 +262,7 @@ export default function TaxiQRSuitePage() {
           </Card>
         </div>
       </div>
+      <AdSlot id="taxi-qr-suite-after-tool" format="horizontal-banner" />
 
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
@@ -282,6 +284,7 @@ export default function TaxiQRSuitePage() {
           weak signal and in a hurry. If the booking page changes address, update the printed cards
           at the same time — a stack of cards pointing at a dead page is worse than no cards at all.
         </p>
+        <AdSlot id="taxi-qr-suite-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           Driver-profile codes serve safety. A passenger who can check the driver&apos;s name, badge
           number, vehicle, and plate against what is in front of them can confirm they are in the
@@ -311,6 +314,7 @@ export default function TaxiQRSuitePage() {
         </p>
       </article>
 
+      <AdSlot id="taxi-qr-suite-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Taxi QR Codes
@@ -328,6 +332,7 @@ export default function TaxiQRSuitePage() {
           ))}
         </div>
       </section>
+      <AdSlot id="taxi-qr-suite-bottom" format="horizontal-banner" />
     </div>
   );
 }

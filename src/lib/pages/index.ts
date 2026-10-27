@@ -168,6 +168,7 @@ import { batch166 } from './Batch166';
 import { batch167 } from './Batch167';
 import { batch168 } from './Batch168';
 import { batch169 } from './Batch169';
+import { batch170 } from './Batch170';
 
 export const NEW_ARTICLES: Article[] = [
   ...batch1,
@@ -339,6 +340,7 @@ export const NEW_ARTICLES: Article[] = [
   ...batch167,
   ...batch168,
   ...batch169,
+  ...batch170,
 ];
 
 // Build-time guard. Word-count floor is 120 for these seed articles;

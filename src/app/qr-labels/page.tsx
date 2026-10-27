@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllLabelSheets } from '@/data/labels';
 import { Tag } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'QR Code Label Sheet Templates — Avery, Herma & More',
@@ -24,6 +25,8 @@ export default function QrLabelsIndexPage() {
           batch QR codes and print them at exactly the right size — zero drift.
         </p>
       </header>
+
+      <AdSlot id="qr-labels-top" format="horizontal-banner" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {sheets.map((sheet) => (
@@ -54,6 +57,9 @@ export default function QrLabelsIndexPage() {
           </Link>
         ))}
       </div>
+
+      <AdSlot id="qr-labels-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

@@ -31,6 +31,7 @@ import type { QRType, QRData, CustomizationOptions, QRState } from '@/types';
 import { DEFAULT_CUSTOMIZATION } from '@/lib/defaults';
 import { generateQRData, getTypeConfig } from '@/lib/qr-helpers';
 import { useDebounce } from '@/hooks/useDebounce';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -146,6 +147,7 @@ export default function WifiQRPage() {
           </div>
         </div>
       </section>
+      <AdSlot id="wifi-qr-code-generator-after-tool" format="horizontal-banner" />
 
       {/* ── How-to ─────────────────────────────────────────────────────────── */}
       <section className="space-y-4 max-w-3xl mx-auto">
@@ -165,6 +167,7 @@ export default function WifiQRPage() {
           ))}
         </ol>
       </section>
+      <AdSlot id="wifi-qr-code-generator-in-content" format="in-article" />
 
       {/* ── FAQ ──────────────────────────────────────────────────────────────── */}
       <section className="space-y-4 max-w-3xl mx-auto">
@@ -183,6 +186,7 @@ export default function WifiQRPage() {
         </Accordion>
       </section>
 
+      <AdSlot id="wifi-qr-code-generator-pre-related" format="horizontal-banner" />
       {/* ── Related tools ─────────────────────────────────────────────────── */}
       <section className="space-y-3 max-w-3xl mx-auto">
         <h2 className="text-xl font-bold">Related QR Code Tools</h2>
@@ -202,6 +206,7 @@ export default function WifiQRPage() {
           ))}
         </div>
       </section>
+      <AdSlot id="wifi-qr-code-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Hourglass, AlertTriangle, CheckCircle2, Info } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 interface CheckResult {
   verdict: string;
@@ -243,6 +244,9 @@ export default function QRExpiryCheckerPage() {
         </div>
       </div>
 
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-expiry-checker-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Why QR destinations die, and how to tell
@@ -255,6 +259,10 @@ export default function QRExpiryCheckerPage() {
           becomes a dead end. The fix is organisational, not technical: someone must own each
           destination, know when it ends, and retire it deliberately.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-expiry-checker-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           The first distinction to make is between a static and a dynamic code. A static code has
           the destination baked into its pattern; if the page moves, the code is wrong and only
@@ -292,6 +300,9 @@ export default function QRExpiryCheckerPage() {
         </p>
       </article>
 
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-expiry-checker-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Expiry
@@ -309,6 +320,9 @@ export default function QRExpiryCheckerPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-expiry-checker-bottom" format="horizontal-banner" />
     </div>
   );
 }

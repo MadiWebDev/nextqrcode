@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Ruler } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -113,6 +114,9 @@ export default function QrSizePresetsPage() {
           { label: 'QR Size Presets', href: '/qr-size-presets' },
         ]}
       />
+
+      <AdSlot id="qr-size-presets-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Ruler className="w-3.5 h-3.5" />
@@ -206,6 +210,9 @@ export default function QrSizePresetsPage() {
           </p>
         </Card>
       </div>
+
+      <AdSlot id="qr-size-presets-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Picking the Right QR Size for Every Surface
@@ -231,6 +238,9 @@ export default function QrSizePresetsPage() {
           glare and glass into the equation, so a window code should be sized generously and placed
           where reflections are weakest.
         </p>
+
+        <AdSlot id="qr-size-presets-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Billboards deserve a special warning. The arithmetic says a billboard scanned from 15
           metres needs a code 1.5 metres wide, and from 25 metres it needs 2.5 metres. That is
@@ -259,6 +269,9 @@ export default function QrSizePresetsPage() {
           change.
         </p>
       </article>
+
+      <AdSlot id="qr-size-presets-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -276,6 +289,9 @@ export default function QrSizePresetsPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-size-presets-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Split } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -225,6 +226,9 @@ export default function QrABTestPlannerPage() {
           </p>
         </Card>
       </div>
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-a-b-test-planner-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to Run a QR A/B Test That Actually Means Something
@@ -239,6 +243,10 @@ export default function QrABTestPlannerPage() {
           This planner exists to prevent those mistakes by fixing the sample size, the metric, and
           the decision rules before the test starts.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-a-b-test-planner-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Start with a single change. Variant A is the current version; variant B changes one thing,
           such as the headline, the code size, the call to action, or the placement. Changing three
@@ -279,6 +287,9 @@ export default function QrABTestPlannerPage() {
           evidence instead of opinion.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-a-b-test-planner-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -296,6 +307,9 @@ export default function QrABTestPlannerPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-a-b-test-planner-bottom" format="horizontal-banner" />
     </div>
   );
 }

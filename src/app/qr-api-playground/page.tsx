@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Terminal } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 const FAQS = [
   {
@@ -264,6 +265,9 @@ export default function QrApiPlaygroundPage() {
           </div>
         </Card>
       </div>
+      {/* After-tool AdSlot */}
+      <AdSlot id="qr-api-playground-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How QR Generation APIs Work, Parameter by Parameter
@@ -278,6 +282,10 @@ export default function QrApiPlaygroundPage() {
           you self-host generation, the same parameter names map onto the same concepts in your own
           service.
         </p>
+
+        {/* In-content AdSlot */}
+        <AdSlot id="qr-api-playground-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Content comes first, because it decides the density of the whole code. Every character you
           encode adds modules to the grid, and every module makes each square smaller at a fixed
@@ -317,6 +325,9 @@ export default function QrApiPlaygroundPage() {
           of infrastructure, and it deserves the same care as any other.
         </p>
       </article>
+      {/* Pre-related AdSlot */}
+      <AdSlot id="qr-api-playground-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -334,6 +345,9 @@ export default function QrApiPlaygroundPage() {
           ))}
         </div>
       </section>
+
+      {/* Bottom AdSlot */}
+      <AdSlot id="qr-api-playground-bottom" format="horizontal-banner" />
     </div>
   );
 }

@@ -15,6 +15,7 @@ import {
   AlertTriangle,
 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 type Preset = {
   id: string;
@@ -318,6 +319,7 @@ export default function RetailQrSuitePage() {
           </Card>
         </div>
       </div>
+      <AdSlot id="retail-qr-suite-after-tool" format="horizontal-banner" />
 
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">How to Use the Retail QR Suite</h2>
@@ -338,6 +340,7 @@ export default function RetailQrSuitePage() {
           joining or identifying a member take seconds, because any friction at the till creates a
           queue.
         </p>
+        <AdSlot id="retail-qr-suite-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           The trade-off with price-tag codes is whether the price itself lives in the code or on the
           page it points to. Prices inside a QR payload go stale the moment a price changes, and a
@@ -364,6 +367,7 @@ export default function RetailQrSuitePage() {
         </p>
       </article>
 
+      <AdSlot id="retail-qr-suite-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" /> Frequently Asked Questions
@@ -381,6 +385,7 @@ export default function RetailQrSuitePage() {
           ))}
         </div>
       </section>
+      <AdSlot id="retail-qr-suite-bottom" format="horizontal-banner" />
     </div>
   );
 }

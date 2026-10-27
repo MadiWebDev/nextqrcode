@@ -242,6 +242,13 @@ export default async function QrPage({ params }: { params: Promise<{ publicId: s
             )}
           </div>
         </div>
+
+        {/* Bottom AdSlot */}
+        <AdSlot
+          slot={`q-${publicId}-bottom`}
+          format="leaderboard"
+          eligible={adsEligible}
+        />
       </div>
     </div>
   );

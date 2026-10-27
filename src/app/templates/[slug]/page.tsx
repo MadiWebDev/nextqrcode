@@ -145,6 +145,11 @@ export default async function TemplatePage({ params }: Props) {
           { label: template.name, href: `/templates/${slug}` },
         ]}
       />
+      <AdSlot
+        slot={`templates-${slug}-top`}
+        format="leaderboard"
+        eligible={verdict.passed}
+      />
 
       <header className="mb-8 border-b border-border/60 pb-6">
         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
@@ -207,6 +212,12 @@ export default async function TemplatePage({ params }: Props) {
         </div>
       </div>
 
+      <AdSlot
+        slot={`templates-${slug}-after-tool`}
+        format="leaderboard"
+        eligible={verdict.passed}
+      />
+
       <article
         className="text-slate-700 dark:text-slate-300 leading-relaxed"
         dangerouslySetInnerHTML={{ __html: renderContent(entry.content) }}
@@ -235,6 +246,11 @@ export default async function TemplatePage({ params }: Props) {
           ))}
         </div>
       </section>
+      <AdSlot
+        slot={`templates-${slug}-bottom`}
+        format="leaderboard"
+        eligible={verdict.passed}
+      />
     </div>
   );
 }

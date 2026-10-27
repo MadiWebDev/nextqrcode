@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ContactForm } from '@/components/ContactForm';
+import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
   title: 'Contact QR Code Tools — Get in Touch',
@@ -51,6 +52,8 @@ export default function ContactPage() {
           </li>
         </ol>
       </nav>
+
+      <AdSlot id="contact-top" format="horizontal-banner" />
 
       <header>
         <h1 className="text-3xl font-extrabold tracking-tight">Contact QR Code Tools</h1>
@@ -114,6 +117,7 @@ export default function ContactPage() {
         </ul>
       </section>
 
+      <AdSlot id="contact-in-content" format="in-article" />
       {/* Direct email addresses */}
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">Direct Email Addresses</h2>
@@ -184,6 +188,7 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <AdSlot id="contact-pre-related" format="horizontal-banner" />
       {/* What to include */}
       <section>
         <h2 className="text-2xl font-bold mb-4 text-foreground">What to Include</h2>
@@ -220,6 +225,8 @@ export default function ContactPage() {
         </p>
         <ContactForm />
       </section>
+
+      <AdSlot id="contact-bottom" format="horizontal-banner" />
     </div>
   );
 }

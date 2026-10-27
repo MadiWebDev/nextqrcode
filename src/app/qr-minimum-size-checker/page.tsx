@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { ScanLine } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRMinimumSizeCheckerPage() {
   const [planned, setPlanned] = useState(40);
@@ -81,6 +82,9 @@ export default function QRMinimumSizeCheckerPage() {
           { label: 'QR Minimum Size Checker', href: '/qr-minimum-size-checker' },
         ]}
       />
+
+      <AdSlot id="qr-minimum-size-checker-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <ScanLine className="w-3.5 h-3.5" />
@@ -242,6 +246,8 @@ export default function QRMinimumSizeCheckerPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-minimum-size-checker-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">A Go / No-Go Check Before You Print</h2>
         <p className="text-base leading-relaxed">
@@ -264,6 +270,9 @@ export default function QRMinimumSizeCheckerPage() {
           case. The most common sizing error is measuring the distance from the nearest kerb instead
           of from where people actually stand, so measure the real viewing position.
         </p>
+
+        <AdSlot id="qr-minimum-size-checker-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">What to do when the plan fails</h3>
         <p className="text-base leading-relaxed">
           A failing check leaves three honest options. Enlarge the code, which is the right answer
@@ -297,6 +306,9 @@ export default function QRMinimumSizeCheckerPage() {
           The maths takes ten seconds. The proof takes ten minutes. Both are cheaper than a reprint.
         </p>
       </article>
+
+      <AdSlot id="qr-minimum-size-checker-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -314,6 +326,9 @@ export default function QRMinimumSizeCheckerPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-minimum-size-checker-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

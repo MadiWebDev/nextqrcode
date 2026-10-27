@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Square } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRModuleSizeCalculatorPage() {
   const [version, setVersion] = useState(5);
@@ -85,6 +86,9 @@ export default function QRModuleSizeCalculatorPage() {
           { label: 'QR Module Size Calculator', href: '/qr-module-size-calculator' },
         ]}
       />
+
+      <AdSlot id="qr-module-size-calculator-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Square className="w-3.5 h-3.5" />
@@ -241,6 +245,8 @@ export default function QRModuleSizeCalculatorPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-module-size-calculator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Module Size: The Smallest Number That Matters
@@ -265,6 +271,9 @@ export default function QRModuleSizeCalculatorPage() {
           These bands are why two codes printed at the same size can behave so differently: the one
           with the longer payload has a higher version, more modules, and therefore smaller modules.
         </p>
+
+        <AdSlot id="qr-module-size-calculator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           The two fixes, and when to use each
         </h3>
@@ -299,6 +308,9 @@ export default function QRModuleSizeCalculatorPage() {
           about size.
         </p>
       </article>
+
+      <AdSlot id="qr-module-size-calculator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -316,6 +328,9 @@ export default function QRModuleSizeCalculatorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-module-size-calculator-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

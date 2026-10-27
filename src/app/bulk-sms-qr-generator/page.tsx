@@ -10,6 +10,7 @@ import { Slider } from '@/components/ui/slider';
 import { MessageSquare } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function BulkSMSQRGeneratorPage() {
   const [raw, setRaw] = useState(
@@ -264,6 +265,8 @@ export default function BulkSMSQRGeneratorPage() {
         </div>
       </div>
 
+      <AdSlot id="bulk-sms-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           SMS QR Codes at Scale, Without the Typos
@@ -277,6 +280,8 @@ export default function BulkSMSQRGeneratorPage() {
           the errors the codes exist to prevent. Bulk generation takes a pasted table of numbers and
           messages and produces the whole batch in one pass.
         </p>
+
+        <AdSlot id="bulk-sms-qr-generator-in-content" format="in-article" />
         <h3 className="text-xl font-semibold text-foreground">
           The row format and why it is strict
         </h3>
@@ -324,6 +329,8 @@ export default function BulkSMSQRGeneratorPage() {
           consent, they make texting a business as easy as pointing a camera.
         </p>
       </article>
+      <AdSlot id="bulk-sms-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -341,6 +348,8 @@ export default function BulkSMSQRGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-sms-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

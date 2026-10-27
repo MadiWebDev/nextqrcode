@@ -10,6 +10,7 @@ import { Slider } from '@/components/ui/slider';
 import { Ticket } from 'lucide-react';
 import QRCodeLib from 'qrcode';
 import JSZip from 'jszip';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function BulkCouponQRGeneratorPage() {
   const [raw, setRaw] = useState(
@@ -276,6 +277,8 @@ export default function BulkCouponQRGeneratorPage() {
         </div>
       </div>
 
+      <AdSlot id="bulk-coupon-qr-generator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Coupon Batches That Staff Can Actually Redeem
@@ -289,6 +292,8 @@ export default function BulkCouponQRGeneratorPage() {
           into an unlimited one. Bulk generation takes a table of offers and codes and produces a
           set where every code is distinct, with duplicates flagged before anything is printed.
         </p>
+
+        <AdSlot id="bulk-coupon-qr-generator-in-content" format="in-article" />
         <h3 className="text-xl font-semibold text-foreground">Designing codes that behave</h3>
         <p className="text-base leading-relaxed">
           Keep codes short, readable, and self-describing: WELCOME20 beats a random string because
@@ -324,6 +329,8 @@ export default function BulkCouponQRGeneratorPage() {
           promises cheap to honour and hard to abuse.
         </p>
       </article>
+      <AdSlot id="bulk-coupon-qr-generator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -341,6 +348,8 @@ export default function BulkCouponQRGeneratorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="bulk-coupon-qr-generator-bottom" format="horizontal-banner" />
     </div>
   );
 }

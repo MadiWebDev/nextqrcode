@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { GitBranch, AlertTriangle, CheckCircle2, Info } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 interface HopAnalysis {
   label: string;
@@ -184,6 +185,9 @@ export default function QRRedirectChainViewerPage() {
           { label: 'QR Redirect Chain Viewer', href: '/qr-redirect-chain-viewer' },
         ]}
       />
+
+      <AdSlot id="qr-redirect-chain-viewer-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <GitBranch className="w-3.5 h-3.5" />
@@ -294,6 +298,8 @@ export default function QRRedirectChainViewerPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-redirect-chain-viewer-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How to read a QR redirect chain without being fooled
@@ -316,6 +322,9 @@ export default function QRRedirectChainViewerPage() {
           for punycode that can make a lookalike domain render like a familiar brand. None of these
           alone proves harm, but each one raises the bar for what you should believe next.
         </p>
+
+        <AdSlot id="qr-redirect-chain-viewer-in-content" format="in-article" />
+
         <p className="text-base leading-relaxed">
           Next, consider what a browser can and cannot tell you. When a page on one origin fetches a
           URL on another, the destination may refuse to be read — cross-origin resource sharing
@@ -343,6 +352,8 @@ export default function QRRedirectChainViewerPage() {
         </p>
       </article>
 
+      <AdSlot id="qr-redirect-chain-viewer-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About QR Redirect Chains
@@ -360,6 +371,9 @@ export default function QRRedirectChainViewerPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-redirect-chain-viewer-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

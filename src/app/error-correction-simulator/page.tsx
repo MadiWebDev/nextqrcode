@@ -397,6 +397,8 @@ export default function ErrorCorrectionSimulatorPage() {
           </li>
         </ul>
 
+        <AdSlot id="error-correction-simulator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           Why Finder Patterns Are the Single Point of Failure
         </h3>
@@ -411,6 +413,7 @@ export default function ErrorCorrectionSimulatorPage() {
       </article>
 
       {/* Structured FAQ Section */}
+      <AdSlot id="error-correction-simulator-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Error Correction
@@ -428,6 +431,8 @@ export default function ErrorCorrectionSimulatorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="error-correction-simulator-bottom" format="horizontal-banner" />
     </div>
   );
 }

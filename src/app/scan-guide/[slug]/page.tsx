@@ -180,6 +180,11 @@ export default async function ScanGuidePage({ params }: { params: Promise<{ slug
           { label: entry.h1, href: `/scan-guide/${entry.slug}` },
         ]}
       />
+      <AdSlot
+        slot={`scan-guide-${slug}-top`}
+        format="leaderboard"
+        eligible={verdict.passed}
+      />
 
       <article>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{entry.h1}</h1>
@@ -235,6 +240,11 @@ export default async function ScanGuidePage({ params }: { params: Promise<{ slug
           </section>
         )}
 
+      <AdSlot
+        slot={`scan-guide-${slug}-pre-related`}
+        format="leaderboard"
+        eligible={verdict.passed}
+      />
         {related.length > 0 && (
           <section className="mt-12" aria-labelledby="related-heading">
             <h2 id="related-heading" className="text-2xl font-semibold">
@@ -255,6 +265,11 @@ export default async function ScanGuidePage({ params }: { params: Promise<{ slug
           </section>
         )}
       </article>
+      <AdSlot
+        slot={`scan-guide-${slug}-bottom`}
+        format="leaderboard"
+        eligible={verdict.passed}
+      />
     </main>
   );
 }

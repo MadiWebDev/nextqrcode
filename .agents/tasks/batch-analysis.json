@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-19T12:58:27.017Z",
+  "generatedAt": "2026-10-22T18:56:09.247Z",
   "summary": {
-    "totalArticles": 1581,
-    "passing": 1581,
+    "totalArticles": 1591,
+    "passing": 1591,
     "failing": 0,
     "fewFaqs": 0,
     "manyFaqs": 0,
@@ -13,7 +13,7 @@
     "missingByline": 0,
     "missingDate": 0,
     "duplicateSlugs": [],
-    "staticRouteCount": 146
+    "staticRouteCount": 246
   },
   "brokenLinkTargets": {},
   "articles": {
@@ -32846,6 +32846,206 @@
         "/qr-safety-checker",
         "/qr-size-calculator",
         "/qr-scanner",
+        "/blog"
+      ],
+      "brokenLinks": [],
+      "deficiencies": []
+    },
+    "restaurant-menu-qr-code-setup-guide": {
+      "source": "unknown",
+      "file": "unknown",
+      "title": "Restaurant Menu QR Codes: A Complete Setup Guide",
+      "category": "Business & Regional",
+      "words": 686,
+      "faqCount": 4,
+      "uniqueFaqQuestions": 4,
+      "linkCount": 6,
+      "linkTargets": [
+        "/bulk-menu-item-qr-generator",
+        "/qr-size-calculator",
+        "/qr-scanner",
+        "/qr-batch-validator",
+        "/coupon-qr-code-generator",
+        "/blog"
+      ],
+      "brokenLinks": [],
+      "deficiencies": []
+    },
+    "wifi-qr-code-for-guests-guide": {
+      "source": "unknown",
+      "file": "unknown",
+      "title": "Wi-Fi QR Codes for Guests: Share Your Network Without the Password Hassle",
+      "category": "Fundamentals",
+      "words": 620,
+      "faqCount": 4,
+      "uniqueFaqQuestions": 4,
+      "linkCount": 6,
+      "linkTargets": [
+        "/bulk-wifi-qr-generator",
+        "/qr-scanner",
+        "/qr-safety-checker",
+        "/qr-size-calculator",
+        "/vcard-qr-code-generator",
+        "/blog"
+      ],
+      "brokenLinks": [],
+      "deficiencies": []
+    },
+    "wedding-rsvp-qr-code-guide": {
+      "source": "unknown",
+      "file": "unknown",
+      "title": "Wedding QR Codes: RSVPs, Directions, and Photo Sharing Done Simply",
+      "category": "Business & Regional",
+      "words": 659,
+      "faqCount": 4,
+      "uniqueFaqQuestions": 4,
+      "linkCount": 6,
+      "linkTargets": [
+        "/calendar-event-qr-code-generator",
+        "/bulk-rsvp-qr-generator",
+        "/url-qr-code-generator",
+        "/qr-size-calculator",
+        "/qr-scanner",
+        "/blog"
+      ],
+      "brokenLinks": [],
+      "deficiencies": []
+    },
+    "google-reviews-qr-code-for-businesses": {
+      "source": "unknown",
+      "file": "unknown",
+      "title": "Review QR Codes: How Local Businesses Turn Happy Customers Into Five-Star Reviews",
+      "category": "Business & Regional",
+      "words": 640,
+      "faqCount": 4,
+      "uniqueFaqQuestions": 4,
+      "linkCount": 6,
+      "linkTargets": [
+        "/bulk-review-qr-generator",
+        "/url-qr-code-generator",
+        "/qr-size-calculator",
+        "/qr-scanner",
+        "/coupon-qr-code-generator",
+        "/blog"
+      ],
+      "brokenLinks": [],
+      "deficiencies": []
+    },
+    "qr-code-on-business-cards-guide": {
+      "source": "unknown",
+      "file": "unknown",
+      "title": "QR Codes on Business Cards: Size, Placement, and the vCard Mistake to Avoid",
+      "category": "Printing & Sizing",
+      "words": 696,
+      "faqCount": 4,
+      "uniqueFaqQuestions": 4,
+      "linkCount": 6,
+      "linkTargets": [
+        "/vcard-qr-code-generator",
+        "/bulk-business-card-qr-generator",
+        "/qr-size-calculator",
+        "/qr-scanner",
+        "/url-qr-code-generator",
+        "/blog"
+      ],
+      "brokenLinks": [],
+      "deficiencies": []
+    },
+    "how-to-track-qr-code-scans-practical-guide": {
+      "source": "unknown",
+      "file": "unknown",
+      "title": "How to Track QR Code Scans Without Expensive Software",
+      "category": "Fundamentals",
+      "words": 629,
+      "faqCount": 4,
+      "uniqueFaqQuestions": 4,
+      "linkCount": 6,
+      "linkTargets": [
+        "/utm-builder",
+        "/url-qr-code-generator",
+        "/qr-campaign-planner",
+        "/qr-scan-log",
+        "/qr-a-b-test-planner",
+        "/blog"
+      ],
+      "brokenLinks": [],
+      "deficiencies": []
+    },
+    "product-packaging-qr-codes-guide": {
+      "source": "unknown",
+      "file": "unknown",
+      "title": "QR Codes on Product Packaging: What to Link, Where to Print, and What to Avoid",
+      "category": "Business & Regional",
+      "words": 642,
+      "faqCount": 4,
+      "uniqueFaqQuestions": 4,
+      "linkCount": 6,
+      "linkTargets": [
+        "/url-qr-code-generator",
+        "/qr-batch-validator",
+        "/qr-size-calculator",
+        "/qr-scanner",
+        "/bulk-inventory-qr-generator",
+        "/blog"
+      ],
+      "brokenLinks": [],
+      "deficiencies": []
+    },
+    "vcard-qr-code-networking-guide": {
+      "source": "unknown",
+      "file": "unknown",
+      "title": "vCard QR Codes for Networking: Get Saved Into Contacts in One Scan",
+      "category": "Fundamentals",
+      "words": 656,
+      "faqCount": 4,
+      "uniqueFaqQuestions": 4,
+      "linkCount": 6,
+      "linkTargets": [
+        "/vcard-qr-code-generator",
+        "/bulk-vcard-generator",
+        "/bulk-business-card-qr-generator",
+        "/qr-scanner",
+        "/qr-size-calculator",
+        "/blog"
+      ],
+      "brokenLinks": [],
+      "deficiencies": []
+    },
+    "event-check-in-qr-codes-guide": {
+      "source": "unknown",
+      "file": "unknown",
+      "title": "Event Check-In With QR Codes: Faster Doors, Shorter Queues, Fewer Lists",
+      "category": "Business & Regional",
+      "words": 617,
+      "faqCount": 4,
+      "uniqueFaqQuestions": 4,
+      "linkCount": 6,
+      "linkTargets": [
+        "/bulk-event-badge-qr-generator",
+        "/bulk-check-in-qr-generator",
+        "/bulk-ticket-qr-generator",
+        "/qr-scanner",
+        "/qr-batch-validator",
+        "/blog"
+      ],
+      "brokenLinks": [],
+      "deficiencies": []
+    },
+    "payment-qr-codes-for-small-shops-guide": {
+      "source": "unknown",
+      "file": "unknown",
+      "title": "Payment QR Codes for Small Shops: Taking Money at the Counter Without a Card Machine",
+      "category": "Business & Regional",
+      "words": 637,
+      "faqCount": 4,
+      "uniqueFaqQuestions": 4,
+      "linkCount": 6,
+      "linkTargets": [
+        "/upi-qr-code-generator",
+        "/qr-size-calculator",
+        "/qr-scanner",
+        "/qr-safety-checker",
+        "/bulk-invoice-qr-generator",
         "/blog"
       ],
       "brokenLinks": [],

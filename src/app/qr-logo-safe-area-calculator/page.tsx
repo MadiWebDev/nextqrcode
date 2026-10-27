@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Image } from 'lucide-react';
+import { AdSlot } from '@/components/AdSlot';
 
 export default function QRLogoSafeAreaCalculatorPage() {
   const [codeSize, setCodeSize] = useState(50);
@@ -76,6 +77,9 @@ export default function QRLogoSafeAreaCalculatorPage() {
           { label: 'Logo Safe Area Calculator', href: '/qr-logo-safe-area-calculator' },
         ]}
       />
+
+      <AdSlot id="qr-logo-safe-area-calculator-top" format="horizontal-banner" />
+
       <header className="mb-8">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
           <Image className="w-3.5 h-3.5" />
@@ -212,6 +216,8 @@ export default function QRLogoSafeAreaCalculatorPage() {
         </div>
       </div>
 
+      <AdSlot id="qr-logo-safe-area-calculator-after-tool" format="horizontal-banner" />
+
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           Logos on QR Codes: How Big Is Too Big?
@@ -238,6 +244,9 @@ export default function QRLogoSafeAreaCalculatorPage() {
           set level H first, then size the logo inside the budget the calculator shows, and treat
           that number as a ceiling, not a target.
         </p>
+
+        <AdSlot id="qr-logo-safe-area-calculator-in-content" format="in-article" />
+
         <h3 className="text-xl font-semibold text-foreground">
           Placement rules that matter as much as size
         </h3>
@@ -275,6 +284,9 @@ export default function QRLogoSafeAreaCalculatorPage() {
           a sceptic, and it will earn its place.
         </p>
       </article>
+
+      <AdSlot id="qr-logo-safe-area-calculator-pre-related" format="horizontal-banner" />
+
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions
@@ -292,6 +304,9 @@ export default function QRLogoSafeAreaCalculatorPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="qr-logo-safe-area-calculator-bottom" format="horizontal-banner" />
+
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { BookOpen, Download, Copy, CheckCircle2 } from 'lucide-react';
 import QRCodeLib from 'qrcode';
+import { AdSlot } from '@/components/AdSlot';
 
 interface PresetField {
   key: string;
@@ -282,6 +283,7 @@ export default function LibraryQRSuitePage() {
         </div>
       </div>
 
+      <AdSlot id="library-qr-suite-after-tool" format="horizontal-banner" />
       <article className="mt-12 prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
         <h2 className="text-2xl font-bold text-foreground">
           How libraries use QR codes without adding friction
@@ -304,6 +306,8 @@ export default function LibraryQRSuitePage() {
           call number beside the code as a fallback, so the code is a convenience and not the only
           route to the shelf.
         </p>
+
+        <AdSlot id="library-qr-suite-in-content" format="in-article" />
         <p className="text-base leading-relaxed">
           Event codes have a different lifespan. A poster for a single workshop is temporary, so the
           cost of reprinting is part of the plan. A better approach for recurring programs is a
@@ -332,6 +336,7 @@ export default function LibraryQRSuitePage() {
         </p>
       </article>
 
+      <AdSlot id="library-qr-suite-pre-related" format="horizontal-banner" />
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Library QR Codes
@@ -349,6 +354,8 @@ export default function LibraryQRSuitePage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="library-qr-suite-bottom" format="horizontal-banner" />
     </div>
   );
 }
