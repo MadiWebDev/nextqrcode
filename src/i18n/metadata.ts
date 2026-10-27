@@ -17,10 +17,17 @@ export function localizedLanguages(
   englishPath: string,
   localizedPath: string
 ): Record<string, string> {
+  const cleanEnglish = englishPath === '/' ? '/' : englishPath.replace(/\/$/, '');
+  const cleanLoc =
+    localizedPath === '/'
+      ? ''
+      : localizedPath.startsWith('/')
+        ? localizedPath
+        : `/${localizedPath}`;
   const languages: Record<string, string> = {};
   for (const locale of locales) {
-    languages[locale] = locale === defaultLocale ? englishPath : `/${locale}${localizedPath}`;
+    languages[locale] = locale === defaultLocale ? cleanEnglish : `/${locale}${cleanLoc}`;
   }
-  languages['x-default'] = englishPath;
+  languages['x-default'] = cleanEnglish;
   return languages;
 }

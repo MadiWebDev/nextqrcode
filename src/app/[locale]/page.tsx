@@ -8,6 +8,9 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { HomePageContent } from '@/components/home/HomePage';
+import { localizedLanguages } from '@/i18n/metadata';
+import { defaultLocale } from '@/i18n/routing';
+import { siteConfig } from '@/config/site';
 
 export async function generateMetadata({
   params,
@@ -17,11 +20,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'home.meta' });
 
-  // Canonical + hreflang cluster come from the locale layout; only the
-  // translated title/description are page-specific.
   return {
     title: t('title'),
     description: t('description'),
+    alternates: {
+      canonical: locale === defaultLocale ? siteConfig.url : `${siteConfig.url}/${locale}`,
+      languages: localizedLanguages('/', '/'),
+    },
   };
 }
 

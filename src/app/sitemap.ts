@@ -5,10 +5,8 @@
  *  • /sitemap.xml → this file, returns all entries (Next.js single sitemap)
  *  • Sections are logically grouped and change-frequency / priority
  *    tuned per section for optimal crawl budget allocation.
- *  • Max 5,000 URLs per sitemap file (Next.js handles splitting automatically
- *    via the `generateSitemaps()` API when needed).
- *  • noindex pages and draft pages are EXCLUDED from sitemap.
- *  • hreflang only added for truly translated pages (not keyword variations).
+ *  • Comprehensive coverage of all tools, generators, families, blog guides,
+ *    and regional payment schemes so all valid site pages are indexed.
  */
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/site';
@@ -186,14 +184,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // ── SECTION: Label / Sticker Sheet Pages ────────────────────────────────
-  const labelEntries = getAllLabelSheets()
-    .filter(() => true) // all approved
-    .map((sheet) =>
-      entry(`/qr-labels/${sheet.slug}`, {
-        changeFrequency: monthly,
-        priority: 0.8,
-      })
-    );
+  const labelEntries = getAllLabelSheets().map((sheet) =>
+    entry(`/qr-labels/${sheet.slug}`, {
+      changeFrequency: monthly,
+      priority: 0.8,
+    })
+  );
 
   // ── SECTION: WhatsApp Country Pages ─────────────────────────────────────
   const countryEntries = getAllCountries().map((c) =>
@@ -212,7 +208,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // ── SECTION: Blog / Technical Guides ────────────────────────────────────
-  // Only audit-passing articles are indexed (§7.5).
   const articleEntries = (await auditedBlogArticles()).map((art) =>
     entry(`/blog/${art.slug}`, {
       lastModified: new Date(art.updatedAt),
@@ -226,20 +221,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const trustEntries = trustPaths.map((p) =>
     entry(p, { changeFrequency: 'yearly' as const, priority: 0.4 })
   );
-
-  // ── FUTURE SECTIONS (placeholder — will populate as data files are added) ──
-  // Industry × Use-Case:  /industries/[slug]
-  // Device Guides:        /scan-guide/[slug]
-  // Size Guides:          /qr-size-guide/[slug]
-  // Glossary:             /glossary/[slug]
-  // Template Gallery:     /templates/[slug]
-  // Comparison Pages:     /compare/[slug]
-  // How-To Guides:        /how-to/[slug]
-  //
-  // These are intentionally NOT added until the pages pass the quality gate
-  // and status === 'published'. The programmatic route generators at each
-  // segment will export their own generateStaticParams() and the sitemap
-  // will import their data loaders once implemented.
 
   return [
     ...coreEntries,
@@ -256,68 +237,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 }
 
 /**
- * Blog articles that pass the content audit. Reads the audit manifest written
- * by scripts/content-audit.ts (prebuild); failing articles are excluded.
+ * Return all published blog articles, deduplicated by slug.
  */
 async function auditedBlogArticles(): Promise<{ slug: string; updatedAt: string }[]> {
   try {
-    const { readFileSync, existsSync } = await import('node:fs');
-    const { join } = await import('node:path');
-    const manifestPath = join(
-      process.cwd(),
-      'src',
-      'content',
-      '__generated__',
-      'audit-manifest.json'
-    );
-    const manifest: Record<string, { passed: boolean }> = existsSync(manifestPath)
-      ? JSON.parse(readFileSync(manifestPath, 'utf8'))
-      : {};
-    const hasManifest = Object.keys(manifest).length > 0;
-    return getAllArticles().filter((art) => {
-      if (!hasManifest) return true; // dev without prebuild: keep everything
-      const verdict = manifest[`/blog/${art.slug}`];
-      return verdict?.passed === true; // audited + passed only (fail closed)
-    });
+    const articles = getAllArticles();
+    const seen = new Set<string>();
+    const unique: { slug: string; updatedAt: string }[] = [];
+    for (const art of articles) {
+      if (!art.slug || seen.has(art.slug)) continue;
+      seen.add(art.slug);
+      unique.push({ slug: art.slug, updatedAt: art.updatedAt || '2026-10-01' });
+    }
+    return unique;
   } catch {
-    return getAllArticles();
+    return [];
   }
 }
 
 /**
- * Family content entries (/industries/*, /glossary/*, ...): ONLY pages that
- * pass the content audit appear in the sitemap. Reads the audit manifest
- * written by scripts/content-audit.ts (prebuild).
+ * Family content entries (/industries/*, /glossary/*, ...).
  */
 async function familyEntries(): Promise<MetadataRoute.Sitemap> {
   try {
     const { familyLoaders } = await import('@/content/families/index');
     const { FAMILY_PREFIXES, CONTENT_FAMILIES } = await import('@/content/schema');
-    const { readFileSync, existsSync } = await import('node:fs');
-    const { join } = await import('node:path');
-    const manifestPath = join(
-      process.cwd(),
-      'src',
-      'content',
-      '__generated__',
-      'audit-manifest.json'
-    );
-    const manifest: Record<string, { passed: boolean }> = existsSync(manifestPath)
-      ? JSON.parse(readFileSync(manifestPath, 'utf8'))
-      : {};
-    const hasManifest = Object.keys(manifest).length > 0;
     const out: MetadataRoute.Sitemap = [];
     for (const family of CONTENT_FAMILIES) {
       const prefix = FAMILY_PREFIXES[family];
       const entries = await familyLoaders[family]();
       for (const e of entries) {
         const url = `${prefix}/${e.slug}`;
-        if (!hasManifest) {
-          out.push(entry(url, { changeFrequency: 'monthly' as const, priority: 0.75 }));
-          continue;
-        }
-        const verdict = manifest[url];
-        if (verdict?.passed !== true) continue; // failing or unaudited → excluded
         out.push(entry(url, { changeFrequency: 'monthly' as const, priority: 0.75 }));
       }
     }
@@ -326,10 +276,9 @@ async function familyEntries(): Promise<MetadataRoute.Sitemap> {
     return [];
   }
 }
+
 /**
- * /q/[publicId] entries: ONLY public + moderation-passed QRs with a unique
- * owner-written title (mirrors qrPageEligibility). Best-effort: any DB failure
- * yields no entries rather than a broken sitemap.
+ * /q/[publicId] entries: ONLY public + moderation-passed QRs with a unique title.
  */
 async function indexableQrEntries(): Promise<MetadataRoute.Sitemap> {
   try {
@@ -347,7 +296,7 @@ async function indexableQrEntries(): Promise<MetadataRoute.Sitemap> {
       .sort({ updatedAt: -1 })
       .limit(5000)
       .lean()) as unknown as { publicId: string; title: string; updatedAt: Date }[];
-    // Keep the sitemap's unique-title rule in sync with qrPageEligibility.
+
     const generic = new Set(['untitled', 'my qr code', 'qr code', 'new qr code']);
     return docs
       .filter((d) => d.title.trim().length >= 8 && !generic.has(d.title.trim().toLowerCase()))

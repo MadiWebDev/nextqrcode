@@ -1,16 +1,21 @@
 import type { Metadata } from 'next';
 import { HomePageContent } from '@/components/home/HomePage';
+import { localizedLanguages } from '@/i18n/metadata';
+import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Free QR Code Generator & Optical Engineering Suite — QR Code Tools',
   description:
     'Generate beautiful, professional QR codes & barcodes 100% in your browser. 40+ types, instant vector SVG/PDF download, distance calculator, safety inspector, and offline file transfer. Zero tracking.',
-  alternates: { canonical: 'https://freeqrcode.tools' },
+  alternates: {
+    canonical: siteConfig.url,
+    languages: localizedLanguages('/', '/'),
+  },
   openGraph: {
     title: 'Free QR Code Generator & Optical Engineering Suite — QR Code Tools',
     description:
       'High-precision client-side QR tools suite: 40+ symbologies, print sizing calculator, anti-quishing safety checker, and air-gapped data transfer. No sign-up.',
-    url: 'https://freeqrcode.tools',
+    url: siteConfig.url,
     type: 'website',
   },
 };

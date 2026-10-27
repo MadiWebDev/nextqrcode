@@ -59,7 +59,7 @@ export default async function PaymentSchemePage({ params }: Props) {
           { label: scheme.name, href: `/payment-qr/${scheme.slug}` },
         ]}
       />
-
+      <AdSlot id={`payment-${scheme.slug}-top`} format="horizontal-banner" />
       {/* Embedded Generator for Payment Rails */}
       <LandingGenerator
         type="finance"
@@ -115,7 +115,7 @@ export default async function PaymentSchemePage({ params }: Props) {
         <div className="prose dark:prose-invert max-w-none text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
           {scheme.content.trim()}
         </div>
-
+        <AdSlot id={`payment-${scheme.slug}-in-content`} format="horizontal-banner" />
         {/* Regulatory Note */}
         <div className="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-start gap-3 text-xs sm:text-sm text-blue-800 dark:text-blue-300">
           <ShieldCheck className="w-5 h-5 flex-shrink-0 text-blue-600 dark:text-blue-400 mt-0.5" />
@@ -125,7 +125,7 @@ export default async function PaymentSchemePage({ params }: Props) {
           </div>
         </div>
       </section>
-
+      <AdSlot id={`payment-${scheme.slug}-pre-explore`} format="horizontal-banner" />
       {/* Other Payment Schemes Grid */}
       <section className="space-y-4">
         <h3 className="text-lg font-bold text-foreground">Explore Other Payment QR Schemes</h3>
@@ -147,6 +147,7 @@ export default async function PaymentSchemePage({ params }: Props) {
           ))}
         </div>
       </section>
+      <AdSlot id={`payment-${scheme.slug}-bottom`} format="horizontal-banner" />
     </div>
   );
 }

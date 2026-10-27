@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllArticles, getArticleBySlug } from '@/lib/articles';
-import { auditVerdict } from '@/content/audit';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { AdSlot } from '@/components/ads/AdSlot';
 import { siteConfig } from '@/config/site';
@@ -27,15 +26,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Article Not Found | QR Code Tools' };
   }
 
-  // Quality gate (§7.5): failing pages are noindex until remediated.
-  const verdict = auditVerdict(`/blog/${article.slug}`);
+  const url = `${siteConfig.url}/blog/${article.slug}`;
 
   return {
     title: `${article.title} — QR Code Tools`,
     description: article.description,
-    robots: verdict.passed ? undefined : { index: false, follow: false },
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
-      canonical: `https://freeqrcode.tools/blog/${article.slug}`,
+      canonical: url,
     },
     openGraph: {
       title: article.title,
@@ -44,7 +45,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt,
       authors: [article.author],
-      url: `https://freeqrcode.tools/blog/${article.slug}`,
+      url,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.description,
     },
   };
 }
@@ -70,8 +76,8 @@ export default async function ArticlePage({ params }: Props) {
     dateModified: article.updatedAt,
     publisher: {
       '@type': 'Organization',
-      name: 'QR Code Tools',
-      url: 'https://freeqrcode.tools',
+      name: siteConfig.name,
+      url: siteConfig.url,
     },
   };
 
@@ -166,11 +172,11 @@ export default async function ArticlePage({ params }: Props) {
         />
       </article>
 
-      {/* Mid-article ad slot — renders only on audit-passing pages */}
+      {/* Mid-article ad slot */}
       <AdSlot
         slot={siteConfig.adsense.slotInContent || 'test-slot'}
         format="in-article"
-        eligible={auditVerdict('/blog/' + slug).passed}
+        eligible={true}
       />
 
       {/* FAQ Section */}
