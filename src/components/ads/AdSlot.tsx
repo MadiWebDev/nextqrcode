@@ -6,14 +6,17 @@ import { siteConfig } from '@/config/site';
 /**
  * Adsterra ad-slot placement formats.
  *
- * Format → Adsterra banner key mapping:
- *   leaderboard   → 728×90  (id: 31586627)
- *   rectangle     → 300×250 (id: 31586629)
- *   in-article    → 320×50  (id: 31586626)  — best for mid-content mobile
- *   sidebar       → 160×600 (id: 31586628)
- *   banner        → 468×60  (id: 31586624)
- *   half-page     → 160×300 (id: 31586625)
- *   social-bar    → Social Bar (id: 31586630)
+ * Format       Dimensions   Key
+ * -----------  ----------   --------------------------------
+ * leaderboard  728×90       0b50e2a443b8e19263c2a8f31d1a4ad7
+ * rectangle    300×250      53ca9b859f00727dc4b4b7573f68f6ee
+ * in-article   320×50       834df58583134c627c6054e559659cd5
+ * sidebar      160×600      70ec1d9e24db496fb19361950b780e78
+ * banner       468×60       a543917aebd8f86b003158f6ea030ba3
+ * half-page    160×300      ec6ed5aef2a1cf1f138795b5593d0883
+ * social-bar   overlay      (set NEXT_PUBLIC_ADSTERRA_SOCIAL_BAR_KEY)
+ *
+ * Embed script domain: https://bauval.org/22/<key>
  */
 export type AdSlotFormat =
   | 'leaderboard' // 728×90
@@ -22,19 +25,22 @@ export type AdSlotFormat =
   | 'sidebar' // 160×600
   | 'banner' // 468×60
   | 'half-page' // 160×300
-  | 'social-bar'; // Social Bar (full-page overlay)
+  | 'social-bar'; // Social Bar overlay
 
 export interface AdSlotProps {
-  /** Adsterra key / atOptions key — passed as the unique script src query param. */
+  /** Unused — kept for backward-compat with existing callers that pass `slot`. */
   slot?: string;
   format: AdSlotFormat;
   /**
    * Page-level eligibility. When false the slot renders nothing.
-   * Pass false on ineligible surfaces: /r/*, /dashboard, /login, error pages,
-   * thin/failing-audit pages, and any noindex page.
+   * Pass false on /r/*, /dashboard, /login, error pages, noindex pages.
    */
   eligible?: boolean;
 }
+
+// ---------------------------------------------------------------------------
+// Consent
+// ---------------------------------------------------------------------------
 
 type ConsentState = 'granted' | 'denied' | 'unknown';
 
@@ -45,10 +51,6 @@ interface CustomConsentPreferences {
   advertising?: boolean;
 }
 
-/**
- * Read advertising consent from the custom cookie-consent banner's
- * localStorage value ('accepted' | 'rejected' | 'custom:<json>').
- */
 function readAdvertisingConsent(): ConsentState {
   if (typeof window === 'undefined') return 'unknown';
   const raw = window.localStorage.getItem(CONSENT_KEY);
@@ -65,135 +67,139 @@ function readAdvertisingConsent(): ConsentState {
   return 'denied';
 }
 
-/** Adsterra banner config keyed by format. */
+// ---------------------------------------------------------------------------
+// Adsterra config
+// ---------------------------------------------------------------------------
+
 interface AdsterraConfig {
-  /** Numeric banner ID used in the script src (e.g. 31586627). */
-  id: number;
-  /** Width in px — used to size the reserved container. */
+  /** Hex key from the Adsterra embed code (atOptions.key). */
+  key: string;
   width: number;
-  /** Height in px — used to size the reserved container. */
   height: number;
-  /** Tailwind container sizing classes. */
+  /** Tailwind classes for the reserved-space container. */
   container: string;
 }
 
+const ADSTERRA_DOMAIN = 'https://bauval.org/22';
+
 const ADSTERRA_CONFIG: Record<AdSlotFormat, AdsterraConfig> = {
   leaderboard: {
-    id: 31586627,
+    key: '0b50e2a443b8e19263c2a8f31d1a4ad7',
     width: 728,
     height: 90,
     container: 'w-full max-w-[728px] min-h-[90px]',
   },
   rectangle: {
-    id: 31586629,
+    key: '53ca9b859f00727dc4b4b7573f68f6ee',
     width: 300,
     height: 250,
     container: 'w-full max-w-[300px] min-h-[250px]',
   },
   'in-article': {
-    id: 31586626,
+    key: '834df58583134c627c6054e559659cd5',
     width: 320,
     height: 50,
     container: 'w-full max-w-[320px] min-h-[50px]',
   },
   sidebar: {
-    id: 31586628,
+    key: '70ec1d9e24db496fb19361950b780e78',
     width: 160,
     height: 600,
     container: 'w-full max-w-[160px] min-h-[600px]',
   },
   banner: {
-    id: 31586624,
+    key: 'a543917aebd8f86b003158f6ea030ba3',
     width: 468,
     height: 60,
     container: 'w-full max-w-[468px] min-h-[60px]',
   },
   'half-page': {
-    id: 31586625,
+    key: 'ec6ed5aef2a1cf1f138795b5593d0883',
     width: 160,
     height: 300,
     container: 'w-full max-w-[160px] min-h-[300px]',
   },
   'social-bar': {
-    id: 31586630,
-    width: 0, // full-viewport overlay — no fixed container needed
+    // Social Bar key — set NEXT_PUBLIC_ADSTERRA_SOCIAL_BAR_KEY in .env
+    key: process.env.NEXT_PUBLIC_ADSTERRA_SOCIAL_BAR_KEY ?? '',
+    width: 0,
     height: 0,
     container: 'w-full',
   },
 };
 
-/** Tracks which banner IDs have already had their script injected. */
-const injectedIds = new Set<number>();
+// ---------------------------------------------------------------------------
+// Script injection (once per key per page load)
+// ---------------------------------------------------------------------------
+
+const injectedKeys = new Set<string>();
 
 /**
- * Inject the Adsterra invoke script for a given banner ID exactly once.
+ * Injects the two-script Adsterra banner embed:
  *
- * Adsterra standard banner pattern:
- *   <script type="text/javascript">
- *     atOptions = { 'key': '<hex-key>', 'format': 'iframe', ... };
- *   </script>
- *   <script src="//www.highperformanceformat.com/<hex-key>/invoke.js"></script>
- *
- * The hex key is derived from the numeric ID — Adsterra uses the same value
- * for both atOptions.key and the script src path. Store the hex key as a
- * 8-character zero-padded lowercase hex string (standard Adsterra format).
+ *   <script>atOptions = { 'key': '...', 'format': 'iframe', ... };</script>
+ *   <script src="https://bauval.org/22/<key>"></script>
  */
-function injectAdsterraScript(bannerId: number, width: number, height: number): void {
+function injectBannerScript(cfg: AdsterraConfig): void {
   if (typeof document === 'undefined') return;
-  if (injectedIds.has(bannerId)) return;
-  injectedIds.add(bannerId);
+  if (!cfg.key || injectedKeys.has(cfg.key)) return;
+  injectedKeys.add(cfg.key);
 
-  const hexKey = bannerId.toString(16).padStart(8, '0');
-
-  // 1. atOptions config script
+  // 1. atOptions config
   const configScript = document.createElement('script');
   configScript.type = 'text/javascript';
-  configScript.text = `
-    atOptions = {
-      'key' : '${hexKey}',
-      'format' : 'iframe',
-      'height' : ${height},
-      'width' : ${width},
-      'params' : {}
-    };
-  `;
+  configScript.text = [
+    'atOptions = {',
+    `  'key' : '${cfg.key}',`,
+    `  'format' : 'iframe',`,
+    `  'height' : ${cfg.height},`,
+    `  'width' : ${cfg.width},`,
+    `  'params' : {}`,
+    '};',
+  ].join('\n');
   document.head.appendChild(configScript);
 
-  // 2. Adsterra invoke script
+  // 2. Invoke script
   const invokeScript = document.createElement('script');
   invokeScript.type = 'text/javascript';
   invokeScript.async = true;
-  invokeScript.src = `//www.highperformanceformat.com/${hexKey}/invoke.js`;
+  invokeScript.src = `${ADSTERRA_DOMAIN}/${cfg.key}`;
   document.head.appendChild(invokeScript);
 }
 
 /**
- * Inject the Adsterra Social Bar script (format-specific, no atOptions block).
+ * Social Bar uses a single script tag with no atOptions block.
+ * Adsterra places the bar automatically once the script loads.
  */
-function injectSocialBarScript(bannerId: number): void {
+function injectSocialBarScript(cfg: AdsterraConfig): void {
   if (typeof document === 'undefined') return;
-  if (injectedIds.has(bannerId)) return;
-  injectedIds.add(bannerId);
+  if (!cfg.key || injectedKeys.has(cfg.key)) return;
+  injectedKeys.add(cfg.key);
 
-  const hexKey = bannerId.toString(16).padStart(8, '0');
   const script = document.createElement('script');
   script.type = 'text/javascript';
   script.async = true;
-  script.src = `//pl${bannerId}.highperformanceformat.com/${hexKey}/invoke.js`;
+  script.src = `${ADSTERRA_DOMAIN}/${cfg.key}`;
   document.body.appendChild(script);
 }
+
+// ---------------------------------------------------------------------------
+// Component
+// ---------------------------------------------------------------------------
 
 /**
  * Canonical Adsterra slot component.
  *
  * Rendering gates (ALL must pass):
- *  1. siteConfig.flags.ads is true
- *  2. eligible !== false (page-level eligibility)
- *  3. advertising consent is granted (localStorage qrs_cookie_consent)
+ *  1. siteConfig.flags.ads === true
+ *  2. eligible !== false
+ *  3. advertising consent granted (localStorage qrs_cookie_consent)
  *
- * When gated off, renders nothing. When eligible but consent is still unknown,
- * a reserved fixed-size container is rendered to prevent layout shift.
- * Scripts are injected lazily via IntersectionObserver.
+ * When gated off → renders nothing (no empty divs, no CLS).
+ * When consent is unknown → renders a fixed-size placeholder to reserve
+ *   space so accepting later doesn't shift the layout.
+ * Scripts are injected lazily — only once the slot scrolls into view
+ *   (IntersectionObserver with 200 px root margin).
  */
 export function AdSlot({ format, eligible = true }: AdSlotProps) {
   const [consent, setConsent] = useState<ConsentState>(() => readAdvertisingConsent());
@@ -201,7 +207,7 @@ export function AdSlot({ format, eligible = true }: AdSlotProps) {
   const containerRef = useRef<HTMLElement | null>(null);
   const injectedRef = useRef(false);
 
-  // Re-check consent whenever the consent banner fires a change event.
+  // Re-check consent whenever the banner fires a change event.
   useEffect(() => {
     const handleConsentChange = () => {
       injectedRef.current = false;
@@ -215,7 +221,7 @@ export function AdSlot({ format, eligible = true }: AdSlotProps) {
   const showAd = gated && consent === 'granted';
   const reserveSpace = gated && consent === 'unknown';
 
-  // Observe the container and flip inView when it enters the viewport.
+  // Observe container; flip inView when it enters the viewport.
   useEffect(() => {
     if (!showAd || typeof IntersectionObserver === 'undefined') return;
     const el = containerRef.current;
@@ -233,16 +239,15 @@ export function AdSlot({ format, eligible = true }: AdSlotProps) {
     return () => observer.disconnect();
   }, [showAd]);
 
-  // Inject Adsterra scripts once the slot is in view.
+  // Inject scripts once the slot is in view.
   useEffect(() => {
     if (!showAd || !inView || injectedRef.current) return;
     injectedRef.current = true;
-
     const cfg = ADSTERRA_CONFIG[format];
     if (format === 'social-bar') {
-      injectSocialBarScript(cfg.id);
+      injectSocialBarScript(cfg);
     } else {
-      injectAdsterraScript(cfg.id, cfg.width, cfg.height);
+      injectBannerScript(cfg);
     }
   }, [showAd, inView, format]);
 
@@ -250,9 +255,9 @@ export function AdSlot({ format, eligible = true }: AdSlotProps) {
 
   const cfg = ADSTERRA_CONFIG[format];
 
-  // Social Bar is a floating overlay — no visible container needed.
+  // Social Bar is a floating full-viewport overlay — no visible wrapper.
   if (format === 'social-bar') {
-    return showAd ? <span aria-hidden="true" data-adsterra-social-bar="true" /> : null;
+    return showAd ? <span aria-hidden="true" data-adsterra-social-bar /> : null;
   }
 
   return (
@@ -265,11 +270,21 @@ export function AdSlot({ format, eligible = true }: AdSlotProps) {
         Advertisement
       </span>
       {showAd && inView ? (
-        /* Adsterra renders an iframe into the nearest containing block
-           after its invoke.js runs. The empty div gives it a stable anchor. */
+        /*
+         * Adsterra's invoke.js writes an <iframe> into the page immediately
+         * after its parent <script> tag. Because we inject dynamically, the
+         * iframe lands inside <head> — but the scripts themselves trigger
+         * atOptions which Adsterra reads globally. The rendered iframe appears
+         * in the DOM where Adsterra places it; this div acts as a size anchor
+         * so the surrounding layout doesn't collapse while the iframe loads.
+         */
         <div
-          data-adsterra-id={cfg.id}
-          style={{ width: cfg.width || '100%', minHeight: cfg.height || undefined }}
+          data-adsterra-key={cfg.key}
+          style={{
+            width: cfg.width,
+            height: cfg.height,
+            maxWidth: '100%',
+          }}
         />
       ) : (
         <span className="sr-only">Advertisement space reserved</span>
