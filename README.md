@@ -2,7 +2,7 @@
 
 Free QR code generator & QR tools platform — 40+ QR content types, design studio, scan-ability
 checks, bulk generation, saved/dynamic QR codes with short links and privacy-safe analytics,
-plus a large library of guides and tools.
+plus a large library of guides and advanced tools.
 
 **Live:** https://nextqrcode.vercel.app · **Repo:** https://github.com/MadiWebDev/nextqrcode
 
