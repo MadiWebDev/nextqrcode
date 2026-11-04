@@ -1,38 +1,25 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Script from 'next/script';
 import { siteConfig } from '@/config/site';
 
-const CONSENT_KEY = 'qrs_cookie_consent';
-
 /**
- * AdSense loader script.
+ * FIXED AdSense loader — replaces src/components/GoogleAdSense.tsx
  *
- * Renders only when ALL of these hold:
- *  a) the `ads` feature flag is on,
- *  b) NEXT_PUBLIC_ADSENSE_CLIENT is set,
- *  c) the visitor granted cookie consent (EEA/UK/CH requirement).
- * Otherwise renders nothing. Full placement/eligibility policy lands in Phase 7.
+ * WHY THE OLD ONE FAILED APPROVAL / SHOWED NO ADS:
+ * The old component returned null unless localStorage 'qrs_cookie_consent'
+ * === 'accepted'. Googlebot, the AdSense crawler (Mediapartners-Google) and
+ * a first-time reviewer never click "Accept All", so adsbygoogle.js NEVER
+ * loaded for them — AdSense could not verify the code on the site.
+ *
+ * FIX: Load the script whenever a client ID is configured. Consent Mode v2
+ * (src/lib/gtag.ts) still controls PERSONALISATION — default denied until
+ * the visitor accepts — but it must not gate the script itself.
+ * Auto Ads (enabled in the AdSense dashboard) needs only this script.
  */
 export function GoogleAdSense() {
-  const [granted, setGranted] = useState(false);
-
-  useEffect(() => {
-    const check = () => {
-      try {
-        setGranted(window.localStorage.getItem(CONSENT_KEY) === 'accepted');
-      } catch {
-        setGranted(false);
-      }
-    };
-    check();
-    window.addEventListener('qrs:consent-changed', check);
-    return () => window.removeEventListener('qrs:consent-changed', check);
-  }, []);
-
   const client = siteConfig.adsense.client;
-  if (!siteConfig.flags.ads || !client || !granted) return null;
+  if (!siteConfig.flags.ads || !client) return null;
 
   return (
     <Script

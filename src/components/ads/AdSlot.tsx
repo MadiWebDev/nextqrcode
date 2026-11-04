@@ -194,6 +194,9 @@ function injectSocialBarScript(cfg: AdsterraConfig): void {
  *  1. siteConfig.flags.ads === true
  *  2. eligible !== false
  *  3. advertising consent granted (localStorage qrs_cookie_consent)
+ *  4. Adsterra not paused: NEXT_PUBLIC_ADSTERRA_ENABLED !== 'false'
+ *     (set it to 'false' in Vercel + redeploy to pause Adsterra during
+ *     an AdSense review, without a code change; default is enabled)
  *
  * When gated off → renders nothing (no empty divs, no CLS).
  * When consent is unknown → renders a fixed-size placeholder to reserve
@@ -217,7 +220,10 @@ export function AdSlot({ format, eligible = true }: AdSlotProps) {
     return () => window.removeEventListener(CONSENT_CHANGED_EVENT, handleConsentChange);
   }, []);
 
-  const gated = siteConfig.flags.ads && eligible;
+  const gated =
+    siteConfig.flags.ads &&
+    eligible &&
+    process.env.NEXT_PUBLIC_ADSTERRA_ENABLED !== 'false';
   const showAd = gated && consent === 'granted';
   const reserveSpace = gated && consent === 'unknown';
 
