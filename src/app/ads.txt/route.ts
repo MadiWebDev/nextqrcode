@@ -10,7 +10,7 @@ import { NextResponse } from 'next/server';
 export const runtime = 'nodejs';
 export const revalidate = 3600;
 
-const ADSENSE_RELATIONSHIP_ID = 'f0cb8b1d365ab739';
+const ADSENSE_RELATIONSHIP_ID = 'f08c47fec0942fa0';
 
 export function GET(): NextResponse {
   const publisherId = (process.env.ADSENSE_PUBLISHER_ID || '').trim();

@@ -82,6 +82,61 @@ docs/             # AUDIT, DECISIONS, PROGRESS, SEO_PLAYBOOK, ADSENSE, SECURITY,
 Key docs: [`docs/AUDIT.md`](docs/AUDIT.md) (Phase 0 findings), [`docs/DECISIONS.md`](docs/DECISIONS.md)
 (decision log), [`docs/PROGRESS.md`](docs/PROGRESS.md) (phase log).
 
+## AdSense setup
+
+### Environment variables
+
+| Variable                              | Purpose                                             |
+| ------------------------------------- | --------------------------------------------------- |
+| `NEXT_PUBLIC_ADSENSE_CLIENT`          | Publisher client ID (`ca-pub-XXXXXXXXXXXXXXXX`)     |
+| `NEXT_PUBLIC_ADSENSE_CLIENT_ID`       | Alias — either variable works                       |
+| `NEXT_PUBLIC_ADSENSE_SLOT_IN_CONTENT` | Ad unit slot ID for in-content placements           |
+| `NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR`    | Ad unit slot ID for the sidebar                     |
+| `ADSENSE_PUBLISHER_ID`                | Server-only — used by the `/ads.txt` route fallback |
+
+Both `NEXT_PUBLIC_ADSENSE_CLIENT` and `NEXT_PUBLIC_ADSENSE_CLIENT_ID` are supported; the helper in
+`src/lib/adsense.ts` resolves whichever is set. Slot IDs default to empty — no ad renders when
+a slot is missing, so the app runs normally without any credentials.
+
+### Creating ad units
+
+1. Log in to [Google AdSense](https://adsense.google.com).
+2. Go to **Ads → By ad unit → Display ads**.
+3. Name the unit (e.g. "In-content" or "Sidebar"), choose **Responsive**, and click **Create**.
+4. Copy the numeric `data-ad-slot` value from the generated code snippet.
+5. Paste it into the matching env var in `.env.local`:
+   ```
+   NEXT_PUBLIC_ADSENSE_SLOT_IN_CONTENT=1234567890
+   NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR=0987654321
+   ```
+6. Redeploy — `NEXT_PUBLIC_*` vars are inlined at build time.
+
+### Verifying ads.txt
+
+After deploying, visit `https://yourdomain.com/ads.txt`. It should return exactly:
+
+```
+google.com, pub-4860681021797211, DIRECT, f08c47fec0942fa0
+```
+
+The file is served from `public/ads.txt` (static asset, always 200). A fallback API route at
+`src/app/ads.txt/route.ts` reads `ADSENSE_PUBLISHER_ID` and serves the same line if the static
+file is ever removed.
+
+### Placement policy
+
+- Ads are **consent-gated** — the AdSense script only loads after the visitor accepts cookies.
+- `<AdInContent>` renders after the main tool or article body (never above the fold).
+- `<AdSidebar>` is sticky on desktop and hidden on mobile (< md breakpoint).
+- Ads are **never** shown on: `/r/*` redirect pages, `/dashboard`, `/login`, error pages, or
+  any page flagged as thin content by the quality gate.
+- Each unit has a small "Advertisement" label above it.
+
+### Development
+
+In `NODE_ENV=development` the `<AdSenseSlot>` component renders a labeled placeholder box instead
+of a live ad, preventing invalid traffic impressions during local development.
+
 ## Content quality
 
 Every published page passes `npm run content:audit`: family minimum word counts, ≤35% 5-word shingle

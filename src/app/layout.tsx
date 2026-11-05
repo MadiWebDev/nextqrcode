@@ -13,6 +13,7 @@ import { ConsentScripts } from '@/components/ConsentScripts';
 import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister';
 import { JsonLd } from '@/lib/seo/jsonld';
 import { siteConfig } from '@/config/site';
+import { adsenseClient } from '@/lib/adsense';
 import './globals.css';
 
 const inter = Inter({
@@ -55,6 +56,8 @@ export const metadata: Metadata = {
     shortcut: '/qrcodelogo.png',
     apple: '/qrcodelogo.png',
   },
+  // AdSense account verification — only emitted when the client ID is set.
+  ...(adsenseClient ? { other: { 'google-adsense-account': adsenseClient } } : {}),
 };
 
 export const viewport: Viewport = {
@@ -72,7 +75,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${inter.variable} ${spaceGrotesk.variable}`}
     >
       <head>
-        <GoogleAdSense />
         <JsonLd
           data={[
             {
@@ -120,6 +122,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <CookieConsent />
             <GoogleAnalytics />
             <ConsentScripts />
+            <GoogleAdSense />
             <ServiceWorkerRegister />
           </TooltipProvider>
         </ThemeProvider>

@@ -2,18 +2,22 @@
 
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
+import { adsenseClient } from '@/lib/adsense';
 import { siteConfig } from '@/config/site';
 
 const CONSENT_KEY = 'qrs_cookie_consent';
 
 /**
- * AdSense loader script.
+ * AdSense loader — renders one <Script> tag site-wide.
  *
- * Renders only when ALL of these hold:
- *  a) the `ads` feature flag is on,
- *  b) NEXT_PUBLIC_ADSENSE_CLIENT is set,
- *  c) the visitor granted cookie consent (EEA/UK/CH requirement).
- * Otherwise renders nothing. Full placement/eligibility policy lands in Phase 7.
+ * Conditions (ALL must hold before the script loads):
+ *  a) siteConfig.flags.ads is true
+ *  b) NEXT_PUBLIC_ADSENSE_CLIENT (or _CLIENT_ID) is set
+ *  c) The visitor has accepted cookie consent
+ *
+ * Must be rendered inside <body> (not <head>) so next/script's
+ * "afterInteractive" strategy works correctly.  The layout places it
+ * inside the ThemeProvider tree, after the <main> element.
  */
 export function GoogleAdSense() {
   const [granted, setGranted] = useState(false);
@@ -31,7 +35,7 @@ export function GoogleAdSense() {
     return () => window.removeEventListener('qrs:consent-changed', check);
   }, []);
 
-  const client = siteConfig.adsense.client;
+  const client = adsenseClient || siteConfig.adsense.client;
   if (!siteConfig.flags.ads || !client || !granted) return null;
 
   return (

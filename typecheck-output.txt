@@ -1,0 +1,4 @@
+
+> qr-code-tools@0.1.0 typecheck
+> tsc --noEmit
+

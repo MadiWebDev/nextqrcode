@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getAllArticles, getArticleBySlug } from '@/lib/articles';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { AdSlot } from '@/components/ads/AdSlot';
+import { AdInContent } from '@/components/ads/AdInContent';
 import { siteConfig } from '@/config/site';
 import { Calendar, Clock, UserCheck, ArrowRight, ShieldCheck } from 'lucide-react';
 import { auditVerdict } from '@/content/audit';
@@ -185,6 +186,9 @@ export default async function ArticlePage({ params }: Props) {
         format="in-article"
         eligible={true}
       />
+
+      {/* Google AdSense in-content slot — below article body, above FAQ */}
+      <AdInContent eligible={auditVerdict('/blog/' + slug).passed} />
 
       {/* FAQ Section */}
       {article.faqs.length > 0 && (
