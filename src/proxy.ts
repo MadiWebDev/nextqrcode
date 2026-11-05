@@ -22,12 +22,16 @@ export function proxy(request: NextRequest) {
 
   const contentSecurityPolicy = [
     "default-src 'self'",
-    `script-src 'self' 'unsafe-inline' 'nonce-${nonce}' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://analytics.ahrefs.com`,
+    // AdSense needs doubleclick + *.googlesyndication.com, not just pagead2.
+    // Adsterra (bauval.org) is included so existing AdSlot banners are not
+    // CSP-blocked; set NEXT_PUBLIC_ADSTERRA_ENABLED=false to pause Adsterra
+    // during an AdSense review (see src/components/ads/AdSlot.tsx).
+    `script-src 'self' 'unsafe-inline' 'nonce-${nonce}' 'unsafe-eval' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://googleads.g.doubleclick.net https://bauval.org https://www.googletagmanager.com https://analytics.ahrefs.com`,
     `style-src 'self' 'unsafe-inline' 'nonce-${nonce}' https://fonts.googleapis.com`,
-    "img-src 'self' data: blob: https:",
+    "img-src 'self' data: blob: https: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net",
     "font-src 'self' https://fonts.gstatic.com",
     "connect-src 'self' https://pagead2.googlesyndication.com https://www.google-analytics.com",
-    'frame-src https://googleads.g.doubleclick.net',
+    'frame-src https://googleads.g.doubleclick.net https://*.googlesyndication.com https://bauval.org',
     "object-src 'none'",
     "base-uri 'self'",
   ].join('; ');

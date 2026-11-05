@@ -26,12 +26,17 @@ function entry(
     priority: number;
   }>
 ): MetadataRoute.Sitemap[number] {
-  return {
+  // Do NOT default lastModified to new Date(): that stamped every URL with
+  // the build date on every deploy, so Google learned to ignore lastModified
+  // on this site. Only entries with a real date (blog updatedAt, QR updatedAt)
+  // carry lastModified; tool/generator entries omit it.
+  const out: MetadataRoute.Sitemap[number] = {
     url: `${BASE}${path}`,
-    lastModified: opts?.lastModified ?? new Date(),
     changeFrequency: opts?.changeFrequency ?? 'monthly',
     priority: opts?.priority ?? 0.7,
   };
+  if (opts?.lastModified) out.lastModified = opts.lastModified;
+  return out;
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -402,7 +407,7 @@ async function indexableQrEntries(): Promise<MetadataRoute.Sitemap> {
       .filter((d) => d.title.trim().length >= 8 && !generic.has(d.title.trim().toLowerCase()))
       .map((d) =>
         entry(`/q/${d.publicId}`, {
-          lastModified: d.updatedAt ? new Date(d.updatedAt) : new Date(),
+          ...(d.updatedAt ? { lastModified: new Date(d.updatedAt) } : {}),
           changeFrequency: 'monthly' as const,
           priority: 0.5,
         })

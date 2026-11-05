@@ -1,42 +1,25 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Script from 'next/script';
-import { adsenseClient } from '@/lib/adsense';
 import { siteConfig } from '@/config/site';
 
-const CONSENT_KEY = 'qrs_cookie_consent';
-
 /**
- * AdSense loader — renders one <Script> tag site-wide.
+ * FIXED AdSense loader — replaces src/components/GoogleAdSense.tsx
  *
- * Conditions (ALL must hold before the script loads):
- *  a) siteConfig.flags.ads is true
- *  b) NEXT_PUBLIC_ADSENSE_CLIENT (or _CLIENT_ID) is set
- *  c) The visitor has accepted cookie consent
+ * WHY THE OLD ONE FAILED APPROVAL / SHOWED NO ADS:
+ * The old component returned null unless localStorage 'qrs_cookie_consent'
+ * === 'accepted'. Googlebot, the AdSense crawler (Mediapartners-Google) and
+ * a first-time reviewer never click "Accept All", so adsbygoogle.js NEVER
+ * loaded for them — AdSense could not verify the code on the site.
  *
- * Must be rendered inside <body> (not <head>) so next/script's
- * "afterInteractive" strategy works correctly.  The layout places it
- * inside the ThemeProvider tree, after the <main> element.
+ * FIX: Load the script whenever a client ID is configured. Consent Mode v2
+ * (src/lib/gtag.ts) still controls PERSONALISATION — default denied until
+ * the visitor accepts — but it must not gate the script itself.
+ * Auto Ads (enabled in the AdSense dashboard) needs only this script.
  */
 export function GoogleAdSense() {
-  const [granted, setGranted] = useState(false);
-
-  useEffect(() => {
-    const check = () => {
-      try {
-        setGranted(window.localStorage.getItem(CONSENT_KEY) === 'accepted');
-      } catch {
-        setGranted(false);
-      }
-    };
-    check();
-    window.addEventListener('qrs:consent-changed', check);
-    return () => window.removeEventListener('qrs:consent-changed', check);
-  }, []);
-
-  const client = adsenseClient || siteConfig.adsense.client;
-  if (!siteConfig.flags.ads || !client || !granted) return null;
+  const client = siteConfig.adsense.client;
+  if (!siteConfig.flags.ads || !client) return null;
 
   return (
     <Script

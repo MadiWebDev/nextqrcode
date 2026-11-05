@@ -17,9 +17,10 @@ export function GET(): NextResponse {
 
   const body = publisherId
     ? `google.com, ${publisherId}, DIRECT, ${ADSENSE_RELATIONSHIP_ID}\n`
-    : '# ads.txt is not configured: set the ADSENSE_PUBLISHER_ID environment variable\n' +
-      '# to your AdSense publisher ID (e.g. pub-0000000000000000).\n' +
-      'Disallow: /\n';
+    : // No Disallow line here: that is robots.txt syntax, not ads.txt, and
+      // it confused the live file. When the env var is unset, return only
+      // a comment so AdSense does not see a bogus authorised-sellers line.
+      '# ads.txt pending: set ADSENSE_PUBLISHER_ID in Vercel, then redeploy\n';
 
   return new NextResponse(body, {
     headers: {
