@@ -19,9 +19,21 @@ const FIELDS: FieldDef[] = [
     label: 'Platform',
     ph: 'Instagram',
     kind: 'select',
-    options: ['Instagram', 'X (Twitter)', 'TikTok', 'YouTube', 'LinkedIn', 'Facebook', 'Pinterest'],
+    options: [
+      'Instagram',
+      'X (Twitter)',
+      'TikTok',
+      'YouTube',
+      'LinkedIn',
+      'Facebook',
+      'Pinterest',
+      'Snapchat',
+      'Reddit',
+      'Threads',
+    ],
   },
-  { key: 'handle', label: 'Handle or channel', ph: '@yourhandle', kind: 'text' },
+  // Username only — no @ prefix, no full URL needed. The generator builds the URL.
+  { key: 'handle', label: 'Username', ph: 'yourusername', kind: 'text' },
   { key: 'displayName', label: 'Display name', ph: 'Your Name', kind: 'text' },
   { key: 'cta', label: 'Call to action', ph: 'Follow for weekly tips', kind: 'text' },
 ];
@@ -41,33 +53,35 @@ export default function Page() {
   const set = (k: string, v: string) => setForm((p) => ({ ...p, [k]: v }));
 
   const error = useMemo(() => {
-    const f = form;
-    const h = (f.handle || '').trim().replace(/^@/, '');
-    if (!/^[A-Za-z0-9._]{1,60}$/.test(h))
-      return 'Enter a valid handle: letters, numbers, dots and underscores only.';
+    const h = (form.handle || '').trim().replace(/^@/, '');
+    // Empty: show no error (user hasn't typed yet)
+    if (!h) return '';
+    if (!/^[A-Za-z0-9._\-]{1,60}$/.test(h))
+      return 'Enter a valid username: letters, numbers, dots, hyphens and underscores only. No @ or full URL needed.';
     return '';
   }, [form]);
 
   const payload = useMemo(() => {
-    const f = form;
-    if (error) return '';
-    try {
-      const bases: Record<string, string> = {
-        Instagram: 'https://instagram.com/',
-        'X (Twitter)': 'https://x.com/',
-        TikTok: 'https://tiktok.com/@',
-        YouTube: 'https://youtube.com/@',
-        LinkedIn: 'https://linkedin.com/in/',
-        Facebook: 'https://facebook.com/',
-        Pinterest: 'https://pinterest.com/',
-      };
-      const h = (f.handle || '').trim().replace(/^@/, '');
-      const b = bases[f.platform] || '';
-      if (f.platform === 'TikTok' || f.platform === 'YouTube') return b + h;
-      return b + h;
-    } catch {
-      return '';
-    }
+    // Strip any accidental @ prefix or leading/trailing spaces — user only needs to type the username
+    const h = (form.handle || '').trim().replace(/^@/, '');
+    if (!h || error) return '';
+
+    // Profile URL base per platform. For LinkedIn we use /in/ for personal profiles,
+    // which is the most common case. Company pages (/company/) are less common for QR codes.
+    const bases: Record<string, string> = {
+      Instagram: 'https://instagram.com/',
+      'X (Twitter)': 'https://x.com/',
+      TikTok: 'https://tiktok.com/@',
+      YouTube: 'https://youtube.com/@',
+      LinkedIn: 'https://linkedin.com/in/',
+      Facebook: 'https://facebook.com/',
+      Pinterest: 'https://pinterest.com/',
+      Snapchat: 'https://snapchat.com/add/',
+      Reddit: 'https://reddit.com/user/',
+      Threads: 'https://threads.net/@',
+    };
+    const base = bases[form.platform] ?? 'https://instagram.com/';
+    return base + h;
   }, [form, error]);
 
   useEffect(() => {
@@ -180,8 +194,8 @@ export default function Page() {
           Social Profile QR Code Generator
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-          Create a QR code that opens your social profile, with a platform picker, handle check and
-          a follow call-to-action card.
+          Pick a platform, enter your username — no @ symbol or full URL needed — and get a QR code
+          that opens your profile directly.
         </p>
       </header>
 
@@ -251,8 +265,8 @@ export default function Page() {
               {payload || 'Fill in the fields above to generate the payload.'}
             </pre>
             <p className="text-xs text-muted-foreground">
-              Encoded as the full profile URL built from the platform and handle. Double-check the
-              handle before printing.
+              The generator builds the full profile URL from your username. You only need to type
+              the username — no @ symbol, no https://, no full URL.
             </p>
             <Button variant="outline" size="sm" onClick={copyPayload} disabled={!payload}>
               {copied ? 'Copied!' : 'Copy payload'}

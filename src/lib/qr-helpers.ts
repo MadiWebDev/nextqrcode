@@ -38,7 +38,7 @@ export const qrTypeConfigs: QRTypeConfig[] = [
         name: 'url',
         label: 'Website URL',
         type: 'url',
-        placeholder: 'https://example.com',
+        placeholder: 'example.com or https://example.com',
         required: true,
       },
     ],
@@ -926,8 +926,12 @@ export function generateQRData(type: QRType, data: QRData): string {
     case 'text':
       return data['text'] ?? '';
     case 'url':
-    case 'pdf':
-      return data['url'] ?? '';
+    case 'pdf': {
+      const raw = (data['url'] ?? '').trim();
+      if (!raw) return '';
+      // Accept bare domains like "example.com" — prepend https:// if no protocol given
+      return /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+    }
     case 'audio':
     case 'video':
     case 'image': {
@@ -1166,9 +1170,11 @@ export function validateField(
     }
     if (field.type === 'url') {
       try {
-        new URL(value);
+        // Auto-accept bare domains like "example.com" — treat them as https://
+        const normalized = /^https?:\/\//i.test(value) ? value : `https://${value}`;
+        new URL(normalized);
       } catch {
-        return 'Please enter a valid URL (include https://)';
+        return 'Please enter a valid URL or domain (e.g. example.com or https://example.com)';
       }
     }
     if (field.type === 'tel') {
