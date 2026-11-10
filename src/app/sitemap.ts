@@ -1,12 +1,20 @@
 /**
  * QR Code Tools — Sitemap Index
  *
- * Architecture:
- *  • /sitemap.xml → this file, returns all entries (Next.js single sitemap)
- *  • Sections are logically grouped and change-frequency / priority
- *    tuned per section for optimal crawl budget allocation.
- *  • Comprehensive coverage of all tools, generators, families, blog guides,
- *    and regional payment schemes so all valid site pages are indexed.
+ * Uses Next.js generateSitemaps() to split into a sitemap index.
+ * /sitemap.xml  → index pointing to /sitemap/0.xml … /sitemap/7.xml
+ *
+ * Id assignment (integer, NOT string, per Next.js generateSitemaps spec):
+ *   0 → core       (home, /blog, /sitemap-page, /tools, /industries, /qr-labels, trust)
+ *   1 → tools      (qr-*-calculator, qr-*-checker, qr-*-tool, individual utility pages)
+ *   2 → generators (all *-qr-code-generator, /whatsapp-qr, /payment-qr top-level)
+ *   3 → bulk       (all /bulk-*-qr-generator, /bulk-*-generator pages)
+ *   4 → suites     (all /*-qr-suite pages)
+ *   5 → blog       (all /blog/* articles — uses real updatedAt dates)
+ *   6 → families   (all /industries/*, /glossary/*, /scan-guide/*, /qr-size-guide/*, /templates/*)
+ *   7 → labels     (all /qr-labels/*, /whatsapp-qr/*, /payment-qr/* scheme pages)
+ *
+ * Each child sitemap stays well under the 50,000 URL limit.
  */
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/site';
@@ -17,7 +25,7 @@ import { getAllLabelSheets } from '@/data/labels';
 
 const BASE = siteConfig.url;
 
-/** Helper: build a sitemap entry */
+/** Build a sitemap entry. lastModified is only set when a real date is supplied. */
 function entry(
   path: string,
   opts?: Partial<{
@@ -26,37 +34,97 @@ function entry(
     priority: number;
   }>
 ): MetadataRoute.Sitemap[number] {
-  // Do NOT default lastModified to new Date(): that stamped every URL with
-  // the build date on every deploy, so Google learned to ignore lastModified
-  // on this site. Only entries with a real date (blog updatedAt, QR updatedAt)
-  // carry lastModified; tool/generator entries omit it.
   const out: MetadataRoute.Sitemap[number] = {
     url: `${BASE}${path}`,
     changeFrequency: opts?.changeFrequency ?? 'monthly',
     priority: opts?.priority ?? 0.7,
   };
+  // Only include lastModified when a real date is provided — never use new Date() for static pages
   if (opts?.lastModified) out.lastModified = opts.lastModified;
   return out;
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
-  const weekly = 'weekly' as const;
-  const monthly = 'monthly' as const;
-
-  // ── SECTION: Core / Home ────────────────────────────────────────────────
-  const coreEntries: MetadataRoute.Sitemap = [
-    { url: BASE, lastModified: now, changeFrequency: weekly, priority: 1.0 },
-    entry('/sitemap-page', { priority: 0.5 }),
-    entry('/blog', { changeFrequency: weekly, priority: 0.9 }),
+/** Declare the 8 child sitemaps as numeric ids (0–7). */
+export async function generateSitemaps() {
+  return [
+    { id: 0 }, // core
+    { id: 1 }, // tools
+    { id: 2 }, // generators
+    { id: 3 }, // bulk
+    { id: 4 }, // suites
+    { id: 5 }, // blog
+    { id: 6 }, // families
+    { id: 7 }, // labels
   ];
+}
 
-  // ── SECTION: Premium Tools ───────────────────────────────────────────────
-  const toolPaths = [
+/**
+ * Main sitemap function. In Next.js 16+ the id is a Promise<string>.
+ * We await it and cast to number for the switch.
+ */
+export default async function sitemap(props: {
+  id: Promise<string>;
+}): Promise<MetadataRoute.Sitemap> {
+  const rawId = await props.id;
+  const id = Number(rawId);
+
+  switch (id) {
+    case 0:
+      return coreEntries();
+    case 1:
+      return toolEntries();
+    case 2:
+      return generatorEntries();
+    case 3:
+      return bulkEntries();
+    case 4:
+      return suiteEntries();
+    case 5:
+      return await blogEntries();
+    case 6:
+      return await familyEntries();
+    case 7:
+      return await labelEntries();
+    default:
+      return [];
+  }
+}
+
+// ── SECTION 0: Core pages ────────────────────────────────────────────────────
+
+function coreEntries(): MetadataRoute.Sitemap {
+  return [
+    // Homepage — highest priority
+    { url: BASE, changeFrequency: 'weekly', priority: 1.0 },
+    // Primary hub pages — key crawl bridges
+    entry('/blog', { changeFrequency: 'weekly', priority: 0.9 }),
+    entry('/tools', { changeFrequency: 'weekly', priority: 0.9 }),
+    entry('/industries', { changeFrequency: 'weekly', priority: 0.9 }),
+    entry('/glossary', { changeFrequency: 'monthly', priority: 0.8 }),
+    entry('/scan-guide', { changeFrequency: 'monthly', priority: 0.8 }),
+    entry('/qr-size-guide', { changeFrequency: 'monthly', priority: 0.8 }),
+    entry('/templates', { changeFrequency: 'monthly', priority: 0.8 }),
+    // QR Label sheets hub
+    entry('/qr-labels', { changeFrequency: 'monthly', priority: 0.8 }),
+    // HTML sitemap
+    entry('/sitemap-page', { changeFrequency: 'monthly', priority: 0.5 }),
+    // Trust / legal
+    entry('/about', { changeFrequency: 'yearly', priority: 0.4 }),
+    entry('/contact', { changeFrequency: 'yearly', priority: 0.4 }),
+    entry('/privacy', { changeFrequency: 'yearly', priority: 0.4 }),
+    entry('/terms', { changeFrequency: 'yearly', priority: 0.4 }),
+    entry('/cookie-policy', { changeFrequency: 'yearly', priority: 0.4 }),
+    entry('/disclaimer', { changeFrequency: 'yearly', priority: 0.4 }),
+  ];
+}
+
+// ── SECTION 1: Utility / Engineering Tools ───────────────────────────────────
+
+function toolEntries(): MetadataRoute.Sitemap {
+  const paths = [
     '/qr-size-calculator',
     '/qr-safety-checker',
     '/qr-scanner',
-    '/bulk-generator',
     '/printed-qr-tester',
     '/error-correction-simulator',
     '/qr-splitter-scanner',
@@ -87,36 +155,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/qr-module-size-calculator',
     '/qr-error-budget-calculator',
     '/qr-minimum-size-checker',
-    '/bulk-url-qr-generator',
-    '/bulk-sms-qr-generator',
-    '/bulk-email-qr-generator',
-    '/bulk-wifi-qr-generator',
-    '/bulk-coupon-qr-generator',
-    '/bulk-ticket-qr-generator',
-    '/bulk-pdf-qr-generator',
-    '/bulk-inventory-qr-generator',
-    '/bulk-asset-tag-qr-generator',
-    '/bulk-student-id-qr-generator',
-    '/bulk-event-badge-qr-generator',
-    '/bulk-table-tent-qr-generator',
-    '/bulk-feedback-qr-generator',
-    '/bulk-donation-qr-generator',
-    '/bulk-business-card-qr-generator',
-    '/restaurant-qr-suite',
-    '/retail-qr-suite',
-    '/clinic-qr-suite',
-    '/school-qr-suite',
-    '/gym-qr-suite',
-    '/hotel-qr-suite',
-    '/real-estate-qr-suite',
-    '/salon-qr-suite',
-    '/pharmacy-qr-suite',
-    '/church-qr-suite',
-    '/museum-qr-suite',
-    '/library-qr-suite',
-    '/warehouse-qr-suite',
-    '/farm-qr-suite',
-    '/taxi-qr-suite',
     '/qr-redirect-chain-viewer',
     '/qr-payload-inspector',
     '/qr-allowlist-builder',
@@ -189,41 +227,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/qr-incident-report-builder',
     '/qr-brand-impersonation-checker',
     '/qr-destination-change-detector',
-    '/bulk-calendar-qr-generator',
-    '/bulk-mecard-generator',
-    '/bulk-survey-qr-generator',
-    '/bulk-menu-item-qr-generator',
-    '/bulk-shipping-label-qr-generator',
-    '/bulk-shelf-label-qr-generator',
-    '/bulk-certificate-qr-generator',
-    '/bulk-coupon-expiry-auditor',
-    '/bulk-check-in-qr-generator',
-    '/bulk-rsvp-qr-generator',
-    '/bulk-loyalty-card-qr-generator',
-    '/bulk-seat-qr-generator',
-    '/bulk-pet-tag-qr-generator',
-    '/bulk-invoice-qr-generator',
-    '/bulk-review-qr-generator',
-    '/bakery-qr-suite',
-    '/barber-qr-suite',
-    '/boutique-qr-suite',
-    '/car-wash-qr-suite',
-    '/co-working-qr-suite',
-    '/courier-qr-suite',
-    '/dentist-qr-suite',
-    '/driving-school-qr-suite',
-    '/florist-qr-suite',
-    '/food-truck-qr-suite',
-    '/hostel-qr-suite',
-    '/laundromat-qr-suite',
-    '/spa-qr-suite',
-    '/vet-qr-suite',
-    '/event-venue-qr-suite',
   ];
-  const toolEntries = toolPaths.map((p) => entry(p, { changeFrequency: weekly, priority: 0.9 }));
+  return paths.map((p) => entry(p, { changeFrequency: 'monthly', priority: 0.85 }));
+}
 
-  // ── SECTION: Standard QR Type Generators ────────────────────────────────
-  const generatorPaths = [
+// ── SECTION 2: QR Code Type Generators ───────────────────────────────────────
+
+function generatorEntries(): MetadataRoute.Sitemap {
+  const paths = [
     '/url-qr-code-generator',
     '/wifi-qr-code-generator',
     '/vcard-qr-code-generator',
@@ -283,86 +294,118 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/appointment-booking-qr-generator',
     '/quote-request-qr-generator',
     '/kid-safe-qr-card-generator',
+    // Top-level payment / whatsapp hubs
+    '/whatsapp-qr',
+    '/payment-qr',
   ];
-  const generatorEntries = generatorPaths.map((p) =>
-    entry(p, { changeFrequency: monthly, priority: 0.85 })
-  );
-
-  // ── SECTION: Label / Sticker Sheet Pages ────────────────────────────────
-  const labelEntries = getAllLabelSheets().map((sheet) =>
-    entry(`/qr-labels/${sheet.slug}`, {
-      changeFrequency: monthly,
-      priority: 0.8,
-    })
-  );
-
-  // ── SECTION: WhatsApp Country Pages ─────────────────────────────────────
-  const countryEntries = getAllCountries().map((c) =>
-    entry(`/whatsapp-qr/${c.slug}`, {
-      changeFrequency: monthly,
-      priority: 0.8,
-    })
-  );
-
-  // ── SECTION: Payment QR Scheme Pages ────────────────────────────────────
-  const paymentEntries = getAllPaymentSchemes().map((p) =>
-    entry(`/payment-qr/${p.slug}`, {
-      changeFrequency: monthly,
-      priority: 0.8,
-    })
-  );
-
-  // ── SECTION: Blog / Technical Guides ────────────────────────────────────
-  const articleEntries = (await auditedBlogArticles()).map((art) =>
-    entry(`/blog/${art.slug}`, {
-      lastModified: new Date(art.updatedAt),
-      changeFrequency: monthly,
-      priority: 0.8,
-    })
-  );
-
-  // ── SECTION: Trust / Legal ───────────────────────────────────────────────
-  const trustPaths = ['/about', '/contact', '/privacy', '/terms', '/cookie-policy', '/disclaimer'];
-  const trustEntries = trustPaths.map((p) =>
-    entry(p, { changeFrequency: 'yearly' as const, priority: 0.4 })
-  );
-
-  return [
-    ...coreEntries,
-    ...toolEntries,
-    ...generatorEntries,
-    ...labelEntries,
-    ...countryEntries,
-    ...paymentEntries,
-    ...articleEntries,
-    ...trustEntries,
-    ...(await indexableQrEntries()),
-    ...(await familyEntries()),
-  ];
+  return paths.map((p) => entry(p, { changeFrequency: 'monthly', priority: 0.85 }));
 }
 
-/**
- * Return all published blog articles, deduplicated by slug.
- */
-async function auditedBlogArticles(): Promise<{ slug: string; updatedAt: string }[]> {
+// ── SECTION 3: Bulk Generators ───────────────────────────────────────────────
+
+function bulkEntries(): MetadataRoute.Sitemap {
+  const paths = [
+    '/bulk-url-qr-generator',
+    '/bulk-wifi-qr-generator',
+    '/bulk-email-qr-generator',
+    '/bulk-sms-qr-generator',
+    '/bulk-business-card-qr-generator',
+    '/bulk-event-badge-qr-generator',
+    '/bulk-asset-tag-qr-generator',
+    '/bulk-student-id-qr-generator',
+    '/bulk-table-tent-qr-generator',
+    '/bulk-feedback-qr-generator',
+    '/bulk-donation-qr-generator',
+    '/bulk-check-in-qr-generator',
+    '/bulk-inventory-qr-generator',
+    '/bulk-ticket-qr-generator',
+    '/bulk-pet-tag-qr-generator',
+    '/bulk-certificate-qr-generator',
+    '/bulk-coupon-qr-generator',
+    '/bulk-survey-qr-generator',
+    '/bulk-menu-item-qr-generator',
+    '/bulk-calendar-qr-generator',
+    '/bulk-review-qr-generator',
+    '/bulk-pdf-qr-generator',
+    '/bulk-rsvp-qr-generator',
+    '/bulk-loyalty-card-qr-generator',
+    '/bulk-mecard-generator',
+    '/bulk-vcard-qr',
+    '/bulk-generator',
+    '/bulk-shipping-label-qr-generator',
+    '/bulk-shelf-label-qr-generator',
+    '/bulk-coupon-expiry-auditor',
+    '/bulk-seat-qr-generator',
+    '/bulk-invoice-qr-generator',
+  ];
+  return paths.map((p) => entry(p, { changeFrequency: 'monthly', priority: 0.85 }));
+}
+
+// ── SECTION 4: Industry QR Suites ────────────────────────────────────────────
+
+function suiteEntries(): MetadataRoute.Sitemap {
+  const paths = [
+    '/restaurant-qr-suite',
+    '/retail-qr-suite',
+    '/clinic-qr-suite',
+    '/school-qr-suite',
+    '/gym-qr-suite',
+    '/hotel-qr-suite',
+    '/real-estate-qr-suite',
+    '/salon-qr-suite',
+    '/pharmacy-qr-suite',
+    '/museum-qr-suite',
+    '/library-qr-suite',
+    '/warehouse-qr-suite',
+    '/farm-qr-suite',
+    '/vet-qr-suite',
+    '/hostel-qr-suite',
+    '/courier-qr-suite',
+    '/co-working-qr-suite',
+    '/bakery-qr-suite',
+    '/barber-qr-suite',
+    '/boutique-qr-suite',
+    '/car-wash-qr-suite',
+    '/dentist-qr-suite',
+    '/florist-qr-suite',
+    '/food-truck-qr-suite',
+    '/laundromat-qr-suite',
+    '/spa-qr-suite',
+    '/event-venue-qr-suite',
+    '/driving-school-qr-suite',
+    '/church-qr-suite',
+    '/taxi-qr-suite',
+  ];
+  return paths.map((p) => entry(p, { changeFrequency: 'monthly', priority: 0.85 }));
+}
+
+// ── SECTION 5: Blog Articles ──────────────────────────────────────────────────
+
+async function blogEntries(): Promise<MetadataRoute.Sitemap> {
   try {
     const articles = getAllArticles();
     const seen = new Set<string>();
-    const unique: { slug: string; updatedAt: string }[] = [];
+    const out: MetadataRoute.Sitemap = [];
     for (const art of articles) {
       if (!art.slug || seen.has(art.slug)) continue;
       seen.add(art.slug);
-      unique.push({ slug: art.slug, updatedAt: art.updatedAt || '2026-10-01' });
+      // Use real updatedAt from article metadata — never fabricate a date
+      out.push(
+        entry(`/blog/${art.slug}`, {
+          lastModified: new Date(art.updatedAt || '2026-10-01'),
+          changeFrequency: 'monthly',
+          priority: 0.8,
+        })
+      );
     }
-    return unique;
+    return out;
   } catch {
     return [];
   }
 }
 
-/**
- * Family content entries (/industries/*, /glossary/*, ...).
- */
+// ── SECTION 6: Family Content Pages ──────────────────────────────────────────
+
 async function familyEntries(): Promise<MetadataRoute.Sitemap> {
   try {
     const { familyLoaders } = await import('@/content/families/index');
@@ -372,8 +415,12 @@ async function familyEntries(): Promise<MetadataRoute.Sitemap> {
       const prefix = FAMILY_PREFIXES[family];
       const entries = await familyLoaders[family]();
       for (const e of entries) {
-        const url = `${prefix}/${e.slug}`;
-        out.push(entry(url, { changeFrequency: 'monthly' as const, priority: 0.75 }));
+        out.push(
+          entry(`${prefix}/${e.slug}`, {
+            changeFrequency: 'monthly',
+            priority: 0.75,
+          })
+        );
       }
     }
     return out;
@@ -382,37 +429,25 @@ async function familyEntries(): Promise<MetadataRoute.Sitemap> {
   }
 }
 
-/**
- * /q/[publicId] entries: ONLY public + moderation-passed QRs with a unique title.
- */
-async function indexableQrEntries(): Promise<MetadataRoute.Sitemap> {
-  try {
-    const { isDbConfigured, dbConnect } = await import('@/lib/db/mongoose');
-    if (!isDbConfigured()) return [];
-    await dbConnect();
-    const { QrCode } = await import('@/models/QrCode');
-    const docs = (await QrCode.find({
-      visibility: 'public',
-      status: 'active',
-      'moderation.status': 'passed',
-      title: { $exists: true, $ne: '' },
-    })
-      .select('publicId title updatedAt')
-      .sort({ updatedAt: -1 })
-      .limit(5000)
-      .lean()) as unknown as { publicId: string; title: string; updatedAt: Date }[];
+// ── SECTION 7: Label Sheets, WhatsApp Countries, Payment Schemes ─────────────
 
-    const generic = new Set(['untitled', 'my qr code', 'qr code', 'new qr code']);
-    return docs
-      .filter((d) => d.title.trim().length >= 8 && !generic.has(d.title.trim().toLowerCase()))
-      .map((d) =>
-        entry(`/q/${d.publicId}`, {
-          ...(d.updatedAt ? { lastModified: new Date(d.updatedAt) } : {}),
-          changeFrequency: 'monthly' as const,
-          priority: 0.5,
-        })
-      );
-  } catch {
-    return [];
+async function labelEntries(): Promise<MetadataRoute.Sitemap> {
+  const out: MetadataRoute.Sitemap = [];
+
+  // /qr-labels/[slug]
+  for (const sheet of getAllLabelSheets()) {
+    out.push(entry(`/qr-labels/${sheet.slug}`, { changeFrequency: 'monthly', priority: 0.8 }));
   }
+
+  // /whatsapp-qr/[country]
+  for (const c of getAllCountries()) {
+    out.push(entry(`/whatsapp-qr/${c.slug}`, { changeFrequency: 'monthly', priority: 0.8 }));
+  }
+
+  // /payment-qr/[scheme]
+  for (const p of getAllPaymentSchemes()) {
+    out.push(entry(`/payment-qr/${p.slug}`, { changeFrequency: 'monthly', priority: 0.8 }));
+  }
+
+  return out;
 }

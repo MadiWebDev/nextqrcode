@@ -100,6 +100,8 @@ export const primaryNav: NavGroup[] = [
       { href: '/bulk-vcard-qr', label: 'Bulk vCard QR' },
       { href: '/qr-scanner', label: 'QR Scanner' },
       { href: '/bulk-generator', label: 'Bulk QR Generator' },
+      // Link to the tools hub so users and Googlebot can discover all tools
+      { href: '/tools', label: 'All Tools Directory' },
     ],
   },
   {
@@ -143,6 +145,9 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
     links: [
       { href: '/qr-size-calculator', label: 'QR Size Calculator' },
       { href: '/qr-safety-checker', label: 'QR Safety Checker' },
+      { href: '/qr-contrast-checker', label: 'QR Contrast Checker' },
+      { href: '/qr-print-cost-calculator', label: 'QR Print Cost Calculator' },
+      { href: '/qr-payload-inspector', label: 'QR Payload Inspector' },
       { href: '/printed-qr-tester', label: 'Printed QR Tester' },
       { href: '/error-correction-simulator', label: 'Error Correction Simulator' },
       { href: '/qr-splitter-scanner', label: 'QR Splitter & Scanner' },
@@ -160,6 +165,7 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
   {
     title: 'Specialty',
     links: [
+      { href: '/tools', label: 'All Tools Directory' },
       { href: '/medical-id-qr', label: 'Medical ID QR' },
       { href: '/pet-tag-qr', label: 'Pet Tag QR' },
       { href: '/pakistan-payment-qr', label: 'Pakistan Payment QR' },
@@ -169,6 +175,22 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
       { href: '/whatsapp-qr', label: 'WhatsApp by Country' },
       { href: '/blog', label: 'Blog & Guides' },
       { href: '/sitemap-page', label: 'Sitemap' },
+    ],
+  },
+  {
+    // 5th column — bulk & suite quick-links give footer link equity to underlinked pages
+    title: 'Bulk Tools',
+    links: [
+      { href: '/bulk-business-card-qr-generator', label: 'Bulk Business Card QR' },
+      { href: '/bulk-event-badge-qr-generator', label: 'Bulk Event Badge QR' },
+      { href: '/bulk-wifi-qr-generator', label: 'Bulk WiFi QR' },
+      { href: '/bulk-url-qr-generator', label: 'Bulk URL QR' },
+      { href: '/bulk-ticket-qr-generator', label: 'Bulk Ticket QR' },
+      { href: '/bulk-asset-tag-qr-generator', label: 'Bulk Asset Tag QR' },
+      { href: '/restaurant-qr-suite', label: 'Restaurant QR Suite' },
+      { href: '/clinic-qr-suite', label: 'Clinic QR Suite' },
+      { href: '/retail-qr-suite', label: 'Retail QR Suite' },
+      { href: '/tools', label: 'All Tools Directory' },
     ],
   },
   {

@@ -81,6 +81,35 @@ export default function BlogIndexPage() {
       </div>
 
       <AdSlot id="blog-bottom" format="horizontal-banner" />
+
+      {/* Featured Tools — internal link section to boost discovery of key tools from blog */}
+      <section className="mt-12 pt-10 border-t border-border/60">
+        <h2 className="text-lg font-bold text-foreground mb-1">Featured Tools</h2>
+        <p className="text-sm text-muted-foreground mb-5">
+          Try the tools mentioned in our guides — all free, no sign-up required.
+        </p>
+        <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-3">
+          {[
+            { href: '/url-qr-code-generator', label: 'URL QR Code Generator' },
+            { href: '/qr-safety-checker', label: 'QR Safety Checker' },
+            { href: '/qr-contrast-checker', label: 'QR Contrast Checker' },
+            { href: '/qr-print-cost-calculator', label: 'QR Print Cost Calculator' },
+            { href: '/bulk-generator', label: 'Bulk QR Generator' },
+            { href: '/qr-payload-inspector', label: 'QR Payload Inspector' },
+            { href: '/qr-a-b-test-planner', label: 'QR A/B Test Planner' },
+            { href: '/qr-redirect-chain-viewer', label: 'QR Redirect Chain Viewer' },
+            { href: '/tools', label: 'All Tools Directory →' },
+          ].map((tool) => (
+            <Link
+              key={tool.href}
+              href={tool.href}
+              className="rounded-lg border border-border/60 bg-card hover:border-primary/40 hover:bg-primary/5 transition-colors px-3 py-2.5 text-sm font-medium text-foreground hover:text-primary"
+            >
+              {tool.label}
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

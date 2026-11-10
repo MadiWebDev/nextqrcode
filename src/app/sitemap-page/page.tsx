@@ -4,9 +4,9 @@ import { getAllArticles } from '@/lib/articles';
 import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
-  title: 'Full Site Index & Directory — QR Code Tools',
+  title: 'HTML Sitemap — QR Code Tools',
   description:
-    'Full sitemap of QR Code Tools. Browse all 121 free QR tools and generators, technical guides, and standards.',
+    'Complete HTML sitemap of QR Code Tools. Browse all free QR generators, bulk tools, industry suites, print calculators, safety tools, blog articles, and reference guides.',
   alternates: { canonical: 'https://freeqrcode.tools/sitemap-page' },
   robots: { index: true, follow: true },
 };
@@ -44,8 +44,12 @@ export default function SitemapPage() {
           QR Code Tools Directory & Sitemap
         </h1>
         <p className="text-muted-foreground mt-2 text-sm">
-          A complete index of all 121 free QR tools and generators, research articles, and reference
-          guides.
+          A complete index of all free QR tools and generators, research articles, and reference
+          guides. Browse the interactive{' '}
+          <Link href="/tools" className="text-primary hover:underline font-medium">
+            tools directory
+          </Link>{' '}
+          for a categorised view.
         </p>
       </header>
       <AdSlot id="sitemap-page-top" format="horizontal-banner" />
@@ -183,6 +187,23 @@ export default function SitemapPage() {
       <SitemapSection
         heading="Bulk QR Generators"
         links={[
+          { label: 'Bulk URL QR Generator', href: '/bulk-url-qr-generator' },
+          { label: 'Bulk WiFi QR Generator', href: '/bulk-wifi-qr-generator' },
+          { label: 'Bulk Email QR Generator', href: '/bulk-email-qr-generator' },
+          { label: 'Bulk SMS QR Generator', href: '/bulk-sms-qr-generator' },
+          { label: 'Bulk Business Card QR Generator', href: '/bulk-business-card-qr-generator' },
+          { label: 'Bulk Event Badge QR Generator', href: '/bulk-event-badge-qr-generator' },
+          { label: 'Bulk Asset Tag QR Generator', href: '/bulk-asset-tag-qr-generator' },
+          { label: 'Bulk Student ID QR Generator', href: '/bulk-student-id-qr-generator' },
+          { label: 'Bulk Table Tent QR Generator', href: '/bulk-table-tent-qr-generator' },
+          { label: 'Bulk Feedback QR Generator', href: '/bulk-feedback-qr-generator' },
+          { label: 'Bulk Donation QR Generator', href: '/bulk-donation-qr-generator' },
+          { label: 'Bulk Check-In QR Generator', href: '/bulk-check-in-qr-generator' },
+          { label: 'Bulk Inventory QR Generator', href: '/bulk-inventory-qr-generator' },
+          { label: 'Bulk Ticket QR Generator', href: '/bulk-ticket-qr-generator' },
+          { label: 'Bulk Pet Tag QR Generator', href: '/bulk-pet-tag-qr-generator' },
+          { label: 'Bulk Certificate QR Generator', href: '/bulk-certificate-qr-generator' },
+          { label: 'Bulk Coupon QR Generator', href: '/bulk-coupon-qr-generator' },
           { label: 'Bulk Calendar QR Generator', href: '/bulk-calendar-qr-generator' },
           { label: 'Bulk MeCard Generator', href: '/bulk-mecard-generator' },
           { label: 'Bulk Survey QR Generator', href: '/bulk-survey-qr-generator' },
@@ -191,34 +212,51 @@ export default function SitemapPage() {
           { label: 'Bulk Shelf Label QR Generator', href: '/bulk-shelf-label-qr-generator' },
           { label: 'Bulk Certificate QR Generator', href: '/bulk-certificate-qr-generator' },
           { label: 'Bulk Coupon Expiry Auditor', href: '/bulk-coupon-expiry-auditor' },
-          { label: 'Bulk Check-In QR Generator', href: '/bulk-check-in-qr-generator' },
           { label: 'Bulk RSVP QR Generator', href: '/bulk-rsvp-qr-generator' },
           { label: 'Bulk Loyalty Card QR Generator', href: '/bulk-loyalty-card-qr-generator' },
           { label: 'Bulk Seat QR Generator', href: '/bulk-seat-qr-generator' },
           { label: 'Bulk Pet Tag QR Generator', href: '/bulk-pet-tag-qr-generator' },
           { label: 'Bulk Invoice QR Generator', href: '/bulk-invoice-qr-generator' },
           { label: 'Bulk Review QR Generator', href: '/bulk-review-qr-generator' },
+          { label: 'Bulk PDF QR Generator', href: '/bulk-pdf-qr-generator' },
+          { label: 'Bulk vCard QR from CSV', href: '/bulk-vcard-qr' },
+          { label: 'Bulk QR Generator (Universal)', href: '/bulk-generator' },
         ]}
       />
       <AdSlot id="sitemap-page-in-content" format="in-article" />
       <SitemapSection
         heading="Industry QR Suites"
         links={[
+          { label: 'Restaurant QR Suite', href: '/restaurant-qr-suite' },
+          { label: 'Retail QR Suite', href: '/retail-qr-suite' },
+          { label: 'Clinic QR Suite', href: '/clinic-qr-suite' },
+          { label: 'School QR Suite', href: '/school-qr-suite' },
+          { label: 'Gym QR Suite', href: '/gym-qr-suite' },
+          { label: 'Hotel QR Suite', href: '/hotel-qr-suite' },
+          { label: 'Real Estate QR Suite', href: '/real-estate-qr-suite' },
+          { label: 'Salon QR Suite', href: '/salon-qr-suite' },
+          { label: 'Pharmacy QR Suite', href: '/pharmacy-qr-suite' },
+          { label: 'Museum QR Suite', href: '/museum-qr-suite' },
+          { label: 'Library QR Suite', href: '/library-qr-suite' },
+          { label: 'Warehouse QR Suite', href: '/warehouse-qr-suite' },
+          { label: 'Farm QR Suite', href: '/farm-qr-suite' },
+          { label: 'Veterinary QR Suite', href: '/vet-qr-suite' },
+          { label: 'Hostel QR Suite', href: '/hostel-qr-suite' },
+          { label: 'Courier QR Suite', href: '/courier-qr-suite' },
+          { label: 'Co-Working Space QR Suite', href: '/co-working-qr-suite' },
           { label: 'Bakery QR Suite', href: '/bakery-qr-suite' },
-          { label: 'Barber QR Suite', href: '/barber-qr-suite' },
+          { label: 'Barber Shop QR Suite', href: '/barber-qr-suite' },
           { label: 'Boutique QR Suite', href: '/boutique-qr-suite' },
           { label: 'Car Wash QR Suite', href: '/car-wash-qr-suite' },
-          { label: 'Co-Working QR Suite', href: '/co-working-qr-suite' },
-          { label: 'Courier QR Suite', href: '/courier-qr-suite' },
           { label: 'Dentist QR Suite', href: '/dentist-qr-suite' },
-          { label: 'Driving School QR Suite', href: '/driving-school-qr-suite' },
           { label: 'Florist QR Suite', href: '/florist-qr-suite' },
           { label: 'Food Truck QR Suite', href: '/food-truck-qr-suite' },
-          { label: 'Hostel QR Suite', href: '/hostel-qr-suite' },
           { label: 'Laundromat QR Suite', href: '/laundromat-qr-suite' },
           { label: 'Spa QR Suite', href: '/spa-qr-suite' },
-          { label: 'Vet QR Suite', href: '/vet-qr-suite' },
           { label: 'Event Venue QR Suite', href: '/event-venue-qr-suite' },
+          { label: 'Driving School QR Suite', href: '/driving-school-qr-suite' },
+          { label: 'Church QR Suite', href: '/church-qr-suite' },
+          { label: 'Taxi & Ride Service QR Suite', href: '/taxi-qr-suite' },
         ]}
       />
 

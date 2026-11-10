@@ -613,6 +613,61 @@ export async function HomePageContent() {
         />
       </section>
 
+      {/* Explore All Tools — internal link section for SEO crawl bridge */}
+      {/* Links to underlinked tool pages that are not in the main nav or hero */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border/60">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
+          <div>
+            <h2 className="text-xl font-extrabold tracking-tight text-foreground">
+              More QR Tools
+            </h2>
+            <p className="text-muted-foreground text-xs mt-1">
+              Specialised tools for print, safety, design, analytics, and advanced engineering.
+            </p>
+          </div>
+          <Link
+            href="/tools"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline shrink-0"
+          >
+            See all tools <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+        <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+          {[
+            { href: '/qr-contrast-checker', label: 'QR Contrast Checker' },
+            { href: '/qr-print-cost-calculator', label: 'QR Print Cost Calculator' },
+            { href: '/qr-billboard-size-calculator', label: 'Billboard Size Calculator' },
+            { href: '/qr-payload-inspector', label: 'QR Payload Inspector' },
+            { href: '/qr-expiry-checker', label: 'QR Expiry Checker' },
+            { href: '/qr-offline-verifier', label: 'QR Offline Verifier' },
+            { href: '/qr-payload-linter', label: 'QR Payload Linter' },
+            { href: '/qr-url-anatomy-checker', label: 'URL Anatomy Checker' },
+            { href: '/qr-payload-hash-verifier', label: 'Payload Hash Verifier' },
+            { href: '/qr-blocklist-tester', label: 'QR Blocklist Tester' },
+            { href: '/qr-a-b-test-planner', label: 'A/B Test Planner' },
+            { href: '/qr-ab-test-significance-calculator', label: 'A/B Significance Calculator' },
+            { href: '/qr-scan-log', label: 'QR Scan Log' },
+            { href: '/qr-svg-png-pdf-exporter', label: 'SVG / PNG / PDF Exporter' },
+            { href: '/qr-batch-renamer', label: 'QR Batch Renamer' },
+            { href: '/qr-zip-packager', label: 'QR ZIP Packager' },
+            { href: '/qr-embed-code-builder', label: 'Embed Code Builder' },
+            { href: '/qr-redirect-chain-viewer', label: 'Redirect Chain Viewer' },
+            { href: '/qr-destination-change-detector', label: 'Destination Change Detector' },
+            { href: '/qr-phishing-pattern-trainer', label: 'Phishing Pattern Trainer' },
+            { href: '/qr-frame-designer', label: 'QR Frame Designer' },
+            { href: '/qr-image-enhancer', label: 'QR Image Enhancer' },
+          ].map((tool) => (
+            <Link
+              key={tool.href}
+              href={tool.href}
+              className="rounded-lg border border-border/60 bg-card hover:border-primary/40 hover:bg-primary/5 transition-colors px-3 py-2.5 text-xs font-medium text-foreground hover:text-primary"
+            >
+              {tool.label}
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* AdSlot before footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <AdSlot id="home-bottom" format="horizontal-banner" />
