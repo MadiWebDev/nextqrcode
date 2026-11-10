@@ -222,7 +222,10 @@ const categories: ToolCategory[] = [
       { href: '/qr-analytics-simulator', label: 'QR Analytics Simulator' },
       { href: '/qr-campaign-planner', label: 'QR Campaign Planner' },
       { href: '/qr-cost-per-scan-calculator', label: 'QR Cost Per Scan Calculator' },
-      { href: '/qr-dynamic-vs-static-roi-calculator', label: 'Dynamic vs Static QR ROI Calculator' },
+      {
+        href: '/qr-dynamic-vs-static-roi-calculator',
+        label: 'Dynamic vs Static QR ROI Calculator',
+      },
       { href: '/qr-scan-funnel-calculator', label: 'QR Scan Funnel Calculator' },
       { href: '/qr-footfall-scan-estimator', label: 'QR Footfall Scan Estimator' },
       { href: '/qr-campaign-break-even-calculator', label: 'QR Campaign Break-Even Calculator' },
@@ -305,7 +308,10 @@ export default function ToolsDirectoryPage() {
       <nav aria-label="Breadcrumb" className="mb-6 text-sm text-slate-500 dark:text-slate-400">
         <ol className="flex flex-wrap items-center gap-1.5">
           <li>
-            <Link href="/" className="hover:text-slate-900 dark:hover:text-slate-100 hover:underline">
+            <Link
+              href="/"
+              className="hover:text-slate-900 dark:hover:text-slate-100 hover:underline"
+            >
               Home
             </Link>
           </li>

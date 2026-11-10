@@ -618,9 +618,7 @@ export async function HomePageContent() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border/60">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
           <div>
-            <h2 className="text-xl font-extrabold tracking-tight text-foreground">
-              More QR Tools
-            </h2>
+            <h2 className="text-xl font-extrabold tracking-tight text-foreground">More QR Tools</h2>
             <p className="text-muted-foreground text-xs mt-1">
               Specialised tools for print, safety, design, analytics, and advanced engineering.
             </p>
