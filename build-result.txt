@@ -1,0 +1,361 @@
+=== STDOUT ===
+▲ Next.js 16.3.8 (Turbopack)
+- Environments: .env.local, .env
+✓ Running next.config.ts took 121ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 6.9s
+  Running TypeScript ...
+  Finished TypeScript in 11.7s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/2036) ...
+  Generating static pages using 7 workers (509/2036) 
+  Generating static pages using 7 workers (1018/2036) 
+  Generating static pages using 7 workers (1527/2036) 
+✓ Generating static pages using 7 workers (2036/2036) in 73s
+  Finalizing page optimization ...
+
+Route (app)                                       Revalidate  Expire
+┌ ƒ /
+├ ○ /_not-found
+├ ○ /.well-known/security.txt
+├ ƒ /[locale]
+├ ƒ /[locale]/text
+├ ƒ /[locale]/url
+├ ƒ /[locale]/vcard
+├ ƒ /[locale]/wifi
+├ ○ /about
+├ ○ /ads.txt                                              1h      1y
+├ ○ /animated-qr-transfer
+├ ƒ /api/account
+├ ƒ /api/auth/[...nextauth]
+├ ƒ /api/cards
+├ ƒ /api/cards/[slug]
+├ ƒ /api/qrcodes
+├ ƒ /api/qrcodes/[id]
+├ ƒ /api/qrcodes/[id]/unlock
+├ ƒ /api/reports
+├ ƒ /api/upload
+├ ƒ /api/uploads
+├ ƒ /api/uploads/sign
+├ ○ /app-review-link-qr-generator
+├ ○ /app-store-qr-code-generator
+├ ○ /appointment-booking-qr-generator
+├ ○ /bakery-qr-suite
+├ ○ /barber-qr-suite
+├ ○ /barcode-generator
+├ ○ /bitcoin-qr-code-generator
+├ ○ /blog
+├   /blog/[slug]
+│ ├ ● /blog/how-qr-codes-work
+│ ├ ● /blog/qr-code-sizes-for-printing
+│ ├ ● /blog/static-vs-dynamic-qr-codes
+│ └ ● [+1588 more paths]
+├ ○ /boarding-pass-qr-generator
+├ ○ /boutique-qr-suite
+├ ○ /bulk-asset-tag-qr-generator
+├ ○ /bulk-business-card-qr-generator
+├ ○ /bulk-calendar-qr-generator
+├ ○ /bulk-certificate-qr-generator
+├ ○ /bulk-check-in-qr-generator
+├ ○ /bulk-coupon-expiry-auditor
+├ ○ /bulk-coupon-qr-generator
+├ ○ /bulk-donation-qr-generator
+├ ○ /bulk-email-qr-generator
+├ ○ /bulk-event-badge-qr-generator
+├ ○ /bulk-feedback-qr-generator
+├ ○ /bulk-generator
+├ ○ /bulk-inventory-qr-generator
+├ ○ /bulk-invoice-qr-generator
+├ ○ /bulk-loyalty-card-qr-generator
+├ ○ /bulk-mecard-generator
+├ ○ /bulk-menu-item-qr-generator
+├ ○ /bulk-pdf-qr-generator
+├ ○ /bulk-pet-tag-qr-generator
+├ ○ /bulk-review-qr-generator
+├ ○ /bulk-rsvp-qr-generator
+├ ○ /bulk-seat-qr-generator
+├ ○ /bulk-shelf-label-qr-generator
+├ ○ /bulk-shipping-label-qr-generator
+├ ○ /bulk-sms-qr-generator
+├ ○ /bulk-student-id-qr-generator
+├ ○ /bulk-survey-qr-generator
+├ ○ /bulk-table-tent-qr-generator
+├ ○ /bulk-ticket-qr-generator
+├ ○ /bulk-url-qr-generator
+├ ○ /bulk-vcard-generator
+├ ○ /bulk-vcard-qr
+├ ○ /bulk-wifi-qr-generator
+├ ○ /calendar-event-qr-code-generator
+├ ○ /car-listing-qr-generator
+├ ○ /car-wash-qr-suite
+├ ƒ /card/[slug]
+├ ○ /church-qr-suite
+├ ○ /clinic-qr-suite
+├ ○ /co-working-qr-suite
+├ ○ /contact
+├ ○ /cookie-policy
+├ ○ /coupon-qr-code-generator
+├ ○ /courier-qr-suite
+├ ○ /course-enrollment-qr-generator
+├ ○ /crypto-wallet-qr-code-generator
+├ ƒ /dashboard
+├ ƒ /dashboard/[id]
+├ ƒ /dashboard/settings
+├ ○ /dentist-qr-suite
+├ ○ /disclaimer
+├ ○ /donation-qr-code-generator
+├ ○ /driving-school-qr-suite
+├ ○ /email-qr-code-generator
+├ ○ /error-correction-simulator
+├ ○ /event-countdown-qr-generator
+├ ○ /event-rsvp-qr-code-generator
+├ ○ /event-venue-qr-suite
+├ ○ /farm-qr-suite
+├ ○ /feedback-qr-code-generator
+├ ○ /florist-qr-suite
+├ ○ /food-truck-qr-suite
+├ ○ /fundraiser-qr-generator
+├ ○ /geo-qr-code-generator
+├ ○ /gift-card-qr-generator
+├ ○ /glossary
+├   /glossary/[slug]
+│ ├ ● /glossary/module
+│ ├ ● /glossary/finder-pattern
+│ ├ ● /glossary/reed-solomon
+│ └ ● [+37 more paths]
+├ ƒ /glossary/[slug]/opengraph-image
+├ ○ /google-review-qr-generator
+├ ○ /gym-qr-suite
+├ ○ /hostel-qr-suite
+├ ○ /hotel-qr-suite
+├ ○ /industries
+├   /industries/[slug]
+│ ├ ● /industries/retail-product-authentication
+│ ├ ● /industries/retail-inventory-asset-tagging
+│ ├ ● /industries/retail-loyalty-program
+│ └ ● [+37 more paths]
+├ ƒ /industries/[slug]/opengraph-image
+├ ○ /invoice-payment-qr-generator
+├ ○ /job-application-qr-generator
+├ ○ /kid-safe-qr-card-generator
+├ ○ /laundromat-qr-suite
+├ ○ /library-qr-suite
+├ ○ /live-stream-qr-generator
+├ ƒ /login
+├ ○ /loyalty-card-qr-code-generator
+├ ○ /luggage-tag-qr-generator
+├ ○ /manifest.webmanifest
+├ ○ /mecard-qr-code-generator
+├ ○ /medical-id-qr
+├ ○ /membership-card-qr-generator
+├ ○ /menu-qr-code-generator
+├ ○ /museum-qr-suite
+├ ○ /pakistan-payment-qr
+├ ○ /parking-spot-qr-generator
+├ ○ /payment-qr
+├   /payment-qr/[slug]
+│ ├ ● /payment-qr/swiss-qr-bill
+│ ├ ● /payment-qr/brazil-pix-emv
+│ └ ● /payment-qr/singapore-sgqr
+├ ○ /pdf-qr-code-generator
+├ ○ /pet-adoption-qr-generator
+├ ○ /pet-tag-qr
+├ ○ /pharmacy-qr-suite
+├ ○ /plant-care-qr-generator
+├ ○ /playlist-qr-code-generator
+├ ○ /podcast-qr-code-generator
+├ ○ /prescription-refill-qr-generator
+├ ○ /printed-qr-tester
+├ ○ /privacy
+├ ○ /property-tour-qr-generator
+├ ƒ /q/[publicId]
+├ ƒ /q/[publicId]/opengraph-image
+├ ○ /qr-a-b-test-planner
+├ ○ /qr-ab-test-significance-calculator
+├ ○ /qr-allowlist-builder
+├ ○ /qr-allowlist-tester
+├ ○ /qr-analytics-simulator
+├ ○ /qr-api-playground
+├ ○ /qr-batch-cost-calculator
+├ ○ /qr-batch-duplicate-detector
+├ ○ /qr-batch-failure-estimator
+├ ○ /qr-batch-renamer
+├ ○ /qr-batch-validator
+├ ○ /qr-billboard-size-calculator
+├ ○ /qr-blocklist-tester
+├ ○ /qr-brand-impersonation-checker
+├ ○ /qr-call-to-action-builder
+├ ○ /qr-campaign-break-even-calculator
+├ ○ /qr-campaign-planner
+├ ○ /qr-checksum-generator
+├ ○ /qr-clone-risk-scorer
+├ ○ /qr-code-cropper
+├ ○ /qr-code-retirement-planner
+├ ○ /qr-code-rotator
+├ ○ /qr-color-pair-tester
+├ ○ /qr-consent-note-builder
+├ ○ /qr-contrast-checker
+├ ○ /qr-cost-per-scan-calculator
+├ ○ /qr-curved-surface-calculator
+├ ○ /qr-data-capacity-calculator
+├ ○ /qr-destination-change-detector
+├ ○ /qr-dot-gain-tolerance-checker
+├ ○ /qr-dpi-calculator
+├ ○ /qr-dynamic-vs-static-roi-calculator
+├ ○ /qr-embed-code-builder
+├ ○ /qr-error-budget-calculator
+├ ○ /qr-expiry-checker
+├ ○ /qr-expiry-policy-builder
+├ ○ /qr-fade-risk-checker
+├ ○ /qr-footfall-scan-estimator
+├ ○ /qr-frame-designer
+├ ○ /qr-frame-text-size-calculator
+├ ○ /qr-glare-risk-checker
+├ ○ /qr-gradient-maker
+├ ○ /qr-homograph-detector
+├ ○ /qr-image-enhancer
+├ ○ /qr-image-metadata-auditor
+├ ○ /qr-incident-report-builder
+├ ○ /qr-ink-coverage-estimator
+├ ○ /qr-label-count-calculator
+├ ○ /qr-labels
+├   /qr-labels/[slug]
+│ ├ ● /qr-labels/avery-5160
+│ ├ ● /qr-labels/avery-5163
+│ ├ ● /qr-labels/avery-l7160
+│ └ ● [+2 more paths]
+├ ○ /qr-link-menu-generator
+├ ○ /qr-logo-safe-area-calculator
+├ ○ /qr-metadata-stripper
+├ ○ /qr-minimum-size-checker
+├ ○ /qr-module-size-calculator
+├ ○ /qr-off-axis-scan-calculator
+├ ○ /qr-offline-verifier
+├ ○ /qr-payload-hash-verifier
+├ ○ /qr-payload-inspector
+├ ○ /qr-payload-linter
+├ ○ /qr-permission-explainer
+├ ○ /qr-phishing-pattern-trainer
+├ ○ /qr-placement-guide
+├ ○ /qr-print-area-calculator
+├ ○ /qr-print-cost-calculator
+├ ○ /qr-print-proof-checklist
+├ ○ /qr-print-sheet-planner
+├ ○ /qr-print-waste-estimator
+├ ○ /qr-quiet-zone-adder
+├ ○ /qr-quiet-zone-calculator
+├ ○ /qr-readability-score-calculator
+├ ○ /qr-redirect-chain-viewer
+├ ○ /qr-roll-label-planner
+├ ○ /qr-safe-scan-checklist-builder
+├ ○ /qr-safety-checker
+├ ○ /qr-scan-funnel-calculator
+├ ○ /qr-scan-instruction-card
+├ ○ /qr-scan-log
+├ ○ /qr-scan-test-sample-calculator
+├ ○ /qr-scanner
+├ ○ /qr-scheme-safety-checker
+├ ○ /qr-signature-note-builder
+├ ○ /qr-size-calculator
+├ ○ /qr-size-guide
+├   /qr-size-guide/[slug]
+│ ├ ● /qr-size-guide/business-card
+│ ├ ● /qr-size-guide/restaurant-table-tent
+│ ├ ● /qr-size-guide/highway-billboard
+│ └ ● [+23 more paths]
+├ ƒ /qr-size-guide/[slug]/opengraph-image
+├ ○ /qr-size-presets
+├ ○ /qr-splitter-scanner
+├ ○ /qr-sticker-sheet-printer
+├ ○ /qr-svg-png-pdf-exporter
+├ ○ /qr-tamper-evidence-planner
+├ ○ /qr-to-pdf-converter
+├ ○ /qr-tracking-parameter-auditor
+├ ○ /qr-typosquat-checker
+├ ○ /qr-url-anatomy-checker
+├ ○ /qr-utm-audit-checker
+├ ○ /qr-version-estimator
+├ ○ /qr-wear-lifetime-estimator
+├ ○ /qr-zip-packager
+├ ○ /quote-request-qr-generator
+├ ƒ /r/[publicId]
+├ ○ /real-estate-qr-suite
+├ ○ /recipe-qr-generator
+├ ○ /regional-payment-qr
+├ ○ /restaurant-qr-suite
+├ ○ /resume-qr-code-generator
+├ ○ /retail-qr-suite
+├ ○ /robots.txt
+├ ○ /room-booking-qr-generator
+├ ○ /salon-qr-suite
+├ ○ /scan-guide
+├   /scan-guide/[slug]
+│ ├ ● /scan-guide/scan-qr-code-iphone-recent
+│ ├ ● /scan-guide/scan-qr-code-iphone-older
+│ ├ ● /scan-guide/scan-qr-code-samsung-galaxy
+│ └ ● [+27 more paths]
+├ ƒ /scan-guide/[slug]/opengraph-image
+├ ○ /school-qr-suite
+├ ○ /seat-finder-qr-generator
+├ ○ /shipment-tracking-qr-generator
+├ ○ /sitemap-page
+├   /sitemap/[__metadata_id__]
+│ ├ ● /sitemap/0.xml
+│ ├ ● /sitemap/1.xml
+│ ├ ● /sitemap/2.xml
+│ └ ● [+5 more paths]
+├ ○ /sms-qr-code-generator
+├ ○ /social-profile-qr-code-generator
+├ ○ /spa-qr-suite
+├ ○ /survey-qr-code-generator
+├ ○ /table-order-qr-generator
+├ ○ /taxi-qr-suite
+├ ○ /templates
+├   /templates/[slug]
+│ ├ ● /templates/minimalist-white-card
+│ ├ ● /templates/rounded-soft-dots
+│ ├ ● /templates/corporate-navy-trust
+│ └ ● [+27 more paths]
+├ ƒ /templates/[slug]/opengraph-image
+├ ○ /terms
+├ ○ /ticket-qr-code-generator
+├ ○ /tools
+├ ƒ /unlock/[publicId]
+├ ○ /upi-qr-code-generator
+├ ○ /url-qr-code-generator
+├ ○ /utm-builder
+├ ○ /vcard-photo-qr-generator
+├ ○ /vcard-qr-code-generator
+├ ○ /vet-qr-suite
+├ ○ /view
+├ ○ /visitor-badge-qr-generator
+├ ○ /warehouse-qr-suite
+├ ○ /warranty-qr-generator
+├ ○ /webinar-join-qr-generator
+├ ○ /whatsapp-order-qr-generator
+├ ○ /whatsapp-qr
+├ ○ /whatsapp-qr-code-generator
+├   /whatsapp-qr/[slug]
+│ ├ ● /whatsapp-qr/pakistan
+│ ├ ● /whatsapp-qr/india
+│ ├ ● /whatsapp-qr/united-states
+│ └ ● [+2 more paths]
+├ ○ /wifi-qr-code-generator
+├ ○ /wifi-sign-generator
+└ ○ /zoom-meeting-qr-code-generator
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
+
+=== STDERR ===
+
+=== EXIT CODE ===
+0
+=== ERROR ===
+none
