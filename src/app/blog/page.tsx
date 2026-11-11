@@ -12,8 +12,20 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://freeqrcode.tools/blog' },
 };
 
-export default function BlogIndexPage() {
-  const articles = getAllArticles();
+const PAGE_SIZE = 24;
+
+export default async function BlogIndexPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const { page: pageParam } = await searchParams;
+  const allArticles = getAllArticles();
+  const totalPages = Math.max(1, Math.ceil(allArticles.length / PAGE_SIZE));
+  const requested = Number.parseInt(pageParam ?? '1', 10);
+  const page = Math.min(Math.max(Number.isNaN(requested) ? 1 : requested, 1), totalPages);
+  const articles = allArticles.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const pageHref = (n: number) => (n <= 1 ? '/blog' : `/blog?page=${n}`);
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
@@ -80,6 +92,48 @@ export default function BlogIndexPage() {
         ))}
       </div>
 
+      {/* Server-rendered pagination — plain anchors, no client JS, so every
+          page of the index is crawlable HTML. */}
+      {totalPages > 1 && (
+        <nav aria-label="Blog pages" className="mt-10 flex flex-wrap items-center gap-2">
+          {page > 1 && (
+            <Link
+              href={pageHref(page - 1)}
+              className="px-3 py-1.5 rounded-md border border-border text-sm font-medium hover:border-primary/40"
+            >
+              Previous
+            </Link>
+          )}
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) =>
+            n === page ? (
+              <span
+                key={n}
+                aria-current="page"
+                className="px-3 py-1.5 rounded-md bg-primary text-primary-foreground text-sm font-semibold"
+              >
+                {n}
+              </span>
+            ) : (
+              <Link
+                key={n}
+                href={pageHref(n)}
+                className="px-3 py-1.5 rounded-md border border-border text-sm font-medium hover:border-primary/40"
+              >
+                {n}
+              </Link>
+            )
+          )}
+          {page < totalPages && (
+            <Link
+              href={pageHref(page + 1)}
+              className="px-3 py-1.5 rounded-md border border-border text-sm font-medium hover:border-primary/40"
+            >
+              Next
+            </Link>
+          )}
+        </nav>
+      )}
+
       <AdSlot id="blog-bottom" format="horizontal-banner" />
 
       {/* Featured Tools — internal link section to boost discovery of key tools from blog */}
@@ -113,3 +167,4 @@ export default function BlogIndexPage() {
     </div>
   );
 }
+

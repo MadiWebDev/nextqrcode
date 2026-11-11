@@ -225,6 +225,7 @@ interface FaqItem {
 
 export async function HomePageContent() {
   const t = await getTranslations('home');
+  const heroT = await getTranslations('hero');
   const articles = getAllArticles().slice(0, 6);
   const countries = getAllCountries();
   const payments = getAllPaymentSchemes();
@@ -282,6 +283,22 @@ export async function HomePageContent() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       <JsonLd data={softwareSchema} />
+
+      {/* Hero headline — the page's single <h1>. Copy comes from the existing
+          i18n `hero` namespace (previously unused by this component). The
+          interactive generator below it is the hero tool, not a headline. */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-2 text-center">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-4">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>{heroT('badge')}</span>
+        </div>
+        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
+          {heroT('title')}
+        </h1>
+        <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto mt-3 leading-relaxed">
+          {heroT('subtitle')}
+        </p>
+      </section>
 
       {/* Main Interactive Studio Hero */}
       <HomeGenerator />
@@ -673,3 +690,4 @@ export async function HomePageContent() {
     </>
   );
 }
+
