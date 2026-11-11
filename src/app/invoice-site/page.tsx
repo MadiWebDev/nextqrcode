@@ -1,13 +1,17 @@
 import Link from 'next/link';
 import {
+  Archive,
   Building2,
   CheckCircle2,
   FileDown,
+  FileText,
+  LayoutDashboard,
   LayoutTemplate,
   Lock,
   MousePointerClick,
   PenLine,
   QrCode,
+  Repeat,
   Send,
   Users,
   Wallet,
@@ -46,6 +50,16 @@ const faqs = [
     answer:
       'Yes. Each invoice has its own currency — ten are built in, including USD, EUR, GBP, PKR, INR, AED, SAR, QAR, CAD and AUD — and amounts are formatted properly for the currency you choose. The tax label is free text, so you can write VAT for European clients, GST for Pakistan, India or Australia, or sales tax for the United States. The summary on the Invoices tab groups totals per currency instead of mixing them, which keeps your outstanding figures honest.',
   },
+  {
+    question: 'How do recurring invoices work?',
+    answer:
+      'Tick "Make this a recurring invoice" on any invoice and choose weekly, monthly, quarterly or yearly, plus the next issue date. When that date arrives, a fresh draft of the invoice — new number, fresh dates, nothing paid against it — is created for you the next time you open the app. Honest detail: nothing is ever sent automatically, because there is no account and no server working in the background. You review each draft, adjust it if the amount changed, and send it yourself. Pause a template when a retainer is on hold, or stop it entirely when the work ends.',
+  },
+  {
+    question: 'How do backups work, and when should I export one?',
+    answer:
+      'Because everything is stored in your browser, the Data section in Settings is your safety net. Export backup (JSON) downloads a single file containing your business profile, client list and every invoice; Import backup restores that file on any computer or browser, replacing what is stored there after you confirm. Export one before switching computers, before clearing browser data, and at the end of each month as a habit. There is also a CSV export of all your invoices — one row per invoice with totals, payments, balances and statuses — for your accountant or your own spreadsheet.',
+  },
 ];
 
 const features = [
@@ -78,6 +92,31 @@ const features = [
     icon: Lock,
     title: 'Private by design',
     text: 'There is no account and no server copy of your data. Everything — profile, clients, invoices, even your logo — lives in your browser\u2019s local storage on your device. Close the tab and it is still there when you return; clear your browser data and it is gone for good. Your client list is nobody else\u2019s business.',
+  },
+  {
+    icon: Repeat,
+    title: 'Recurring invoices',
+    text: 'Retainers, rent, tuition, subscriptions — set an invoice to repeat weekly, monthly, quarterly or yearly and a fresh draft is waiting for you when each date arrives, numbered and dated automatically. Nothing is sent without you: you review, tweak and send every draft yourself. Pause a template whenever the work pauses.',
+  },
+  {
+    icon: Wallet,
+    title: 'Payment tracking & partial payments',
+    text: 'A real payments ledger, not a single "amount paid" box. Record every payment with its date, amount, method and a note — deposit by bank transfer, balance in cash — and the invoice labels itself accurately: partially paid, overdue, or paid in full, with a PAID stamp across the PDF when the balance clears.',
+  },
+  {
+    icon: LayoutDashboard,
+    title: 'Business dashboard',
+    text: 'One screen that answers the money questions: how much you have billed, collected and are still owed, per currency; how old the unpaid money is, in 30-day aging buckets; a six-month billing chart; and your top five clients with what each still owes. Drafts stay out of the numbers until you actually send them.',
+  },
+  {
+    icon: FileText,
+    title: 'Client statements',
+    text: 'When a client asks "what do I owe you, in total?", answer with one document: a statement PDF listing every invoice you have ever issued them — dates, totals, payments, balances and statuses — with the outstanding amount highlighted. Generated per client from the address book, in one click.',
+  },
+  {
+    icon: Archive,
+    title: 'Backup & export',
+    text: 'Your data lives in your browser, so take it with you: export a complete JSON backup of your profile, clients and invoices, and import it on any other computer. There is a CSV export too — every invoice, one row each — ready for Excel, Google Sheets or your accountant.',
   },
 ];
 
