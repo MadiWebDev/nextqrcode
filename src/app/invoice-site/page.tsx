@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {
   Archive,
+  ArrowRight,
   Building2,
   CheckCircle2,
   FileDown,
@@ -11,7 +12,9 @@ import {
   MousePointerClick,
   PenLine,
   QrCode,
+  Receipt,
   Repeat,
+  ScrollText,
   Send,
   Users,
   Wallet,
@@ -156,6 +159,9 @@ export default function InvoiceSitePage() {
             <a href="#features" className="hover:text-primary transition-colors">
               Features
             </a>
+            <a href="#tools" className="hover:text-primary transition-colors">
+              Tools
+            </a>
             <a href="#templates" className="hover:text-primary transition-colors">
               Templates
             </a>
@@ -244,6 +250,81 @@ export default function InvoiceSitePage() {
               included, ready to email or print.
             </p>
           </div>
+        </section>
+
+        {/* ── Invoice tools family ──────────────────────────────────── */}
+        <section
+          id="tools"
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-border/60 scroll-mt-6"
+        >
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            All the invoice tools, in one place
+          </h2>
+          <p className="mt-3 text-muted-foreground max-w-3xl leading-relaxed">
+            The app above is the full workspace — but sometimes you just need one document, fast.
+            This site also carries the complete document toolkit for a small business: send a
+            priced quote before the work starts, raise the invoice when the job is done, and hand
+            over a receipt once the money lands. Every tool is free, runs in your browser and needs
+            no sign-up.
+          </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <Link
+              href="/invoice-generator"
+              className="rounded-2xl border border-border bg-card p-5 block hover:border-primary/50 transition-colors"
+            >
+              <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3">
+                <FileText className="w-5 h-5" />
+              </span>
+              <h3 className="font-semibold">Invoice Generator</h3>
+              <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
+                The quick single-invoice tool: fill in the client, the work and the amounts, then
+                download a clean PDF. Ideal for a one-off invoice when you do not need a saved
+                profile or payment tracking.
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                Open the tool <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
+            <Link
+              href="/quote-generator"
+              className="rounded-2xl border border-border bg-card p-5 block hover:border-primary/50 transition-colors"
+            >
+              <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3">
+                <ScrollText className="w-5 h-5" />
+              </span>
+              <h3 className="font-semibold">Quote Generator</h3>
+              <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
+                Send a priced quote first, with clear validity dates, so the client agrees the
+                number before any work begins — then turn the accepted job into your billing
+                without starting from a blank page.
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                Open the tool <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
+            <Link
+              href="/receipt-generator"
+              className="rounded-2xl border border-border bg-card p-5 block hover:border-primary/50 transition-colors"
+            >
+              <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3">
+                <Receipt className="w-5 h-5" />
+              </span>
+              <h3 className="font-semibold">Receipt Generator</h3>
+              <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
+                Thermal-style payment receipts for in-person sales — the familiar narrow till-roll
+                format, with cash tendered and change worked out for you. Print it at the counter
+                or save the PDF for your records.
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                Open the tool <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
+          </div>
+          <p className="mt-6 text-sm text-muted-foreground leading-relaxed max-w-3xl">
+            The workspace at the top of this page is where repeat billing lives — your business
+            profile, client address book, invoice tracking and dashboard. These three are the fast
+            single-document tools: no setup, no history, just the document you need right now.
+          </p>
         </section>
 
         {/* ── Templates ─────────────────────────────────────────────── */}
@@ -401,7 +482,16 @@ export default function InvoiceSitePage() {
             <strong className="text-foreground">Invoice Generator</strong> — part of QR Studio, the
             free tools suite at freeqrcode.tools. Your data never leaves your browser.
           </p>
-          <nav aria-label="More tools" className="flex gap-5 text-sm sm:ml-auto">
+          <nav aria-label="More tools" className="flex flex-wrap gap-5 text-sm sm:ml-auto">
+            <Link href="/invoice-generator" className="hover:text-primary transition-colors">
+              Invoice Generator
+            </Link>
+            <Link href="/quote-generator" className="hover:text-primary transition-colors">
+              Quote Generator
+            </Link>
+            <Link href="/receipt-generator" className="hover:text-primary transition-colors">
+              Receipt Generator
+            </Link>
             <Link href="https://freeqrcode.tools/tools" className="hover:text-primary transition-colors">
               All free tools
             </Link>

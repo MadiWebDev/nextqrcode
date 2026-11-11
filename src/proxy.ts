@@ -16,6 +16,14 @@ import { NextRequest, NextResponse } from 'next/server';
  */
 const INVOICE_SITE_HOST = 'invoicegenerator.freeqrcode.tools';
 
+/**
+ * Invoice-family tool pages that also live on the subdomain under their own
+ * paths (e.g. invoicegenerator.freeqrcode.tools/quote-generator). On the
+ * invoice host these are served as-is instead of being prefixed with
+ * /invoice-site, so the whole invoice tool family shows on the subdomain.
+ */
+const INVOICE_TOOL_PATHS = new Set(['/invoice-generator', '/quote-generator', '/receipt-generator']);
+
 export function proxy(request: NextRequest) {
   let nonce: string;
   try {
@@ -47,9 +55,15 @@ export function proxy(request: NextRequest) {
   requestHeaders.set('x-nonce', nonce);
   requestHeaders.set('Content-Security-Policy', contentSecurityPolicy);
 
-  // Subdomain routing: the invoice site host rewrites to /invoice-site/*.
+  // Subdomain routing: the invoice site host rewrites to /invoice-site/*,
+  // except the invoice-family tool paths, which are served under their own
+  // paths on the subdomain too.
   const host = (request.headers.get('host') ?? '').split(':')[0].toLowerCase();
-  if (host === INVOICE_SITE_HOST && !request.nextUrl.pathname.startsWith('/invoice-site')) {
+  if (
+    host === INVOICE_SITE_HOST &&
+    !request.nextUrl.pathname.startsWith('/invoice-site') &&
+    !INVOICE_TOOL_PATHS.has(request.nextUrl.pathname)
+  ) {
     const url = request.nextUrl.clone();
     url.pathname = '/invoice-site' + (url.pathname === '/' ? '' : url.pathname);
     const rewriteResponse = NextResponse.rewrite(url, {
