@@ -236,6 +236,76 @@ export const TOOL_REGISTRY: ToolEntry[] = [
       'Build WhatsApp QR codes with the correct calling code and number format for each country.',
     category: 'Specialty',
   },
+  {
+    slug: '/invoice-generator',
+    name: 'Free Invoice Generator',
+    blurb:
+      'Create professional invoices with line items, tax and discounts, download them as PDF, and add an optional payment QR code.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/quote-generator',
+    name: 'Quote & Estimate Generator',
+    blurb:
+      'Send clean quotations with validity dates, itemised pricing, tax and your own terms, exported as a print-ready PDF.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/receipt-generator',
+    name: 'Receipt Generator',
+    blurb:
+      'Make thermal-style shop receipts with items, payment method and change due, exported as a narrow 80mm PDF.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/student-id-card-generator',
+    name: 'Student ID Card Generator',
+    blurb:
+      'Design print-ready student ID cards with photo, school logo, class details and an optional QR code on the card.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/employee-id-card-generator',
+    name: 'Employee ID Card Generator',
+    blurb:
+      'Design company ID badges with photo, logo, designation and emergency contact, ready to print at CR80 size.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/certificate-generator',
+    name: 'Certificate Generator',
+    blurb:
+      'Create achievement, course and participation certificates with names, dates and signatories, downloaded as high-resolution PNG.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/price-tag-maker',
+    name: 'Price Tag Maker',
+    blurb:
+      'Lay out a full A4 sheet of shelf price tags with product names, prices and an optional QR code, ready to print and cut.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/sale-poster-maker',
+    name: 'Sale Poster Maker',
+    blurb:
+      'Design bold A4 sale posters with discount headlines and store branding in four retail colour themes.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/image-to-pdf-converter',
+    name: 'Image to PDF Converter',
+    blurb:
+      'Combine JPG and PNG images into one PDF in your chosen order and page size, entirely in your browser.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/passport-photo-maker',
+    name: 'Passport Photo Maker',
+    blurb:
+      'Crop a photo to exact passport and visa sizes for the US, UK, EU, Canada and China, and download a printable 4×6 sheet.',
+    category: 'Specialty',
+  },
 ];
 
 export function getToolByPath(path: string): ToolEntry | undefined {
