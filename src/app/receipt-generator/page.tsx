@@ -1,5 +1,6 @@
 'use client';
 
+import { event as gaEvent } from '@/lib/gtag';
 import { useMemo, useState } from 'react';
 import { AlertTriangle, Download, Plus, Receipt, Trash2 } from 'lucide-react';
 import JsPDF from 'jspdf';
@@ -200,6 +201,7 @@ export default function ReceiptGeneratorPage() {
       .forEach((line) => center(line, 9, false));
 
     doc.save(`receipt-${receiptNo || 'download'}.pdf`);
+    gaEvent({ action: 'receipt_generated', category: 'document' });
   };
 
   return (

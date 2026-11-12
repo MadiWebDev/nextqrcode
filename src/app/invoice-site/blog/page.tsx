@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CalendarDays, Clock3, PenLine } from 'lucide-react';
 import { JsonLd } from '@/lib/seo/jsonld';
+import { AdSlot } from '@/components/ads/AdSlot';
 import { articles, type Article } from '../_data/articles';
 
 const BLOG_DESCRIPTION =
@@ -93,6 +94,10 @@ export default function BlogIndexPage() {
           numbers and scripts you can copy.
         </p>
       </section>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex justify-center">
+        <AdSlot format="leaderboard" />
+      </div>
 
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Link

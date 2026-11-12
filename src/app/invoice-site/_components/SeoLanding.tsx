@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, PenLine } from 'lucide-react';
 import { JsonLd } from '@/lib/seo/jsonld';
+import { AdSlot } from '@/components/ads/AdSlot';
 
 export interface SeoSection {
   heading: string;
@@ -99,6 +100,10 @@ export function SeoLanding({ slug, title, standfirst, sections, faqs, related }:
           ))}
         </div>
 
+        <div className="mt-12 flex justify-center">
+          <AdSlot format="in-article" />
+        </div>
+
         <section className="mt-14 rounded-2xl border border-border bg-card p-6 sm:p-8 text-center">
           <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
             Put it into practice — your first invoice takes two minutes
@@ -127,6 +132,10 @@ export function SeoLanding({ slug, title, standfirst, sections, faqs, related }:
             ))}
           </div>
         </section>
+
+        <div className="mt-12 flex justify-center">
+          <AdSlot format="banner" />
+        </div>
 
         {related.length > 0 && (
           <section className="mt-14 border-t border-border/60 pt-8">

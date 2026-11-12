@@ -49,6 +49,7 @@ import {
   type TemplateSettings,
 } from './_lib/templates';
 import { buildInvoicePdf } from './_lib/pdf';
+import { event as gaEvent } from '@/lib/gtag';
 import { parseCsv, toCsv } from './_lib/csv';
 
 export type { TaxMode };
@@ -1039,6 +1040,7 @@ export function InvoiceApp() {
         phone: draft.clientPhone.trim(),
       });
       setClients((list) => [...list, created]);
+      gaEvent({ action: 'client_added', category: 'invoice' });
       clientId = created.id;
     }
     const record: Invoice = {
@@ -1062,6 +1064,7 @@ export function InvoiceApp() {
       setProfile((p) => ({ ...p, nextInvoiceNumber: p.nextInvoiceNumber + 1 }));
     }
     setSavedNote(`Saved ${record.number} — find it any time under My invoices.`);
+    if (!draft.id) gaEvent({ action: 'invoice_created', category: 'invoice' });
   };
 
   const handleNew = () => {
@@ -1270,6 +1273,7 @@ export function InvoiceApp() {
   const downloadPdf = async () => {
     const doc = await buildPdf();
     doc.save(`${draft.number || 'invoice'}.pdf`);
+    gaEvent({ action: 'pdf_downloaded', category: 'invoice' });
   };
 
   const printPdf = async () => {
@@ -1311,6 +1315,7 @@ export function InvoiceApp() {
     a.click();
     a.remove();
     window.setTimeout(() => URL.revokeObjectURL(url), 4000);
+    gaEvent({ action: 'pdf_downloaded', category: 'invoice', label: 'zip' });
   };
 
   /* ── Render ── */
@@ -1594,7 +1599,14 @@ export function InvoiceApp() {
                       type="button"
                       role="radio"
                       aria-checked={active}
-                      onClick={() => patchDraft({ template: t.id })}
+                      onClick={() => {
+                        patchDraft({ template: t.id });
+                        gaEvent({
+                          action: 'template_selected',
+                          category: 'invoice',
+                          label: t.id,
+                        });
+                      }}
                       className={`text-left rounded-lg border p-2 transition-shadow hover:shadow ${
                         active ? 'border-primary ring-2 ring-primary/40' : 'border-border'
                       }`}
@@ -3876,6 +3888,7 @@ function SettingsView({
       JSON.stringify(backup, null, 2),
       'application/json'
     );
+    gaEvent({ action: 'backup_exported', category: 'invoice' });
   };
 
   const handleImportFile = (file: File | null) => {
@@ -3942,6 +3955,7 @@ function SettingsView({
         ? list.map((c) => (c.id === editingClientId ? saved : c))
         : [...list, saved]
     );
+    if (!editingClientId) gaEvent({ action: 'client_added', category: 'invoice' });
     setClientForm({});
     setEditingClientId(null);
   };

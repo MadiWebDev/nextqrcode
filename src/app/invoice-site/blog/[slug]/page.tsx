@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight, CalendarDays, Check, Clock3, PenLine } from 'lucide-react';
 import { JsonLd } from '@/lib/seo/jsonld';
+import { AdSlot } from '@/components/ads/AdSlot';
 import { articles } from '../../_data/articles';
 
 export function generateStaticParams() {
@@ -160,6 +161,9 @@ export default async function BlogArticlePage({
           ))}
         </div>
       </article>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-center">
+        <AdSlot format="in-article" />
+      </div>
 
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border/60">
         <h2 className="text-2xl font-bold tracking-tight">More guides</h2>

@@ -27,6 +27,7 @@ import {
   User,
 } from 'lucide-react';
 import JsPDF from 'jspdf';
+import { event as gaEvent } from '@/lib/gtag';
 
 const CURRENCIES = ['PKR', 'USD', 'EUR', 'GBP', 'INR', 'AED'] as const;
 type Currency = (typeof CURRENCIES)[number];
@@ -510,6 +511,7 @@ export default function QuoteGeneratorPage() {
     );
 
     doc.save(`quotation-${quoteNumber || 'quote'}.pdf`);
+    gaEvent({ action: 'quote_generated', category: 'document' });
   };
 
   const faqJsonLd = {

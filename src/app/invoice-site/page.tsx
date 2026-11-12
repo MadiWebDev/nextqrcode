@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { JsonLd } from '@/lib/seo/jsonld';
 import { InvoiceApp } from './InvoiceApp';
+import { AdSlot } from '@/components/ads/AdSlot';
 
 const faqs = [
   {
@@ -193,10 +194,22 @@ export default function InvoiceSitePage() {
           </p>
         </section>
 
+        {/* AdSlot (between intro and generator) — canonical component; renders nothing when ads are
+            disabled, consent is denied, or the network is blocked. */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-center">
+          <AdSlot format="leaderboard" />
+        </div>
+
         {/* ── The app ───────────────────────────────────────────────── */}
         <section id="create" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 scroll-mt-6">
           <InvoiceApp />
         </section>
+
+        {/* AdSlot (below the generator) — canonical component; renders nothing when ads are
+            disabled, consent is denied, or the network is blocked. */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-center">
+          <AdSlot format="banner" />
+        </div>
 
         {/* ── Features ──────────────────────────────────────────────── */}
         <section id="features" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 scroll-mt-6">
@@ -312,6 +325,12 @@ export default function InvoiceSitePage() {
             single-document tools: no setup, no history, just the document you need right now.
           </p>
         </section>
+
+        {/* AdSlot (between content sections) — canonical component; renders nothing when ads are
+            disabled, consent is denied, or the network is blocked. */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-center">
+          <AdSlot format="in-article" />
+        </div>
 
         {/* ── Templates ─────────────────────────────────────────────── */}
         <section
@@ -491,6 +510,11 @@ export default function InvoiceSitePage() {
             ))}
           </dl>
         </section>
+        {/* AdSlot (near bottom) — canonical component; renders nothing when ads are
+            disabled, consent is denied, or the network is blocked. */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-center">
+          <AdSlot format="rectangle" />
+        </div>
       </main>
     </div>
   );
