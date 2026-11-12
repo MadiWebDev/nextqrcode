@@ -4,23 +4,23 @@ import { InvoiceFooter } from './_components/InvoiceFooter';
 import { InvoiceHeader } from './_components/InvoiceHeader';
 
 export const metadata: Metadata = {
-  title: 'Free Invoice Generator — Professional Invoices in Minutes',
+  title: 'Free Invoice Generator — Create Professional Invoices Online',
   description:
-    'Create and track professional invoices for free: save your business profile and clients, pick a template, add tax and a payment QR, and download a polished PDF.',
+    'Create, customize, download and track professional invoices for free — no sign-up. Save your business profile and clients, pick from ten templates, add tax and a payment QR, record payments and download a polished PDF in minutes.',
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/' },
   openGraph: {
-    title: 'Free Invoice Generator — Professional Invoices in Minutes',
+    title: 'Free Invoice Generator — Create Professional Invoices Online',
     description:
-      'Create and track professional invoices for free: save your business profile and clients, pick a template, add tax and a payment QR, and download a polished PDF.',
+      'Create, customize, download and track professional invoices for free — no sign-up. Save your business profile and clients, pick from ten templates, add tax and a payment QR, record payments and download a polished PDF in minutes.',
     url: 'https://invoicegenerator.freeqrcode.tools/',
     type: 'website',
     siteName: 'Invoice Generator by QR Studio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Invoice Generator — Professional Invoices in Minutes',
+    title: 'Free Invoice Generator — Create Professional Invoices Online',
     description:
-      'Create and track professional invoices for free: save your business profile and clients, pick a template, add tax and a payment QR, and download a polished PDF.',
+      'Create, customize, download and track professional invoices for free — no sign-up. Save your business profile and clients, pick from ten templates, add tax and a payment QR, record payments and download a polished PDF in minutes.',
   },
   robots: { index: true, follow: true },
 };

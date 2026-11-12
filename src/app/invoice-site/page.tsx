@@ -128,12 +128,36 @@ export default function InvoiceSitePage() {
       <JsonLd
         data={{
           '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: faqs.map((f) => ({
-            '@type': 'Question',
-            name: f.question,
-            acceptedAnswer: { '@type': 'Answer', text: f.answer },
-          })),
+          '@graph': [
+            {
+              '@type': 'SoftwareApplication',
+              name: 'Free Invoice Generator',
+              url: 'https://invoicegenerator.freeqrcode.tools/',
+              applicationCategory: 'BusinessApplication',
+              operatingSystem: 'Web browser',
+              offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+              description:
+                'Create, customize, download and track professional invoices for free. Business profiles, clients, ten templates, payments tracking, recurring drafts and PDF export — all in the browser, no sign-up.',
+            },
+            {
+              '@type': 'Organization',
+              name: 'QR Studio',
+              url: 'https://freeqrcode.tools/',
+            },
+            {
+              '@type': 'WebSite',
+              name: 'Invoice Generator by QR Studio',
+              url: 'https://invoicegenerator.freeqrcode.tools/',
+            },
+            {
+              '@type': 'FAQPage',
+              mainEntity: faqs.map((f) => ({
+                '@type': 'Question',
+                name: f.question,
+                acceptedAnswer: { '@type': 'Answer', text: f.answer },
+              })),
+            },
+          ],
         }}
       />
 
@@ -418,6 +442,39 @@ export default function InvoiceSitePage() {
         </section>
 
         {/* ── FAQ ───────────────────────────────────────────────────── */}
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-border/60">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            How your totals are calculated
+          </h2>
+          <div className="mt-5 grid gap-6 md:grid-cols-2 text-sm leading-relaxed text-muted-foreground max-w-5xl">
+            <div>
+              <h3 className="font-semibold text-foreground">Exact money maths, no float drift</h3>
+              <p className="mt-2">
+                Every amount is calculated in the currency&rsquo;s smallest unit — cents, pence,
+                paise — using whole numbers, so a total can never drift by a fraction the way
+                ordinary decimal arithmetic does. Zero-decimal currencies such as the Japanese
+                yen and three-decimal currencies such as the Kuwaiti dinar use their real
+                number of decimal places. Each line is rounded once, at a defined point, and
+                the same calculation drives the on-screen preview and the PDF, so the two can
+                never disagree.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-foreground">Discounts, tax and rounding — in the open</h3>
+              <p className="mt-2">
+                Line discounts apply per item first; an invoice-level percentage or fixed
+                discount is then spread across the taxable lines in proportion. Tax is charged
+                either on the after-discount amount (the common rule) or before discount, per
+                your setting, and only on lines you mark taxable. Shipping and any additional
+                charges are added after tax, and an optional manual rounding adjustment lets
+                you settle the final figure to a round number — shown as its own line, never
+                hidden inside another number. Totals in different currencies are never added
+                together, anywhere in the app.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section
           id="faq"
           className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-border/60 scroll-mt-6"

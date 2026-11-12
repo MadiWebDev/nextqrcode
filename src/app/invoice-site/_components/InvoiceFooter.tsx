@@ -20,6 +20,17 @@ const COLUMNS: { heading: string; links: { href: string; label: string }[] }[] =
     ],
   },
   {
+    heading: 'Solutions',
+    links: [
+      { href: '/invoice-for-freelancers', label: 'Invoices for Freelancers' },
+      { href: '/invoice-for-small-business', label: 'Invoices for Small Business' },
+      { href: '/invoice-for-contractors', label: 'Invoices for Contractors' },
+      { href: '/vat-invoice-generator', label: 'VAT Invoice Generator' },
+      { href: '/gst-invoice-generator', label: 'GST Invoice Generator' },
+      { href: '/recurring-invoice-generator', label: 'Recurring Invoices' },
+    ],
+  },
+  {
     heading: 'Resources',
     links: [
       { href: '/blog', label: 'Blog' },
@@ -43,7 +54,7 @@ export function InvoiceFooter() {
   return (
     <footer className="invoice-foot border-t border-border bg-card">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-7">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
               <span className="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center">

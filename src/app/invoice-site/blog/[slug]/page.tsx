@@ -68,6 +68,17 @@ export default async function BlogArticlePage({
       <JsonLd
         data={{
           '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://invoicegenerator.freeqrcode.tools/' },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://invoicegenerator.freeqrcode.tools/blog' },
+            { '@type': 'ListItem', position: 3, name: article.title, item: url },
+          ],
+        }}
+      />
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
           '@type': 'Article',
           headline: article.title,
           description: article.description,

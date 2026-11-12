@@ -55,6 +55,7 @@ export async function generateSitemaps() {
     { id: 5 }, // blog
     { id: 6 }, // families
     { id: 7 }, // labels
+    { id: 8 }, // invoice-site (invoicegenerator subdomain, absolute URLs)
   ];
 }
 
@@ -85,6 +86,8 @@ export default async function sitemap(props: {
       return await familyEntries();
     case 7:
       return await labelEntries();
+    case 8:
+      return invoiceSiteEntries();
     default:
       return [];
   }
@@ -475,3 +478,41 @@ async function labelEntries(): Promise<MetadataRoute.Sitemap> {
   return out;
 }
 
+// ── SECTION 8: Invoice site (invoicegenerator.freeqrcode.tools) ─────────────
+// The invoice platform lives on its own subdomain but is served by this app
+// (the proxy rewrites the subdomain's paths to /invoice-site/*). Its URLs are
+// listed here with absolute subdomain URLs so search engines can discover
+// them; the site's canonical tags already point at the subdomain.
+function invoiceSiteEntries(): MetadataRoute.Sitemap {
+  const INV = 'https://invoicegenerator.freeqrcode.tools';
+  const paths: Array<[string, number]> = [
+    ['/', 1.0],
+    ['/blog', 0.8],
+    ['/blog/invoice-mistakes-that-delay-payment', 0.6],
+    ['/blog/how-to-write-an-invoice', 0.6],
+    ['/blog/what-to-include-on-an-invoice', 0.6],
+    ['/blog/how-to-chase-late-payments', 0.6],
+    ['/blog/invoice-payment-terms-explained', 0.6],
+    ['/blog/recurring-invoices-guide', 0.6],
+    ['/blog/proforma-invoice-vs-tax-invoice', 0.6],
+    ['/invoice-for-freelancers', 0.8],
+    ['/invoice-for-small-business', 0.8],
+    ['/invoice-for-contractors', 0.8],
+    ['/vat-invoice-generator', 0.8],
+    ['/gst-invoice-generator', 0.8],
+    ['/sales-tax-invoice-generator', 0.8],
+    ['/international-invoice-generator', 0.8],
+    ['/recurring-invoice-generator', 0.8],
+    ['/printable-invoice-template', 0.8],
+    ['/invoice-template', 0.8],
+    ['/about', 0.4],
+    ['/contact', 0.4],
+    ['/privacy', 0.3],
+    ['/terms', 0.3],
+  ];
+  return paths.map(([path, priority]) => ({
+    url: `${INV}${path}`,
+    changeFrequency: 'monthly',
+    priority,
+  }));
+}
