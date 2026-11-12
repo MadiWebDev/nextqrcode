@@ -36,6 +36,16 @@ export const metadata: Metadata = {
  * selector can never hide them.
  */
 const hideMainSiteChromeCss = `
+/* Layer 1 — structural (every browser): this style block only exists on
+   invoice-site pages, and there the only direct-child <header>/<footer> of a
+   body-level wrapper <div> are the platform's AppHeader/AppFooter. The
+   invoice site's own header/footer live inside <main> (deeper nesting), and
+   are additionally protected by the :not() guards. */
+body > div > header:not(.invoice-nav), body > div > footer:not(.invoice-foot) { display: none !important; }
+/* Layer 2 — the AppHeader's utility-class signature, as a fallback. */
+header.sticky.top-0.z-50:not(.invoice-nav) { display: none !important; }
+/* Layer 3 — relational: wrapper divs that contain <main> with the invoice
+   root give up their direct-child header/footer. */
 div:has(> main .invoice-site-root) > header, div:has(> main .invoice-site-root) > footer { display: none !important; }
 `;
 
