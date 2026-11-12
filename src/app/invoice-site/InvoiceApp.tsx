@@ -7,6 +7,7 @@ import {
   Download,
   FilePlus2,
   FileText,
+  GripVertical,
   LayoutDashboard,
   Mail,
   MessageCircle,
@@ -36,7 +37,23 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { ALL_CURRENCIES, currencyDigits, currencyLabel } from './_data/currencies';
-import { computeInvoice } from './_lib/invoice-engine';
+import { computeInvoice, type TaxMode } from './_lib/invoice-engine';
+
+export type { TaxMode };
+
+/** Unit types offered for invoice lines ('' renders as no unit). */
+const UNIT_TYPES: Array<{ value: string; label: string }> = [
+  { value: '', label: 'Unit' },
+  { value: 'pcs', label: 'pieces' },
+  { value: 'hours', label: 'hours' },
+  { value: 'days', label: 'days' },
+  { value: 'weeks', label: 'weeks' },
+  { value: 'months', label: 'months' },
+  { value: 'services', label: 'services' },
+  { value: 'projects', label: 'projects' },
+  { value: 'sessions', label: 'sessions' },
+  { value: 'kg', label: 'kg' },
+];
 
 /* ── Types ─────────────────────────────────────────────────────────── */
 
@@ -53,6 +70,9 @@ export interface Profile {
   paymentDetails: string;
   brandColor: string;
   nextInvoiceNumber: number;
+  /** Invoice numbers are built as prefix + zero-padded number + suffix. */
+  numberPrefix: string;
+  numberSuffix: string;
 }
 
 export interface Client {
@@ -66,8 +86,20 @@ export interface Client {
 export interface LineItem {
   id: string;
   description: string;
+  /** Longer detail shown under the item name on the document. */
+  detail: string;
+  /** SKU / product code. */
+  sku: string;
+  /** Unit type: hours, pieces, days, services… ('' = unspecified). */
+  unit: string;
   qty: number;
   unitPrice: number;
+  /** Per-line percentage discount (0–100). */
+  discountPct: number;
+  /** Per-line fixed discount in the invoice currency. */
+  discountFixed: number;
+  /** Non-taxable lines are excluded from the tax base. */
+  taxable: boolean;
 }
 
 export type PaymentMethod = 'Cash' | 'Bank transfer' | 'Card' | 'Cheque' | 'Other';
@@ -80,8 +112,15 @@ export interface Payment {
   note: string;
 }
 
-export type InvoiceStatus = 'draft' | 'sent' | 'paid';
-export type EffectiveStatus = 'draft' | 'sent' | 'partial' | 'overdue' | 'paid';
+export type InvoiceStatus = 'draft' | 'sent' | 'viewed' | 'paid' | 'cancelled';
+export type EffectiveStatus =
+  | 'draft'
+  | 'sent'
+  | 'viewed'
+  | 'partial'
+  | 'overdue'
+  | 'paid'
+  | 'cancelled';
 export type TemplateName = 'classic' | 'modern' | 'minimal';
 export type DiscountType = 'pct' | 'fixed';
 export type DueTerms = 'receipt' | 'net7' | 'net14' | 'net30' | 'net60' | 'custom';
@@ -100,6 +139,10 @@ export interface Invoice {
   dueDate: string;
   dueTerms: DueTerms;
   poNumber: string;
+  /** Separate reference (contract, order confirmation…) shown next to the PO field. */
+  referenceNumber: string;
+  /** Document heading override, e.g. "TAX INVOICE" ('' = default "INVOICE"). */
+  docTitle: string;
   clientId: string | null;
   clientName: string;
   clientEmail: string;
@@ -113,13 +156,23 @@ export interface Invoice {
   discountValue: number;
   taxPct: number;
   taxLabel: string;
+  /** Whether tax is charged on the amount after or before the invoice discount. */
+  taxMode: TaxMode;
   shipping: number;
+  /** Extra charges (handling, late fee…) added after tax. */
+  additionalCharges: number;
+  /** Manual rounding adjustment applied to the final total (may be negative). */
+  roundingAdjustment: number;
   /** Manual lump-sum paid field (legacy). Total paid = amountPaid + sum(payments). */
   amountPaid: number;
   payments: Payment[];
   status: InvoiceStatus;
   notes: string;
+  /** Private notes — never printed on the preview or the PDF. */
+  internalNotes: string;
   terms: string;
+  /** Custom footer line printed at the bottom of the document ('' = none). */
+  footerText: string;
   template: TemplateName;
   showQr: boolean;
   qrPayload: string;
@@ -130,12 +183,18 @@ export interface Invoice {
 
 interface Totals {
   subtotal: number;
+  /** Sum of per-line discounts (already reflected in the subtotal). */
+  itemDiscounts: number;
   discountAmount: number;
   taxAmount: number;
+  additionalCharges: number;
+  roundingAdjustment: number;
   total: number;
   totalPaid: number;
   balance: number;
   paidInFull: boolean;
+  /** Per-line net amounts, aligned by index with the invoice's items. */
+  lines: Array<{ gross: number; discount: number; net: number }>;
 }
 
 /* ── Constants & helpers ───────────────────────────────────────────── */
@@ -180,6 +239,8 @@ const DEFAULT_PROFILE: Profile = {
   paymentDetails: '',
   brandColor: '#1d4ed8',
   nextInvoiceNumber: 1,
+  numberPrefix: 'INV-',
+  numberSuffix: '',
 };
 
 function uid(): string {
@@ -226,8 +287,8 @@ function dueDateForPreset(preset: DueTerms, issueIso: string): string | null {
   return days ? addDaysIso(issueIso, days) : null;
 }
 
-function formatInvoiceNumber(n: number): string {
-  return `INV-${String(Math.max(1, Math.floor(n) || 1)).padStart(4, '0')}`;
+function formatInvoiceNumber(n: number, prefix = 'INV-', suffix = ''): string {
+  return `${prefix}${String(Math.max(1, Math.floor(n) || 1)).padStart(4, '0')}${suffix}`;
 }
 
 function money(value: number, currency: string, forPdf = false): string {
@@ -267,7 +328,10 @@ function computeTotals(
     | 'discountType'
     | 'discountValue'
     | 'taxPct'
+    | 'taxMode'
     | 'shipping'
+    | 'additionalCharges'
+    | 'roundingAdjustment'
     | 'amountPaid'
     | 'payments'
   > &
@@ -275,14 +339,24 @@ function computeTotals(
 ): Totals {
   // All arithmetic happens in integer minor units inside the engine (see _lib/invoice-engine.ts).
   const r = computeInvoice(inv);
+  // The rounding adjustment is a deliberate, user-entered correction to the
+  // final total (e.g. rounding a cash total to the nearest whole unit). It is
+  // applied after the engine so the engine's own figures stay exact.
+  const adj = Number(inv.roundingAdjustment) || 0;
+  const total = Math.max(0, r.total + adj);
+  const balance = Math.max(0, total - r.totalPaid);
   return {
     subtotal: r.subtotal,
+    itemDiscounts: r.itemDiscounts,
     discountAmount: r.discountAmount,
     taxAmount: r.taxAmount,
-    total: r.total,
+    additionalCharges: r.additionalCharges,
+    roundingAdjustment: adj,
+    total,
     totalPaid: r.totalPaid,
-    balance: r.balance,
-    paidInFull: r.paidInFull,
+    balance,
+    paidInFull: total > 0 && r.totalPaid >= total,
+    lines: r.lines,
   };
 }
 
@@ -292,28 +366,34 @@ function computeTotals(
  * is partial; everything else falls back to the stored status.
  */
 export function effectiveStatus(inv: Invoice): EffectiveStatus {
+  if (inv.status === 'cancelled') return 'cancelled';
   if (inv.status === 'draft') return 'draft';
   const t = computeTotals(inv);
   if (t.total > 0 && t.totalPaid >= t.total) return 'paid';
   if (t.balance > 0 && inv.dueDate && inv.dueDate < todayIso()) return 'overdue';
   if (t.totalPaid > 0) return 'partial';
-  return inv.status === 'paid' ? 'paid' : 'sent';
+  if (inv.status === 'paid') return 'paid';
+  return inv.status === 'viewed' ? 'viewed' : 'sent';
 }
 
 const STATUS_LABELS: Record<EffectiveStatus, string> = {
   draft: 'Draft',
   sent: 'Sent',
+  viewed: 'Viewed',
   partial: 'Partially paid',
   overdue: 'Overdue',
   paid: 'Paid',
+  cancelled: 'Cancelled',
 };
 
 const STATUS_STYLES: Record<EffectiveStatus, string> = {
   draft: 'bg-slate-100 text-slate-700 border border-slate-300',
   sent: 'bg-blue-100 text-blue-800 border border-blue-300',
+  viewed: 'bg-violet-100 text-violet-800 border border-violet-300',
   partial: 'bg-amber-100 text-amber-800 border border-amber-300',
   overdue: 'bg-red-100 text-red-800 border border-red-300',
   paid: 'bg-emerald-100 text-emerald-800 border border-emerald-300',
+  cancelled: 'bg-neutral-200 text-neutral-500 border border-neutral-300',
 };
 
 function loadLS<T>(key: string, fallback: T): T {
@@ -354,6 +434,24 @@ function hexToRgb(hex: string): { r: number; g: number; b: number } {
   return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
 }
 
+/** A fresh, fully-populated line item (all fields present, amounts zero). */
+export function blankLineItem(): LineItem {
+  return {
+    id: uid(),
+    description: '',
+    detail: '',
+    sku: '',
+    unit: '',
+    qty: 1,
+    unitPrice: 0,
+    discountPct: 0,
+    discountFixed: 0,
+    taxable: true,
+  };
+}
+
+const INVOICE_STATUSES: InvoiceStatus[] = ['draft', 'sent', 'viewed', 'paid', 'cancelled'];
+
 /** Fill every field an older saved invoice might be missing, with safe defaults. */
 export function normalizeInvoice(raw: Partial<Invoice>): Invoice {
   const payments: Payment[] = Array.isArray(raw.payments)
@@ -388,6 +486,8 @@ export function normalizeInvoice(raw: Partial<Invoice>): Invoice {
     dueDate: raw.dueDate ?? todayIso(),
     dueTerms: raw.dueTerms ?? 'custom',
     poNumber: raw.poNumber ?? '',
+    referenceNumber: raw.referenceNumber ?? '',
+    docTitle: raw.docTitle ?? '',
     clientId: raw.clientId ?? null,
     clientName: raw.clientName ?? '',
     clientEmail: raw.clientEmail ?? '',
@@ -399,21 +499,34 @@ export function normalizeInvoice(raw: Partial<Invoice>): Invoice {
         ? raw.items.map((it) => ({
             id: it.id || uid(),
             description: it.description ?? '',
+            detail: it.detail ?? '',
+            sku: it.sku ?? '',
+            unit: it.unit ?? '',
             qty: Number(it.qty) || 0,
             unitPrice: Number(it.unitPrice) || 0,
+            discountPct: Number(it.discountPct) || 0,
+            discountFixed: Number(it.discountFixed) || 0,
+            taxable: it.taxable !== false,
           }))
-        : [{ id: uid(), description: '', qty: 1, unitPrice: 0 }],
+        : [blankLineItem()],
     discountPct: discountType === 'pct' ? discountValue : (raw.discountPct ?? 0),
     discountType,
     discountValue,
     taxPct: raw.taxPct ?? 0,
     taxLabel: raw.taxLabel ?? 'VAT',
+    taxMode: raw.taxMode === 'beforeDiscount' ? 'beforeDiscount' : 'afterDiscount',
     shipping: raw.shipping ?? 0,
+    additionalCharges: Number(raw.additionalCharges) || 0,
+    roundingAdjustment: Number(raw.roundingAdjustment) || 0,
     amountPaid: raw.amountPaid ?? 0,
     payments,
-    status: raw.status ?? 'draft',
+    status: INVOICE_STATUSES.includes(raw.status as InvoiceStatus)
+      ? (raw.status as InvoiceStatus)
+      : 'draft',
     notes: raw.notes ?? '',
+    internalNotes: raw.internalNotes ?? '',
     terms: raw.terms ?? '',
+    footerText: raw.footerText ?? '',
     template: raw.template ?? 'modern',
     showQr: raw.showQr ?? false,
     qrPayload: raw.qrPayload ?? '',
@@ -461,7 +574,7 @@ function generateRecurringDrafts(
         normalizeInvoice({
           ...inv,
           id: uid(),
-          number: formatInvoiceNumber(nextNumber),
+          number: formatInvoiceNumber(nextNumber, profile.numberPrefix, profile.numberSuffix),
           issueDate: nextDate,
           dueDate: addDaysIso(nextDate, spanDays),
           status: 'draft',
@@ -490,30 +603,37 @@ function makeDraft(profile: Profile): Invoice {
   const today = todayIso();
   return {
     id: '',
-    number: formatInvoiceNumber(profile.nextInvoiceNumber),
+    number: formatInvoiceNumber(profile.nextInvoiceNumber, profile.numberPrefix, profile.numberSuffix),
     issueDate: today,
     dueDate: addDaysIso(today, 14),
     dueTerms: 'net14',
     poNumber: '',
+    referenceNumber: '',
+    docTitle: '',
     clientId: null,
     clientName: '',
     clientEmail: '',
     clientPhone: '',
     clientAddress: '',
     currency: profile.currency,
-    items: [{ id: uid(), description: '', qty: 1, unitPrice: 0 }],
+    items: [blankLineItem()],
     discountPct: 0,
     discountType: 'pct',
     discountValue: 0,
     taxPct: profile.taxRate,
     taxLabel: profile.taxLabel,
+    taxMode: 'afterDiscount',
     shipping: 0,
+    additionalCharges: 0,
+    roundingAdjustment: 0,
     amountPaid: 0,
     payments: [],
     status: 'draft',
     notes: '',
+    internalNotes: '',
     terms:
       'Payment is due within 14 days of the issue date. Please quote the invoice number with your payment.',
+    footerText: '',
     template: 'modern',
     showQr: false,
     qrPayload: '',
@@ -721,6 +841,19 @@ export function InvoiceApp() {
       items: d.items.map((it) => (it.id === id ? { ...it, ...patch } : it)),
     }));
 
+  /* Drag-and-drop line reordering (native HTML5 DnD on the row handle). */
+  const [dragItemId, setDragItemId] = useState<string | null>(null);
+  const moveItem = (fromId: string, toId: string) =>
+    setDraft((d) => {
+      const items = [...d.items];
+      const from = items.findIndex((i) => i.id === fromId);
+      const to = items.findIndex((i) => i.id === toId);
+      if (from < 0 || to < 0 || from === to) return d;
+      const [moved] = items.splice(from, 1);
+      items.splice(to, 0, moved);
+      return { ...d, items };
+    });
+
   /* ── Invoice actions ── */
 
   const handleSave = () => {
@@ -754,7 +887,7 @@ export function InvoiceApp() {
       return [record, ...list];
     });
     setDraft(record);
-    if (!draft.id && draft.number === formatInvoiceNumber(profile.nextInvoiceNumber)) {
+    if (!draft.id && draft.number === formatInvoiceNumber(profile.nextInvoiceNumber, profile.numberPrefix, profile.numberSuffix)) {
       setProfile((p) => ({ ...p, nextInvoiceNumber: p.nextInvoiceNumber + 1 }));
     }
     setSavedNote(`Saved ${record.number} — find it any time under My invoices.`);
@@ -778,7 +911,7 @@ export function InvoiceApp() {
     setDraft({
       ...normalizeInvoice(inv),
       id: '',
-      number: formatInvoiceNumber(profile.nextInvoiceNumber),
+      number: formatInvoiceNumber(profile.nextInvoiceNumber, profile.numberPrefix, profile.numberSuffix),
       issueDate: today,
       dueDate: addDaysIso(today, 14),
       dueTerms: 'net14',
@@ -939,7 +1072,7 @@ export function InvoiceApp() {
       doc.text(profile.phone || '', 15, 25);
       doc.setFontSize(20);
       doc.setFont('helvetica', 'bold');
-      doc.text('INVOICE', pageW - 15, 14, { align: 'right' });
+      doc.text(inv.docTitle || 'INVOICE', pageW - 15, 14, { align: 'right' });
       doc.setFontSize(10);
       doc.text(inv.number, pageW - 15, 21, { align: 'right' });
       doc.setTextColor(30, 30, 30);
@@ -961,7 +1094,7 @@ export function InvoiceApp() {
     } else if (inv.template === 'classic') {
       doc.setFont('times', 'bold');
       doc.setFontSize(26);
-      doc.text('INVOICE', 15, y + 6);
+      doc.text(inv.docTitle || 'INVOICE', 15, y + 6);
       doc.setFontSize(12);
       doc.text(inv.number, pageW - 15, y + 6, { align: 'right' });
       y += 12;
@@ -985,7 +1118,7 @@ export function InvoiceApp() {
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(15);
       doc.setTextColor(90, 90, 90);
-      doc.text('Invoice', 15, y + 4);
+      doc.text(inv.docTitle || 'Invoice', 15, y + 4);
       doc.setFontSize(11);
       doc.text(inv.number, pageW - 15, y + 4, { align: 'right' });
       doc.setTextColor(30, 30, 30);
@@ -1016,6 +1149,12 @@ export function InvoiceApp() {
     let metaY = y + 10;
     if (inv.poNumber.trim()) {
       doc.text(`PO / Ref: ${inv.poNumber.trim()}`, pageW - 15, metaY, { align: 'right' });
+      metaY += 5;
+    }
+    if (inv.referenceNumber.trim()) {
+      doc.text(`Reference: ${inv.referenceNumber.trim()}`, pageW - 15, metaY, {
+        align: 'right',
+      });
       metaY += 5;
     }
     doc.text(`Status: ${STATUS_LABELS[eff].toUpperCase()}`, pageW - 15, metaY, { align: 'right' });
@@ -1052,16 +1191,28 @@ export function InvoiceApp() {
     doc.setFont('helvetica', 'normal');
     y += 8;
 
-    inv.items.forEach((item) => {
+    inv.items.forEach((item, idx) => {
+      const lineNet = t.lines[idx]?.net ?? 0;
+      const lineDiscount = t.lines[idx]?.discount ?? 0;
       const desc = doc.splitTextToSize(item.description || '-', 92) as string[];
-      ensure(Math.max(6, desc.length * 4.8) + 2);
-      desc.forEach((line, i) => doc.text(line, 17, y + i * 4.8));
-      doc.text(String(item.qty || 0), 118, y, { align: 'right' });
+      const extra: string[] = [];
+      if (item.detail.trim()) {
+        (doc.splitTextToSize(item.detail.trim(), 92) as string[]).forEach((l) => extra.push(l));
+      }
+      if (item.sku.trim()) extra.push(`SKU: ${item.sku.trim()}`);
+      if (lineDiscount > 0) {
+        extra.push(`Item discount: -${money(lineDiscount, inv.currency, true)}`);
+      }
+      const rowLines = [...desc, ...extra];
+      ensure(Math.max(6, rowLines.length * 4.8) + 2);
+      rowLines.forEach((line, i) => doc.text(line, 17, y + i * 4.8));
+      const qtyText = item.unit ? `${item.qty || 0} ${item.unit}` : String(item.qty || 0);
+      doc.text(qtyText, 118, y, { align: 'right' });
       doc.text(money(item.unitPrice || 0, inv.currency, true), 152, y, { align: 'right' });
-      doc.text(money((item.qty || 0) * (item.unitPrice || 0), inv.currency, true), pageW - 17, y, {
+      doc.text(money(lineNet, inv.currency, true), pageW - 17, y, {
         align: 'right',
       });
-      y += Math.max(6, desc.length * 4.8) + 1.5;
+      y += Math.max(6, rowLines.length * 4.8) + 1.5;
     });
 
     // Totals
@@ -1098,6 +1249,28 @@ export function InvoiceApp() {
               string,
               boolean,
             ],
+          ]
+        : []),
+      ...(t.additionalCharges > 0
+        ? [
+            [
+              'Additional charges',
+              money(t.additionalCharges, inv.currency, true),
+              false,
+            ] as [string, string, boolean],
+          ]
+        : []),
+      ...(t.roundingAdjustment !== 0
+        ? [
+            [
+              'Rounding adjustment',
+              `${t.roundingAdjustment > 0 ? '+' : '-'}${money(
+                Math.abs(t.roundingAdjustment),
+                inv.currency,
+                true
+              )}`,
+              false,
+            ] as [string, string, boolean],
           ]
         : []),
       ['Total', money(t.total, inv.currency, true), true],
@@ -1211,6 +1384,11 @@ export function InvoiceApp() {
       doc.setFont('helvetica', 'normal');
     }
 
+    if (inv.footerText.trim()) {
+      doc.setFontSize(8.5);
+      doc.setTextColor(110, 110, 110);
+      doc.text(inv.footerText.trim(), pageW / 2, pageH - 13, { align: 'center' });
+    }
     doc.setFontSize(8);
     doc.setTextColor(140, 140, 140);
     doc.text(
@@ -1285,7 +1463,9 @@ export function InvoiceApp() {
                     <SelectContent>
                       <SelectItem value="draft">Draft</SelectItem>
                       <SelectItem value="sent">Sent</SelectItem>
+                      <SelectItem value="viewed">Viewed</SelectItem>
                       <SelectItem value="paid">Paid</SelectItem>
+                      <SelectItem value="cancelled">Cancelled</SelectItem>
                     </SelectContent>
                   </Select>
                 </Field>
@@ -1294,6 +1474,20 @@ export function InvoiceApp() {
                     value={draft.poNumber}
                     onChange={(e) => patchDraft({ poNumber: e.target.value })}
                     placeholder="e.g. PO-2026-118"
+                  />
+                </Field>
+                <Field label="Reference number">
+                  <Input
+                    value={draft.referenceNumber}
+                    onChange={(e) => patchDraft({ referenceNumber: e.target.value })}
+                    placeholder="Contract, order or job ref"
+                  />
+                </Field>
+                <Field label="Document title">
+                  <Input
+                    value={draft.docTitle}
+                    onChange={(e) => patchDraft({ docTitle: e.target.value })}
+                    placeholder="INVOICE (or TAX INVOICE, PROFORMA…)"
                   />
                 </Field>
                 <Field label="Currency">
@@ -1515,46 +1709,150 @@ export function InvoiceApp() {
 
             <Card className="p-5 space-y-4">
               <h3 className="font-semibold">Items</h3>
-              <div className="space-y-2">
-                {draft.items.map((item) => (
-                  <div key={item.id} className="flex gap-2 items-start">
-                    <Input
-                      className="flex-1"
-                      placeholder="Description of work or product"
-                      value={item.description}
-                      onChange={(e) => patchItem(item.id, { description: e.target.value })}
-                    />
-                    <NumInput
-                      ariaLabel="Quantity"
-                      className="w-20"
-                      value={item.qty}
-                      onChange={(n) => patchItem(item.id, { qty: n })}
-                    />
-                    <NumInput
-                      ariaLabel="Unit price"
-                      className="w-28"
-                      value={item.unitPrice}
-                      onChange={(n) => patchItem(item.id, { unitPrice: n })}
-                    />
-                    <span className="w-24 text-right text-sm font-medium pt-2.5">
-                      {money(item.qty * item.unitPrice, draft.currency)}
-                    </span>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      aria-label="Remove item"
-                      onClick={() =>
-                        setDraft((d) => ({
-                          ...d,
-                          items:
-                            d.items.length > 1
-                              ? d.items.filter((it) => it.id !== item.id)
-                              : d.items,
-                        }))
-                      }
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </Button>
+              <div className="space-y-3">
+                {draft.items.map((item, idx) => (
+                  <div
+                    key={item.id}
+                    className={`rounded-lg border border-border/70 p-2.5 space-y-2 ${
+                      dragItemId === item.id ? 'opacity-50' : ''
+                    }`}
+                    onDragOver={(e) => {
+                      if (dragItemId && dragItemId !== item.id) e.preventDefault();
+                    }}
+                    onDrop={(e) => {
+                      e.preventDefault();
+                      if (dragItemId) moveItem(dragItemId, item.id);
+                      setDragItemId(null);
+                    }}
+                  >
+                    <div className="flex gap-2 items-start">
+                      <button
+                        type="button"
+                        draggable
+                        aria-label="Drag to reorder item"
+                        title="Drag to reorder"
+                        className="pt-2.5 cursor-grab text-muted-foreground hover:text-foreground"
+                        onDragStart={() => setDragItemId(item.id)}
+                        onDragEnd={() => setDragItemId(null)}
+                      >
+                        <GripVertical className="w-4 h-4" />
+                      </button>
+                      <Input
+                        className="flex-1"
+                        placeholder="Description of work or product"
+                        value={item.description}
+                        onChange={(e) => patchItem(item.id, { description: e.target.value })}
+                        aria-label="Item description"
+                      />
+                      <NumInput
+                        ariaLabel="Quantity"
+                        className="w-20"
+                        value={item.qty}
+                        onChange={(n) => patchItem(item.id, { qty: n })}
+                      />
+                      <NumInput
+                        ariaLabel="Unit price"
+                        className="w-28"
+                        value={item.unitPrice}
+                        onChange={(n) => patchItem(item.id, { unitPrice: n })}
+                      />
+                      <span className="w-24 text-right text-sm font-medium pt-2.5">
+                        {money(totals.lines[idx]?.net ?? 0, draft.currency)}
+                      </span>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        aria-label="Duplicate item"
+                        onClick={() =>
+                          setDraft((d) => {
+                            const at = d.items.findIndex((it) => it.id === item.id);
+                            const copy = { ...item, id: uid() };
+                            const items = [...d.items];
+                            items.splice(at + 1, 0, copy);
+                            return { ...d, items };
+                          })
+                        }
+                      >
+                        <Copy className="w-4 h-4" />
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        aria-label="Remove item"
+                        onClick={() =>
+                          setDraft((d) => ({
+                            ...d,
+                            items:
+                              d.items.length > 1
+                                ? d.items.filter((it) => it.id !== item.id)
+                                : d.items,
+                          }))
+                        }
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                    <div className="flex flex-wrap gap-2 items-center pl-6">
+                      <Input
+                        className="flex-1 min-w-44 h-8 text-xs"
+                        placeholder="Detail (optional — scope, dates, specs…)"
+                        value={item.detail}
+                        onChange={(e) => patchItem(item.id, { detail: e.target.value })}
+                        aria-label="Item detail"
+                      />
+                      <Input
+                        className="w-24 h-8 text-xs"
+                        placeholder="SKU"
+                        value={item.sku}
+                        onChange={(e) => patchItem(item.id, { sku: e.target.value })}
+                        aria-label="SKU or product code"
+                      />
+                      <Select
+                        value={item.unit}
+                        onValueChange={(v) => patchItem(item.id, { unit: v })}
+                      >
+                        <SelectTrigger className="w-28 h-8 text-xs" aria-label="Unit type">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {UNIT_TYPES.map((u) => (
+                            <SelectItem key={u.value || 'none'} value={u.value}>
+                              {u.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <div className="flex items-center gap-1">
+                        <span className="text-xs text-muted-foreground">Disc %</span>
+                        <NumInput
+                          ariaLabel="Item discount percent"
+                          className="w-16 h-8 text-xs"
+                          value={item.discountPct}
+                          min={0}
+                          max={100}
+                          onChange={(n) => patchItem(item.id, { discountPct: n })}
+                        />
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <span className="text-xs text-muted-foreground">Disc {draft.currency}</span>
+                        <NumInput
+                          ariaLabel="Item fixed discount"
+                          className="w-20 h-8 text-xs"
+                          value={item.discountFixed}
+                          min={0}
+                          onChange={(n) => patchItem(item.id, { discountFixed: n })}
+                        />
+                      </div>
+                      <label className="flex items-center gap-1.5 text-xs cursor-pointer">
+                        <input
+                          type="checkbox"
+                          className="w-3.5 h-3.5 accent-primary"
+                          checked={item.taxable}
+                          onChange={(e) => patchItem(item.id, { taxable: e.target.checked })}
+                        />
+                        Taxable
+                      </label>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -1564,7 +1862,7 @@ export function InvoiceApp() {
                 onClick={() =>
                   setDraft((d) => ({
                     ...d,
-                    items: [...d.items, { id: uid(), description: '', qty: 1, unitPrice: 0 }],
+                    items: [...d.items, blankLineItem()],
                   }))
                 }
               >
@@ -1624,6 +1922,13 @@ export function InvoiceApp() {
                     min={0}
                   />
                 </Field>
+                <Field label="Additional charges">
+                  <NumInput
+                    value={draft.additionalCharges}
+                    onChange={(n) => patchDraft({ additionalCharges: Math.max(0, n) })}
+                    min={0}
+                  />
+                </Field>
                 <Field label="Tax label">
                   <Input
                     value={draft.taxLabel}
@@ -1637,6 +1942,26 @@ export function InvoiceApp() {
                     onChange={(n) => patchDraft({ taxPct: n })}
                     min={0}
                     max={100}
+                  />
+                </Field>
+                <Field label="Tax calculated">
+                  <Select
+                    value={draft.taxMode}
+                    onValueChange={(v) => patchDraft({ taxMode: v as TaxMode })}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="afterDiscount">After discount</SelectItem>
+                      <SelectItem value="beforeDiscount">Before discount</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </Field>
+                <Field label="Rounding adjustment (+/−)">
+                  <NumInput
+                    value={draft.roundingAdjustment}
+                    onChange={(n) => patchDraft({ roundingAdjustment: n })}
                   />
                 </Field>
                 <Field label="Other amount paid (manual lump sum)">
@@ -1682,11 +2007,32 @@ export function InvoiceApp() {
                   onChange={(e) => patchDraft({ terms: e.target.value })}
                 />
               </Field>
+              <Field label="Custom footer (printed at the bottom of the invoice)">
+                <Input
+                  value={draft.footerText}
+                  onChange={(e) => patchDraft({ footerText: e.target.value })}
+                  placeholder="e.g. Registered in Pakistan · NTN 1234567-8"
+                />
+              </Field>
+              <Field label="Internal notes (private — never printed)">
+                <Textarea
+                  rows={2}
+                  value={draft.internalNotes}
+                  onChange={(e) => patchDraft({ internalNotes: e.target.value })}
+                  placeholder="Reminders for yourself: promised discount next time, client prefers email…"
+                />
+              </Field>
               <div className="rounded-lg bg-muted/60 px-4 py-3 text-sm space-y-1">
                 <p className="flex justify-between">
                   <span>Subtotal</span>
                   <span>{money(totals.subtotal, draft.currency)}</span>
                 </p>
+                {totals.itemDiscounts > 0 && (
+                  <p className="flex justify-between text-muted-foreground">
+                    <span>Item discounts (already deducted)</span>
+                    <span>− {money(totals.itemDiscounts, draft.currency)}</span>
+                  </p>
+                )}
                 {totals.discountAmount > 0 && (
                   <p className="flex justify-between">
                     <span>Discount</span>
@@ -1699,6 +2045,25 @@ export function InvoiceApp() {
                     <span>{money(totals.taxAmount, draft.currency)}</span>
                   </p>
                 )}
+                {totals.additionalCharges > 0 && (
+                  <p className="flex justify-between">
+                    <span>Additional charges</span>
+                    <span>{money(totals.additionalCharges, draft.currency)}</span>
+                  </p>
+                )}
+                {totals.roundingAdjustment !== 0 && (
+                  <p className="flex justify-between">
+                    <span>Rounding adjustment</span>
+                    <span>
+                      {totals.roundingAdjustment > 0 ? '+' : '−'}{' '}
+                      {money(Math.abs(totals.roundingAdjustment), draft.currency)}
+                    </span>
+                  </p>
+                )}
+                <p className="flex justify-between font-medium">
+                  <span>Total</span>
+                  <span>{money(totals.total, draft.currency)}</span>
+                </p>
                 <p className="flex justify-between">
                   <span>Total paid so far</span>
                   <span>{money(totals.totalPaid, draft.currency)}</span>
@@ -1927,7 +2292,7 @@ function InvoicePreview({
             </p>
           </div>
           <div className="text-right shrink-0">
-            <p className="text-2xl font-extrabold tracking-tight">INVOICE</p>
+            <p className="text-2xl font-extrabold tracking-tight">{inv.docTitle || 'INVOICE'}</p>
             <p className="text-sm opacity-90">{inv.number}</p>
           </div>
         </div>
@@ -1939,7 +2304,7 @@ function InvoicePreview({
             style={{ borderBottom: '4px double #334155' }}
           >
             <div>
-              <p className="font-serif text-3xl font-bold">INVOICE</p>
+              <p className="font-serif text-3xl font-bold">{inv.docTitle || 'INVOICE'}</p>
               <p className="font-semibold mt-1">{profile.businessName || 'Your Business'}</p>
               <p className="text-xs text-slate-500 whitespace-pre-line">
                 {[profile.address, profile.email, profile.phone].filter(Boolean).join('\n')}
@@ -1960,7 +2325,7 @@ function InvoicePreview({
         <div className="px-6 pt-6">
           <div className="flex items-start justify-between gap-4 border-b border-slate-200 pb-3">
             <div>
-              <p className="text-sm uppercase tracking-widest text-slate-500">Invoice</p>
+              <p className="text-sm uppercase tracking-widest text-slate-500">{inv.docTitle || 'Invoice'}</p>
               <p className="font-medium mt-1">{profile.businessName || 'Your Business'}</p>
               <p className="text-xs text-slate-500">
                 {[profile.address, profile.email, profile.phone].filter(Boolean).join(' · ')}
@@ -1994,6 +2359,9 @@ function InvoicePreview({
             {inv.poNumber.trim() && (
               <p className="text-slate-500">PO / Ref: {inv.poNumber.trim()}</p>
             )}
+            {inv.referenceNumber.trim() && (
+              <p className="text-slate-500">Reference: {inv.referenceNumber.trim()}</p>
+            )}
             <span
               className={`inline-block mt-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase ${STATUS_STYLES[eff]}`}
             >
@@ -2019,13 +2387,31 @@ function InvoicePreview({
             </tr>
           </thead>
           <tbody>
-            {inv.items.map((item) => (
-              <tr key={item.id} className="border-b border-slate-100">
-                <td className="px-2 py-2">{item.description || '—'}</td>
-                <td className="px-2 py-2 text-right">{item.qty}</td>
+            {inv.items.map((item, idx) => (
+              <tr key={item.id} className="border-b border-slate-100 align-top">
+                <td className="px-2 py-2">
+                  <span>{item.description || '—'}</span>
+                  {item.detail.trim() && (
+                    <span className="block text-xs text-slate-500 mt-0.5">{item.detail}</span>
+                  )}
+                  {item.sku.trim() && (
+                    <span className="block text-[11px] text-slate-400 mt-0.5">
+                      SKU: {item.sku}
+                    </span>
+                  )}
+                  {(totals.lines[idx]?.discount ?? 0) > 0 && (
+                    <span className="block text-[11px] text-emerald-600 mt-0.5">
+                      Item discount: −{money(totals.lines[idx].discount, inv.currency)}
+                    </span>
+                  )}
+                </td>
+                <td className="px-2 py-2 text-right">
+                  {item.qty}
+                  {item.unit ? <span className="text-slate-400"> {item.unit}</span> : null}
+                </td>
                 <td className="px-2 py-2 text-right">{money(item.unitPrice, inv.currency)}</td>
                 <td className="px-2 py-2 text-right font-medium">
-                  {money(item.qty * item.unitPrice, inv.currency)}
+                  {money(totals.lines[idx]?.net ?? 0, inv.currency)}
                 </td>
               </tr>
             ))}
@@ -2059,6 +2445,21 @@ function InvoicePreview({
               <div className="flex justify-between">
                 <dt className="text-slate-500">Shipping</dt>
                 <dd>{money(inv.shipping, inv.currency)}</dd>
+              </div>
+            )}
+            {totals.additionalCharges > 0 && (
+              <div className="flex justify-between">
+                <dt className="text-slate-500">Additional charges</dt>
+                <dd>{money(totals.additionalCharges, inv.currency)}</dd>
+              </div>
+            )}
+            {totals.roundingAdjustment !== 0 && (
+              <div className="flex justify-between">
+                <dt className="text-slate-500">Rounding adjustment</dt>
+                <dd>
+                  {totals.roundingAdjustment > 0 ? '+' : '−'}{' '}
+                  {money(Math.abs(totals.roundingAdjustment), inv.currency)}
+                </dd>
               </div>
             )}
             <div className="flex justify-between font-bold text-base border-t border-slate-200 pt-1.5">
@@ -2106,6 +2507,9 @@ function InvoicePreview({
             )}
           </div>
         </div>
+        {inv.footerText.trim() && (
+          <p className="text-center text-xs text-slate-400 mt-6">{inv.footerText}</p>
+        )}
       </div>
     </div>
   );
@@ -2143,6 +2547,7 @@ function InvoicesView({
       { invoiced: number; collected: number; outstanding: number }
     >();
     for (const inv of invoices) {
+      if (inv.status === 'cancelled') continue;
       const t = computeTotals(inv);
       const row = byCurrency.get(inv.currency) ?? { invoiced: 0, collected: 0, outstanding: 0 };
       row.invoiced += t.total;
@@ -2282,9 +2687,11 @@ function InvoicesView({
                 <SelectItem value="all">All statuses</SelectItem>
                 <SelectItem value="draft">Draft</SelectItem>
                 <SelectItem value="sent">Sent</SelectItem>
+                <SelectItem value="viewed">Viewed</SelectItem>
                 <SelectItem value="partial">Partially paid</SelectItem>
                 <SelectItem value="overdue">Overdue</SelectItem>
                 <SelectItem value="paid">Paid</SelectItem>
+                <SelectItem value="cancelled">Cancelled</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -2388,7 +2795,7 @@ function InvoicesView({
 
 function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Profile }) {
   const data = useMemo(() => {
-    const issued = invoices.filter((i) => i.status !== 'draft');
+    const issued = invoices.filter((i) => i.status !== 'draft' && i.status !== 'cancelled');
     const perCurrency = new Map<
       string,
       {
@@ -3021,6 +3428,20 @@ function SettingsView({
                 onChange={(n) => patch({ nextInvoiceNumber: Math.max(1, Math.floor(n) || 1) })}
                 min={1}
                 step={1}
+              />
+            </Field>
+            <Field label="Invoice number prefix">
+              <Input
+                value={profile.numberPrefix}
+                onChange={(e) => patch({ numberPrefix: e.target.value })}
+                placeholder="INV-"
+              />
+            </Field>
+            <Field label="Invoice number suffix">
+              <Input
+                value={profile.numberSuffix}
+                onChange={(e) => patch({ numberSuffix: e.target.value })}
+                placeholder="e.g. /2026"
               />
             </Field>
             <Field label="Default tax label">

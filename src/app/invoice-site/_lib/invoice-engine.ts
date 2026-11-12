@@ -35,8 +35,19 @@ export interface EngineInput {
   payments?: { amount: number }[];
 }
 
+export interface EngineLineResult {
+  /** qty * unitPrice, rounded to minor units. */
+  gross: number;
+  /** Item-level discount taken off this line. */
+  discount: number;
+  /** gross - discount: the amount the line contributes to the subtotal. */
+  net: number;
+}
+
 export interface EngineResult {
   digits: number;
+  /** Per-line results, aligned by index with the input items. */
+  lines: EngineLineResult[];
   /** Everything below is in major units, already rounded to the currency's decimals. */
   subtotal: number;
   itemDiscounts: number;
@@ -72,10 +83,10 @@ export function computeInvoice(inv: EngineInput): EngineResult {
   const digits = currencyDigits(inv.currency ?? 'USD');
   const f = 10 ** digits;
 
-  let gross = 0; // sum of qty * price
   let itemDiscounts = 0;
   let net = 0; // sum of line nets
   let taxableNet = 0;
+  const linesMinor: EngineLineResult[] = [];
 
   for (const it of inv.items ?? []) {
     const lineGross = roundHalfUp(num(it.qty) * toMinor(num(it.unitPrice), digits));
@@ -86,10 +97,10 @@ export function computeInvoice(inv: EngineInput): EngineResult {
     );
     const off = pctOff + fixedOff;
     const lineNet = lineGross - off;
-    gross += lineGross;
     itemDiscounts += off;
     net += lineNet;
     if (it.taxable !== false) taxableNet += lineNet;
+    linesMinor.push({ gross: lineGross, discount: off, net: lineNet });
   }
 
   const type = inv.discountType ?? 'pct';
@@ -118,6 +129,7 @@ export function computeInvoice(inv: EngineInput): EngineResult {
   const m = (x: number) => x / f;
   return {
     digits,
+    lines: linesMinor.map((l) => ({ gross: m(l.gross), discount: m(l.discount), net: m(l.net) })),
     subtotal: m(net),
     itemDiscounts: m(itemDiscounts),
     discountAmount: m(discount),
