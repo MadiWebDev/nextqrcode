@@ -26,28 +26,17 @@ export const metadata: Metadata = {
 };
 
 /**
- * The platform root layout renders the main site's AppHeader (<header>) and
- * AppFooter (<footer>) as DIRECT children of the same wrapper <div> that
- * holds <main>, and invoice pages live inside that <main>. The invoice site
- * ships its own chrome (InvoiceHeader / InvoiceFooter below), so this rule
- * hides the main site's header/footer — but only on invoice pages, and only
- * the wrapper's direct children. The invoice site's own header/footer are
- * rendered inside <main>, never as direct children of that wrapper, so this
- * selector can never hide them.
+ * The invoice site's own chrome. The main site's AppHeader / AppFooter are
+ * hidden on these pages by the :has() rule in src/app/globals.css — the
+ * rule lives in that external stylesheet because the inline <style> version
+ * shipped here before was blocked by the site's nonce-based CSP.
  */
-const hideMainSiteChromeCss = `
-div:has(> main .invoice-site-root) > header, div:has(> main .invoice-site-root) > footer { display: none !important; }
-`;
-
 export default function ToolLayout({ children }: { children: ReactNode }) {
   return (
-    <>
-      <style>{hideMainSiteChromeCss}</style>
-      <div className="invoice-site-root">
-        <InvoiceHeader />
-        {children}
-        <InvoiceFooter />
-      </div>
-    </>
+    <div className="invoice-site-root">
+      <InvoiceHeader />
+      {children}
+      <InvoiceFooter />
+    </div>
   );
 }
