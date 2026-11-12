@@ -279,6 +279,9 @@ const categories: ToolCategory[] = [
       { href: '/proforma-invoice-generator', label: 'Proforma Invoice Generator' },
       { href: '/purchase-order-generator', label: 'Purchase Order Generator' },
       { href: '/credit-note-generator', label: 'Credit Note Generator' },
+      { href: '/debit-note-generator', label: 'Debit Note Generator' },
+      { href: '/commercial-invoice-generator', label: 'Commercial Invoice Generator' },
+      { href: '/timesheet-invoice-generator', label: 'Timesheet Invoice Generator' },
       { href: '/delivery-note-generator', label: 'Delivery Note / Challan Generator' },
       {
         href: '/payment-reminder-letter-generator',

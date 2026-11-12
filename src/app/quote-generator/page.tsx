@@ -82,7 +82,7 @@ const faqs = [
   {
     question: 'Can I turn an accepted quote into an invoice later?',
     answer:
-      'Yes, and that is the normal workflow. Keep the accepted quotation exactly as signed, then raise the invoice from it using the same line items, prices and tax treatment, changing only what genuinely changed and was agreed in writing. Referencing the quote number on the invoice makes it easy for both sides to prove the final bill matches the price that was approved.',
+      'Yes — this tool does it for you. Set the quote status to Accepted, then use the Convert to invoice button: it creates a draft invoice in the free Invoice Generator with the same line items, prices, discount and tax, references the quote number, and takes the next invoice number from your saved business profile. Keep the accepted quotation exactly as signed; referencing its number on the invoice makes it easy for both sides to prove the final bill matches the price that was approved.',
   },
   {
     question: 'Does the acceptance line on the PDF make the quote a contract?',
@@ -101,6 +101,11 @@ export default function QuoteGeneratorPage() {
   const [clientCompany, setClientCompany] = useState('');
   const [clientAddress, setClientAddress] = useState('');
   const [quoteNumber, setQuoteNumber] = useState('Q-1001');
+  const [quoteStatus, setQuoteStatus] = useState<
+    'draft' | 'sent' | 'accepted' | 'rejected'
+  >('draft');
+  const [convertedNumber, setConvertedNumber] = useState<string | null>(null);
+  const [convertError, setConvertError] = useState(false);
   const [issueDate, setIssueDate] = useState(todayInitial);
   const [validUntil, setValidUntil] = useState(addDaysIso(todayInitial, 14));
   const [currency, setCurrency] = useState<Currency>('USD');
@@ -214,6 +219,112 @@ export default function QuoteGeneratorPage() {
     setItems((current) => current.filter((item) => item.id !== id));
   };
 
+  const convertToInvoice = () => {
+    try {
+      const read = (key: string): unknown => {
+        try {
+          const raw = window.localStorage.getItem(key);
+          return raw ? (JSON.parse(raw) as unknown) : null;
+        } catch {
+          return null;
+        }
+      };
+      const profileRaw = read('invoicegenerator:profile');
+      const profile =
+        profileRaw && typeof profileRaw === 'object'
+          ? (profileRaw as Record<string, unknown>)
+          : null;
+      const next =
+        typeof profile?.nextInvoiceNumber === 'number' ? profile.nextInvoiceNumber : 1;
+      const prefix =
+        typeof profile?.numberPrefix === 'string' ? profile.numberPrefix : 'INV-';
+      const suffix =
+        typeof profile?.numberSuffix === 'string' ? profile.numberSuffix : '';
+      const number = `${prefix}${String(next).padStart(4, '0')}${suffix}`;
+      const now = new Date().toISOString();
+      const invoice = {
+        id: `inv-${Date.now().toString(36)}`,
+        number,
+        issueDate: todayIso,
+        dueDate: validUntil,
+        dueTerms: 'custom',
+        poNumber: '',
+        referenceNumber: quoteNumber,
+        docTitle: '',
+        clientId: null,
+        clientName: clientName || clientCompany,
+        clientEmail: '',
+        clientPhone: '',
+        clientAddress: [
+          clientName && clientCompany ? clientCompany : '',
+          clientAddress,
+        ]
+          .filter(Boolean)
+          .join('\n'),
+        currency,
+        items: items
+          .filter((item) => !item.optional)
+          .map((item) => ({
+            id: `li-${item.id}`,
+            description: item.description,
+            detail: '',
+            sku: '',
+            unit: '',
+            qty: item.qty,
+            unitPrice: item.unitPrice,
+            discountPct: 0,
+            discountFixed: 0,
+            taxable: true,
+          })),
+        discountPct: discountPercent,
+        discountType: 'percent',
+        discountValue: discountPercent,
+        taxPct: taxPercent,
+        taxLabel,
+        taxMode: 'afterDiscount',
+        shipping: 0,
+        additionalCharges: 0,
+        roundingAdjustment: 0,
+        amountPaid: 0,
+        payments: [],
+        status: 'draft',
+        notes,
+        internalNotes: `Converted from quote ${quoteNumber}`,
+        terms,
+        footerText: '',
+        template: 'modern',
+        templateSettings: {
+          secondaryColor: '',
+          fontScale: 1,
+          paperSize: 'a4',
+          orientation: 'portrait',
+          showLogo: true,
+          showStamp: true,
+          showPayments: true,
+          showNotes: true,
+          showTerms: true,
+        },
+        showQr: false,
+        qrPayload: '',
+        recurring: null,
+        createdAt: now,
+        updatedAt: now,
+      };
+      const existing = read('invoicegenerator:invoices');
+      const list = Array.isArray(existing) ? existing : [];
+      list.push(invoice);
+      window.localStorage.setItem('invoicegenerator:invoices', JSON.stringify(list));
+      if (profile) {
+        profile.nextInvoiceNumber = next + 1;
+        window.localStorage.setItem('invoicegenerator:profile', JSON.stringify(profile));
+      }
+      setConvertError(false);
+      setConvertedNumber(number);
+    } catch {
+      setConvertError(true);
+    }
+  };
+
   const downloadPdf = () => {
     const doc = new JsPDF({ unit: 'mm', format: 'a4' });
     const pageWidth = 210;
@@ -245,6 +356,13 @@ export default function QuoteGeneratorPage() {
     doc.text(`Quote No: ${quoteNumber || '-'}`, pageWidth - margin, y, {
       align: 'right',
     });
+    y += 5;
+    doc.text(
+      `Status: ${quoteStatus.charAt(0).toUpperCase() + quoteStatus.slice(1)}`,
+      pageWidth - margin,
+      y,
+      { align: 'right' }
+    );
     y += 7;
     doc.setFontSize(10);
     doc.text(`Issued: ${formatDate(issueDate)}`, pageWidth - margin, y, {
@@ -537,6 +655,25 @@ export default function QuoteGeneratorPage() {
                 />
               </div>
               <div className="space-y-2">
+                <Label htmlFor="quote-status">Quote status</Label>
+                <Select
+                  value={quoteStatus}
+                  onValueChange={(value) =>
+                    setQuoteStatus(value as 'draft' | 'sent' | 'accepted' | 'rejected')
+                  }
+                >
+                  <SelectTrigger id="quote-status">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="draft">Draft</SelectItem>
+                    <SelectItem value="sent">Sent</SelectItem>
+                    <SelectItem value="accepted">Accepted</SelectItem>
+                    <SelectItem value="rejected">Rejected</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
                 <Label htmlFor="currency">Currency</Label>
                 <Select
                   value={currency}
@@ -742,10 +879,44 @@ export default function QuoteGeneratorPage() {
               <h2 className="text-lg font-semibold flex items-center gap-2">
                 <PenLine className="h-5 w-5" /> Live preview
               </h2>
-              <Button type="button" onClick={downloadPdf}>
-                <Download className="h-4 w-4 mr-2" /> Download PDF quote
-              </Button>
+              <div className="flex flex-wrap gap-2">
+                <Button type="button" onClick={downloadPdf}>
+                  <Download className="h-4 w-4 mr-2" /> Download PDF quote
+                </Button>
+                {quoteStatus === 'accepted' && (
+                  <Button type="button" variant="outline" onClick={convertToInvoice}>
+                    <FileText className="h-4 w-4 mr-2" /> Convert to invoice
+                  </Button>
+                )}
+              </div>
             </div>
+            {quoteStatus !== 'accepted' && !convertedNumber && (
+              <p className="text-sm text-muted-foreground">
+                Tip: when your client accepts this quote, set its status to{' '}
+                <strong>Accepted</strong> above — a Convert to invoice button will appear
+                here, which creates a matching draft invoice in the free Invoice
+                Generator with the same items, prices and tax.
+              </p>
+            )}
+            {convertedNumber && (
+              <div className="rounded-lg border border-emerald-300 bg-emerald-50 p-4 text-sm text-emerald-900">
+                Invoice <strong>{convertedNumber}</strong> created as a draft in the
+                Invoice Generator.{' '}
+                <a
+                  className="font-semibold underline"
+                  href="https://invoicegenerator.freeqrcode.tools/"
+                >
+                  Open the Invoice Generator
+                </a>{' '}
+                to review, send or download it.
+              </div>
+            )}
+            {convertError && (
+              <div className="rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-900">
+                The invoice could not be saved in this browser (storage may be full or
+                blocked). Your quote is unchanged — download its PDF as a backup.
+              </div>
+            )}
             <div className="border rounded-lg bg-white text-slate-900 p-6 sm:p-8 space-y-6 shadow-sm">
               <div className="flex flex-wrap justify-between gap-4 border-b pb-4">
                 <div>
@@ -757,6 +928,10 @@ export default function QuoteGeneratorPage() {
                 <div className="text-sm text-right">
                   <p>
                     <span className="font-semibold">Quote No:</span> {quoteNumber || '—'}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Status:</span>{' '}
+                    {quoteStatus.charAt(0).toUpperCase() + quoteStatus.slice(1)}
                   </p>
                   <p>
                     <span className="font-semibold">Issued:</span> {formatDate(issueDate)}

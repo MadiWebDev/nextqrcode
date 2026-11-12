@@ -79,6 +79,9 @@ export default function ReceiptGeneratorPage() {
   const [taxRate, setTaxRate] = useState('0');
   const [currency, setCurrency] = useState('PKR');
   const [paymentMethod, setPaymentMethod] = useState('Cash');
+  const [receivedFrom, setReceivedFrom] = useState('');
+  const [paymentReference, setPaymentReference] = useState('');
+  const [relatedInvoice, setRelatedInvoice] = useState('');
   const [tendered, setTendered] = useState('3000');
   const [footerMessage, setFooterMessage] = useState(
     'Thank you for shopping with us. Please visit again.'
@@ -183,6 +186,9 @@ export default function ReceiptGeneratorPage() {
     }
     row('TOTAL', moneyPdf(totals.total), true);
     row('Payment', paymentMethod, false);
+    if (receivedFrom.trim()) row('Received from', receivedFrom.trim(), false);
+    if (relatedInvoice.trim()) row('For invoice', relatedInvoice.trim(), false);
+    if (paymentReference.trim()) row('Reference', paymentReference.trim(), false);
     if (isCash) {
       row('Tendered', moneyPdf(totals.tenderedNum), false);
       row('Change Due', moneyPdf(Math.max(0, totals.change)), true);
@@ -379,6 +385,38 @@ export default function ReceiptGeneratorPage() {
               </div>
             </div>
 
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-2">
+                <Label htmlFor="received-from">Received from (customer)</Label>
+                <Input
+                  id="received-from"
+                  value={receivedFrom}
+                  onChange={(e) => setReceivedFrom(e.target.value)}
+                  placeholder="Customer name"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="related-invoice">For invoice no. (optional)</Label>
+                <Input
+                  id="related-invoice"
+                  value={relatedInvoice}
+                  onChange={(e) => setRelatedInvoice(e.target.value)}
+                  placeholder="INV-0001"
+                />
+              </div>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="payment-reference">
+                Payment reference (optional)
+              </Label>
+              <Input
+                id="payment-reference"
+                value={paymentReference}
+                onChange={(e) => setPaymentReference(e.target.value)}
+                placeholder="Bank transfer ref, cheque no. or transaction ID"
+              />
+            </div>
+
             {isCash && (
               <div className="space-y-2">
                 <Label htmlFor="tendered">Amount tendered (cash given by customer)</Label>
@@ -473,6 +511,24 @@ export default function ReceiptGeneratorPage() {
                 <span>Payment</span>
                 <span>{paymentMethod}</span>
               </p>
+              {receivedFrom.trim() && (
+                <p className="flex justify-between">
+                  <span>Received from</span>
+                  <span>{receivedFrom.trim()}</span>
+                </p>
+              )}
+              {relatedInvoice.trim() && (
+                <p className="flex justify-between">
+                  <span>For invoice</span>
+                  <span>{relatedInvoice.trim()}</span>
+                </p>
+              )}
+              {paymentReference.trim() && (
+                <p className="flex justify-between">
+                  <span>Reference</span>
+                  <span>{paymentReference.trim()}</span>
+                </p>
+              )}
               {isCash && (
                 <>
                   <p className="flex justify-between">

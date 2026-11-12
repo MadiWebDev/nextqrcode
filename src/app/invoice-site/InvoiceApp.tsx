@@ -3009,70 +3009,158 @@ function InvoicesView({
 
 /* ── Dashboard ─────────────────────────────────────────────────────── */
 
+type DashRange = 'all' | 'today' | '7d' | '30d' | 'month' | 'lastMonth' | 'year' | 'custom';
+
+function dashRangeBounds(
+  range: DashRange,
+  customFrom: string,
+  customTo: string
+): { from: string | null; to: string | null } {
+  const today = todayIso();
+  if (range === 'all') return { from: null, to: null };
+  if (range === 'custom') return { from: customFrom || null, to: customTo || null };
+  if (range === 'today') return { from: today, to: today };
+  if (range === '7d') return { from: addDaysIso(today, -6), to: today };
+  if (range === '30d') return { from: addDaysIso(today, -29), to: today };
+  const now = new Date();
+  if (range === 'month')
+    return { from: `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-01`, to: today };
+  if (range === 'year') return { from: `${now.getFullYear()}-01-01`, to: today };
+  // lastMonth
+  const firstThis = new Date(now.getFullYear(), now.getMonth(), 1);
+  const lastPrev = new Date(firstThis.getTime() - 86400000);
+  const firstPrev = new Date(lastPrev.getFullYear(), lastPrev.getMonth(), 1);
+  return { from: toIsoLocal(firstPrev), to: toIsoLocal(lastPrev) };
+}
+
+function toIsoLocal(d: Date): string {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(
+    d.getDate()
+  ).padStart(2, '0')}`;
+}
+
 function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Profile }) {
+  const [range, setRange] = useState<DashRange>('all');
+  const [customFrom, setCustomFrom] = useState('');
+  const [customTo, setCustomTo] = useState('');
+  const [chartMode, setChartMode] = useState<'billed' | 'received'>('billed');
+  const [chartSpan, setChartSpan] = useState<6 | 12>(6);
+
   const data = useMemo(() => {
-    const issued = invoices.filter((i) => i.status !== 'draft' && i.status !== 'cancelled');
-    const perCurrency = new Map<
-      string,
-      {
-        billed: number;
-        collected: number;
-        outstanding: number;
-        overdueAmount: number;
-        overdueCount: number;
-      }
-    >();
-    const aging = new Map<string, { current: number; d30: number; d60: number; d60plus: number }>();
-    const todayMs = Date.parse(todayIso());
-    for (const inv of issued) {
-      const t = computeTotals(inv);
-      const eff = effectiveStatus(inv);
-      const row = perCurrency.get(inv.currency) ?? {
+    const bounds = dashRangeBounds(range, customFrom, customTo);
+    const inRange = (iso: string) =>
+      (!bounds.from || iso >= bounds.from) && (!bounds.to || iso <= bounds.to);
+    const issuedAll = invoices.filter((i) => i.status !== 'draft' && i.status !== 'cancelled');
+    const issuedRange = issuedAll.filter((i) => inRange(i.issueDate));
+
+    interface CurRow {
+      billed: number;
+      collectedPeriod: number;
+      count: number;
+      outstanding: number;
+      overdueAmount: number;
+      overdueCount: number;
+    }
+    const perCurrency = new Map<string, CurRow>();
+    const rowFor = (cur: string): CurRow => {
+      const r = perCurrency.get(cur) ?? {
         billed: 0,
-        collected: 0,
+        collectedPeriod: 0,
+        count: 0,
         outstanding: 0,
         overdueAmount: 0,
         overdueCount: 0,
       };
-      row.billed += t.total;
-      row.collected += Math.min(t.totalPaid, t.total);
-      row.outstanding += t.balance;
-      if (eff === 'overdue') {
-        row.overdueAmount += t.balance;
-        row.overdueCount += 1;
+      perCurrency.set(cur, r);
+      return r;
+    };
+    // Payments received inside the period: ledger entries by their own date;
+    // the legacy lump sum is attributed to the invoice's issue date.
+    const collectedInPeriod = (inv: Invoice, t: Totals): number => {
+      let sum = inv.amountPaid > 0 && inRange(inv.issueDate) ? inv.amountPaid : 0;
+      for (const pay of inv.payments) if (inRange(pay.date)) sum += pay.amount;
+      return Math.min(t.total, sum);
+    };
+    for (const inv of issuedRange) {
+      const t = computeTotals(inv);
+      const r = rowFor(inv.currency);
+      r.billed += t.total;
+      r.collectedPeriod += collectedInPeriod(inv, t);
+      r.count += 1;
+    }
+    const aging = new Map<
+      string,
+      { notDue: number; b30: number; b60: number; b90: number; b90plus: number }
+    >();
+    const todayMs = Date.parse(todayIso());
+    for (const inv of issuedAll) {
+      const t = computeTotals(inv);
+      const r = rowFor(inv.currency);
+      r.outstanding += t.balance;
+      if (effectiveStatus(inv) === 'overdue') {
+        r.overdueAmount += t.balance;
+        r.overdueCount += 1;
       }
-      perCurrency.set(inv.currency, row);
       if (t.balance > 0) {
-        const a = aging.get(inv.currency) ?? { current: 0, d30: 0, d60: 0, d60plus: 0 };
+        const a = aging.get(inv.currency) ?? {
+          notDue: 0,
+          b30: 0,
+          b60: 0,
+          b90: 0,
+          b90plus: 0,
+        };
         const daysOverdue = Math.floor((todayMs - Date.parse(inv.dueDate)) / 86400000);
-        if (daysOverdue <= 0) a.current += t.balance;
-        else if (daysOverdue <= 30) a.d30 += t.balance;
-        else if (daysOverdue <= 60) a.d60 += t.balance;
-        else a.d60plus += t.balance;
+        if (daysOverdue <= 0) a.notDue += t.balance;
+        else if (daysOverdue <= 30) a.b30 += t.balance;
+        else if (daysOverdue <= 60) a.b60 += t.balance;
+        else if (daysOverdue <= 90) a.b90 += t.balance;
+        else a.b90plus += t.balance;
         aging.set(inv.currency, a);
       }
     }
 
-    // Last 6 months billed, profile currency only
+    // Status distribution — counts only (never money), across every invoice.
+    const statusDist = new Map<EffectiveStatus, number>();
+    for (const inv of invoices) {
+      const eff = effectiveStatus(inv);
+      statusDist.set(eff, (statusDist.get(eff) ?? 0) + 1);
+    }
+
+    // Chart series in the profile currency: billed by issue month, or
+    // payments received by payment month (lump sums at their issue month).
     const months: Array<{ key: string; label: string; total: number }> = [];
     const now = new Date();
-    for (let i = 5; i >= 0; i--) {
+    for (let i = chartSpan - 1; i >= 0; i--) {
       const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
       const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
       months.push({
         key,
-        label: d.toLocaleDateString('en-US', { month: 'short' }),
+        label:
+          chartSpan === 12
+            ? `${d.toLocaleDateString('en-US', { month: 'short' })} ${String(
+                d.getFullYear()
+              ).slice(2)}`
+            : d.toLocaleDateString('en-US', { month: 'short' }),
         total: 0,
       });
     }
     const monthIndex = new Map(months.map((m, i) => [m.key, i]));
-    // Top clients, profile currency
     const clientTotals = new Map<string, { billed: number; outstanding: number }>();
-    for (const inv of issued) {
+    for (const inv of issuedAll) {
       if (inv.currency !== profile.currency) continue;
       const t = computeTotals(inv);
-      if (monthIndex.has(inv.issueDate.slice(0, 7))) {
-        months[monthIndex.get(inv.issueDate.slice(0, 7))!].total += t.total;
+      if (chartMode === 'billed') {
+        const idx = monthIndex.get(inv.issueDate.slice(0, 7));
+        if (idx !== undefined) months[idx].total += t.total;
+      } else {
+        if (inv.amountPaid > 0) {
+          const idx = monthIndex.get(inv.issueDate.slice(0, 7));
+          if (idx !== undefined) months[idx].total += inv.amountPaid;
+        }
+        for (const pay of inv.payments) {
+          const idx = monthIndex.get(pay.date.slice(0, 7));
+          if (idx !== undefined) months[idx].total += pay.amount;
+        }
       }
       const name = inv.clientName.trim() || 'Unnamed client';
       const c = clientTotals.get(name) ?? { billed: 0, outstanding: 0 };
@@ -3084,60 +3172,168 @@ function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Pr
       .map(([name, v]) => ({ name, ...v }))
       .sort((a, b) => b.billed - a.billed)
       .slice(0, 5);
-    const currenciesUsed = new Set(issued.map((i) => i.currency));
+
+    // Revenue by year, per currency — billed and collected (all-time basis).
+    const byYear = new Map<string, Map<string, { billed: number; collected: number }>>();
+    for (const inv of issuedAll) {
+      const t = computeTotals(inv);
+      const year = inv.issueDate.slice(0, 4) || 'Unknown';
+      const years = byYear.get(inv.currency) ?? new Map();
+      const y = years.get(year) ?? { billed: 0, collected: 0 };
+      y.billed += t.total;
+      y.collected += Math.min(t.totalPaid, t.total);
+      years.set(year, y);
+      byYear.set(inv.currency, years);
+    }
+
+    const currenciesUsed = new Set(issuedAll.map((i) => i.currency));
     return {
-      perCurrency: [...perCurrency.entries()],
+      perCurrency: [...perCurrency.entries()].filter(([, r]) => r.count > 0 || r.outstanding > 0),
       aging: [...aging.entries()],
+      statusDist: [...statusDist.entries()],
       months,
       topClients,
+      byYear: [...byYear.entries()].map(([cur, years]) => ({
+        currency: cur,
+        years: [...years.entries()].sort((a, b) => (a[0] < b[0] ? 1 : -1)),
+      })),
       multiCurrency: currenciesUsed.size > 1,
-      issuedCount: issued.length,
+      issuedCount: issuedAll.length,
+      rangeCount: issuedRange.length,
     };
-  }, [invoices, profile.currency]);
+  }, [invoices, profile.currency, range, customFrom, customTo, chartMode, chartSpan]);
 
   if (data.issuedCount === 0) {
     return (
       <Card className="p-8 text-center">
         <p className="font-semibold">Nothing to chart yet</p>
         <p className="text-sm text-muted-foreground mt-1.5">
-          The dashboard comes alive once you have saved an invoice and marked it as sent. Drafts are
-          excluded — this page tracks money you have actually billed.
+          The dashboard comes alive once you have saved an invoice and marked it as sent.
+          Drafts are excluded — this page tracks money you have actually billed.
         </p>
       </Card>
     );
   }
 
   const chartMax = Math.max(...data.months.map((m) => m.total), 0);
+  const statusOrder: EffectiveStatus[] = [
+    'draft',
+    'sent',
+    'viewed',
+    'partial',
+    'overdue',
+    'paid',
+    'cancelled',
+  ];
 
   return (
     <div className="space-y-5">
+      <div className="flex flex-wrap items-end gap-3">
+        <Field label="Date range (issue date)">
+          <Select value={range} onValueChange={(v) => setRange(v as DashRange)}>
+            <SelectTrigger className="w-44">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All time</SelectItem>
+              <SelectItem value="today">Today</SelectItem>
+              <SelectItem value="7d">Last 7 days</SelectItem>
+              <SelectItem value="30d">Last 30 days</SelectItem>
+              <SelectItem value="month">This month</SelectItem>
+              <SelectItem value="lastMonth">Last month</SelectItem>
+              <SelectItem value="year">This year</SelectItem>
+              <SelectItem value="custom">Custom range</SelectItem>
+            </SelectContent>
+          </Select>
+        </Field>
+        {range === 'custom' && (
+          <>
+            <Field label="From">
+              <Input
+                type="date"
+                value={customFrom}
+                onChange={(e) => setCustomFrom(e.target.value)}
+              />
+            </Field>
+            <Field label="To">
+              <Input type="date" value={customTo} onChange={(e) => setCustomTo(e.target.value)} />
+            </Field>
+          </>
+        )}
+        <p className="text-xs text-muted-foreground pb-2">
+          {data.rangeCount} invoice{data.rangeCount === 1 ? '' : 's'} in this period. Money is
+          always shown per currency — amounts in different currencies are never added together.
+          Outstanding and aging always reflect today, whatever range you pick.
+        </p>
+      </div>
+
+      <Card className="p-5">
+        <h3 className="font-semibold mb-3">Invoices by status</h3>
+        <div className="flex flex-wrap gap-2">
+          {statusOrder
+            .filter((st) => (data.statusDist.find(([k]) => k === st)?.[1] ?? 0) > 0)
+            .map((st) => (
+              <span
+                key={st}
+                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${STATUS_STYLES[st]}`}
+              >
+                {STATUS_LABELS[st]}: {data.statusDist.find(([k]) => k === st)?.[1]}
+              </span>
+            ))}
+        </div>
+      </Card>
+
       {data.perCurrency.map(([currency, row]) => (
         <div key={currency}>
           <h3 className="font-semibold mb-3">{currency} overview</h3>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <Card className="p-4">
               <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                Total billed
+                Billed in period
               </p>
               <p className="text-xl font-bold mt-1">{money(row.billed, currency)}</p>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                {row.count} invoice{row.count === 1 ? '' : 's'}
+              </p>
             </Card>
             <Card className="p-4">
               <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                Collected
+                Collected in period
               </p>
               <p className="text-xl font-bold mt-1 text-emerald-600">
-                {money(row.collected, currency)}
+                {money(row.collectedPeriod, currency)}
               </p>
             </Card>
             <Card className="p-4">
               <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                Outstanding
+                Average invoice value
+              </p>
+              <p className="text-xl font-bold mt-1">
+                {row.count > 0 ? money(row.billed / row.count, currency) : '—'}
+              </p>
+            </Card>
+            <Card className="p-4">
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                Collection rate
+              </p>
+              <p className="text-xl font-bold mt-1">
+                {row.billed > 0
+                  ? `${Math.round((row.collectedPeriod / row.billed) * 100)}%`
+                  : '—'}
+              </p>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                Of this period&rsquo;s billing, collected within the period
+              </p>
+            </Card>
+            <Card className="p-4">
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                Outstanding now
               </p>
               <p className="text-xl font-bold mt-1">{money(row.outstanding, currency)}</p>
             </Card>
             <Card className="p-4">
               <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                Overdue
+                Overdue now
               </p>
               <p className="text-xl font-bold mt-1 text-red-600">
                 {money(row.overdueAmount, currency)}
@@ -3152,16 +3348,53 @@ function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Pr
 
       <div className="grid gap-5 lg:grid-cols-2 items-start">
         <Card className="p-5">
-          <h3 className="font-semibold">Billed — last 6 months ({profile.currency})</h3>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h3 className="font-semibold">
+              {chartMode === 'billed' ? 'Billed' : 'Payments received'} — last {chartSpan}{' '}
+              months ({profile.currency})
+            </h3>
+            <div className="flex gap-1.5">
+              <Button
+                size="sm"
+                variant={chartMode === 'billed' ? 'default' : 'outline'}
+                onClick={() => setChartMode('billed')}
+              >
+                Billed
+              </Button>
+              <Button
+                size="sm"
+                variant={chartMode === 'received' ? 'default' : 'outline'}
+                onClick={() => setChartMode('received')}
+              >
+                Received
+              </Button>
+              <Button
+                size="sm"
+                variant={chartSpan === 6 ? 'default' : 'outline'}
+                onClick={() => setChartSpan(6)}
+              >
+                6 mo
+              </Button>
+              <Button
+                size="sm"
+                variant={chartSpan === 12 ? 'default' : 'outline'}
+                onClick={() => setChartSpan(12)}
+              >
+                12 mo
+              </Button>
+            </div>
+          </div>
           {data.multiCurrency && (
             <p className="text-xs text-muted-foreground mt-1">
-              Your invoices use more than one currency; this chart and the client ranking show{' '}
-              {profile.currency} only.
+              Your invoices use more than one currency; this chart and the client ranking
+              show {profile.currency} only.
             </p>
           )}
           {chartMax <= 0 ? (
             <p className="text-sm text-muted-foreground mt-4">
-              No {profile.currency} invoices were issued in the last 6 months.
+              No {profile.currency}{' '}
+              {chartMode === 'billed' ? 'invoices were issued' : 'payments were received'} in
+              the last {chartSpan} months.
             </p>
           ) : (
             <div className="mt-5">
@@ -3169,7 +3402,7 @@ function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Pr
                 {data.months.map((m) => (
                   <div
                     key={m.key}
-                    className="flex-1 flex flex-col items-center justify-end h-full gap-2"
+                    className="flex-1 flex flex-col items-center justify-end h-full gap-2 min-w-0"
                   >
                     <span className="text-[11px] font-medium text-muted-foreground">
                       {m.total > 0 ? money(m.total, profile.currency) : ''}
@@ -3196,10 +3429,11 @@ function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Pr
                   {data.aging.length > 1 && <p className="font-semibold mb-1.5">{currency}</p>}
                   {(
                     [
-                      ['Not yet due', a.current],
-                      ['1–30 days overdue', a.d30],
-                      ['31–60 days overdue', a.d60],
-                      ['Over 60 days overdue', a.d60plus],
+                      ['Not yet due', a.notDue],
+                      ['0–30 days overdue', a.b30],
+                      ['31–60 days overdue', a.b60],
+                      ['61–90 days overdue', a.b90],
+                      ['Over 90 days overdue', a.b90plus],
                     ] as Array<[string, number]>
                   ).map(([label, amount]) => (
                     <p
@@ -3231,7 +3465,9 @@ function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Pr
           <Card className="p-5">
             <h3 className="font-semibold mb-3">Top clients ({profile.currency})</h3>
             {data.topClients.length === 0 ? (
-              <p className="text-sm text-muted-foreground">No {profile.currency} invoices yet.</p>
+              <p className="text-sm text-muted-foreground">
+                No {profile.currency} invoices yet.
+              </p>
             ) : (
               <ol className="space-y-2.5">
                 {data.topClients.map((c, i) => (
@@ -3251,12 +3487,43 @@ function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Pr
           </Card>
         </div>
       </div>
+
+      {data.byYear.some((g) => g.years.length > 0) && (
+        <Card className="p-5">
+          <h3 className="font-semibold mb-3">Revenue by year</h3>
+          <div className="space-y-4">
+            {data.byYear.map((g) => (
+              <div key={g.currency} className="text-sm">
+                {data.byYear.length > 1 && (
+                  <p className="font-semibold mb-1.5">{g.currency}</p>
+                )}
+                {g.years.map(([year, y]) => (
+                  <p
+                    key={year}
+                    className="flex flex-wrap justify-between gap-2 py-1 border-b border-border/50 last:border-0"
+                  >
+                    <span className="text-muted-foreground">{year}</span>
+                    <span>
+                      Billed <span className="font-medium">{money(y.billed, g.currency)}</span>
+                      {'  ·  '}Collected{' '}
+                      <span className="font-medium text-emerald-600">
+                        {money(y.collected, g.currency)}
+                      </span>
+                    </span>
+                  </p>
+                ))}
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
       <p className="text-xs text-muted-foreground">
-        Drafts are excluded from every figure on this page.
+        Drafts and cancelled invoices are excluded from every money figure on this page.
       </p>
     </div>
   );
 }
+
 
 /* ── Client statement PDF ──────────────────────────────────────────── */
 
