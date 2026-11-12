@@ -36,6 +36,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { ALL_CURRENCIES, currencyDigits, currencyLabel } from './_data/currencies';
+import { computeInvoice } from './_lib/invoice-engine';
 
 /* ── Types ─────────────────────────────────────────────────────────── */
 
@@ -269,28 +270,19 @@ function computeTotals(
     | 'shipping'
     | 'amountPaid'
     | 'payments'
-  >
+  > &
+    Partial<Pick<Invoice, 'currency'>>
 ): Totals {
-  const subtotal = inv.items.reduce((sum, it) => sum + (it.qty || 0) * (it.unitPrice || 0), 0);
-  const discountType: DiscountType = inv.discountType ?? 'pct';
-  const discountValue = inv.discountValue ?? inv.discountPct ?? 0;
-  const discountAmount =
-    discountType === 'fixed'
-      ? Math.min(Math.max(0, discountValue || 0), subtotal)
-      : (subtotal * clampPct(discountValue)) / 100;
-  const taxable = subtotal - discountAmount;
-  const taxAmount = (taxable * clampPct(inv.taxPct)) / 100;
-  const total = taxable + taxAmount + Math.max(0, inv.shipping || 0);
-  const totalPaid = Math.max(0, inv.amountPaid || 0) + paymentsSum(inv);
-  const balance = Math.max(0, total - totalPaid);
+  // All arithmetic happens in integer minor units inside the engine (see _lib/invoice-engine.ts).
+  const r = computeInvoice(inv);
   return {
-    subtotal,
-    discountAmount,
-    taxAmount,
-    total,
-    totalPaid,
-    balance,
-    paidInFull: total > 0 && totalPaid >= total,
+    subtotal: r.subtotal,
+    discountAmount: r.discountAmount,
+    taxAmount: r.taxAmount,
+    total: r.total,
+    totalPaid: r.totalPaid,
+    balance: r.balance,
+    paidInFull: r.paidInFull,
   };
 }
 
