@@ -49,6 +49,7 @@ import {
   type TemplateSettings,
 } from './_lib/templates';
 import { buildInvoicePdf } from './_lib/pdf';
+import { parseCsv, toCsv } from './_lib/csv';
 
 export type { TaxMode };
 
@@ -69,10 +70,27 @@ const UNIT_TYPES: Array<{ value: string; label: string }> = [
 /* ── Types ─────────────────────────────────────────────────────────── */
 
 export interface Profile {
+  /** Stable id — a user can keep several business profiles. */
+  id: string;
   businessName: string;
   email: string;
   phone: string;
   address: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+  /** Tax identification number (NTN, EIN, TRN…). */
+  taxId: string;
+  /** VAT / GST registration number, when registered. */
+  vatNumber: string;
+  bankName: string;
+  accountTitle: string;
+  iban: string;
+  swift: string;
+  /** Default terms + footer applied to new invoices from this profile. */
+  defaultTerms: string;
+  defaultFooter: string;
   logoDataUrl: string;
   stampDataUrl: string;
   currency: string;
@@ -89,9 +107,20 @@ export interface Profile {
 export interface Client {
   id: string;
   name: string;
+  /** Company / organisation name, when different from the contact name. */
+  company: string;
+  contactPerson: string;
   email: string;
   address: string;
+  shippingAddress: string;
   phone: string;
+  taxId: string;
+  country: string;
+  notes: string;
+  /** Preferred currency for new invoices to this client ('' = profile default). */
+  defaultCurrency: string;
+  /** Client-specific payment terms text ('' = profile default). */
+  terms: string;
 }
 
 export interface LineItem {
@@ -138,6 +167,8 @@ export type RecurringFrequency = 'weekly' | 'monthly' | 'quarterly' | 'yearly';
 
 export interface Recurring {
   frequency: RecurringFrequency;
+  /** Repeat every N x frequency (1 = plain weekly/monthly/…). */
+  intervalCount: number;
   nextDate: string;
   active: boolean;
 }
@@ -211,6 +242,8 @@ interface Totals {
 /* ── Constants & helpers ───────────────────────────────────────────── */
 
 const PROFILE_KEY = 'invoicegenerator:profile';
+const PROFILES_KEY = 'invoicegenerator:profiles';
+const DRAFT_KEY = 'invoicegenerator:draft';
 const CLIENTS_KEY = 'invoicegenerator:clients';
 const INVOICES_KEY = 'invoicegenerator:invoices';
 
@@ -230,6 +263,11 @@ const DUE_TERMS_DAYS: Partial<Record<DueTerms, number>> = {
   net30: 30,
   net60: 60,
 };
+export function recurringLabel(rec: Recurring): string {
+  const base = RECURRING_LABELS[rec.frequency];
+  return rec.intervalCount > 1 ? `Every ${rec.intervalCount} × ${base.toLowerCase()}` : base;
+}
+
 const RECURRING_LABELS: Record<RecurringFrequency, string> = {
   weekly: 'Weekly',
   monthly: 'Monthly',
@@ -238,10 +276,23 @@ const RECURRING_LABELS: Record<RecurringFrequency, string> = {
 };
 
 const DEFAULT_PROFILE: Profile = {
+  id: '',
   businessName: '',
   email: '',
   phone: '',
   address: '',
+  city: '',
+  state: '',
+  postalCode: '',
+  country: '',
+  taxId: '',
+  vatNumber: '',
+  bankName: '',
+  accountTitle: '',
+  iban: '',
+  swift: '',
+  defaultTerms: '',
+  defaultFooter: '',
   logoDataUrl: '',
   stampDataUrl: '',
   currency: 'USD',
@@ -278,16 +329,21 @@ function addMonthsIso(iso: string, months: number): string {
   return d.toISOString().slice(0, 10);
 }
 
-function shiftDateByFrequency(iso: string, frequency: RecurringFrequency): string {
+function shiftDateByFrequency(
+  iso: string,
+  frequency: RecurringFrequency,
+  intervalCount = 1
+): string {
+  const n = Math.min(36, Math.max(1, Math.floor(intervalCount) || 1));
   switch (frequency) {
     case 'weekly':
-      return addDaysIso(iso, 7);
+      return addDaysIso(iso, 7 * n);
     case 'monthly':
-      return addMonthsIso(iso, 1);
+      return addMonthsIso(iso, n);
     case 'quarterly':
-      return addMonthsIso(iso, 3);
+      return addMonthsIso(iso, 3 * n);
     case 'yearly':
-      return addMonthsIso(iso, 12);
+      return addMonthsIso(iso, 12 * n);
   }
 }
 
@@ -486,6 +542,10 @@ export function normalizeInvoice(raw: Partial<Invoice>): Invoice {
           ).includes(raw.recurring.frequency)
             ? raw.recurring.frequency
             : 'monthly',
+          intervalCount: Math.min(
+            36,
+            Math.max(1, Math.floor(Number(raw.recurring.intervalCount) || 1))
+          ),
           nextDate: raw.recurring.nextDate || todayIso(),
           active: raw.recurring.active !== false,
         }
@@ -550,14 +610,56 @@ export function normalizeInvoice(raw: Partial<Invoice>): Invoice {
   };
 }
 
-function normalizeClient(raw: Partial<Client>): Client {
+/** Fill every field an older saved profile might be missing. */
+export function normalizeProfile(raw: Partial<Profile>): Profile {
+  return {
+    ...DEFAULT_PROFILE,
+    ...raw,
+    id: raw.id || uid(),
+    nextInvoiceNumber: Math.max(1, Math.floor(Number(raw.nextInvoiceNumber) || 1)),
+    numberPrefix: raw.numberPrefix ?? 'INV-',
+    numberSuffix: raw.numberSuffix ?? '',
+  };
+}
+
+export function normalizeClient(raw: Partial<Client>): Client {
   return {
     id: raw.id || uid(),
     name: raw.name ?? '',
+    company: raw.company ?? '',
+    contactPerson: raw.contactPerson ?? '',
     email: raw.email ?? '',
     address: raw.address ?? '',
+    shippingAddress: raw.shippingAddress ?? '',
     phone: raw.phone ?? '',
+    taxId: raw.taxId ?? '',
+    country: raw.country ?? '',
+    notes: raw.notes ?? '',
+    defaultCurrency: raw.defaultCurrency ?? '',
+    terms: raw.terms ?? '',
   };
+}
+
+/** The postal address block printed on documents: free-text address, then
+ * the structured city/state/postal line, then the country. */
+export function profileAddressLines(profile: Profile): string[] {
+  const cityLine = [profile.city, profile.state, profile.postalCode]
+    .map((x) => (x || '').trim())
+    .filter(Boolean)
+    .join(', ');
+  return [profile.address, cityLine, profile.country]
+    .map((x) => (x || '').trim())
+    .filter(Boolean);
+}
+
+/** Bank details assembled from the structured fields, when paymentDetails is empty. */
+export function profileBankText(profile: Profile): string {
+  const lines: string[] = [];
+  if (profile.bankName.trim()) lines.push(`Bank: ${profile.bankName.trim()}`);
+  if (profile.accountTitle.trim()) lines.push(`Account title: ${profile.accountTitle.trim()}`);
+  if (profile.iban.trim()) lines.push(`IBAN: ${profile.iban.trim()}`);
+  if (profile.swift.trim()) lines.push(`SWIFT/BIC: ${profile.swift.trim()}`);
+  return lines.join('\n');
 }
 
 /**
@@ -601,7 +703,7 @@ function generateRecurringDrafts(
       );
       nextNumber += 1;
       count += 1;
-      nextDate = shiftDateByFrequency(nextDate, rec.frequency);
+      nextDate = shiftDateByFrequency(nextDate, rec.frequency, rec.intervalCount);
     }
     if (count === 0) return inv;
     return { ...inv, recurring: { ...rec, nextDate } };
@@ -646,8 +748,9 @@ function makeDraft(profile: Profile): Invoice {
     notes: '',
     internalNotes: '',
     terms:
+      profile.defaultTerms ||
       'Payment is due within 14 days of the issue date. Please quote the invoice number with your payment.',
-    footerText: '',
+    footerText: profile.defaultFooter || '',
     template: 'modern',
     templateSettings: { ...DEFAULT_TEMPLATE_SETTINGS },
     showQr: false,
@@ -799,13 +902,49 @@ export function InvoiceApp() {
     }
     return gen.list;
   });
-  const [profile, setProfile] = useState<Profile>(() => loadLS(PROFILE_KEY, DEFAULT_PROFILE));
+  const [profile, setProfileState] = useState<Profile>(() =>
+    normalizeProfile(loadLS(PROFILE_KEY, DEFAULT_PROFILE))
+  );
+  const [profiles, setProfiles] = useState<Profile[]>(() => {
+    const stored = loadLSArray<Profile>(PROFILES_KEY).map(normalizeProfile);
+    if (stored.length > 0) return stored;
+    // Migration: the previous single profile becomes the first saved profile.
+    return [normalizeProfile(loadLS(PROFILE_KEY, DEFAULT_PROFILE))];
+  });
+  /** setProfile also keeps the profiles list in sync (same id is replaced). */
+  const setProfile: React.Dispatch<React.SetStateAction<Profile>> = (action) => {
+    setProfileState((cur) => {
+      const next =
+        typeof action === 'function' ? (action as (p: Profile) => Profile)(cur) : action;
+      setProfiles((list) => {
+        const idx = list.findIndex((p) => p.id === next.id);
+        if (idx >= 0) {
+          const copy = [...list];
+          copy[idx] = next;
+          return copy;
+        }
+        return [...list, next];
+      });
+      return next;
+    });
+  };
   const [clients, setClients] = useState<Client[]>(() =>
     loadLSArray<Client>(CLIENTS_KEY).map(normalizeClient)
   );
-  const [draft, setDraft] = useState<Invoice>(() =>
-    makeDraft(loadLS(PROFILE_KEY, DEFAULT_PROFILE))
-  );
+  const [draft, setDraft] = useState<Invoice>(() => {
+    // Restore the autosaved working draft when there is one (§11/§14):
+    // closing the tab mid-invoice no longer loses the work.
+    if (typeof window !== 'undefined') {
+      try {
+        const raw = window.localStorage.getItem(DRAFT_KEY);
+        if (raw) return normalizeInvoice(JSON.parse(raw) as Partial<Invoice>);
+      } catch {
+        /* fall through to a fresh draft */
+      }
+    }
+    return makeDraft(normalizeProfile(loadLS(PROFILE_KEY, DEFAULT_PROFILE)));
+  });
+  const [draftSavedAt, setDraftSavedAt] = useState('');
   const [view, setView] = useState<ViewName>('create');
   const [qrDataUrl, setQrDataUrl] = useState('');
   const [savedNote, setSavedNote] = useState('');
@@ -824,8 +963,22 @@ export function InvoiceApp() {
     saveLS(CLIENTS_KEY, clients);
   }, [clients]);
   useEffect(() => {
+    saveLS(PROFILES_KEY, profiles);
+  }, [profiles]);
+  useEffect(() => {
     saveLS(INVOICES_KEY, invoices);
   }, [invoices]);
+
+  /* Draft autosave (debounced) — the indicator tells the user it is safe. */
+  useEffect(() => {
+    const t = window.setTimeout(() => {
+      saveLS(DRAFT_KEY, draft);
+      setDraftSavedAt(
+        new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      );
+    }, 400);
+    return () => window.clearTimeout(t);
+  }, [draft]);
 
   /* Payment QR — generated asynchronously; state is set only in callbacks. */
   const qrPayloadText = draft.showQr ? draft.qrPayload.trim() || profile.paymentDetails.trim() : '';
@@ -878,13 +1031,13 @@ export function InvoiceApp() {
     const now = new Date().toISOString();
     let clientId = draft.clientId;
     if (clientId === 'new' && draft.clientName.trim()) {
-      const created: Client = {
+      const created: Client = normalizeClient({
         id: uid(),
         name: draft.clientName.trim(),
         email: draft.clientEmail.trim(),
         address: draft.clientAddress.trim(),
         phone: draft.clientPhone.trim(),
-      };
+      });
       setClients((list) => [...list, created]);
       clientId = created.id;
     }
@@ -989,15 +1142,62 @@ export function InvoiceApp() {
 
   const handleImportData = (data: {
     profile?: Partial<Profile>;
+    profiles?: Partial<Profile>[];
     clients?: Partial<Client>[];
     invoices?: Partial<Invoice>[];
   }) => {
-    const newProfile: Profile = { ...DEFAULT_PROFILE, ...(data.profile ?? {}) };
-    setProfile(newProfile);
+    // v2 backups carry the full profiles list; v1 backups carry one profile.
+    const importedProfiles = Array.isArray(data.profiles)
+      ? data.profiles.map(normalizeProfile)
+      : [];
+    const newProfile: Profile =
+      importedProfiles.find((p) => p.id === (data.profile?.id ?? '')) ??
+      importedProfiles[0] ??
+      normalizeProfile(data.profile ?? {});
+    setProfiles(importedProfiles.length > 0 ? importedProfiles : [newProfile]);
+    setProfileState(newProfile);
     setClients(Array.isArray(data.clients) ? data.clients.map(normalizeClient) : []);
     setInvoices(Array.isArray(data.invoices) ? data.invoices.map(normalizeInvoice) : []);
     setDraft(makeDraft(newProfile));
     setSavedNote('');
+  };
+
+  const switchProfile = (id: string) => {
+    const next = profiles.find((p) => p.id === id);
+    if (!next || next.id === profile.id) return;
+    setProfileState(next);
+    // A fresh, unsaved draft adopts the newly selected profile's defaults.
+    if (!draft.id) setDraft(makeDraft(next));
+  };
+
+  const addProfile = () => {
+    const copy = normalizeProfile({
+      ...profile,
+      id: uid(),
+      businessName: profile.businessName ? `${profile.businessName} (copy)` : '',
+      nextInvoiceNumber: 1,
+    });
+    setProfiles((list) => [...list, copy]);
+    setProfileState(copy);
+    if (!draft.id) setDraft(makeDraft(copy));
+  };
+
+  const deleteProfile = (id: string) => {
+    if (profiles.length <= 1) return;
+    const target = profiles.find((p) => p.id === id);
+    if (!target) return;
+    if (
+      !window.confirm(
+        `Delete the business profile "${target.businessName || 'Unnamed business'}"? Your invoices and clients are not affected.`
+      )
+    )
+      return;
+    const remaining = profiles.filter((p) => p.id !== id);
+    setProfiles(remaining);
+    if (profile.id === id) {
+      setProfileState(remaining[0]);
+      if (!draft.id) setDraft(makeDraft(remaining[0]));
+    }
   };
 
   const handleClientSelect = (value: string) => {
@@ -1019,10 +1219,12 @@ export function InvoiceApp() {
     if (c) {
       patchDraft({
         clientId: c.id,
-        clientName: c.name,
+        clientName: c.company || c.name,
         clientEmail: c.email,
         clientPhone: c.phone,
         clientAddress: c.address,
+        ...(c.defaultCurrency ? { currency: c.defaultCurrency } : {}),
+        ...(c.terms ? { terms: c.terms } : {}),
       });
     }
   };
@@ -1151,6 +1353,28 @@ export function InvoiceApp() {
       </div>
 
       {view === 'create' && (
+        <>
+          {profiles.length > 1 && (
+            <div className="flex flex-wrap items-center gap-3 mb-5">
+              <span className="text-sm font-medium">Business profile</span>
+              <Select value={profile.id} onValueChange={switchProfile}>
+                <SelectTrigger className="w-64">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {profiles.map((p) => (
+                    <SelectItem key={p.id} value={p.id}>
+                      {p.businessName || 'Unnamed business'}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <span className="text-xs text-muted-foreground">
+                Branding, currency and tax defaults for this invoice come from the selected
+                profile.
+              </span>
+            </div>
+          )}
         <div className="grid gap-6 lg:grid-cols-2 items-start">
           {/* ── Editor ── */}
           <div className="space-y-5">
@@ -1273,6 +1497,7 @@ export function InvoiceApp() {
                         recurring: e.target.checked
                           ? {
                               frequency: 'monthly',
+                              intervalCount: 1,
                               nextDate: shiftDateByFrequency(draft.issueDate, 'monthly'),
                               active: true,
                             }
@@ -1307,6 +1532,22 @@ export function InvoiceApp() {
                           ))}
                         </SelectContent>
                       </Select>
+                    </Field>
+                    <Field label="Every (interval)">
+                      <NumInput
+                        value={draft.recurring.intervalCount}
+                        min={1}
+                        max={36}
+                        step={1}
+                        onChange={(n) =>
+                          patchDraft({
+                            recurring: {
+                              ...draft.recurring!,
+                              intervalCount: Math.min(36, Math.max(1, Math.floor(n) || 1)),
+                            },
+                          })
+                        }
+                      />
                     </Field>
                     <Field label="Next issue date">
                       <Input
@@ -2050,6 +2291,12 @@ export function InvoiceApp() {
               </span>
             </div>
             {savedNote && <p className="text-sm text-emerald-600">{savedNote}</p>}
+            {draftSavedAt && (
+              <p className="text-xs text-muted-foreground">
+                Draft autosaved at {draftSavedAt} — safe to close; it will be restored when you
+                return.
+              </p>
+            )}
             {draft.id && (
               <p className="text-xs text-muted-foreground">
                 You are editing {draft.number}. Saving overwrites the stored copy.
@@ -2071,6 +2318,7 @@ export function InvoiceApp() {
             <InvoicePreview inv={draft} profile={profile} totals={totals} qrDataUrl={effectiveQr} />
           </div>
         </div>
+        </>
       )}
 
       {view === 'invoices' && (
@@ -2094,6 +2342,10 @@ export function InvoiceApp() {
         <SettingsView
           profile={profile}
           setProfile={setProfile}
+          profiles={profiles}
+          onSwitchProfile={switchProfile}
+          onAddProfile={addProfile}
+          onDeleteProfile={deleteProfile}
           clients={clients}
           setClients={setClients}
           invoices={invoices}
@@ -2160,7 +2412,7 @@ function InvoicePreview({
               {profile.businessName || 'Your Business'}
             </p>
             <p className="text-xs opacity-90 mt-1 whitespace-pre-line">
-              {[profile.address, profile.email, profile.phone].filter(Boolean).join('\n')}
+              {[...profileAddressLines(profile), profile.email, profile.phone].filter(Boolean).join('\n')}
             </p>
           </div>
           <div className="text-right shrink-0">
@@ -2180,7 +2432,7 @@ function InvoicePreview({
               <p className="font-serif text-3xl font-bold">{inv.docTitle || 'INVOICE'}</p>
               <p className="font-semibold mt-1">{profile.businessName || 'Your Business'}</p>
               <p className="text-xs text-slate-500 whitespace-pre-line">
-                {[profile.address, profile.email, profile.phone].filter(Boolean).join('\n')}
+                {[...profileAddressLines(profile), profile.email, profile.phone].filter(Boolean).join('\n')}
               </p>
             </div>
             {logoImg}
@@ -2192,7 +2444,7 @@ function InvoicePreview({
           {logoImg && <div className="flex justify-center mb-2">{logoImg}</div>}
           <p className="font-bold text-lg">{profile.businessName || 'Your Business'}</p>
           <p className="text-xs text-slate-500 mt-0.5">
-            {[profile.address, profile.email, profile.phone].filter(Boolean).join(' · ')}
+            {[...profileAddressLines(profile), profile.email, profile.phone].filter(Boolean).join(' · ')}
           </p>
           <p
             className="text-2xl font-extrabold tracking-wide mt-3"
@@ -2213,7 +2465,7 @@ function InvoicePreview({
               </p>
               <p className="font-semibold mt-1">{profile.businessName || 'Your Business'}</p>
               <p className="text-xs text-slate-500">
-                {[profile.address, profile.email, profile.phone].filter(Boolean).join(' · ')}
+                {[...profileAddressLines(profile), profile.email, profile.phone].filter(Boolean).join(' · ')}
               </p>
             </div>
             <div className="text-right shrink-0">
@@ -2232,7 +2484,7 @@ function InvoicePreview({
               </p>
               <p className="font-medium mt-1">{profile.businessName || 'Your Business'}</p>
               <p className="text-xs text-slate-500">
-                {[profile.address, profile.email, profile.phone].filter(Boolean).join(' · ')}
+                {[...profileAddressLines(profile), profile.email, profile.phone].filter(Boolean).join(' · ')}
               </p>
             </div>
             {logoImg}
@@ -2266,6 +2518,12 @@ function InvoicePreview({
             )}
             {inv.referenceNumber.trim() && (
               <p className="text-slate-500">Reference: {inv.referenceNumber.trim()}</p>
+            )}
+            {profile.taxId.trim() && (
+              <p className="text-slate-500">Tax ID: {profile.taxId.trim()}</p>
+            )}
+            {profile.vatNumber.trim() && (
+              <p className="text-slate-500">VAT/GST: {profile.vatNumber.trim()}</p>
             )}
             <span
               className={`inline-block mt-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase ${STATUS_STYLES[eff]}`}
@@ -2550,7 +2808,7 @@ function InvoicesView({
                     {inv.number} · {inv.clientName || 'Unnamed client'}
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    {RECURRING_LABELS[inv.recurring!.frequency]} · next issue{' '}
+                    {recurringLabel(inv.recurring!)} · next issue{' '}
                     {inv.recurring!.nextDate} · {money(computeTotals(inv).total, inv.currency)}
                   </p>
                 </div>
@@ -2682,7 +2940,7 @@ function InvoicesView({
                     {inv.recurring && (
                       <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
                         <Repeat className="w-3.5 h-3.5" />
-                        {RECURRING_LABELS[inv.recurring.frequency]}
+                        {recurringLabel(inv.recurring)}
                       </span>
                     )}
                     <div className="text-sm ml-auto text-right">
@@ -3145,14 +3403,111 @@ function downloadClientStatement(profile: Profile, client: Client, invoices: Inv
 /* ── Settings: profile + clients ───────────────────────────────────── */
 
 interface ImportPayload {
+  version?: number;
   profile?: Partial<Profile>;
+  profiles?: Partial<Profile>[];
   clients?: Partial<Client>[];
   invoices?: Partial<Invoice>[];
+}
+
+const CLIENT_CSV_HEADER = [
+  'Name',
+  'Company',
+  'Contact person',
+  'Email',
+  'Phone',
+  'Billing address',
+  'Shipping address',
+  'Tax ID',
+  'Country',
+  'Default currency',
+  'Terms',
+  'Notes',
+];
+
+function clientsToCsv(clients: Client[]): string {
+  return toCsv([
+    CLIENT_CSV_HEADER,
+    ...clients.map((c) => [
+      c.name,
+      c.company,
+      c.contactPerson,
+      c.email,
+      c.phone,
+      c.address,
+      c.shippingAddress,
+      c.taxId,
+      c.country,
+      c.defaultCurrency,
+      c.terms,
+      c.notes,
+    ]),
+  ]);
+}
+
+/** Parse a clients CSV. A header row (containing "name") maps columns by
+ * title; without one, columns are positional: name, email, phone, address. */
+function clientsFromCsv(text: string): { clients: Partial<Client>[]; skipped: number } {
+  const rows = parseCsv(text);
+  if (rows.length === 0) return { clients: [], skipped: 0 };
+  const first = rows[0].map((c) => c.trim().toLowerCase());
+  const hasHeader = first.some((c) => c === 'name' || c === 'client name');
+  const col = (names: string[], pos: number): number => {
+    if (!hasHeader) return pos;
+    for (const n of names) {
+      const i = first.indexOf(n);
+      if (i >= 0) return i;
+    }
+    return -1;
+  };
+  const idx = {
+    name: col(['name', 'client name'], 0),
+    company: col(['company', 'company name'], -1),
+    contactPerson: col(['contact person', 'contact'], -1),
+    email: col(['email', 'e-mail'], 1),
+    phone: col(['phone', 'telephone'], 2),
+    address: col(['billing address', 'address'], 3),
+    shippingAddress: col(['shipping address'], -1),
+    taxId: col(['tax id', 'taxid', 'ntn'], -1),
+    country: col(['country'], -1),
+    defaultCurrency: col(['default currency', 'currency'], -1),
+    terms: col(['terms', 'payment terms'], -1),
+    notes: col(['notes', 'note'], -1),
+  };
+  const get = (row: string[], i: number) => (i >= 0 ? (row[i] ?? '').trim() : '');
+  const out: Partial<Client>[] = [];
+  let skipped = 0;
+  for (const row of rows.slice(hasHeader ? 1 : 0)) {
+    const name = get(row, idx.name);
+    if (!name) {
+      skipped++;
+      continue;
+    }
+    out.push({
+      name,
+      company: get(row, idx.company),
+      contactPerson: get(row, idx.contactPerson),
+      email: get(row, idx.email),
+      phone: get(row, idx.phone),
+      address: get(row, idx.address),
+      shippingAddress: get(row, idx.shippingAddress),
+      taxId: get(row, idx.taxId),
+      country: get(row, idx.country),
+      defaultCurrency: get(row, idx.defaultCurrency).toUpperCase(),
+      terms: get(row, idx.terms),
+      notes: get(row, idx.notes),
+    });
+  }
+  return { clients: out, skipped };
 }
 
 function SettingsView({
   profile,
   setProfile,
+  profiles,
+  onSwitchProfile,
+  onAddProfile,
+  onDeleteProfile,
   clients,
   setClients,
   invoices,
@@ -3160,17 +3515,47 @@ function SettingsView({
 }: {
   profile: Profile;
   setProfile: React.Dispatch<React.SetStateAction<Profile>>;
+  profiles: Profile[];
+  onSwitchProfile: (id: string) => void;
+  onAddProfile: () => void;
+  onDeleteProfile: (id: string) => void;
   clients: Client[];
   setClients: React.Dispatch<React.SetStateAction<Client[]>>;
   invoices: Invoice[];
   onImportData: (data: ImportPayload) => void;
 }) {
-  const [newClient, setNewClient] = useState({ name: '', email: '', address: '', phone: '' });
-  const importRef = useRef<HTMLInputElement>(null);
+  const [section, setSection] = useState<'profile' | 'clients' | 'data'>('profile');
   const patch = (p: Partial<Profile>) => setProfile((cur) => ({ ...cur, ...p }));
+
+  /* ── Backup / storage ── */
+  const importRef = useRef<HTMLInputElement>(null);
+  const readStorageKb = (): number | null => {
+    if (typeof window === 'undefined') return null;
+    try {
+      const keys = [PROFILE_KEY, PROFILES_KEY, CLIENTS_KEY, INVOICES_KEY, DRAFT_KEY];
+      const bytes = keys.reduce(
+        (sum, k) => sum + (window.localStorage.getItem(k)?.length ?? 0),
+        0
+      );
+      return Math.round((bytes / 1024) * 10) / 10;
+    } catch {
+      return null;
+    }
+  };
+  const [storageKb, setStorageKb] = useState<number | null>(() => readStorageKb());
 
   const handleImage = (file: File | null, field: 'logoDataUrl' | 'stampDataUrl') => {
     if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      window.alert('That file is not an image. Please choose a PNG, JPG or SVG file.');
+      return;
+    }
+    if (file.size > 2 * 1024 * 1024) {
+      window.alert(
+        'That image is larger than 2 MB. Browser storage is limited — please resize it and try again.'
+      );
+      return;
+    }
     const reader = new FileReader();
     reader.onload = () => patch({ [field]: String(reader.result || '') });
     reader.readAsDataURL(file);
@@ -3212,9 +3597,10 @@ function SettingsView({
   const handleExportBackup = () => {
     const backup = {
       app: 'invoicegenerator',
-      version: 1,
+      version: 2,
       exportedAt: new Date().toISOString(),
       profile,
+      profiles,
       clients,
       invoices,
     };
@@ -3239,14 +3625,30 @@ function SettingsView({
         if (
           !data ||
           typeof data !== 'object' ||
-          (!data.profile && !data.clients && !data.invoices)
+          (!data.profile && !data.profiles && !data.clients && !data.invoices)
         ) {
           window.alert('That file does not look like an Invoice Generator backup.');
           return;
         }
+        // Duplicate detection: imported invoices that match an existing one
+        // by id, or by number + client, are reported before anything changes.
+        const imported = Array.isArray(data.invoices) ? data.invoices : [];
+        const dupes = imported.filter(
+          (inv) =>
+            !!inv &&
+            invoices.some(
+              (cur) =>
+                (inv.id && cur.id === inv.id) ||
+                (!!inv.number && cur.number === inv.number && cur.clientName === inv.clientName)
+            )
+        ).length;
+        const dupeNote =
+          dupes > 0
+            ? `\n\n${dupes} of the ${imported.length} invoices in this file look like duplicates of invoices you already have.`
+            : '';
         if (
           !window.confirm(
-            'Import this backup? It will REPLACE your current business profile, clients and invoices in this browser.'
+            `Import this backup? It will REPLACE your current business profiles, clients and invoices in this browser.${dupeNote}`
           )
         )
           return;
@@ -3258,326 +3660,767 @@ function SettingsView({
       });
   };
 
-  return (
-    <div className="grid gap-6 lg:grid-cols-2 items-start">
-      <div className="space-y-6">
-        <Card className="p-5 space-y-4">
-          <h3 className="font-semibold flex items-center gap-2">
-            <Building2 className="w-4 h-4" /> Your business profile
-          </h3>
-          <p className="text-xs text-muted-foreground -mt-2">
-            Saved once, printed on every invoice. Stored only in this browser.
-          </p>
-          <Field label="Business name">
-            <Input
-              value={profile.businessName}
-              onChange={(e) => patch({ businessName: e.target.value })}
-              placeholder="Ayesha Khan Design Studio"
-            />
-          </Field>
-          <div className="grid grid-cols-2 gap-3">
-            <Field label="Email">
-              <Input
-                value={profile.email}
-                onChange={(e) => patch({ email: e.target.value })}
-                placeholder="billing@yourbusiness.com"
-              />
-            </Field>
-            <Field label="Phone">
-              <Input
-                value={profile.phone}
-                onChange={(e) => patch({ phone: e.target.value })}
-                placeholder="+92 300 1234567"
-              />
-            </Field>
-          </div>
-          <Field label="Business address">
-            <Textarea
-              rows={2}
-              value={profile.address}
-              onChange={(e) => patch({ address: e.target.value })}
-              placeholder={'Street, city, country'}
-            />
-          </Field>
-          <Field label="Logo">
-            <div className="flex items-center gap-3">
-              <label className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-sm font-medium cursor-pointer hover:bg-muted transition-colors">
-                <Upload className="w-4 h-4" /> Upload logo
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => handleImage(e.target.files?.[0] ?? null, 'logoDataUrl')}
-                />
-              </label>
-              {profile.logoDataUrl && (
-                <>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={profile.logoDataUrl}
-                    alt="Your business logo"
-                    className="max-h-10 max-w-24 object-contain border border-border rounded bg-white p-1"
-                  />
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => patch({ logoDataUrl: '' })}
-                    className="gap-1"
-                  >
-                    <X className="w-3.5 h-3.5" /> Remove
-                  </Button>
-                </>
-              )}
-            </div>
-          </Field>
-          <Field label="Stamp or signature image">
-            <div className="flex items-center gap-3">
-              <label className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-sm font-medium cursor-pointer hover:bg-muted transition-colors">
-                <Upload className="w-4 h-4" /> Upload stamp
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => handleImage(e.target.files?.[0] ?? null, 'stampDataUrl')}
-                />
-              </label>
-              {profile.stampDataUrl && (
-                <>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={profile.stampDataUrl}
-                    alt="Your business stamp or signature"
-                    className="max-h-10 max-w-24 object-contain border border-border rounded bg-white p-1"
-                  />
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => patch({ stampDataUrl: '' })}
-                    className="gap-1"
-                  >
-                    <X className="w-3.5 h-3.5" /> Remove
-                  </Button>
-                </>
-              )}
-            </div>
-            <p className="text-xs text-muted-foreground mt-1.5">
-              A scanned signature or company stamp. It prints beside the totals on every invoice and
-              PDF — a transparent PNG works best.
-            </p>
-          </Field>
-          <div className="grid grid-cols-2 gap-3">
-            <Field label="Default currency">
-              <Select value={profile.currency} onValueChange={(v) => patch({ currency: v })}>
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {CURRENCIES.map((c) => (
-                    <SelectItem key={c} value={c}>
-                      {currencyLabel(c)}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </Field>
-            <Field label="Next invoice number">
-              <NumInput
-                value={profile.nextInvoiceNumber}
-                onChange={(n) => patch({ nextInvoiceNumber: Math.max(1, Math.floor(n) || 1) })}
-                min={1}
-                step={1}
-              />
-            </Field>
-            <Field label="Invoice number prefix">
-              <Input
-                value={profile.numberPrefix}
-                onChange={(e) => patch({ numberPrefix: e.target.value })}
-                placeholder="INV-"
-              />
-            </Field>
-            <Field label="Invoice number suffix">
-              <Input
-                value={profile.numberSuffix}
-                onChange={(e) => patch({ numberSuffix: e.target.value })}
-                placeholder="e.g. /2026"
-              />
-            </Field>
-            <Field label="Default tax label">
-              <Input
-                value={profile.taxLabel}
-                onChange={(e) => patch({ taxLabel: e.target.value })}
-                placeholder="VAT / GST / Sales tax"
-              />
-            </Field>
-            <Field label="Default tax rate %">
-              <NumInput
-                value={profile.taxRate}
-                onChange={(n) => patch({ taxRate: n })}
-                min={0}
-                max={100}
-              />
-            </Field>
-            <Field label="Brand colour">
-              <div className="flex items-center gap-2">
-                <Input
-                  type="color"
-                  className="w-14 h-10 p-1 cursor-pointer"
-                  value={profile.brandColor}
-                  onChange={(e) => patch({ brandColor: e.target.value })}
-                />
-                <Input
-                  value={profile.brandColor}
-                  onChange={(e) => patch({ brandColor: e.target.value })}
-                />
-              </div>
-            </Field>
-          </div>
-          <Field label="Payment details (default QR content — payment link, wallet, or bank details)">
-            <Textarea
-              rows={3}
-              value={profile.paymentDetails}
-              onChange={(e) => patch({ paymentDetails: e.target.value })}
-              placeholder="https://your-payment-link — or — IBAN: PK36 …, Account title: …"
-            />
-          </Field>
-        </Card>
+  /* ── Clients ── */
+  const [clientQuery, setClientQuery] = useState('');
+  const [clientForm, setClientForm] = useState<Partial<Client>>({});
+  const [editingClientId, setEditingClientId] = useState<string | null>(null);
+  const [expandedClientId, setExpandedClientId] = useState<string | null>(null);
+  const clientImportRef = useRef<HTMLInputElement>(null);
 
-        <Card className="p-5 space-y-4">
-          <h3 className="font-semibold">Your data — backup &amp; export</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            Everything lives in this browser. Export a backup file regularly and you can restore
-            your profile, clients and invoices on any computer — import replaces what is currently
-            stored here, after asking you to confirm.
-          </p>
-          <div className="flex flex-wrap gap-2">
-            <Button variant="outline" onClick={handleExportCsv} className="gap-2">
-              <Download className="w-4 h-4" /> Export invoices (CSV)
-            </Button>
-            <Button variant="outline" onClick={handleExportBackup} className="gap-2">
-              <Download className="w-4 h-4" /> Export backup (JSON)
-            </Button>
-            <Button variant="outline" onClick={() => importRef.current?.click()} className="gap-2">
-              <Upload className="w-4 h-4" /> Import backup
-            </Button>
-            <input
-              ref={importRef}
-              type="file"
-              accept="application/json,.json"
-              className="hidden"
-              onChange={(e) => {
-                handleImportFile(e.target.files?.[0] ?? null);
-                e.target.value = '';
-              }}
-            />
-          </div>
-          <p className="text-xs text-muted-foreground">
-            The CSV opens in Excel or Google Sheets: one row per invoice with totals, amounts paid,
-            balances and statuses.
-          </p>
-        </Card>
+  const saveClientForm = () => {
+    if (!clientForm.name?.trim()) return;
+    const saved = normalizeClient({ ...clientForm, id: editingClientId ?? uid() });
+    setClients((list) =>
+      editingClientId
+        ? list.map((c) => (c.id === editingClientId ? saved : c))
+        : [...list, saved]
+    );
+    setClientForm({});
+    setEditingClientId(null);
+  };
+
+  const handleClientCsvImport = (file: File | null) => {
+    if (!file) return;
+    file
+      .text()
+      .then((text) => {
+        const { clients: parsed, skipped } = clientsFromCsv(text);
+        if (parsed.length === 0) {
+          window.alert('No clients with a name were found in that file.');
+          return;
+        }
+        setClients((list) => [...list, ...parsed.map((c) => normalizeClient(c))]);
+        window.alert(
+          `Imported ${parsed.length} client${parsed.length === 1 ? '' : 's'}.` +
+            (skipped > 0 ? ` ${skipped} row${skipped === 1 ? '' : 's'} skipped (no name).` : '')
+        );
+      })
+      .catch(() => window.alert('Could not read that file.'));
+  };
+
+  const visibleClients = clients.filter((c) => {
+    const q = clientQuery.trim().toLowerCase();
+    if (!q) return true;
+    return [c.name, c.company, c.contactPerson, c.email, c.phone]
+      .join(' ')
+      .toLowerCase()
+      .includes(q);
+  });
+
+  const sectionBtn = (key: typeof section, label: string) => (
+    <Button
+      key={key}
+      variant={section === key ? 'default' : 'outline'}
+      size="sm"
+      onClick={() => {
+        setSection(key);
+        if (key === 'data') setStorageKb(readStorageKb());
+      }}
+    >
+      {label}
+    </Button>
+  );
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Business settings sections">
+        {sectionBtn('profile', 'Business profiles')}
+        {sectionBtn('clients', `Clients (${clients.length})`)}
+        {sectionBtn('data', 'Backup & data')}
       </div>
 
-      <div className="space-y-6">
-        <Card className="p-5 space-y-4">
-          <h3 className="font-semibold">Client address book</h3>
-          {clients.length === 0 ? (
-            <p className="text-sm text-muted-foreground">
-              No clients saved yet. Add your first client below, or choose &ldquo;New client&rdquo;
-              while creating an invoice — they are saved here automatically when you save the
-              invoice.
+      {section === 'profile' && (
+        <div className="grid gap-6 lg:grid-cols-2 items-start">
+          <Card className="p-5 space-y-4">
+            <h3 className="font-semibold flex items-center gap-2">
+              <Building2 className="w-4 h-4" /> Business profile
+            </h3>
+            <div className="flex flex-wrap items-end gap-2">
+              <div className="flex-1 min-w-52">
+                <Field label="Active profile">
+                  <Select value={profile.id} onValueChange={onSwitchProfile}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {profiles.map((p) => (
+                        <SelectItem key={p.id} value={p.id}>
+                          {p.businessName || 'Unnamed business'}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </Field>
+              </div>
+              <Button variant="outline" size="sm" onClick={onAddProfile} className="gap-1.5">
+                <Plus className="w-3.5 h-3.5" /> Add profile
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                disabled={profiles.length <= 1}
+                onClick={() => onDeleteProfile(profile.id)}
+                className="gap-1.5"
+              >
+                <Trash2 className="w-3.5 h-3.5" /> Delete
+              </Button>
+            </div>
+            <p className="text-xs text-muted-foreground -mt-1">
+              Run several businesses? Keep a profile for each — its own logo, currency, tax
+              defaults and payment details. Switching profiles changes the branding and defaults
+              for new invoices; saved invoices never change.
             </p>
-          ) : (
-            <ul className="divide-y divide-border">
-              {clients.map((c) => (
-                <li key={c.id} className="py-2.5 flex items-start gap-3">
-                  <div className="min-w-0 flex-1">
-                    <p className="font-medium text-sm">{c.name}</p>
-                    <p className="text-xs text-muted-foreground truncate">
-                      {[c.email, c.phone, c.address].filter(Boolean).join(' · ')}
-                    </p>
-                  </div>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => downloadClientStatement(profile, c, invoices)}
-                    className="gap-1"
-                  >
-                    <FileText className="w-3.5 h-3.5" /> Statement
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => setClients((list) => list.filter((x) => x.id !== c.id))}
-                    className="gap-1"
-                  >
-                    <Trash2 className="w-3.5 h-3.5" /> Delete
-                  </Button>
-                </li>
-              ))}
-            </ul>
-          )}
-          <div className="border-t border-border pt-4 space-y-3">
+            <Field label="Business name">
+              <Input
+                value={profile.businessName}
+                onChange={(e) => patch({ businessName: e.target.value })}
+                placeholder="Ayesha Khan Design Studio"
+              />
+            </Field>
             <div className="grid grid-cols-2 gap-3">
-              <Field label="New client name">
+              <Field label="Email">
                 <Input
-                  value={newClient.name}
-                  onChange={(e) => setNewClient((s) => ({ ...s, name: e.target.value }))}
+                  value={profile.email}
+                  onChange={(e) => patch({ email: e.target.value })}
+                  placeholder="billing@yourbusiness.com"
                 />
               </Field>
-              <Field label="New client email">
+              <Field label="Phone">
                 <Input
-                  value={newClient.email}
-                  onChange={(e) => setNewClient((s) => ({ ...s, email: e.target.value }))}
-                />
-              </Field>
-              <Field label="New client phone">
-                <Input
-                  value={newClient.phone}
-                  onChange={(e) => setNewClient((s) => ({ ...s, phone: e.target.value }))}
+                  value={profile.phone}
+                  onChange={(e) => patch({ phone: e.target.value })}
                   placeholder="+92 300 1234567"
                 />
               </Field>
             </div>
-            <Field label="New client address">
+            <Field label="Business address">
               <Textarea
                 rows={2}
-                value={newClient.address}
-                onChange={(e) => setNewClient((s) => ({ ...s, address: e.target.value }))}
+                value={profile.address}
+                onChange={(e) => patch({ address: e.target.value })}
+                placeholder={'Street address'}
               />
             </Field>
-            <Button
-              className="gap-2"
-              disabled={!newClient.name.trim()}
-              onClick={() => {
-                setClients((list) => [
-                  ...list,
-                  {
-                    id: uid(),
-                    name: newClient.name.trim(),
-                    email: newClient.email.trim(),
-                    address: newClient.address.trim(),
-                    phone: newClient.phone.trim(),
-                  },
-                ]);
-                setNewClient({ name: '', email: '', address: '', phone: '' });
-              }}
-            >
-              <Plus className="w-4 h-4" /> Add client
-            </Button>
-          </div>
-        </Card>
+            <div className="grid grid-cols-2 gap-3">
+              <Field label="City">
+                <Input value={profile.city} onChange={(e) => patch({ city: e.target.value })} />
+              </Field>
+              <Field label="State / province">
+                <Input value={profile.state} onChange={(e) => patch({ state: e.target.value })} />
+              </Field>
+              <Field label="Postal code">
+                <Input
+                  value={profile.postalCode}
+                  onChange={(e) => patch({ postalCode: e.target.value })}
+                />
+              </Field>
+              <Field label="Country">
+                <Input
+                  value={profile.country}
+                  onChange={(e) => patch({ country: e.target.value })}
+                />
+              </Field>
+              <Field label="Tax ID (NTN / EIN / TRN)">
+                <Input value={profile.taxId} onChange={(e) => patch({ taxId: e.target.value })} />
+              </Field>
+              <Field label="VAT / GST registration no.">
+                <Input
+                  value={profile.vatNumber}
+                  onChange={(e) => patch({ vatNumber: e.target.value })}
+                />
+              </Field>
+            </div>
+            <Field label="Logo">
+              <div className="flex items-center gap-3">
+                <label className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-sm font-medium cursor-pointer hover:bg-muted transition-colors">
+                  <Upload className="w-4 h-4" /> Upload logo
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={(e) => handleImage(e.target.files?.[0] ?? null, 'logoDataUrl')}
+                  />
+                </label>
+                {profile.logoDataUrl && (
+                  <>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={profile.logoDataUrl}
+                      alt="Your business logo"
+                      className="max-h-10 max-w-24 object-contain border border-border rounded bg-white p-1"
+                    />
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => patch({ logoDataUrl: '' })}
+                      className="gap-1"
+                    >
+                      <X className="w-3.5 h-3.5" /> Remove
+                    </Button>
+                  </>
+                )}
+              </div>
+            </Field>
+            <Field label="Stamp or signature image">
+              <div className="flex items-center gap-3">
+                <label className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-sm font-medium cursor-pointer hover:bg-muted transition-colors">
+                  <Upload className="w-4 h-4" /> Upload stamp
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={(e) => handleImage(e.target.files?.[0] ?? null, 'stampDataUrl')}
+                  />
+                </label>
+                {profile.stampDataUrl && (
+                  <>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={profile.stampDataUrl}
+                      alt="Your business stamp or signature"
+                      className="max-h-10 max-w-24 object-contain border border-border rounded bg-white p-1"
+                    />
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => patch({ stampDataUrl: '' })}
+                      className="gap-1"
+                    >
+                      <X className="w-3.5 h-3.5" /> Remove
+                    </Button>
+                  </>
+                )}
+              </div>
+              <p className="text-xs text-muted-foreground mt-1.5">
+                A scanned signature or company stamp (PNG/JPG, up to 2 MB). It prints beside the
+                totals on every invoice and PDF — a transparent PNG works best.
+              </p>
+            </Field>
+          </Card>
 
-        <Card className="p-5">
-          <h3 className="font-semibold">Your data stays here</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed mt-1.5">
-            Your profile, clients and invoices are stored only in this browser&apos;s local storage,
-            on this device. There is no account and no server copy — refresh the page, close the
-            tab, come back next week: everything is exactly where you left it. Clearing your
-            browser&apos;s site data deletes it permanently, so keep your downloaded PDFs — and a
-            JSON backup from the Data section — as your long-term records.
-          </p>
-        </Card>
-      </div>
+          <div className="space-y-6">
+            <Card className="p-5 space-y-4">
+              <h3 className="font-semibold">Defaults for new invoices</h3>
+              <div className="grid grid-cols-2 gap-3">
+                <Field label="Default currency">
+                  <Select value={profile.currency} onValueChange={(v) => patch({ currency: v })}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {CURRENCIES.map((c) => (
+                        <SelectItem key={c} value={c}>
+                          {currencyLabel(c)}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </Field>
+                <Field label="Next invoice number">
+                  <NumInput
+                    value={profile.nextInvoiceNumber}
+                    onChange={(n) =>
+                      patch({ nextInvoiceNumber: Math.max(1, Math.floor(n) || 1) })
+                    }
+                    min={1}
+                    step={1}
+                  />
+                </Field>
+                <Field label="Invoice number prefix">
+                  <Input
+                    value={profile.numberPrefix}
+                    onChange={(e) => patch({ numberPrefix: e.target.value })}
+                    placeholder="INV-"
+                  />
+                </Field>
+                <Field label="Invoice number suffix">
+                  <Input
+                    value={profile.numberSuffix}
+                    onChange={(e) => patch({ numberSuffix: e.target.value })}
+                    placeholder="e.g. /2026"
+                  />
+                </Field>
+                <Field label="Default tax label">
+                  <Input
+                    value={profile.taxLabel}
+                    onChange={(e) => patch({ taxLabel: e.target.value })}
+                    placeholder="VAT / GST / Sales tax"
+                  />
+                </Field>
+                <Field label="Default tax rate %">
+                  <NumInput
+                    value={profile.taxRate}
+                    onChange={(n) => patch({ taxRate: n })}
+                    min={0}
+                    max={100}
+                  />
+                </Field>
+                <Field label="Brand colour">
+                  <div className="flex items-center gap-2">
+                    <Input
+                      type="color"
+                      className="w-14 h-10 p-1 cursor-pointer"
+                      value={profile.brandColor}
+                      onChange={(e) => patch({ brandColor: e.target.value })}
+                    />
+                    <Input
+                      value={profile.brandColor}
+                      onChange={(e) => patch({ brandColor: e.target.value })}
+                    />
+                  </div>
+                </Field>
+              </div>
+              <Field label="Default terms (used on new invoices)">
+                <Textarea
+                  rows={2}
+                  value={profile.defaultTerms}
+                  onChange={(e) => patch({ defaultTerms: e.target.value })}
+                  placeholder="Leave blank for the built-in 14-day wording."
+                />
+              </Field>
+              <Field label="Default invoice footer">
+                <Input
+                  value={profile.defaultFooter}
+                  onChange={(e) => patch({ defaultFooter: e.target.value })}
+                  placeholder="e.g. Registered in Pakistan · NTN 1234567-8"
+                />
+              </Field>
+            </Card>
+
+            <Card className="p-5 space-y-4">
+              <h3 className="font-semibold">Bank &amp; payment details</h3>
+              <div className="grid grid-cols-2 gap-3">
+                <Field label="Bank name">
+                  <Input
+                    value={profile.bankName}
+                    onChange={(e) => patch({ bankName: e.target.value })}
+                  />
+                </Field>
+                <Field label="Account title">
+                  <Input
+                    value={profile.accountTitle}
+                    onChange={(e) => patch({ accountTitle: e.target.value })}
+                  />
+                </Field>
+                <Field label="IBAN">
+                  <Input value={profile.iban} onChange={(e) => patch({ iban: e.target.value })} />
+                </Field>
+                <Field label="SWIFT / BIC">
+                  <Input
+                    value={profile.swift}
+                    onChange={(e) => patch({ swift: e.target.value })}
+                  />
+                </Field>
+              </div>
+              <Field label="Payment details (default QR content — payment link, wallet, or bank details)">
+                <Textarea
+                  rows={3}
+                  value={profile.paymentDetails}
+                  onChange={(e) => patch({ paymentDetails: e.target.value })}
+                  placeholder="https://your-payment-link — or — IBAN: PK36 …, Account title: …"
+                />
+              </Field>
+              <p className="text-xs text-muted-foreground">
+                The QR code on an invoice simply displays these details (or opens your payment
+                link) so your client can pay you through their own bank — this app never processes
+                payments itself.
+              </p>
+            </Card>
+          </div>
+        </div>
+      )}
+
+      {section === 'clients' && (
+        <div className="space-y-6">
+          <Card className="p-5 space-y-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <h3 className="font-semibold flex-1">Client address book</h3>
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-1.5"
+                onClick={() =>
+                  downloadTextFile('clients.csv', clientsToCsv(clients), 'text/csv;charset=utf-8')
+                }
+              >
+                <Download className="w-3.5 h-3.5" /> Export CSV
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-1.5"
+                onClick={() => clientImportRef.current?.click()}
+              >
+                <Upload className="w-3.5 h-3.5" /> Import CSV
+              </Button>
+              <input
+                ref={clientImportRef}
+                type="file"
+                accept="text/csv,.csv"
+                className="hidden"
+                onChange={(e) => {
+                  handleClientCsvImport(e.target.files?.[0] ?? null);
+                  e.target.value = '';
+                }}
+              />
+            </div>
+            <div className="relative max-w-md">
+              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                className="pl-9"
+                placeholder="Search clients by name, company, email or phone"
+                value={clientQuery}
+                onChange={(e) => setClientQuery(e.target.value)}
+                aria-label="Search clients"
+              />
+            </div>
+            {clients.length === 0 ? (
+              <p className="text-sm text-muted-foreground">
+                No clients saved yet. Add your first client below, or choose &ldquo;New
+                client&rdquo; while creating an invoice — they are saved here automatically when
+                you save the invoice.
+              </p>
+            ) : visibleClients.length === 0 ? (
+              <p className="text-sm text-muted-foreground">No clients match your search.</p>
+            ) : (
+              <ul className="divide-y divide-border">
+                {visibleClients.map((c) => {
+                  const history = invoicesForClient(c, invoices);
+                  const totals = new Map<
+                    string,
+                    { invoiced: number; paid: number; outstanding: number }
+                  >();
+                  for (const inv of history) {
+                    if (inv.status === 'cancelled') continue;
+                    const t = computeTotals(inv);
+                    const row = totals.get(inv.currency) ?? {
+                      invoiced: 0,
+                      paid: 0,
+                      outstanding: 0,
+                    };
+                    row.invoiced += t.total;
+                    row.paid += Math.min(t.totalPaid, t.total);
+                    row.outstanding += t.balance;
+                    totals.set(inv.currency, row);
+                  }
+                  return (
+                    <li key={c.id} className="py-3">
+                      <div className="flex flex-wrap items-start gap-3">
+                        <div className="min-w-0 flex-1">
+                          <p className="font-medium text-sm">
+                            {c.name}
+                            {c.company && (
+                              <span className="text-muted-foreground font-normal">
+                                {' '}
+                                · {c.company}
+                              </span>
+                            )}
+                          </p>
+                          <p className="text-xs text-muted-foreground truncate">
+                            {[c.contactPerson, c.email, c.phone, c.country]
+                              .filter(Boolean)
+                              .join(' · ')}
+                          </p>
+                          {[...totals.entries()].map(([currency, row]) => (
+                            <p key={currency} className="text-xs mt-0.5">
+                              {currency}: invoiced {money(row.invoiced, currency)} · paid{' '}
+                              {money(row.paid, currency)} · outstanding{' '}
+                              {money(row.outstanding, currency)}
+                            </p>
+                          ))}
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() =>
+                              setExpandedClientId(expandedClientId === c.id ? null : c.id)
+                            }
+                            className="gap-1"
+                          >
+                            <FileText className="w-3.5 h-3.5" /> History
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => downloadClientStatement(profile, c, invoices)}
+                            className="gap-1"
+                          >
+                            <FileText className="w-3.5 h-3.5" /> Statement
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => {
+                              setClientForm({ ...c });
+                              setEditingClientId(c.id);
+                            }}
+                            className="gap-1"
+                          >
+                            <Pencil className="w-3.5 h-3.5" /> Edit
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            onClick={() =>
+                              setClients((list) => [
+                                ...list,
+                                normalizeClient({ ...c, id: uid(), name: `${c.name} (copy)` }),
+                              ])
+                            }
+                            className="gap-1"
+                          >
+                            <Copy className="w-3.5 h-3.5" /> Duplicate
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => {
+                              if (
+                                window.confirm(
+                                  `Delete client ${c.name}? Their invoices stay in your list.`
+                                )
+                              ) {
+                                setClients((list) => list.filter((x) => x.id !== c.id));
+                              }
+                            }}
+                            className="gap-1"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" /> Delete
+                          </Button>
+                        </div>
+                      </div>
+                      {expandedClientId === c.id && (
+                        <div className="mt-2 rounded-lg bg-muted/50 px-4 py-3">
+                          {history.length === 0 ? (
+                            <p className="text-xs text-muted-foreground">
+                              No invoices on record for this client yet.
+                            </p>
+                          ) : (
+                            <ul className="space-y-1">
+                              {history.map((inv) => {
+                                const t = computeTotals(inv);
+                                return (
+                                  <li
+                                    key={inv.id}
+                                    className="flex flex-wrap justify-between gap-2 text-xs"
+                                  >
+                                    <span>
+                                      {inv.number} · {inv.issueDate} ·{' '}
+                                      {STATUS_LABELS[effectiveStatus(inv)]}
+                                    </span>
+                                    <span>
+                                      {money(t.total, inv.currency)} · balance{' '}
+                                      {money(t.balance, inv.currency)}
+                                    </span>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          )}
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+
+            <div className="border-t border-border pt-4 space-y-3">
+              <h4 className="font-medium text-sm">
+                {editingClientId ? 'Edit client' : 'Add a client'}
+              </h4>
+              <div className="grid grid-cols-2 gap-3">
+                <Field label="Client name *">
+                  <Input
+                    value={clientForm.name ?? ''}
+                    onChange={(e) => setClientForm((f) => ({ ...f, name: e.target.value }))}
+                  />
+                </Field>
+                <Field label="Company">
+                  <Input
+                    value={clientForm.company ?? ''}
+                    onChange={(e) => setClientForm((f) => ({ ...f, company: e.target.value }))}
+                  />
+                </Field>
+                <Field label="Contact person">
+                  <Input
+                    value={clientForm.contactPerson ?? ''}
+                    onChange={(e) =>
+                      setClientForm((f) => ({ ...f, contactPerson: e.target.value }))
+                    }
+                  />
+                </Field>
+                <Field label="Email">
+                  <Input
+                    value={clientForm.email ?? ''}
+                    onChange={(e) => setClientForm((f) => ({ ...f, email: e.target.value }))}
+                  />
+                </Field>
+                <Field label="Phone">
+                  <Input
+                    value={clientForm.phone ?? ''}
+                    onChange={(e) => setClientForm((f) => ({ ...f, phone: e.target.value }))}
+                    placeholder="+92 300 1234567"
+                  />
+                </Field>
+                <Field label="Tax ID">
+                  <Input
+                    value={clientForm.taxId ?? ''}
+                    onChange={(e) => setClientForm((f) => ({ ...f, taxId: e.target.value }))}
+                  />
+                </Field>
+                <Field label="Country">
+                  <Input
+                    value={clientForm.country ?? ''}
+                    onChange={(e) => setClientForm((f) => ({ ...f, country: e.target.value }))}
+                  />
+                </Field>
+                <Field label="Default currency">
+                  <Select
+                    value={clientForm.defaultCurrency || 'profile'}
+                    onValueChange={(v) =>
+                      setClientForm((f) => ({
+                        ...f,
+                        defaultCurrency: v === 'profile' ? '' : v,
+                      }))
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="profile">Profile default</SelectItem>
+                      {CURRENCIES.map((c) => (
+                        <SelectItem key={c} value={c}>
+                          {currencyLabel(c)}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </Field>
+              </div>
+              <Field label="Billing address">
+                <Textarea
+                  rows={2}
+                  value={clientForm.address ?? ''}
+                  onChange={(e) => setClientForm((f) => ({ ...f, address: e.target.value }))}
+                />
+              </Field>
+              <Field label="Shipping address">
+                <Textarea
+                  rows={2}
+                  value={clientForm.shippingAddress ?? ''}
+                  onChange={(e) =>
+                    setClientForm((f) => ({ ...f, shippingAddress: e.target.value }))
+                  }
+                />
+              </Field>
+              <Field label="Payment terms for this client">
+                <Textarea
+                  rows={2}
+                  value={clientForm.terms ?? ''}
+                  onChange={(e) => setClientForm((f) => ({ ...f, terms: e.target.value }))}
+                  placeholder="Applied automatically when you pick this client on an invoice."
+                />
+              </Field>
+              <Field label="Notes">
+                <Textarea
+                  rows={2}
+                  value={clientForm.notes ?? ''}
+                  onChange={(e) => setClientForm((f) => ({ ...f, notes: e.target.value }))}
+                />
+              </Field>
+              <div className="flex gap-2">
+                <Button
+                  className="gap-2"
+                  disabled={!clientForm.name?.trim()}
+                  onClick={saveClientForm}
+                >
+                  <Plus className="w-4 h-4" /> {editingClientId ? 'Save changes' : 'Add client'}
+                </Button>
+                {editingClientId && (
+                  <Button
+                    variant="ghost"
+                    onClick={() => {
+                      setClientForm({});
+                      setEditingClientId(null);
+                    }}
+                  >
+                    Cancel editing
+                  </Button>
+                )}
+              </div>
+            </div>
+          </Card>
+        </div>
+      )}
+
+      {section === 'data' && (
+        <div className="grid gap-6 lg:grid-cols-2 items-start">
+          <Card className="p-5 space-y-4">
+            <h3 className="font-semibold">Your data — backup &amp; export</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Everything lives in this browser — it does not synchronise between devices. Export a
+              backup file regularly and you can restore your profiles, clients and invoices on any
+              computer. Import replaces what is currently stored here, after asking you to confirm
+              and warning you about duplicates.
+            </p>
+            {storageKb !== null && (
+              <p className="text-sm">
+                Storage used by this app in this browser:{' '}
+                <strong>{storageKb < 1024 ? `${storageKb} KB` : `${(storageKb / 1024).toFixed(2)} MB`}</strong>{' '}
+                <span className="text-muted-foreground">
+                  (browsers typically allow around 5 MB per site — large logo images use it
+                  fastest.)
+                </span>
+              </p>
+            )}
+            <div className="flex flex-wrap gap-2">
+              <Button variant="outline" onClick={handleExportCsv} className="gap-2">
+                <Download className="w-4 h-4" /> Export invoices (CSV)
+              </Button>
+              <Button variant="outline" onClick={handleExportBackup} className="gap-2">
+                <Download className="w-4 h-4" /> Export backup (JSON)
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => importRef.current?.click()}
+                className="gap-2"
+              >
+                <Upload className="w-4 h-4" /> Import backup
+              </Button>
+              <input
+                ref={importRef}
+                type="file"
+                accept="application/json,.json"
+                className="hidden"
+                onChange={(e) => {
+                  handleImportFile(e.target.files?.[0] ?? null);
+                  e.target.value = '';
+                }}
+              />
+            </div>
+            <p className="text-xs text-muted-foreground">
+              The invoices CSV opens in Excel or Google Sheets: one row per invoice with totals,
+              amounts paid, balances and statuses. Backups are version 2 (all business profiles
+              included); version 1 backup files still import correctly.
+            </p>
+          </Card>
+
+          <Card className="p-5">
+            <h3 className="font-semibold">Your data stays here</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mt-1.5">
+              Your profiles, clients and invoices are stored only in this browser&apos;s local
+              storage, on this device. There is no account and no server copy — refresh the page,
+              close the tab, come back next week: everything is exactly where you left it, and the
+              invoice you are editing is autosaved as you type. Clearing your browser&apos;s site
+              data deletes it permanently, so keep your downloaded PDFs — and a JSON backup from
+              this section — as your long-term records.
+            </p>
+          </Card>
+        </div>
+      )}
     </div>
   );
 }

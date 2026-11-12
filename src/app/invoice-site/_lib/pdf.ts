@@ -58,6 +58,12 @@ export interface PdfProfile {
   email: string;
   phone: string;
   address: string;
+  city?: string;
+  state?: string;
+  postalCode?: string;
+  country?: string;
+  taxId?: string;
+  vatNumber?: string;
   logoDataUrl: string;
   stampDataUrl: string;
   brandColor: string;
@@ -107,6 +113,17 @@ function moneyPdf(value: number, currency: string): string {
 }
 
 const clampPct = (v: number): number => Math.min(100, Math.max(0, Number.isFinite(v) ? v : 0));
+
+/** Postal address lines: free-text address, city/state/postal line, country. */
+function profileAddressLines(profile: PdfProfile): string[] {
+  const cityLine = [profile.city, profile.state, profile.postalCode]
+    .map((x) => (x || '').trim())
+    .filter(Boolean)
+    .join(', ');
+  return [profile.address, cityLine, profile.country]
+    .map((x) => (x || '').trim())
+    .filter(Boolean);
+}
 
 function addImageSafe(
   doc: JsPDF,
@@ -233,7 +250,9 @@ export async function buildInvoicePdf(
     doc.setFont(font, 'normal');
     doc.setFontSize(9.5);
     const lines = doc.splitTextToSize(
-      [profile.address, profile.email, profile.phone].filter(Boolean).join('\n'),
+      [...profileAddressLines(profile), profile.email, profile.phone]
+        .filter(Boolean)
+        .join('\n'),
       80
     ) as string[];
     lines.forEach((line, i) => doc.text(line, 15, y + 5 + i * 4.5));
@@ -253,7 +272,9 @@ export async function buildInvoicePdf(
     doc.setFontSize(9);
     doc.setTextColor(100, 100, 100);
     doc.text(
-      [profile.address, profile.email, profile.phone].filter(Boolean).join(' · '),
+      [...profileAddressLines(profile), profile.email, profile.phone]
+        .filter(Boolean)
+        .join(' · '),
       pageW / 2,
       y + 9,
       { align: 'center' }
@@ -287,7 +308,9 @@ export async function buildInvoicePdf(
     doc.setFont(font, 'normal');
     doc.setFontSize(9.5);
     doc.text(
-      [profile.address, profile.email, profile.phone].filter(Boolean).join(' · '),
+      [...profileAddressLines(profile), profile.email, profile.phone]
+        .filter(Boolean)
+        .join(' · '),
       15,
       y + 18.5
     );
@@ -315,7 +338,9 @@ export async function buildInvoicePdf(
     doc.setFont(font, 'normal');
     doc.setFontSize(9.5);
     const lines = doc.splitTextToSize(
-      [profile.address, profile.email, profile.phone].filter(Boolean).join(' · '),
+      [...profileAddressLines(profile), profile.email, profile.phone]
+        .filter(Boolean)
+        .join(' · '),
       pageW - 30
     ) as string[];
     lines.forEach((line, i) => doc.text(line, 15, y + 4.5 + i * 4.5));
@@ -338,6 +363,14 @@ export async function buildInvoicePdf(
   }
   if (inv.referenceNumber.trim()) {
     doc.text(`Reference: ${inv.referenceNumber.trim()}`, pageW - 15, metaY, { align: 'right' });
+    metaY += 5;
+  }
+  if (profile.taxId?.trim()) {
+    doc.text(`Tax ID: ${profile.taxId.trim()}`, pageW - 15, metaY, { align: 'right' });
+    metaY += 5;
+  }
+  if (profile.vatNumber?.trim()) {
+    doc.text(`VAT/GST: ${profile.vatNumber.trim()}`, pageW - 15, metaY, { align: 'right' });
     metaY += 5;
   }
   doc.text(`Status: ${statusLabel.toUpperCase()}`, pageW - 15, metaY, { align: 'right' });
