@@ -4,7 +4,7 @@ import { SeoLanding } from '../_components/SeoLanding';
 export const metadata: Metadata = {
   title: 'Invoice Templates — 10 Free Professional Designs',
   description:
-    'Ten genuinely different invoice templates — Classic, Modern, Minimal, Corporate, Creative, Freelancer, Elegant, Executive, Retail and International — one design system for preview and PDF.',
+    'Ten genuinely different invoice templates — Classic, Modern, Minimal, Corporate, Creative, Freelancer, Elegant, Executive, Retail, International — preview + PDF.',
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/invoice-template' },
   openGraph: {
     title: 'Invoice Templates — 10 Free Professional Designs',

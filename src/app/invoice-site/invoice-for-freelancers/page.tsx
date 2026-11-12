@@ -4,7 +4,7 @@ import { SeoLanding } from '../_components/SeoLanding';
 export const metadata: Metadata = {
   title: 'Invoice Generator for Freelancers — Free, No Sign-Up',
   description:
-    'A free invoice generator built for freelancers: saved clients, per-project lines, deposits and partial payments, recurring retainers and late-payment tracking — no sign-up, no watermark.',
+    'Free invoice generator for freelancers: saved clients, per-project lines, deposits and partial payments, recurring retainers and late-payment tracking — no sign-up.',
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/invoice-for-freelancers' },
   openGraph: {
     title: 'Invoice Generator for Freelancers — Free, No Sign-Up',

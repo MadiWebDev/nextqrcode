@@ -4,7 +4,7 @@ import { SeoLanding } from '../_components/SeoLanding';
 export const metadata: Metadata = {
   title: 'Invoice Generator for Contractors — Deposits, Progress & Retentions',
   description:
-    'Free invoicing for contractors and trades: quote conversion, progress billing, deposits, materials and labour lines, delivery notes and payment tracking that survives real job sites.',
+    'Free invoicing for contractors and trades: quote conversion, progress billing, deposits, materials and labour lines, delivery notes and payment tracking.',
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/invoice-for-contractors' },
   openGraph: {
     title: 'Invoice Generator for Contractors — Deposits, Progress & Retentions',

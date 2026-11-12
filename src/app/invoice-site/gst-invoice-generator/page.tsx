@@ -4,7 +4,7 @@ import { SeoLanding } from '../_components/SeoLanding';
 export const metadata: Metadata = {
   title: 'GST Invoice Generator — Free Tax Invoices (GSTIN, HSN/SAC)',
   description:
-    'Create GST invoices free: GSTIN for seller and buyer, HSN/SAC detail lines, GST rate per line, tax after discount, credit and debit notes — plus a plain-language guide to GST invoice requirements.',
+    'Create GST invoices free: GSTIN for seller and buyer, HSN/SAC detail lines, GST rate per line and tax after discount — plus a plain-language GST invoice guide.',
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/gst-invoice-generator' },
   openGraph: {
     title: 'GST Invoice Generator — Free Tax Invoices (GSTIN, HSN/SAC)',

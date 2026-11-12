@@ -4,7 +4,7 @@ import { SeoLanding } from '../_components/SeoLanding';
 export const metadata: Metadata = {
   title: 'Invoice Generator for Small Businesses — Free & Professional',
   description:
-    'Free invoicing for small businesses: multiple business profiles, a client address book, tax-ready invoices, statements, aging reports and a cash-flow dashboard — no subscription.',
+    'Free invoicing for small businesses: multiple business profiles, client address book, tax-ready invoices, statements, aging reports and a cash-flow dashboard.',
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/invoice-for-small-business' },
   openGraph: {
     title: 'Invoice Generator for Small Businesses — Free & Professional',

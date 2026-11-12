@@ -141,11 +141,6 @@ export default function InvoiceSitePage() {
                 'Create, customize, download and track professional invoices for free. Business profiles, clients, ten templates, payments tracking, recurring drafts and PDF export — all in the browser, no sign-up.',
             },
             {
-              '@type': 'Organization',
-              name: 'QR Studio',
-              url: 'https://freeqrcode.tools/',
-            },
-            {
               '@type': 'WebSite',
               name: 'Invoice Generator by QR Studio',
               url: 'https://invoicegenerator.freeqrcode.tools/',

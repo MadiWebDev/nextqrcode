@@ -4,7 +4,7 @@ import { SeoLanding } from '../_components/SeoLanding';
 export const metadata: Metadata = {
   title: 'Sales Tax Invoice Generator — Free, Nexus-Aware by Design',
   description:
-    'Create sales-tax invoices free: per-line taxable flags for mixed baskets, tax after discount, resale and exemption notes, multi-state clients — with a plain guide to sales tax on invoices.',
+    'Create sales-tax invoices free: per-line taxable flags for mixed baskets, tax after discount, exemption notes and multi-state clients — with a plain guide.',
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/sales-tax-invoice-generator' },
   openGraph: {
     title: 'Sales Tax Invoice Generator — Free, Nexus-Aware by Design',

@@ -6,12 +6,12 @@ import { InvoiceHeader } from './_components/InvoiceHeader';
 export const metadata: Metadata = {
   title: 'Free Invoice Generator — Create Professional Invoices Online',
   description:
-    'Create, customize, download and track professional invoices for free — no sign-up. Save your business profile and clients, pick from ten templates, add tax and a payment QR, record payments and download a polished PDF in minutes.',
+    'Create professional invoices for free — no sign-up, no watermark. Customize templates, calculate taxes, track payments, add a payment QR and download PDF invoices.',
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/' },
   openGraph: {
     title: 'Free Invoice Generator — Create Professional Invoices Online',
     description:
-      'Create, customize, download and track professional invoices for free — no sign-up. Save your business profile and clients, pick from ten templates, add tax and a payment QR, record payments and download a polished PDF in minutes.',
+      'Create professional invoices for free — no sign-up, no watermark. Customize templates, calculate taxes, track payments, add a payment QR and download PDF invoices.',
     url: 'https://invoicegenerator.freeqrcode.tools/',
     type: 'website',
     siteName: 'Invoice Generator by QR Studio',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Free Invoice Generator — Create Professional Invoices Online',
     description:
-      'Create, customize, download and track professional invoices for free — no sign-up. Save your business profile and clients, pick from ten templates, add tax and a payment QR, record payments and download a polished PDF in minutes.',
+      'Create professional invoices for free — no sign-up, no watermark. Customize templates, calculate taxes, track payments, add a payment QR and download PDF invoices.',
   },
   robots: { index: true, follow: true },
 };

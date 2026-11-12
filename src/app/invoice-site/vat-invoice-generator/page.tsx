@@ -4,7 +4,7 @@ import { SeoLanding } from '../_components/SeoLanding';
 export const metadata: Metadata = {
   title: 'VAT Invoice Generator — Free Tax Invoices with VAT Breakdown',
   description:
-    'Create VAT invoices free: seller and buyer VAT numbers, per-line taxable flags, net/VAT/gross breakdown, tax before or after discount, credit notes — with a guide to what a VAT invoice must show.',
+    'Create VAT invoices free: seller and buyer VAT numbers, per-line taxable flags, net/VAT/gross breakdown, tax before or after discount — plus a plain-language guide.',
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/vat-invoice-generator' },
   openGraph: {
     title: 'VAT Invoice Generator — Free Tax Invoices with VAT Breakdown',

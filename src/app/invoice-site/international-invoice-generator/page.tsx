@@ -4,7 +4,7 @@ import { SeoLanding } from '../_components/SeoLanding';
 export const metadata: Metadata = {
   title: 'International Invoice Generator — Multi-Currency, Export-Ready',
   description:
-    'Invoice overseas clients properly: full ISO currency support with correct decimal places, bank and SWIFT details, IBAN payment text, per-currency reporting and commercial invoices for goods.',
+    'Invoice overseas clients properly: full ISO currency support, bank and SWIFT details, IBAN payment text, per-currency reporting and commercial invoices.',
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/international-invoice-generator' },
   openGraph: {
     title: 'International Invoice Generator — Multi-Currency, Export-Ready',

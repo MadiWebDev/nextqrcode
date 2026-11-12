@@ -4,7 +4,7 @@ import { SeoLanding } from '../_components/SeoLanding';
 export const metadata: Metadata = {
   title: 'Printable Invoice Template — Print-Ready PDFs in A4 & Letter',
   description:
-    'Fill in a printable invoice template and download a print-perfect PDF: A4 or Letter, portrait or landscape, repeated table headers, page numbers, stamps — no Word wrestling, no broken margins.',
+    'Fill in a printable invoice template and download a print-perfect PDF: A4 or Letter, portrait or landscape, repeated headers and page numbers — no Word wrestling.',
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/printable-invoice-template' },
   openGraph: {
     title: 'Printable Invoice Template — Print-Ready PDFs in A4 & Letter',

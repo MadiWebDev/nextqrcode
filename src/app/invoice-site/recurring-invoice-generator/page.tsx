@@ -4,7 +4,7 @@ import { SeoLanding } from '../_components/SeoLanding';
 export const metadata: Metadata = {
   title: 'Recurring Invoice Generator — Retainers, Rent & Subscriptions',
   description:
-    'Set an invoice to repeat weekly, monthly, quarterly or yearly — even every N periods — and get a fresh numbered draft each cycle. Pause anytime. Honest automation: you review and send every invoice.',
+    'Set an invoice to repeat weekly, monthly, quarterly, yearly or every N periods and get a fresh numbered draft each cycle. You review and send every invoice.',
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/recurring-invoice-generator' },
   openGraph: {
     title: 'Recurring Invoice Generator — Retainers, Rent & Subscriptions',
