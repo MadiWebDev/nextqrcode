@@ -306,6 +306,76 @@ export const TOOL_REGISTRY: ToolEntry[] = [
       'Crop a photo to exact passport and visa sizes for the US, UK, EU, Canada and China, and download a printable 4×6 sheet.',
     category: 'Specialty',
   },
+  {
+    slug: '/proforma-invoice-generator',
+    name: 'Proforma Invoice Generator',
+    blurb:
+      'Create proforma invoices with items, tax, validity dates and an optional payment QR code, exported as PDF for customs, quotations and advance payments.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/purchase-order-generator',
+    name: 'Purchase Order Generator',
+    blurb:
+      'Raise purchase orders with supplier and ship-to details, SKU line items, delivery and payment terms, and an authorised-by signature line, exported as PDF.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/credit-note-generator',
+    name: 'Credit Note Generator',
+    blurb:
+      'Issue credit notes against an original invoice for returns, damage or pricing errors, with the reason recorded and the tax credit shown separately.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/delivery-note-generator',
+    name: 'Delivery Note / Challan Generator',
+    blurb:
+      'Make delivery notes and challans with sender and receiver details, vehicle and driver fields, item quantities and a goods-received signature block.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/payment-reminder-letter-generator',
+    name: 'Payment Reminder Letter Generator',
+    blurb:
+      'Generate polite, firm or final-notice payment reminder letters from an overdue invoice, ready to copy, email, share on WhatsApp or download as PDF.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/salary-slip-generator',
+    name: 'Salary Slip Generator',
+    blurb:
+      'Build monthly salary slips with earnings, allowances, deductions and net pay in figures and words, formatted as a print-ready payslip PDF.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/late-fee-calculator',
+    name: 'Late Fee Calculator',
+    blurb:
+      'Calculate simple late payment fees from the invoice amount, due date, fee basis and grace period, with a step-by-step breakdown of the amount now due.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/gst-vat-calculator',
+    name: 'GST / VAT Calculator',
+    blurb:
+      'Add GST or VAT to a net price or remove it from a tax-inclusive price at common worldwide rates, with the net, tax and gross amounts broken down.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/discount-margin-calculator',
+    name: 'Discount & Margin Calculator',
+    blurb:
+      'Work out sale prices after stacked discounts, profit margin and markup from cost and selling price, and the selling price needed for a target margin.',
+    category: 'Specialty',
+  },
+  {
+    slug: '/amount-to-words-converter',
+    name: 'Amount to Words Converter',
+    blurb:
+      'Convert numbers into words for cheques, invoices and contracts in international (million/billion) or South Asian (lakh/crore) numbering, with currency names.',
+    category: 'Specialty',
+  },
 ];
 
 export function getToolByPath(path: string): ToolEntry | undefined {
