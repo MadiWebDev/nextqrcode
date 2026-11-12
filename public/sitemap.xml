@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sitemap index for freeqrcode.tools.
+     Next.js 16.3.8 does not auto-generate this index for
+     generateSitemaps() (src/app/sitemap.ts creates only the child
+     routes /sitemap/[id].xml), so the index is served as a static
+     file. KEEP IN SYNC: one <sitemap> entry per id returned by
+     generateSitemaps() in src/app/sitemap.ts (currently 0-8). -->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://freeqrcode.tools/sitemap/0.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://freeqrcode.tools/sitemap/1.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://freeqrcode.tools/sitemap/2.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://freeqrcode.tools/sitemap/3.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://freeqrcode.tools/sitemap/4.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://freeqrcode.tools/sitemap/5.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://freeqrcode.tools/sitemap/6.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://freeqrcode.tools/sitemap/7.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://freeqrcode.tools/sitemap/8.xml</loc>
+  </sitemap>
+</sitemapindex>

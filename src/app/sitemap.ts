@@ -1,8 +1,11 @@
 /**
  * QR Code Tools — Sitemap Index
  *
- * Uses Next.js generateSitemaps() to split into a sitemap index.
- * /sitemap.xml  → index pointing to /sitemap/0.xml … /sitemap/7.xml
+ * Uses Next.js generateSitemaps() to split into numbered child sitemaps.
+ * /sitemap.xml  → sitemap index, served as the static file public/sitemap.xml
+ *                 (Next.js 16.3.8 does not auto-generate the index for
+ *                 generateSitemaps; keep that file in sync with the ids below)
+ * /sitemap/N.xml → child sitemaps 0 … 8, generated from this file
  *
  * Id assignment (integer, NOT string, per Next.js generateSitemaps spec):
  *   0 → core       (home, /blog, /sitemap-page, /tools, /industries, /qr-labels, trust)
