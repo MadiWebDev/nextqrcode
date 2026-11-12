@@ -59,7 +59,7 @@ const CAPABILITIES = [
   'Dashboard: billed, collected, outstanding and overdue aging',
   'Three templates — Classic, Modern, Minimal — matched in the PDF',
   'Payment QR codes carrying your link or bank details',
-  'Ten currencies, JSON backup and CSV export for your accountant',
+  '150+ currencies, JSON backup and CSV export for your accountant',
 ];
 
 export default function AboutPage() {
@@ -72,10 +72,7 @@ export default function AboutPage() {
         <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
           The Invoice Generator is built by <strong className="text-foreground">QR Studio</strong>,
           the small team behind{' '}
-          <a
-            href="https://freeqrcode.tools"
-            className="text-primary underline underline-offset-2"
-          >
+          <a href="https://freeqrcode.tools" className="text-primary underline underline-offset-2">
             freeqrcode.tools
           </a>{' '}
           — a suite of free, browser-based tools used by freelancers, shops, tutors, agencies and
@@ -85,24 +82,22 @@ export default function AboutPage() {
           We built it because invoicing sits in an awkward gap. On one side, word-processor
           templates: free, but every invoice is typed from scratch, the totals are calculated by
           hand, and nothing tracks what is still unpaid. On the other side, accounting platforms:
-          powerful, but built for bookkeepers, priced by the month, and hungry for your data —
-          you create an account, upload your client list, and rent access to your own records
-          forever.
+          powerful, but built for bookkeepers, priced by the month, and hungry for your data — you
+          create an account, upload your client list, and rent access to your own records forever.
         </p>
         <p className="mt-4 text-muted-foreground leading-relaxed">
           Most one-person and small businesses need neither extreme. They need to raise a correct,
           good-looking invoice in two minutes, send it, know at a glance who has not paid, and get
-          on with the work. That is the whole product: a proper little invoicing workspace that
-          runs entirely in your browser tab.
+          on with the work. That is the whole product: a proper little invoicing workspace that runs
+          entirely in your browser tab.
         </p>
         <h2 className="mt-10 text-2xl font-bold tracking-tight">Why is it free?</h2>
         <p className="mt-3 text-muted-foreground leading-relaxed">
-          Because it can be. A tool that runs in your browser has no servers storing your
-          invoices, no database of your clients and no per-user infrastructure to pay for — our
-          costs look like a static website, not a SaaS platform. The wider freeqrcode.tools suite
-          is supported by the main site, and every tool in the family follows the same rule: free
-          to use, in full, with no account. If the generator saves you an hour a month, it has
-          done its job.
+          Because it can be. A tool that runs in your browser has no servers storing your invoices,
+          no database of your clients and no per-user infrastructure to pay for — our costs look
+          like a static website, not a SaaS platform. The wider freeqrcode.tools suite is supported
+          by the main site, and every tool in the family follows the same rule: free to use, in
+          full, with no account. If the generator saves you an hour a month, it has done its job.
         </p>
       </section>
 
@@ -156,8 +151,8 @@ export default function AboutPage() {
           Freelance designers, developers and consultants billing by the project. Agencies running
           monthly retainers. Tutors and coaches collecting term fees. Shops and workshops raising
           formal invoices their buyers\u2019 accounts departments will accept. Contractors juggling
-          deposits, stage payments and final balances. What they share is not an industry — it is
-          a size: small enough that the owner still sends the invoices, and busy enough that the
+          deposits, stage payments and final balances. What they share is not an industry — it is a
+          size: small enough that the owner still sends the invoices, and busy enough that the
           invoices must not take all evening.
         </p>
         <div className="mt-10 rounded-3xl border border-border bg-card p-8 text-center">

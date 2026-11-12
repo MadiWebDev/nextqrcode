@@ -35,6 +35,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { ALL_CURRENCIES, currencyDigits, currencyLabel } from './_data/currencies';
 
 /* ── Types ─────────────────────────────────────────────────────────── */
 
@@ -142,7 +143,7 @@ const PROFILE_KEY = 'invoicegenerator:profile';
 const CLIENTS_KEY = 'invoicegenerator:clients';
 const INVOICES_KEY = 'invoicegenerator:invoices';
 
-const CURRENCIES = ['USD', 'EUR', 'GBP', 'PKR', 'INR', 'AED', 'SAR', 'QAR', 'CAD', 'AUD'];
+const CURRENCIES = ALL_CURRENCIES.map((c) => c.code);
 const PAYMENT_METHODS: PaymentMethod[] = ['Cash', 'Bank transfer', 'Card', 'Cheque', 'Other'];
 const DUE_TERMS_LABELS: Record<DueTerms, string> = {
   receipt: 'Due on receipt',
@@ -228,18 +229,23 @@ function formatInvoiceNumber(n: number): string {
   return `INV-${String(Math.max(1, Math.floor(n) || 1)).padStart(4, '0')}`;
 }
 
-function money(value: number, currency: string): string {
+function money(value: number, currency: string, forPdf = false): string {
+  const digits = currencyDigits(currency);
   try {
-    return new Intl.NumberFormat('en-US', {
+    const out = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency,
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
+      // The PDF uses built-in Latin fonts, which cannot draw symbols such as ₹ ₩ ₪ ₫,
+      // so PDFs show the ISO code (e.g. "INR 1,000.00") instead of a symbol.
+      currencyDisplay: forPdf ? 'code' : 'symbol',
+      minimumFractionDigits: digits,
+      maximumFractionDigits: digits,
     }).format(value);
+    return forPdf ? out.replace(/\u00a0/g, ' ') : out;
   } catch {
     return `${currency} ${value.toLocaleString('en-US', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
+      minimumFractionDigits: digits,
+      maximumFractionDigits: digits,
     })}`;
   }
 }
@@ -374,9 +380,9 @@ export function normalizeInvoice(raw: Partial<Invoice>): Invoice {
   const recurring: Recurring | null =
     raw.recurring && typeof raw.recurring === 'object'
       ? {
-          frequency: (['weekly', 'monthly', 'quarterly', 'yearly'] as RecurringFrequency[]).includes(
-            raw.recurring.frequency
-          )
+          frequency: (
+            ['weekly', 'monthly', 'quarterly', 'yearly'] as RecurringFrequency[]
+          ).includes(raw.recurring.frequency)
             ? raw.recurring.frequency
             : 'monthly',
           nextDate: raw.recurring.nextDate || todayIso(),
@@ -514,7 +520,8 @@ function makeDraft(profile: Profile): Invoice {
     payments: [],
     status: 'draft',
     notes: '',
-    terms: 'Payment is due within 14 days of the issue date. Please quote the invoice number with your payment.',
+    terms:
+      'Payment is due within 14 days of the issue date. Please quote the invoice number with your payment.',
     template: 'modern',
     showQr: false,
     qrPayload: '',
@@ -694,9 +701,7 @@ export function InvoiceApp() {
   }, [invoices]);
 
   /* Payment QR — generated asynchronously; state is set only in callbacks. */
-  const qrPayloadText = draft.showQr
-    ? draft.qrPayload.trim() || profile.paymentDetails.trim()
-    : '';
+  const qrPayloadText = draft.showQr ? draft.qrPayload.trim() || profile.paymentDetails.trim() : '';
   useEffect(() => {
     if (!qrPayloadText) return;
     let cancelled = false;
@@ -716,8 +721,7 @@ export function InvoiceApp() {
   const totals = useMemo(() => computeTotals(draft), [draft]);
   const draftStatus = effectiveStatus(draft);
 
-  const patchDraft = (patch: Partial<Invoice>) =>
-    setDraft((d) => ({ ...d, ...patch }));
+  const patchDraft = (patch: Partial<Invoice>) => setDraft((d) => ({ ...d, ...patch }));
 
   const patchItem = (id: string, patch: Partial<LineItem>) =>
     setDraft((d) => ({
@@ -950,8 +954,17 @@ export function InvoiceApp() {
       y = 40;
       if (profile.logoDataUrl) {
         try {
-          doc.addImage(profile.logoDataUrl, profile.logoDataUrl.startsWith('data:image/png') ? 'PNG' : 'JPEG', pageW - 45, y - 6, 30, 12);
-        } catch { /* logo is decorative in the PDF */ }
+          doc.addImage(
+            profile.logoDataUrl,
+            profile.logoDataUrl.startsWith('data:image/png') ? 'PNG' : 'JPEG',
+            pageW - 45,
+            y - 6,
+            30,
+            12
+          );
+        } catch {
+          /* logo is decorative in the PDF */
+        }
       }
     } else if (inv.template === 'classic') {
       doc.setFont('times', 'bold');
@@ -1052,8 +1065,8 @@ export function InvoiceApp() {
       ensure(Math.max(6, desc.length * 4.8) + 2);
       desc.forEach((line, i) => doc.text(line, 17, y + i * 4.8));
       doc.text(String(item.qty || 0), 118, y, { align: 'right' });
-      doc.text(money(item.unitPrice || 0, inv.currency), 152, y, { align: 'right' });
-      doc.text(money((item.qty || 0) * (item.unitPrice || 0), inv.currency), pageW - 17, y, {
+      doc.text(money(item.unitPrice || 0, inv.currency, true), 152, y, { align: 'right' });
+      doc.text(money((item.qty || 0) * (item.unitPrice || 0), inv.currency, true), pageW - 17, y, {
         align: 'right',
       });
       y += Math.max(6, desc.length * 4.8) + 1.5;
@@ -1065,25 +1078,47 @@ export function InvoiceApp() {
     doc.setDrawColor(200, 200, 200);
     doc.line(118, y - 3, pageW - 15, y - 3);
     const discountLabel =
-      inv.discountType === 'fixed'
-        ? 'Discount'
-        : `Discount (${clampPct(inv.discountValue)}%)`;
+      inv.discountType === 'fixed' ? 'Discount' : `Discount (${clampPct(inv.discountValue)}%)`;
     const rows: Array<[string, string, boolean]> = [
-      ['Subtotal', money(t.subtotal, inv.currency), false],
+      ['Subtotal', money(t.subtotal, inv.currency, true), false],
       ...(t.discountAmount > 0
-        ? [[discountLabel, `− ${money(t.discountAmount, inv.currency)}`, false] as [string, string, boolean]]
+        ? [
+            [discountLabel, `-${money(t.discountAmount, inv.currency, true)}`, false] as [
+              string,
+              string,
+              boolean,
+            ],
+          ]
         : []),
       ...(t.taxAmount > 0
-        ? [[`${inv.taxLabel || 'Tax'} (${clampPct(inv.taxPct)}%)`, money(t.taxAmount, inv.currency), false] as [string, string, boolean]]
+        ? [
+            [
+              `${inv.taxLabel || 'Tax'} (${clampPct(inv.taxPct)}%)`,
+              money(t.taxAmount, inv.currency, true),
+              false,
+            ] as [string, string, boolean],
+          ]
         : []),
       ...(inv.shipping > 0
-        ? [['Shipping', money(inv.shipping, inv.currency), false] as [string, string, boolean]]
+        ? [
+            ['Shipping', money(inv.shipping, inv.currency, true), false] as [
+              string,
+              string,
+              boolean,
+            ],
+          ]
         : []),
-      ['Total', money(t.total, inv.currency), true],
+      ['Total', money(t.total, inv.currency, true), true],
       ...(t.totalPaid > 0
-        ? [['Total paid', money(t.totalPaid, inv.currency), false] as [string, string, boolean]]
+        ? [
+            ['Total paid', money(t.totalPaid, inv.currency, true), false] as [
+              string,
+              string,
+              boolean,
+            ],
+          ]
         : []),
-      ['Balance due', money(t.balance, inv.currency), true],
+      ['Balance due', money(t.balance, inv.currency, true), true],
     ];
     rows.forEach(([label, value, bold]) => {
       doc.setFont('helvetica', bold ? 'bold' : 'normal');
@@ -1104,7 +1139,9 @@ export function InvoiceApp() {
           40,
           20
         );
-      } catch { /* stamp is decorative in the PDF */ }
+      } catch {
+        /* stamp is decorative in the PDF */
+      }
     }
 
     // Payment history (from the ledger)
@@ -1120,7 +1157,7 @@ export function InvoiceApp() {
         ensure(5);
         const line = `${p.date || '—'} · ${p.method}${p.note ? ` · ${p.note}` : ''}`;
         doc.text(line, 15, y);
-        doc.text(money(p.amount, inv.currency), 100, y, { align: 'right' });
+        doc.text(money(p.amount, inv.currency, true), 100, y, { align: 'right' });
         y += 4.8;
       });
       y += 2;
@@ -1135,7 +1172,9 @@ export function InvoiceApp() {
       doc.text('Scan to pay', 15, y);
       try {
         doc.addImage(effectiveQr, 'PNG', 15, y + 3, 34, 34);
-      } catch { /* QR is optional in the PDF */ }
+      } catch {
+        /* QR is optional in the PDF */
+      }
       doc.setFont('helvetica', 'normal');
       const payLines = doc.splitTextToSize(qrPayloadText, 120) as string[];
       payLines.slice(0, 6).forEach((line, i) => doc.text(line, 54, y + 8 + i * 4.8));
@@ -1193,8 +1232,7 @@ export function InvoiceApp() {
 
   /* ── Render ── */
 
-  const clientSelectValue =
-    draft.clientId === 'new' ? 'new' : draft.clientId ?? 'manual';
+  const clientSelectValue = draft.clientId === 'new' ? 'new' : (draft.clientId ?? 'manual');
   const recurringCount = invoices.filter((i) => i.recurring).length;
 
   return (
@@ -1267,17 +1305,14 @@ export function InvoiceApp() {
                   />
                 </Field>
                 <Field label="Currency">
-                  <Select
-                    value={draft.currency}
-                    onValueChange={(v) => patchDraft({ currency: v })}
-                  >
+                  <Select value={draft.currency} onValueChange={(v) => patchDraft({ currency: v })}>
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                       {CURRENCIES.map((c) => (
                         <SelectItem key={c} value={c}>
-                          {c}
+                          {currencyLabel(c)}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -1429,7 +1464,9 @@ export function InvoiceApp() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="manual">Type details manually</SelectItem>
-                    <SelectItem value="new">+ New client (saved when you save the invoice)</SelectItem>
+                    <SelectItem value="new">
+                      + New client (saved when you save the invoice)
+                    </SelectItem>
                     {clients.map((c) => (
                       <SelectItem key={c.id} value={c.id}>
                         {c.name}
@@ -1918,7 +1955,11 @@ function InvoicePreview({
             </div>
             {profile.logoDataUrl && (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={profile.logoDataUrl} alt="Business logo" className="max-h-14 max-w-32 object-contain" />
+              <img
+                src={profile.logoDataUrl}
+                alt="Business logo"
+                className="max-h-14 max-w-32 object-contain"
+              />
             )}
           </div>
         </div>
@@ -1935,7 +1976,11 @@ function InvoicePreview({
             </div>
             {profile.logoDataUrl && (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={profile.logoDataUrl} alt="Business logo" className="max-h-12 max-w-28 object-contain" />
+              <img
+                src={profile.logoDataUrl}
+                alt="Business logo"
+                className="max-h-12 max-w-28 object-contain"
+              />
             )}
           </div>
         </div>
@@ -2045,7 +2090,11 @@ function InvoicePreview({
           {qrDataUrl && (
             <div className="flex items-start gap-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={qrDataUrl} alt="Payment QR code" className="w-24 h-24 border border-slate-200 rounded" />
+              <img
+                src={qrDataUrl}
+                alt="Payment QR code"
+                className="w-24 h-24 border border-slate-200 rounded"
+              />
               <div className="text-xs text-slate-500 max-w-44">
                 <p className="font-semibold text-slate-700 text-sm">Scan to pay</p>
                 <p className="mt-0.5 break-words">{payText}</p>
@@ -2097,7 +2146,10 @@ function InvoicesView({
   const [statusFilter, setStatusFilter] = useState<'all' | EffectiveStatus>('all');
 
   const summary = useMemo(() => {
-    const byCurrency = new Map<string, { invoiced: number; collected: number; outstanding: number }>();
+    const byCurrency = new Map<
+      string,
+      { invoiced: number; collected: number; outstanding: number }
+    >();
     for (const inv of invoices) {
       const t = computeTotals(inv);
       const row = byCurrency.get(inv.currency) ?? { invoiced: 0, collected: 0, outstanding: 0 };
@@ -2116,9 +2168,7 @@ function InvoicesView({
     return invoices.filter((inv) => {
       if (statusFilter !== 'all' && effectiveStatus(inv) !== statusFilter) return false;
       if (!q) return true;
-      return (
-        inv.clientName.toLowerCase().includes(q) || inv.number.toLowerCase().includes(q)
-      );
+      return inv.clientName.toLowerCase().includes(q) || inv.number.toLowerCase().includes(q);
     });
   }, [invoices, query, statusFilter]);
 
@@ -2184,7 +2234,12 @@ function InvoicesView({
                   {inv.recurring!.active ? 'Active' : 'Paused'}
                 </span>
                 <div className="flex flex-wrap gap-1.5 ml-auto">
-                  <Button size="sm" variant="outline" onClick={() => onLoad(inv)} className="gap-1.5">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => onLoad(inv)}
+                    className="gap-1.5"
+                  >
                     <Pencil className="w-3.5 h-3.5" /> Open
                   </Button>
                   <Button size="sm" variant="outline" onClick={() => onToggleRecurring(inv)}>
@@ -2280,10 +2335,20 @@ function InvoicesView({
                       </p>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <Button size="sm" variant="outline" onClick={() => onLoad(inv)} className="gap-1.5">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => onLoad(inv)}
+                        className="gap-1.5"
+                      >
                         <Pencil className="w-3.5 h-3.5" /> Open
                       </Button>
-                      <Button size="sm" variant="outline" onClick={() => onDuplicate(inv)} className="gap-1.5">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => onDuplicate(inv)}
+                        className="gap-1.5"
+                      >
                         <Copy className="w-3.5 h-3.5" /> Duplicate
                       </Button>
                       <a
@@ -2307,7 +2372,12 @@ function InvoicesView({
                           Mark paid
                         </Button>
                       )}
-                      <Button size="sm" variant="ghost" onClick={() => onDelete(inv)} className="gap-1.5">
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        onClick={() => onDelete(inv)}
+                        className="gap-1.5"
+                      >
                         <Trash2 className="w-3.5 h-3.5" /> Delete
                       </Button>
                     </div>
@@ -2329,7 +2399,13 @@ function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Pr
     const issued = invoices.filter((i) => i.status !== 'draft');
     const perCurrency = new Map<
       string,
-      { billed: number; collected: number; outstanding: number; overdueAmount: number; overdueCount: number }
+      {
+        billed: number;
+        collected: number;
+        outstanding: number;
+        overdueAmount: number;
+        overdueCount: number;
+      }
     >();
     const aging = new Map<string, { current: number; d30: number; d60: number; d60plus: number }>();
     const todayMs = Date.parse(todayIso());
@@ -2409,8 +2485,8 @@ function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Pr
       <Card className="p-8 text-center">
         <p className="font-semibold">Nothing to chart yet</p>
         <p className="text-sm text-muted-foreground mt-1.5">
-          The dashboard comes alive once you have saved an invoice and marked it as sent. Drafts
-          are excluded — this page tracks money you have actually billed.
+          The dashboard comes alive once you have saved an invoice and marked it as sent. Drafts are
+          excluded — this page tracks money you have actually billed.
         </p>
       </Card>
     );
@@ -2425,19 +2501,29 @@ function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Pr
           <h3 className="font-semibold mb-3">{currency} overview</h3>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <Card className="p-4">
-              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Total billed</p>
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                Total billed
+              </p>
               <p className="text-xl font-bold mt-1">{money(row.billed, currency)}</p>
             </Card>
             <Card className="p-4">
-              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Collected</p>
-              <p className="text-xl font-bold mt-1 text-emerald-600">{money(row.collected, currency)}</p>
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                Collected
+              </p>
+              <p className="text-xl font-bold mt-1 text-emerald-600">
+                {money(row.collected, currency)}
+              </p>
             </Card>
             <Card className="p-4">
-              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Outstanding</p>
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                Outstanding
+              </p>
               <p className="text-xl font-bold mt-1">{money(row.outstanding, currency)}</p>
             </Card>
             <Card className="p-4">
-              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Overdue</p>
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                Overdue
+              </p>
               <p className="text-xl font-bold mt-1 text-red-600">
                 {money(row.overdueAmount, currency)}
               </p>
@@ -2466,7 +2552,10 @@ function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Pr
             <div className="mt-5">
               <div className="flex items-end gap-3 h-40">
                 {data.months.map((m) => (
-                  <div key={m.key} className="flex-1 flex flex-col items-center justify-end h-full gap-2">
+                  <div
+                    key={m.key}
+                    className="flex-1 flex flex-col items-center justify-end h-full gap-2"
+                  >
                     <span className="text-[11px] font-medium text-muted-foreground">
                       {m.total > 0 ? money(m.total, profile.currency) : ''}
                     </span>
@@ -2498,9 +2587,18 @@ function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Pr
                       ['Over 60 days overdue', a.d60plus],
                     ] as Array<[string, number]>
                   ).map(([label, amount]) => (
-                    <p key={label} className="flex justify-between py-1 border-b border-border/50 last:border-0">
+                    <p
+                      key={label}
+                      className="flex justify-between py-1 border-b border-border/50 last:border-0"
+                    >
                       <span className="text-muted-foreground">{label}</span>
-                      <span className={amount > 0 && label !== 'Not yet due' ? 'font-medium text-red-600' : 'font-medium'}>
+                      <span
+                        className={
+                          amount > 0 && label !== 'Not yet due'
+                            ? 'font-medium text-red-600'
+                            : 'font-medium'
+                        }
+                      >
                         {money(amount, currency)}
                       </span>
                     </p>
@@ -2518,9 +2616,7 @@ function DashboardView({ invoices, profile }: { invoices: Invoice[]; profile: Pr
           <Card className="p-5">
             <h3 className="font-semibold mb-3">Top clients ({profile.currency})</h3>
             {data.topClients.length === 0 ? (
-              <p className="text-sm text-muted-foreground">
-                No {profile.currency} invoices yet.
-              </p>
+              <p className="text-sm text-muted-foreground">No {profile.currency} invoices yet.</p>
             ) : (
               <ol className="space-y-2.5">
                 {data.topClients.map((c, i) => (
@@ -2565,11 +2661,7 @@ function downloadClientStatement(profile: Profile, client: Client, invoices: Inv
   doc.text(profile.businessName || 'Your Business', 15, 11);
   doc.setFontSize(9);
   doc.setFont('helvetica', 'normal');
-  doc.text(
-    [profile.email, profile.phone].filter(Boolean).join(' · '),
-    15,
-    18
-  );
+  doc.text([profile.email, profile.phone].filter(Boolean).join(' · '), 15, 18);
   doc.setFontSize(15);
   doc.setFont('helvetica', 'bold');
   doc.text('STATEMENT', pageW - 15, 14, { align: 'right' });
@@ -2869,7 +2961,12 @@ function SettingsView({
                     alt="Your business logo"
                     className="max-h-10 max-w-24 object-contain border border-border rounded bg-white p-1"
                   />
-                  <Button size="sm" variant="ghost" onClick={() => patch({ logoDataUrl: '' })} className="gap-1">
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => patch({ logoDataUrl: '' })}
+                    className="gap-1"
+                  >
                     <X className="w-3.5 h-3.5" /> Remove
                   </Button>
                 </>
@@ -2895,15 +2992,20 @@ function SettingsView({
                     alt="Your business stamp or signature"
                     className="max-h-10 max-w-24 object-contain border border-border rounded bg-white p-1"
                   />
-                  <Button size="sm" variant="ghost" onClick={() => patch({ stampDataUrl: '' })} className="gap-1">
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => patch({ stampDataUrl: '' })}
+                    className="gap-1"
+                  >
                     <X className="w-3.5 h-3.5" /> Remove
                   </Button>
                 </>
               )}
             </div>
             <p className="text-xs text-muted-foreground mt-1.5">
-              A scanned signature or company stamp. It prints beside the totals on every invoice
-              and PDF — a transparent PNG works best.
+              A scanned signature or company stamp. It prints beside the totals on every invoice and
+              PDF — a transparent PNG works best.
             </p>
           </Field>
           <div className="grid grid-cols-2 gap-3">
@@ -2915,7 +3017,7 @@ function SettingsView({
                 <SelectContent>
                   {CURRENCIES.map((c) => (
                     <SelectItem key={c} value={c}>
-                      {c}
+                      {currencyLabel(c)}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -2952,7 +3054,10 @@ function SettingsView({
                   value={profile.brandColor}
                   onChange={(e) => patch({ brandColor: e.target.value })}
                 />
-                <Input value={profile.brandColor} onChange={(e) => patch({ brandColor: e.target.value })} />
+                <Input
+                  value={profile.brandColor}
+                  onChange={(e) => patch({ brandColor: e.target.value })}
+                />
               </div>
             </Field>
           </div>
@@ -3094,11 +3199,11 @@ function SettingsView({
         <Card className="p-5">
           <h3 className="font-semibold">Your data stays here</h3>
           <p className="text-sm text-muted-foreground leading-relaxed mt-1.5">
-            Your profile, clients and invoices are stored only in this browser&apos;s local
-            storage, on this device. There is no account and no server copy — refresh the page,
-            close the tab, come back next week: everything is exactly where you left it. Clearing
-            your browser&apos;s site data deletes it permanently, so keep your downloaded PDFs —
-            and a JSON backup from the Data section — as your long-term records.
+            Your profile, clients and invoices are stored only in this browser&apos;s local storage,
+            on this device. There is no account and no server copy — refresh the page, close the
+            tab, come back next week: everything is exactly where you left it. Clearing your
+            browser&apos;s site data deletes it permanently, so keep your downloaded PDFs — and a
+            JSON backup from the Data section — as your long-term records.
           </p>
         </Card>
       </div>

@@ -50,7 +50,7 @@ const faqs = [
   {
     question: 'Can I invoice clients in other countries and currencies?',
     answer:
-      'Yes. Each invoice has its own currency — ten are built in, including USD, EUR, GBP, PKR, INR, AED, SAR, QAR, CAD and AUD — and amounts are formatted properly for the currency you choose. The tax label is free text, so you can write VAT for European clients, GST for Pakistan, India or Australia, or sales tax for the United States. The summary on the Invoices tab groups totals per currency instead of mixing them, which keeps your outstanding figures honest.',
+      'Yes. Each invoice has its own currency — more than 150 are built in, including USD, EUR, GBP, PKR, INR, AED, SAR, QAR, CAD, AUD, BDT, MYR, SGD, JPY and CHF — and amounts are formatted properly for the currency you choose. The tax label is free text, so you can write VAT for European clients, GST for Pakistan, India or Australia, or sales tax for the United States. The summary on the Invoices tab groups totals per currency instead of mixing them, which keeps your outstanding figures honest.',
   },
   {
     question: 'How do recurring invoices work?',
@@ -175,17 +175,14 @@ export default function InvoiceSitePage() {
         </section>
 
         {/* ── Features ──────────────────────────────────────────────── */}
-        <section
-          id="features"
-          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 scroll-mt-6"
-        >
+        <section id="features" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 scroll-mt-6">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
             Everything a small business actually needs
           </h2>
           <p className="mt-3 text-muted-foreground max-w-3xl leading-relaxed">
             Most invoice tools either stop at a pretty PDF or bury you in accounting features you
-            will never open. This one covers the whole life of an invoice — writing it, branding
-            it, sending it, chasing it and filing it — and then gets out of your way.
+            will never open. This one covers the whole life of an invoice — writing it, branding it,
+            sending it, chasing it and filing it — and then gets out of your way.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((f) => (
@@ -201,7 +198,7 @@ export default function InvoiceSitePage() {
           <div className="mt-6 grid gap-4 sm:grid-cols-3 text-sm">
             <p className="rounded-xl bg-muted/60 px-4 py-3">
               <Wallet className="inline w-4 h-4 mr-2 text-primary" />
-              <strong>Ten currencies</strong> with proper formatting, and discounts, tax and
+              <strong>150+ currencies</strong> with proper formatting, and discounts, tax and
               shipping handled in the right order.
             </p>
             <p className="rounded-xl bg-muted/60 px-4 py-3">
@@ -211,8 +208,8 @@ export default function InvoiceSitePage() {
             </p>
             <p className="rounded-xl bg-muted/60 px-4 py-3">
               <MousePointerClick className="inline w-4 h-4 mr-2 text-primary" />
-              <strong>One-click PDF</strong> that matches the on-screen preview, templates
-              included, ready to email or print.
+              <strong>One-click PDF</strong> that matches the on-screen preview, templates included,
+              ready to email or print.
             </p>
           </div>
         </section>
@@ -227,10 +224,10 @@ export default function InvoiceSitePage() {
           </h2>
           <p className="mt-3 text-muted-foreground max-w-3xl leading-relaxed">
             The app above is the full workspace — but sometimes you just need one document, fast.
-            This site also carries the complete document toolkit for a small business: send a
-            priced quote before the work starts, raise the invoice when the job is done, and hand
-            over a receipt once the money lands. Every tool is free, runs in your browser and needs
-            no sign-up.
+            This site also carries the complete document toolkit for a small business: send a priced
+            quote before the work starts, raise the invoice when the job is done, and hand over a
+            receipt once the money lands. Every tool is free, runs in your browser and needs no
+            sign-up.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Link
@@ -260,8 +257,8 @@ export default function InvoiceSitePage() {
               <h3 className="font-semibold">Quote Generator</h3>
               <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
                 Send a priced quote first, with clear validity dates, so the client agrees the
-                number before any work begins — then turn the accepted job into your billing
-                without starting from a blank page.
+                number before any work begins — then turn the accepted job into your billing without
+                starting from a blank page.
               </p>
               <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
                 Open the tool <ArrowRight className="w-4 h-4" />
@@ -277,8 +274,8 @@ export default function InvoiceSitePage() {
               <h3 className="font-semibold">Receipt Generator</h3>
               <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
                 Thermal-style payment receipts for in-person sales — the familiar narrow till-roll
-                format, with cash tendered and change worked out for you. Print it at the counter
-                or save the PDF for your records.
+                format, with cash tendered and change worked out for you. Print it at the counter or
+                save the PDF for your records.
               </p>
               <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
                 Open the tool <ArrowRight className="w-4 h-4" />
@@ -311,10 +308,9 @@ export default function InvoiceSitePage() {
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 A serif headline, ruled table lines and a formal two-column header — the invoice
                 equivalent of a firm handshake. Classic suits accountants, law and consultancy
-                practices, trades businesses invoicing larger firms, and anyone whose clients
-                still print invoices and file them in a binder. It reads as established and
-                careful, which is exactly the impression that gets invoices approved without
-                questions.
+                practices, trades businesses invoicing larger firms, and anyone whose clients still
+                print invoices and file them in a binder. It reads as established and careful, which
+                is exactly the impression that gets invoices approved without questions.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6">
@@ -323,8 +319,8 @@ export default function InvoiceSitePage() {
                 A bold colour band in your brand colour across the top, clean sans-serif type and
                 generous white space. Modern is built for designers, developers, agencies,
                 photographers and online sellers — businesses whose work is visual and whose
-                paperwork should look like it came from the same studio. Set your brand colour
-                once in the editor and every invoice carries it.
+                paperwork should look like it came from the same studio. Set your brand colour once
+                in the editor and every invoice carries it.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6">
@@ -372,8 +368,8 @@ export default function InvoiceSitePage() {
               <span className="text-3xl font-extrabold text-primary">4</span>
               <h3 className="mt-2 font-semibold">Track it to paid</h3>
               <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
-                Record payments as they land — part-payments included — and flip the invoice to
-                paid when the balance clears. Your totals update themselves.
+                Record payments as they land — part-payments included — and flip the invoice to paid
+                when the balance clears. Your totals update themselves.
               </p>
             </li>
           </ol>
@@ -384,11 +380,11 @@ export default function InvoiceSitePage() {
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Who it&apos;s for</h2>
           <div className="mt-6 space-y-5 text-muted-foreground leading-relaxed max-w-4xl">
             <p>
-              <strong className="text-foreground">Freelancers and consultants.</strong> You bill
-              by the project or by the day, and every hour spent on admin is an hour you cannot
-              bill. A saved profile and client list turn invoicing into a two-minute job: pick the
-              client, describe the work, send the PDF. The payment QR removes the most common
-              delay of all — the client who means to pay but cannot find your bank details.
+              <strong className="text-foreground">Freelancers and consultants.</strong> You bill by
+              the project or by the day, and every hour spent on admin is an hour you cannot bill. A
+              saved profile and client list turn invoicing into a two-minute job: pick the client,
+              describe the work, send the PDF. The payment QR removes the most common delay of all —
+              the client who means to pay but cannot find your bank details.
             </p>
             <p>
               <strong className="text-foreground">Agencies and small studios.</strong> Retainers,
@@ -405,18 +401,18 @@ export default function InvoiceSitePage() {
               departments expect before they release payment.
             </p>
             <p>
-              <strong className="text-foreground">Tutors, coaches and trainers.</strong> Term
-              fees, monthly packages and one-off sessions, usually invoiced to parents and
-              individuals. The Minimal template keeps things friendly and unfussy, per-client
-              records show instantly who has paid for this term, and a payment link QR on the PDF
-              lets a parent settle from their phone the moment the invoice arrives.
+              <strong className="text-foreground">Tutors, coaches and trainers.</strong> Term fees,
+              monthly packages and one-off sessions, usually invoiced to parents and individuals.
+              The Minimal template keeps things friendly and unfussy, per-client records show
+              instantly who has paid for this term, and a payment link QR on the PDF lets a parent
+              settle from their phone the moment the invoice arrives.
             </p>
             <p>
               <strong className="text-foreground">Contractors and tradespeople.</strong> Deposits,
               stage payments and final balances on the same job. Record the deposit as an amount
               paid against the full invoice and the balance due stays correct on every copy you
-              send; duplicate the invoice for the next stage instead of starting from a blank
-              page, and keep the whole job&apos;s paperwork in one list.
+              send; duplicate the invoice for the next stage instead of starting from a blank page,
+              and keep the whole job&apos;s paperwork in one list.
             </p>
           </div>
         </section>
