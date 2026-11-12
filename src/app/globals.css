@@ -220,3 +220,21 @@ body {
 .page-prose a:hover {
   text-decoration: underline;
 }
+
+/*
+ * Invoice subdomain site (invoicegenerator.freeqrcode.tools): hide the main
+ * site's AppHeader / AppFooter on invoice-site pages only.
+ *
+ * The root layout renders AppHeader (<header>) and AppFooter (<footer>) as
+ * direct children of the same wrapper <div> that holds <main>, and invoice
+ * pages render .invoice-site-root inside that <main> — so this selector can
+ * only match on invoice-site pages. It lives in this external stylesheet on
+ * purpose: an identical rule shipped as an inline <style> element was
+ * blocked by the site's nonce-based CSP (style elements without the
+ * per-request nonce are refused), while this file is served from 'self'
+ * and always applies.
+ */
+div:has(> main .invoice-site-root) > header,
+div:has(> main .invoice-site-root) > footer {
+  display: none !important;
+}
