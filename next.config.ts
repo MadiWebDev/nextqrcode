@@ -37,12 +37,48 @@ const securityHeaders = [
   { key: 'X-Frame-Options', value: 'DENY' },
 ];
 
+/**
+ * CDN cache headers for public content routes.
+ *
+ * These sections are statically generated, carry no authenticated or
+ * per-user content, and change only when new content is published — so a
+ * CDN may serve them from cache for a day and serve stale copies for a week
+ * while revalidating in the background. That cuts TTFB for visitors and for
+ * Googlebot, which was postponing crawls on this site. Sitemap and robots
+ * get a shorter one-hour cache so newly published pages are discovered
+ * promptly.
+ */
+const CONTENT_CACHE = 'public, s-maxage=86400, stale-while-revalidate=604800';
+const DISCOVERY_CACHE = 'public, s-maxage=3600, stale-while-revalidate=86400';
+
+const contentCacheRoutes = [
+  '/blog/:path*',
+  '/industries/:path*',
+  '/glossary/:path*',
+  '/scan-guide/:path*',
+  '/qr-size-guide/:path*',
+  '/templates/:path*',
+  '/tools',
+];
+
 const nextConfig: NextConfig = {
   async headers() {
     return [
       {
         source: '/:path*',
         headers: securityHeaders,
+      },
+      ...contentCacheRoutes.map((source) => ({
+        source,
+        headers: [{ key: 'Cache-Control', value: CONTENT_CACHE }],
+      })),
+      {
+        source: '/sitemap.xml',
+        headers: [{ key: 'Cache-Control', value: DISCOVERY_CACHE }],
+      },
+      {
+        source: '/robots.txt',
+        headers: [{ key: 'Cache-Control', value: DISCOVERY_CACHE }],
       },
     ];
   },
@@ -62,3 +98,4 @@ const nextConfig: NextConfig = {
 };
 
 export default createNextIntlPlugin('./src/i18n/request.ts')(nextConfig);
+

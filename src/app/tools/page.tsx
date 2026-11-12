@@ -261,6 +261,36 @@ const categories: ToolCategory[] = [
       { href: '/barcode-generator', label: 'Barcode Generator' },
     ],
   },
+  {
+    heading: 'Business, ID Cards & Store Tools',
+    description:
+      'Free document and design tools for businesses, schools and shops: invoices, quotes, receipts, ID cards, certificates, price tags, sale posters and print-ready photos. Everything runs in your browser — your data never leaves your device.',
+    tools: [
+      { href: '/invoice-generator', label: 'Free Invoice Generator' },
+      { href: '/quote-generator', label: 'Quote & Estimate Generator' },
+      { href: '/receipt-generator', label: 'Receipt Generator' },
+      { href: '/student-id-card-generator', label: 'Student ID Card Generator' },
+      { href: '/employee-id-card-generator', label: 'Employee ID Card Generator' },
+      { href: '/certificate-generator', label: 'Certificate Generator' },
+      { href: '/price-tag-maker', label: 'Price Tag Maker' },
+      { href: '/sale-poster-maker', label: 'Sale Poster Maker' },
+      { href: '/image-to-pdf-converter', label: 'Image to PDF Converter' },
+      { href: '/passport-photo-maker', label: 'Passport Photo Maker' },
+      { href: '/proforma-invoice-generator', label: 'Proforma Invoice Generator' },
+      { href: '/purchase-order-generator', label: 'Purchase Order Generator' },
+      { href: '/credit-note-generator', label: 'Credit Note Generator' },
+      { href: '/delivery-note-generator', label: 'Delivery Note / Challan Generator' },
+      {
+        href: '/payment-reminder-letter-generator',
+        label: 'Payment Reminder Letter Generator',
+      },
+      { href: '/salary-slip-generator', label: 'Salary Slip Generator' },
+      { href: '/late-fee-calculator', label: 'Late Fee Calculator' },
+      { href: '/gst-vat-calculator', label: 'GST / VAT Calculator' },
+      { href: '/discount-margin-calculator', label: 'Discount & Margin Calculator' },
+      { href: '/amount-to-words-converter', label: 'Amount to Words Converter' },
+    ],
+  },
 ];
 
 /** Reusable section component — renders heading, description and a responsive link grid. */
@@ -343,3 +373,4 @@ export default function ToolsDirectoryPage() {
     </div>
   );
 }
+

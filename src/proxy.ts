@@ -9,6 +9,21 @@ import { NextRequest, NextResponse } from 'next/server';
  *   scripts blocked during crawling or browser rendering.
  * - Exports `proxy` (Next.js 16 convention) and `middleware` (for backwards compatibility).
  */
+/**
+ * Subdomain site: invoicegenerator.freeqrcode.tools serves the standalone
+ * invoice generator app (route /invoice-site) as its own site. The host is
+ * centralised here so renaming the subdomain is a one-line change.
+ */
+const INVOICE_SITE_HOST = 'invoicegenerator.freeqrcode.tools';
+
+/**
+ * Invoice-family tool pages that also live on the subdomain under their own
+ * paths (e.g. invoicegenerator.freeqrcode.tools/quote-generator). On the
+ * invoice host these are served as-is instead of being prefixed with
+ * /invoice-site, so the whole invoice tool family shows on the subdomain.
+ */
+const INVOICE_TOOL_PATHS = new Set(['/invoice-generator', '/quote-generator', '/receipt-generator']);
+
 export function proxy(request: NextRequest) {
   let nonce: string;
   try {
@@ -40,6 +55,24 @@ export function proxy(request: NextRequest) {
   requestHeaders.set('x-nonce', nonce);
   requestHeaders.set('Content-Security-Policy', contentSecurityPolicy);
 
+  // Subdomain routing: the invoice site host rewrites to /invoice-site/*,
+  // except the invoice-family tool paths, which are served under their own
+  // paths on the subdomain too.
+  const host = (request.headers.get('host') ?? '').split(':')[0].toLowerCase();
+  if (
+    host === INVOICE_SITE_HOST &&
+    !request.nextUrl.pathname.startsWith('/invoice-site') &&
+    !INVOICE_TOOL_PATHS.has(request.nextUrl.pathname)
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/invoice-site' + (url.pathname === '/' ? '' : url.pathname);
+    const rewriteResponse = NextResponse.rewrite(url, {
+      request: { headers: requestHeaders },
+    });
+    rewriteResponse.headers.set('Content-Security-Policy', contentSecurityPolicy);
+    return rewriteResponse;
+  }
+
   const response = NextResponse.next({
     request: { headers: requestHeaders },
   });
@@ -64,3 +97,4 @@ export const config = {
     },
   ],
 };
+

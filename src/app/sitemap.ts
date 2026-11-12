@@ -125,6 +125,26 @@ function toolEntries(): MetadataRoute.Sitemap {
     '/qr-size-calculator',
     '/qr-safety-checker',
     '/qr-scanner',
+    '/invoice-generator',
+    '/quote-generator',
+    '/receipt-generator',
+    '/student-id-card-generator',
+    '/employee-id-card-generator',
+    '/certificate-generator',
+    '/price-tag-maker',
+    '/sale-poster-maker',
+    '/image-to-pdf-converter',
+    '/passport-photo-maker',
+    '/proforma-invoice-generator',
+    '/purchase-order-generator',
+    '/credit-note-generator',
+    '/delivery-note-generator',
+    '/payment-reminder-letter-generator',
+    '/salary-slip-generator',
+    '/late-fee-calculator',
+    '/gst-vat-calculator',
+    '/discount-margin-calculator',
+    '/amount-to-words-converter',
     '/printed-qr-tester',
     '/error-correction-simulator',
     '/qr-splitter-scanner',
@@ -451,3 +471,4 @@ async function labelEntries(): Promise<MetadataRoute.Sitemap> {
 
   return out;
 }
+
