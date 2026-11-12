@@ -13,6 +13,7 @@ import {
   MessageCircle,
   Pencil,
   Plus,
+  Printer,
   Repeat,
   Save,
   Search,
@@ -38,6 +39,16 @@ import {
 } from '@/components/ui/select';
 import { ALL_CURRENCIES, currencyDigits, currencyLabel } from './_data/currencies';
 import { computeInvoice, type TaxMode } from './_lib/invoice-engine';
+import {
+  DEFAULT_TEMPLATE_SETTINGS,
+  TEMPLATE_IDS,
+  TEMPLATES,
+  normalizeTemplateSettings,
+  templateDef,
+  type TemplateName,
+  type TemplateSettings,
+} from './_lib/templates';
+import { buildInvoicePdf } from './_lib/pdf';
 
 export type { TaxMode };
 
@@ -121,7 +132,6 @@ export type EffectiveStatus =
   | 'overdue'
   | 'paid'
   | 'cancelled';
-export type TemplateName = 'classic' | 'modern' | 'minimal';
 export type DiscountType = 'pct' | 'fixed';
 export type DueTerms = 'receipt' | 'net7' | 'net14' | 'net30' | 'net60' | 'custom';
 export type RecurringFrequency = 'weekly' | 'monthly' | 'quarterly' | 'yearly';
@@ -174,6 +184,7 @@ export interface Invoice {
   /** Custom footer line printed at the bottom of the document ('' = none). */
   footerText: string;
   template: TemplateName;
+  templateSettings: TemplateSettings;
   showQr: boolean;
   qrPayload: string;
   recurring: Recurring | null;
@@ -527,7 +538,10 @@ export function normalizeInvoice(raw: Partial<Invoice>): Invoice {
     internalNotes: raw.internalNotes ?? '',
     terms: raw.terms ?? '',
     footerText: raw.footerText ?? '',
-    template: raw.template ?? 'modern',
+    template: TEMPLATE_IDS.includes(raw.template as TemplateName)
+      ? (raw.template as TemplateName)
+      : 'modern',
+    templateSettings: normalizeTemplateSettings(raw.templateSettings),
     showQr: raw.showQr ?? false,
     qrPayload: raw.qrPayload ?? '',
     recurring,
@@ -635,6 +649,7 @@ function makeDraft(profile: Profile): Invoice {
       'Payment is due within 14 days of the issue date. Please quote the invoice number with your payment.',
     footerText: '',
     template: 'modern',
+    templateSettings: { ...DEFAULT_TEMPLATE_SETTINGS },
     showQr: false,
     qrPayload: '',
     recurring: null,
@@ -834,6 +849,9 @@ export function InvoiceApp() {
   const draftStatus = effectiveStatus(draft);
 
   const patchDraft = (patch: Partial<Invoice>) => setDraft((d) => ({ ...d, ...patch }));
+
+  const patchSettings = (patch: Partial<TemplateSettings>) =>
+    setDraft((d) => ({ ...d, templateSettings: { ...d.templateSettings, ...patch } }));
 
   const patchItem = (id: string, patch: Partial<LineItem>) =>
     setDraft((d) => ({
@@ -1039,365 +1057,58 @@ export function InvoiceApp() {
     setPayForm((f) => ({ ...f, amount: 0, note: '' }));
   };
 
-  /* ── PDF ── */
+  /* ── PDF (shared renderer in _lib/pdf.ts) ── */
 
-  const downloadPdf = () => {
-    const doc = new JsPDF();
-    const pageW = doc.internal.pageSize.getWidth();
-    const pageH = doc.internal.pageSize.getHeight();
-    const brand = hexToRgb(profile.brandColor || '#1d4ed8');
-    const inv = draft;
-    const t = totals;
-    const eff = draftStatus;
-    let y = 15;
+  const stampFor = (eff: EffectiveStatus): 'PAID' | 'OVERDUE' | 'DRAFT' | null =>
+    eff === 'paid' ? 'PAID' : eff === 'overdue' ? 'OVERDUE' : eff === 'draft' ? 'DRAFT' : null;
 
-    const ensure = (need: number) => {
-      if (y + need > pageH - 15) {
-        doc.addPage();
-        y = 15;
+  const buildPdf = () =>
+    buildInvoicePdf(draft, profile, totals, STATUS_LABELS[draftStatus], stampFor(draftStatus));
+
+  const downloadPdf = async () => {
+    const doc = await buildPdf();
+    doc.save(`${draft.number || 'invoice'}.pdf`);
+  };
+
+  const printPdf = async () => {
+    const doc = await buildPdf();
+    const url = doc.output('bloburl');
+    window.open(url, '_blank');
+  };
+
+  const downloadInvoicesZip = async (selected: Invoice[]) => {
+    if (selected.length === 0) return;
+    const JSZip = (await import('jszip')).default;
+    const zip = new JSZip();
+    const usedNames = new Set<string>();
+    for (const inv of selected) {
+      const t = computeTotals(inv);
+      const eff = effectiveStatus(inv);
+      const doc = await buildInvoicePdf(
+        inv,
+        profile,
+        t,
+        STATUS_LABELS[eff],
+        stampFor(eff)
+      );
+      let name = `${inv.number || inv.id}.pdf`;
+      let n = 2;
+      while (usedNames.has(name)) {
+        name = `${inv.number || inv.id}-${n}.pdf`;
+        n += 1;
       }
-    };
-
-    // Header per template
-    if (inv.template === 'modern') {
-      doc.setFillColor(brand.r, brand.g, brand.b);
-      doc.rect(0, 0, pageW, 30, 'F');
-      doc.setTextColor(255, 255, 255);
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(13);
-      doc.text(profile.businessName || 'Your Business', 15, 13);
-      doc.setFontSize(9);
-      doc.setFont('helvetica', 'normal');
-      doc.text(profile.email || '', 15, 20);
-      doc.text(profile.phone || '', 15, 25);
-      doc.setFontSize(20);
-      doc.setFont('helvetica', 'bold');
-      doc.text(inv.docTitle || 'INVOICE', pageW - 15, 14, { align: 'right' });
-      doc.setFontSize(10);
-      doc.text(inv.number, pageW - 15, 21, { align: 'right' });
-      doc.setTextColor(30, 30, 30);
-      y = 40;
-      if (profile.logoDataUrl) {
-        try {
-          doc.addImage(
-            profile.logoDataUrl,
-            profile.logoDataUrl.startsWith('data:image/png') ? 'PNG' : 'JPEG',
-            pageW - 45,
-            y - 6,
-            30,
-            12
-          );
-        } catch {
-          /* logo is decorative in the PDF */
-        }
-      }
-    } else if (inv.template === 'classic') {
-      doc.setFont('times', 'bold');
-      doc.setFontSize(26);
-      doc.text(inv.docTitle || 'INVOICE', 15, y + 6);
-      doc.setFontSize(12);
-      doc.text(inv.number, pageW - 15, y + 6, { align: 'right' });
-      y += 12;
-      doc.setLineWidth(0.8);
-      doc.line(15, y, pageW - 15, y);
-      doc.setLineWidth(0.25);
-      doc.line(15, y + 1.2, pageW - 15, y + 1.2);
-      y += 8;
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(11);
-      doc.text(profile.businessName || 'Your Business', 15, y);
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(9.5);
-      const lines = doc.splitTextToSize(
-        [profile.address, profile.email, profile.phone].filter(Boolean).join('\n'),
-        80
-      ) as string[];
-      lines.forEach((line, i) => doc.text(line, 15, y + 5 + i * 4.5));
-      y += 6 + lines.length * 4.5;
-    } else {
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(15);
-      doc.setTextColor(90, 90, 90);
-      doc.text(inv.docTitle || 'Invoice', 15, y + 4);
-      doc.setFontSize(11);
-      doc.text(inv.number, pageW - 15, y + 4, { align: 'right' });
-      doc.setTextColor(30, 30, 30);
-      y += 10;
-      doc.setDrawColor(200, 200, 200);
-      doc.setLineWidth(0.2);
-      doc.line(15, y, pageW - 15, y);
-      y += 7;
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(10.5);
-      doc.text(profile.businessName || 'Your Business', 15, y);
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(9.5);
-      const lines = doc.splitTextToSize(
-        [profile.address, profile.email, profile.phone].filter(Boolean).join(' · '),
-        180
-      ) as string[];
-      lines.forEach((line, i) => doc.text(line, 15, y + 4.5 + i * 4.5));
-      y += 6 + lines.length * 4.5;
+      usedNames.add(name);
+      zip.file(name, doc.output('arraybuffer'));
     }
-
-    // Dates + bill to
-    ensure(34);
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(9.5);
-    doc.text(`Issue date: ${inv.issueDate}`, pageW - 15, y, { align: 'right' });
-    doc.text(`Due date: ${inv.dueDate}`, pageW - 15, y + 5, { align: 'right' });
-    let metaY = y + 10;
-    if (inv.poNumber.trim()) {
-      doc.text(`PO / Ref: ${inv.poNumber.trim()}`, pageW - 15, metaY, { align: 'right' });
-      metaY += 5;
-    }
-    if (inv.referenceNumber.trim()) {
-      doc.text(`Reference: ${inv.referenceNumber.trim()}`, pageW - 15, metaY, {
-        align: 'right',
-      });
-      metaY += 5;
-    }
-    doc.text(`Status: ${STATUS_LABELS[eff].toUpperCase()}`, pageW - 15, metaY, { align: 'right' });
-    doc.setFont('helvetica', 'bold');
-    doc.text('Bill to', 15, y);
-    doc.setFont('helvetica', 'normal');
-    const billLines = doc.splitTextToSize(
-      [inv.clientName || 'Client', inv.clientAddress, inv.clientEmail, inv.clientPhone]
-        .filter(Boolean)
-        .join('\n'),
-      95
-    ) as string[];
-    billLines.forEach((line, i) => doc.text(line, 15, y + 5 + i * 4.5));
-    y += Math.max(16, metaY - y + 5, 5 + billLines.length * 4.5) + 4;
-
-    // Items table
-    ensure(12);
-    if (inv.template === 'modern') {
-      doc.setFillColor(brand.r, brand.g, brand.b);
-      doc.rect(15, y - 4.5, pageW - 30, 7.5, 'F');
-      doc.setTextColor(255, 255, 255);
-    } else {
-      doc.setDrawColor(160, 160, 160);
-      doc.line(15, y + 3, pageW - 15, y + 3);
-      doc.setTextColor(30, 30, 30);
-    }
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(9.5);
-    doc.text('Description', 17, y + 1);
-    doc.text('Qty', 118, y + 1, { align: 'right' });
-    doc.text('Unit price', 152, y + 1, { align: 'right' });
-    doc.text('Amount', pageW - 17, y + 1, { align: 'right' });
-    doc.setTextColor(30, 30, 30);
-    doc.setFont('helvetica', 'normal');
-    y += 8;
-
-    inv.items.forEach((item, idx) => {
-      const lineNet = t.lines[idx]?.net ?? 0;
-      const lineDiscount = t.lines[idx]?.discount ?? 0;
-      const desc = doc.splitTextToSize(item.description || '-', 92) as string[];
-      const extra: string[] = [];
-      if (item.detail.trim()) {
-        (doc.splitTextToSize(item.detail.trim(), 92) as string[]).forEach((l) => extra.push(l));
-      }
-      if (item.sku.trim()) extra.push(`SKU: ${item.sku.trim()}`);
-      if (lineDiscount > 0) {
-        extra.push(`Item discount: -${money(lineDiscount, inv.currency, true)}`);
-      }
-      const rowLines = [...desc, ...extra];
-      ensure(Math.max(6, rowLines.length * 4.8) + 2);
-      rowLines.forEach((line, i) => doc.text(line, 17, y + i * 4.8));
-      const qtyText = item.unit ? `${item.qty || 0} ${item.unit}` : String(item.qty || 0);
-      doc.text(qtyText, 118, y, { align: 'right' });
-      doc.text(money(item.unitPrice || 0, inv.currency, true), 152, y, { align: 'right' });
-      doc.text(money(lineNet, inv.currency, true), pageW - 17, y, {
-        align: 'right',
-      });
-      y += Math.max(6, rowLines.length * 4.8) + 1.5;
-    });
-
-    // Totals
-    ensure(48);
-    y += 3;
-    doc.setDrawColor(200, 200, 200);
-    doc.line(118, y - 3, pageW - 15, y - 3);
-    const discountLabel =
-      inv.discountType === 'fixed' ? 'Discount' : `Discount (${clampPct(inv.discountValue)}%)`;
-    const rows: Array<[string, string, boolean]> = [
-      ['Subtotal', money(t.subtotal, inv.currency, true), false],
-      ...(t.discountAmount > 0
-        ? [
-            [discountLabel, `-${money(t.discountAmount, inv.currency, true)}`, false] as [
-              string,
-              string,
-              boolean,
-            ],
-          ]
-        : []),
-      ...(t.taxAmount > 0
-        ? [
-            [
-              `${inv.taxLabel || 'Tax'} (${clampPct(inv.taxPct)}%)`,
-              money(t.taxAmount, inv.currency, true),
-              false,
-            ] as [string, string, boolean],
-          ]
-        : []),
-      ...(inv.shipping > 0
-        ? [
-            ['Shipping', money(inv.shipping, inv.currency, true), false] as [
-              string,
-              string,
-              boolean,
-            ],
-          ]
-        : []),
-      ...(t.additionalCharges > 0
-        ? [
-            [
-              'Additional charges',
-              money(t.additionalCharges, inv.currency, true),
-              false,
-            ] as [string, string, boolean],
-          ]
-        : []),
-      ...(t.roundingAdjustment !== 0
-        ? [
-            [
-              'Rounding adjustment',
-              `${t.roundingAdjustment > 0 ? '+' : '-'}${money(
-                Math.abs(t.roundingAdjustment),
-                inv.currency,
-                true
-              )}`,
-              false,
-            ] as [string, string, boolean],
-          ]
-        : []),
-      ['Total', money(t.total, inv.currency, true), true],
-      ...(t.totalPaid > 0
-        ? [
-            ['Total paid', money(t.totalPaid, inv.currency, true), false] as [
-              string,
-              string,
-              boolean,
-            ],
-          ]
-        : []),
-      ['Balance due', money(t.balance, inv.currency, true), true],
-    ];
-    rows.forEach(([label, value, bold]) => {
-      doc.setFont('helvetica', bold ? 'bold' : 'normal');
-      doc.text(label, 120, y);
-      doc.text(value, pageW - 15, y, { align: 'right' });
-      y += 5.5;
-    });
-    doc.setFont('helvetica', 'normal');
-
-    // Business stamp / signature image, beside the totals block
-    if (profile.stampDataUrl) {
-      try {
-        doc.addImage(
-          profile.stampDataUrl,
-          profile.stampDataUrl.startsWith('data:image/png') ? 'PNG' : 'JPEG',
-          15,
-          y - 26,
-          40,
-          20
-        );
-      } catch {
-        /* stamp is decorative in the PDF */
-      }
-    }
-
-    // Payment history (from the ledger)
-    if (inv.payments.length > 0) {
-      ensure(12 + inv.payments.length * 5);
-      y += 3;
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(9.5);
-      doc.text('Payments received', 15, y);
-      doc.setFont('helvetica', 'normal');
-      y += 5;
-      inv.payments.forEach((p) => {
-        ensure(5);
-        const line = `${p.date || '—'} · ${p.method}${p.note ? ` · ${p.note}` : ''}`;
-        doc.text(line, 15, y);
-        doc.text(money(p.amount, inv.currency, true), 100, y, { align: 'right' });
-        y += 4.8;
-      });
-      y += 2;
-    }
-
-    // QR + notes + terms
-    if (effectiveQr) {
-      ensure(48);
-      y += 4;
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(9.5);
-      doc.text('Scan to pay', 15, y);
-      try {
-        doc.addImage(effectiveQr, 'PNG', 15, y + 3, 34, 34);
-      } catch {
-        /* QR is optional in the PDF */
-      }
-      doc.setFont('helvetica', 'normal');
-      const payLines = doc.splitTextToSize(qrPayloadText, 120) as string[];
-      payLines.slice(0, 6).forEach((line, i) => doc.text(line, 54, y + 8 + i * 4.8));
-      y += 42;
-    }
-    if (inv.notes.trim()) {
-      ensure(14);
-      y += 3;
-      doc.setFontSize(9);
-      const lines = doc.splitTextToSize(`Notes: ${inv.notes.trim()}`, pageW - 30) as string[];
-      lines.forEach((line) => {
-        ensure(5);
-        doc.text(line, 15, y);
-        y += 4.5;
-      });
-    }
-    if (inv.terms.trim()) {
-      ensure(14);
-      y += 2;
-      doc.setFontSize(9);
-      const lines = doc.splitTextToSize(`Terms: ${inv.terms.trim()}`, pageW - 30) as string[];
-      lines.forEach((line) => {
-        ensure(5);
-        doc.text(line, 15, y);
-        y += 4.5;
-      });
-    }
-
-    // PAID / OVERDUE stamp, drawn last so it sits on top of the page
-    if (eff === 'paid' || eff === 'overdue') {
-      const pageCount = doc.getNumberOfPages();
-      doc.setPage(pageCount);
-      if (eff === 'paid') doc.setTextColor(120, 195, 150);
-      else doc.setTextColor(235, 150, 150);
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(54);
-      doc.text(eff === 'paid' ? 'PAID' : 'OVERDUE', pageW / 2, pageH / 2, {
-        align: 'center',
-        angle: 24,
-      });
-      doc.setTextColor(30, 30, 30);
-      doc.setFont('helvetica', 'normal');
-    }
-
-    if (inv.footerText.trim()) {
-      doc.setFontSize(8.5);
-      doc.setTextColor(110, 110, 110);
-      doc.text(inv.footerText.trim(), pageW / 2, pageH - 13, { align: 'center' });
-    }
-    doc.setFontSize(8);
-    doc.setTextColor(140, 140, 140);
-    doc.text(
-      'Created with the free Invoice Generator — invoicegenerator.freeqrcode.tools',
-      pageW / 2,
-      pageH - 8,
-      { align: 'center' }
-    );
-    doc.save(`${inv.number || 'invoice'}.pdf`);
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `invoices-${todayIso()}.zip`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 4000);
   };
 
   /* ── Render ── */
@@ -1535,21 +1246,6 @@ export function InvoiceApp() {
                     onChange={(e) => patchDraft({ dueDate: e.target.value, dueTerms: 'custom' })}
                   />
                 </Field>
-                <Field label="Template">
-                  <Select
-                    value={draft.template}
-                    onValueChange={(v) => patchDraft({ template: v as TemplateName })}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="classic">Classic</SelectItem>
-                      <SelectItem value="modern">Modern</SelectItem>
-                      <SelectItem value="minimal">Minimal</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </Field>
                 <Field label="Brand colour (Modern template)">
                   <div className="flex items-center gap-2">
                     <Input
@@ -1638,6 +1334,161 @@ export function InvoiceApp() {
                     </label>
                   </div>
                 )}
+              </div>
+            </Card>
+
+            <Card className="p-5 space-y-4">
+              <h3 className="font-semibold">Template &amp; design</h3>
+              <p className="text-xs text-muted-foreground -mt-2">
+                Ten print-ready designs. Switching templates never changes your figures — only how
+                the invoice looks, in the preview and the PDF alike.
+              </p>
+              <div className="grid grid-cols-2 gap-2.5" role="radiogroup" aria-label="Invoice template">
+                {TEMPLATES.map((t) => {
+                  const active = draft.template === t.id;
+                  const brand = profile.brandColor || '#1d4ed8';
+                  return (
+                    <button
+                      key={t.id}
+                      type="button"
+                      role="radio"
+                      aria-checked={active}
+                      onClick={() => patchDraft({ template: t.id })}
+                      className={`text-left rounded-lg border p-2 transition-shadow hover:shadow ${
+                        active ? 'border-primary ring-2 ring-primary/40' : 'border-border'
+                      }`}
+                    >
+                      <span className="block h-16 rounded border border-slate-200 bg-white relative overflow-hidden">
+                        {t.header === 'band' && (
+                          <span
+                            className="block h-4 w-full"
+                            style={{
+                              backgroundColor: t.bandTone === 'dark' ? '#1e293b' : brand,
+                            }}
+                          />
+                        )}
+                        {t.header === 'side' && (
+                          <span
+                            className="absolute inset-y-0 left-0 w-1.5"
+                            style={{ backgroundColor: brand }}
+                          />
+                        )}
+                        {t.header === 'serif' && (
+                          <span className="block px-2 pt-1.5 font-serif text-[13px] font-bold text-slate-800">
+                            Invoice
+                          </span>
+                        )}
+                        {t.header === 'centered' && (
+                          <span className="block pt-1.5 text-center text-[10px] font-bold text-slate-700">
+                            YOUR BUSINESS
+                          </span>
+                        )}
+                        <span className="block px-2 pt-1.5 space-y-1">
+                          <span
+                            className={`block h-1 rounded ${
+                              t.table === 'filled' ? '' : 'bg-slate-200'
+                            }`}
+                            style={t.table === 'filled' ? { backgroundColor: brand } : undefined}
+                          />
+                          <span className="block h-1 w-5/6 rounded bg-slate-100" />
+                          <span className="block h-1 w-4/6 rounded bg-slate-100" />
+                          <span className="block h-1 w-3/6 rounded bg-slate-200 ml-auto" />
+                        </span>
+                      </span>
+                      <span className="block mt-1.5 text-xs font-semibold">{t.name}</span>
+                      <span className="block text-[11px] text-muted-foreground leading-snug">
+                        {t.blurb}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="grid grid-cols-2 gap-3 border-t border-border pt-4">
+                <Field label="Secondary colour">
+                  <div className="flex items-center gap-2">
+                    <Input
+                      type="color"
+                      className="w-14 h-10 p-1 cursor-pointer"
+                      value={draft.templateSettings.secondaryColor || profile.brandColor}
+                      onChange={(e) => patchSettings({ secondaryColor: e.target.value })}
+                    />
+                    <Input
+                      value={draft.templateSettings.secondaryColor}
+                      onChange={(e) => patchSettings({ secondaryColor: e.target.value })}
+                      placeholder="Brand colour"
+                    />
+                  </div>
+                </Field>
+                <Field label="Text size">
+                  <Select
+                    value={draft.templateSettings.fontScale}
+                    onValueChange={(v) =>
+                      patchSettings({ fontScale: v as TemplateSettings['fontScale'] })
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="compact">Compact</SelectItem>
+                      <SelectItem value="regular">Regular</SelectItem>
+                      <SelectItem value="large">Large</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </Field>
+                <Field label="PDF paper size">
+                  <Select
+                    value={draft.templateSettings.paperSize}
+                    onValueChange={(v) =>
+                      patchSettings({ paperSize: v as TemplateSettings['paperSize'] })
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="a4">A4</SelectItem>
+                      <SelectItem value="letter">Letter</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </Field>
+                <Field label="PDF orientation">
+                  <Select
+                    value={draft.templateSettings.orientation}
+                    onValueChange={(v) =>
+                      patchSettings({ orientation: v as TemplateSettings['orientation'] })
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="portrait">Portrait</SelectItem>
+                      <SelectItem value="landscape">Landscape</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </Field>
+              </div>
+              <div className="flex flex-wrap gap-x-5 gap-y-2">
+                {(
+                  [
+                    ['showLogo', 'Logo'],
+                    ['showStamp', 'Stamp / signature'],
+                    ['showPayments', 'Payments list'],
+                    ['showNotes', 'Notes'],
+                    ['showTerms', 'Terms'],
+                  ] as Array<[keyof TemplateSettings, string]>
+                ).map(([key, label]) => (
+                  <label key={key} className="flex items-center gap-1.5 text-sm cursor-pointer">
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4 accent-primary"
+                      checked={Boolean(draft.templateSettings[key])}
+                      onChange={(e) => patchSettings({ [key]: e.target.checked })}
+                    />
+                    {label}
+                  </label>
+                ))}
               </div>
             </Card>
 
@@ -2175,6 +2026,9 @@ export function InvoiceApp() {
               <Button variant="outline" onClick={downloadPdf} className="gap-2">
                 <Download className="w-4 h-4" /> Download PDF
               </Button>
+              <Button variant="outline" onClick={printPdf} className="gap-2">
+                <Printer className="w-4 h-4" /> Print / preview PDF
+              </Button>
               <Button variant="ghost" onClick={handleNew} className="gap-2">
                 <FilePlus2 className="w-4 h-4" /> New invoice
               </Button>
@@ -2230,6 +2084,7 @@ export function InvoiceApp() {
           onToggleRecurring={handleToggleRecurring}
           onStopRecurring={handleStopRecurring}
           onNew={handleNew}
+          onDownloadZip={downloadInvoicesZip}
         />
       )}
 
@@ -2263,25 +2118,42 @@ function InvoicePreview({
   qrDataUrl: string;
 }) {
   const brand = profile.brandColor || '#1d4ed8';
+  const def = templateDef(inv.template);
+  const settings = inv.templateSettings;
+  const secondary = settings.secondaryColor || brand;
   const payText = inv.qrPayload.trim() || profile.paymentDetails.trim();
   const eff = effectiveStatus(inv);
+  const stampText =
+    eff === 'paid' ? 'Paid' : eff === 'overdue' ? 'Overdue' : eff === 'draft' ? 'Draft' : null;
+  const logoImg = settings.showLogo && profile.logoDataUrl && (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={profile.logoDataUrl} alt="Business logo" className="max-h-14 max-w-32 object-contain" />
+  );
   return (
-    <div className="relative bg-white text-slate-900 rounded-xl shadow-lg border border-slate-200 overflow-hidden">
-      {(eff === 'paid' || eff === 'overdue') && (
+    <div
+      className={`relative bg-white text-slate-900 rounded-xl shadow-lg border border-slate-200 overflow-hidden ${
+        def.font === 'serif' ? 'font-serif' : ''
+      }`}
+    >
+      {stampText && (
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
           <span
             className={`inline-block -rotate-[18deg] rounded-lg border-4 px-6 py-2 text-5xl font-extrabold uppercase tracking-[0.2em] opacity-25 ${
-              eff === 'paid' ? 'border-emerald-600 text-emerald-600' : 'border-red-600 text-red-600'
+              eff === 'paid'
+                ? 'border-emerald-600 text-emerald-600'
+                : eff === 'overdue'
+                  ? 'border-red-600 text-red-600'
+                  : 'border-slate-500 text-slate-500'
             }`}
           >
-            {eff === 'paid' ? 'Paid' : 'Overdue'}
+            {stampText}
           </span>
         </div>
       )}
-      {inv.template === 'modern' && (
+      {def.header === 'band' && (
         <div
           className="px-6 py-5 text-white flex items-start justify-between gap-4"
-          style={{ backgroundColor: brand }}
+          style={{ backgroundColor: def.bandTone === 'dark' ? '#1e293b' : brand }}
         >
           <div className="min-w-0">
             <p className="font-bold text-lg leading-tight truncate">
@@ -2294,10 +2166,11 @@ function InvoicePreview({
           <div className="text-right shrink-0">
             <p className="text-2xl font-extrabold tracking-tight">{inv.docTitle || 'INVOICE'}</p>
             <p className="text-sm opacity-90">{inv.number}</p>
+            {logoImg}
           </div>
         </div>
       )}
-      {inv.template === 'classic' && (
+      {def.header === 'serif' && (
         <div className="px-6 pt-6">
           <div
             className="flex items-start justify-between gap-4 pb-3"
@@ -2310,40 +2183,72 @@ function InvoicePreview({
                 {[profile.address, profile.email, profile.phone].filter(Boolean).join('\n')}
               </p>
             </div>
-            {profile.logoDataUrl && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={profile.logoDataUrl}
-                alt="Business logo"
-                className="max-h-14 max-w-32 object-contain"
-              />
-            )}
+            {logoImg}
           </div>
         </div>
       )}
-      {inv.template === 'minimal' && (
+      {def.header === 'centered' && (
+        <div className="px-6 pt-6 text-center border-b border-slate-200 pb-4">
+          {logoImg && <div className="flex justify-center mb-2">{logoImg}</div>}
+          <p className="font-bold text-lg">{profile.businessName || 'Your Business'}</p>
+          <p className="text-xs text-slate-500 mt-0.5">
+            {[profile.address, profile.email, profile.phone].filter(Boolean).join(' · ')}
+          </p>
+          <p
+            className="text-2xl font-extrabold tracking-wide mt-3"
+            style={{ color: secondary }}
+          >
+            {inv.docTitle || 'INVOICE'}
+          </p>
+          <p className="text-sm text-slate-500">{inv.number}</p>
+        </div>
+      )}
+      {def.header === 'side' && (
+        <div className="flex">
+          <div className="w-2 shrink-0" style={{ backgroundColor: brand }} />
+          <div className="flex-1 px-5 pt-5 pb-4 flex items-start justify-between gap-4">
+            <div>
+              <p className="text-2xl font-extrabold tracking-tight" style={{ color: brand }}>
+                {inv.docTitle || 'INVOICE'}
+              </p>
+              <p className="font-semibold mt-1">{profile.businessName || 'Your Business'}</p>
+              <p className="text-xs text-slate-500">
+                {[profile.address, profile.email, profile.phone].filter(Boolean).join(' · ')}
+              </p>
+            </div>
+            <div className="text-right shrink-0">
+              <p className="font-semibold">{inv.number}</p>
+              {logoImg}
+            </div>
+          </div>
+        </div>
+      )}
+      {def.header === 'plain' && (
         <div className="px-6 pt-6">
           <div className="flex items-start justify-between gap-4 border-b border-slate-200 pb-3">
             <div>
-              <p className="text-sm uppercase tracking-widest text-slate-500">{inv.docTitle || 'Invoice'}</p>
+              <p className="text-sm uppercase tracking-widest text-slate-500">
+                {inv.docTitle || 'Invoice'}
+              </p>
               <p className="font-medium mt-1">{profile.businessName || 'Your Business'}</p>
               <p className="text-xs text-slate-500">
                 {[profile.address, profile.email, profile.phone].filter(Boolean).join(' · ')}
               </p>
             </div>
-            {profile.logoDataUrl && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={profile.logoDataUrl}
-                alt="Business logo"
-                className="max-h-12 max-w-28 object-contain"
-              />
-            )}
+            {logoImg}
           </div>
         </div>
       )}
 
-      <div className="px-6 py-5">
+      <div
+        className={`px-6 py-5 ${
+          settings.fontScale === 'compact'
+            ? 'text-[13px]'
+            : settings.fontScale === 'large'
+              ? 'text-[15px]'
+              : ''
+        }`}
+      >
         <div className="flex flex-wrap justify-between gap-4">
           <div className="text-sm">
             <p className="text-xs uppercase tracking-wide text-slate-400">Bill to</p>
@@ -2374,11 +2279,15 @@ function InvoicePreview({
           <thead>
             <tr
               className={
-                inv.template === 'modern'
+                def.table === 'filled'
                   ? 'text-white'
-                  : 'text-slate-600 border-b border-slate-300'
+                  : def.table === 'striped'
+                    ? 'bg-slate-100 text-slate-700'
+                    : def.table === 'plain'
+                      ? 'text-slate-500'
+                      : 'text-slate-600 border-b border-slate-300'
               }
-              style={inv.template === 'modern' ? { backgroundColor: brand } : undefined}
+              style={def.table === 'filled' ? { backgroundColor: brand } : undefined}
             >
               <th className="text-left font-semibold px-2 py-2">Description</th>
               <th className="text-right font-semibold px-2 py-2 w-14">Qty</th>
@@ -2388,7 +2297,12 @@ function InvoicePreview({
           </thead>
           <tbody>
             {inv.items.map((item, idx) => (
-              <tr key={item.id} className="border-b border-slate-100 align-top">
+              <tr
+                key={item.id}
+                className={`border-b border-slate-100 align-top ${
+                  def.table === 'striped' && idx % 2 === 1 ? 'bg-slate-50' : ''
+                }`}
+              >
                 <td className="px-2 py-2">
                   <span>{item.description || '—'}</span>
                   {item.detail.trim() && (
@@ -2419,7 +2333,12 @@ function InvoicePreview({
         </table>
 
         <div className="flex justify-end mt-4">
-          <dl className="w-60 text-sm space-y-1">
+          <dl
+            className={`w-60 text-sm space-y-1 ${
+              def.totals === 'boxed' ? 'border rounded-lg p-3' : ''
+            }`}
+            style={def.totals === 'boxed' ? { borderColor: secondary } : undefined}
+          >
             <div className="flex justify-between">
               <dt className="text-slate-500">Subtotal</dt>
               <dd>{money(totals.subtotal, inv.currency)}</dd>
@@ -2495,9 +2414,13 @@ function InvoicePreview({
             </div>
           )}
           <div className="text-xs text-slate-500 flex-1 min-w-52 space-y-2">
-            {inv.notes.trim() && <p className="whitespace-pre-line">{inv.notes}</p>}
-            {inv.terms.trim() && <p className="whitespace-pre-line">{inv.terms}</p>}
-            {profile.stampDataUrl && (
+            {settings.showNotes && inv.notes.trim() && (
+              <p className="whitespace-pre-line">{inv.notes}</p>
+            )}
+            {settings.showTerms && inv.terms.trim() && (
+              <p className="whitespace-pre-line">{inv.terms}</p>
+            )}
+            {settings.showStamp && profile.stampDataUrl && (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={profile.stampDataUrl}
@@ -2527,6 +2450,7 @@ function InvoicesView({
   onToggleRecurring,
   onStopRecurring,
   onNew,
+  onDownloadZip,
 }: {
   invoices: Invoice[];
   profile: Profile;
@@ -2537,8 +2461,17 @@ function InvoicesView({
   onToggleRecurring: (inv: Invoice) => void;
   onStopRecurring: (inv: Invoice) => void;
   onNew: () => void;
+  onDownloadZip: (selected: Invoice[]) => void;
 }) {
   const [query, setQuery] = useState('');
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+  const toggleSelected = (id: string) =>
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
   const [statusFilter, setStatusFilter] = useState<'all' | EffectiveStatus>('all');
 
   const summary = useMemo(() => {
@@ -2696,6 +2629,24 @@ function InvoicesView({
             </Select>
           </div>
 
+          {selectedIds.size > 0 && (
+            <div className="flex flex-wrap items-center gap-3 rounded-lg border border-border bg-muted/50 px-4 py-2.5">
+              <p className="text-sm font-medium">
+                {selectedIds.size} invoice{selectedIds.size === 1 ? '' : 's'} selected
+              </p>
+              <Button
+                size="sm"
+                className="gap-1.5"
+                onClick={() => onDownloadZip(invoices.filter((i) => selectedIds.has(i.id)))}
+              >
+                <Download className="w-3.5 h-3.5" /> Download ZIP of PDFs
+              </Button>
+              <Button size="sm" variant="ghost" onClick={() => setSelectedIds(new Set())}>
+                Clear selection
+              </Button>
+            </div>
+          )}
+
           {filtered.length === 0 ? (
             <Card className="p-8 text-center">
               <p className="font-semibold">No invoices match</p>
@@ -2710,6 +2661,13 @@ function InvoicesView({
                 const eff = effectiveStatus(inv);
                 return (
                   <Card key={inv.id} className="p-4 flex flex-wrap items-center gap-x-4 gap-y-3">
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4 accent-primary shrink-0"
+                      checked={selectedIds.has(inv.id)}
+                      onChange={() => toggleSelected(inv.id)}
+                      aria-label={`Select invoice ${inv.number} for ZIP download`}
+                    />
                     <div className="min-w-44">
                       <p className="font-semibold">{inv.number}</p>
                       <p className="text-xs text-muted-foreground">
