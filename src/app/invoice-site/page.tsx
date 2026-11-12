@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Building2,
   CheckCircle2,
-  FileDown,
   FileText,
   LayoutDashboard,
   LayoutTemplate,
@@ -137,40 +136,6 @@ export default function InvoiceSitePage() {
           })),
         }}
       />
-
-      {/* ── Branded top bar ─────────────────────────────────────────── */}
-      <header className="border-b border-border bg-card">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <div className="flex items-center gap-3">
-            <span className="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center">
-              <FileDown className="w-5 h-5" />
-            </span>
-            <span>
-              <span className="block font-bold text-lg leading-tight">Invoice Generator</span>
-              <span className="block text-xs text-muted-foreground">
-                Professional invoices in minutes — by QR Studio · freeqrcode.tools
-              </span>
-            </span>
-          </div>
-          <nav aria-label="On this page" className="flex flex-wrap gap-x-5 gap-y-1 text-sm ml-auto">
-            <a href="#create" className="hover:text-primary transition-colors">
-              Create invoice
-            </a>
-            <a href="#features" className="hover:text-primary transition-colors">
-              Features
-            </a>
-            <a href="#tools" className="hover:text-primary transition-colors">
-              Tools
-            </a>
-            <a href="#templates" className="hover:text-primary transition-colors">
-              Templates
-            </a>
-            <a href="#faq" className="hover:text-primary transition-colors">
-              FAQ
-            </a>
-          </nav>
-        </div>
-      </header>
 
       <main>
         {/* ── Hero ──────────────────────────────────────────────────── */}
@@ -474,36 +439,6 @@ export default function InvoiceSitePage() {
           </dl>
         </section>
       </main>
-
-      {/* ── Mini footer ─────────────────────────────────────────────── */}
-      <footer className="border-t border-border bg-card">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row sm:items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            <strong className="text-foreground">Invoice Generator</strong> — part of QR Studio, the
-            free tools suite at freeqrcode.tools. Your data never leaves your browser.
-          </p>
-          <nav aria-label="More tools" className="flex flex-wrap gap-5 text-sm sm:ml-auto">
-            <Link href="/invoice-generator" className="hover:text-primary transition-colors">
-              Invoice Generator
-            </Link>
-            <Link href="/quote-generator" className="hover:text-primary transition-colors">
-              Quote Generator
-            </Link>
-            <Link href="/receipt-generator" className="hover:text-primary transition-colors">
-              Receipt Generator
-            </Link>
-            <Link href="https://freeqrcode.tools/tools" className="hover:text-primary transition-colors">
-              All free tools
-            </Link>
-            <Link
-              href="https://freeqrcode.tools/invoice-generator"
-              className="hover:text-primary transition-colors"
-            >
-              Invoice tool on the main site
-            </Link>
-          </nav>
-        </div>
-      </footer>
     </div>
   );
 }

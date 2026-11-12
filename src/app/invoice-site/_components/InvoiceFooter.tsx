@@ -1,0 +1,102 @@
+import Link from 'next/link';
+import { FileText, Lock } from 'lucide-react';
+
+const COLUMNS: { heading: string; links: { href: string; label: string }[] }[] = [
+  {
+    heading: 'Product',
+    links: [
+      { href: '/#create', label: 'Create invoice' },
+      { href: '/#create', label: 'Dashboard' },
+      { href: '/#features', label: 'Features' },
+      { href: '/#templates', label: 'Templates' },
+    ],
+  },
+  {
+    heading: 'Tools',
+    links: [
+      { href: '/invoice-generator', label: 'Invoice Generator' },
+      { href: '/quote-generator', label: 'Quote Generator' },
+      { href: '/receipt-generator', label: 'Receipt Generator' },
+    ],
+  },
+  {
+    heading: 'Resources',
+    links: [
+      { href: '/blog', label: 'Blog' },
+      { href: '/#faq', label: 'FAQ' },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { href: '/about', label: 'About' },
+      { href: '/contact', label: 'Contact' },
+      { href: '/privacy', label: 'Privacy' },
+      { href: '/terms', label: 'Terms' },
+    ],
+  },
+];
+
+export function InvoiceFooter() {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="invoice-foot border-t border-border bg-card">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-3">
+              <span className="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center">
+                <FileText className="w-5 h-5" />
+              </span>
+              <span className="leading-tight">
+                <span className="block font-bold text-base">Invoice Generator</span>
+                <span className="block text-[11px] text-muted-foreground">by QR Studio</span>
+              </span>
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
+              Create, send and track professional invoices in minutes — free forever, with no
+              sign-up and no watermark on your PDFs.
+            </p>
+            <p className="mt-3 inline-flex items-center gap-2 text-xs text-muted-foreground">
+              <Lock className="w-3.5 h-3.5 text-primary" />
+              Data stays in your browser — nothing is uploaded.
+            </p>
+          </div>
+
+          {COLUMNS.map((col) => (
+            <nav key={col.heading} aria-label={col.heading}>
+              <h3 className="text-sm font-semibold tracking-wide">{col.heading}</h3>
+              <ul className="mt-3 space-y-2.5">
+                {col.links.map((link) => (
+                  <li key={link.href + link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+        </div>
+
+        <div className="mt-10 pt-6 border-t border-border/60 flex flex-col sm:flex-row sm:items-center gap-2 text-xs text-muted-foreground">
+          <p>
+            © {year} Invoice Generator by QR Studio · part of the{' '}
+            <a
+              href="https://freeqrcode.tools"
+              className="underline underline-offset-2 hover:text-primary transition-colors"
+            >
+              freeqrcode.tools
+            </a>{' '}
+            family
+          </p>
+          <p className="sm:ml-auto">Free forever — no sign-up</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
