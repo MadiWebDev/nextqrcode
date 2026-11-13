@@ -23,6 +23,12 @@ export const metadata: Metadata = {
       'Create professional invoices for free — no sign-up, no watermark. Customize templates, calculate taxes, track payments, add a payment QR and download PDF invoices.',
   },
   robots: { index: true, follow: true },
+  // The invoice site's own brand identity (overrides the root layout's QR
+  // logo icons for invoice-site routes only; the main site is unaffected).
+  icons: {
+    icon: [{ url: '/invoice-logo.svg', type: 'image/svg+xml' }],
+    shortcut: '/invoice-logo.svg',
+  },
 };
 
 /**

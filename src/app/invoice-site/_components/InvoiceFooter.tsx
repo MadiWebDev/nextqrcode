@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FileText, Lock } from 'lucide-react';
+import { Lock } from 'lucide-react';
 
 const COLUMNS: { heading: string; links: { href: string; label: string }[] }[] = [
   {
@@ -57,9 +57,8 @@ export function InvoiceFooter() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-7">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <span className="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center">
-                <FileText className="w-5 h-5" />
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element -- SVG brand mark served from /public */}
+              <img src="/invoice-logo.svg" alt="" width={40} height={40} className="w-10 h-10" />
               <span className="leading-tight">
                 <span className="block font-bold text-base">Invoice Generator</span>
                 <span className="block text-[11px] text-muted-foreground">by QR Studio</span>

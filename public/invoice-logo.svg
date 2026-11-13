@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Invoice Generator logo">
+  <!-- Brand tile: product blue (#1d4ed8, the invoice app's brand colour) -->
+  <rect width="64" height="64" rx="14" fill="#1d4ed8"/>
+  <!-- Invoice sheet with folded corner -->
+  <path d="M24 11h14l7 7v27a4 4 0 0 1-4 4H24a4 4 0 0 1-4-4V15a4 4 0 0 1 4-4z" fill="#ffffff"/>
+  <path d="M38 11l7 7h-3.5A3.5 3.5 0 0 1 38 14.5V11z" fill="#bfdbfe"/>
+  <!-- Line items -->
+  <path d="M25.5 26h13M25.5 32h13M25.5 38h8" stroke="#1d4ed8" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+  <!-- Paid check badge -->
+  <circle cx="44.5" cy="44.5" r="8.5" fill="#059669" stroke="#ffffff" stroke-width="2.5"/>
+  <path d="M40.9 44.7l2.5 2.5 4.4-4.9" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

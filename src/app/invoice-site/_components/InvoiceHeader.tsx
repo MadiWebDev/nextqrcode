@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { FileText, Menu, PenLine, X } from 'lucide-react';
+import { Menu, PenLine, X } from 'lucide-react';
 
 const NAV_LINKS = [
   { href: '/#create', label: 'Create invoice' },
@@ -20,9 +20,8 @@ export function InvoiceHeader() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center gap-4">
           <Link href="/" className="flex items-center gap-3 shrink-0" aria-label="Invoice Generator — home">
-            <span className="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center">
-              <FileText className="w-5 h-5" />
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element -- SVG brand mark served from /public */}
+            <img src="/invoice-logo.svg" alt="" width={40} height={40} className="w-10 h-10" />
             <span className="leading-tight">
               <span className="block font-bold text-base sm:text-lg">Invoice Generator</span>
               <span className="block text-[11px] text-muted-foreground">by QR Studio</span>
