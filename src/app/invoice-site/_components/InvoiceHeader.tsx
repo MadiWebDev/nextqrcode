@@ -19,9 +19,13 @@ export function InvoiceHeader() {
     <header className="invoice-nav sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center gap-4">
-          <Link href="/" className="flex items-center gap-3 shrink-0" aria-label="Invoice Generator — home">
+          <Link
+            href="/"
+            className="flex items-center gap-3 shrink-0"
+            aria-label="Invoice Generator — home"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element -- SVG brand mark served from /public */}
-            <img src="/invoice-logo.svg" alt="" width={40} height={40} className="w-10 h-10" />
+            <img src="/invoicegenerator.webp" alt="" width={40} height={40} className="w-10 h-10" />
             <span className="leading-tight">
               <span className="block font-bold text-base sm:text-lg">Invoice Generator</span>
               <span className="block text-[11px] text-muted-foreground">by QR Studio</span>
@@ -62,7 +66,10 @@ export function InvoiceHeader() {
       </div>
 
       {menuOpen && (
-        <nav aria-label="Invoice site (mobile)" className="md:hidden border-t border-border bg-background">
+        <nav
+          aria-label="Invoice site (mobile)"
+          className="md:hidden border-t border-border bg-background"
+        >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-col">
             {NAV_LINKS.map((link) => (
               <Link

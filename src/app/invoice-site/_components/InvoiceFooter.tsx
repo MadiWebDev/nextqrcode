@@ -58,7 +58,13 @@ export function InvoiceFooter() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
               {/* eslint-disable-next-line @next/next/no-img-element -- SVG brand mark served from /public */}
-              <img src="/invoice-logo.svg" alt="" width={40} height={40} className="w-10 h-10" />
+              <img
+                src="/invoicegenerator.webp"
+                alt=""
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
               <span className="leading-tight">
                 <span className="block font-bold text-base">Invoice Generator</span>
                 <span className="block text-[11px] text-muted-foreground">by QR Studio</span>
