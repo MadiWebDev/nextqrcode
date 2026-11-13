@@ -21,6 +21,23 @@ const COLUMNS: { heading: string; links: { href: string; label: string }[] }[] =
     ],
   },
   {
+    heading: 'Specialized',
+    links: [
+      { href: '/social-image-resizer', label: 'Social Media Sizes' },
+      { href: '/passport-photo-maker', label: 'Passport Photo Maker' },
+      { href: '/favicon-generator', label: 'Favicon Generator' },
+      { href: '/og-image-generator', label: 'OG Image Generator' },
+      { href: '/instagram-grid-splitter', label: 'Instagram Grid Splitter' },
+      { href: '/gif-maker', label: 'GIF Maker' },
+      { href: '/pdf-to-images', label: 'PDF to Images' },
+      { href: '/images-to-pdf', label: 'Images to PDF' },
+      { href: '/image-metadata-viewer', label: 'Metadata Viewer' },
+      { href: '/remove-exif-data', label: 'EXIF Remover' },
+      { href: '/blur-image', label: 'Blur & Redact' },
+      { href: '/circle-crop-image', label: 'Circle Crop' },
+    ],
+  },
+  {
     heading: 'About',
     links: [
       { href: '/#privacy', label: 'Privacy — how it works' },

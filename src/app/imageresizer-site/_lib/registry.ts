@@ -513,6 +513,694 @@ export const TOOLS: ToolDef[] = [
     ],
     related: ['image-editor', 'bulk-image-resizer', 'image-pipeline', 'bulk-image-compressor'],
   },
+  {
+    slug: 'social-image-resizer',
+    name: 'Social Media Image Resizer',
+    title: 'Social Media Image Resizer — Exact Sizes for Instagram, Facebook, YouTube & More',
+    description:
+      'Resize images to the exact published sizes for Instagram, Facebook, YouTube, TikTok, LinkedIn, Pinterest, X, WhatsApp and 9 more platforms. Cover-crop or contain, free and private.',
+    h1: 'Social Media Image Resizer',
+    category: 'social',
+    summary: 'Exact, platform-published sizes for 17 social platforms — pick a placement and get the perfect file.',
+    intro: [
+      'Every platform crops uploads to its own sizes, and guessing costs you the edges of your design. Pick the platform and placement — Instagram portrait post, YouTube thumbnail, LinkedIn background, Etsy listing — and this tool produces exactly the published pixel size, either cover-cropped to fill the frame or contained on a background colour of your choice.',
+      'The preset library covers 17 platforms and is reviewed against the platforms\' own documentation (review date shown in the tool). Platforms change specs occasionally, so treat the numbers as the best documented starting point — every preset states its size openly before you commit.',
+    ],
+    howTo: [
+      'Choose the platform and placement.',
+      'Drop your image and pick Cover (fill, may crop edges) or Contain (whole image on a background).',
+      'Create and download the exact-size file.',
+    ],
+    faqs: [
+      {
+        q: 'Cover or Contain — which should I choose?',
+        a: 'Cover fills the entire frame and crops whatever does not fit — best for photos where the centre matters. Contain shows the whole image with background bars — best for graphics, logos and anything with text near the edges that must not be cut.',
+      },
+      {
+        q: 'Why do platforms compress my upload anyway?',
+        a: 'Platforms re-encode everything to their own pipeline. Uploading at exactly their published size (and avoiding a second resize on their side) keeps the result closest to your original.',
+      },
+      {
+        q: 'Are these sizes guaranteed current?',
+        a: 'They were reviewed against platform documentation on the date shown in the tool. Platforms do change specs without notice; when one does, the manual Image Resizer accepts any custom size.',
+      },
+    ],
+    related: ['resize-image', 'instagram-grid-splitter', 'og-image-generator', 'crop-image'],
+  },
+  {
+    slug: 'passport-photo-maker',
+    name: 'Passport Photo Maker',
+    title: 'Passport & Visa Photo Maker — US, UK, Pakistan, EU, Canada, India & More',
+    description:
+      'Make passport, visa and ID photos to official size: country presets with sources and verification dates, positioning guide, exact 300 DPI export and printable sheets. No biometric claims.',
+    h1: 'Passport & Visa Photo Maker',
+    category: 'passport',
+    summary: 'Country-preset ID photos at exact print size, with the official source for every spec — plus print sheets.',
+    intro: [
+      'Pick your country and document, and the tool works to the published specification: physical size, pixel dimensions at 300 DPI, and background guidance — every preset shows its official source and the date we last verified it. Position your portrait with zoom and move controls against an on-screen guide (crown and chin lines), then export the exact-size photo or a printable sheet (A4 or 4×6 inch) with cut guides.',
+      'Two honesty rules: this tool does no face recognition or biometric measurement — the guide is approximate and the issuing authority\'s template prevails; and a background colour can only fill transparency, it cannot repaint the wall behind you. Acceptance is always the authority\'s decision — check the final photo against the official guidance before submitting.',
+    ],
+    howTo: [
+      'Choose the country / document preset and read its specification and source.',
+      'Drop a head-and-shoulders photo taken against the required background.',
+      'Zoom and move until the head sits inside the oval guide.',
+      'Render the exact-size photo, or make a print sheet PDF and print at 100% scale.',
+    ],
+    faqs: [
+      {
+        q: 'Will my photo definitely be accepted?',
+        a: 'No tool can promise that — acceptance depends on lighting, expression, shadows, head size and the officer\'s or automated checker\'s judgement. This tool guarantees the measurable parts (size, dimensions, DPI) and shows you the official guidance for the rest.',
+      },
+      {
+        q: 'Can it change my photo\'s background to white?',
+        a: 'Not honestly: repainting a real backdrop around hair and shoulders is an AI segmentation job, and a bad edge is a common rejection cause. The background setting here only fills transparent areas (e.g. a cut-out PNG). Take the photo against the right background — the preset tells you which.',
+      },
+      {
+        q: 'How do I print the sheet correctly?',
+        a: 'Print the PDF at 100% / "actual size" (never "fit to page"), on photo paper. The cut guides are drawn at the exact official size, so a ruler check of one photo confirms the whole sheet.',
+      },
+      {
+        q: 'Is my photo uploaded anywhere?',
+        a: 'No. Cropping, rendering and the print sheet all happen in your browser.',
+      },
+    ],
+    related: ['crop-image', 'image-editor', 'resize-image', 'remove-exif-data'],
+  },
+  {
+    slug: 'image-metadata-viewer',
+    name: 'Image Metadata Viewer',
+    title: 'Image Metadata & EXIF Viewer — See What Your Photos Reveal',
+    description:
+      'View EXIF, camera settings and GPS coordinates hidden in JPG, PNG and WebP photos — parsed locally in your browser. Nothing is uploaded, GPS is shown only to you.',
+    h1: 'Image Metadata & EXIF Viewer',
+    category: 'privacy',
+    summary: 'See exactly what a photo reveals: camera, settings, timestamps and GPS — before you share it.',
+    intro: [
+      'Photos carry a hidden diary: camera model, lens, exposure, the time the shutter fired — and often the GPS coordinates of exactly where you were standing. This viewer parses that metadata from the file bytes (JPEG EXIF/TIFF, PNG text and eXIf chunks, WebP EXIF presence) and shows it in plain language.',
+      'Everything happens in your browser: the file is never uploaded, and GPS coordinates are displayed only on your screen. If the viewer finds location data in a photo you plan to post, the EXIF Remover can strip it in one click.',
+    ],
+    howTo: [
+      'Drop a JPG, PNG or WebP file.',
+      'Read the parsed fields — camera, dimensions, timestamps, software.',
+      'Check the GPS warning if location is embedded, and strip it before sharing.',
+    ],
+    faqs: [
+      {
+        q: 'Why does my photo have no metadata?',
+        a: 'Many apps strip metadata on export or upload (most social platforms do), screenshots usually have none, and images saved from the web are often already clean. "No metadata found" is a real, common result.',
+      },
+      {
+        q: 'Can this viewer see metadata in HEIC or TIFF files?',
+        a: 'The viewer covers the formats that carry web-style EXIF (JPG, PNG, WebP). Converting a HEIC with our converter strips its metadata in the process either way.',
+      },
+      {
+        q: 'Is the GPS location sent anywhere for a map?',
+        a: 'No. Coordinates are printed as numbers on your screen only — no map service is called and nothing leaves the browser.',
+      },
+    ],
+    related: ['remove-exif-data', 'blur-image', 'image-converter'],
+  },
+  {
+    slug: 'remove-exif-data',
+    name: 'EXIF & Metadata Remover',
+    title: 'Remove EXIF & GPS Metadata from Photos — Verified Clean',
+    description:
+      'Strip EXIF, GPS and camera metadata from photos by re-encoding, then verify: the tool re-parses the output file and shows the empty report as proof. Free, in-browser.',
+    h1: 'EXIF & Metadata Remover',
+    category: 'privacy',
+    summary: 'Remove GPS and camera metadata — and see the verification report parsed from the cleaned file itself.',
+    intro: [
+      'The reliable way to remove metadata is to re-encode the pixels without it — which is exactly what this tool does, keeping the same format and full resolution. Then it does something most removers skip: it parses the produced file again and shows you the after-report, so "clean" is verified from the actual bytes you are about to download, not just promised.',
+      'The before report shows what was in the file (camera, timestamps, GPS) so you know what you just protected. Your image never leaves the browser in either step.',
+    ],
+    howTo: [
+      'Drop the photo and read its before-report.',
+      'Click "Strip metadata & verify".',
+      'Check the after-report is empty, then download the clean file.',
+    ],
+    faqs: [
+      {
+        q: 'Does stripping change the picture itself?',
+        a: 'The pixels are re-encoded at high quality in the same format and dimensions. There can be a tiny, usually invisible, generation loss in JPG/WebP; PNG output is lossless.',
+      },
+      {
+        q: 'What exactly is removed?',
+        a: 'Everything the container carried: EXIF (camera, settings, timestamps), GPS coordinates, thumbnail images embedded in the EXIF, and PNG text chunks. The image content is untouched.',
+      },
+      {
+        q: 'Why verify afterwards?',
+        a: 'Because "removed" claims are easy to make and hard to check. Re-parsing the output file with the same parser as the Metadata Viewer means you can see the empty result yourself.',
+      },
+    ],
+    related: ['image-metadata-viewer', 'blur-image', 'compress-image', 'bulk-image-converter'],
+  },
+  {
+    slug: 'blur-image',
+    name: 'Blur & Redact Image',
+    title: 'Blur, Pixelate or Hide Parts of an Image — Faces, Plates, Addresses',
+    description:
+      'Draw rectangles over faces, number plates, addresses or screens and blur, pixelate or black them out. Redaction is baked into the pixels. Free and private.',
+    h1: 'Blur & Redact Image',
+    category: 'privacy',
+    summary: 'Hide the parts of a photo that should not be shared — blur, pixelate or solid black, per region.',
+    intro: [
+      'Before a photo goes public, the sensitive parts have to go: faces of bystanders, number plates, house numbers, names on documents, data on screens. Draw a rectangle over each one and choose its treatment — blur for a soft cover, pixelate for the classic mosaic, or solid black for total redaction — with a strength control per region.',
+      'The treatments are baked into the exported pixels (not a layer that can be peeled off), and re-encoding strips the metadata too. Check the full image once before sharing: redaction only covers what you drew over.',
+    ],
+    howTo: [
+      'Drop the image.',
+      'Drag on empty space to draw each region; drag inside a region to move it.',
+      'Set each region\'s treatment and strength, then apply and download.',
+    ],
+    faqs: [
+      {
+        q: 'Blur or pixelate or black — which is safest?',
+        a: 'Solid black is absolute: nothing remains. Heavy pixelation with large blocks is effectively irreversible. Light blur is the weakest — fine for aesthetics (e.g. softening a background face) but not for truly sensitive data like document numbers. When in doubt, go black or big-block pixelate.',
+      },
+      {
+        q: 'Can someone undo the effect from my exported file?',
+        a: 'No — the exported pixels are the treated pixels; the original data underneath is gone from that file. Keep your own original private, of course.',
+      },
+      {
+        q: 'Does it detect faces automatically?',
+        a: 'No — deliberately. Automatic detection that misses one face is worse than a tool that makes you look at the image yourself. Drawing regions takes seconds and you stay in control.',
+      },
+    ],
+    related: ['remove-exif-data', 'image-metadata-viewer', 'image-editor', 'crop-image'],
+  },
+  {
+    slug: 'image-color-picker',
+    name: 'Image Colour Picker & Palette',
+    title: 'Image Colour Picker — Pick Any Pixel, Extract the Palette',
+    description:
+      'Click any pixel of an image to get its exact HEX, RGB and HSL values, and extract the dominant colour palette with one click. Free, in your browser.',
+    h1: 'Image Colour Picker & Palette Extractor',
+    category: 'utility',
+    summary: 'Exact pixel colours (HEX/RGB/HSL) plus the image\'s dominant palette — click to copy.',
+    intro: [
+      'Designers constantly need "that exact colour" from a photo or screenshot. Click any pixel and this tool reads the real value from the decoded image data (not a screen approximation), giving HEX, RGB and HSL with one-click copy. The palette extractor analyses the whole image and returns its dominant colours — weighted toward the vivid ones a human would actually name — with each colour\'s share of the image.',
+    ],
+    howTo: [
+      'Drop an image.',
+      'Click any point to sample its exact colour; copy the format you need.',
+      'Extract the palette for the image\'s main colours, and click a swatch to copy it.',
+    ],
+    faqs: [
+      {
+        q: 'How accurate is the picked colour?',
+        a: 'Exact at the pixel: it reads the decoded image data directly. Note that JPG/WebP compression means neighbouring pixels differ slightly — the value shown is the true value of the pixel you clicked.',
+      },
+      {
+        q: 'How is the palette chosen?',
+        a: 'Pixels are grouped into colour buckets, each bucket averaged, weighted toward saturated colours, and near-duplicates merged — so you get the six colours that describe the image, not six shades of its background.',
+      },
+    ],
+    related: ['image-editor', 'color-blindness-simulator', 'og-image-generator'],
+  },
+  {
+    slug: 'aspect-ratio-calculator',
+    name: 'Aspect Ratio Calculator',
+    title: 'Aspect Ratio Calculator — Simplify Ratios & Resize Proportionally',
+    description:
+      'Calculate aspect ratios from any dimensions, simplify them (1920×1080 = 16:9), and work out proportional resize dimensions instantly.',
+    h1: 'Aspect Ratio Calculator',
+    category: 'utility',
+    summary: 'Turn any width×height into its ratio, and compute matching sizes that keep it.',
+    intro: [
+      'Enter any width and height and get the simplified aspect ratio (1920×1080 becomes 16:9), the decimal form, and a proportional resize calculator: give a new width and the matching height is worked out for you. Handy before cropping, embedding video, or briefing a designer.',
+    ],
+    howTo: ['Enter width and height.', 'Read the simplified ratio.', 'Optionally type a new width to get the matching height.'],
+    faqs: [
+      {
+        q: 'What are the common ratios?',
+        a: '16:9 (video, YouTube), 4:5 (Instagram portrait), 1:1 (square posts), 3:2 (classic photo), 4:3 (older screens, iPad), 21:9 (ultrawide), 9:16 (Stories, Reels, TikTok).',
+      },
+      {
+        q: 'Why does my ratio show huge numbers?',
+        a: 'Some dimensions share no common divisor (e.g. 1000×563 is already simplest). The decimal form is then the practical one to use.',
+      },
+    ],
+    related: ['dpi-calculator', 'print-size-calculator', 'crop-image', 'resize-image'],
+  },
+  {
+    slug: 'dpi-calculator',
+    name: 'DPI Calculator',
+    title: 'DPI Calculator — Pixels, Inches and Print Resolution',
+    description:
+      'Work out the effective DPI of an image at a print size, or how many pixels you need for 300 DPI at any width. Instant, with quality guidance.',
+    h1: 'DPI Calculator',
+    category: 'utility',
+    summary: 'Effective DPI at any print size — and the pixels needed to hit 300 DPI.',
+    intro: [
+      'DPI is just pixels divided by inches — which means the same image is 300 DPI in a wallet print and 72 DPI on a poster. Enter an image width and a print width to see its effective resolution (with a plain-English quality verdict), or set a target DPI to learn how many pixels that print size really needs.',
+    ],
+    howTo: ['Enter image width in pixels and print width in inches.', 'Read the effective DPI and verdict.', 'Or set a target DPI to get the required pixel width.'],
+    faqs: [
+      {
+        q: 'Is 300 DPI always required?',
+        a: 'It is the standard for close-viewed print (books, flyers). Posters viewed from a distance look fine at 100–150 DPI; billboards often run below 30. Viewing distance is what matters.',
+      },
+      {
+        q: 'Can I just set an image to 300 DPI to improve it?',
+        a: 'Changing the DPI number alone adds no pixels — printers would simply print it smaller. Real improvement needs more pixels (see the Print Size Calculator for what your pixels can cover).',
+      },
+    ],
+    related: ['print-size-calculator', 'aspect-ratio-calculator', 'passport-photo-maker'],
+  },
+  {
+    slug: 'print-size-calculator',
+    name: 'Print Size Calculator',
+    title: 'Print Size Calculator — How Big Can I Print This Image?',
+    description:
+      'Enter pixel dimensions and a DPI to get the maximum print size in inches, centimetres and millimetres — with screen/draft/print presets.',
+    h1: 'Print Size Calculator',
+    category: 'utility',
+    summary: 'From pixels + DPI to real-world size: inches, centimetres and millimetres.',
+    intro: [
+      'A 3000×2000 photo is not "big" or "small" until you pick a print quality. Choose a DPI — 300 for close-up print, 150 for a poster, 72 for screen equivalence — and see the physical size your pixels cover, in inches, centimetres and millimetres.',
+    ],
+    howTo: ['Enter the image width and height in pixels.', 'Choose or type a DPI.', 'Read the print size in your preferred unit.'],
+    faqs: [
+      {
+        q: 'What size is a phone photo in print?',
+        a: 'A typical 4000×3000 phone photo at 300 DPI prints at about 13.3×10 inches (34×25 cm) — comfortably A4-ish. At poster quality (150 DPI) it reaches roughly A3.',
+      },
+      {
+        q: 'Why do labs ask for 300 DPI files?',
+        a: 'At normal reading distance, 300 dots per inch is around the limit of what the eye can resolve, so prints look continuous rather than pixelly.',
+      },
+    ],
+    related: ['dpi-calculator', 'aspect-ratio-calculator', 'passport-photo-maker'],
+  },
+  {
+    slug: 'images-to-pdf',
+    name: 'Images to PDF',
+    title: 'Images to PDF Converter — Combine Photos into One PDF Free',
+    description:
+      'Combine multiple images into a single PDF: A4, Letter or fit-to-image pages, margins, page order control. Free, private, in your browser.',
+    h1: 'Images to PDF Converter',
+    category: 'convert',
+    summary: 'Many images, one tidy PDF — with page size, margins and order under your control.',
+    intro: [
+      'Drop a set of images and get one PDF: choose A4 or US Letter pages (orientation follows each image), or fit each page to its image at 150 DPI. Reorder pages with the arrow buttons, set margins and JPEG quality, and download a single file that is easy to email, upload or print.',
+      'This is the companion of the main site\'s PDF tools, tuned for the image workflow: images are placed on white pages, re-encoded (which strips their metadata), and never uploaded anywhere.',
+    ],
+    howTo: [
+      'Drop all the images (order can be fixed afterwards).',
+      'Arrange pages with the ↑ ↓ buttons and set page size, margins and quality.',
+      'Create and download the PDF.',
+    ],
+    faqs: [
+      {
+        q: 'What order do pages appear in?',
+        a: 'The list order, top to bottom. Files are added in drop order; use the arrows to fix any page before creating the PDF.',
+      },
+      {
+        q: 'Why are my PNGs on white backgrounds?',
+        a: 'These PDF pages are opaque, so transparent images are flattened onto white. That matches how the document will look printed.',
+      },
+      {
+        q: 'Can I turn a PDF back into images?',
+        a: 'Yes — the PDF to Images tool does the reverse, rendering pages at your chosen DPI.',
+      },
+    ],
+    related: ['pdf-to-images', 'image-converter', 'compress-image'],
+  },
+  {
+    slug: 'pdf-to-images',
+    name: 'PDF to Images',
+    title: 'PDF to Image Converter — Render PDF Pages to JPG or PNG at Any DPI',
+    description:
+      'Convert PDF pages to JPG or PNG images at 72–300 DPI, with page-range selection and ZIP download. Runs locally via pdf.js — your document is never uploaded.',
+    h1: 'PDF to Images Converter',
+    category: 'convert',
+    summary: 'Turn PDF pages into images at print or screen resolution — pick the pages, pick the DPI.',
+    intro: [
+      'Sometimes you need the pages of a PDF as pictures: for a presentation, a thumbnail, a social post, or a system that only accepts images. Drop a PDF and this tool renders the pages you choose (all, or a range like 1-3,5) at 72 DPI for screens up to 300 DPI for print, as JPG or PNG.',
+      'Rendering uses Mozilla\'s pdf.js entirely in your browser — the document never leaves your device. Very large renders are sensibly capped so a huge page at 300 DPI cannot freeze your tab.',
+    ],
+    howTo: [
+      'Drop or browse for a PDF.',
+      'Choose the pages, resolution and format.',
+      'Render, then download pages individually or as a ZIP.',
+    ],
+    faqs: [
+      {
+        q: 'Which DPI should I pick?',
+        a: '72–150 DPI for screens, slides and thumbnails; 300 DPI when the image will be printed. Higher DPI means proportionally larger files.',
+      },
+      {
+        q: 'Can it open a password-protected PDF?',
+        a: 'No — encrypted PDFs are refused with a clear message. Remove the password in your PDF app first if you have the right to.',
+      },
+      {
+        q: 'Why do pages render on white?',
+        a: 'PDF pages can have transparent regions; images are rendered over white so JPG output never turns unexpectedly black.',
+      },
+    ],
+    related: ['images-to-pdf', 'image-converter', 'compress-image'],
+  },
+  {
+    slug: 'image-to-base64',
+    name: 'Image to Base64',
+    title: 'Image to Base64 Converter — Get the Data URL for Any Image',
+    description:
+      'Convert an image to a Base64 data URL for HTML, CSS or JSON. Shows the real size overhead (Base64 is ~33% larger). Copy or download the string.',
+    h1: 'Image to Base64 Converter',
+    category: 'utility',
+    summary: 'One drop → a ready-to-paste data URL, with the true size cost shown.',
+    intro: [
+      'Base64 embeds an image as text — handy for tiny icons in CSS, email templates, JSON payloads and quick demos. Drop an image and get the complete data URL (prefix included), its exact length, and the honest overhead: Base64 always inflates data by about a third, which is why it suits small assets, not hero photos.',
+    ],
+    howTo: ['Drop an image.', 'Copy the data URL, or download it as a .txt file.', 'Paste it into your HTML, CSS or JSON.'],
+    faqs: [
+      {
+        q: 'When should I NOT use Base64?',
+        a: 'For anything large or reused: a separate image file is cached by browsers and smaller on the wire. Base64 shines for very small images (a few KB) that would otherwise cost an extra request.',
+      },
+      {
+        q: 'What is a data URL?',
+        a: 'A URL that contains the data itself: data:image/png;base64,… — browsers decode it inline wherever a normal image URL works.',
+      },
+    ],
+    related: ['base64-to-image', 'favicon-generator', 'image-converter'],
+  },
+  {
+    slug: 'base64-to-image',
+    name: 'Base64 to Image',
+    title: 'Base64 to Image Converter — Decode a Data URL Back to a Picture',
+    description:
+      'Paste a Base64 string or data URL and get the image back: format detected from the real bytes, preview and download. Invalid input gets a clear error.',
+    h1: 'Base64 to Image Converter',
+    category: 'utility',
+    summary: 'Paste Base64, get your image back — format sniffed from the bytes, not the label.',
+    intro: [
+      'Got a wall of Base64 from an API, a log or an old email? Paste it here (with or without the data: prefix) and the tool decodes it, detects the real format from the magic bytes — JPG, PNG, GIF or WebP — previews it, and lets you download the file. Malformed strings get a specific error instead of a broken picture.',
+    ],
+    howTo: ['Paste the data URL or raw Base64.', 'Click decode.', 'Check the preview and detected format, then download.'],
+    faqs: [
+      {
+        q: 'It says the decoded bytes are not an image — why?',
+        a: 'The string decoded fine, but the content is something else (text, audio, a zip…). The tool checks the file signature rather than trusting any prefix, and tells you instead of offering a corrupt download.',
+      },
+      {
+        q: 'My string has line breaks — is that OK?',
+        a: 'Yes, whitespace is ignored for raw Base64. The data: prefix form is also accepted as-is.',
+      },
+    ],
+    related: ['image-to-base64', 'image-converter', 'image-metadata-viewer'],
+  },
+  {
+    slug: 'circle-crop-image',
+    name: 'Circle Crop Image',
+    title: 'Circle Crop Image — Round Profile Pictures with Transparent Corners',
+    description:
+      'Crop a photo into a perfect circle with transparent corners (real PNG transparency). Zoom and position controls, sizes up to 2048px. For avatars and profile pictures.',
+    h1: 'Circle Crop Image',
+    category: 'crop',
+    summary: 'Round avatars done right: a true circle with transparent corners, at the size you choose.',
+    intro: [
+      'Profile pictures everywhere are round, but uploading a square and hoping the platform\'s mask aligns is a gamble. This tool makes the circle itself: position your photo with zoom and move controls, pick an output size, and get a PNG whose corners are genuinely transparent (shown on a checkerboard so you can verify). Upload it anywhere and it sits perfectly on any background.',
+    ],
+    howTo: ['Drop the image.', 'Zoom and move until the circle frames the subject.', 'Pick a size and create the PNG.'],
+    faqs: [
+      {
+        q: 'Why PNG only?',
+        a: 'Transparency needs a format with an alpha channel. JPG has none — its "corners" would turn black or white. PNG (and WebP) keep them transparent; this tool exports PNG for maximum compatibility.',
+      },
+      {
+        q: 'What size should I pick?',
+        a: '512px covers nearly every avatar slot; 1024px if the image will also be shown large (team pages, speaker bios). Bigger than your source means upscaling, which softens — the tool allows it but the source resolution is the quality ceiling.',
+      },
+    ],
+    related: ['crop-image', 'social-image-resizer', 'favicon-generator', 'passport-photo-maker'],
+  },
+  {
+    slug: 'favicon-generator',
+    name: 'Favicon & App Icon Generator',
+    title: 'Favicon Generator — Full Icon Set + Real .ico File from One Image',
+    description:
+      'Generate the complete favicon set from one image: favicon.ico (real ICO container), 16/32/48 PNG, Apple touch icon, Android 192/512, ZIP download and the HTML snippet.',
+    h1: 'Favicon & App Icon Generator',
+    category: 'utility',
+    summary: 'One logo in → every icon a website needs out, including a genuine .ico and the HTML to use them.',
+    intro: [
+      'A modern site needs more than one favicon: the classic .ico, PNG icons for browsers, an Apple touch icon for home screens, and Android/PWA sizes. Drop one image and this tool generates the full set at exact sizes — the .ico is a real ICO container with PNG entries packed to the format spec, not a renamed PNG — plus a ZIP and the exact HTML link tags to paste into your page.',
+    ],
+    howTo: ['Drop a logo or image (square, simple and bold works best at 16px).', 'Generate the set and preview each size.', 'Download individually or as a ZIP, and paste the HTML snippet into your site.'],
+    faqs: [
+      {
+        q: 'What makes a good favicon source?',
+        a: 'A square logo with strong shapes and contrast. Fine detail vanishes at 16×16 — most brands use a simplified mark or a single letter for small sizes. Generate the set and actually look at the 16px result before shipping.',
+      },
+      {
+        q: 'Is the .ico a real ICO file?',
+        a: 'Yes — it is built to the ICO container specification with 16, 32 and 48px PNG entries inside, which Windows and browsers read natively. A renamed PNG would silently fail in several of those places.',
+      },
+      {
+        q: 'Where do the files go on my site?',
+        a: 'In the site root (where the snippet\'s paths point). The included favicon-links.html has the exact tags.',
+      },
+    ],
+    related: ['image-to-base64', 'resize-image', 'og-image-generator', 'circle-crop-image'],
+  },
+  {
+    slug: 'instagram-grid-splitter',
+    name: 'Instagram Grid Splitter',
+    title: 'Instagram Grid Splitter — Cut One Photo into a 3×3 Profile Grid',
+    description:
+      'Split one image into 3×1, 3×2, 3×3 or custom grid tiles, numbered in posting order (post 01 first), with a ZIP download. Make the big-picture profile grid.',
+    h1: 'Instagram Grid Splitter',
+    category: 'social',
+    summary: 'One striking image → a full profile grid, with tiles numbered in the order to post them.',
+    intro: [
+      'The giant-image profile grid is one of Instagram\'s most striking layouts — and the fiddliest to produce by hand. Drop one image, choose 3×1 (banner), 3×2 or 3×3 (or a custom grid), and the tool centre-crops and slices it into tiles. The catch everyone trips on is order: Instagram shows your newest post first, so the tiles come numbered in posting order — post 01 (the bottom-right piece) first, and the mosaic assembles itself correctly as you post.',
+    ],
+    howTo: ['Drop a high-resolution image (at least ~1080px per tile column ideally).', 'Choose the grid size and split.', 'Preview the mosaic with posting numbers, then download the ZIP and post in order.'],
+    faqs: [
+      {
+        q: 'Why is tile 01 the bottom-right?',
+        a: 'Because the feed is reverse-chronological: your last post lands top-left. To end with the image reading correctly, the piece that belongs top-left must be posted last, and the bottom-right piece first. The numbers handle it — just post in order.',
+      },
+      {
+        q: 'What resolution should the source be?',
+        a: 'Each tile displays up to 1080px wide, so a 3-wide grid wants ≈3240px across for full sharpness. Smaller sources still work — tiles are simply softer.',
+      },
+      {
+        q: 'Can I use other grid shapes?',
+        a: 'Yes — rows and columns go to 6 each. Note Instagram profiles always show 3 columns, so column counts of 3 keep rows aligned on the profile page.',
+      },
+    ],
+    related: ['social-image-resizer', 'crop-image', 'resize-image'],
+  },
+  {
+    slug: 'color-blindness-simulator',
+    name: 'Colour-Blindness Simulator',
+    title: 'Colour-Blindness Simulator — See Your Image Through 7 Vision Types',
+    description:
+      'Simulate protanopia, deuteranopia, tritanopia, anomalous variants and achromatopsia with published Machado matrices. Check designs and charts for accessibility.',
+    h1: 'Colour-Blindness Simulator',
+    category: 'utility',
+    summary: 'How does your image read to the 1 in 12 men with red-green deficiency? See it, then fix it.',
+    intro: [
+      'Charts that rely on red-versus-green, warning icons distinguished only by hue, text on a coloured background — colour-vision deficiency quietly breaks all of them for millions of users. This simulator renders your image through the published Machado, Oliveira & Fernandes (2009) matrices for seven vision types, so you can see exactly what survives and export the simulation for design reviews.',
+    ],
+    howTo: ['Drop the image (design, chart, photo).', 'Step through the vision types — start with deuteranopia, the most common.', 'Where meaning disappears, add labels, patterns, icons or brightness contrast.'],
+    faqs: [
+      {
+        q: 'How accurate is the simulation?',
+        a: 'It uses the standard physiologically-based matrices used across the industry for the -opia types at full severity and the -omaly types at 0.6 severity. Individual vision varies, but as a design check ("does the meaning survive?") it is the accepted approach.',
+      },
+      {
+        q: 'What is the most common deficiency?',
+        a: 'Deuteranomaly/deuteranopia (green) then protan defects (red) — together roughly 8% of men and 0.5% of women. Tritan (blue) defects are rare and usually acquired.',
+      },
+    ],
+    related: ['image-color-picker', 'image-editor', 'og-image-generator'],
+  },
+  {
+    slug: 'og-image-generator',
+    name: 'OG Image Generator',
+    title: 'OG Image Generator — Social Share Cards (1200×630) in Seconds',
+    description:
+      'Compose Open Graph share cards: background image or colour, accent bar, wrapped title, subtitle and brand line at exact 1200×630 (plus X and blog sizes). Export PNG/JPG.',
+    h1: 'OG / Social Card Generator',
+    category: 'social',
+    summary: 'The card that appears when your link is shared — designed in the browser, exported at exact size.',
+    intro: [
+      'When a link is shared, the OG image is the headline, cover and advert in one. This composer builds it properly: 1200×630 exactly (plus X-card and blog-header sizes), your background photo cover-fitted under a contrast overlay (or a solid brand colour), an accent bar, a title that is measured and wrapped with real font metrics — shrinking to fit rather than clipping — a subtitle and a brand line. Export as PNG or JPG and wire it into your page\'s og:image tag.',
+    ],
+    howTo: ['Pick a card size and type your title, subtitle and brand.', 'Choose colours; optionally add a background photo.', 'Watch the live preview and download the PNG or JPG.'],
+    faqs: [
+      {
+        q: 'What size is an OG image?',
+        a: '1200×630px is the standard recommendation across Facebook, LinkedIn and X (X cards use 1200×628, also offered here). Smaller images may be shown as thumbnails instead of full cards.',
+      },
+      {
+        q: 'Why does my long title get an ellipsis?',
+        a: 'If a title cannot fit three lines at the minimum readable size, it is truncated with an ellipsis and the tool tells you. Shorten it — sub-60-character titles almost always fit cleanly.',
+      },
+    ],
+    related: ['social-image-resizer', 'favicon-generator', 'image-color-picker'],
+  },
+  {
+    slug: 'gif-maker',
+    name: 'GIF Maker',
+    title: 'GIF Maker — Turn Images into an Animated GIF (Delay & Loop Control)',
+    description:
+      'Create animated GIFs from a sequence of images: reorder frames, set the delay per frame, choose looping, resize. Encoded locally with gifenc.',
+    h1: 'GIF Maker from Images',
+    category: 'edit',
+    summary: 'A sequence of stills → a proper animated GIF, with delay and loop controls.',
+    intro: [
+      'Drop a sequence of images — product angles, drawing steps, photo bursts — order them, set how long each frame shows, choose looping, and get a real animated GIF encoded in your browser. Frames are cover-resized to a consistent size (set by the first frame\'s shape, or a width you pick) so mixed inputs animate cleanly instead of jumping.',
+    ],
+    howTo: ['Drop at least two images.', 'Reorder frames with the arrows; set delay and looping.', 'Create the GIF — it downloads and previews, motion included.'],
+    faqs: [
+      {
+        q: 'What delay should I use?',
+        a: '100–200ms (5–10 fps) reads as smooth motion; 500ms suits step-by-step slides; 40–60ms is video-like but inflates file size because every frame is stored in full.',
+      },
+      {
+        q: 'Why does my GIF look grainy?',
+        a: 'GIF is limited to 256 colours per frame — photographs band and dither. It is the price of the format\'s universal support; for photographic motion, short WebP or MP4 files are smaller and smoother.',
+      },
+      {
+        q: 'Can I edit an existing animated GIF?',
+        a: 'Yes, elsewhere on this site: the Resizer and Bulk Resizer preserve animation when outputting GIF, and the Converter keeps animations when converting GIF → GIF.',
+      },
+    ],
+    related: ['image-converter', 'bulk-image-converter', 'resize-image', 'image-editor'],
+  },
+  {
+    slug: 'jpg-to-png',
+    name: 'JPG to PNG',
+    title: 'JPG to PNG Converter — Free, Full Quality, In Your Browser',
+    description:
+      'Convert JPG to PNG instantly and privately. Useful for editing pipelines and tools that need PNG — with an honest note that PNG cannot restore detail JPG already lost.',
+    h1: 'JPG to PNG Converter',
+    category: 'convert',
+    summary: 'JPG in, PNG out — for editing workflows that need a lossless working file.',
+    intro: [
+      'Sometimes the next tool in your chain demands a PNG. This converts any JPG (and PNG/WebP/HEIC/TIFF inputs too) to a full-resolution PNG in your browser. One honest caveat: PNG is lossless going forward, but it cannot restore detail the JPG already threw away — the PNG will be pixel-identical to your JPG, just in a bigger, lossless container.',
+    ],
+    howTo: ['Drop the JPG.', 'Convert and download the PNG.'],
+    faqs: [
+      {
+        q: 'Will the PNG look better than the JPG?',
+        a: 'No — it will look identical. The benefit is that further edits and saves no longer degrade it, because PNG never re-compresses.',
+      },
+      {
+        q: 'Why is the PNG so much bigger?',
+        a: 'Lossless storage of photographic content typically runs 3–8× a quality JPG. That is the real cost of "no further loss".',
+      },
+    ],
+    related: ['png-to-jpg', 'image-converter', 'png-to-webp'],
+  },
+  {
+    slug: 'png-to-jpg',
+    name: 'PNG to JPG',
+    title: 'PNG to JPG Converter — Smaller Files, Transparency Filled Your Way',
+    description:
+      'Convert PNG to JPG for much smaller photo files. Choose what fills transparency (JPG has none). Free, private, full-resolution.',
+    h1: 'PNG to JPG Converter',
+    category: 'convert',
+    summary: 'PNG screenshots and exports → compact JPGs, with the transparency fill under your control.',
+    intro: [
+      'PNG is a heavyweight format for photographs. Converting photo-like PNGs to JPG typically cuts the file by 70–90% at quality 85–90, with no visible difference. Because JPG has no transparency, you choose the background colour transparent areas are filled with (white by default) — check logos and cut-outs before you commit.',
+    ],
+    howTo: ['Drop the PNG.', 'Pick quality and the transparency fill colour.', 'Convert and download the JPG.'],
+    faqs: [
+      {
+        q: 'What quality should I choose?',
+        a: '85–90 for photos you will view or share (visually indistinguishable, big savings); 95+ when the JPG feeds further editing.',
+      },
+      {
+        q: 'My logo PNG has transparency — what happens?',
+        a: 'Transparent areas are filled with the background colour you pick. If you need the transparency itself preserved, keep PNG or use WebP instead.',
+      },
+    ],
+    related: ['jpg-to-png', 'image-converter', 'compress-image'],
+  },
+  {
+    slug: 'jpg-to-webp',
+    name: 'JPG to WebP',
+    title: 'JPG to WebP Converter — Shrink Website Photos by ~30%',
+    description:
+      'Convert JPG to WebP for the web: typically 25–35% smaller at the same quality, supported by every modern browser. Free and in-browser.',
+    h1: 'JPG to WebP Converter',
+    category: 'convert',
+    summary: 'The easiest website speed win: same photos, roughly a third smaller.',
+    intro: [
+      'WebP was built for exactly this: photographic images, visibly identical, roughly 25–35% smaller than JPG at matched quality — and every modern browser displays it. Drop your JPGs and convert at the quality you choose; for whole folders, the Bulk Converter runs the same conversion over a batch.',
+    ],
+    howTo: ['Drop the JPG.', 'Set quality (82–88 is the web sweet spot).', 'Convert and download the WebP.'],
+    faqs: [
+      {
+        q: 'Is WebP really supported everywhere?',
+        a: 'All modern browsers (Chrome, Edge, Firefox, Safari 14+) display WebP. Very old software and some desktop apps still prefer JPG — keep JPGs for email attachments to unknown recipients.',
+      },
+      {
+        q: 'WebP or AVIF?',
+        a: 'AVIF compresses a bit further and is growing fast, but creating AVIF files works only in Chrome today, and encoding is slower. WebP is the safe default for a whole site.',
+      },
+    ],
+    related: ['png-to-webp', 'image-converter', 'bulk-image-converter'],
+  },
+  {
+    slug: 'png-to-webp',
+    name: 'PNG to WebP',
+    title: 'PNG to WebP Converter — Keep Transparency, Cut the Weight',
+    description:
+      'Convert PNG to WebP with transparency preserved (or lossless mode) at a fraction of the size. Perfect for web graphics, logos and overlays.',
+    h1: 'PNG to WebP Converter',
+    category: 'convert',
+    summary: 'Web graphics with alpha, minus the PNG bloat.',
+    intro: [
+      'WebP does the two things web graphics need at once: an alpha channel like PNG, and compression like JPG. Logos, overlays and UI graphics typically shrink 50–80% versus PNG at the quality setting, and this converter keeps the transparency intact. (For pixel-perfect archival copies, keep the PNG master — conversion at a quality setting is lossy; that trade is the point.)',
+    ],
+    howTo: ['Drop the PNG.', 'Set quality — higher for crisp logo edges.', 'Convert and download the WebP.'],
+    faqs: [
+      {
+        q: 'Is transparency really preserved?',
+        a: 'Yes — WebP has a full alpha channel and this converter keeps it. Preview the result on the checkerboard pattern in the result panel to verify.',
+      },
+      {
+        q: 'What quality for logos?',
+        a: '90–100. Flat graphics with sharp edges show compression artefacts sooner than photos, and the files are small anyway.',
+      },
+    ],
+    related: ['jpg-to-webp', 'image-converter', 'png-to-jpg'],
+  },
+  {
+    slug: 'heic-to-jpg',
+    name: 'HEIC to JPG',
+    title: 'HEIC to JPG Converter — Open iPhone Photos Anywhere, Free',
+    description:
+      'Convert HEIC/HEIF photos from iPhone to universally-compatible JPG, decoded privately on your device. No upload, no sign-up, full resolution.',
+    h1: 'HEIC to JPG Converter',
+    category: 'convert',
+    summary: 'iPhone photos that Windows, websites and grandma\'s PC can actually open.',
+    intro: [
+      'iPhones shoot HEIC by default — efficient, but still refused by half the websites, Windows PCs and office software on earth. This converter decodes HEIC entirely on your device (the decoder loads only when a HEIC file is dropped) and gives you a standard full-resolution JPG that works everywhere. For a whole camera roll, the Bulk Converter does the same in batch.',
+    ],
+    howTo: ['Drop the .heic or .heif photo.', 'Convert and download the JPG.'],
+    faqs: [
+      {
+        q: 'Is my photo uploaded for conversion?',
+        a: 'No — HEIC decoding runs in your browser via a WebAssembly decoder. That is also why the first HEIC drop may take a moment: the decoder loads on demand.',
+      },
+      {
+        q: 'What about Live Photos?',
+        a: 'A Live Photo\'s still image converts normally; the short video component is a separate .mov file and is not part of the HEIC still.',
+      },
+      {
+        q: 'Does conversion lose quality?',
+        a: 'The JPG is encoded at the quality you choose (90 default) from the full HEIC decode — for sharing and printing purposes the result is equivalent. Keep the HEIC as your master archive.',
+      },
+    ],
+    related: ['image-converter', 'bulk-image-converter', 'jpg-to-webp'],
+  },
 ];
 
 export function toolBySlug(slug: string): ToolDef | undefined {
