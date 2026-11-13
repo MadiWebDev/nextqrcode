@@ -4,7 +4,16 @@ import { Lock } from 'lucide-react';
 const COLUMNS: { heading: string; links: { href: string; label: string }[] }[] = [
   {
     heading: 'Tools',
-    links: [{ href: '/#resize', label: 'Image Resizer' }],
+    links: [
+      { href: '/resize-image', label: 'Image Resizer' },
+      { href: '/bulk-image-resizer', label: 'Bulk Image Resizer' },
+      { href: '/compress-image', label: 'Image Compressor' },
+      { href: '/compress-image-to-100kb', label: 'Compress to Exact KB' },
+      { href: '/image-converter', label: 'Image Converter' },
+      { href: '/crop-image', label: 'Crop Image' },
+      { href: '/rotate-image', label: 'Rotate Image' },
+      { href: '/flip-image', label: 'Flip Image' },
+    ],
   },
   {
     heading: 'About',

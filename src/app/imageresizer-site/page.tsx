@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import { Lock, MousePointerClick, SlidersHorizontal, Zap } from 'lucide-react';
 import { ResizerTool } from './_components/ResizerTool';
+import { TOOLS } from './_lib/registry';
 
 const FAQS: { q: string; a: string }[] = [
   {
@@ -36,6 +38,28 @@ export default function ImageResizerHome() {
 
           <div id="resize" className="mt-8 scroll-mt-24">
             <ResizerTool />
+          </div>
+        </div>
+      </section>
+
+      {/* Tool directory */}
+      <section aria-label="All image tools" className="border-b border-border">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <h2 className="text-2xl font-bold">Popular image tools</h2>
+          <p className="mt-2 text-muted-foreground max-w-2xl">
+            Every tool runs in your browser — pick one and drop an image in.
+          </p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {TOOLS.map((tool) => (
+              <Link
+                key={tool.slug}
+                href={`/${tool.slug}`}
+                className="rounded-xl border border-border bg-card p-4 hover:border-primary/60 transition-colors"
+              >
+                <span className="font-semibold text-sm">{tool.name}</span>
+                <span className="block mt-1 text-xs text-muted-foreground leading-relaxed">{tool.summary}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

@@ -7,11 +7,14 @@ import { Expand, Menu, X } from 'lucide-react';
 /**
  * Nav grows with the registry: a link is only added here once its route
  * actually exists (no dead links in production navigation — master prompt
- * Phase 15). Phase A ships the resizer workspace on the homepage.
+ * Phase 15). Phase B added the essential tools; later phases extend this.
  */
 const NAV_LINKS = [
-  { href: '/#resize', label: 'Resize' },
-  { href: '/#privacy', label: 'Privacy' },
+  { href: '/resize-image', label: 'Resize' },
+  { href: '/compress-image', label: 'Compress' },
+  { href: '/crop-image', label: 'Crop' },
+  { href: '/image-converter', label: 'Convert' },
+  { href: '/bulk-image-resizer', label: 'Bulk Tools' },
   { href: '/#faq', label: 'FAQ' },
 ];
 
