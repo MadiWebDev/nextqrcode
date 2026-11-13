@@ -36,7 +36,7 @@ export function ImageHeader() {
             </span>
           </Link>
 
-          <nav aria-label="Image Resizer site" className="hidden md:flex items-center gap-6 text-sm ml-6">
+          <nav aria-label="Image Resizer site" className="hidden lg:flex items-center gap-6 text-sm ml-6">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href + link.label}
@@ -61,7 +61,7 @@ export function ImageHeader() {
               onClick={() => setMenuOpen((open) => !open)}
               aria-expanded={menuOpen}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-              className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
+              className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-border bg-card hover:bg-muted transition-colors"
             >
               {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -70,7 +70,7 @@ export function ImageHeader() {
       </div>
 
       {menuOpen && (
-        <nav aria-label="Image Resizer site (mobile)" className="md:hidden border-t border-border bg-background">
+        <nav aria-label="Image Resizer site (mobile)" className="lg:hidden border-t border-border bg-background">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-col">
             {NAV_LINKS.map((link) => (
               <Link
