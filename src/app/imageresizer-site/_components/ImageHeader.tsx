@@ -16,6 +16,7 @@ const NAV_LINKS = [
   { href: '/image-converter', label: 'Convert' },
   { href: '/image-editor', label: 'Editor' },
   { href: '/bulk-image-resizer', label: 'Bulk Tools' },
+  { href: '/guides', label: 'Guides' },
   { href: '/#faq', label: 'FAQ' },
 ];
 

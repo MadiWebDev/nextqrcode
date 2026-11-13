@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { CATEGORY_LABELS, toolBySlug, type ToolDef } from '../_lib/registry';
+import { toolJsonLd } from '../_lib/schema';
+import { JsonLd } from './JsonLd';
 
 /**
  * Registry-driven landing shell for every tool page: breadcrumb, H1, intro,
@@ -16,13 +18,16 @@ export function ToolShell({ tool, children }: { tool: ToolDef; children: ReactNo
 
   return (
     <main className="min-w-0">
+      <JsonLd graph={toolJsonLd(tool)} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
         <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-muted-foreground">
           <Link href="/" className="hover:text-foreground">
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5" aria-hidden />
-          <span>{CATEGORY_LABELS[tool.category]}</span>
+          <Link href={`/categories/${tool.category}`} className="hover:text-foreground">
+            {CATEGORY_LABELS[tool.category]}
+          </Link>
           <ChevronRight className="w-3.5 h-3.5" aria-hidden />
           <span aria-current="page" className="text-foreground font-medium">
             {tool.name}

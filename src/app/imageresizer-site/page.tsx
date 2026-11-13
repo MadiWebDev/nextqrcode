@@ -1,7 +1,13 @@
 import Link from 'next/link';
 import { Lock, MousePointerClick, SlidersHorizontal, Zap } from 'lucide-react';
 import { ResizerTool } from './_components/ResizerTool';
-import { TOOLS } from './_lib/registry';
+import { HistoryPanel } from './_components/HistoryPanel';
+import { JsonLd } from './_components/JsonLd';
+import { CATEGORY_LABELS, TOOLS, type ToolCategory } from './_lib/registry';
+import { GUIDES } from './_lib/guides';
+import { homeJsonLd } from './_lib/schema';
+
+const CATEGORY_ORDER = Object.keys(CATEGORY_LABELS) as ToolCategory[];
 
 const FAQS: { q: string; a: string }[] = [
   {
@@ -25,6 +31,7 @@ const FAQS: { q: string; a: string }[] = [
 export default function ImageResizerHome() {
   return (
     <main className="min-w-0">
+      <JsonLd graph={homeJsonLd(FAQS)} />
       {/* Hero + working workspace */}
       <section className="border-b border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
@@ -61,6 +68,63 @@ export default function ImageResizerHome() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Browse by category */}
+      <section aria-label="Browse tools by category" className="border-b border-border">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <h2 className="text-2xl font-bold">Browse by job</h2>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {CATEGORY_ORDER.map((category) => {
+              const count = TOOLS.filter((t) => t.category === category).length;
+              return (
+                <Link
+                  key={category}
+                  href={`/categories/${category}`}
+                  className="rounded-xl border border-border bg-card p-4 hover:border-primary/60 transition-colors"
+                >
+                  <span className="font-semibold text-sm">{CATEGORY_LABELS[category]}</span>
+                  <span className="block mt-1 text-xs text-muted-foreground">
+                    {count} free tool{count === 1 ? '' : 's'}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Guides */}
+      <section aria-label="Guides and tutorials" className="border-b border-border">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div className="flex items-baseline justify-between gap-4">
+            <h2 className="text-2xl font-bold">Guides worth your five minutes</h2>
+            <Link href="/guides" className="shrink-0 font-medium text-blue-700 underline">
+              All guides
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {GUIDES.slice(0, 4).map((guide) => (
+              <Link
+                key={guide.slug}
+                href={`/guides/${guide.slug}`}
+                className="rounded-xl border border-border bg-card p-4 hover:border-primary/60 transition-colors"
+              >
+                <span className="font-semibold text-sm leading-snug">{guide.title}</span>
+                <span className="block mt-1 text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                  {guide.description}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* On-device history */}
+      <section aria-label="Your recent activity" className="border-b border-border">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <HistoryPanel />
         </div>
       </section>
 
