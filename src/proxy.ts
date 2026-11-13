@@ -3,11 +3,26 @@ import { NextRequest, NextResponse } from 'next/server';
 /**
  * Next.js 16 Proxy convention (formerly middleware.ts).
  *
- * Safe, minimal header injection:
- * - Generates CSP nonces with standard Web Crypto API.
- * - Supports 'unsafe-inline' so static prerendered pages do not have their
- *   scripts blocked during crawling or browser rendering.
- * - Exports `proxy` (Next.js 16 convention) and `middleware` (for backwards compatibility).
+ * Header injection + subdomain routing.
+ *
+ * CSP note — why there is deliberately NO nonce in this policy:
+ * every page on this site is statically prerendered (SSG). Next.js can only
+ * stamp a nonce onto its inline scripts during dynamic rendering (see the
+ * framework's CSP guide: "To use a nonce, your page must be dynamically
+ * rendered... Static pages are generated at build time, so no nonce can be
+ * injected"). The prerendered HTML therefore ships inline scripts — most
+ * importantly the React flight-data scripts (`self.__next_f.push(...)`) —
+ * with NO nonce attribute, and under CSP3 a nonce in script-src makes the
+ * browser IGNORE 'unsafe-inline', so those inline scripts are refused and
+ * hydration never runs: the whole site renders but is completely inert
+ * (this killed the invoice workspace's dropdowns, totals, save and PDF
+ * buttons, and earlier blocked an inline <style> the same way). A nonce
+ * that can never be applied protects nothing; the policy below keeps
+ * 'unsafe-inline' effective for the framework's own inline bootstrap while
+ * external script origins stay restricted to 'self' + the named ad and
+ * analytics hosts.
+ *
+ * Exports `proxy` (Next.js 16 convention) and `middleware` (for backwards compatibility).
  */
 /**
  * Subdomain site: invoicegenerator.freeqrcode.tools serves the standalone
@@ -25,24 +40,15 @@ const INVOICE_SITE_HOST = 'invoicegenerator.freeqrcode.tools';
 const INVOICE_TOOL_PATHS = new Set(['/invoice-generator', '/quote-generator', '/receipt-generator']);
 
 export function proxy(request: NextRequest) {
-  let nonce: string;
-  try {
-    // 128-bit random nonce encoded as base64 using standard Web Crypto
-    const bytes = new Uint8Array(16);
-    crypto.getRandomValues(bytes);
-    nonce = btoa(String.fromCharCode(...bytes));
-  } catch {
-    nonce = btoa(crypto.randomUUID());
-  }
-
   const contentSecurityPolicy = [
     "default-src 'self'",
     // AdSense needs doubleclick + *.googlesyndication.com, not just pagead2.
     // Adsterra (bauval.org) is included so existing AdSlot banners are not
     // CSP-blocked; set NEXT_PUBLIC_ADSTERRA_ENABLED=false to pause Adsterra
     // during an AdSense review (see src/components/ads/AdSlot.tsx).
-    `script-src 'self' 'unsafe-inline' 'nonce-${nonce}' 'unsafe-eval' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://googleads.g.doubleclick.net https://bauval.org https://www.googletagmanager.com https://analytics.ahrefs.com`,
-    `style-src 'self' 'unsafe-inline' 'nonce-${nonce}' https://fonts.googleapis.com`,
+    // No 'nonce-…' here on purpose — see the CSP note at the top of this file.
+    `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://googleads.g.doubleclick.net https://bauval.org https://www.googletagmanager.com https://analytics.ahrefs.com`,
+    `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com`,
     "img-src 'self' data: blob: https: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net",
     "font-src 'self' https://fonts.gstatic.com",
     "connect-src 'self' https://pagead2.googlesyndication.com https://www.google-analytics.com",
@@ -52,8 +58,6 @@ export function proxy(request: NextRequest) {
   ].join('; ');
 
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set('x-nonce', nonce);
-  requestHeaders.set('Content-Security-Policy', contentSecurityPolicy);
 
   // Subdomain routing: the invoice site host rewrites to /invoice-site/*,
   // except the invoice-family tool paths, which are served under their own

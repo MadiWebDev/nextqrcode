@@ -9,12 +9,14 @@ import { updateGoogleConsent } from '@/lib/gtag';
 const CONSENT_KEY = 'qrs_cookie_consent';
 
 export function CookieConsent() {
-  // Read the stored choice lazily on first render (guarded for SSR) instead
-  // of setting state from a mount effect.
-  const [visible, setVisible] = useState<boolean>(() => {
-    if (typeof window === 'undefined') return false;
-    return localStorage.getItem(CONSENT_KEY) === null;
-  });
+  // Initial render must match the server (which has no localStorage and
+  // renders nothing): reading localStorage in the useState initializer made
+  // the first client render differ from the SSR HTML on every first visit,
+  // throwing a React hydration mismatch (#418) and forcing a full client
+  // re-render of the page. The stored choice is applied in the mount effect
+  // below instead — the banner still appears immediately after mount, with
+  // its slide-up animation unchanged.
+  const [visible, setVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -23,8 +25,12 @@ export function CookieConsent() {
       // Sync Google Consent Mode with saved preference
       updateGoogleConsent(stored === 'accepted');
     }
-    // Trigger slide-up animation after mount
-    const frame = requestAnimationFrame(() => setMounted(true));
+    // Reveal (if no stored choice) and trigger the slide-up animation on the
+    // next frame, after hydration has completed.
+    const frame = requestAnimationFrame(() => {
+      if (stored === null) setVisible(true);
+      setMounted(true);
+    });
     return () => cancelAnimationFrame(frame);
   }, []);
 

@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -33,15 +34,28 @@ const slideVariants = {
   exit: (direction: number) => ({ x: direction * -60, opacity: 0 }),
 };
 
+/** Host of the standalone invoice site — must match INVOICE_SITE_HOST in src/proxy.ts. */
+const INVOICE_SITE_HOST = 'invoicegenerator.freeqrcode.tools';
+
 export function OnboardingTour() {
   const [onboarded, setOnboarded] = useLocalStorage<boolean>('qr-onboarded', false);
   const [open, setOpen] = useState(true);
   const [step, setStep] = useState(0);
   const [dontShow, setDontShow] = useState(false);
   const [direction, setDirection] = useState(1);
+  const pathname = usePathname();
+
+  // This tour introduces the QR Code Tools product. The invoice site is a
+  // separate product with its own branding (served from its own subdomain,
+  // rewritten to /invoice-site by src/proxy.ts) — never show the QR tour
+  // there; it greeted invoice visitors with the wrong product and blocked
+  // the invoice workspace behind a modal on first visit.
+  const onInvoiceSite =
+    pathname?.startsWith('/invoice-site') ||
+    (typeof window !== 'undefined' && window.location.hostname === INVOICE_SITE_HOST);
 
   // Don't show if already onboarded (handled via useLocalStorage hydration)
-  if (onboarded) return null;
+  if (onboarded || onInvoiceSite) return null;
 
   const handleClose = () => {
     if (dontShow) setOnboarded(true);
