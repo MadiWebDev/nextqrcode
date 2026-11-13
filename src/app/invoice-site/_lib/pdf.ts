@@ -209,26 +209,65 @@ export async function buildInvoicePdf(
     }
   };
 
+  /**
+   * Shrink the current font until `text` fits `maxW` mm (floor `min` pt).
+   * Leaves the doc set to the fitted font/size and returns the size used.
+   */
+  const fitFontSize = (
+    text: string,
+    style: 'bold' | 'normal',
+    start: number,
+    min: number,
+    maxW: number
+  ): number => {
+    let size = start;
+    doc.setFont(font, style);
+    doc.setFontSize(size);
+    while (size > min && doc.getTextWidth(text) > maxW) {
+      size -= 0.5;
+      doc.setFontSize(size);
+    }
+    return size;
+  };
+
   /* ── Header ── */
   if (def.header === 'band') {
     const tone = def.bandTone === 'dark' ? dark : brand;
+    const bizName = profile.businessName || 'Your Business';
+    /* Fit the business name into the space left of the title block: shrink
+     * the font first; if it still does not fit, wrap to a second line and
+     * grow the band — a long name must never run into the title. */
+    doc.setFont(font, 'bold');
+    doc.setFontSize(20);
+    const titleW = doc.getTextWidth(title);
+    const nameAvail = pageW - 30 - titleW - 10;
+    let nameSize = fitFontSize(bizName, 'bold', 13, 10, nameAvail);
+    let nameLines = [bizName];
+    if (doc.getTextWidth(bizName) > nameAvail) {
+      nameSize = 11;
+      doc.setFont(font, 'bold');
+      doc.setFontSize(nameSize);
+      nameLines = (doc.splitTextToSize(bizName, nameAvail) as string[]).slice(0, 2);
+    }
+    const bandH = nameLines.length > 1 ? 38 : 30;
     doc.setFillColor(tone.r, tone.g, tone.b);
-    doc.rect(0, 0, pageW, 30, 'F');
+    doc.rect(0, 0, pageW, bandH, 'F');
     doc.setTextColor(255, 255, 255);
     doc.setFont(font, 'bold');
-    doc.setFontSize(13);
-    doc.text(profile.businessName || 'Your Business', 15, 13);
+    doc.setFontSize(nameSize);
+    nameLines.forEach((line, i) => doc.text(line, 15, 13 + i * 6.5));
     doc.setFontSize(9);
     doc.setFont(font, 'normal');
-    doc.text(profile.email || '', 15, 20);
-    doc.text(profile.phone || '', 15, 25);
+    const contactBase = nameLines.length > 1 ? bandH - 11 : 20;
+    doc.text(profile.email || '', 15, contactBase);
+    doc.text(profile.phone || '', 15, contactBase + 5);
     doc.setFontSize(20);
     doc.setFont(font, 'bold');
     doc.text(title, pageW - 15, 14, { align: 'right' });
     doc.setFontSize(10);
     doc.text(inv.number, pageW - 15, 21, { align: 'right' });
     doc.setTextColor(30, 30, 30);
-    y = 40;
+    y = bandH + 10;
     if (s.showLogo && profile.logoDataUrl) {
       addImageSafe(doc, profile.logoDataUrl, pageW - 45, y - 6, 30, 12);
     }
@@ -245,7 +284,13 @@ export async function buildInvoicePdf(
     doc.line(15, y + 1.2, pageW - 15, y + 1.2);
     y += 8;
     doc.setFont('times', 'bold');
-    doc.setFontSize(11);
+    fitFontSize(
+      profile.businessName || 'Your Business',
+      'bold',
+      11,
+      8.5,
+      pageW - 30 - (s.showLogo && profile.logoDataUrl ? 36 : 0)
+    );
     doc.text(profile.businessName || 'Your Business', 15, y);
     doc.setFont(font, 'normal');
     doc.setFontSize(9.5);
@@ -265,30 +310,40 @@ export async function buildInvoicePdf(
       addImageSafe(doc, profile.logoDataUrl, pageW / 2 - 15, y - 4, 30, 12);
       y += 12;
     }
+    const bizName = profile.businessName || 'Your Business';
+    const nameSize = fitFontSize(bizName, 'bold', 15, 10.5, pageW - 30);
+    let nameLines = [bizName];
+    if (doc.getTextWidth(bizName) > pageW - 30) {
+      doc.setFont(font, 'bold');
+      doc.setFontSize(12);
+      nameLines = (doc.splitTextToSize(bizName, pageW - 30) as string[]).slice(0, 2);
+    }
     doc.setFont(font, 'bold');
-    doc.setFontSize(15);
-    doc.text(profile.businessName || 'Your Business', pageW / 2, y + 4, { align: 'center' });
+    doc.setFontSize(nameLines.length > 1 ? 12 : nameSize);
+    nameLines.forEach((line, i) => doc.text(line, pageW / 2, y + 4 + i * 6, { align: 'center' }));
+    const nameExtra = (nameLines.length - 1) * 6;
     doc.setFont(font, 'normal');
     doc.setFontSize(9);
     doc.setTextColor(100, 100, 100);
-    doc.text(
-      [...profileAddressLines(profile), profile.email, profile.phone]
-        .filter(Boolean)
-        .join(' · '),
-      pageW / 2,
-      y + 9,
-      { align: 'center' }
+    /* The contact line wraps instead of running off the page edge. */
+    const contactLines = doc.splitTextToSize(
+      [...profileAddressLines(profile), profile.email, profile.phone].filter(Boolean).join(' · '),
+      pageW - 36
+    ) as string[];
+    contactLines.forEach((line, i) =>
+      doc.text(line, pageW / 2, y + 9 + nameExtra + i * 4.5, { align: 'center' })
     );
+    const contactExtra = (contactLines.length - 1) * 4.5;
     doc.setTextColor(30, 30, 30);
     doc.setFont(font, 'bold');
     doc.setFontSize(19);
     doc.setTextColor(secondary.r, secondary.g, secondary.b);
-    doc.text(title, pageW / 2, y + 18, { align: 'center' });
+    doc.text(title, pageW / 2, y + 18 + nameExtra + contactExtra, { align: 'center' });
     doc.setTextColor(30, 30, 30);
     doc.setFont(font, 'normal');
     doc.setFontSize(10.5);
-    doc.text(inv.number, pageW / 2, y + 24, { align: 'center' });
-    y += 30;
+    doc.text(inv.number, pageW / 2, y + 24 + nameExtra + contactExtra, { align: 'center' });
+    y += 30 + nameExtra + contactExtra;
     doc.setDrawColor(200, 200, 200);
     doc.setLineWidth(0.2);
     doc.line(15, y - 3, pageW - 15, y - 3);
@@ -303,21 +358,26 @@ export async function buildInvoicePdf(
     doc.setFontSize(11);
     doc.text(inv.number, pageW - 15, y + 5, { align: 'right' });
     doc.setFont(font, 'bold');
-    doc.setFontSize(11.5);
+    fitFontSize(
+      profile.businessName || 'Your Business',
+      'bold',
+      11.5,
+      9,
+      pageW - 30 - (s.showLogo && profile.logoDataUrl ? 36 : 0)
+    );
     doc.text(profile.businessName || 'Your Business', 15, y + 13);
     doc.setFont(font, 'normal');
     doc.setFontSize(9.5);
-    doc.text(
-      [...profileAddressLines(profile), profile.email, profile.phone]
-        .filter(Boolean)
-        .join(' · '),
-      15,
-      y + 18.5
-    );
+    /* Wrap the contact line — as one long line it ran off the right edge. */
+    const contactLines = doc.splitTextToSize(
+      [...profileAddressLines(profile), profile.email, profile.phone].filter(Boolean).join(' · '),
+      pageW - 30
+    ) as string[];
+    contactLines.forEach((line, i) => doc.text(line, 15, y + 18.5 + i * 4.5));
     if (s.showLogo && profile.logoDataUrl) {
       addImageSafe(doc, profile.logoDataUrl, pageW - 45, y + 10, 30, 12);
     }
-    y += 26;
+    y += Math.max(26, 21 + contactLines.length * 4.5);
   } else {
     // plain (minimal)
     doc.setFont(font, 'normal');
@@ -333,7 +393,13 @@ export async function buildInvoicePdf(
     doc.line(15, y, pageW - 15, y);
     y += 7;
     doc.setFont(font, 'bold');
-    doc.setFontSize(10.5);
+    fitFontSize(
+      profile.businessName || 'Your Business',
+      'bold',
+      10.5,
+      8.5,
+      pageW - 30 - (s.showLogo && profile.logoDataUrl ? 36 : 0)
+    );
     doc.text(profile.businessName || 'Your Business', 15, y);
     doc.setFont(font, 'normal');
     doc.setFontSize(9.5);
@@ -466,27 +532,78 @@ export async function buildInvoicePdf(
       : []),
     ['Balance due', moneyPdf(totals.balance, inv.currency), true],
   ];
-  ensure(rows.length * 5.5 + 12);
-  y += 3;
-  if (def.totals === 'boxed') {
+  /* Content-aware totals layout. The block is sized from the actual
+   * rendered strings: the widest label and widest value (measured in the
+   * fonts in use) set the width, so long tax labels and large amounts never
+   * collide, values sit INSIDE the optional box with real padding (before,
+   * they were right-aligned exactly on the border — the last digit was
+   * bisected by the stroke), and the whole block keeps together on a page. */
+  const totalsBoxed = def.totals === 'boxed';
+  const BOX_PAD_X = 4;
+  const BOX_PAD_Y = 3;
+  const LABEL_GAP = 8;
+  const rightEdge = pageW - 15;
+  doc.setFontSize(9.5);
+  let valueColW = 0;
+  let naturalLabelW = 0;
+  rows.forEach(([label, value, bold]) => {
+    doc.setFont(font, bold ? 'bold' : 'normal');
+    valueColW = Math.max(valueColW, doc.getTextWidth(value));
+    naturalLabelW = Math.max(naturalLabelW, doc.getTextWidth(label));
+  });
+  doc.setFont(font, 'normal');
+  const maxBlockW = rightEdge - 62; // keep clear of the stamp zone at x 15–57
+  const blockW = Math.min(
+    Math.max(
+      totalsBoxed ? 82 : 77,
+      naturalLabelW + LABEL_GAP + valueColW + (totalsBoxed ? BOX_PAD_X * 2 : 0)
+    ),
+    maxBlockW
+  );
+  const blockLeft = rightEdge - blockW;
+  const labelX = blockLeft + (totalsBoxed ? BOX_PAD_X : 0);
+  const valueRight = totalsBoxed ? rightEdge - BOX_PAD_X : rightEdge - 2;
+  const labelColW = Math.max(
+    24,
+    blockW - (totalsBoxed ? BOX_PAD_X * 2 : 0) - LABEL_GAP - valueColW
+  );
+  const laidOut = rows.map(([label, value, bold]) => {
+    doc.setFont(font, bold ? 'bold' : 'normal');
+    const labelLines = doc.splitTextToSize(label, labelColW) as string[];
+    return {
+      labelLines,
+      value,
+      bold,
+      h: Math.max(5.5, labelLines.length * 4.8 + 0.7),
+    };
+  });
+  doc.setFont(font, 'normal');
+  const totalsH = laidOut.reduce((sum, r) => sum + r.h, 0);
+  const blockH = totalsH + (totalsBoxed ? BOX_PAD_Y * 2 : 2);
+  ensure(blockH + 5);
+  y += 2;
+  const blockTop = y;
+  if (totalsBoxed) {
     doc.setDrawColor(secondary.r, secondary.g, secondary.b);
     doc.setLineWidth(0.4);
-    doc.rect(pageW - 97, y - 6, 82, rows.length * 5.5 + 9);
+    doc.rect(blockLeft, blockTop, blockW, blockH);
     doc.setLineWidth(0.2);
   } else {
     doc.setDrawColor(200, 200, 200);
-    doc.line(pageW - 97, y - 3, pageW - 15, y - 3);
+    doc.line(blockLeft, blockTop + 0.5, rightEdge, blockTop + 0.5);
   }
-  rows.forEach(([label, value, bold]) => {
+  let rowY = blockTop + (totalsBoxed ? BOX_PAD_Y : 2);
+  laidOut.forEach(({ labelLines, value, bold, h }) => {
     doc.setFont(font, bold ? 'bold' : 'normal');
-    doc.text(label, pageW - 92, y);
-    doc.text(value, pageW - 15, y, { align: 'right' });
-    y += 5.5;
+    labelLines.forEach((line, i) => doc.text(line, labelX, rowY + 4.2 + i * 4.8));
+    doc.text(value, valueRight, rowY + 4.2, { align: 'right' });
+    rowY += h;
   });
   doc.setFont(font, 'normal');
+  y = blockTop + blockH + 2;
 
   if (s.showStamp && profile.stampDataUrl) {
-    addImageSafe(doc, profile.stampDataUrl, 15, y - 26, 40, 20);
+    addImageSafe(doc, profile.stampDataUrl, 15, y - 22, 40, 20);
   }
 
   /* ── Payments received ── */

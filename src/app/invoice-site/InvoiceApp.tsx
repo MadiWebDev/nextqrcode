@@ -1380,9 +1380,9 @@ export function InvoiceApp() {
               </span>
             </div>
           )}
-        <div className="grid gap-6 lg:grid-cols-2 items-start">
+        <div className="grid gap-6 lg:grid-cols-2 items-start [&>*]:min-w-0">
           {/* ── Editor ── */}
-          <div className="space-y-5">
+          <div className="space-y-5 min-w-0">
             <Card className="p-5 space-y-4">
               <h3 className="font-semibold">Invoice details</h3>
               <div className="grid grid-cols-2 gap-3">
@@ -1829,20 +1829,20 @@ export function InvoiceApp() {
                       setDragItemId(null);
                     }}
                   >
-                    <div className="flex gap-2 items-start">
+                    <div className="flex flex-wrap gap-2 items-start">
                       <button
                         type="button"
                         draggable
                         aria-label="Drag to reorder item"
                         title="Drag to reorder"
-                        className="pt-2.5 cursor-grab text-muted-foreground hover:text-foreground"
+                        className="order-1 shrink-0 pt-2.5 cursor-grab text-muted-foreground hover:text-foreground"
                         onDragStart={() => setDragItemId(item.id)}
                         onDragEnd={() => setDragItemId(null)}
                       >
                         <GripVertical className="w-4 h-4" />
                       </button>
                       <Input
-                        className="flex-1"
+                        className="order-2 grow min-w-0 basis-[calc(100%-4.5rem)] sm:basis-0"
                         placeholder="Description of work or product"
                         value={item.description}
                         onChange={(e) => patchItem(item.id, { description: e.target.value })}
@@ -1850,22 +1850,23 @@ export function InvoiceApp() {
                       />
                       <NumInput
                         ariaLabel="Quantity"
-                        className="w-20"
+                        className="order-4 sm:order-3 w-16 sm:w-20 shrink-0"
                         value={item.qty}
                         onChange={(n) => patchItem(item.id, { qty: n })}
                       />
                       <NumInput
                         ariaLabel="Unit price"
-                        className="w-28"
+                        className="order-5 sm:order-4 w-24 sm:w-28 shrink-0"
                         value={item.unitPrice}
                         onChange={(n) => patchItem(item.id, { unitPrice: n })}
                       />
-                      <span className="w-24 text-right text-sm font-medium pt-2.5">
+                      <span className="order-6 sm:order-5 grow sm:grow-0 sm:w-24 min-w-0 text-right text-sm font-medium pt-2.5">
                         {money(totals.lines[idx]?.net ?? 0, draft.currency)}
                       </span>
                       <Button
                         variant="ghost"
                         size="icon"
+                        className="order-7 sm:order-6 shrink-0"
                         aria-label="Duplicate item"
                         onClick={() =>
                           setDraft((d) => {
@@ -1882,6 +1883,7 @@ export function InvoiceApp() {
                       <Button
                         variant="ghost"
                         size="icon"
+                        className="order-3 sm:order-7 shrink-0"
                         aria-label="Remove item"
                         onClick={() =>
                           setDraft((d) => ({
@@ -1896,9 +1898,9 @@ export function InvoiceApp() {
                         <Trash2 className="w-4 h-4" />
                       </Button>
                     </div>
-                    <div className="flex flex-wrap gap-2 items-center pl-6">
+                    <div className="flex flex-wrap gap-2 items-center pl-0 sm:pl-6">
                       <Input
-                        className="flex-1 min-w-44 h-8 text-xs"
+                        className="flex-1 min-w-28 sm:min-w-44 h-8 text-xs"
                         placeholder="Detail (optional — scope, dates, specs…)"
                         value={item.detail}
                         onChange={(e) => patchItem(item.id, { detail: e.target.value })}
@@ -2323,7 +2325,7 @@ export function InvoiceApp() {
           </div>
 
           {/* ── Live preview ── */}
-          <div className="lg:sticky lg:top-6">
+          <div className="lg:sticky lg:top-6 min-w-0">
             <p className="text-xs font-medium text-muted-foreground mb-2">
               LIVE PREVIEW — exactly what your client receives
             </p>
@@ -2402,7 +2404,7 @@ function InvoicePreview({
       {stampText && (
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
           <span
-            className={`inline-block -rotate-[18deg] rounded-lg border-4 px-6 py-2 text-5xl font-extrabold uppercase tracking-[0.2em] opacity-25 ${
+            className={`inline-block max-w-full text-center -rotate-[18deg] rounded-lg border-4 px-4 sm:px-6 py-2 text-4xl sm:text-5xl font-extrabold uppercase tracking-[0.2em] opacity-25 ${
               eff === 'paid'
                 ? 'border-emerald-600 text-emerald-600'
                 : eff === 'overdue'
@@ -2420,7 +2422,7 @@ function InvoicePreview({
           style={{ backgroundColor: def.bandTone === 'dark' ? '#1e293b' : brand }}
         >
           <div className="min-w-0">
-            <p className="font-bold text-lg leading-tight truncate">
+            <p className="font-bold text-lg leading-tight break-words">
               {profile.businessName || 'Your Business'}
             </p>
             <p className="text-xs opacity-90 mt-1 whitespace-pre-line">
@@ -2545,7 +2547,13 @@ function InvoicePreview({
           </div>
         </div>
 
-        <table className="w-full text-sm mt-5">
+        <table className="w-full table-fixed text-xs sm:text-sm mt-5">
+          <colgroup>
+            <col />
+            <col className="w-10 sm:w-14" />
+            <col className="w-14 sm:w-24" />
+            <col className="w-[4.75rem] sm:w-24" />
+          </colgroup>
           <thead>
             <tr
               className={
@@ -2559,10 +2567,10 @@ function InvoicePreview({
               }
               style={def.table === 'filled' ? { backgroundColor: brand } : undefined}
             >
-              <th className="text-left font-semibold px-2 py-2">Description</th>
-              <th className="text-right font-semibold px-2 py-2 w-14">Qty</th>
-              <th className="text-right font-semibold px-2 py-2 w-24">Unit price</th>
-              <th className="text-right font-semibold px-2 py-2 w-24">Amount</th>
+              <th className="text-left font-semibold px-1 sm:px-2 py-2">Description</th>
+              <th className="text-right font-semibold px-1 sm:px-2 py-2">Qty</th>
+              <th className="text-right font-semibold px-1 sm:px-2 py-2">Unit price</th>
+              <th className="text-right font-semibold px-1 sm:px-2 py-2">Amount</th>
             </tr>
           </thead>
           <tbody>
@@ -2573,7 +2581,7 @@ function InvoicePreview({
                   def.table === 'striped' && idx % 2 === 1 ? 'bg-slate-50' : ''
                 }`}
               >
-                <td className="px-2 py-2">
+                <td className="px-1 sm:px-2 py-2 break-words">
                   <span>{item.description || '—'}</span>
                   {item.detail.trim() && (
                     <span className="block text-xs text-slate-500 mt-0.5">{item.detail}</span>
@@ -2589,12 +2597,14 @@ function InvoicePreview({
                     </span>
                   )}
                 </td>
-                <td className="px-2 py-2 text-right">
+                <td className="px-1 sm:px-2 py-2 text-right">
                   {item.qty}
                   {item.unit ? <span className="text-slate-400"> {item.unit}</span> : null}
                 </td>
-                <td className="px-2 py-2 text-right">{money(item.unitPrice, inv.currency)}</td>
-                <td className="px-2 py-2 text-right font-medium">
+                <td className="px-1 sm:px-2 py-2 text-right">
+                  {money(item.unitPrice, inv.currency)}
+                </td>
+                <td className="px-1 sm:px-2 py-2 text-right font-medium">
                   {money(totals.lines[idx]?.net ?? 0, inv.currency)}
                 </td>
               </tr>
@@ -2604,7 +2614,7 @@ function InvoicePreview({
 
         <div className="flex justify-end mt-4">
           <dl
-            className={`w-60 text-sm space-y-1 ${
+            className={`w-full sm:w-60 text-sm space-y-1 ${
               def.totals === 'boxed' ? 'border rounded-lg p-3' : ''
             }`}
             style={def.totals === 'boxed' ? { borderColor: secondary } : undefined}
@@ -4011,7 +4021,7 @@ function SettingsView({
       </div>
 
       {section === 'profile' && (
-        <div className="grid gap-6 lg:grid-cols-2 items-start">
+        <div className="grid gap-6 lg:grid-cols-2 items-start [&>*]:min-w-0">
           <Card className="p-5 space-y-4">
             <h3 className="font-semibold flex items-center gap-2">
               <Building2 className="w-4 h-4" /> Business profile
@@ -4638,7 +4648,7 @@ function SettingsView({
       )}
 
       {section === 'data' && (
-        <div className="grid gap-6 lg:grid-cols-2 items-start">
+        <div className="grid gap-6 lg:grid-cols-2 items-start [&>*]:min-w-0">
           <Card className="p-5 space-y-4">
             <h3 className="font-semibold">Your data — backup &amp; export</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
