@@ -3,17 +3,20 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Building2,
+  Check,
   Copy,
   Download,
   FilePlus2,
   FileText,
   GripVertical,
   LayoutDashboard,
+  Link2,
   Mail,
   MessageCircle,
   Pencil,
   Plus,
   Printer,
+  QrCode,
   Repeat,
   Save,
   Search,
@@ -49,6 +52,7 @@ import {
   type TemplateSettings,
 } from './_lib/templates';
 import { buildInvoicePdf } from './_lib/pdf';
+import { buildShareUrl, SHARE_URL_DENSE_LIMIT } from './_lib/share';
 import { event as gaEvent } from '@/lib/gtag';
 import { parseCsv, toCsv } from './_lib/csv';
 
@@ -224,7 +228,7 @@ export interface Invoice {
   updatedAt: string;
 }
 
-interface Totals {
+export interface Totals {
   subtotal: number;
   /** Sum of per-line discounts (already reflected in the subtotal). */
   itemDiscounts: number;
@@ -359,7 +363,7 @@ function formatInvoiceNumber(n: number, prefix = 'INV-', suffix = ''): string {
   return `${prefix}${String(Math.max(1, Math.floor(n) || 1)).padStart(4, '0')}${suffix}`;
 }
 
-function money(value: number, currency: string, forPdf = false): string {
+export function money(value: number, currency: string, forPdf = false): string {
   const digits = currencyDigits(currency);
   try {
     const out = new Intl.NumberFormat('en-US', {
@@ -388,7 +392,7 @@ function paymentsSum(inv: Pick<Invoice, 'payments'>): number {
   return (inv.payments ?? []).reduce((sum, p) => sum + (Number(p.amount) || 0), 0);
 }
 
-function computeTotals(
+export function computeTotals(
   inv: Pick<
     Invoice,
     | 'items'
@@ -444,7 +448,7 @@ export function effectiveStatus(inv: Invoice): EffectiveStatus {
   return inv.status === 'viewed' ? 'viewed' : 'sent';
 }
 
-const STATUS_LABELS: Record<EffectiveStatus, string> = {
+export const STATUS_LABELS: Record<EffectiveStatus, string> = {
   draft: 'Draft',
   sent: 'Sent',
   viewed: 'Viewed',
@@ -949,6 +953,7 @@ export function InvoiceApp() {
   const [view, setView] = useState<ViewName>('create');
   const [qrDataUrl, setQrDataUrl] = useState('');
   const [savedNote, setSavedNote] = useState('');
+  const [shareOpen, setShareOpen] = useState(false);
   const [payForm, setPayForm] = useState<{
     date: string;
     amount: number;
@@ -2300,6 +2305,9 @@ export function InvoiceApp() {
               >
                 <MessageCircle className="w-4 h-4" /> WhatsApp
               </a>
+              <button type="button" onClick={() => setShareOpen(true)} className={SHARE_BTN_CLASS}>
+                <QrCode className="w-4 h-4" /> Share / QR code
+              </button>
               <span className="text-xs text-muted-foreground">
                 Opens your email app — attach the PDF you downloaded.
               </span>
@@ -2366,13 +2374,201 @@ export function InvoiceApp() {
           onImportData={handleImportData}
         />
       )}
+
+      {shareOpen && (
+        <ShareInvoicePanel
+          inv={draft}
+          profile={profile}
+          onClose={() => setShareOpen(false)}
+          onDownloadPdf={(viewUrl) =>
+            buildInvoicePdf(
+              draft,
+              profile,
+              totals,
+              STATUS_LABELS[draftStatus],
+              stampFor(draftStatus),
+              viewUrl ? { viewUrl } : undefined
+            )
+          }
+        />
+      )}
+    </div>
+  );
+}
+
+/* ── Share / view-QR panel ─────────────────────────────────────────────
+ * Turns a finished invoice into a shareable read-only view link + QR code
+ * (see _lib/share.ts). The invoice data travels inside the link's fragment;
+ * nothing is uploaded. This is a VIEW link — not the payment QR. */
+
+function ShareInvoicePanel({
+  inv,
+  profile,
+  onClose,
+  onDownloadPdf,
+}: {
+  inv: Invoice;
+  profile: Profile;
+  onClose: () => void;
+  onDownloadPdf: (viewUrl?: string) => Promise<JsPDF>;
+}) {
+  const totals = useMemo(() => computeTotals(inv), [inv]);
+  const url = useMemo(
+    () =>
+      buildShareUrl(inv, profile, totals.totalPaid, {
+        origin: window.location.origin,
+        hostname: window.location.hostname,
+      }),
+    [inv, profile, totals.totalPaid]
+  );
+  const [qrDataUrl, setQrDataUrl] = useState('');
+  const [qrFailed, setQrFailed] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    toDataURL(url, {
+      width: 320,
+      margin: 1,
+      errorCorrectionLevel: url.length > SHARE_URL_DENSE_LIMIT ? 'L' : 'M',
+    })
+      .then((u) => {
+        if (!cancelled) setQrDataUrl(u);
+      })
+      .catch(() => {
+        if (!cancelled) setQrFailed(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [url]);
+  const [copied, setCopied] = useState(false);
+  const [viewQrOnPdf, setViewQrOnPdf] = useState(true);
+  const [downloading, setDownloading] = useState(false);
+
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard unavailable (permissions) — the link field stays selectable */
+    }
+  };
+
+  const downloadPdf = async () => {
+    setDownloading(true);
+    try {
+      const doc = await onDownloadPdf(viewQrOnPdf ? url : undefined);
+      doc.save(`${inv.number || 'invoice'}.pdf`);
+      gaEvent({ action: 'pdf_downloaded', category: 'invoice', label: 'share_panel' });
+    } finally {
+      setDownloading(false);
+    }
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Share invoice ${inv.number}`}
+    >
+      <div className="w-full max-w-md max-h-[90vh] overflow-y-auto rounded-xl bg-white text-slate-900 shadow-2xl">
+        <div className="flex items-start justify-between p-5 pb-0">
+          <div>
+            <h3 className="font-semibold flex items-center gap-2">
+              <QrCode className="w-5 h-5" /> Share invoice {inv.number}
+            </h3>
+            <p className="text-xs text-muted-foreground mt-1">
+              {money(totals.total, inv.currency)} · {STATUS_LABELS[effectiveStatus(inv)]} · the
+              client sees a read-only copy
+            </p>
+          </div>
+          <Button size="sm" variant="ghost" onClick={onClose} aria-label="Close share panel">
+            <X className="w-4 h-4" />
+          </Button>
+        </div>
+        <div className="p-5 space-y-4">
+          <div className="flex justify-center">
+            {qrDataUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={qrDataUrl}
+                alt={`QR code to view invoice ${inv.number} online`}
+                className="w-52 h-52 rounded-lg border border-slate-200"
+              />
+            ) : qrFailed ? (
+              <p className="text-sm text-muted-foreground py-8 text-center max-w-60">
+                This invoice is too large to fit into a QR code — please copy the link below
+                instead.
+              </p>
+            ) : (
+              <div
+                className="w-52 h-52 rounded-lg border border-slate-200 bg-slate-50"
+                aria-label="Generating QR code"
+              />
+            )}
+          </div>
+          <p className="text-xs text-muted-foreground">
+            The invoice itself travels inside this link and QR code — nothing is uploaded to a
+            server. <strong>Anyone with this link or QR code can view this invoice</strong>, so
+            share it only with your client. This is a view link, separate from the payment QR.
+          </p>
+          {url.length > SHARE_URL_DENSE_LIMIT && (
+            <p className="text-xs text-amber-800 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
+              This link is long ({url.length} characters), so the QR code is very dense and some
+              phone cameras may struggle to scan it. Copying the link is the more reliable option
+              for this invoice.
+            </p>
+          )}
+          <div>
+            <Label htmlFor={`share-link-${inv.id || 'draft'}`}>Invoice view link</Label>
+            <div className="flex gap-2 mt-1">
+              <Input
+                id={`share-link-${inv.id || 'draft'}`}
+                readOnly
+                value={url}
+                aria-label="Invoice view link"
+                onFocus={(e) => e.target.select()}
+              />
+              <Button variant="outline" onClick={copyLink} className="gap-1.5 shrink-0">
+                {copied ? <Check className="w-4 h-4" /> : <Link2 className="w-4 h-4" />}
+                {copied ? 'Copied' : 'Copy link'}
+              </Button>
+            </div>
+          </div>
+          {qrDataUrl && (
+            <a
+              href={qrDataUrl}
+              download={`invoice-${inv.number || 'shared'}-view-qr.png`}
+              className={SHARE_BTN_CLASS}
+            >
+              <Download className="w-4 h-4" /> Download QR (PNG)
+            </a>
+          )}
+          <label className="flex items-start gap-2 text-sm cursor-pointer">
+            <input
+              type="checkbox"
+              className="mt-0.5 w-4 h-4 accent-primary"
+              checked={viewQrOnPdf}
+              onChange={(e) => setViewQrOnPdf(e.target.checked)}
+            />
+            <span>
+              Put a &lsquo;scan to view online&rsquo; QR on the PDF (footer of the last page)
+            </span>
+          </label>
+          <Button onClick={downloadPdf} disabled={downloading} className="w-full gap-2">
+            <Download className="w-4 h-4" />
+            {downloading ? 'Building PDF…' : 'Download PDF'}
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
 
 /* ── Live preview ──────────────────────────────────────────────────── */
 
-function InvoicePreview({
+export function InvoicePreview({
   inv,
   profile,
   totals,
@@ -2753,6 +2949,7 @@ function InvoicesView({
       return next;
     });
   const [statusFilter, setStatusFilter] = useState<'all' | EffectiveStatus>('all');
+  const [shareInv, setShareInv] = useState<Invoice | null>(null);
 
   const summary = useMemo(() => {
     const byCurrency = new Map<
@@ -3004,6 +3201,14 @@ function InvoicesView({
                       >
                         <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
                       </a>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => setShareInv(inv)}
+                        className="gap-1.5"
+                      >
+                        <QrCode className="w-3.5 h-3.5" /> Share / QR
+                      </Button>
                       {eff !== 'paid' && (
                         <Button size="sm" variant="outline" onClick={() => onMarkPaid(inv)}>
                           Mark paid
@@ -3024,6 +3229,28 @@ function InvoicesView({
             </div>
           )}
         </>
+      )}
+
+      {shareInv && (
+        <ShareInvoicePanel
+          inv={shareInv}
+          profile={profile}
+          onClose={() => setShareInv(null)}
+          onDownloadPdf={(viewUrl) => {
+            const t = computeTotals(shareInv);
+            const eff = effectiveStatus(shareInv);
+            const stamp =
+              eff === 'paid' ? 'PAID' : eff === 'overdue' ? 'OVERDUE' : eff === 'draft' ? 'DRAFT' : null;
+            return buildInvoicePdf(
+              shareInv,
+              profile,
+              t,
+              STATUS_LABELS[eff],
+              stamp,
+              viewUrl ? { viewUrl } : undefined
+            );
+          }}
+        />
       )}
     </div>
   );

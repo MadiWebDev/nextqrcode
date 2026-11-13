@@ -110,4 +110,14 @@ describe('buildInvoicePdf', () => {
     const doc = await buildInvoicePdf(inv, profile, totalsFor(inv), 'Sent', null);
     expect(doc.getNumberOfPages()).toBeGreaterThanOrEqual(1);
   });
+
+  it('adds the view-online QR footer only when a view URL is passed', async () => {
+    const inv = makeInvoice(2);
+    const plain = await buildInvoicePdf(inv, profile, totalsFor(inv), 'Sent', null);
+    const withView = await buildInvoicePdf(inv, profile, totalsFor(inv), 'Sent', null, {
+      viewUrl: 'https://invoicegenerator.freeqrcode.tools/v#abc123',
+    });
+    expect(withView.getNumberOfPages()).toBe(plain.getNumberOfPages());
+    expect(withView.output('datauristring')).toContain('application/pdf');
+  });
 });

@@ -84,6 +84,16 @@ export interface PdfTotals {
 
 export type PdfStamp = 'PAID' | 'OVERDUE' | 'DRAFT' | null;
 
+export interface BuildPdfOptions {
+  /**
+   * When set, a small "Scan to view this invoice online" QR code + caption +
+   * URL is drawn in the footer area of the last page. This is the read-only
+   * view link (see _lib/share.ts) — different from the payment QR, which is
+   * part of the document body. Default: off; existing callers are unaffected.
+   */
+  viewUrl?: string;
+}
+
 function hexToRgb(hex: string): { r: number; g: number; b: number } {
   const m = /^#?([0-9a-f]{6})$/i.exec((hex || '').trim());
   if (!m) return { r: 29, g: 78, b: 216 };
@@ -146,7 +156,8 @@ export async function buildInvoicePdf(
   profile: PdfProfile,
   totals: PdfTotals,
   statusLabel: string,
-  stamp: PdfStamp
+  stamp: PdfStamp,
+  options?: BuildPdfOptions
 ): Promise<JsPDF> {
   const s = inv.templateSettings;
   const def = templateDef(inv.template);
@@ -171,6 +182,16 @@ export async function buildInvoicePdf(
       qrDataUrl = await toDataURL(qrPayloadText, { width: 280, margin: 1 });
     } catch {
       qrDataUrl = '';
+    }
+  }
+
+  /* View-online QR (optional, footer of the last page — see the footer pass). */
+  let viewQrDataUrl = '';
+  if (options?.viewUrl) {
+    try {
+      viewQrDataUrl = await toDataURL(options.viewUrl, { width: 280, margin: 1 });
+    } catch {
+      viewQrDataUrl = '';
     }
   }
 
@@ -661,6 +682,14 @@ export async function buildInvoicePdf(
     });
   }
 
+  /* If the view-online QR will be drawn in the last page's footer area,
+   * make sure the content flow left that area clear — otherwise give the
+   * footer block a fresh last page instead of overprinting body content. */
+  if (viewQrDataUrl && y > pageH - 42) {
+    doc.addPage();
+    y = 15;
+  }
+
   /* ── Stamp (last page, on top) ── */
   if (stamp) {
     const pageCount = doc.getNumberOfPages();
@@ -693,6 +722,27 @@ export async function buildInvoicePdf(
       { align: 'center' }
     );
     doc.text(`Page ${i} of ${total_pages}`, pageW - 15, pageH - 8, { align: 'right' });
+
+    /* View-online QR: last page only, bottom-left footer area. The QR is
+     * the functional element; the URL is printed beside it (truncated with
+     * an ellipsis when the encoded invoice makes it too long to print). */
+    if (i === total_pages && viewQrDataUrl && options?.viewUrl) {
+      addImageSafe(doc, viewQrDataUrl, 15, pageH - 34, 20, 20);
+      doc.setFont(font, 'bold');
+      doc.setFontSize(8.5);
+      doc.setTextColor(80, 80, 80);
+      doc.text('Scan to view this invoice online', 38, pageH - 28);
+      doc.setFont(font, 'normal');
+      doc.setFontSize(6.5);
+      doc.setTextColor(120, 120, 120);
+      const allUrlLines = doc.splitTextToSize(options.viewUrl, pageW - 56) as string[];
+      const urlLines = allUrlLines.slice(0, 3);
+      if (allUrlLines.length > 3 && urlLines.length === 3) {
+        urlLines[2] = `${urlLines[2].slice(0, -1)}…`;
+      }
+      urlLines.forEach((line, li) => doc.text(line, 38, pageH - 23.5 + li * 3.4));
+      doc.setTextColor(30, 30, 30);
+    }
   }
 
   return doc;

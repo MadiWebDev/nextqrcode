@@ -98,6 +98,97 @@ test.describe('invoice workspace (live browser)', () => {
   });
 });
 
+/* ── View-QR sharing ─────────────────────────────────────────────────────────
+ * The share flow turns a finished invoice into a link whose fragment carries
+ * the invoice itself; the /v page must decode it and render the same invoice
+ * read-only, with a working PDF download. Guarded here because every layer
+ * (panel, URL building, decode, view rendering) is browser-only behaviour. */
+
+test.describe('invoice view-QR sharing', () => {
+  test('share panel → view link renders the same invoice and downloads a PDF', async ({
+    page,
+    context,
+  }) => {
+    const pageErrors: string[] = [];
+    page.on('pageerror', (err) => pageErrors.push(err.message));
+    page.on('console', (msg) => {
+      if (msg.type() === 'error' && msg.text().includes('Content Security Policy')) {
+        pageErrors.push(msg.text());
+      }
+    });
+
+    await page.goto('/invoice-site');
+    // The consent banner mounts after a short delay and, on mobile, overlays
+    // the bottom of the screen where the share panel's buttons sit — dismiss
+    // it deterministically (short wait) instead of racing its first paint.
+    await page
+      .getByRole('button', { name: 'Reject Non-Essential' })
+      .click({ timeout: 3_000 })
+      .catch(() => undefined);
+
+    await page.getByLabel('Item description').first().fill('Design sprint');
+    await page.getByLabel('Quantity').first().fill('2');
+    await page.getByLabel('Unit price').first().fill('50');
+    await page.getByRole('button', { name: 'Save invoice' }).click();
+    await expect(page.getByText(/find it any time under My invoices/)).toBeVisible();
+    // The saved record lands in local storage via state effects — poll for it
+    // rather than assuming a synchronous write.
+    let number = '';
+    await expect
+      .poll(async () => {
+        number = await page.evaluate(() => {
+          const list = JSON.parse(localStorage.getItem('invoicegenerator:invoices') ?? '[]') as {
+            number?: string;
+          }[];
+          return list[0]?.number ?? '';
+        });
+        return number;
+      })
+      .toMatch(/^INV-/);
+
+    // --- Share panel: QR + link ---------------------------------------------
+    await page.getByRole('button', { name: 'Share / QR code' }).click();
+    const dialog = page.getByRole('dialog', { name: `Share invoice ${number}` });
+    await expect(dialog).toBeVisible();
+    await expect(
+      dialog.locator('img[alt*="QR code to view invoice"]'),
+    ).toBeVisible({ timeout: 15_000 });
+    await expect(dialog.getByRole('button', { name: 'Copy link' })).toBeVisible();
+    const viewUrl = await dialog.getByLabel('Invoice view link').inputValue();
+    expect(viewUrl).toContain('/v#');
+    expect(viewUrl.length).toBeGreaterThan(80);
+
+    // Panel PDF download (with the view-QR footer option on) yields a .pdf.
+    const panelDownload = page.waitForEvent('download', { timeout: 20_000 });
+    await dialog.getByRole('button', { name: 'Download PDF' }).click();
+    expect((await panelDownload).suggestedFilename()).toMatch(/\.pdf$/i);
+    await dialog.getByRole('button', { name: 'Close share panel' }).click();
+    await expect(dialog).toHaveCount(0);
+
+    // --- View page: same invoice, read-only, PDF works -----------------------
+    const viewPage = await context.newPage();
+    const viewErrors: string[] = [];
+    viewPage.on('pageerror', (err) => viewErrors.push(err.message));
+    await viewPage.goto(viewUrl);
+    await expect(viewPage.getByRole('heading', { name: `Invoice ${number}` })).toBeVisible({
+      timeout: 15_000,
+    });
+    await expect(
+      viewPage
+        .locator('xpath=//dl//dt[normalize-space()="Total"]/following-sibling::dd[1]')
+        .first(),
+    ).toContainText('$100.00');
+    await expect(viewPage.getByText(/read-only view/)).toBeVisible();
+    const viewDownload = viewPage.waitForEvent('download', { timeout: 20_000 });
+    await viewPage.getByRole('button', { name: 'Download PDF' }).click();
+    expect((await viewDownload).suggestedFilename()).toMatch(/\.pdf$/i);
+    await viewPage.close();
+
+    expect(pageErrors, `editor errors:\n${pageErrors.join('\n')}`).toEqual([]);
+    expect(viewErrors, `view page errors:\n${viewErrors.join('\n')}`).toEqual([]);
+  });
+});
+
 /* ── Responsiveness guards ───────────────────────────────────────────────────
  * Added with the responsive-invoice fix. Before it, the item editor's
  * non-wrapping flex row had a ~474px min-content width that sized the whole
