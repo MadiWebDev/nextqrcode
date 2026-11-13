@@ -17,6 +17,7 @@
  *   6 → families   (all /industries/*, /glossary/*, /scan-guide/*, /qr-size-guide/*, /templates/*)
  *   7 → labels     (all /qr-labels/*, /whatsapp-qr/*, /payment-qr/* scheme pages)
  *   8 → invoice    (invoicegenerator subdomain, absolute URLs)
+ *   9 → imageresizer (imageresizer subdomain, absolute URLs)
  *
  * Each child sitemap stays well under the 50,000 URL limit.
  */
@@ -60,6 +61,7 @@ export async function generateSitemaps() {
     { id: 6 }, // families
     { id: 7 }, // labels
     { id: 8 }, // invoice-site (invoicegenerator subdomain, absolute URLs)
+    { id: 9 }, // imageresizer-site (imageresizer subdomain, absolute URLs)
   ];
 }
 
@@ -92,6 +94,8 @@ export default async function sitemap(props: {
       return await labelEntries();
     case 8:
       return invoiceSiteEntries();
+    case 9:
+      return imageresizerSiteEntries();
     default:
       return [];
   }
@@ -516,6 +520,38 @@ function invoiceSiteEntries(): MetadataRoute.Sitemap {
   ];
   return paths.map(([path, priority]) => ({
     url: `${INV}${path}`,
+    changeFrequency: 'monthly',
+    priority,
+  }));
+}
+
+// ── SECTION 9: Image Resizer site (imageresizer.freeqrcode.tools) ───────────
+// The image toolkit lives on its own subdomain but is served by this app
+// (the proxy rewrites the subdomain's paths to /imageresizer-site/*). Its
+// URLs are listed here with absolute subdomain URLs so search engines can
+// discover them; the site's canonical tags point at the subdomain. Tool
+// slugs mirror src/app/imageresizer-site/_lib/registry.ts — when a tool is
+// added to the registry, add its slug here in the same change.
+function imageresizerSiteEntries(): MetadataRoute.Sitemap {
+  const IMG = 'https://imageresizer.freeqrcode.tools';
+  const paths: Array<[string, number]> = [
+    ['/', 1.0],
+    ['/resize-image', 0.9],
+    ['/bulk-image-resizer', 0.8],
+    ['/compress-image', 0.9],
+    ['/compress-image-to-100kb', 0.8],
+    ['/bulk-image-compressor', 0.8],
+    ['/image-converter', 0.9],
+    ['/bulk-image-converter', 0.8],
+    ['/crop-image', 0.9],
+    ['/rotate-image', 0.8],
+    ['/flip-image', 0.8],
+    ['/image-editor', 0.8],
+    ['/image-pipeline', 0.8],
+    ['/bulk-watermark', 0.8],
+  ];
+  return paths.map(([path, priority]) => ({
+    url: `${IMG}${path}`,
     changeFrequency: 'monthly',
     priority,
   }));
