@@ -16,6 +16,7 @@
  *   5 → blog       (all /blog/* articles — uses real updatedAt dates)
  *   6 → families   (all /industries/*, /glossary/*, /scan-guide/*, /qr-size-guide/*, /templates/*)
  *   7 → labels     (all /qr-labels/*, /whatsapp-qr/*, /payment-qr/* scheme pages)
+ *   8 → invoice    (invoicegenerator subdomain, absolute URLs)
  *
  * Each child sitemap stays well under the 50,000 URL limit.
  */
@@ -47,7 +48,7 @@ function entry(
   return out;
 }
 
-/** Declare the 8 child sitemaps as numeric ids (0–7). */
+/** Declare the 9 child sitemaps as numeric ids (0–8). */
 export async function generateSitemaps() {
   return [
     { id: 0 }, // core

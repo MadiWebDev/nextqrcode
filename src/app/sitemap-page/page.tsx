@@ -79,14 +79,34 @@ export default function SitemapPage() {
       />
 
       <SitemapSection
-        heading="Core Static QR Generators"
+        heading="Standard QR Code Generators"
         links={[
           { label: 'Free URL QR Code Generator', href: '/url-qr-code-generator' },
           { label: 'Instant WiFi QR Code Generator', href: '/wifi-qr-code-generator' },
           { label: 'Digital vCard 3.0 Generator', href: '/vcard-qr-code-generator' },
+          { label: 'MeCard QR Code Generator', href: '/mecard-qr-code-generator' },
           { label: 'Direct WhatsApp Link QR', href: '/whatsapp-qr-code-generator' },
           { label: 'UPI Payment QR Generator', href: '/upi-qr-code-generator' },
           { label: 'Bitcoin & Crypto Address QR', href: '/bitcoin-qr-code-generator' },
+          { label: 'Crypto Wallet Address QR', href: '/crypto-wallet-qr-code-generator' },
+          { label: 'Email QR Code Generator', href: '/email-qr-code-generator' },
+          { label: 'SMS QR Code Generator', href: '/sms-qr-code-generator' },
+          { label: 'Calendar Event QR Code Generator', href: '/calendar-event-qr-code-generator' },
+          { label: 'App Store QR Code Generator', href: '/app-store-qr-code-generator' },
+          { label: 'PDF QR Code Generator', href: '/pdf-qr-code-generator' },
+          { label: 'Zoom Meeting QR Code Generator', href: '/zoom-meeting-qr-code-generator' },
+          { label: 'Coupon QR Code Generator', href: '/coupon-qr-code-generator' },
+          { label: 'Ticket QR Code Generator', href: '/ticket-qr-code-generator' },
+          { label: 'Survey QR Code Generator', href: '/survey-qr-code-generator' },
+          { label: 'Social Profile QR Code Generator', href: '/social-profile-qr-code-generator' },
+          { label: 'Playlist QR Code Generator', href: '/playlist-qr-code-generator' },
+          { label: 'Podcast QR Code Generator', href: '/podcast-qr-code-generator' },
+          { label: 'Resume QR Code Generator', href: '/resume-qr-code-generator' },
+          { label: 'Menu QR Code Generator', href: '/menu-qr-code-generator' },
+          { label: 'Feedback QR Code Generator', href: '/feedback-qr-code-generator' },
+          { label: 'Donation QR Code Generator', href: '/donation-qr-code-generator' },
+          { label: 'Event RSVP QR Code Generator', href: '/event-rsvp-qr-code-generator' },
+          { label: 'Loyalty Card QR Code Generator', href: '/loyalty-card-qr-code-generator' },
         ]}
       />
 
@@ -129,6 +149,40 @@ export default function SitemapPage() {
         ]}
       />
       <SitemapSection
+        heading="Document & Business Generators"
+        links={[
+          { label: 'QR Scanner', href: '/qr-scanner' },
+          { label: 'Invoice Generator', href: '/invoice-generator' },
+          { label: 'Quote Generator', href: '/quote-generator' },
+          { label: 'Receipt Generator', href: '/receipt-generator' },
+          { label: 'Student ID Card Generator', href: '/student-id-card-generator' },
+          { label: 'Employee ID Card Generator', href: '/employee-id-card-generator' },
+          { label: 'Certificate Generator', href: '/certificate-generator' },
+          { label: 'Price Tag Maker', href: '/price-tag-maker' },
+          { label: 'Sale Poster Maker', href: '/sale-poster-maker' },
+          { label: 'Image to PDF Converter', href: '/image-to-pdf-converter' },
+          { label: 'Passport Photo Maker', href: '/passport-photo-maker' },
+          { label: 'Proforma Invoice Generator', href: '/proforma-invoice-generator' },
+          { label: 'Purchase Order Generator', href: '/purchase-order-generator' },
+          { label: 'Credit Note Generator', href: '/credit-note-generator' },
+          { label: 'Debit Note Generator', href: '/debit-note-generator' },
+          { label: 'Commercial Invoice Generator', href: '/commercial-invoice-generator' },
+          { label: 'Timesheet Invoice Generator', href: '/timesheet-invoice-generator' },
+          { label: 'Delivery Note Generator', href: '/delivery-note-generator' },
+          {
+            label: 'Payment Reminder Letter Generator',
+            href: '/payment-reminder-letter-generator',
+          },
+          { label: 'Salary Slip Generator', href: '/salary-slip-generator' },
+          { label: 'Late Fee Calculator', href: '/late-fee-calculator' },
+          { label: 'GST/VAT Calculator', href: '/gst-vat-calculator' },
+          { label: 'Discount Margin Calculator', href: '/discount-margin-calculator' },
+          { label: 'Amount to Words Converter', href: '/amount-to-words-converter' },
+          { label: 'Regional Payment QR', href: '/regional-payment-qr' },
+          { label: 'Bulk vCard Generator', href: '/bulk-vcard-generator' },
+        ]}
+      />
+      <SitemapSection
         heading="Calculators & Checkers"
         links={[
           { label: 'QR Batch Failure Estimator', href: '/qr-batch-failure-estimator' },
@@ -163,6 +217,26 @@ export default function SitemapPage() {
         ]}
       />
       <SitemapSection
+        heading="QR Print Calculators"
+        links={[
+          { label: 'QR Contrast Checker', href: '/qr-contrast-checker' },
+          { label: 'QR Print Cost Calculator', href: '/qr-print-cost-calculator' },
+          { label: 'QR Billboard Size Calculator', href: '/qr-billboard-size-calculator' },
+          { label: 'QR Quiet Zone Calculator', href: '/qr-quiet-zone-calculator' },
+          { label: 'QR DPI Calculator', href: '/qr-dpi-calculator' },
+          { label: 'QR Data Capacity Calculator', href: '/qr-data-capacity-calculator' },
+          { label: 'QR Logo Safe Area Calculator', href: '/qr-logo-safe-area-calculator' },
+          { label: 'QR Label Count Calculator', href: '/qr-label-count-calculator' },
+          { label: 'QR Batch Cost Calculator', href: '/qr-batch-cost-calculator' },
+          { label: 'QR Ink Coverage Estimator', href: '/qr-ink-coverage-estimator' },
+          { label: 'QR Curved Surface Calculator', href: '/qr-curved-surface-calculator' },
+          { label: 'QR Fade Risk Checker', href: '/qr-fade-risk-checker' },
+          { label: 'QR Module Size Calculator', href: '/qr-module-size-calculator' },
+          { label: 'QR Error Budget Calculator', href: '/qr-error-budget-calculator' },
+          { label: 'QR Minimum Size Checker', href: '/qr-minimum-size-checker' },
+        ]}
+      />
+      <SitemapSection
         heading="Validators & Security Tools"
         links={[
           { label: 'QR Homograph Detector', href: '/qr-homograph-detector' },
@@ -182,6 +256,46 @@ export default function SitemapPage() {
           { label: 'QR Incident Report Builder', href: '/qr-incident-report-builder' },
           { label: 'QR Brand Impersonation Checker', href: '/qr-brand-impersonation-checker' },
           { label: 'QR Destination Change Detector', href: '/qr-destination-change-detector' },
+          { label: 'QR Redirect Chain Viewer', href: '/qr-redirect-chain-viewer' },
+          { label: 'QR Payload Inspector', href: '/qr-payload-inspector' },
+          { label: 'QR Allowlist Builder', href: '/qr-allowlist-builder' },
+          { label: 'QR Metadata Stripper', href: '/qr-metadata-stripper' },
+          { label: 'QR Offline Verifier', href: '/qr-offline-verifier' },
+          { label: 'QR Tamper Evidence Planner', href: '/qr-tamper-evidence-planner' },
+          { label: 'QR Expiry Checker', href: '/qr-expiry-checker' },
+          { label: 'QR Checksum Generator', href: '/qr-checksum-generator' },
+          { label: 'QR Scan Log', href: '/qr-scan-log' },
+          { label: 'QR Consent Note Builder', href: '/qr-consent-note-builder' },
+          { label: 'QR Print Proof Checklist', href: '/qr-print-proof-checklist' },
+          { label: 'QR Signature Note Builder', href: '/qr-signature-note-builder' },
+          { label: 'QR Batch Validator', href: '/qr-batch-validator' },
+          { label: 'QR Typosquat Checker', href: '/qr-typosquat-checker' },
+          { label: 'QR Phishing Pattern Trainer', href: '/qr-phishing-pattern-trainer' },
+        ]}
+      />
+      <SitemapSection
+        heading="QR Design & Export Tools"
+        links={[
+          { label: 'QR Gradient Maker', href: '/qr-gradient-maker' },
+          { label: 'QR Frame Designer', href: '/qr-frame-designer' },
+          { label: 'QR Quiet Zone Adder', href: '/qr-quiet-zone-adder' },
+          { label: 'QR SVG/PNG/PDF Exporter', href: '/qr-svg-png-pdf-exporter' },
+          { label: 'QR Size Presets', href: '/qr-size-presets' },
+          { label: 'QR Color Pair Tester', href: '/qr-color-pair-tester' },
+          { label: 'QR Batch Renamer', href: '/qr-batch-renamer' },
+          { label: 'QR Zip Packager', href: '/qr-zip-packager' },
+          { label: 'QR Print Sheet Planner', href: '/qr-print-sheet-planner' },
+          { label: 'QR Scan Instruction Card', href: '/qr-scan-instruction-card' },
+          { label: 'QR Embed Code Builder', href: '/qr-embed-code-builder' },
+          { label: 'QR API Playground', href: '/qr-api-playground' },
+          { label: 'QR to PDF Converter', href: '/qr-to-pdf-converter' },
+          { label: 'QR Image Enhancer', href: '/qr-image-enhancer' },
+          { label: 'QR Code Rotator', href: '/qr-code-rotator' },
+          { label: 'QR Code Cropper', href: '/qr-code-cropper' },
+          { label: 'QR Call-to-Action Builder', href: '/qr-call-to-action-builder' },
+          { label: 'QR Analytics Simulator', href: '/qr-analytics-simulator' },
+          { label: 'QR A/B Test Planner', href: '/qr-a-b-test-planner' },
+          { label: 'QR Campaign Planner', href: '/qr-campaign-planner' },
         ]}
       />
       <SitemapSection
@@ -210,12 +324,10 @@ export default function SitemapPage() {
           { label: 'Bulk Menu Item QR Generator', href: '/bulk-menu-item-qr-generator' },
           { label: 'Bulk Shipping Label QR Generator', href: '/bulk-shipping-label-qr-generator' },
           { label: 'Bulk Shelf Label QR Generator', href: '/bulk-shelf-label-qr-generator' },
-          { label: 'Bulk Certificate QR Generator', href: '/bulk-certificate-qr-generator' },
           { label: 'Bulk Coupon Expiry Auditor', href: '/bulk-coupon-expiry-auditor' },
           { label: 'Bulk RSVP QR Generator', href: '/bulk-rsvp-qr-generator' },
           { label: 'Bulk Loyalty Card QR Generator', href: '/bulk-loyalty-card-qr-generator' },
           { label: 'Bulk Seat QR Generator', href: '/bulk-seat-qr-generator' },
-          { label: 'Bulk Pet Tag QR Generator', href: '/bulk-pet-tag-qr-generator' },
           { label: 'Bulk Invoice QR Generator', href: '/bulk-invoice-qr-generator' },
           { label: 'Bulk Review QR Generator', href: '/bulk-review-qr-generator' },
           { label: 'Bulk PDF QR Generator', href: '/bulk-pdf-qr-generator' },
@@ -276,6 +388,9 @@ export default function SitemapPage() {
           { label: 'QR Code Scanning Guides', href: '/scan-guide' },
           { label: 'QR Code Size Guide', href: '/qr-size-guide' },
           { label: 'QR Code Design Templates', href: '/templates' },
+          { label: 'QR Label Sheets', href: '/qr-labels' },
+          { label: 'WhatsApp QR by Country', href: '/whatsapp-qr' },
+          { label: 'Payment QR Schemes', href: '/payment-qr' },
         ]}
       />
 

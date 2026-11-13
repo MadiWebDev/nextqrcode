@@ -1,36 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Sitemap index for freeqrcode.tools.
-     Next.js 16.3.8 does not auto-generate this index for
-     generateSitemaps() (src/app/sitemap.ts creates only the child
-     routes /sitemap/[id].xml), so the index is served as a static
-     file. KEEP IN SYNC: one <sitemap> entry per id returned by
-     generateSitemaps() in src/app/sitemap.ts (currently 0-8). -->
+<!--
+  Sitemap index for freeqrcode.tools
+  ─────────────────────────────────────────────────────────────────────────
+  Next.js 16.3.8 does not auto-generate this index for generateSitemaps()
+  (src/app/sitemap.ts creates only the child routes /sitemap/[id].xml),
+  so the index is served as this static file.
+
+  KEEP IN SYNC: one <sitemap> entry per id returned by generateSitemaps()
+  in src/app/sitemap.ts. Currently 0-8 (9 child sitemaps):
+
+    0  core        — home, hubs, legal pages
+    1  tools       — utility / engineering tools
+    2  generators  — QR code type generators
+    3  bulk        — bulk QR generators
+    4  suites      — industry QR suites
+    5  blog        — blog articles (real updatedAt dates)
+    6  families    — industries, glossary, scan-guide, qr-size-guide, templates
+    7  labels      — qr-labels, whatsapp-qr countries, payment-qr schemes
+    8  invoice     — invoicegenerator subdomain (absolute URLs)
+
+  Update <lastmod> when child sitemap content meaningfully changes.
+-->
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://freeqrcode.tools/sitemap/0.xml</loc>
+    <lastmod>2026-11-13</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://freeqrcode.tools/sitemap/1.xml</loc>
+    <lastmod>2026-11-13</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://freeqrcode.tools/sitemap/2.xml</loc>
+    <lastmod>2026-11-13</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://freeqrcode.tools/sitemap/3.xml</loc>
+    <lastmod>2026-11-13</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://freeqrcode.tools/sitemap/4.xml</loc>
+    <lastmod>2026-11-13</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://freeqrcode.tools/sitemap/5.xml</loc>
+    <lastmod>2026-11-13</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://freeqrcode.tools/sitemap/6.xml</loc>
+    <lastmod>2026-11-13</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://freeqrcode.tools/sitemap/7.xml</loc>
+    <lastmod>2026-11-13</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://freeqrcode.tools/sitemap/8.xml</loc>
+    <lastmod>2026-11-13</lastmod>
   </sitemap>
 </sitemapindex>
