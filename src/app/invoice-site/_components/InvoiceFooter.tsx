@@ -59,7 +59,7 @@ export function InvoiceFooter() {
             <div className="flex items-center gap-3">
               {/* eslint-disable-next-line @next/next/no-img-element -- SVG brand mark served from /public */}
               <img
-                src="/invoicegenerator.webp"
+                src="/invoice-logo.svg"
                 alt=""
                 width={40}
                 height={40}

@@ -25,7 +25,7 @@ export function InvoiceHeader() {
             aria-label="Invoice Generator — home"
           >
             {/* eslint-disable-next-line @next/next/no-img-element -- SVG brand mark served from /public */}
-            <img src="/invoicegenerator.webp" alt="" width={40} height={40} className="w-10 h-10" />
+            <img src="/invoice-logo.svg" alt="" width={40} height={40} className="w-10 h-10" />
             <span className="leading-tight">
               <span className="block font-bold text-base sm:text-lg">Invoice Generator</span>
               <span className="block text-[11px] text-muted-foreground">by QR Studio</span>
