@@ -20,18 +20,57 @@ export function CompressorTool() {
   const [maxDimension, setMaxDimension] = useState('');
   const [avifSupported, setAvifSupported] = useState<boolean | null>(null);
   const [busy, setBusy] = useState(false);
+  const [smartPick, setSmartPick] = useState(false);
+  const [candidates, setCandidates] = useState<Array<{
+    format: CompressFormat;
+    blob: Blob;
+    sizeBytes: number;
+    width: number;
+    height: number;
+  }> | null>(null);
 
   useEffect(() => {
     browserEnv.probeEncode('image/avif').then(setAvifSupported).catch(() => setAvifSupported(false));
   }, []);
+
+  const processSmart = async (cap: number) => {
+    if (!loaded) return;
+    // "Smallest file" mode: encode the same image as JPG, WebP and (where
+    // the browser can) AVIF at the SAME quality, then show every real size
+    // and let the user pick. PNG is excluded on purpose: it is lossless, so
+    // a matched-quality comparison would be meaningless.
+    const formats: CompressFormat[] =
+      avifSupported === false ? ['jpeg', 'webp'] : ['jpeg', 'webp', 'avif'];
+    const out = [];
+    for (const f of formats) {
+      try {
+        const r = await compressWithSettings(browserEnv, loaded.decoded.surface, {
+          format: f,
+          quality,
+          maxDimension: Number.isFinite(cap) && cap > 0 ? cap : undefined,
+        });
+        out.push({ format: f, blob: r.blob, sizeBytes: r.sizeBytes, width: r.width, height: r.height });
+      } catch {
+        // A format that fails to encode (e.g. AVIF probe raced) is simply
+        // not offered — never shown with a fake size.
+      }
+    }
+    out.sort((a, b) => a.sizeBytes - b.sizeBytes);
+    setCandidates(out);
+  };
 
   const process = async () => {
     if (!loaded) return;
     setBusy(true);
     setError(null);
     setResult(null);
+    setCandidates(null);
     try {
       const cap = parseInt(maxDimension, 10);
+      if (smartPick) {
+        await processSmart(cap);
+        return;
+      }
       const out = await compressWithSettings(browserEnv, loaded.decoded.surface, {
         format,
         quality,
@@ -80,12 +119,29 @@ export function CompressorTool() {
               {loaded.decoded.format.toUpperCase()}
             </p>
             <div className="mt-5 space-y-4">
-              <FormatSelect
-                value={format}
-                onChange={(f) => setFormat(f as CompressFormat)}
-                formats={[...STANDARD_FORMATS]}
-                avifSupported={avifSupported}
-              />
+              <label className="flex items-start gap-2 text-sm">
+                <input
+                  type="checkbox"
+                  checked={smartPick}
+                  onChange={(e) => setSmartPick(e.target.checked)}
+                  className="mt-0.5 accent-blue-700"
+                />
+                <span>
+                  <span className="font-medium">Find the smallest format automatically</span>
+                  <span className="block text-xs text-muted-foreground">
+                    Encodes JPG, WebP{avifSupported === false ? '' : ' and AVIF'} at the same
+                    quality and shows you every real file size to pick from.
+                  </span>
+                </span>
+              </label>
+              {!smartPick && (
+                <FormatSelect
+                  value={format}
+                  onChange={(f) => setFormat(f as CompressFormat)}
+                  formats={[...STANDARD_FORMATS]}
+                  avifSupported={avifSupported}
+                />
+              )}
               {format !== 'png' && (
                 <label className="block">
                   <span className="text-xs font-medium">Quality: {Math.round(quality * 100)}%</span>
@@ -125,7 +181,52 @@ export function CompressorTool() {
 
           <div className="min-w-0 rounded-xl border border-border bg-card p-4 sm:p-5">
             <h3 className="font-semibold text-sm">Result</h3>
-            {result ? (
+            {candidates ? (
+              <div className="mt-3 space-y-2">
+                <p className="text-xs text-muted-foreground">
+                  Same image, same quality ({Math.round(quality * 100)}%), three encoders —
+                  measured sizes, pick the one you want:
+                </p>
+                {candidates.map((c, i) => (
+                  <div
+                    key={c.format}
+                    className="flex flex-wrap items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm"
+                  >
+                    <span className="font-semibold uppercase">{c.format === 'jpeg' ? 'JPG' : c.format}</span>
+                    {i === 0 && (
+                      <span className="rounded bg-emerald-600/10 px-1.5 py-0.5 text-xs font-medium text-emerald-700">
+                        Smallest
+                      </span>
+                    )}
+                    <span className="text-muted-foreground">
+                      {formatBytes(c.sizeBytes)} · {c.width}×{c.height}
+                    </span>
+                    <button
+                      type="button"
+                      className="ml-auto rounded-lg bg-blue-700 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-800"
+                      onClick={() => {
+                        const url = URL.createObjectURL(c.blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = buildOutputName(
+                          '{name}-compressed',
+                          { originalName: loaded.name, format: c.format },
+                          EXT_BY_FORMAT[c.format]
+                        );
+                        a.click();
+                        setTimeout(() => URL.revokeObjectURL(url), 5000);
+                      }}
+                    >
+                      Download
+                    </button>
+                  </div>
+                ))}
+                <p className="text-xs text-muted-foreground">
+                  WebP/AVIF usually win on photos; JPG stays the most compatible. The
+                  Exact-KB tool can squeeze any of these to a precise target size.
+                </p>
+              </div>
+            ) : result ? (
               <div className="mt-3">
                 <ResultPanel result={result} originalSizeBytes={loaded.sizeBytes} />
               </div>

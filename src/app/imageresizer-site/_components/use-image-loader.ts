@@ -47,13 +47,21 @@ export function useImageLoader() {
     }
   }, []);
 
+  const reset = useCallback(() => {
+    if (loadedRef.current) URL.revokeObjectURL(loadedRef.current.previewUrl);
+    loadedRef.current = null;
+    setLoaded(null);
+    setError(null);
+    setLoading(false);
+  }, []);
+
   useEffect(() => {
     return () => {
       if (loadedRef.current) URL.revokeObjectURL(loadedRef.current.previewUrl);
     };
   }, []);
 
-  return { loaded, loading, error, load, setError };
+  return { loaded, loading, error, load, setError, reset };
 }
 
 export interface ResultImage {

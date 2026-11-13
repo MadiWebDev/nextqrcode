@@ -9,6 +9,7 @@ import { ExactKbTool } from '../_components/ExactKbTool';
 import { ConverterTool } from '../_components/ConverterTool';
 import { CropTool } from '../_components/CropTool';
 import { RotateFlipTool } from '../_components/RotateFlipTool';
+import EditorTool from '../_components/EditorTool';
 
 const SITE = 'https://imageresizer.freeqrcode.tools';
 
@@ -57,6 +58,8 @@ function ToolBody({ slug }: { slug: string }) {
       return <RotateFlipTool variant="rotate" />;
     case 'flip-image':
       return <RotateFlipTool variant="flip" />;
+    case 'image-editor':
+      return <EditorTool />;
     default:
       return null;
   }

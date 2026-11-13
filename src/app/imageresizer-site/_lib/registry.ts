@@ -326,6 +326,51 @@ export const TOOLS: ToolDef[] = [
     ],
     related: ['rotate-image', 'crop-image', 'resize-image'],
   },
+  {
+    slug: 'image-editor',
+    name: 'Image Editor',
+    title: 'Free Online Image Editor — Adjust, Watermark, Resize, Style | Image Resizer',
+    description:
+      'Edit photos free in your browser: brightness, contrast, saturation, hue, blur, sharpen, watermarks, borders, rounded corners, crop, resize and rotate — non-destructive with undo/redo. Nothing is uploaded.',
+    h1: 'Free Online Image Editor',
+    category: 'edit',
+    summary:
+      'A full photo editor in the browser: adjustments, watermarks, frames, crop/resize and undoable history — private by design.',
+    intro: [
+      'This editor chains the jobs people usually open five different tools for: fix the light, crop and resize, add a border or rounded corners, stamp a watermark, and export — in one workspace, in a fixed stage order, with every step undoable. Nothing is destructive: the editor keeps your original untouched and re-renders the result from it, so you can change any earlier decision without starting over.',
+      'Adjust exposure, brightness, contrast, saturation and hue; blur, sharpen or pixelate; invert or convert toward grayscale and sepia. Add a text watermark (including a tiled pattern for proofs) or your own logo, fill transparent backgrounds, and compare before/after with the built-in slider before you download.',
+      'Like everything on this site, editing happens entirely in your browser — the photo is never uploaded, and exporting strips EXIF metadata as a side benefit.',
+    ],
+    howTo: [
+      'Drop the photo you want to edit.',
+      'Work through the tool tabs — Adjust, Transform, Crop & Resize, Style, Watermark — in any order; stages always apply in the documented order.',
+      'Use Undo/Redo freely; drag the Compare slider to check before vs after.',
+      'Open Export, pick a format and quality, and download.',
+    ],
+    faqs: [
+      {
+        q: 'Is my original photo changed?',
+        a: 'Never. The editor stores only your edit settings and re-renders a new image from the untouched original every time. Downloading gives you a new file; the original on your device is not modified.',
+      },
+      {
+        q: 'Can I undo an edit from earlier?',
+        a: 'Yes — every committed change is a history step. Undo walks back step by step (up to 50), Redo reapplies, and Reset all returns to the original in one click.',
+      },
+      {
+        q: 'In what order are edits applied?',
+        a: 'Crop → resize → rotate/flip → background fill → adjustments → rounded corners → border → watermark. A fixed order keeps results predictable: for example the border always frames the final cropped, rotated image.',
+      },
+      {
+        q: 'Does the watermark tool support my logo?',
+        a: 'Yes. Upload a logo image (PNG with transparency works best) and place it in any corner or the centre, with opacity and width controls. You can combine it with a text watermark.',
+      },
+      {
+        q: 'Which format should I export?',
+        a: 'PNG for logos, screenshots and anything with rounded corners or transparency; JPG for photos (smallest everyday files); WebP for the web; AVIF where your browser supports creating it (Chrome).',
+      },
+    ],
+    related: ['resize-image', 'crop-image', 'compress-image', 'rotate-image'],
+  },
 ];
 
 export function toolBySlug(slug: string): ToolDef | undefined {

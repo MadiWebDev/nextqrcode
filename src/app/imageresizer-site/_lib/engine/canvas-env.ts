@@ -25,8 +25,12 @@ export interface Ctx2D {
   readonly canvas: CanvasSurface;
   fillStyle: string;
   globalAlpha: number;
+  globalCompositeOperation: string;
   imageSmoothingEnabled: boolean;
   imageSmoothingQuality: 'low' | 'medium' | 'high';
+  font: string;
+  textAlign: string;
+  textBaseline: string;
   drawImage(image: Drawable, dx: number, dy: number): void;
   drawImage(image: Drawable, dx: number, dy: number, dw: number, dh: number): void;
   drawImage(
@@ -49,6 +53,12 @@ export interface Ctx2D {
   translate(x: number, y: number): void;
   rotate(angle: number): void;
   scale(x: number, y: number): void;
+  beginPath(): void;
+  /** Optional: absent in older browsers — callers must feature-check. */
+  roundRect?: (x: number, y: number, w: number, h: number, r: number) => void;
+  fill(): void;
+  fillText(text: string, x: number, y: number): void;
+  measureText(text: string): { width: number };
 }
 
 export interface CanvasSurface extends Drawable {

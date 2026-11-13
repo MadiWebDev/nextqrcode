@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { href: '/compress-image', label: 'Compress' },
   { href: '/crop-image', label: 'Crop' },
   { href: '/image-converter', label: 'Convert' },
+  { href: '/image-editor', label: 'Editor' },
   { href: '/bulk-image-resizer', label: 'Bulk Tools' },
   { href: '/#faq', label: 'FAQ' },
 ];

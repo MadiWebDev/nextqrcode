@@ -13,6 +13,7 @@ const COLUMNS: { heading: string; links: { href: string; label: string }[] }[] =
       { href: '/crop-image', label: 'Crop Image' },
       { href: '/rotate-image', label: 'Rotate Image' },
       { href: '/flip-image', label: 'Flip Image' },
+      { href: '/image-editor', label: 'Image Editor' },
     ],
   },
   {
