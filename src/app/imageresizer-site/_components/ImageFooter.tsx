@@ -14,6 +14,10 @@ const COLUMNS: { heading: string; links: { href: string; label: string }[] }[] =
       { href: '/rotate-image', label: 'Rotate Image' },
       { href: '/flip-image', label: 'Flip Image' },
       { href: '/image-editor', label: 'Image Editor' },
+      { href: '/image-pipeline', label: 'Pipeline Builder' },
+      { href: '/bulk-image-compressor', label: 'Bulk Compressor' },
+      { href: '/bulk-image-converter', label: 'Bulk Converter' },
+      { href: '/bulk-watermark', label: 'Bulk Watermark' },
     ],
   },
   {

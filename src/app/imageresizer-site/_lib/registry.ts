@@ -371,6 +371,148 @@ export const TOOLS: ToolDef[] = [
     ],
     related: ['resize-image', 'crop-image', 'compress-image', 'rotate-image'],
   },
+  {
+    slug: 'image-pipeline',
+    name: 'Image Pipeline Builder',
+    title: 'Image Processing Pipeline Builder — Chain Steps, Batch Process Free',
+    description:
+      'Build a reusable image workflow — crop, resize, rotate, adjust, watermark, borders — save it as a preset, then run it over a whole batch at once. Free, private, in your browser.',
+    h1: 'Image Processing Pipeline Builder',
+    category: 'bulk',
+    summary:
+      'Chain image operations into a reusable workflow, save it, and batch-process entire folders with it.',
+    intro: [
+      'If you prepare images the same way every week — resize to 1600px, add your watermark, convert to WebP — a pipeline turns that recipe into a one-click batch job. Add steps in order (crop, resize, rotate, flip, colour adjustments, background fill, rounded corners, borders, text watermark), switch steps off without deleting them, reorder freely, and save the whole thing as a named preset you can export and share as JSON.',
+      'Three built-in pipelines (Web optimize, Social square, Watermark & compress) show what is possible and are fully editable. Everything runs in your browser through the same engine as the single tools — a pipeline never does anything a single tool cannot.',
+    ],
+    howTo: [
+      'Start from a built-in pipeline or a blank one, and name it.',
+      'Add steps and set each step\'s values; use the checkboxes to test variations.',
+      'Save the pipeline as a preset (My presets) if you will reuse it.',
+      'Drop a batch of images and download the results individually or as a ZIP.',
+    ],
+    faqs: [
+      {
+        q: 'In what order do steps run?',
+        a: 'Exactly the order shown, top to bottom — the numbers on each step are the execution order. Reorder with the arrow buttons; the same steps in a different order can give different results (for example, a border added before a rotation is rotated with the image).',
+      },
+      {
+        q: 'Where are my pipeline presets stored?',
+        a: 'In this browser\'s local storage, as settings-only JSON (no images). Export them to a file to move them to another machine, and import from the same bar.',
+      },
+      {
+        q: 'Can a pipeline hit an exact file size?',
+        a: 'Pipelines control format and quality. For exact KB targets across a batch, use the Bulk Compressor\'s exact-size mode instead.',
+      },
+    ],
+    related: ['bulk-image-resizer', 'bulk-image-compressor', 'image-editor', 'bulk-watermark'],
+  },
+  {
+    slug: 'bulk-image-compressor',
+    name: 'Bulk Image Compressor',
+    title: 'Bulk Image Compressor — Compress Many Images at Once, Free',
+    description:
+      'Compress a whole batch of images at once: by quality, or to an exact target size per file with honest per-file reporting. ZIP download. Free and private — nothing is uploaded.',
+    h1: 'Bulk Image Compressor',
+    category: 'bulk',
+    summary:
+      'Compress dozens of images in one run — by quality or to an exact KB target per file.',
+    intro: [
+      'The single-image compressor, scaled up: drop a whole shoot or a folder of product photos and compress them all with one settings block. Choose quality mode for everyday shrinking, or exact-size mode to bring every file to the same target (200KB for a portal upload, 500KB for email) — files that genuinely cannot reach the target are delivered at the smallest size found and named "-smallest-possible", so the report is honest per file.',
+      'Processing runs two files at a time with per-file progress, pause/resume, cancel and retry, and everything downloads as one ZIP.',
+    ],
+    howTo: [
+      'Pick a mode: quality, or exact target size.',
+      'Choose the output format (JPG for photos, WebP for the web).',
+      'Drop your images and watch per-file progress.',
+      'Download files individually or as a ZIP.',
+    ],
+    faqs: [
+      {
+        q: 'What does "-smallest-possible" in a file name mean?',
+        a: 'In exact-size mode, that file could not reach your target even at the lowest quality and smallest dimensions the algorithm allows (usually a very noisy photo or a tiny target). You still get the smallest version found — the name just refuses to pretend it hit the target.',
+      },
+      {
+        q: 'How many images can I compress at once?',
+        a: 'There is no fixed count limit; the queue processes two at a time so your browser stays responsive. Very large batches on low-memory devices may be slower — split them if the tab struggles.',
+      },
+      {
+        q: 'Does bulk compression remove metadata?',
+        a: 'Yes — every file is re-encoded, which strips EXIF and GPS metadata. Use the Metadata Viewer first if you need to record anything from it.',
+      },
+    ],
+    related: ['compress-image', 'compress-image-to-100kb', 'bulk-image-resizer', 'image-pipeline'],
+  },
+  {
+    slug: 'bulk-image-converter',
+    name: 'Bulk Image Converter',
+    title: 'Bulk Image Converter — Convert Many Images to JPG, PNG, WebP, AVIF or GIF',
+    description:
+      'Convert a whole batch of images to one format — JPG, PNG, WebP, AVIF or GIF — with HEIC and TIFF inputs supported. Animated GIFs stay animated to GIF. Free, in-browser.',
+    h1: 'Bulk Image Converter',
+    category: 'bulk',
+    summary:
+      'Convert dozens of images to one format in a single run — HEIC and TIFF inputs welcome.',
+    intro: [
+      'A folder of mixed formats becomes one consistent set: pick the target format and quality, drop everything — JPG, PNG, WebP, HEIC from iPhones, TIFF scans, even SVG and BMP — and download a ZIP of converted files. Animated GIFs keep their animation when converting to GIF; converting an animation to a still format uses the first frame and says so in the file name.',
+      'AVIF output is offered only where your browser can genuinely create AVIF files (Chrome); the tool tells you plainly when it cannot.',
+    ],
+    howTo: [
+      'Choose the target format and quality.',
+      'Drop the images to convert.',
+      'Download converted files individually or as one ZIP.',
+    ],
+    faqs: [
+      {
+        q: 'Can I convert HEIC photos from my iPhone in bulk?',
+        a: 'Yes — HEIC/HEIF files are decoded on-device when dropped (that decoder loads only when a HEIC file appears). The same applies to TIFF scans (first page).',
+      },
+      {
+        q: 'What happens to animated GIFs?',
+        a: 'Converting GIF → GIF preserves every frame and delay. Converting an animated GIF to a still format (JPG/PNG/WebP/AVIF) uses the first frame, and the output file is named "-first-frame" so there is no silent surprise.',
+      },
+      {
+        q: 'Is metadata kept?',
+        a: 'No — conversion re-encodes, which strips EXIF/GPS. That is usually what you want before publishing; use the Metadata Viewer to inspect files first if needed.',
+      },
+    ],
+    related: ['image-converter', 'bulk-image-compressor', 'bulk-image-resizer', 'image-pipeline'],
+  },
+  {
+    slug: 'bulk-watermark',
+    name: 'Bulk Watermark',
+    title: 'Bulk Watermark Tool — Add a Text Watermark to Many Images at Once',
+    description:
+      'Apply the same text watermark to a whole batch of images: position, opacity, size and colour controls, consistent branding across every file. Free and private.',
+    h1: 'Bulk Watermark Tool',
+    category: 'bulk',
+    summary:
+      'One watermark, every photo: brand a whole batch consistently in a single run.',
+    intro: [
+      'Photographers and sellers watermark whole shoots, not single files. Set your text, position (including a tiled pattern for proofing), opacity, size and colour once, drop the batch, and every image comes out marked identically — sized relative to each image, so a watermark looks the same on a thumbnail and a full-size export.',
+      'For one-off images with logos and finer control, the Image Editor\'s watermark tab adds logo overlays and per-image tweaks.',
+    ],
+    howTo: [
+      'Type your watermark text and pick position, opacity, size and colour.',
+      'Choose the output format and quality.',
+      'Drop the batch and download individually or as a ZIP.',
+    ],
+    faqs: [
+      {
+        q: 'Does the watermark scale per image?',
+        a: 'Yes — size is a percentage of each image\'s width, so mixed-size batches get visually consistent marks instead of one absolute size that looks huge on small files.',
+      },
+      {
+        q: 'Can I watermark with my logo image instead of text?',
+        a: 'In the Image Editor, yes (Watermark tab → Logo watermark). This bulk tool is text-only by design — it keeps batch branding fast and predictable.',
+      },
+      {
+        q: 'Can a watermark be removed later?',
+        a: 'Not from the exported files — that is the point. Your originals are never modified, so keep them safe; the watermarked copies are the ones you publish.',
+      },
+    ],
+    related: ['image-editor', 'bulk-image-resizer', 'image-pipeline', 'bulk-image-compressor'],
+  },
 ];
 
 export function toolBySlug(slug: string): ToolDef | undefined {

@@ -5,6 +5,7 @@ import { Download, Pause, Play, RotateCcw, Trash2, X } from 'lucide-react';
 import { ProcessingQueue, type QueueItem } from '../_lib/engine/queue';
 import { downloadBlob, filesToZip } from '../_lib/engine/export';
 import { formatBytes } from '../_lib/format';
+import { recordHistory } from '../_lib/history';
 import { FileDrop } from './FileDrop';
 
 export interface BulkProcessOutcome {
@@ -22,6 +23,8 @@ export interface BulkProcessorProps {
   ) => Promise<BulkProcessOutcome>;
   zipName: string;
   dropLabel?: string;
+  /** When set, finished files + ZIP downloads are logged to the on-device history. */
+  historyLabel?: string;
 }
 
 interface TrackedFile {
@@ -50,13 +53,17 @@ const STATUS_CLASS: Record<QueueItem<BulkProcessOutcome>['status'], string> = {
  * (pause / resume / cancel / retry), per-file progress and errors, single
  * downloads and a ZIP of everything that succeeded.
  */
-export function BulkProcessor({ settings, processFile, zipName, dropLabel }: BulkProcessorProps) {
+export function BulkProcessor({ settings, processFile, zipName, dropLabel, historyLabel }: BulkProcessorProps) {
   const [queue] = useState(() => new ProcessingQueue<BulkProcessOutcome>(2));
 
   const processRef = useRef(processFile);
   useEffect(() => {
     processRef.current = processFile;
   }, [processFile]);
+  const historyLabelRef = useRef(historyLabel);
+  useEffect(() => {
+    historyLabelRef.current = historyLabel;
+  }, [historyLabel]);
 
   const [items, setItems] = useState<QueueItem<BulkProcessOutcome>[]>([]);
   const [paused, setPaused] = useState(false);
@@ -85,10 +92,17 @@ export function BulkProcessor({ settings, processFile, zipName, dropLabel }: Bul
       const additions = new Map<string, TrackedFile>();
       for (const file of files) {
         const id = queue.add(file.name, async (ctx) => {
-          return processRef.current(file, {
+          const outcome = await processRef.current(file, {
             signal: ctx.signal,
             report: ctx.reportProgress,
           });
+          if (historyLabelRef.current) {
+            recordHistory(
+              historyLabelRef.current,
+              `${file.name} → ${outcome.filename} (${formatBytes(outcome.blob.size)})`
+            );
+          }
+          return outcome;
         });
         additions.set(id, { file, thumbUrl: URL.createObjectURL(file) });
       }
@@ -132,6 +146,9 @@ export function BulkProcessor({ settings, processFile, zipName, dropLabel }: Bul
     try {
       const blob = await filesToZip(done.map((i) => ({ name: i.result!.filename, blob: i.result!.blob })));
       downloadBlob(blob, zipName);
+      if (historyLabelRef.current) {
+        recordHistory(historyLabelRef.current, `${done.length} file(s) downloaded as ${zipName}`);
+      }
     } catch (err) {
       setZipError(err instanceof Error ? err.message : 'ZIP creation failed.');
     } finally {

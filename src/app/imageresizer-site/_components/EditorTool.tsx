@@ -22,6 +22,7 @@ import {
 } from '../_lib/editor';
 import { encodeCanvasOutput } from '../_lib/encode-output';
 import { formatBytes } from '../_lib/format';
+import { recordHistory } from '../_lib/history';
 import { FileDrop } from './FileDrop';
 import CompareSlider from './CompareSlider';
 import { FormatSelect, STANDARD_FORMATS } from './ResultPanel';
@@ -393,7 +394,14 @@ export default function EditorTool() {
                 {past.length} step{past.length === 1 ? '' : 's'} in history
               </span>
               {result ? (
-                <a href={result.url} download={result.filename} className={primaryBtnCls}>
+                <a
+                  href={result.url}
+                  download={result.filename}
+                  className={primaryBtnCls}
+                  onClick={() =>
+                    recordHistory('Image Editor', `${loaded.name} → ${result.filename} (${formatBytes(result.blob.size)})`)
+                  }
+                >
                   Download {result.filename.split('.').pop()?.toUpperCase()}
                 </a>
               ) : (
@@ -1090,7 +1098,14 @@ export default function EditorTool() {
                 </dl>
               )}
               {result ? (
-                <a href={result.url} download={result.filename} className={`${primaryBtnCls} block text-center`}>
+                <a
+                  href={result.url}
+                  download={result.filename}
+                  className={`${primaryBtnCls} block text-center`}
+                  onClick={() =>
+                    recordHistory('Image Editor', `${loaded.name} → ${result.filename} (${formatBytes(result.blob.size)})`)
+                  }
+                >
                   Download edited image
                 </a>
               ) : (

@@ -10,6 +10,10 @@ import { ConverterTool } from '../_components/ConverterTool';
 import { CropTool } from '../_components/CropTool';
 import { RotateFlipTool } from '../_components/RotateFlipTool';
 import EditorTool from '../_components/EditorTool';
+import PipelineTool from '../_components/PipelineTool';
+import BulkCompressTool from '../_components/BulkCompressTool';
+import BulkConvertTool from '../_components/BulkConvertTool';
+import BulkWatermarkTool from '../_components/BulkWatermarkTool';
 
 const SITE = 'https://imageresizer.freeqrcode.tools';
 
@@ -60,6 +64,14 @@ function ToolBody({ slug }: { slug: string }) {
       return <RotateFlipTool variant="flip" />;
     case 'image-editor':
       return <EditorTool />;
+    case 'image-pipeline':
+      return <PipelineTool />;
+    case 'bulk-image-compressor':
+      return <BulkCompressTool />;
+    case 'bulk-image-converter':
+      return <BulkConvertTool />;
+    case 'bulk-watermark':
+      return <BulkWatermarkTool />;
     default:
       return null;
   }

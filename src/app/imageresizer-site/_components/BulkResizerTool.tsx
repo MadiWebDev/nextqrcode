@@ -10,6 +10,7 @@ import { buildOutputName } from '../_lib/engine/naming';
 import { EXT_BY_FORMAT, type OutputFormat } from '../_lib/engine/types';
 import { BulkProcessor, type BulkProcessOutcome } from './BulkProcessor';
 import { FormatSelect, STANDARD_FORMATS } from './ResultPanel';
+import { PresetBar } from './PresetBar';
 
 type Mode = 'exact' | 'percent' | 'max';
 
@@ -173,5 +174,41 @@ export function BulkResizerTool() {
     </div>
   );
 
-  return <BulkProcessor settings={settings} processFile={processFile} zipName="resized-images.zip" dropLabel="Drop images to resize in bulk" />;
+  const settingsWithPresets = (
+    <div className="space-y-4">
+      {settings}
+      <PresetBar
+        scope="bulk-resizer"
+        getCurrent={() => ({ mode, percent, width, height, maxDimension, format, quality })}
+        onLoad={(data) => {
+          const d = data as Partial<{
+            mode: Mode;
+            percent: number;
+            width: number;
+            height: number;
+            maxDimension: number;
+            format: OutputFormat;
+            quality: number;
+          }>;
+          if (d.mode) setMode(d.mode);
+          if (typeof d.percent === 'number') setPercent(d.percent);
+          if (typeof d.width === 'number') setWidth(d.width);
+          if (typeof d.height === 'number') setHeight(d.height);
+          if (typeof d.maxDimension === 'number') setMaxDimension(d.maxDimension);
+          if (d.format) setFormat(d.format);
+          if (typeof d.quality === 'number') setQuality(d.quality);
+        }}
+      />
+    </div>
+  );
+
+  return (
+    <BulkProcessor
+      settings={settingsWithPresets}
+      processFile={processFile}
+      zipName="resized-images.zip"
+      dropLabel="Drop images to resize in bulk"
+      historyLabel="Bulk Resize"
+    />
+  );
 }
