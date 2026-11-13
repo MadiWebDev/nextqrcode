@@ -4,12 +4,14 @@ import { ChevronRight } from 'lucide-react';
 import { CATEGORY_LABELS, toolBySlug, type ToolDef } from '../_lib/registry';
 import { toolJsonLd } from '../_lib/schema';
 import { JsonLd } from './JsonLd';
+import { AdSlot } from '@/components/ads/AdSlot';
 
 /**
  * Registry-driven landing shell for every tool page: breadcrumb, H1, intro,
  * the working tool, how-to steps, FAQs and related tools. Content comes
  * from the registry so a page can never drift from its tool.
- * (AdSlot placements are added to this shell in Phase G.)
+ * AdSlots sit below the workspace and above related tools (Phase G) —
+ * never inside the tool itself.
  */
 export function ToolShell({ tool, children }: { tool: ToolDef; children: ReactNode }) {
   const related = tool.related
@@ -47,6 +49,11 @@ export function ToolShell({ tool, children }: { tool: ToolDef; children: ReactNo
           {children}
         </section>
 
+        {/* Phase G ad placement: below the workspace, never inside it. */}
+        <div className="mt-10 flex justify-center">
+          <AdSlot format="leaderboard" />
+        </div>
+
         <section aria-label="How to" className="mt-12 max-w-3xl">
           <h2 className="text-xl font-bold">How to {tool.name.charAt(0).toLowerCase() + tool.name.slice(1)}</h2>
           <ol className="mt-4 space-y-2.5 list-decimal list-inside text-sm sm:text-base text-muted-foreground leading-relaxed">
@@ -69,6 +76,10 @@ export function ToolShell({ tool, children }: { tool: ToolDef; children: ReactNo
             </div>
           </section>
         )}
+
+        <div className="mt-12 flex justify-center">
+          <AdSlot format="banner" />
+        </div>
 
         {related.length > 0 && (
           <section aria-label="Related tools" className="mt-12">

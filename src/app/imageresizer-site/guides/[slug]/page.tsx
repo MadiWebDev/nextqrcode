@@ -6,6 +6,7 @@ import { GUIDES, guideBySlug } from '../../_lib/guides';
 import { toolBySlug } from '../../_lib/registry';
 import { guideJsonLd, SITE_URL } from '../../_lib/schema';
 import { JsonLd } from '../../_components/JsonLd';
+import { AdSlot } from '@/components/ads/AdSlot';
 
 export function generateStaticParams() {
   return GUIDES.map((g) => ({ slug: g.slug }));
@@ -72,6 +73,10 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           ))}
         </div>
 
+        <div className="mt-10 flex justify-center">
+          <AdSlot format="in-article" />
+        </div>
+
         {guide.sections.map((section) => (
           <section key={section.heading} className="mt-9">
             <h2 className="text-xl font-bold">{section.heading}</h2>
@@ -91,6 +96,10 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             )}
           </section>
         ))}
+
+        <div className="mt-12 flex justify-center">
+          <AdSlot format="banner" />
+        </div>
 
         {tools.length > 0 && (
           <section aria-label="Tools mentioned in this guide" className="mt-12 rounded-xl border border-border bg-card p-5">

@@ -6,6 +6,7 @@ import { JsonLd } from './_components/JsonLd';
 import { CATEGORY_LABELS, TOOLS, type ToolCategory } from './_lib/registry';
 import { GUIDES } from './_lib/guides';
 import { homeJsonLd } from './_lib/schema';
+import { AdSlot } from '@/components/ads/AdSlot';
 
 const CATEGORY_ORDER = Object.keys(CATEGORY_LABELS) as ToolCategory[];
 
@@ -48,6 +49,10 @@ export default function ImageResizerHome() {
           </div>
         </div>
       </section>
+
+      <div className="flex justify-center px-4 py-8">
+        <AdSlot format="leaderboard" />
+      </div>
 
       {/* Tool directory */}
       <section aria-label="All image tools" className="border-b border-border">
@@ -163,6 +168,10 @@ export default function ImageResizerHome() {
           </div>
         </div>
       </section>
+
+      <div className="flex justify-center px-4 py-8">
+        <AdSlot format="banner" />
+      </div>
 
       {/* FAQ */}
       <section id="faq" className="border-t border-border scroll-mt-24">

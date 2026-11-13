@@ -5,6 +5,7 @@ import { ChevronRight } from 'lucide-react';
 import { CATEGORY_LABELS, TOOLS, type ToolCategory } from '../../_lib/registry';
 import { categoryJsonLd, SITE_URL } from '../../_lib/schema';
 import { JsonLd } from '../../_components/JsonLd';
+import { AdSlot } from '@/components/ads/AdSlot';
 
 /** Unique, honest intro copy per category — hub pages, not thin listings. */
 const CATEGORY_INTROS: Record<ToolCategory, string[]> = {
@@ -103,6 +104,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
               <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">{tool.summary}</span>
             </Link>
           ))}
+        </div>
+        <div className="mt-10 flex justify-center">
+          <AdSlot format="banner" />
         </div>
         <section aria-label="Other categories" className="mt-12">
           <h2 className="text-lg font-bold">Other tool categories</h2>
