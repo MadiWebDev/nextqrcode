@@ -32,6 +32,12 @@ import { NextRequest, NextResponse } from 'next/server';
 const INVOICE_SITE_HOST = 'invoicegenerator.freeqrcode.tools';
 
 /**
+ * Image Resizer site: imageresizer.freeqrcode.tools serves the standalone
+ * image toolkit (route /imageresizer-site) as its own site, same pattern.
+ */
+const IMAGE_RESIZER_SITE_HOST = 'imageresizer.freeqrcode.tools';
+
+/**
  * Invoice-family tool pages that also live on the subdomain under their own
  * paths (e.g. invoicegenerator.freeqrcode.tools/quote-generator). On the
  * invoice host these are served as-is instead of being prefixed with
@@ -63,8 +69,32 @@ export function proxy(request: NextRequest) {
   // except the invoice-family tool paths, which are served under their own
   // paths on the subdomain too.
   const host = (request.headers.get('host') ?? '').split(':')[0].toLowerCase();
+  // Static-asset guard: files served from /public (logos, icons, images)
+  // must NOT be rewritten into the site route trees. Without this, a request
+  // for /invoice-logo.svg on the invoice host was rewritten to
+  // /invoice-site/invoice-logo.svg and 404'd — the live invoice header logo
+  // and favicon were broken by exactly this (a band-aid copy at
+  // public/invoice-site/invoice-logo.svg also exists and keeps working).
+  // Page routes on these hosts never carry a file extension, so exempting
+  // extensioned paths changes nothing for pages. robots.txt, sitemap.xml
+  // and favicon.ico never reach this function at all (see the matcher).
+  const isStaticAsset = /\.[a-z0-9]+$/i.test(request.nextUrl.pathname);
+  if (
+    host === IMAGE_RESIZER_SITE_HOST &&
+    !isStaticAsset &&
+    !request.nextUrl.pathname.startsWith('/imageresizer-site')
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/imageresizer-site' + (url.pathname === '/' ? '' : url.pathname);
+    const rewriteResponse = NextResponse.rewrite(url, {
+      request: { headers: requestHeaders },
+    });
+    rewriteResponse.headers.set('Content-Security-Policy', contentSecurityPolicy);
+    return rewriteResponse;
+  }
   if (
     host === INVOICE_SITE_HOST &&
+    !isStaticAsset &&
     !request.nextUrl.pathname.startsWith('/invoice-site') &&
     !INVOICE_TOOL_PATHS.has(request.nextUrl.pathname)
   ) {

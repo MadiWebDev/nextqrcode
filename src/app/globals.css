@@ -238,3 +238,14 @@ div:has(> main .invoice-site-root) > header,
 div:has(> main .invoice-site-root) > footer {
   display: none !important;
 }
+
+/*
+ * Image Resizer subdomain site (imageresizer.freeqrcode.tools): same
+ * treatment as the invoice site above — hide the main site's AppHeader /
+ * AppFooter on imageresizer-site pages only (pages render
+ * .imageresizer-site-root inside <main>).
+ */
+div:has(> main .imageresizer-site-root) > header,
+div:has(> main .imageresizer-site-root) > footer {
+  display: none !important;
+}
