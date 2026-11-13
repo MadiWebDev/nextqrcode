@@ -24,6 +24,12 @@ const directLinks = [
   { label: 'Contact', href: '/contact' },
 ];
 
+// Sibling tools on their own subdomains — linked from every page.
+const toolLinks = [
+  { label: 'Invoice Generator', href: 'https://invoicegenerator.freeqrcode.tools' },
+  { label: 'Image Resizer', href: 'https://imageresizer.freeqrcode.tools' },
+];
+
 export function AppHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
@@ -91,6 +97,18 @@ export function AppHeader() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               ))}
+              {toolLinks.map((link) => (
+                <NavigationMenuItem key={link.href}>
+                  <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                    <a
+                      href={link.href}
+                      className="text-xs font-medium text-foreground hover:text-primary"
+                    >
+                      {link.label}
+                    </a>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
               {directLinks.map((link) => (
                 <NavigationMenuItem key={link.href}>
                   <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
@@ -151,6 +169,15 @@ export function AppHeader() {
             </div>
           ))}
           <div className="border-t border-border pt-3 space-y-1">
+            {toolLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="block text-xs font-semibold text-foreground px-2 py-1.5 rounded hover:bg-accent transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
             {directLinks.map((link) => (
               <Link
                 key={link.href}

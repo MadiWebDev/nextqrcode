@@ -3,7 +3,6 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from 'sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { OnboardingTour } from '@/components/OnboardingTour';
 import { AppHeader } from '@/components/AppHeader';
 import { AppFooter } from '@/components/AppFooter';
 import { CookieConsent } from '@/components/CookieConsent';
@@ -118,7 +117,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <AppFooter />
             </div>
             <Toaster position="bottom-right" richColors />
-            <OnboardingTour />
             <CookieConsent />
             <GoogleAnalytics />
             <ConsentScripts />
