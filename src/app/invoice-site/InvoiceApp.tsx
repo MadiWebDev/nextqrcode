@@ -2,10 +2,14 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  ArrowDown,
+  ArrowLeft,
+  ArrowUp,
   Building2,
   Check,
   Copy,
   Download,
+  Eye,
   FilePlus2,
   FileText,
   GripVertical,
@@ -961,6 +965,102 @@ export function InvoiceApp() {
     note: string;
   }>(() => ({ date: todayIso(), amount: 0, method: 'Bank transfer', note: '' }));
 
+  /* ── Mobile side-scroll panels (spec §1) ──────────────────────────────
+   * Below lg the editor and the live preview are two full-width panels in
+   * one horizontal scroll-snap scroller; the segmented Edit | Preview
+   * toggle, swiping, the floating Preview button and the one-time hint all
+   * drive this single state. Desktop (≥lg) keeps the side-by-side grid and
+   * none of this state affects it. */
+  const [mobilePanel, setMobilePanel] = useState<'edit' | 'preview'>('edit');
+  const [previewUpdated, setPreviewUpdated] = useState(false);
+  const [flash, setFlash] = useState<{ region: string; nonce: number } | null>(null);
+  /* Initialised to the server-rendered value (true) and corrected in an
+   * effect after mount — reading localStorage in the initializer would
+   * hydrate differently from the server HTML (React #418). */
+  const [hintSeen, setHintSeen] = useState(true);
+  useEffect(() => {
+    try {
+      setHintSeen(window.localStorage.getItem('invoicegenerator:swipe-hint-seen') === '1');
+    } catch {
+      setHintSeen(true);
+    }
+  }, []);
+  const snapRef = useRef<HTMLDivElement | null>(null);
+  const editorPanelRef = useRef<HTMLDivElement | null>(null);
+  const previewPanelRef = useRef<HTMLDivElement | null>(null);
+  const tabEditRef = useRef<HTMLButtonElement | null>(null);
+  const tabPreviewRef = useRef<HTMLButtonElement | null>(null);
+  const editorScrollRef = useRef(0);
+  const panelRef = useRef(mobilePanel);
+  panelRef.current = mobilePanel;
+
+  const dismissHint = () => {
+    setHintSeen(true);
+    try {
+      window.localStorage.setItem('invoicegenerator:swipe-hint-seen', '1');
+    } catch {
+      /* storage unavailable — the hint simply stays for this session */
+    }
+  };
+
+  const goToPanel = (panel: 'edit' | 'preview') => {
+    if (panel === 'preview' && editorPanelRef.current) {
+      editorScrollRef.current = editorPanelRef.current.scrollTop;
+    }
+    const scroller = snapRef.current;
+    const target = panel === 'edit' ? editorPanelRef.current : previewPanelRef.current;
+    if (scroller && target) {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      scroller.scrollTo({
+        left: target.offsetLeft,
+        behavior: reduce ? 'auto' : 'smooth',
+      });
+    }
+    setMobilePanel(panel);
+    if (panel === 'preview') {
+      setPreviewUpdated(false);
+      dismissHint();
+    }
+    if (panel === 'edit') {
+      requestAnimationFrame(() => {
+        if (editorPanelRef.current) {
+          editorPanelRef.current.scrollTop = editorScrollRef.current;
+        }
+      });
+    }
+  };
+
+  /* Swipe ↔ toggle sync: whichever panel is ≥60% visible becomes active. */
+  useEffect(() => {
+    const scroller = snapRef.current;
+    const editEl = editorPanelRef.current;
+    const previewEl = previewPanelRef.current;
+    if (!scroller || !editEl || !previewEl) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (window.innerWidth >= 1024) return;
+        for (const e of entries) {
+          if (e.intersectionRatio < 0.6) continue;
+          const panel = e.target === previewEl ? 'preview' : 'edit';
+          if (panelRef.current === panel) continue;
+          if (panel === 'preview') {
+            if (editorPanelRef.current) {
+              editorScrollRef.current = editorPanelRef.current.scrollTop;
+            }
+            setPreviewUpdated(false);
+            dismissHint();
+          }
+          setMobilePanel(panel);
+        }
+      },
+      { root: scroller, threshold: [0.6] }
+    );
+    io.observe(editEl);
+    io.observe(previewEl);
+    return () => io.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view]);
+
   /* Persist on change (writes only — no state is set inside effects). */
   useEffect(() => {
     saveLS(PROFILE_KEY, profile);
@@ -1385,9 +1485,80 @@ export function InvoiceApp() {
               </span>
             </div>
           )}
-        <div className="grid gap-6 lg:grid-cols-2 items-start [&>*]:min-w-0">
+        {/* Mobile Edit | Preview segmented toggle (spec §1) — sticky above
+            the panels; hidden on desktop where both panels are visible. */}
+        <div className="lg:hidden sticky top-0 z-30 bg-background/95 backdrop-blur-sm py-2">
+          <div
+            role="tablist"
+            aria-label="Invoice editor and preview"
+            className="grid grid-cols-2 gap-1 rounded-full border border-border bg-card p-1 shadow-sm"
+            onKeyDown={(e) => {
+              if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+              e.preventDefault();
+              const next =
+                e.key === 'ArrowRight'
+                  ? 'preview'
+                  : 'edit';
+              goToPanel(next as 'edit' | 'preview');
+              (next === 'preview' ? tabPreviewRef : tabEditRef).current?.focus();
+            }}
+          >
+            <button
+              type="button"
+              role="tab"
+              ref={tabEditRef}
+              id="inv-tab-edit"
+              aria-selected={mobilePanel === 'edit'}
+              aria-controls="inv-panel-edit"
+              tabIndex={mobilePanel === 'edit' ? 0 : -1}
+              onClick={() => goToPanel('edit')}
+              className={`min-h-11 rounded-full text-sm font-semibold inline-flex items-center justify-center gap-2 transition-colors ${
+                mobilePanel === 'edit'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'text-muted-foreground'
+              }`}
+            >
+              <Pencil className="w-4 h-4" /> Edit
+            </button>
+            <button
+              type="button"
+              role="tab"
+              ref={tabPreviewRef}
+              id="inv-tab-preview"
+              aria-selected={mobilePanel === 'preview'}
+              aria-controls="inv-panel-preview"
+              tabIndex={mobilePanel === 'preview' ? 0 : -1}
+              onClick={() => goToPanel('preview')}
+              className={`relative min-h-11 rounded-full text-sm font-semibold inline-flex items-center justify-center gap-2 transition-colors ${
+                mobilePanel === 'preview'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'text-muted-foreground'
+              }`}
+            >
+              <Eye className="w-4 h-4" /> Preview
+              {previewUpdated && (
+                <span className="absolute top-1 right-2 inline-flex items-center rounded-full bg-amber-400 px-1.5 py-0.5 text-[10px] font-bold text-amber-950">
+                  Updated
+                </span>
+              )}
+            </button>
+          </div>
+        </div>
+
+        <div className="relative">
+        <div
+          ref={snapRef}
+          data-testid="inv-panels"
+          className="relative flex gap-6 lg:grid lg:grid-cols-2 items-start [&>*]:min-w-0 overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none overscroll-x-contain h-[calc(100dvh-3.75rem)] lg:h-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           {/* ── Editor ── */}
-          <div className="space-y-5 min-w-0">
+          <div
+            ref={editorPanelRef}
+            id="inv-panel-edit"
+            aria-labelledby="inv-tab-edit"
+            className="w-full shrink-0 snap-start lg:w-auto h-full lg:h-auto overflow-y-auto lg:overflow-visible min-w-0"
+          >
+            <div className="space-y-5 min-w-0 pb-[calc(5.75rem+env(safe-area-inset-bottom))] lg:pb-0 pr-0.5">
             <Card className="p-5 space-y-4">
               <h3 className="font-semibold">Invoice details</h3>
               <div className="grid grid-cols-2 gap-3">
@@ -2331,14 +2502,64 @@ export function InvoiceApp() {
               </p>
             )}
           </div>
+          </div>
 
           {/* ── Live preview ── */}
-          <div className="lg:sticky lg:top-6 min-w-0">
+          <div
+            ref={previewPanelRef}
+            id="inv-panel-preview"
+            aria-labelledby="inv-tab-preview"
+            className="w-full shrink-0 snap-start lg:w-auto h-full lg:h-auto overflow-y-auto lg:overflow-visible min-w-0"
+          >
+            <div className="lg:sticky lg:top-6 min-w-0 pb-[calc(5.75rem+env(safe-area-inset-bottom))] lg:pb-0">
+            <button
+              type="button"
+              onClick={() => goToPanel('edit')}
+              className="lg:hidden mb-3 inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-card px-4 text-sm font-semibold shadow-sm"
+            >
+              <ArrowLeft className="w-4 h-4" /> Back to edit
+            </button>
             <p className="text-xs font-medium text-muted-foreground mb-2">
               LIVE PREVIEW — exactly what your client receives
             </p>
             <InvoicePreview inv={draft} profile={profile} totals={totals} qrDataUrl={effectiveQr} />
+            </div>
           </div>
+        </div>
+
+        {/* Floating Preview button (mobile, Edit panel only) */}
+        {mobilePanel === 'edit' && (
+          <button
+            type="button"
+            onClick={() => goToPanel('preview')}
+            className="lg:hidden absolute bottom-[calc(1rem+env(safe-area-inset-bottom))] right-3 z-30 inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground shadow-lg"
+          >
+            <Eye className="w-4 h-4" /> Preview
+            {previewUpdated && (
+              <span className="inline-flex items-center rounded-full bg-amber-400 px-1.5 py-0.5 text-[10px] font-bold text-amber-950">
+                Updated
+              </span>
+            )}
+          </button>
+        )}
+
+        {/* One-time swipe hint (mobile, until first preview view) */}
+        {!hintSeen && mobilePanel === 'edit' && (
+          <div className="inv-hint lg:hidden absolute bottom-[calc(4.75rem+env(safe-area-inset-bottom))] right-3 z-30 flex items-center gap-1.5 rounded-full bg-slate-900/90 py-1.5 pl-3 pr-1.5 text-xs font-medium text-white shadow-lg">
+            Swipe to see the preview
+            <span aria-hidden="true" className="inv-hint-arrow">
+              →
+            </span>
+            <button
+              type="button"
+              aria-label="Dismiss hint"
+              onClick={dismissHint}
+              className="inline-flex h-7 w-7 items-center justify-center rounded-full hover:bg-white/15"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        )}
         </div>
         </>
       )}
