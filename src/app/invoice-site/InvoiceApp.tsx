@@ -890,6 +890,43 @@ function Field({
 const SHARE_BTN_CLASS =
   'inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3 transition-colors';
 
+/* Which preview region each draft field belongs to (spec §2: the region
+ * flashes in the preview on edit, and tapping it focuses the field). */
+const REGION_BY_KEY: Record<string, string> = {
+  clientId: 'client',
+  clientName: 'client',
+  clientEmail: 'client',
+  clientPhone: 'client',
+  clientAddress: 'client',
+  number: 'meta',
+  docTitle: 'meta',
+  issueDate: 'meta',
+  dueDate: 'meta',
+  dueTerms: 'meta',
+  poNumber: 'meta',
+  referenceNumber: 'meta',
+  status: 'meta',
+  currency: 'totals',
+  discountPct: 'totals',
+  discountType: 'totals',
+  discountValue: 'totals',
+  taxPct: 'totals',
+  taxLabel: 'totals',
+  taxMode: 'totals',
+  shipping: 'totals',
+  additionalCharges: 'totals',
+  roundingAdjustment: 'totals',
+  amountPaid: 'payment',
+  payments: 'payment',
+  showQr: 'payment',
+  qrPayload: 'payment',
+  notes: 'notes',
+  terms: 'terms',
+  footerText: 'footer',
+  template: 'business',
+  internalNotes: 'none',
+};
+
 /* ── Main app ──────────────────────────────────────────────────────── */
 
 type ViewName = 'create' | 'invoices' | 'dashboard' | 'settings';
@@ -1061,6 +1098,62 @@ export function InvoiceApp() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view]);
 
+  /* ── Preview intelligence (spec §2): every edit flashes the matching
+   * preview region and, while the user is on the Edit panel, badges the
+   * Preview tab "Updated" until viewed. Tapping a preview region jumps
+   * back here and focuses the matching field (focusRegion). */
+  const flashTimeoutRef = useRef<number | null>(null);
+  const noteEdit = (region: string) => {
+    if (region !== 'none') {
+      setFlash({ region, nonce: Date.now() });
+      if (flashTimeoutRef.current) window.clearTimeout(flashTimeoutRef.current);
+      flashTimeoutRef.current = window.setTimeout(() => setFlash(null), 1100);
+    }
+    if (panelRef.current === 'edit') setPreviewUpdated(true);
+  };
+
+  const [pendingFocus, setPendingFocus] = useState<string | null>(null);
+  const focusRegion = (region: string) => {
+    if (region === 'business') {
+      /* Business identity is edited under Business & clients, not here. */
+      setView('settings');
+      setPendingFocus('[data-focus="businessName"]');
+      return;
+    }
+    goToPanel('edit');
+    const selector =
+      region === 'client'
+        ? '[data-focus="clientName"]'
+        : region === 'meta'
+          ? '[data-focus="number"]'
+          : region === 'notes'
+            ? '[data-focus="notes"]'
+            : region === 'terms'
+              ? '[data-focus="terms"]'
+              : region === 'footer'
+                ? '[data-focus="footer"]'
+                : region === 'totals'
+                  ? '[aria-label="Discount as a percentage"]'
+                  : region === 'payment'
+                    ? '[aria-label="Payment amount"]'
+                    : region.startsWith('item-')
+                      ? `[data-focus="item-desc-${region.slice(5)}"]`
+                      : '[data-focus="item-desc-0"]';
+    setPendingFocus(selector);
+  };
+  useEffect(() => {
+    if (!pendingFocus) return;
+    const t = window.setTimeout(() => {
+      const el = document.querySelector<HTMLElement>(pendingFocus);
+      if (el) {
+        el.focus({ preventScroll: true });
+        el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      }
+      setPendingFocus(null);
+    }, 400);
+    return () => window.clearTimeout(t);
+  }, [pendingFocus, view]);
+
   /* Persist on change (writes only — no state is set inside effects). */
   useEffect(() => {
     saveLS(PROFILE_KEY, profile);
@@ -1107,16 +1200,25 @@ export function InvoiceApp() {
   const totals = useMemo(() => computeTotals(draft), [draft]);
   const draftStatus = effectiveStatus(draft);
 
-  const patchDraft = (patch: Partial<Invoice>) => setDraft((d) => ({ ...d, ...patch }));
+  const patchDraft = (patch: Partial<Invoice>) => {
+    setDraft((d) => ({ ...d, ...patch }));
+    const key = Object.keys(patch)[0];
+    noteEdit((key && REGION_BY_KEY[key]) || 'meta');
+  };
 
-  const patchSettings = (patch: Partial<TemplateSettings>) =>
+  const patchSettings = (patch: Partial<TemplateSettings>) => {
     setDraft((d) => ({ ...d, templateSettings: { ...d.templateSettings, ...patch } }));
+    noteEdit('business');
+  };
 
-  const patchItem = (id: string, patch: Partial<LineItem>) =>
+  const patchItem = (id: string, patch: Partial<LineItem>) => {
     setDraft((d) => ({
       ...d,
       items: d.items.map((it) => (it.id === id ? { ...it, ...patch } : it)),
     }));
+    const idx = draft.items.findIndex((it) => it.id === id);
+    noteEdit(idx >= 0 ? `item-${idx}` : 'items');
+  };
 
   /* Drag-and-drop line reordering (native HTML5 DnD on the row handle). */
   const [dragItemId, setDragItemId] = useState<string | null>(null);
@@ -1564,6 +1666,7 @@ export function InvoiceApp() {
               <div className="grid grid-cols-2 gap-3">
                 <Field label="Invoice number">
                   <Input
+                    data-focus="number"
                     value={draft.number}
                     onChange={(e) => patchDraft({ number: e.target.value })}
                   />
@@ -1944,6 +2047,7 @@ export function InvoiceApp() {
               <div className="grid grid-cols-2 gap-3">
                 <Field label="Client name">
                   <Input
+                    data-focus="clientName"
                     value={draft.clientName}
                     onChange={(e) => patchDraft({ clientName: e.target.value })}
                     placeholder="Northwind Traders"
@@ -2018,6 +2122,7 @@ export function InvoiceApp() {
                         <GripVertical className="w-4 h-4" />
                       </button>
                       <Input
+                        data-focus={`item-desc-${idx}`}
                         className="order-2 grow min-w-0 basis-[calc(100%-4.5rem)] sm:basis-0"
                         placeholder="Description of work or product"
                         value={item.description}
@@ -2044,15 +2149,16 @@ export function InvoiceApp() {
                         size="icon"
                         className="order-7 sm:order-6 shrink-0"
                         aria-label="Duplicate item"
-                        onClick={() =>
+                        onClick={() => {
                           setDraft((d) => {
                             const at = d.items.findIndex((it) => it.id === item.id);
                             const copy = { ...item, id: uid() };
                             const items = [...d.items];
                             items.splice(at + 1, 0, copy);
                             return { ...d, items };
-                          })
-                        }
+                          });
+                          noteEdit('items');
+                        }}
                       >
                         <Copy className="w-4 h-4" />
                       </Button>
@@ -2061,15 +2167,16 @@ export function InvoiceApp() {
                         size="icon"
                         className="order-3 sm:order-7 shrink-0"
                         aria-label="Remove item"
-                        onClick={() =>
+                        onClick={() => {
                           setDraft((d) => ({
                             ...d,
                             items:
                               d.items.length > 1
                                 ? d.items.filter((it) => it.id !== item.id)
                                 : d.items,
-                          }))
-                        }
+                          }));
+                          noteEdit('items');
+                        }}
                       >
                         <Trash2 className="w-4 h-4" />
                       </Button>
@@ -2141,12 +2248,13 @@ export function InvoiceApp() {
               <Button
                 variant="outline"
                 className="gap-2"
-                onClick={() =>
+                onClick={() => {
                   setDraft((d) => ({
                     ...d,
                     items: [...d.items, blankLineItem()],
-                  }))
-                }
+                  }));
+                  noteEdit('items');
+                }}
               >
                 <Plus className="w-4 h-4" /> Add item
               </Button>
@@ -2276,6 +2384,7 @@ export function InvoiceApp() {
               )}
               <Field label="Notes (printed on the invoice)">
                 <Textarea
+                  data-focus="notes"
                   rows={2}
                   value={draft.notes}
                   onChange={(e) => patchDraft({ notes: e.target.value })}
@@ -2284,6 +2393,7 @@ export function InvoiceApp() {
               </Field>
               <Field label="Terms (printed on the invoice)">
                 <Textarea
+                  data-focus="terms"
                   rows={2}
                   value={draft.terms}
                   onChange={(e) => patchDraft({ terms: e.target.value })}
@@ -2291,6 +2401,7 @@ export function InvoiceApp() {
               </Field>
               <Field label="Custom footer (printed at the bottom of the invoice)">
                 <Input
+                  data-focus="footer"
                   value={draft.footerText}
                   onChange={(e) => patchDraft({ footerText: e.target.value })}
                   placeholder="e.g. Registered in Pakistan · NTN 1234567-8"
@@ -2410,6 +2521,7 @@ export function InvoiceApp() {
                 </Field>
                 <Field label="Amount">
                   <NumInput
+                    ariaLabel="Payment amount"
                     value={payForm.amount}
                     onChange={(n) => setPayForm((f) => ({ ...f, amount: Math.max(0, n) }))}
                     min={0}
@@ -2522,7 +2634,16 @@ export function InvoiceApp() {
             <p className="text-xs font-medium text-muted-foreground mb-2">
               LIVE PREVIEW — exactly what your client receives
             </p>
-            <InvoicePreview inv={draft} profile={profile} totals={totals} qrDataUrl={effectiveQr} />
+            <PreviewScaler>
+              <InvoicePreview
+                inv={draft}
+                profile={profile}
+                totals={totals}
+                qrDataUrl={effectiveQr}
+                flashRegion={flash?.region ?? null}
+                onRegionTap={focusRegion}
+              />
+            </PreviewScaler>
             </div>
           </div>
         </div>
@@ -2789,17 +2910,163 @@ function ShareInvoicePanel({
 
 /* ── Live preview ──────────────────────────────────────────────────── */
 
+/* ── Preview scaler (spec §2, mobile only) ─────────────────────────────
+ * Renders the preview at a fixed 794px width (A4 at 96dpi) and scales it
+ * with a CSS transform: Fit = whole page width, 100% = true size with
+ * pan, pinch (two pointers) and double-tap anywhere in between. DOM text
+ * scales as vectors, so it stays crisp. On desktop (≥1024px) the children
+ * render untouched — the existing fluid layout is preserved exactly. */
+const PREVIEW_BASE_W = 794;
+
+function PreviewScaler({ children }: { children: React.ReactNode }) {
+  const [isDesktop, setIsDesktop] = useState(false);
+  const viewportRef = useRef<HTMLDivElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const [viewportW, setViewportW] = useState(0);
+  const [contentH, setContentH] = useState(0);
+  const [zoom, setZoom] = useState<'fit' | 'full' | number>('fit');
+  const pointersRef = useRef(new Map<number, { x: number; y: number }>());
+  const pinchRef = useRef<{ dist: number; scale: number } | null>(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const apply = () => setIsDesktop(mq.matches);
+    apply();
+    mq.addEventListener('change', apply);
+    return () => mq.removeEventListener('change', apply);
+  }, []);
+
+  useEffect(() => {
+    if (isDesktop) return;
+    const vp = viewportRef.current;
+    const ct = contentRef.current;
+    if (!vp || !ct) return;
+    const ro = new ResizeObserver(() => {
+      setViewportW(vp.clientWidth);
+      setContentH(ct.offsetHeight);
+    });
+    ro.observe(vp);
+    ro.observe(ct);
+    return () => ro.disconnect();
+  }, [isDesktop]);
+
+  if (isDesktop) return <>{children}</>;
+
+  const fit = viewportW > 0 ? viewportW / PREVIEW_BASE_W : 0.45;
+  const scale = zoom === 'fit' ? fit : zoom === 'full' ? 1 : zoom;
+  const clampScale = (s: number) => Math.min(2.5, Math.max(fit * 0.75, s));
+
+  const pointerDist = () => {
+    const pts = [...pointersRef.current.values()];
+    return Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+  };
+
+  return (
+    <div>
+      <div className="mb-2 flex items-center justify-end gap-2">
+        <div
+          className="grid grid-cols-2 gap-1 rounded-full border border-border bg-card p-0.5"
+          role="group"
+          aria-label="Preview zoom"
+        >
+          <button
+            type="button"
+            aria-pressed={zoom === 'fit'}
+            onClick={() => setZoom('fit')}
+            className={`min-h-9 rounded-full px-3 text-xs font-semibold ${
+              zoom === 'fit' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'
+            }`}
+          >
+            Fit
+          </button>
+          <button
+            type="button"
+            aria-pressed={zoom === 'full'}
+            onClick={() => setZoom('full')}
+            className={`min-h-9 rounded-full px-3 text-xs font-semibold ${
+              zoom === 'full' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'
+            }`}
+          >
+            100%
+          </button>
+        </div>
+        <span className="w-10 text-right text-xs text-muted-foreground">
+          {Math.round(scale * 100)}%
+        </span>
+      </div>
+      <div
+        ref={viewportRef}
+        data-testid="inv-preview-viewport"
+        className="overflow-auto rounded-xl"
+        style={{ touchAction: 'pan-y' }}
+        onDoubleClick={() => setZoom(zoom === 'full' ? 'fit' : 'full')}
+        onPointerDown={(e) => {
+          pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+          if (pointersRef.current.size === 2) {
+            pinchRef.current = { dist: pointerDist(), scale };
+          }
+        }}
+        onPointerMove={(e) => {
+          if (!pointersRef.current.has(e.pointerId)) return;
+          pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+          if (pinchRef.current && pointersRef.current.size === 2) {
+            setZoom(clampScale(pinchRef.current.scale * (pointerDist() / pinchRef.current.dist)));
+          }
+        }}
+        onPointerUp={(e) => {
+          pointersRef.current.delete(e.pointerId);
+          if (pointersRef.current.size < 2) pinchRef.current = null;
+        }}
+        onPointerCancel={(e) => {
+          pointersRef.current.delete(e.pointerId);
+          if (pointersRef.current.size < 2) pinchRef.current = null;
+        }}
+      >
+        <div
+          className="relative mx-auto"
+          style={{
+            width: PREVIEW_BASE_W * scale,
+            height: contentH ? contentH * scale : undefined,
+          }}
+        >
+          <div
+            ref={contentRef}
+            className="absolute left-0 top-0"
+            style={{
+              width: PREVIEW_BASE_W,
+              transform: `scale(${scale})`,
+              transformOrigin: 'top left',
+            }}
+          >
+            {children}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function InvoicePreview({
   inv,
   profile,
   totals,
   qrDataUrl,
+  flashRegion,
+  onRegionTap,
 }: {
   inv: Invoice;
   profile: Profile;
   totals: Totals;
   qrDataUrl: string;
+  /* Editor-only intelligence (spec §2): flashRegion names the region to
+   * highlight after an edit; onRegionTap makes regions tappable to jump
+   * back to the matching field. The read-only /v page passes neither. */
+  flashRegion?: string | null;
+  onRegionTap?: (region: string) => void;
 }) {
+  const regionTap = (region: string) =>
+    onRegionTap ? { onClick: () => onRegionTap(region), title: 'Tap to edit' } : {};
+  const flashCls = (region: string) => (flashRegion === region ? ' inv-flash' : '');
   const brand = profile.brandColor || '#1d4ed8';
   const def = templateDef(inv.template);
   const settings = inv.templateSettings;
@@ -2835,7 +3102,9 @@ export function InvoicePreview({
       )}
       {def.header === 'band' && (
         <div
-          className="px-6 py-5 text-white flex items-start justify-between gap-4"
+          data-region="business"
+          {...regionTap('business')}
+          className={`px-6 py-5 text-white flex items-start justify-between gap-4${flashCls('business')}`}
           style={{ backgroundColor: def.bandTone === 'dark' ? '#1e293b' : brand }}
         >
           <div className="min-w-0">
@@ -2856,7 +3125,9 @@ export function InvoicePreview({
       {def.header === 'serif' && (
         <div className="px-6 pt-6">
           <div
-            className="flex items-start justify-between gap-4 pb-3"
+            data-region="business"
+            {...regionTap('business')}
+            className={`flex items-start justify-between gap-4 pb-3${flashCls('business')}`}
             style={{ borderBottom: '4px double #334155' }}
           >
             <div>
@@ -2871,7 +3142,11 @@ export function InvoicePreview({
         </div>
       )}
       {def.header === 'centered' && (
-        <div className="px-6 pt-6 text-center border-b border-slate-200 pb-4">
+        <div
+          data-region="business"
+          {...regionTap('business')}
+          className={`px-6 pt-6 text-center border-b border-slate-200 pb-4${flashCls('business')}`}
+        >
           {logoImg && <div className="flex justify-center mb-2">{logoImg}</div>}
           <p className="font-bold text-lg">{profile.businessName || 'Your Business'}</p>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -2887,7 +3162,7 @@ export function InvoicePreview({
         </div>
       )}
       {def.header === 'side' && (
-        <div className="flex">
+        <div data-region="business" {...regionTap('business')} className={`flex${flashCls('business')}`}>
           <div className="w-2 shrink-0" style={{ backgroundColor: brand }} />
           <div className="flex-1 px-5 pt-5 pb-4 flex items-start justify-between gap-4">
             <div>
@@ -2908,7 +3183,11 @@ export function InvoicePreview({
       )}
       {def.header === 'plain' && (
         <div className="px-6 pt-6">
-          <div className="flex items-start justify-between gap-4 border-b border-slate-200 pb-3">
+          <div
+            data-region="business"
+            {...regionTap('business')}
+            className={`flex items-start justify-between gap-4 border-b border-slate-200 pb-3${flashCls('business')}`}
+          >
             <div>
               <p className="text-sm uppercase tracking-widest text-slate-500">
                 {inv.docTitle || 'Invoice'}
@@ -2933,14 +3212,22 @@ export function InvoicePreview({
         }`}
       >
         <div className="flex flex-wrap justify-between gap-4">
-          <div className="text-sm">
+          <div
+            data-region="client"
+            {...regionTap('client')}
+            className={`text-sm${flashCls('client')}`}
+          >
             <p className="text-xs uppercase tracking-wide text-slate-400">Bill to</p>
             <p className="font-semibold mt-0.5">{inv.clientName || 'Client name'}</p>
             <p className="text-slate-500 whitespace-pre-line">{inv.clientAddress}</p>
             <p className="text-slate-500">{inv.clientEmail}</p>
             <p className="text-slate-500">{inv.clientPhone}</p>
           </div>
-          <div className="text-sm text-right">
+          <div
+            data-region="meta"
+            {...regionTap('meta')}
+            className={`text-sm text-right${flashCls('meta')}`}
+          >
             {inv.template !== 'modern' && <p className="font-semibold">{inv.number}</p>}
             <p className="text-slate-500">Issued: {inv.issueDate}</p>
             <p className="text-slate-500">Due: {inv.dueDate}</p>
@@ -2964,7 +3251,11 @@ export function InvoicePreview({
           </div>
         </div>
 
-        <table className="w-full table-fixed text-xs sm:text-sm mt-5">
+        <table
+          data-region="items"
+          {...regionTap('items')}
+          className={`w-full table-fixed text-xs sm:text-sm mt-5${flashCls('items')}`}
+        >
           <colgroup>
             <col />
             <col className="w-10 sm:w-14" />
@@ -2994,9 +3285,11 @@ export function InvoicePreview({
             {inv.items.map((item, idx) => (
               <tr
                 key={item.id}
+                data-region={`item-${idx}`}
+                {...regionTap(`item-${idx}`)}
                 className={`border-b border-slate-100 align-top ${
                   def.table === 'striped' && idx % 2 === 1 ? 'bg-slate-50' : ''
-                }`}
+                }${flashCls(`item-${idx}`)}`}
               >
                 <td className="px-1 sm:px-2 py-2 break-words">
                   <span>{item.description || '—'}</span>
@@ -3031,9 +3324,11 @@ export function InvoicePreview({
 
         <div className="flex justify-end mt-4">
           <dl
+            data-region="totals"
+            {...regionTap('totals')}
             className={`w-full sm:w-60 text-sm space-y-1 ${
               def.totals === 'boxed' ? 'border rounded-lg p-3' : ''
-            }`}
+            }${flashCls('totals')}`}
             style={def.totals === 'boxed' ? { borderColor: secondary } : undefined}
           >
             <div className="flex justify-between">
@@ -3097,7 +3392,11 @@ export function InvoicePreview({
 
         <div className="flex flex-wrap gap-6 mt-6">
           {qrDataUrl && (
-            <div className="flex items-start gap-3">
+            <div
+              data-region="payment"
+              {...regionTap('payment')}
+              className={`flex items-start gap-3${flashCls('payment')}`}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={qrDataUrl}
@@ -3112,10 +3411,22 @@ export function InvoicePreview({
           )}
           <div className="text-xs text-slate-500 flex-1 min-w-52 space-y-2">
             {settings.showNotes && inv.notes.trim() && (
-              <p className="whitespace-pre-line">{inv.notes}</p>
+              <p
+                data-region="notes"
+                {...regionTap('notes')}
+                className={`whitespace-pre-line${flashCls('notes')}`}
+              >
+                {inv.notes}
+              </p>
             )}
             {settings.showTerms && inv.terms.trim() && (
-              <p className="whitespace-pre-line">{inv.terms}</p>
+              <p
+                data-region="terms"
+                {...regionTap('terms')}
+                className={`whitespace-pre-line${flashCls('terms')}`}
+              >
+                {inv.terms}
+              </p>
             )}
             {settings.showStamp && profile.stampDataUrl && (
               // eslint-disable-next-line @next/next/no-img-element
@@ -3128,7 +3439,13 @@ export function InvoicePreview({
           </div>
         </div>
         {inv.footerText.trim() && (
-          <p className="text-center text-xs text-slate-400 mt-6">{inv.footerText}</p>
+          <p
+            data-region="footer"
+            {...regionTap('footer')}
+            className={`text-center text-xs text-slate-400 mt-6${flashCls('footer')}`}
+          >
+            {inv.footerText}
+          </p>
         )}
       </div>
     </div>
@@ -4511,6 +4828,7 @@ function SettingsView({
             </p>
             <Field label="Business name">
               <Input
+                data-focus="businessName"
                 value={profile.businessName}
                 onChange={(e) => patch({ businessName: e.target.value })}
                 placeholder="Ayesha Khan Design Studio"
