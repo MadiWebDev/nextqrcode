@@ -1552,9 +1552,10 @@ export function InvoiceApp() {
   return (
     <div>
       {/* Tabs */}
-      <div className="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="Invoice workspace">
+      <div className="flex flex-wrap gap-2 mb-6" role="group" aria-label="Invoice workspace">
         <Button
           variant={view === 'create' ? 'default' : 'outline'}
+          aria-current={view === 'create' || undefined}
           onClick={() => setView('create')}
           className="gap-2"
         >
@@ -1562,6 +1563,7 @@ export function InvoiceApp() {
         </Button>
         <Button
           variant={view === 'invoices' ? 'default' : 'outline'}
+          aria-current={view === 'invoices' || undefined}
           onClick={() => setView('invoices')}
           className="gap-2"
         >
@@ -1569,6 +1571,7 @@ export function InvoiceApp() {
         </Button>
         <Button
           variant={view === 'dashboard' ? 'default' : 'outline'}
+          aria-current={view === 'dashboard' || undefined}
           onClick={() => setView('dashboard')}
           className="gap-2"
         >
@@ -1576,6 +1579,7 @@ export function InvoiceApp() {
         </Button>
         <Button
           variant={view === 'settings' ? 'default' : 'outline'}
+          aria-current={view === 'settings' || undefined}
           onClick={() => setView('settings')}
           className="gap-2"
         >
@@ -3068,7 +3072,10 @@ function PreviewScaler({ children }: { children: React.ReactNode }) {
             100%
           </button>
         </div>
-        <span className="w-10 text-right text-xs text-muted-foreground">
+        <span
+          data-testid="inv-zoom-readout"
+          className="w-10 text-right text-xs text-muted-foreground"
+        >
           {Math.round(scale * 100)}%
         </span>
       </div>
@@ -4845,6 +4852,7 @@ function SettingsView({
     <Button
       key={key}
       variant={section === key ? 'default' : 'outline'}
+      aria-current={section === key || undefined}
       size="sm"
       onClick={() => {
         setSection(key);
@@ -4857,7 +4865,7 @@ function SettingsView({
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Business settings sections">
+      <div className="flex flex-wrap gap-2" role="group" aria-label="Business settings sections">
         {sectionBtn('profile', 'Business profiles')}
         {sectionBtn('clients', `Clients (${clients.length})`)}
         {sectionBtn('data', 'Backup & data')}
