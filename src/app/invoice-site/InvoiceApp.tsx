@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import {
   ArrowDown,
   ArrowLeft,
@@ -1011,17 +1011,25 @@ export function InvoiceApp() {
   const [mobilePanel, setMobilePanel] = useState<'edit' | 'preview'>('edit');
   const [previewUpdated, setPreviewUpdated] = useState(false);
   const [flash, setFlash] = useState<{ region: string; nonce: number } | null>(null);
-  /* Initialised to the server-rendered value (true) and corrected in an
-   * effect after mount — reading localStorage in the initializer would
-   * hydrate differently from the server HTML (React #418). */
-  const [hintSeen, setHintSeen] = useState(true);
-  useEffect(() => {
-    try {
-      setHintSeen(window.localStorage.getItem('invoicegenerator:swipe-hint-seen') === '1');
-    } catch {
-      setHintSeen(true);
-    }
-  }, []);
+  /* The hint's seen-flag lives in localStorage; useSyncExternalStore reads
+   * it hydration-safely (server snapshot = seen, so SSR and the first
+   * client render agree — a lazy initializer read caused React #418). */
+  const hintStored = useSyncExternalStore(
+    (cb) => {
+      window.addEventListener('storage', cb);
+      return () => window.removeEventListener('storage', cb);
+    },
+    () => {
+      try {
+        return window.localStorage.getItem('invoicegenerator:swipe-hint-seen') === '1';
+      } catch {
+        return true;
+      }
+    },
+    () => true
+  );
+  const [hintDismissed, setHintDismissed] = useState(false);
+  const hintSeen = hintStored || hintDismissed;
   const snapRef = useRef<HTMLDivElement | null>(null);
   const editorPanelRef = useRef<HTMLDivElement | null>(null);
   const previewPanelRef = useRef<HTMLDivElement | null>(null);
@@ -1029,10 +1037,12 @@ export function InvoiceApp() {
   const tabPreviewRef = useRef<HTMLButtonElement | null>(null);
   const editorScrollRef = useRef(0);
   const panelRef = useRef(mobilePanel);
-  panelRef.current = mobilePanel;
+  useEffect(() => {
+    panelRef.current = mobilePanel;
+  }, [mobilePanel]);
 
   const dismissHint = () => {
-    setHintSeen(true);
+    setHintDismissed(true);
     try {
       window.localStorage.setItem('invoicegenerator:swipe-hint-seen', '1');
     } catch {
@@ -1095,7 +1105,6 @@ export function InvoiceApp() {
     io.observe(editEl);
     io.observe(previewEl);
     return () => io.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view]);
 
   /* ── Preview intelligence (spec §2): every edit flashes the matching
@@ -1103,9 +1112,11 @@ export function InvoiceApp() {
    * Preview tab "Updated" until viewed. Tapping a preview region jumps
    * back here and focuses the matching field (focusRegion). */
   const flashTimeoutRef = useRef<number | null>(null);
+  const flashNonceRef = useRef(0);
   const noteEdit = (region: string) => {
     if (region !== 'none') {
-      setFlash({ region, nonce: Date.now() });
+      flashNonceRef.current += 1;
+      setFlash({ region, nonce: flashNonceRef.current });
       if (flashTimeoutRef.current) window.clearTimeout(flashTimeoutRef.current);
       flashTimeoutRef.current = window.setTimeout(() => setFlash(null), 1100);
     }
@@ -1484,9 +1495,17 @@ export function InvoiceApp() {
   };
 
   const printPdf = async () => {
+    /* Open the tab synchronously inside the click: after an await, iOS
+     * Safari no longer treats window.open as user-activated and blocks
+     * it. If the popup is blocked anyway, fall back to a download. */
+    const win = window.open('', '_blank');
     const doc = await buildPdf();
     const url = doc.output('bloburl');
-    window.open(url, '_blank');
+    if (win) {
+      win.location.href = String(url);
+    } else {
+      doc.save(`${draft.number || 'invoice'}.pdf`);
+    }
   };
 
   const downloadInvoicesZip = async (selected: Invoice[]) => {
@@ -2048,6 +2067,7 @@ export function InvoiceApp() {
                 <Field label="Client name">
                   <Input
                     data-focus="clientName"
+                    autoComplete="organization"
                     value={draft.clientName}
                     onChange={(e) => patchDraft({ clientName: e.target.value })}
                     placeholder="Northwind Traders"
@@ -2055,6 +2075,9 @@ export function InvoiceApp() {
                 </Field>
                 <Field label="Client email">
                   <Input
+                    type="email"
+                    inputMode="email"
+                    autoComplete="email"
                     value={draft.clientEmail}
                     onChange={(e) => patchDraft({ clientEmail: e.target.value })}
                     placeholder="accounts@client.com"
@@ -2062,6 +2085,9 @@ export function InvoiceApp() {
                 </Field>
                 <Field label="Client phone (for WhatsApp)">
                   <Input
+                    type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
                     value={draft.clientPhone}
                     onChange={(e) => patchDraft({ clientPhone: e.target.value })}
                     placeholder="+92 300 1234567"
@@ -2182,6 +2208,40 @@ export function InvoiceApp() {
                       </Button>
                     </div>
                     <div className="flex flex-wrap gap-2 items-center pl-0 sm:pl-6">
+                      {/* Touch reorder (mobile): the drag handle is mouse-only,
+                          so phones get explicit up/down buttons. */}
+                      <div className="flex items-center gap-1 lg:hidden">
+                        <button
+                          type="button"
+                          aria-label="Move item up"
+                          disabled={idx === 0}
+                          onClick={() =>
+                            setDraft((d) => {
+                              const items = [...d.items];
+                              [items[idx - 1], items[idx]] = [items[idx], items[idx - 1]];
+                              return { ...d, items };
+                            })
+                          }
+                          className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-border bg-card disabled:opacity-40"
+                        >
+                          <ArrowUp className="w-4 h-4" />
+                        </button>
+                        <button
+                          type="button"
+                          aria-label="Move item down"
+                          disabled={idx === draft.items.length - 1}
+                          onClick={() =>
+                            setDraft((d) => {
+                              const items = [...d.items];
+                              [items[idx + 1], items[idx]] = [items[idx], items[idx + 1]];
+                              return { ...d, items };
+                            })
+                          }
+                          className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-border bg-card disabled:opacity-40"
+                        >
+                          <ArrowDown className="w-4 h-4" />
+                        </button>
+                      </div>
                       <Input
                         className="flex-1 min-w-28 sm:min-w-44 h-8 text-xs"
                         placeholder="Detail (optional — scope, dates, specs…)"
@@ -2235,7 +2295,7 @@ export function InvoiceApp() {
                       <label className="flex items-center gap-1.5 text-xs cursor-pointer">
                         <input
                           type="checkbox"
-                          className="w-3.5 h-3.5 accent-primary"
+                          className="w-5 h-5 sm:w-3.5 sm:h-3.5 accent-primary"
                           checked={item.taxable}
                           onChange={(e) => patchItem(item.id, { taxable: e.target.checked })}
                         />
@@ -2653,7 +2713,7 @@ export function InvoiceApp() {
           <button
             type="button"
             onClick={() => goToPanel('preview')}
-            className="lg:hidden absolute bottom-[calc(1rem+env(safe-area-inset-bottom))] right-3 z-30 inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground shadow-lg"
+            className="lg:hidden absolute bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-3 z-30 inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground shadow-lg"
           >
             <Eye className="w-4 h-4" /> Preview
             {previewUpdated && (
@@ -2666,7 +2726,7 @@ export function InvoiceApp() {
 
         {/* One-time swipe hint (mobile, until first preview view) */}
         {!hintSeen && mobilePanel === 'edit' && (
-          <div className="inv-hint lg:hidden absolute bottom-[calc(4.75rem+env(safe-area-inset-bottom))] right-3 z-30 flex items-center gap-1.5 rounded-full bg-slate-900/90 py-1.5 pl-3 pr-1.5 text-xs font-medium text-white shadow-lg">
+          <div className="inv-hint lg:hidden absolute bottom-[calc(9.25rem+env(safe-area-inset-bottom))] right-3 z-30 flex items-center gap-1.5 rounded-full bg-slate-900/90 py-1.5 pl-3 pr-1.5 text-xs font-medium text-white shadow-lg">
             Swipe to see the preview
             <span aria-hidden="true" className="inv-hint-arrow">
               →
@@ -2681,6 +2741,24 @@ export function InvoiceApp() {
             </button>
           </div>
         )}
+        </div>
+
+        {/* Mobile sticky action bar (spec §3): sticky inside this view —
+            never position:fixed — so it hugs the viewport bottom only
+            while the workspace is on screen and scrolls away before the
+            page content and ads below it. */}
+        <div className="lg:hidden sticky bottom-0 z-30 mt-4 border-t border-border bg-background/95 pb-[env(safe-area-inset-bottom)] pt-2 backdrop-blur-sm">
+          <div className="grid grid-cols-3 gap-2">
+            <Button onClick={handleSave} className="gap-1.5 px-2">
+              <Save className="w-4 h-4 shrink-0" /> {draft.id ? 'Save changes' : 'Save'}
+            </Button>
+            <Button variant="outline" onClick={downloadPdf} className="gap-1.5 px-2">
+              <Download className="w-4 h-4 shrink-0" /> PDF
+            </Button>
+            <Button variant="outline" onClick={printPdf} className="gap-1.5 px-2">
+              <Printer className="w-4 h-4 shrink-0" /> Print
+            </Button>
+          </div>
         </div>
         </>
       )}
@@ -2973,7 +3051,7 @@ function PreviewScaler({ children }: { children: React.ReactNode }) {
             type="button"
             aria-pressed={zoom === 'fit'}
             onClick={() => setZoom('fit')}
-            className={`min-h-9 rounded-full px-3 text-xs font-semibold ${
+            className={`min-h-11 rounded-full px-3 text-xs font-semibold ${
               zoom === 'fit' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'
             }`}
           >
@@ -2983,7 +3061,7 @@ function PreviewScaler({ children }: { children: React.ReactNode }) {
             type="button"
             aria-pressed={zoom === 'full'}
             onClick={() => setZoom('full')}
-            className={`min-h-9 rounded-full px-3 text-xs font-semibold ${
+            className={`min-h-11 rounded-full px-3 text-xs font-semibold ${
               zoom === 'full' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'
             }`}
           >
