@@ -290,3 +290,29 @@ div:has(> main .imageresizer-site-root) > footer {
     animation-duration: 0.01s;
   }
 }
+
+/*
+ * Invoice site mobile ergonomics (below the lg breakpoint): tappable
+ * controls are at least 44px and text fields render at 16px so iOS Safari
+ * does not auto-zoom on focus. Scoped to .invoice-site-root — the main and
+ * image-resizer sites keep their own sizing.
+ */
+@media (max-width: 1023.98px) {
+  .invoice-site-root [data-slot='input'],
+  .invoice-site-root [data-slot='select-trigger'],
+  .invoice-site-root [data-slot='button'] {
+    min-height: 44px;
+  }
+  .invoice-site-root [data-slot='button'][data-size='icon'] {
+    min-width: 44px;
+  }
+  .invoice-site-root [data-slot='select-item'] {
+    min-height: 44px;
+  }
+  .invoice-site-root input,
+  .invoice-site-root select,
+  .invoice-site-root textarea,
+  .invoice-site-root [data-slot='select-trigger'] {
+    font-size: 16px;
+  }
+}
