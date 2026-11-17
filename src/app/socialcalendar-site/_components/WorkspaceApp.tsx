@@ -10,6 +10,8 @@ import IntelligencePanel from './IntelligencePanel';
 import HolidaysPanel from './HolidaysPanel';
 import RulesPanel from './RulesPanel';
 import AnalyticsPanel from './AnalyticsPanel';
+import SharePanel from './SharePanel';
+import NotificationsPanel, { ReminderEngine } from './NotificationsPanel';
 import { useStore } from '../_lib/store';
 import { PLATFORMS } from '../_lib/platforms';
 import {
@@ -471,6 +473,7 @@ export function WorkspaceApp() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+      <ReminderEngine />
       {!store.persistent && (
         <div className="mb-4 rounded-lg border border-amber-400 bg-amber-50 px-4 py-3 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-100" role="alert">
           <strong>Temporary storage is active.</strong> This browser would not provide
@@ -543,9 +546,19 @@ export function WorkspaceApp() {
           </div>
         )}
         {tab === 'analytics' && <AnalyticsPanel />}
-        {tab === 'overview' && <Overview />}
+        {tab === 'overview' && (
+          <div className="space-y-8">
+            <Overview />
+            <NotificationsPanel />
+          </div>
+        )}
         {tab === 'workspaces' && <WorkspaceManager />}
-        {tab === 'data' && <DataPanel />}
+        {tab === 'data' && (
+          <div className="space-y-8">
+            <DataPanel />
+            <SharePanel />
+          </div>
+        )}
       </div>
       {editorSeed && <PostEditor seed={editorSeed} onClose={() => setEditorSeed(null)} />}
     </main>

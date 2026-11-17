@@ -124,6 +124,52 @@ export function PostEditor({
   const set = <K extends keyof Post>(key: K, value: Post[K]) =>
     setDraft((d) => ({ ...d, [key]: value }));
 
+  /* Crash recovery (Phase 7): the in-progress draft is mirrored to
+     localStorage (debounced). If the tab crashes or closes mid-edit,
+     reopening the same post offers the recovered draft. Cleared on save. */
+  const draftKey = `sc-editor-draft:${ws.id}:${draft.id}`;
+  const [recovered, setRecovered] = useState<Post | null>(null);
+  useEffect(() => {
+    // Deferred so state updates happen outside the effect body itself.
+    const timer = setTimeout(() => {
+      try {
+        const raw = window.localStorage.getItem(draftKey);
+        if (!raw) return;
+        const stored = JSON.parse(raw) as Post;
+        if (
+          stored.id === draft.id &&
+          (stored.title !== draft.title ||
+            stored.caption !== draft.caption ||
+            stored.updatedAt !== draft.updatedAt)
+        ) {
+          setRecovered(stored);
+        }
+      } catch {
+        // Corrupt recovery data is ignored.
+      }
+    }, 0);
+    return () => clearTimeout(timer);
+    // Only on mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      try {
+        window.localStorage.setItem(draftKey, JSON.stringify(draft));
+      } catch {
+        // Storage full/blocked — recovery is best-effort.
+      }
+    }, 800);
+    return () => clearTimeout(timer);
+  }, [draft, draftKey]);
+  const clearRecovery = () => {
+    try {
+      window.localStorage.removeItem(draftKey);
+    } catch {
+      // ignore
+    }
+  };
+
   const save = async () => {
     if (!draft.title.trim() && !draft.caption.trim()) {
       setError('Give the post a title or a caption before saving.');
@@ -141,6 +187,7 @@ export function PostEditor({
     };
     await store.savePost(post, isNew ? 'Created' : 'Edited');
     await store.logActivity('post', post.id, isNew ? 'create' : 'update', post.title || 'Untitled');
+    clearRecovery();
     onClose();
   };
 
@@ -162,6 +209,37 @@ export function PostEditor({
           </button>
         </div>
 
+        {recovered && (
+          <div className="mt-2 rounded bg-amber-50 px-3 py-2 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-100" role="status">
+            <p>
+              <strong>Recovered an unsaved draft</strong> from a previous session (
+              {new Date(recovered.updatedAt).toLocaleString()}). It was kept only in this
+              browser.
+            </p>
+            <div className="mt-1.5 flex gap-2">
+              <button
+                type="button"
+                className="rounded-md bg-primary px-3 py-1 text-xs font-medium text-primary-foreground"
+                onClick={() => {
+                  setDraft(recovered);
+                  setRecovered(null);
+                }}
+              >
+                Restore recovered draft
+              </button>
+              <button
+                type="button"
+                className="rounded-md border border-input bg-background px-3 py-1 text-xs font-medium"
+                onClick={() => {
+                  clearRecovery();
+                  setRecovered(null);
+                }}
+              >
+                Discard it
+              </button>
+            </div>
+          </div>
+        )}
         {draft.recurrence && (
           <p className="mt-2 rounded bg-muted px-3 py-2 text-xs text-muted-foreground">
             This is a recurring series. Editing here updates the series master; every
