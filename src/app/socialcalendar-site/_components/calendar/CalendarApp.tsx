@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   DndContext,
   KeyboardSensor,
@@ -17,7 +17,18 @@ import { placePosts, type PlacedPost } from '../../_lib/placed';
 import { getPlatform } from '../../_lib/platforms';
 import { useStore } from '../../_lib/store';
 import { todayInZone, wallTimeToUtc } from '../../_lib/tz';
-import { nowIso, type Post, type PostStatus } from '../../_lib/types';
+import {
+  CONTENT_TYPES,
+  EMPTY_FILTER,
+  POST_STATUSES,
+  nowIso,
+  uid,
+  type FilterState,
+  type Post,
+  type PostStatus,
+  type SavedFilter,
+} from '../../_lib/types';
+import { filterFromParams, filterPosts, filterToParams } from '../../_lib/search';
 import {
   AgendaView,
   DayView,
@@ -128,8 +139,32 @@ export function CalendarApp({
   const [cursor, setCursor] = useState<string>(today);
   const [density, setDensity] = useState<'comfortable' | 'compact'>('comfortable');
   const setEditorSeed = openEditor;
-  const [platformFilter, setPlatformFilter] = useState<string[]>([]);
-  const [statusFilter, setStatusFilter] = useState<string[]>([]);
+  const [filter, setFilter] = useState<FilterState>(EMPTY_FILTER);
+  const [savedViewName, setSavedViewName] = useState('');
+
+  // Shareable filter state: read once from the URL on mount…
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const params = new URLSearchParams(window.location.search);
+      if ([...params.keys()].length > 0) setFilter(filterFromParams(params));
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
+  // …and write back (debounced) whenever it changes.
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const params = filterToParams(filter);
+      const query = params.toString();
+      window.history.replaceState(
+        null,
+        '',
+        query ? `${window.location.pathname}?${query}` : window.location.pathname,
+      );
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [filter]);
+
+
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 4 } }),
@@ -137,15 +172,13 @@ export function CalendarApp({
     useSensor(KeyboardSensor),
   );
 
+  const mediaAlt = useMemo(
+    () => new Map(store.data.media.map((m) => [m.id, Boolean(m.altText.trim())])),
+    [store.data.media],
+  );
   const filteredPosts = useMemo(
-    () =>
-      store.data.posts.filter(
-        (p) =>
-          (platformFilter.length === 0 ||
-            p.platformIds.some((id) => platformFilter.includes(id))) &&
-          (statusFilter.length === 0 || statusFilter.includes(p.status)),
-      ),
-    [store.data.posts, platformFilter, statusFilter],
+    () => filterPosts(store.data.posts, filter, mediaAlt),
+    [store.data.posts, filter, mediaAlt],
   );
 
   const range = rangeFor(view, cursor, ws.weekStart, today);
@@ -184,6 +217,22 @@ export function CalendarApp({
       setCursor(addDays(cursor, dir));
     }
   };
+
+  // Keyboard navigation events dispatched by the workspace shell.
+  const navigateRef = useRef(navigate);
+  useEffect(() => {
+    navigateRef.current = navigate;
+  });
+  useEffect(() => {
+    const handler = (event: Event) => {
+      const detail = (event as CustomEvent<-1 | 1 | 'today'>).detail;
+      if (detail === 'today') setCursor(todayInZone(ws.timezone));
+      else navigateRef.current(detail);
+    };
+    window.addEventListener('sc-cal-nav', handler);
+    return () => window.removeEventListener('sc-cal-nav', handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onDragEnd = async (event: DragEndEvent) => {
     const { active, over } = event;
@@ -298,39 +347,186 @@ export function CalendarApp({
         </div>
       </div>
 
-      <div className="mb-3 flex flex-wrap items-center gap-1 text-xs" aria-label="Quick filters">
-        <span className="font-medium">Platforms:</span>
-        {ws.platformIds.map((pid) => {
-          const on = platformFilter.includes(pid);
-          return (
-            <button
-              key={pid}
-              type="button"
-              aria-pressed={on}
-              onClick={() =>
-                setPlatformFilter((f) => (on ? f.filter((x) => x !== pid) : [...f, pid]))
-              }
-              className={`rounded-full border px-2 py-0.5 ${on ? 'border-primary bg-primary/10 font-medium' : 'border-border text-muted-foreground'}`}
+      <div className="mb-3 space-y-2" aria-label="Search and filters">
+        <div className="flex flex-wrap items-center gap-2">
+          <label className="min-w-52 flex-1 text-sm">
+            <span className="sr-only">Search posts</span>
+            <input
+              type="search"
+              value={filter.query}
+              onChange={(e) => setFilter((f) => ({ ...f, query: e.target.value }))}
+              placeholder="Search title, caption, tags… (accents optional)"
+              className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+            />
+          </label>
+          <span className="text-xs text-muted-foreground">
+            Showing {placed.length} scheduled · {filteredPosts.length} matching · {ws.timezone}
+          </span>
+        </div>
+        <div className="flex flex-wrap items-center gap-1 text-xs">
+          <span className="font-medium">Platforms:</span>
+          {ws.platformIds.map((pid) => {
+            const on = filter.platformIds.includes(pid);
+            return (
+              <button
+                key={pid}
+                type="button"
+                aria-pressed={on}
+                onClick={() =>
+                  setFilter((f) => ({
+                    ...f,
+                    platformIds: on
+                      ? f.platformIds.filter((x) => x !== pid)
+                      : [...f.platformIds, pid],
+                  }))
+                }
+                className={`rounded-full border px-2 py-0.5 ${on ? 'border-primary bg-primary/10 font-medium' : 'border-border text-muted-foreground'}`}
+              >
+                {getPlatform(pid)?.name ?? pid}
+              </button>
+            );
+          })}
+          <span className="ml-2 font-medium">Status:</span>
+          {POST_STATUSES.map((status) => {
+            const on = filter.statuses.includes(status);
+            return (
+              <button
+                key={status}
+                type="button"
+                aria-pressed={on}
+                onClick={() =>
+                  setFilter((f) => ({
+                    ...f,
+                    statuses: on
+                      ? f.statuses.filter((x) => x !== status)
+                      : [...f.statuses, status],
+                  }))
+                }
+                className={`rounded-full border px-2 py-0.5 capitalize ${on ? 'border-primary bg-primary/10 font-medium' : 'border-border text-muted-foreground'}`}
+              >
+                {status}
+              </button>
+            );
+          })}
+        </div>
+        <div className="flex flex-wrap items-center gap-2 text-xs">
+          <label>
+            Pillar{' '}
+            <select
+              value={filter.pillarId ?? ''}
+              onChange={(e) => setFilter((f) => ({ ...f, pillarId: e.target.value || undefined }))}
+              className="rounded-md border border-input bg-background px-2 py-1"
             >
-              {getPlatform(pid)?.name ?? pid}
+              <option value="">Any</option>
+              {store.data.pillars.map((p) => (
+                <option key={p.id} value={p.id}>
+                  {p.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Campaign{' '}
+            <select
+              value={filter.campaignId ?? ''}
+              onChange={(e) => setFilter((f) => ({ ...f, campaignId: e.target.value || undefined }))}
+              className="rounded-md border border-input bg-background px-2 py-1"
+            >
+              <option value="">Any</option>
+              {store.data.campaigns.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Type{' '}
+            <select
+              value={filter.contentTypes[0] ?? ''}
+              onChange={(e) =>
+                setFilter((f) => ({
+                  ...f,
+                  contentTypes: e.target.value ? [e.target.value as Post['contentType']] : [],
+                }))
+              }
+              className="rounded-md border border-input bg-background px-2 py-1 capitalize"
+            >
+              <option value="">Any</option>
+              {CONTENT_TYPES.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="flex items-center gap-1">
+            <input
+              type="checkbox"
+              checked={filter.missingAltText ?? false}
+              onChange={(e) => setFilter((f) => ({ ...f, missingAltText: e.target.checked }))}
+            />
+            Missing alt text
+          </label>
+          {(filter.query ||
+            filter.platformIds.length > 0 ||
+            filter.statuses.length > 0 ||
+            filter.pillarId ||
+            filter.campaignId ||
+            filter.contentTypes.length > 0 ||
+            filter.missingAltText) && (
+            <button type="button" className="underline" onClick={() => setFilter(EMPTY_FILTER)}>
+              Clear all
             </button>
-          );
-        })}
-        {(platformFilter.length > 0 || statusFilter.length > 0) && (
+          )}
+        </div>
+        <div className="flex flex-wrap items-center gap-2 text-xs">
+          <span className="font-medium">Saved views:</span>
+          {store.data.savedFilters
+            .filter((s) => s.workspaceId === ws.id)
+            .map((s) => (
+              <span key={s.id} className="flex items-center gap-1 rounded-full border border-border px-2 py-0.5">
+                <button type="button" className="font-medium" onClick={() => setFilter(s.filter)}>
+                  {s.name}
+                </button>
+                <button
+                  type="button"
+                  aria-label={`Delete saved view ${s.name}`}
+                  className="text-destructive"
+                  onClick={() => void store.remove('savedFilters', s.id)}
+                >
+                  ×
+                </button>
+              </span>
+            ))}
+          <input
+            value={savedViewName}
+            onChange={(e) => setSavedViewName(e.target.value)}
+            placeholder="Name this view…"
+            className="rounded-md border border-input bg-background px-2 py-1"
+            aria-label="Name for the current filter view"
+          />
           <button
             type="button"
-            className="underline"
+            disabled={!savedViewName.trim()}
+            className="rounded-md border border-input px-2 py-1 font-medium hover:bg-accent disabled:opacity-50"
             onClick={() => {
-              setPlatformFilter([]);
-              setStatusFilter([]);
+              void store.put('savedFilters', {
+                id: uid(),
+                workspaceId: ws.id,
+                name: savedViewName.trim(),
+                filter,
+                createdAt: nowIso(),
+              } satisfies SavedFilter);
+              setSavedViewName('');
             }}
           >
-            Clear filters
+            Save view
           </button>
-        )}
-        <span className="ml-2 text-muted-foreground">
-          Showing {placed.length} scheduled post{placed.length === 1 ? '' : 's'} · {ws.timezone}
-        </span>
+          <span className="text-muted-foreground">
+            Tip: the current filters are in the page URL — copy it to share this exact view.
+          </span>
+        </div>
       </div>
 
       <DndContext sensors={sensors} onDragEnd={(e) => void onDragEnd(e)}>
