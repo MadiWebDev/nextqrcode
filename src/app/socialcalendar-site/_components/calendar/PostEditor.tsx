@@ -230,14 +230,24 @@ export function PostEditor({
             />
             {activeCaptionPlatform &&
               (() => {
-                const spec = getPlatform(activeCaptionPlatform);
-                if (!spec) return null;
+                const registrySpec = getPlatform(activeCaptionPlatform);
+                if (!registrySpec) return null;
+                // Per-workspace custom limit (Platform specs panel) wins
+                // over the registry guidance when the user set one.
+                const customLimit = store.data.platformConfigs.find(
+                  (c) => c.workspaceId === ws.id && c.platformId === activeCaptionPlatform,
+                )?.customCharLimit;
+                const spec =
+                  customLimit !== undefined
+                    ? { ...registrySpec, charLimit: customLimit }
+                    : registrySpec;
                 const counts = countCaption(captionFor(activeCaptionPlatform), spec);
                 const validation = validateCaption(captionFor(activeCaptionPlatform), spec);
                 return (
                   <div className="mt-1 text-xs text-muted-foreground" aria-live="polite">
                     <span className={counts.overLimit ? 'font-semibold text-red-600 dark:text-red-400' : ''}>
                       {counts.weighted} / {spec.charLimit || '—'} characters
+                      {customLimit !== undefined ? ' (your custom limit)' : ''}
                     </span>{' '}
                     · {counts.hashtags} hashtags · {counts.urls} links · {counts.emojis} emoji
                     {validation.warnings.map((w) => (

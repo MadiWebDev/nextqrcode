@@ -5,6 +5,7 @@ import { CalendarApp, type CalendarView } from './calendar/CalendarApp';
 import { PostEditor, type EditorSeed } from './calendar/PostEditor';
 import { LibraryPanel } from './LibraryPanel';
 import { ManagePanel } from './ManagePanel';
+import PlatformSpecs from './PlatformSpecs';
 import { useStore } from '../_lib/store';
 import { PLATFORMS } from '../_lib/platforms';
 import {
@@ -521,7 +522,12 @@ export function WorkspaceApp() {
         {tab === 'calendar' && (
           <CalendarApp view={calendarView} setView={setCalendarView} openEditor={setEditorSeed} />
         )}
-        {tab === 'manage' && <ManagePanel />}
+        {tab === 'manage' && (
+          <div className="space-y-8">
+            <ManagePanel />
+            <PlatformSpecs />
+          </div>
+        )}
         {tab === 'library' && <LibraryPanel openEditor={setEditorSeed} />}
         {tab === 'overview' && <Overview />}
         {tab === 'workspaces' && <WorkspaceManager />}
