@@ -1,4 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { isRemoved } from '@/lib/seo/indexing-policy';
+
+/**
+ * Body served with the Step 5 removal 410s: a small real page (not a
+ * bare status) so a human who follows an old link lands somewhere
+ * honest. Kept in the proxy because removed paths must answer 410
+ * before routing, and several of them are generated routes whose page
+ * files still exist in the tree.
+ */
+const GONE_BODY = `<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Page removed | QR Studio</title><meta name="robots" content="noindex"></head>
+<body><main><h1>This page has been removed</h1><p>This page was withdrawn during a content-quality review and is no longer published. Current guides and tools are on the <a href="https://freeqrcode.tools/">QR Studio home page</a>.</p></main></body>
+</html>`;
 
 /**
  * Next.js 16 Proxy convention (formerly middleware.ts).
@@ -38,6 +52,13 @@ const INVOICE_SITE_HOST = 'invoicegenerator.freeqrcode.tools';
 const IMAGE_RESIZER_SITE_HOST = 'imageresizer.freeqrcode.tools';
 
 /**
+ * Social Media Calendar site: socialcalendar.freeqrcode.tools serves the
+ * standalone local-first social media planning app (route
+ * /socialcalendar-site) as its own site, same pattern as the two above.
+ */
+const SOCIALCALENDAR_SITE_HOST = 'socialcalendar.freeqrcode.tools';
+
+/**
  * Invoice-family tool pages that also live on the subdomain under their own
  * paths (e.g. invoicegenerator.freeqrcode.tools/quote-generator). On the
  * invoice host these are served as-is instead of being prefixed with
@@ -68,7 +89,24 @@ export function proxy(request: NextRequest) {
   // Subdomain routing: the invoice site host rewrites to /invoice-site/*,
   // except the invoice-family tool paths, which are served under their own
   // paths on the subdomain too.
-  const host = (request.headers.get('host') ?? '').split(':')[0].toLowerCase();
+  const host = (request.headers.get('host') ?? request.nextUrl.hostname)
+    .split(':')[0]
+    .toLowerCase();
+
+  // Canonical host (Step 5): www permanently redirects to the apex with
+  // a 308. Search engines were served a temporary 307 for www → apex
+  // (seo-agent E-014), and no www redirect existed anywhere in this
+  // repo before this change — if production still answers 307 after
+  // this deploys, the redirect is produced by the hosting platform's
+  // domain settings, which application code cannot override (E-053).
+  if (host === 'www.freeqrcode.tools') {
+    const url = request.nextUrl.clone();
+    url.protocol = 'https:';
+    url.hostname = 'freeqrcode.tools';
+    url.port = '';
+    return NextResponse.redirect(url, 308);
+  }
+
   // Static-asset guard: files served from /public (logos, icons, images)
   // must NOT be rewritten into the site route trees. Without this, a request
   // for /invoice-logo.svg on the invoice host was rewritten to
@@ -93,6 +131,19 @@ export function proxy(request: NextRequest) {
     return rewriteResponse;
   }
   if (
+    host === SOCIALCALENDAR_SITE_HOST &&
+    !isStaticAsset &&
+    !request.nextUrl.pathname.startsWith('/socialcalendar-site')
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/socialcalendar-site' + (url.pathname === '/' ? '' : url.pathname);
+    const rewriteResponse = NextResponse.rewrite(url, {
+      request: { headers: requestHeaders },
+    });
+    rewriteResponse.headers.set('Content-Security-Policy', contentSecurityPolicy);
+    return rewriteResponse;
+  }
+  if (
     host === INVOICE_SITE_HOST &&
     !isStaticAsset &&
     !request.nextUrl.pathname.startsWith('/invoice-site') &&
@@ -105,6 +156,23 @@ export function proxy(request: NextRequest) {
     });
     rewriteResponse.headers.set('Content-Security-Policy', contentSecurityPolicy);
     return rewriteResponse;
+  }
+
+  // Step 5, removal activation — DO NOT MERGE before the fresh-export
+  // re-verification of the 87 (see seo-agent/STATE.md): paths the
+  // indexing policy classifies REMOVE answer a real 410 Gone. This
+  // point is reached only by apex-site requests — the two subdomain
+  // hosts returned rewrites above and www was redirected — and the
+  // policy lookup is an exact-path Set check, so it stays cheap. The
+  // invoice tool paths that fall through on the invoice host are not
+  // in the REMOVE set, so the subdomain sites are unaffected.
+  if (isRemoved(request.nextUrl.pathname)) {
+    const gone = new NextResponse(GONE_BODY, {
+      status: 410,
+      headers: { 'Content-Type': 'text/html; charset=utf-8' },
+    });
+    gone.headers.set('Content-Security-Policy', contentSecurityPolicy);
+    return gone;
   }
 
   const response = NextResponse.next({
