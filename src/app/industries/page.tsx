@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { loadIndustries } from '@/content/families/industries';
 import { BreadcrumbJsonLd } from '@/lib/seo/jsonld';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
@@ -32,7 +33,8 @@ function industryOf(slug: string): string {
 }
 
 export default function IndustriesHubPage() {
-  const entries = loadIndustries();
+  // Step 5: policy-removed entries are withdrawn from the hub listing.
+  const entries = loadIndustries().filter((e) => !isRemoved(`/industries/${e.slug}`));
 
   // Group entries by industry, preserving data order.
   const ordered: { industry: string; items: typeof entries }[] = [];

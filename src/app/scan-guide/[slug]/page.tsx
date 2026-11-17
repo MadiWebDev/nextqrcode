@@ -6,6 +6,7 @@ import { auditVerdict } from '@/content/audit';
 import { loadScanGuide } from '@/content/families/scan-guide';
 import type { ContentEntry } from '@/content/schema';
 import { BreadcrumbJsonLd, JsonLd, WebPageJsonLd } from '@/lib/seo/jsonld';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { AdSlot } from '@/components/ads/AdSlot';
 
@@ -144,6 +145,7 @@ export default async function ScanGuidePage({ params }: { params: Promise<{ slug
   const all = loadScanGuide();
   const related = entry.internalLinks
     .filter((link) => link.startsWith('/scan-guide/'))
+    .filter((link) => !isRemoved(link))
     .map((link) => all.find((e) => `/scan-guide/${e.slug}` === link))
     .filter((e): e is ContentEntry => e !== undefined)
     .slice(0, 4);

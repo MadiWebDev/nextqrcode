@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllArticles } from '@/lib/articles';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { AdSlot } from '@/components/AdSlot';
 import { BookOpen, Calendar, Clock, ArrowRight, UserCheck } from 'lucide-react';
@@ -20,7 +21,10 @@ export default async function BlogIndexPage({
   searchParams: Promise<{ page?: string }>;
 }) {
   const { page: pageParam } = await searchParams;
-  const allArticles = getAllArticles();
+  // Step 5: policy-removed posts are withdrawn from the hub listing
+  // (they leave the sitemap in the same change; the pages themselves
+  // keep serving until the removal-activation commit lands).
+  const allArticles = getAllArticles().filter((a) => !isRemoved(`/blog/${a.slug}`));
   const totalPages = Math.max(1, Math.ceil(allArticles.length / PAGE_SIZE));
   const requested = Number.parseInt(pageParam ?? '1', 10);
   const page = Math.min(Math.max(Number.isNaN(requested) ? 1 : requested, 1), totalPages);

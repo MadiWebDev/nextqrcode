@@ -7,6 +7,7 @@ import {
   type GlossaryEntry,
 } from '@/data/glossary';
 import { BreadcrumbJsonLd } from '@/lib/seo/jsonld';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
@@ -78,7 +79,7 @@ export default function GlossaryHubPage() {
       <div className="space-y-12">
         {GLOSSARY_CATEGORIES.map((category) => {
           const entries = getGlossaryEntriesByCategory(category).filter(
-            (e) => e.status === 'approved'
+            (e) => e.status === 'approved' && !isRemoved(`/glossary/${e.slug}`)
           );
           if (entries.length === 0) return null;
           return (

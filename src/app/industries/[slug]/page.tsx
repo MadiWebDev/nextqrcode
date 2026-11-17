@@ -5,6 +5,7 @@ import { siteConfig } from '@/config/site';
 import { loadIndustries } from '@/content/families/industries';
 import { auditVerdict } from '@/content/audit';
 import { BreadcrumbJsonLd, WebPageJsonLd, JsonLd } from '@/lib/seo/jsonld';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { AdSlot } from '@/components/ads/AdSlot';
 
 interface Props {
@@ -243,16 +244,18 @@ export default async function IndustryUseCasePage({ params }: Props) {
           Related pages
         </h2>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-          {entry.internalLinks.map((link) => (
-            <li key={link}>
-              <Link
-                href={link}
-                className="block rounded-lg border border-slate-200 bg-white p-4 text-blue-700 hover:border-blue-300 hover:bg-blue-50 hover:underline"
-              >
-                {linkLabel(link)}
-              </Link>
-            </li>
-          ))}
+          {entry.internalLinks
+            .filter((link) => !isRemoved(link))
+            .map((link) => (
+              <li key={link}>
+                <Link
+                  href={link}
+                  className="block rounded-lg border border-slate-200 bg-white p-4 text-blue-700 hover:border-blue-300 hover:bg-blue-50 hover:underline"
+                >
+                  {linkLabel(link)}
+                </Link>
+              </li>
+            ))}
         </ul>
       </section>
 

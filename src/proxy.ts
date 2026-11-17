@@ -68,7 +68,24 @@ export function proxy(request: NextRequest) {
   // Subdomain routing: the invoice site host rewrites to /invoice-site/*,
   // except the invoice-family tool paths, which are served under their own
   // paths on the subdomain too.
-  const host = (request.headers.get('host') ?? '').split(':')[0].toLowerCase();
+  const host = (request.headers.get('host') ?? request.nextUrl.hostname)
+    .split(':')[0]
+    .toLowerCase();
+
+  // Canonical host (Step 5): www permanently redirects to the apex with
+  // a 308. Search engines were served a temporary 307 for www → apex
+  // (seo-agent E-014), and no www redirect existed anywhere in this
+  // repo before this change — if production still answers 307 after
+  // this deploys, the redirect is produced by the hosting platform's
+  // domain settings, which application code cannot override (E-053).
+  if (host === 'www.freeqrcode.tools') {
+    const url = request.nextUrl.clone();
+    url.protocol = 'https:';
+    url.hostname = 'freeqrcode.tools';
+    url.port = '';
+    return NextResponse.redirect(url, 308);
+  }
+
   // Static-asset guard: files served from /public (logos, icons, images)
   // must NOT be rewritten into the site route trees. Without this, a request
   // for /invoice-logo.svg on the invoice host was rewritten to

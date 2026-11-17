@@ -5,6 +5,7 @@ import { getAllTemplates } from '@/data/templates-gallery';
 import { siteConfig } from '@/config/site';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { BreadcrumbJsonLd, WebPageJsonLd } from '@/lib/seo/jsonld';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
@@ -22,7 +23,8 @@ export const metadata: Metadata = {
 };
 
 export default async function TemplatesHubPage() {
-  const templates = getAllTemplates();
+  // Step 5: policy-removed entries are withdrawn from the hub listing.
+  const templates = getAllTemplates().filter((t) => !isRemoved(`/templates/${t.slug}`));
   const previews = await Promise.all(
     templates.map((t) =>
       QRCode.toString(`${siteConfig.url}/templates/${t.slug}`, {

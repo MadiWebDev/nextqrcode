@@ -4,6 +4,7 @@ import { getAllSizeGuides } from '@/data/size-guides';
 import { siteConfig } from '@/config/site';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { BreadcrumbJsonLd, WebPageJsonLd } from '@/lib/seo/jsonld';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { Ruler, ArrowRight } from 'lucide-react';
 import { AdSlot } from '@/components/AdSlot';
 
@@ -23,7 +24,8 @@ export const metadata: Metadata = {
 };
 
 export default function SizeGuideHubPage() {
-  const guides = getAllSizeGuides();
+  // Step 5: policy-removed entries are withdrawn from the hub listing.
+  const guides = getAllSizeGuides().filter((g) => !isRemoved(`/qr-size-guide/${g.slug}`));
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">

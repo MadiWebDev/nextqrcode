@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/accordion';
 import { Separator } from '@/components/ui/separator';
 import type { QRType, QRData, CustomizationOptions, QRState } from '@/types';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { DEFAULT_CUSTOMIZATION } from '@/lib/defaults';
 import { generateQRData, getTypeConfig } from '@/lib/qr-helpers';
 import { useDebounce } from '@/hooks/useDebounce';
@@ -162,15 +163,17 @@ export function LandingGenerator({ type, data }: LandingGeneratorProps) {
         <section className="space-y-3 max-w-3xl mx-auto">
           <h2 className="text-xl font-bold">Related QR Code Tools</h2>
           <div className="flex flex-wrap gap-2">
-            {data.relatedTypes.map(({ type: t, label, slug }) => (
-              <Link
-                key={t}
-                href={slug}
-                className="px-3 py-1.5 rounded-lg border border-border/60 text-sm text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
-              >
-                {label}
-              </Link>
-            ))}
+            {data.relatedTypes
+              .filter(({ slug }) => !isRemoved(slug))
+              .map(({ type: t, label, slug }) => (
+                <Link
+                  key={t}
+                  href={slug}
+                  className="px-3 py-1.5 rounded-lg border border-border/60 text-sm text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+                >
+                  {label}
+                </Link>
+              ))}
           </div>
         </section>
       )}

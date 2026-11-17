@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { loadScanGuide } from '@/content/families/scan-guide';
 import { BreadcrumbJsonLd, WebPageJsonLd } from '@/lib/seo/jsonld';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { AdSlot } from '@/components/AdSlot';
 
@@ -28,7 +29,8 @@ function isTroubleshooting(slug: string): boolean {
 }
 
 export default function ScanGuideHubPage() {
-  const entries = loadScanGuide();
+  // Step 5: policy-removed entries are withdrawn from the hub listing.
+  const entries = loadScanGuide().filter((e) => !isRemoved(`/scan-guide/${e.slug}`));
   const deviceGuides = entries.filter((e) => !isTroubleshooting(e.slug));
   const troubleshooting = entries.filter((e) => isTroubleshooting(e.slug));
 
