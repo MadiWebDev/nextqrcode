@@ -31,8 +31,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = `${siteConfig.url}/blog/${article.slug}`;
 
   return {
-    title: `${article.title} — QR Code Tools`,
-    description: article.description,
+    title: article.metaTitle ? { absolute: article.metaTitle } : `${article.title} — QR Code Tools`,
+    description: article.metaDescription ?? article.description,
     robots: {
       index: true,
       follow: true,
@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: url,
     },
     openGraph: {
-      title: article.title,
-      description: article.description,
+      title: article.metaTitle ?? article.title,
+      description: article.metaDescription ?? article.description,
       type: 'article',
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt,
@@ -51,8 +51,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: article.title,
-      description: article.description,
+      title: article.metaTitle ?? article.title,
+      description: article.metaDescription ?? article.description,
     },
   };
 }

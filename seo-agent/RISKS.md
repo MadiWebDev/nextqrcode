@@ -1,0 +1,53 @@
+# RISKS.md — SEO program risks
+
+Format: risk · likelihood · impact · mitigation · rollback.
+
+- **R-001 — Snippet changes shuffle rankings on the few earning pages.**
+  Likelihood: low–medium (titles of 5 scan guides + 1 blog post changed; positions
+  6–11 are volatile). Impact: medium — these pages are a large share of the site's
+  remaining winners (E-007). Mitigation: H1s and body content byte-identical; only
+  truncation suffixes removed; changes batched on one annotated date so effects are
+  isolable; winners /pakistan-payment-qr and /qr-splitter-scanner received *schema
+  only*, no title/description edits. Rollback: restore the six `devices.ts` entries
+  and delete one override-map entry (CHANGELOG C-004/C-005).
+- **R-002 — FAQPage schema yields no visible rich result.** Likelihood: high (Google
+  restricts FAQ rich results to authoritative government/health sites). Impact: low —
+  the change is semantic completeness, explicitly *not* sold as a CTR trick (spec
+  Phase 4B). Mitigation: expectation recorded here and in STATE.md; success is
+  measured on validity/coverage, not rich-result appearance.
+- **R-003 — JSON-LD inside client components might not render server-side.**
+  Likelihood: low. Impact: medium (schema silently absent). Mitigation: the
+  post-build local serve check (E-033) fetches the rendered HTML of representative
+  changed pages and asserts FAQPage presence in the *served* markup; the components
+  are React-rendered during prerendering like the rest of the page.
+- **R-004 — Metadata fixes cannot repair an indexing/quality collapse.** Likelihood:
+  high that they are insufficient alone. Impact: expectation risk, not site risk.
+  Mitigation: STATE.md and the phase report state plainly that this run treats
+  snippets/schema only; the Oct-28 cause is still unproven (PHASE1-PREP) and Phase 2
+  indexability decisions remain gated on the owner's data and approval.
+- **R-005 — Duplicate re-export pages (/regional-payment-qr, /bulk-vcard-generator)
+  split signals.** Likelihood: confirmed present (E-024). Impact: low–medium.
+  Mitigation: none applied (consolidation/canonical changes are gated); documented
+  for the Phase 2 URL list with a recommendation to consolidate into the canonical
+  originals.
+- **R-006 — The broken verification meta (E-015) could matter if the property's real
+  verification method lapses.** Likelihood: unknown. Impact: high (loss of GSC
+  access/data continuity). Mitigation: raised as QUESTIONS.md #11 with the
+  conservative path (confirm DNS verification first; only then fix/remove the meta
+  value in the Vercel env). No change made in this run.
+- **R-007 — Non-English locales still carry the uncorrected hub-card claims.**
+  Likelihood: confirmed (only en.json was corrected, C-003). Impact: low (the
+  locale homepages repeat the payment/label descriptions in translation).
+  Mitigation: flagged in STATE.md follow-ups; correct the other locale files from
+  the same verified facts in the next batch — do not machine-translate corrections
+  at scale (spec rule).
+- **R-008 — This run's branch could be deployed together with unrelated work,
+  muddying measurement.** Likelihood: medium (the repo's main moves fast). Impact:
+  low–medium for attribution. Mitigation: the three commits are self-contained and
+  labelled; record the actual deploy date/hash in CHANGELOG.md when deployed and
+  annotate GSC for that date.
+- **R-009 — Rollback for the whole run.** All changes are unpushed staged commits;
+  pre-production rollback = discard the staging. Post-deploy rollback = revert the
+  three commits (file lists in the staging manifests) and redeploy; no data,
+  redirect, robots or sitemap state is touched by any commit, so rollback restores
+  the exact prior metadata/schema surface.

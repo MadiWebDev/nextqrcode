@@ -6,17 +6,17 @@ import { AdSlot } from '@/components/AdSlot';
 import { AdInContent } from '@/components/ads/AdInContent';
 
 export const metadata: Metadata = {
-  title: 'Free QR Code Generator & Optical Engineering Suite — QR Code Tools',
+  title: 'Free QR Code Generator — No Sign-Up, PNG, SVG & PDF',
   description:
-    'Generate beautiful, professional QR codes & barcodes 100% in your browser. 40+ types, instant vector SVG/PDF download, distance calculator, safety inspector, and offline file transfer. Zero tracking.',
+    'Generate free QR codes for URLs, WiFi, WhatsApp, vCards, payments and more — with custom colors and logos. Download PNG, SVG or PDF. No sign-up.',
   alternates: {
     canonical: siteConfig.url,
     languages: localizedLanguages('/', '/'),
   },
   openGraph: {
-    title: 'Free QR Code Generator & Optical Engineering Suite — QR Code Tools',
+    title: 'Free QR Code Generator — No Sign-Up, PNG, SVG & PDF',
     description:
-      'High-precision client-side QR tools suite: 40+ symbologies, print sizing calculator, anti-quishing safety checker, and air-gapped data transfer. No sign-up.',
+      'Generate free QR codes for URLs, WiFi, WhatsApp, vCards, payments and more — with custom colors and logos. Download PNG, SVG or PDF. No sign-up.',
     url: siteConfig.url,
     type: 'website',
   },

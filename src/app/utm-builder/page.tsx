@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { TrendingUp, Download, Copy, Check, BarChart3, Sparkles, ExternalLink } from 'lucide-react';
 
+import { JsonLd } from '@/lib/seo/jsonld';
 const PRESETS = [
   { name: 'Print Flyer', source: 'print_flyer', medium: 'print', campaign: 'local_promo' },
   {
@@ -331,6 +332,20 @@ export default function UTMBuilderPage() {
 
       {/* Structured FAQ Section */}
       <AdSlot id="utm-builder-pre-related" format="horizontal-banner" />
+      {/* FAQ structured data — generated from the exact faqs rendered below (SEO program) */}
+      {faqs.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.question,
+              acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+            })),
+          }}
+        />
+      )}
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Campaign QR Codes

@@ -33,6 +33,7 @@ import { generateQRData, getTypeConfig } from '@/lib/qr-helpers';
 import { useDebounce } from '@/hooks/useDebounce';
 import { AdSlot } from '@/components/AdSlot';
 
+import { JsonLd } from '@/lib/seo/jsonld';
 const FAQS = [
   {
     q: 'Is my WiFi password stored anywhere?',
@@ -170,6 +171,20 @@ export default function WifiQRPage() {
       <AdSlot id="wifi-qr-code-generator-in-content" format="in-article" />
 
       {/* ── FAQ ──────────────────────────────────────────────────────────────── */}
+      {/* FAQ structured data — generated from the exact faqs rendered below (SEO program) */}
+      {FAQS.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: FAQS.map((faq) => ({
+              '@type': 'Question',
+              name: faq.q,
+              acceptedAnswer: { '@type': 'Answer', text: faq.a },
+            })),
+          }}
+        />
+      )}
       <section className="space-y-4 max-w-3xl mx-auto">
         <h2 className="text-2xl font-bold">Frequently Asked Questions</h2>
         <Accordion type="multiple" className="space-y-2">

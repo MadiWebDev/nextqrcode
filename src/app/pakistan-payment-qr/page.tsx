@@ -20,6 +20,7 @@ import {
   DollarSign,
 } from 'lucide-react';
 
+import { JsonLd } from '@/lib/seo/jsonld';
 type PaymentProvider = 'raast' | 'jazzcash' | 'easypaisa' | 'upi';
 
 // Pure helper: build the standard payload string for a provider (no side effects).
@@ -326,6 +327,20 @@ export default function RegionalPaymentQRPage() {
 
       {/* Structured FAQ Section */}
       <AdSlot id="pakistan-payment-qr-pre-related" format="horizontal-banner" />
+      {/* FAQ structured data — generated from the exact faqs rendered below (SEO program) */}
+      {faqs.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.question,
+              acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+            })),
+          }}
+        />
+      )}
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Payment QR Codes

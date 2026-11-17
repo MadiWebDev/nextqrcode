@@ -147,7 +147,7 @@
       "badge": "Specialized Knowledge Hubs",
       "cards": [
         {
-          "desc": "Print-ready QR sheet generators for 30+ Avery, Herma, Dymo, Brother, and Zebra label formats. Exact margin calibration, zero-drift layout.",
+          "desc": "Print-ready QR label sheets with exact margin calibration and zero-drift layout — Avery 5160, 5163, L7160, round stickers, and Herma 4682.",
           "title": "Label & Sticker Sheet Library"
         },
         {
@@ -155,7 +155,7 @@
           "title": "WhatsApp QR by Country"
         },
         {
-          "desc": "Official spec generators for Pix, UPI, Raast, SGQR, Swiss QR-Bill, SEPA, PromptPay, and 25+ more payment networks.",
+          "desc": "Official spec generators for Brazil Pix, Singapore SGQR and the Swiss QR-Bill — each built to its scheme's published specification.",
           "title": "Payment QR Scheme Library"
         },
         {

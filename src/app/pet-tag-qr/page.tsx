@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Heart, Printer, Download, Shield, Phone, CheckCircle2, Sparkles } from 'lucide-react';
 
+import { JsonLd } from '@/lib/seo/jsonld';
 export default function PetTagQRPage() {
   const [petName, setPetName] = useState('Charlie');
   const [breed, setBreed] = useState('Golden Retriever');
@@ -373,6 +374,20 @@ PLEASE HELP REUNITE ME WITH MY FAMILY!`;
       <AdSlot id="pet-tag-qr-pre-related" format="horizontal-banner" />
 
       {/* Structured FAQ Section */}
+      {/* FAQ structured data — generated from the exact faqs rendered below (SEO program) */}
+      {faqs.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.question,
+              acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+            })),
+          }}
+        />
+      )}
       <section className="mt-12 pt-8 border-t border-border/60">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">
           Frequently Asked Questions About Pet QR Tags
