@@ -50,3 +50,58 @@ offers) unless noted.
 12. **Preview deployments:** are Vercel preview/staging URLs noindexed or
     access-protected? (Repo-map gap; a crawlable preview twin would matter for
     H8-style duplicate analysis.)
+
+---
+
+## Progress note — 2026-11-17 (Indexing Fix Steps 1–3)
+
+- **Item 1 is now PARTIALLY ANSWERED by the owner's own drilldown exports:**
+  the full URL sets for "Crawled – currently not indexed" (686) and
+  "Discovered – currently not indexed" (170) are in hand and fully audited
+  (E-034…E-049). Still wanted from item 1: the counts/example URLs for the
+  *other* reasons (Duplicate / Google chose different canonical, Soft 404,
+  Page with redirect, Blocked by robots.txt, Excluded by noindex) — these
+  would complete the twin test (A-011) and close DIAGNOSIS H1/H3 fully.
+- **Item 2 (Manual Actions + Security) is now the #1 blocker** — it is the
+  only input that can still overturn the diagnosis (H6 UNVERIFIED).
+- Items 3 (Crawl Stats), 4 (Sitemaps detail) and 5 (Vercel logs) remain
+  open and are re-ordered by blocking power at the end of DIAGNOSIS.md.
+
+## Step 4 addendum (2026-11-17) — approvals now needed
+
+Step 4 is complete (`STEP4-REPORT.md`, `output/url-actions.csv`); nothing
+will be applied without approval. In Step 5's order:
+1. **The lists as a whole** (KEEP 431 / IMPROVE 144 / REMOVE 87 /
+   ASSET 3), or line vetoes — every row is reversible at this stage.
+2. **The PROTECT deferred sub-lists, separately:** (a) 11 merge
+   candidates, (b) 66 unsourced-YMYL earners (recommend deciding first —
+   largest risk concentration), (c) ~103 improve candidates.
+3. **The consolidation extension, separately:** 301 /bulk-vcard-qr →
+   /bulk-vcard-generator and /regional-payment-qr →
+   /pakistan-payment-qr (targets indexed, outside the 856), and whether
+   Step 5 may evaluate the same for other ≥0.95 indexed-twin pages.
+4. A fresh uncapped Performance > Pages export before any 410 is
+   applied would retire the capped-export caveat on REMOVE's demand
+   test (STEP4-REPORT red-team #3).
+Items 2/3/4/5 from the original list (Manual Actions, Crawl Stats,
+Sitemaps, Vercel logs) are unchanged and still open.
+
+## Step 5 addendum (2026-11-17) — built and staged; merge order matters
+
+Step 5 is implemented and staged in ~/workspace/seo-push/step5-{0,A,B}/
+for branch `seo/step5-indexing-controls` (base: remote main 532177e7).
+Approvals/actions now needed, in order:
+1. **Push + merge Commit 0 (evidence) and Commit A (indexing
+   controls)** — A is safe to merge first: removals are not active in
+   it (removed pages still serve 200; they only leave the sitemap
+   and internal links).
+2. **After A deploys:** one curl of https://www.freeqrcode.tools/ —
+   if it still answers 307, the redirect is platform-owned (R-014)
+   and needs the owner's dashboard change to become permanent.
+3. **A fresh, uncapped Performance > Pages export** (same ask as
+   Step 4 addendum item 4) to re-verify the 87 REMOVE pages' demand
+   evidence — **then** merge Commit B (410 activation, 2 files,
+   labelled DO-NOT-MERGE until this export is checked).
+4. Unchanged and still open: the PROTECT deferred sub-lists and the
+   consolidation-extension 301s (Step 4 addendum items 2–3), Manual
+   Actions confirmation (H6), Crawl Stats, Sitemaps detail.

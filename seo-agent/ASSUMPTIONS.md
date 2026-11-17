@@ -41,3 +41,21 @@ Each assumption states what would prove it wrong and where it is used.
   (E-023) before any change was made; the two heuristic-only cases
   (regional-payment-qr, bulk-vcard-generator) resolved to re-export duplicates of
   fixed pages. Used by: E-022.
+- **A-009 — The Step 2 rubric's heuristic components are proxies.** intent_fit
+  and unique_value are computed from page features (inputs, lists, tables,
+  word counts, unique-text ratio), not from human judgements of correctness
+  or usefulness. If the owner hand-reviews a sample and finds the components
+  misrank pages materially, Step 4 classification must be re-based on the
+  human labels. Used by: output/scores.csv, DIAGNOSIS bottom line.
+- **A-010 — Inlink counts come from <a href> in server-rendered HTML.**
+  Links injected purely by client-side JS would be missed; the Phase 0 repo
+  map shows navigation and hubs are server-rendered, so the undercount risk
+  is small but nonzero. If a rendered crawl later shows materially more
+  inlinks, E-038's "thin endorsement" reading (H4 weak form) weakens.
+  Used by: E-038, DIAGNOSIS H4.
+- **A-011 — "Absent from the Performance export" twins have unknown status.**
+  The twin test (E-043) treats export absence as unknown, not as
+  not-indexed. If the full Indexing report later shows most absent twins
+  are in fact indexed, the per-pair form of H1 strengthens; if most are in
+  other exclusion buckets, the site-level form strengthens further.
+  Used by: E-043, DIAGNOSIS H1.

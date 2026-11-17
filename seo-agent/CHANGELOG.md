@@ -163,3 +163,35 @@ this branch (record it here when it happens).
   `tools/` (crawl_baseline.py, summarize_crawl.py), `baseline/` (GSC export zip,
   crawl CSV with 2,121 rows, Googlebot spotcheck CSV, summary-by-family.md,
   README.md).
+
+## Step 5 — indexing controls (built + staged 2026-11-17, branch seo/step5-indexing-controls)
+
+### Commit 0 — evidence package (seo-agent Steps 1–4 outputs)
+- input/ (Coverage drilldowns), output/ (audit, similarity, scores,
+  url-actions.csv, workings), tools/ (audit.py, similarity.py,
+  step4_classify.py, render_sample.mjs), DIAGNOSIS.md,
+  STEP4-REPORT.md, and the state-file updates through Step 5.
+  output/content/ excluded (17 MB reproducible corpus).
+
+### Commit A — indexing controls (removals not active)
+- NEW src/lib/seo/indexing-policy.ts (generated; 856 classified,
+  87 REMOVE) + seo-agent/tools/generate_policy.py + 10 CI guards in
+  src/lib/seo/__tests__/indexing-policy.test.ts.
+- src/app/sitemap.ts: policy filter on all apex sections; duplicate
+  /bulk-vcard-qr removed (§1 copy; §3 keeps the single entry); blog
+  lastmod from stored dates only. Total 2,121 → 2,033.
+- NEW src/app/qr-image-metadata-auditor/layout.tsx: the page's first
+  metadata — self-canonical (E-046), title, description, OG/Twitter.
+- src/proxy.ts: www → apex 308 (path+query preserved); host falls
+  back to nextUrl.hostname. CSP logic untouched.
+- Link surfaces filtered through the policy: blog hub, homepage
+  article cards + view-all count, HTML sitemap, industries /
+  scan-guide / glossary / qr-size-guide / templates hubs,
+  industries + scan-guide related links, LandingGenerator related
+  types. Homepage: /templates hub card added (en.json copy; other
+  locales skip until translated, R-013) — templates now depth 2.
+
+### Commit B — removal activation — DO NOT MERGE (see STATE.md)
+- src/proxy.ts: apex fall-through answers a real 410 (with a small
+  honest body) for exactly the 87 policy-removed paths; +2 guard
+  tests (12 total in the policy test file).

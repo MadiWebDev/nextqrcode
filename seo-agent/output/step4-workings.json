@@ -1,0 +1,472 @@
+{
+ "counts_class": {
+  "ASSET-UTILITY": 3,
+  "KEEP-INDEX-READY": 431,
+  "IMPROVE": 144,
+  "PROTECT": 191,
+  "REMOVE": 87
+ },
+ "counts_class_family": {
+  "ASSET-UTILITY|_next": 2,
+  "ASSET-UTILITY|root": 1,
+  "IMPROVE|blog": 126,
+  "IMPROVE|glossary": 2,
+  "IMPROVE|payment-qr": 3,
+  "IMPROVE|qr-size-guide": 2,
+  "IMPROVE|root": 6,
+  "IMPROVE|scan-guide": 1,
+  "IMPROVE|whatsapp-qr": 4,
+  "KEEP-INDEX-READY|blog": 177,
+  "KEEP-INDEX-READY|glossary": 11,
+  "KEEP-INDEX-READY|industries": 11,
+  "KEEP-INDEX-READY|qr-labels": 1,
+  "KEEP-INDEX-READY|qr-size-guide": 11,
+  "KEEP-INDEX-READY|root": 199,
+  "KEEP-INDEX-READY|scan-guide": 13,
+  "KEEP-INDEX-READY|templates": 8,
+  "PROTECT|blog": 183,
+  "PROTECT|glossary": 2,
+  "PROTECT|qr-size-guide": 1,
+  "PROTECT|scan-guide": 5,
+  "REMOVE|blog": 85,
+  "REMOVE|industries": 2
+ },
+ "ymyl_total": 213,
+ "ymyl_by_class": {
+  "KEEP-INDEX-READY": 51,
+  "IMPROVE": 63,
+  "REMOVE": 26,
+  "PROTECT": 73
+ },
+ "ymyl_verdicts": {
+  "MENTION-OR-TOOL": 44,
+  "UNSOURCED-ADVICE": 145,
+  "SOURCED": 24
+ },
+ "clusters": [
+  {
+   "survivor": "https://freeqrcode.tools/blog/how-to-create-a-qr-code-for-a-waitlist-signup",
+   "members": [
+    "https://freeqrcode.tools/blog/how-to-create-a-qr-code-for-a-luggage-tag",
+    "https://freeqrcode.tools/blog/how-to-create-a-qr-code-for-a-pet-id-tag",
+    "https://freeqrcode.tools/blog/how-to-create-a-qr-code-for-a-waitlist-signup",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-business-card",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-job-application",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-product-manual",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-salon-booking",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-taxi-booking",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-warranty-registration",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-whatsapp-group"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-taxi-booking",
+    "https://freeqrcode.tools/blog/how-to-create-a-qr-code-for-a-luggage-tag",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-warranty-registration",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-job-application",
+    "https://freeqrcode.tools/blog/how-to-create-a-qr-code-for-a-pet-id-tag",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-business-card",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-product-manual",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-salon-booking",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-whatsapp-group"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/cost-of-bulk-price-tags-qr-codes",
+   "members": [
+    "https://freeqrcode.tools/blog/cost-of-bulk-business-cards-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-donation-slips-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-event-badges-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-feedback-cards-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-invoices-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-membership-cards-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-parking-permits-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-price-tags-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-shelf-labels-qr-codes"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/cost-of-bulk-business-cards-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-invoices-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-feedback-cards-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-event-badges-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-parking-permits-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-donation-slips-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-membership-cards-qr-codes",
+    "https://freeqrcode.tools/blog/cost-of-bulk-shelf-labels-qr-codes"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/bulk-qr-codes-for-business-cards-setup",
+   "members": [
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-business-cards-setup",
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-inventory-labels-setup",
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-invoices-setup",
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-menus-setup",
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-parking-permits-setup",
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-shelf-labels-setup",
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-shipping-labels-setup"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-parking-permits-setup",
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-inventory-labels-setup",
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-shelf-labels-setup",
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-shipping-labels-setup",
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-invoices-setup",
+    "https://freeqrcode.tools/blog/bulk-qr-codes-for-menus-setup"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/printing-bulk-shipping-labels-qr-codes",
+   "members": [
+    "https://freeqrcode.tools/blog/printing-bulk-business-cards-qr-codes",
+    "https://freeqrcode.tools/blog/printing-bulk-feedback-cards-qr-codes",
+    "https://freeqrcode.tools/blog/printing-bulk-menus-qr-codes",
+    "https://freeqrcode.tools/blog/printing-bulk-price-tags-qr-codes",
+    "https://freeqrcode.tools/blog/printing-bulk-shipping-labels-qr-codes",
+    "https://freeqrcode.tools/blog/printing-bulk-tickets-qr-codes"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/printing-bulk-feedback-cards-qr-codes",
+    "https://freeqrcode.tools/blog/printing-bulk-price-tags-qr-codes",
+    "https://freeqrcode.tools/blog/printing-bulk-business-cards-qr-codes",
+    "https://freeqrcode.tools/blog/printing-bulk-menus-qr-codes",
+    "https://freeqrcode.tools/blog/printing-bulk-tickets-qr-codes"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/how-to-test-qr-print-vs-screen",
+   "members": [
+    "https://freeqrcode.tools/blog/how-to-test-qr-accessibility",
+    "https://freeqrcode.tools/blog/how-to-test-qr-contrast",
+    "https://freeqrcode.tools/blog/how-to-test-qr-gradients",
+    "https://freeqrcode.tools/blog/how-to-test-qr-print-vs-screen",
+    "https://freeqrcode.tools/blog/how-to-test-qr-sizing",
+    "https://freeqrcode.tools/blog/how-to-test-qr-transparency"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/how-to-test-qr-contrast",
+    "https://freeqrcode.tools/blog/how-to-test-qr-transparency",
+    "https://freeqrcode.tools/blog/how-to-test-qr-sizing",
+    "https://freeqrcode.tools/blog/how-to-test-qr-accessibility",
+    "https://freeqrcode.tools/blog/how-to-test-qr-gradients"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/mistakes-printing-qr-codes-on-acrylic",
+   "members": [
+    "https://freeqrcode.tools/blog/mistakes-printing-qr-codes-on-acrylic",
+    "https://freeqrcode.tools/blog/mistakes-printing-qr-codes-on-canvas",
+    "https://freeqrcode.tools/blog/mistakes-printing-qr-codes-on-glow-in-the-dark-film",
+    "https://freeqrcode.tools/blog/mistakes-printing-qr-codes-on-polypropylene-film",
+    "https://freeqrcode.tools/blog/mistakes-printing-qr-codes-on-window-film"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/mistakes-printing-qr-codes-on-polypropylene-film",
+    "https://freeqrcode.tools/blog/mistakes-printing-qr-codes-on-glow-in-the-dark-film",
+    "https://freeqrcode.tools/blog/mistakes-printing-qr-codes-on-window-film",
+    "https://freeqrcode.tools/blog/mistakes-printing-qr-codes-on-canvas"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-label-cost-on-waterproof-synthetic",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-label-cost-on-canvas",
+    "https://freeqrcode.tools/blog/qr-label-cost-on-floor-vinyl",
+    "https://freeqrcode.tools/blog/qr-label-cost-on-static-cling",
+    "https://freeqrcode.tools/blog/qr-label-cost-on-uncoated-paper",
+    "https://freeqrcode.tools/blog/qr-label-cost-on-waterproof-synthetic"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-label-cost-on-static-cling",
+    "https://freeqrcode.tools/blog/qr-label-cost-on-canvas",
+    "https://freeqrcode.tools/blog/qr-label-cost-on-uncoated-paper",
+    "https://freeqrcode.tools/blog/qr-label-cost-on-floor-vinyl"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-code-durability-on-canvas",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-code-durability-on-acrylic",
+    "https://freeqrcode.tools/blog/qr-code-durability-on-canvas",
+    "https://freeqrcode.tools/blog/qr-code-durability-on-coated-paper",
+    "https://freeqrcode.tools/blog/qr-code-durability-on-recycled-paper",
+    "https://freeqrcode.tools/blog/qr-code-durability-on-rigid-board"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-code-durability-on-coated-paper",
+    "https://freeqrcode.tools/blog/qr-code-durability-on-acrylic",
+    "https://freeqrcode.tools/blog/qr-code-durability-on-recycled-paper",
+    "https://freeqrcode.tools/blog/qr-code-durability-on-rigid-board"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-mistakes-yoga-studios-avoid",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-mistakes-bakeries-avoid",
+    "https://freeqrcode.tools/blog/qr-mistakes-clinics-avoid",
+    "https://freeqrcode.tools/blog/qr-mistakes-food-trucks-avoid",
+    "https://freeqrcode.tools/blog/qr-mistakes-hostels-avoid",
+    "https://freeqrcode.tools/blog/qr-mistakes-yoga-studios-avoid"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-mistakes-food-trucks-avoid",
+    "https://freeqrcode.tools/blog/qr-mistakes-clinics-avoid",
+    "https://freeqrcode.tools/blog/qr-mistakes-bakeries-avoid",
+    "https://freeqrcode.tools/blog/qr-mistakes-hostels-avoid"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-payments-in-jamaica",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-payments-in-jamaica",
+    "https://freeqrcode.tools/blog/qr-payments-in-nepal",
+    "https://freeqrcode.tools/blog/qr-payments-in-south-africa",
+    "https://freeqrcode.tools/blog/qr-payments-in-venezuela"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-payments-in-south-africa",
+    "https://freeqrcode.tools/blog/qr-payments-in-nepal",
+    "https://freeqrcode.tools/blog/qr-payments-in-venezuela"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-calendar-event-with-a-reminder",
+   "members": [
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-calendar-event-with-a-reminder",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-pdf",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-spotify-playlist",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-an-instagram-profile"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-an-instagram-profile",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-spotify-playlist",
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-pdf"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-payments-in-saudi-arabia",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-payments-in-brazil",
+    "https://freeqrcode.tools/blog/qr-payments-in-malaysia",
+    "https://freeqrcode.tools/blog/qr-payments-in-saudi-arabia",
+    "https://freeqrcode.tools/blog/qr-payments-in-taiwan"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-payments-in-taiwan",
+    "https://freeqrcode.tools/blog/qr-payments-in-malaysia",
+    "https://freeqrcode.tools/blog/qr-payments-in-brazil"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-payments-in-jordan",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-payments-in-jordan",
+    "https://freeqrcode.tools/blog/qr-payments-in-kenya",
+    "https://freeqrcode.tools/blog/qr-payments-in-myanmar",
+    "https://freeqrcode.tools/blog/qr-payments-in-peru"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-payments-in-peru",
+    "https://freeqrcode.tools/blog/qr-payments-in-myanmar",
+    "https://freeqrcode.tools/blog/qr-payments-in-kenya"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-payments-in-kuwait",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-payments-in-cambodia",
+    "https://freeqrcode.tools/blog/qr-payments-in-costa-rica",
+    "https://freeqrcode.tools/blog/qr-payments-in-kuwait"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-payments-in-costa-rica",
+    "https://freeqrcode.tools/blog/qr-payments-in-cambodia"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-payments-in-qatar",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-payments-in-new-zealand",
+    "https://freeqrcode.tools/blog/qr-payments-in-nicaragua",
+    "https://freeqrcode.tools/blog/qr-payments-in-qatar"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-payments-in-nicaragua",
+    "https://freeqrcode.tools/blog/qr-payments-in-new-zealand"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qa-checklist-for-bulk-inventory-labels-qr-codes",
+   "members": [
+    "https://freeqrcode.tools/blog/qa-checklist-for-bulk-inventory-labels-qr-codes",
+    "https://freeqrcode.tools/blog/qa-checklist-for-bulk-invoices-qr-codes",
+    "https://freeqrcode.tools/blog/qa-checklist-for-bulk-wristbands-qr-codes"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qa-checklist-for-bulk-invoices-qr-codes",
+    "https://freeqrcode.tools/blog/qa-checklist-for-bulk-wristbands-qr-codes"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-payments-in-thailand",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-payments-in-mongolia",
+    "https://freeqrcode.tools/blog/qr-payments-in-paraguay",
+    "https://freeqrcode.tools/blog/qr-payments-in-thailand"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-payments-in-mongolia",
+    "https://freeqrcode.tools/blog/qr-payments-in-paraguay"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-payments-in-poland",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-payments-in-ethiopia",
+    "https://freeqrcode.tools/blog/qr-payments-in-poland",
+    "https://freeqrcode.tools/blog/qr-payments-in-sri-lanka"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-payments-in-ethiopia",
+    "https://freeqrcode.tools/blog/qr-payments-in-sri-lanka"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-payments-in-laos",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-payments-in-laos",
+    "https://freeqrcode.tools/blog/qr-payments-in-oman"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-payments-in-oman"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/measuring-qr-results-for-veterinary-clinics",
+   "members": [
+    "https://freeqrcode.tools/blog/measuring-qr-results-for-spas",
+    "https://freeqrcode.tools/blog/measuring-qr-results-for-veterinary-clinics"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/measuring-qr-results-for-spas"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-payments-with-mobilepay",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-payments-with-mobilepay",
+    "https://freeqrcode.tools/blog/qr-payments-with-yoomoney"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-payments-with-yoomoney"
+   ]
+  },
+  {
+   "survivor": "https://freeqrcode.tools/blog/qr-payments-with-laoqr",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-payments-with-fps",
+    "https://freeqrcode.tools/blog/qr-payments-with-laoqr"
+   ],
+   "merged": [],
+   "held": [
+    "https://freeqrcode.tools/blog/qr-payments-with-fps"
+   ]
+  }
+ ],
+ "n_clusters": 22,
+ "slug_twin_groups": [
+  {
+   "best": "https://freeqrcode.tools/blog/how-to-create-a-qr-code-for-a-luggage-tag",
+   "members": [
+    "https://freeqrcode.tools/blog/how-to-create-a-qr-code-for-a-luggage-tag",
+    "https://freeqrcode.tools/luggage-tag-qr-generator"
+   ]
+  },
+  {
+   "best": "https://freeqrcode.tools/blog/how-to-create-a-qr-code-for-a-pet-id-tag",
+   "members": [
+    "https://freeqrcode.tools/blog/how-to-create-a-qr-code-for-a-pet-id-tag",
+    "https://freeqrcode.tools/blog/qr-code-pet-id-tag"
+   ]
+  },
+  {
+   "best": "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-job-application",
+   "members": [
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-job-application",
+    "https://freeqrcode.tools/job-application-qr-generator"
+   ]
+  },
+  {
+   "best": "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-pdf",
+   "members": [
+    "https://freeqrcode.tools/blog/how-to-make-a-qr-code-for-a-pdf",
+    "https://freeqrcode.tools/pdf-qr-code-generator"
+   ]
+  },
+  {
+   "best": "https://freeqrcode.tools/blog/how-to-make-wifi-qr-code",
+   "members": [
+    "https://freeqrcode.tools/blog/how-to-make-wifi-qr-code",
+    "https://freeqrcode.tools/wifi-qr-code-generator"
+   ]
+  },
+  {
+   "best": "https://freeqrcode.tools/blog/qr-code-government-services",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-code-for-government-services",
+    "https://freeqrcode.tools/blog/qr-code-government-services"
+   ]
+  },
+  {
+   "best": "https://freeqrcode.tools/industries/manufacturing-work-instructions",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-code-for-manufacturing-work-instructions",
+    "https://freeqrcode.tools/industries/manufacturing-work-instructions"
+   ]
+  },
+  {
+   "best": "https://freeqrcode.tools/blog/qr-code-vs-data-matrix",
+   "members": [
+    "https://freeqrcode.tools/blog/qr-code-vs-data-matrix",
+    "https://freeqrcode.tools/blog/qr-code-vs-data-matrix-2"
+   ]
+  },
+  {
+   "best": "https://freeqrcode.tools/blog/static-vs-dynamic-qr-codes",
+   "members": [
+    "https://freeqrcode.tools/blog/static-qr-vs-dynamic-qr",
+    "https://freeqrcode.tools/blog/static-vs-dynamic-qr-codes"
+   ]
+  },
+  {
+   "best": "https://freeqrcode.tools/blog/structured-append-qr-codes",
+   "members": [
+    "https://freeqrcode.tools/blog/structured-append-qr-codes",
+    "https://freeqrcode.tools/glossary/structured-append"
+   ]
+  }
+ ],
+ "n_slug_twin_pages": 10,
+ "n_merged": 0,
+ "verification_errors": []
+}
