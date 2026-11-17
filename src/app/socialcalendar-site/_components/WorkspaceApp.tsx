@@ -6,6 +6,9 @@ import { PostEditor, type EditorSeed } from './calendar/PostEditor';
 import { LibraryPanel } from './LibraryPanel';
 import { ManagePanel } from './ManagePanel';
 import PlatformSpecs from './PlatformSpecs';
+import IntelligencePanel from './IntelligencePanel';
+import HolidaysPanel from './HolidaysPanel';
+import RulesPanel from './RulesPanel';
 import { useStore } from '../_lib/store';
 import { PLATFORMS } from '../_lib/platforms';
 import {
@@ -16,7 +19,7 @@ import {
 } from '../_lib/backup';
 import type { BackupFile, Workspace } from '../_lib/types';
 
-type Tab = 'calendar' | 'manage' | 'library' | 'overview' | 'workspaces' | 'data';
+type Tab = 'calendar' | 'manage' | 'library' | 'intelligence' | 'overview' | 'workspaces' | 'data';
 
 function allTimeZones(): string[] {
   try {
@@ -498,6 +501,7 @@ export function WorkspaceApp() {
               ['calendar', 'Calendar'],
               ['manage', 'Campaigns & brand'],
               ['library', 'Library'],
+              ['intelligence', 'Intelligence'],
               ['overview', 'Overview'],
               ['workspaces', 'Workspaces'],
               ['data', 'Data & backup'],
@@ -529,6 +533,13 @@ export function WorkspaceApp() {
           </div>
         )}
         {tab === 'library' && <LibraryPanel openEditor={setEditorSeed} />}
+        {tab === 'intelligence' && (
+          <div className="space-y-8">
+            <IntelligencePanel openEditor={setEditorSeed} />
+            <HolidaysPanel openEditor={setEditorSeed} />
+            <RulesPanel />
+          </div>
+        )}
         {tab === 'overview' && <Overview />}
         {tab === 'workspaces' && <WorkspaceManager />}
         {tab === 'data' && <DataPanel />}
