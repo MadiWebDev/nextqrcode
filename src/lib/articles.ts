@@ -3,6 +3,11 @@ import { NEW_ARTICLES } from './pages/index';
 export interface Article {
   slug: string;
   title: string;
+  /** Optional SERP snippet overrides (SEO program). When set, generateMetadata
+   * uses these instead of `title`/`description` so the visible H1 and body
+   * keep the editorial title. See META_OVERRIDES in this file. */
+  metaTitle?: string;
+  metaDescription?: string;
   primaryKeyword: string;
   description: string;
   author: string;
@@ -1544,7 +1549,23 @@ Codes that stay in circulation need occasional attention. Links change, pages mo
   },
 ];
 
-const ALL_ARTICLES: Article[] = [...ARTICLES, ...NEW_ARTICLES];
+/**
+ * SERP snippet overrides, keyed by slug. Rationale per entry is logged in
+ * seo-agent/CHANGELOG.md (SEO program, 2026-11-17). Only listed articles are
+ * affected; titles/descriptions remain the fallback everywhere else.
+ */
+const META_OVERRIDES: Record<string, { metaTitle: string; metaDescription: string }> = {
+  'why-your-qr-code-shows-a-404-error': {
+    metaTitle: 'Why Your QR Code Shows a 404 Error (and How to Fix It)',
+    metaDescription:
+      'QR code scans to a 404 page? Find the cause — moved page, deleted page, typo or broken redirect — test each in order, and fix it before reprinting.',
+  },
+};
+
+const ALL_ARTICLES: Article[] = [...ARTICLES, ...NEW_ARTICLES].map((a) => {
+  const o = META_OVERRIDES[a.slug];
+  return o ? { ...a, ...o } : a;
+});
 
 export function getArticleBySlug(slug: string): Article | undefined {
   return ALL_ARTICLES.find((a) => a.slug === slug);

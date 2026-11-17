@@ -494,7 +494,7 @@ export async function HomePageContent() {
               href="/whatsapp-qr"
               className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-dashed border-border/70 text-xs text-muted-foreground hover:text-primary hover:border-primary/40 transition-all"
             >
-              {t('countries.more', { count: 40 })} <ArrowRight className="w-3 h-3" />
+              {t('countries.all', { count: countries.length })} <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
         </section>

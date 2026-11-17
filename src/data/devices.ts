@@ -649,9 +649,9 @@ DEVICE_GUIDES.push(
     testedWith: ['URL QR codes', 'Wi-Fi QR codes', 'vCard contact QR codes', 'Plain-text QR codes'],
     performanceNotes:
       'Oppo phones on ColorOS scan QR codes through the Camera result card and, on Google-services builds, through Google Lens. Both paths decode the common payload types on-device. The Camera card is the quickest for a single scan; Lens is more forgiving when the code is small, partially obscured, or embedded in a busy scene. As always, good lighting and a clean lens matter more than which path you pick.',
-    title: 'How to Scan QR Codes on Oppo Phones (ColorOS): Complete Guide',
+    title: 'How to Scan QR Codes on Oppo Phones (ColorOS)',
     metaDescription:
-      'Scan QR codes on Oppo phones with the Camera app or Google Lens. Step-by-step scanning paths, ColorOS settings, and fixes for missing scanner features.',
+      'Scan QR codes on Oppo phones with the Camera app or Google Lens — step-by-step ColorOS settings, and fixes for builds with no scanner feature.',
     content: `
 ### Scanning QR Codes on Oppo Phones
 
@@ -1184,9 +1184,9 @@ DEVICE_GUIDES.push(
     testedWith: ['URL QR codes', 'Wi-Fi QR codes', 'vCard contact QR codes', 'Plain-text QR codes'],
     performanceNotes:
       'Realme phones on Realme UI scan QR codes through the Camera banner and Google Lens, both decoding on-device. The Camera path is fastest for clean codes; Lens handles damaged, tiny, or awkwardly angled codes better. Budget Realme models benefit the most from bright light and a clean lens, since their sensors have less low-light headroom than flagships.',
-    title: 'How to Scan QR Codes on Realme Phones (Realme UI): Complete Guide',
+    title: 'How to Scan QR Codes on Realme Phones (Realme UI)',
     metaDescription:
-      'Scan QR codes on Realme phones with the Camera app or Google Lens. Step-by-step instructions, Realme UI settings, and fixes for common scanning problems.',
+      'Scan QR codes on Realme phones with the Camera app or Google Lens — step-by-step instructions, Realme UI settings, and fixes when scanning fails.',
     content: `
 ### Scanning QR Codes on Realme Phones
 
@@ -1293,9 +1293,9 @@ Clean lens, steady hand, good light, and the code filling a decent portion of th
     ],
     performanceNotes:
       'Honor phones on MagicOS scan QR codes natively in the Camera app, with a Control Center Scan shortcut on many builds for faster access. Decoding is on-device and covers the standard payload types. Keeping the system updated matters: QR detection behavior and camera tuning both improve with MagicOS updates, so an older build may struggle with codes a newer build reads easily.',
-    title: 'How to Scan QR Codes on Honor Phones (MagicOS): Complete Guide',
+    title: 'How to Scan QR Codes on Honor Phones (MagicOS)',
     metaDescription:
-      'Scan QR codes on Honor phones with the Camera app or the Control Center Scan shortcut. Step-by-step instructions and fixes for common MagicOS issues.',
+      'Honor phones scan QR codes with the Camera app or the Control Center Scan shortcut. Step-by-step instructions and fixes for common MagicOS issues.',
     content: `
 ### Scanning QR Codes on Honor Phones
 
@@ -1394,9 +1394,9 @@ Wi-Fi codes trigger a join prompt; payment codes should be scanned inside your w
     testedWith: ['URL QR codes', 'Wi-Fi QR codes', 'vCard contact QR codes', 'Plain-text QR codes'],
     performanceNotes:
       'Nokia phones from HMD run near-stock Android, so scanning mirrors the Pixel experience: Camera-app results backed by Google Lens, decoding on-device. Higher-end Nokia models scan briskly; entry-level models with modest cameras need more patience, brighter light, and a steadier hand. The standalone Lens app is the great equalizer — it often decodes codes the Camera viewfinder misses on simpler hardware.',
-    title: 'How to Scan QR Codes on Nokia Phones: Complete Guide',
+    title: 'How to Scan QR Codes on Nokia Phones',
     metaDescription:
-      'Scan QR codes on Nokia (HMD) phones with the Camera app or Google Lens. Step-by-step instructions and tips for older and entry-level Nokia models.',
+      'Scan QR codes on Nokia (HMD) phones with the Camera app or Google Lens — step-by-step instructions, plus tips for older and entry-level models.',
     content: `
 ### Scanning QR Codes on Nokia Phones
 
@@ -1712,9 +1712,9 @@ DEVICE_GUIDES.push(
     ],
     performanceNotes:
       'Fire tablets have no built-in QR scanner, so you add one: an Appstore scanner app or a web-based scanner in Silk. Decoding quality depends on the app you choose and the tablet camera — Fire cameras are modest, so bright light and larger codes help. For occasional scanning this setup is perfectly adequate; for heavy use, a phone remains the better tool.',
-    title: 'How to Scan QR Codes on Amazon Fire Tablets: Complete Guide',
+    title: 'How to Scan QR Codes on Amazon Fire Tablets',
     metaDescription:
-      'Scan QR codes on Amazon Fire tablets with an Appstore scanner app or a web-based scanner. Step-by-step setup and Fire OS workarounds.',
+      'Fire tablets have no built-in QR scanner — use a free Appstore app or the Silk browser web scanner instead. Step-by-step setup and Fire OS fixes.',
     content: `
 ### Scanning QR Codes on Amazon Fire Tablets
 
@@ -3203,7 +3203,7 @@ If a particular inverted code resists every decoder, the design is likely at fau
       'Camera permission problems masquerade as scanner bugs: black viewfinders, frozen previews, and "camera unavailable" errors are permission issues far more often than hardware failures. The fix is always in the same place — the OS permission settings for the app or site in question. One permanent denial ("don\u2019t ask again") is the classic trap: the prompt never returns, and only a manual trip to Settings restores access.',
     title: 'QR Scanner Camera Permission Denied? How to Fix It (Any Device)',
     metaDescription:
-      'QR scanner shows a black screen? Fix camera permission denials on any phone or browser — app settings, browser site permissions, and managed-device workarounds.',
+      'QR scanner shows a black screen? Fix camera permission denials on any phone or browser — app settings, browser site permissions, and workarounds.',
     content: `
 ### Fixing QR Scanner Camera Permission Problems
 
