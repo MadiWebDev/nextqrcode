@@ -9,6 +9,7 @@ import PlatformSpecs from './PlatformSpecs';
 import IntelligencePanel from './IntelligencePanel';
 import HolidaysPanel from './HolidaysPanel';
 import RulesPanel from './RulesPanel';
+import AnalyticsPanel from './AnalyticsPanel';
 import { useStore } from '../_lib/store';
 import { PLATFORMS } from '../_lib/platforms';
 import {
@@ -19,7 +20,7 @@ import {
 } from '../_lib/backup';
 import type { BackupFile, Workspace } from '../_lib/types';
 
-type Tab = 'calendar' | 'manage' | 'library' | 'intelligence' | 'overview' | 'workspaces' | 'data';
+type Tab = 'calendar' | 'manage' | 'library' | 'intelligence' | 'analytics' | 'overview' | 'workspaces' | 'data';
 
 function allTimeZones(): string[] {
   try {
@@ -502,6 +503,7 @@ export function WorkspaceApp() {
               ['manage', 'Campaigns & brand'],
               ['library', 'Library'],
               ['intelligence', 'Intelligence'],
+              ['analytics', 'Analytics'],
               ['overview', 'Overview'],
               ['workspaces', 'Workspaces'],
               ['data', 'Data & backup'],
@@ -540,6 +542,7 @@ export function WorkspaceApp() {
             <RulesPanel />
           </div>
         )}
+        {tab === 'analytics' && <AnalyticsPanel />}
         {tab === 'overview' && <Overview />}
         {tab === 'workspaces' && <WorkspaceManager />}
         {tab === 'data' && <DataPanel />}
