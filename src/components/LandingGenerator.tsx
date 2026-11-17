@@ -17,6 +17,7 @@ import type { QRType, QRData, CustomizationOptions, QRState } from '@/types';
 import { DEFAULT_CUSTOMIZATION } from '@/lib/defaults';
 import { generateQRData, getTypeConfig } from '@/lib/qr-helpers';
 import { useDebounce } from '@/hooks/useDebounce';
+import { JsonLd } from '@/lib/seo/jsonld';
 
 interface LandingData {
   title: string;
@@ -125,6 +126,20 @@ export function LandingGenerator({ type, data }: LandingGeneratorProps) {
         </ol>
       </section>
 
+      {/* FAQ structured data — generated from the exact faqs rendered below */}
+      {data.faqs.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: data.faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.q,
+              acceptedAnswer: { '@type': 'Answer', text: faq.a },
+            })),
+          }}
+        />
+      )}
       {/* FAQ */}
       <section className="space-y-4 max-w-3xl mx-auto">
         <h2 className="text-2xl font-bold">Frequently Asked Questions</h2>
