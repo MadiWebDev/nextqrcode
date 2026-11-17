@@ -182,3 +182,27 @@ describe('proxy canonical-host behaviour', () => {
     expect(res.headers.get('location')).toBeNull();
   });
 });
+
+describe('proxy removal activation (Step 5 Commit B)', () => {
+  it('answers a real 410 for every policy-removed path', () => {
+    for (const p of REMOVED_PATHS.slice(0, 5)) {
+      const res = proxy(new NextRequest(`https://freeqrcode.tools${p}`));
+      expect(res.status).toBe(410);
+    }
+    const one = proxy(new NextRequest(`https://freeqrcode.tools${REMOVED_PATHS[0]}`));
+    expect(one.headers.get('content-type')).toContain('text/html');
+  });
+
+  it('leaves KEEP/PROTECT pages and the subdomain sites alone', () => {
+    expect(proxy(new NextRequest('https://freeqrcode.tools/blog/how-qr-codes-work')).status).toBe(200);
+    expect(proxy(new NextRequest('https://freeqrcode.tools/about')).status).toBe(200);
+    const inv = proxy(
+      new NextRequest(`https://invoicegenerator.freeqrcode.tools${REMOVED_PATHS[0]}`)
+    );
+    expect(inv.status).not.toBe(410);
+    const img = proxy(
+      new NextRequest(`https://imageresizer.freeqrcode.tools${REMOVED_PATHS[0]}`)
+    );
+    expect(img.status).not.toBe(410);
+  });
+});

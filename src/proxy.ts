@@ -1,4 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { isRemoved } from '@/lib/seo/indexing-policy';
+
+/**
+ * Body served with the Step 5 removal 410s: a small real page (not a
+ * bare status) so a human who follows an old link lands somewhere
+ * honest. Kept in the proxy because removed paths must answer 410
+ * before routing, and several of them are generated routes whose page
+ * files still exist in the tree.
+ */
+const GONE_BODY = `<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Page removed | QR Studio</title><meta name="robots" content="noindex"></head>
+<body><main><h1>This page has been removed</h1><p>This page was withdrawn during a content-quality review and is no longer published. Current guides and tools are on the <a href="https://freeqrcode.tools/">QR Studio home page</a>.</p></main></body>
+</html>`;
 
 /**
  * Next.js 16 Proxy convention (formerly middleware.ts).
@@ -122,6 +136,23 @@ export function proxy(request: NextRequest) {
     });
     rewriteResponse.headers.set('Content-Security-Policy', contentSecurityPolicy);
     return rewriteResponse;
+  }
+
+  // Step 5, removal activation — DO NOT MERGE before the fresh-export
+  // re-verification of the 87 (see seo-agent/STATE.md): paths the
+  // indexing policy classifies REMOVE answer a real 410 Gone. This
+  // point is reached only by apex-site requests — the two subdomain
+  // hosts returned rewrites above and www was redirected — and the
+  // policy lookup is an exact-path Set check, so it stays cheap. The
+  // invoice tool paths that fall through on the invoice host are not
+  // in the REMOVE set, so the subdomain sites are unaffected.
+  if (isRemoved(request.nextUrl.pathname)) {
+    const gone = new NextResponse(GONE_BODY, {
+      status: 410,
+      headers: { 'Content-Type': 'text/html; charset=utf-8' },
+    });
+    gone.headers.set('Content-Security-Policy', contentSecurityPolicy);
+    return gone;
   }
 
   const response = NextResponse.next({
