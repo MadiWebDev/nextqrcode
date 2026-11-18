@@ -21,7 +21,12 @@ export default function PwaSetup() {
       .register('/social-sw.js')
       .then((reg) => {
         registration = reg;
-        if (reg.waiting) {
+        // Only ever prompt for OUR worker — a foreign script on the
+        // same scope (the main site's /sw.js, registered by the root
+        // layout before this guard existed) is not an app update.
+        const ours = (w: ServiceWorker | null) =>
+          !!w && w.scriptURL.endsWith('/social-sw.js');
+        if (ours(reg.waiting)) {
           setWaiting(reg.waiting);
           setUpdateReady(true);
         }
@@ -29,7 +34,7 @@ export default function PwaSetup() {
           const worker = reg.installing;
           if (!worker) return;
           worker.addEventListener('statechange', () => {
-            if (worker.state === 'installed' && navigator.serviceWorker.controller) {
+            if (worker.state === 'installed' && navigator.serviceWorker.controller && ours(worker)) {
               setWaiting(worker);
               setUpdateReady(true);
             }
