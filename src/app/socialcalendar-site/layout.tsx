@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { SocialFooter } from './_components/SocialFooter';
 import { SocialHeader } from './_components/SocialHeader';
+import PwaSetup from './_components/PwaSetup';
 
 const TITLE = 'Social Media Calendar — Free, Private Content Planner';
 const DESCRIPTION =
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
   },
   robots: { index: true, follow: true },
+  manifest: '/socialcalendar-manifest.webmanifest',
   icons: {
     icon: [{ url: '/socialcalendar-logo.svg', type: 'image/svg+xml' }],
     shortcut: '/socialcalendar-logo.svg',
@@ -42,6 +44,7 @@ export default function SocialCalendarLayout({ children }: { children: ReactNode
       <SocialHeader />
       <div className="flex-1">{children}</div>
       <SocialFooter />
+      <PwaSetup />
     </div>
   );
 }

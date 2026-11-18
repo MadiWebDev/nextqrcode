@@ -5,7 +5,7 @@
  * /sitemap.xml  → sitemap index, served as the static file public/sitemap.xml
  *                 (Next.js 16.3.8 does not auto-generate the index for
  *                 generateSitemaps; keep that file in sync with the ids below)
- * /sitemap/N.xml → child sitemaps 0 … 8, generated from this file
+ * /sitemap/N.xml → child sitemaps 0 … 9, generated from this file
  *
  * Id assignment (integer, NOT string, per Next.js generateSitemaps spec):
  *   0 → core       (home, /blog, /sitemap-page, /tools, /industries, /qr-labels, trust)
@@ -13,11 +13,20 @@
  *   2 → generators (all *-qr-code-generator, /whatsapp-qr, /payment-qr top-level)
  *   3 → bulk       (all /bulk-*-qr-generator, /bulk-*-generator pages)
  *   4 → suites     (all /*-qr-suite pages)
- *   5 → blog       (all /blog/* articles — uses real updatedAt dates)
+ *   5 → blog       (all /blog/* articles — real stored publishedAt/updatedAt dates)
  *   6 → families   (all /industries/*, /glossary/*, /scan-guide/*, /qr-size-guide/*, /templates/*)
  *   7 → labels     (all /qr-labels/*, /whatsapp-qr/*, /payment-qr/* scheme pages)
  *   8 → invoice    (invoicegenerator subdomain, absolute URLs)
  *   9 → imageresizer (imageresizer subdomain, absolute URLs)
+ *
+ * Indexing policy (Step 5, 2026-11-17): every apex section (0–7) is
+ * filtered through isIndexable() from src/lib/seo/indexing-policy.ts —
+ * the single source of truth generated from the owner-approved Step 4
+ * classification. A path classified REMOVE can never be emitted here.
+ * Sections 8–9 list the two subdomain sites' own corpora and are not
+ * filtered by the apex policy. Section ids are unchanged from the
+ * pre-Step-5 scheme, so public/sitemap.xml and the robots.txt sitemap
+ * reference stay valid untouched.
  *
  * Each child sitemap stays well under the 50,000 URL limit.
  */
@@ -27,6 +36,7 @@ import { getAllArticles } from '@/lib/articles';
 import { getAllCountries } from '@/data/countries';
 import { getAllPaymentSchemes } from '@/data/payments';
 import { getAllLabelSheets } from '@/data/labels';
+import { isIndexable } from '@/lib/seo/indexing-policy';
 
 const BASE = siteConfig.url;
 
@@ -49,7 +59,15 @@ function entry(
   return out;
 }
 
-/** Declare the 9 child sitemaps as numeric ids (0–8). */
+/**
+ * Step 5 guard: drop any entry the indexing policy classifies REMOVE.
+ * isIndexable() accepts absolute URLs, so entries are filtered as built.
+ */
+function onlyIndexable(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {
+  return entries.filter((e) => isIndexable(e.url));
+}
+
+/** Declare the child sitemaps as numeric ids (0–10). */
 export async function generateSitemaps() {
   return [
     { id: 0 }, // core
@@ -62,6 +80,7 @@ export async function generateSitemaps() {
     { id: 7 }, // labels
     { id: 8 }, // invoice-site (invoicegenerator subdomain, absolute URLs)
     { id: 9 }, // imageresizer-site (imageresizer subdomain, absolute URLs)
+    { id: 10 }, // socialcalendar-site (socialcalendar subdomain, absolute URLs)
   ];
 }
 
@@ -96,6 +115,8 @@ export default async function sitemap(props: {
       return invoiceSiteEntries();
     case 9:
       return imageresizerSiteEntries();
+    case 10:
+      return socialcalendarSiteEntries();
     default:
       return [];
   }
@@ -104,7 +125,7 @@ export default async function sitemap(props: {
 // ── SECTION 0: Core pages ────────────────────────────────────────────────────
 
 function coreEntries(): MetadataRoute.Sitemap {
-  return [
+  return onlyIndexable([
     // Homepage — highest priority
     { url: BASE, changeFrequency: 'weekly', priority: 1.0 },
     // Primary hub pages — key crawl bridges
@@ -126,7 +147,7 @@ function coreEntries(): MetadataRoute.Sitemap {
     entry('/terms', { changeFrequency: 'yearly', priority: 0.4 }),
     entry('/cookie-policy', { changeFrequency: 'yearly', priority: 0.4 }),
     entry('/disclaimer', { changeFrequency: 'yearly', priority: 0.4 }),
-  ];
+  ]);
 }
 
 // ── SECTION 1: Utility / Engineering Tools ───────────────────────────────────
@@ -169,7 +190,6 @@ function toolEntries(): MetadataRoute.Sitemap {
     '/regional-payment-qr',
     '/qr-sticker-sheet-printer',
     '/pet-tag-qr',
-    '/bulk-vcard-qr',
     '/bulk-vcard-generator',
     '/utm-builder',
     '/qr-placement-guide',
@@ -262,7 +282,9 @@ function toolEntries(): MetadataRoute.Sitemap {
     '/qr-brand-impersonation-checker',
     '/qr-destination-change-detector',
   ];
-  return paths.map((p) => entry(p, { changeFrequency: 'monthly', priority: 0.85 }));
+  return paths
+    .filter((p) => isIndexable(p))
+    .map((p) => entry(p, { changeFrequency: 'monthly', priority: 0.85 }));
 }
 
 // ── SECTION 2: QR Code Type Generators ───────────────────────────────────────
@@ -332,7 +354,9 @@ function generatorEntries(): MetadataRoute.Sitemap {
     '/whatsapp-qr',
     '/payment-qr',
   ];
-  return paths.map((p) => entry(p, { changeFrequency: 'monthly', priority: 0.85 }));
+  return paths
+    .filter((p) => isIndexable(p))
+    .map((p) => entry(p, { changeFrequency: 'monthly', priority: 0.85 }));
 }
 
 // ── SECTION 3: Bulk Generators ───────────────────────────────────────────────
@@ -372,7 +396,9 @@ function bulkEntries(): MetadataRoute.Sitemap {
     '/bulk-seat-qr-generator',
     '/bulk-invoice-qr-generator',
   ];
-  return paths.map((p) => entry(p, { changeFrequency: 'monthly', priority: 0.85 }));
+  return paths
+    .filter((p) => isIndexable(p))
+    .map((p) => entry(p, { changeFrequency: 'monthly', priority: 0.85 }));
 }
 
 // ── SECTION 4: Industry QR Suites ────────────────────────────────────────────
@@ -410,7 +436,9 @@ function suiteEntries(): MetadataRoute.Sitemap {
     '/church-qr-suite',
     '/taxi-qr-suite',
   ];
-  return paths.map((p) => entry(p, { changeFrequency: 'monthly', priority: 0.85 }));
+  return paths
+    .filter((p) => isIndexable(p))
+    .map((p) => entry(p, { changeFrequency: 'monthly', priority: 0.85 }));
 }
 
 // ── SECTION 5: Blog Articles ──────────────────────────────────────────────────
@@ -423,10 +451,18 @@ async function blogEntries(): Promise<MetadataRoute.Sitemap> {
     for (const art of articles) {
       if (!art.slug || seen.has(art.slug)) continue;
       seen.add(art.slug);
-      // Use real updatedAt from article metadata — never fabricate a date
+      const path = `/blog/${art.slug}`;
+      // Step 5: posts classified REMOVE never enter the sitemap.
+      if (!isIndexable(path)) continue;
+      // Use the post's own stored dates (updatedAt, else publishedAt) —
+      // never a fabricated shared fallback date. Omit lastmod when the
+      // article carries no valid stored date.
+      const stored = art.updatedAt || art.publishedAt;
+      const parsed = stored ? new Date(stored) : undefined;
+      const lastModified = parsed && !Number.isNaN(parsed.getTime()) ? parsed : undefined;
       out.push(
-        entry(`/blog/${art.slug}`, {
-          lastModified: new Date(art.updatedAt || '2026-10-01'),
+        entry(path, {
+          ...(lastModified ? { lastModified } : {}),
           changeFrequency: 'monthly',
           priority: 0.8,
         })
@@ -449,8 +485,11 @@ async function familyEntries(): Promise<MetadataRoute.Sitemap> {
       const prefix = FAMILY_PREFIXES[family];
       const entries = await familyLoaders[family]();
       for (const e of entries) {
+        const path = `${prefix}/${e.slug}`;
+        // Step 5: family entries classified REMOVE never enter the sitemap.
+        if (!isIndexable(path)) continue;
         out.push(
-          entry(`${prefix}/${e.slug}`, {
+          entry(path, {
             changeFrequency: 'monthly',
             priority: 0.75,
           })
@@ -470,17 +509,23 @@ async function labelEntries(): Promise<MetadataRoute.Sitemap> {
 
   // /qr-labels/[slug]
   for (const sheet of getAllLabelSheets()) {
-    out.push(entry(`/qr-labels/${sheet.slug}`, { changeFrequency: 'monthly', priority: 0.8 }));
+    const path = `/qr-labels/${sheet.slug}`;
+    if (!isIndexable(path)) continue;
+    out.push(entry(path, { changeFrequency: 'monthly', priority: 0.8 }));
   }
 
   // /whatsapp-qr/[country]
   for (const c of getAllCountries()) {
-    out.push(entry(`/whatsapp-qr/${c.slug}`, { changeFrequency: 'monthly', priority: 0.8 }));
+    const path = `/whatsapp-qr/${c.slug}`;
+    if (!isIndexable(path)) continue;
+    out.push(entry(path, { changeFrequency: 'monthly', priority: 0.8 }));
   }
 
   // /payment-qr/[scheme]
   for (const p of getAllPaymentSchemes()) {
-    out.push(entry(`/payment-qr/${p.slug}`, { changeFrequency: 'monthly', priority: 0.8 }));
+    const path = `/payment-qr/${p.slug}`;
+    if (!isIndexable(path)) continue;
+    out.push(entry(path, { changeFrequency: 'monthly', priority: 0.8 }));
   }
 
   return out;
@@ -600,6 +645,29 @@ function imageresizerSiteEntries(): MetadataRoute.Sitemap {
   ];
   return paths.map(([path, priority]) => ({
     url: `${IMG}${path}`,
+    changeFrequency: 'monthly',
+    priority,
+  }));
+}
+
+// ── SECTION 10: Social Media Calendar site (socialcalendar subdomain) ───────
+// Only genuinely indexable pages: the landing page, the guides hub and
+// the starter guide set. The workspace (/app) and share viewer (/view)
+// are noindex by design and are never listed here.
+function socialcalendarSiteEntries(): MetadataRoute.Sitemap {
+  const SC = 'https://socialcalendar.freeqrcode.tools';
+  const paths: Array<[string, number]> = [
+    ['/', 1.0],
+    ['/guides', 0.7],
+    ['/guides/how-to-plan-a-social-media-content-calendar', 0.7],
+    ['/guides/content-pillars-strategy', 0.7],
+    ['/guides/best-times-to-post-on-social-media', 0.7],
+    ['/guides/how-to-repurpose-content', 0.6],
+    ['/guides/social-media-calendar-for-small-business', 0.6],
+    ['/guides/content-calendar-vs-spreadsheet', 0.6],
+  ];
+  return paths.map(([path, priority]) => ({
+    url: `${SC}${path}`,
     changeFrequency: 'monthly',
     priority,
   }));

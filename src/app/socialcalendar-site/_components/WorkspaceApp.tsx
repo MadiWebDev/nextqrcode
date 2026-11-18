@@ -1,10 +1,44 @@
 'use client';
 
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { CalendarApp, type CalendarView } from './calendar/CalendarApp';
-import { PostEditor, type EditorSeed } from './calendar/PostEditor';
-import { LibraryPanel } from './LibraryPanel';
-import { ManagePanel } from './ManagePanel';
+import type { EditorSeed } from './calendar/PostEditor';
+import dynamic from 'next/dynamic';
+import NotificationsPanel, { ReminderEngine } from './NotificationsPanel';
+import LocaleProvider, { useLocale } from './LocaleProvider';
+
+/**
+ * Heavy tab panels are lazy chunks (Phase 10 bundle discipline): the
+ * calendar is the workspace's first load; Intelligence (chrono-node),
+ * Analytics (jsPDF) and the library/management panels load on demand
+ * when their tab is first opened.
+ */
+const PanelLoading = () => (
+  <p className="py-8 text-muted-foreground" aria-busy="true">
+    Loading…
+  </p>
+);
+const LibraryPanel = dynamic(
+  () => import('./LibraryPanel').then((m) => m.LibraryPanel),
+  { ssr: false, loading: PanelLoading },
+);
+const ManagePanel = dynamic(
+  () => import('./ManagePanel').then((m) => m.ManagePanel),
+  { ssr: false, loading: PanelLoading },
+);
+const PlatformSpecs = dynamic(() => import('./PlatformSpecs'), { ssr: false, loading: PanelLoading });
+const IntelligencePanel = dynamic(() => import('./IntelligencePanel'), { ssr: false, loading: PanelLoading });
+const HolidaysPanel = dynamic(() => import('./HolidaysPanel'), { ssr: false, loading: PanelLoading });
+const RulesPanel = dynamic(() => import('./RulesPanel'), { ssr: false, loading: PanelLoading });
+const AnalyticsPanel = dynamic(() => import('./AnalyticsPanel'), { ssr: false, loading: PanelLoading });
+const SharePanel = dynamic(() => import('./SharePanel'), { ssr: false, loading: PanelLoading });
+const CommandPalette = dynamic(() => import('./CommandPalette'), { ssr: false });
+const Onboarding = dynamic(() => import('./Onboarding'), { ssr: false });
+const PostEditor = dynamic(
+  () => import('./calendar/PostEditor').then((m) => m.PostEditor),
+  { ssr: false },
+);
+import { LOCALES, type Locale } from '../_lib/i18n';
 import { useStore } from '../_lib/store';
 import { PLATFORMS } from '../_lib/platforms';
 import {
@@ -15,7 +49,7 @@ import {
 } from '../_lib/backup';
 import type { BackupFile, Workspace } from '../_lib/types';
 
-type Tab = 'calendar' | 'manage' | 'library' | 'overview' | 'workspaces' | 'data';
+type Tab = 'calendar' | 'manage' | 'library' | 'intelligence' | 'analytics' | 'overview' | 'workspaces' | 'data';
 
 function allTimeZones(): string[] {
   try {
@@ -451,10 +485,69 @@ function DataPanel() {
 }
 
 export function WorkspaceApp() {
+  return (
+    <LocaleProvider>
+      <WorkspaceShell />
+    </LocaleProvider>
+  );
+}
+
+function WorkspaceShell() {
   const store = useStore();
+  const { locale, setLocale, t } = useLocale();
   const [tab, setTab] = useState<Tab>('calendar');
   const [calendarView, setCalendarView] = useState<CalendarView>('month');
   const [editorSeed, setEditorSeed] = useState<EditorSeed | null>(null);
+  const [paletteOpen, setPaletteOpen] = useState(false);
+  const [helpOpen, setHelpOpen] = useState(false);
+
+  // Keyboard shortcuts (Phase 8). Never fire while typing in a field,
+  // while the editor or palette is open, or with modifier combos other
+  // than the palette's own.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setPaletteOpen((o) => !o);
+        return;
+      }
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      const target = e.target as HTMLElement | null;
+      const editable =
+        target instanceof HTMLInputElement ||
+        target instanceof HTMLTextAreaElement ||
+        target instanceof HTMLSelectElement ||
+        Boolean(target?.isContentEditable);
+      if (editable || editorSeed || paletteOpen) return;
+      const tabs: Tab[] = [
+        'calendar',
+        'manage',
+        'library',
+        'intelligence',
+        'analytics',
+        'overview',
+        'workspaces',
+        'data',
+      ];
+      if (e.key >= '1' && e.key <= '8') {
+        setTab(tabs[Number(e.key) - 1]);
+      } else if (e.key === 'n') {
+        setEditorSeed({});
+      } else if (e.key === '?') {
+        setHelpOpen(true);
+      } else if (e.key === 't' && tab === 'calendar') {
+        window.dispatchEvent(new CustomEvent('sc-cal-nav', { detail: 'today' }));
+      } else if (e.key === 'ArrowLeft' && tab === 'calendar') {
+        e.preventDefault();
+        window.dispatchEvent(new CustomEvent('sc-cal-nav', { detail: -1 }));
+      } else if (e.key === 'ArrowRight' && tab === 'calendar') {
+        e.preventDefault();
+        window.dispatchEvent(new CustomEvent('sc-cal-nav', { detail: 1 }));
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [editorSeed, paletteOpen, tab]);
 
   if (!store.ready) {
     return (
@@ -466,6 +559,7 @@ export function WorkspaceApp() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+      <ReminderEngine />
       {!store.persistent && (
         <div className="mb-4 rounded-lg border border-amber-400 bg-amber-50 px-4 py-3 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-100" role="alert">
           <strong>Temporary storage is active.</strong> This browser would not provide
@@ -491,15 +585,47 @@ export function WorkspaceApp() {
           </select>
         </label>
         <SaveIndicator />
+        <label className="text-sm">
+          <span className="sr-only">Interface language</span>
+          <select
+            value={locale}
+            onChange={(e) => setLocale(e.target.value as Locale)}
+            className="rounded-md border border-input bg-background px-2 py-2"
+          >
+            {LOCALES.map((l) => (
+              <option key={l.code} value={l.code}>
+                {l.label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button
+          type="button"
+          className="rounded-md border border-input px-3 py-2 text-sm hover:bg-accent"
+          onClick={() => setPaletteOpen(true)}
+          aria-label="Open command palette (Control or Command K)"
+        >
+          ⌘K
+        </button>
+        <button
+          type="button"
+          className="rounded-md border border-input px-3 py-2 text-sm hover:bg-accent"
+          onClick={() => setHelpOpen(true)}
+          aria-label={t('action.shortcuts')}
+        >
+          ?
+        </button>
         <div className="ml-auto flex gap-1" role="tablist" aria-label="Workspace sections">
           {(
             [
-              ['calendar', 'Calendar'],
-              ['manage', 'Campaigns & brand'],
-              ['library', 'Library'],
-              ['overview', 'Overview'],
-              ['workspaces', 'Workspaces'],
-              ['data', 'Data & backup'],
+              ['calendar', t('tab.calendar')],
+              ['manage', t('tab.manage')],
+              ['library', t('tab.library')],
+              ['intelligence', t('tab.intelligence')],
+              ['analytics', t('tab.analytics')],
+              ['overview', t('tab.overview')],
+              ['workspaces', t('tab.workspaces')],
+              ['data', t('tab.data')],
             ] as [Tab, string][]
           ).map(([key, label]) => (
             <button
@@ -518,16 +644,93 @@ export function WorkspaceApp() {
         </div>
       </div>
       <div className="mt-6">
+        <Onboarding openEditor={setEditorSeed} goTab={setTab} />
         {tab === 'calendar' && (
           <CalendarApp view={calendarView} setView={setCalendarView} openEditor={setEditorSeed} />
         )}
-        {tab === 'manage' && <ManagePanel />}
+        {tab === 'manage' && (
+          <div className="space-y-8">
+            <ManagePanel />
+            <PlatformSpecs />
+          </div>
+        )}
         {tab === 'library' && <LibraryPanel openEditor={setEditorSeed} />}
-        {tab === 'overview' && <Overview />}
+        {tab === 'intelligence' && (
+          <div className="space-y-8">
+            <IntelligencePanel openEditor={setEditorSeed} />
+            <HolidaysPanel openEditor={setEditorSeed} />
+            <RulesPanel />
+          </div>
+        )}
+        {tab === 'analytics' && <AnalyticsPanel />}
+        {tab === 'overview' && (
+          <div className="space-y-8">
+            <Overview />
+            <NotificationsPanel />
+          </div>
+        )}
         {tab === 'workspaces' && <WorkspaceManager />}
-        {tab === 'data' && <DataPanel />}
+        {tab === 'data' && (
+          <div className="space-y-8">
+            <DataPanel />
+            <SharePanel />
+          </div>
+        )}
       </div>
       {editorSeed && <PostEditor seed={editorSeed} onClose={() => setEditorSeed(null)} />}
+      <CommandPalette
+        open={paletteOpen}
+        onOpenChange={setPaletteOpen}
+        onGoTab={setTab}
+        onGoView={(view) => {
+          setTab('calendar');
+          setCalendarView(view);
+        }}
+        onNewPost={() => setEditorSeed({})}
+        onOpenPost={(post) => setEditorSeed({ post })}
+      />
+      {helpOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 sm:items-center"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t('action.shortcuts')}
+          onClick={() => setHelpOpen(false)}
+        >
+          <div
+            className="w-full max-w-md rounded-t-2xl bg-background p-6 shadow-xl sm:rounded-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between">
+              <h2 className="text-lg font-bold">{t('action.shortcuts')}</h2>
+              <button type="button" onClick={() => setHelpOpen(false)} aria-label="Close" className="rounded-md border border-border px-2 py-1">
+                ✕
+              </button>
+            </div>
+            <dl className="mt-4 space-y-2 text-sm">
+              {[
+                ['Ctrl/⌘ + K', 'Command palette'],
+                ['N', 'New post'],
+                ['1 – 8', 'Switch workspace tab'],
+                ['← / →', 'Previous / next period (Calendar tab)'],
+                ['T', 'Jump to today (Calendar tab)'],
+                ['?', 'This help'],
+                ['Esc', 'Close dialog'],
+              ].map(([keys, what]) => (
+                <div key={keys} className="flex justify-between gap-4">
+                  <dt>
+                    <kbd className="rounded border border-border px-1.5 py-0.5 font-mono text-xs">{keys}</kbd>
+                  </dt>
+                  <dd className="text-muted-foreground">{what}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-3 text-xs text-muted-foreground">
+              Shortcuts never fire while you are typing in a field or a dialog is open.
+            </p>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

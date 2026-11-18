@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { JsonLd } from '@/lib/seo/jsonld';
 import { AdSlot } from '@/components/AdSlot';
-import { PLATFORMS } from './_lib/platforms';
+import { PLATFORMS, chipBackground } from './_lib/platforms';
 
 const BASE = 'https://socialcalendar.freeqrcode.tools';
 
@@ -159,7 +159,7 @@ export default function LandingPage() {
                   <span
                     key={p.label}
                     className="mt-1 block truncate rounded px-1 py-0.5 text-[11px] text-white"
-                    style={{ backgroundColor: p.color }}
+                    style={{ backgroundColor: chipBackground(p.color) }}
                   >
                     {p.label}
                   </span>

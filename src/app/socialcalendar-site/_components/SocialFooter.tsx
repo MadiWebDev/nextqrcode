@@ -21,6 +21,7 @@ export function SocialFooter() {
           <p className="font-semibold">Product</p>
           <ul className="mt-2 space-y-1 text-sm">
             <li><Link className="text-muted-foreground hover:text-foreground" href="/app">Workspace</Link></li>
+            <li><Link className="text-muted-foreground hover:text-foreground" href="/guides">Guides</Link></li>
             <li><Link className="text-muted-foreground hover:text-foreground" href="/#features">Features</Link></li>
             <li><Link className="text-muted-foreground hover:text-foreground" href="/#privacy">Privacy</Link></li>
             <li><Link className="text-muted-foreground hover:text-foreground" href="/#faq">FAQ</Link></li>

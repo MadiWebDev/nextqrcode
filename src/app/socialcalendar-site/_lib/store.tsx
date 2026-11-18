@@ -133,6 +133,28 @@ const StoreContext = createContext<StoreValue | null>(null);
 
 const ACTIVE_WS_KEY = 'socialcalendar:active-workspace';
 
+/**
+ * Multi-tab sync (Phase 7): every mutation broadcasts on a
+ * BroadcastChannel; other tabs reload their workspace data (debounced,
+ * so a batch import in one tab causes one reload, not hundreds). Each
+ * tab ignores its own messages via a per-tab client id.
+ */
+const SYNC_CHANNEL = 'socialcalendar-sync-v1';
+const TAB_ID =
+  typeof crypto !== 'undefined' && 'randomUUID' in crypto
+    ? crypto.randomUUID()
+    : `tab-${Date.now().toString(36)}`;
+
+function broadcastChange(): void {
+  try {
+    const channel = new BroadcastChannel(SYNC_CHANNEL);
+    channel.postMessage({ sender: TAB_ID, at: Date.now() });
+    channel.close();
+  } catch {
+    // BroadcastChannel unsupported — tabs simply stay independent.
+  }
+}
+
 export function defaultBrand() {
   return {
     brandName: '',
@@ -191,6 +213,26 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setData(await loadWorkspaceData(repo, activeIdRef.current));
     setWorkspaces(await repo.all<Workspace>('workspaces'));
   }, [repo, loadWorkspaceData]);
+
+  // Listen for changes made in other tabs of this browser.
+  const reloadRef = useRef(reload);
+  useEffect(() => {
+    reloadRef.current = reload;
+  }, [reload]);
+  useEffect(() => {
+    if (typeof BroadcastChannel === 'undefined') return;
+    const channel = new BroadcastChannel(SYNC_CHANNEL);
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    channel.onmessage = (event: MessageEvent<{ sender?: string }>) => {
+      if (event.data?.sender === TAB_ID) return;
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => void reloadRef.current(), 300);
+    };
+    return () => {
+      if (timer) clearTimeout(timer);
+      channel.close();
+    };
+  }, []);
 
   // Initialise: repository, workspaces, active workspace.
   useEffect(() => {
@@ -297,6 +339,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         await repo.put(table, row);
         applyLocal(table, row);
         setLastSavedAt(nowIso());
+        broadcastChange();
       } catch {
         setSaveState('error');
         throw new Error('Save failed');
@@ -322,6 +365,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           applyLocal(table, null, true);
         }
         setLastSavedAt(nowIso());
+        broadcastChange();
       } catch {
         setSaveState('error');
         throw new Error('Delete failed');
