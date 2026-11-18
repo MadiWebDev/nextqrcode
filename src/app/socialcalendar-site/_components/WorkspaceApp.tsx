@@ -2,19 +2,42 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { CalendarApp, type CalendarView } from './calendar/CalendarApp';
-import { PostEditor, type EditorSeed } from './calendar/PostEditor';
-import { LibraryPanel } from './LibraryPanel';
-import { ManagePanel } from './ManagePanel';
-import PlatformSpecs from './PlatformSpecs';
-import IntelligencePanel from './IntelligencePanel';
-import HolidaysPanel from './HolidaysPanel';
-import RulesPanel from './RulesPanel';
-import AnalyticsPanel from './AnalyticsPanel';
-import SharePanel from './SharePanel';
+import type { EditorSeed } from './calendar/PostEditor';
+import dynamic from 'next/dynamic';
 import NotificationsPanel, { ReminderEngine } from './NotificationsPanel';
 import LocaleProvider, { useLocale } from './LocaleProvider';
-import CommandPalette from './CommandPalette';
-import Onboarding from './Onboarding';
+
+/**
+ * Heavy tab panels are lazy chunks (Phase 10 bundle discipline): the
+ * calendar is the workspace's first load; Intelligence (chrono-node),
+ * Analytics (jsPDF) and the library/management panels load on demand
+ * when their tab is first opened.
+ */
+const PanelLoading = () => (
+  <p className="py-8 text-muted-foreground" aria-busy="true">
+    Loading…
+  </p>
+);
+const LibraryPanel = dynamic(
+  () => import('./LibraryPanel').then((m) => m.LibraryPanel),
+  { ssr: false, loading: PanelLoading },
+);
+const ManagePanel = dynamic(
+  () => import('./ManagePanel').then((m) => m.ManagePanel),
+  { ssr: false, loading: PanelLoading },
+);
+const PlatformSpecs = dynamic(() => import('./PlatformSpecs'), { ssr: false, loading: PanelLoading });
+const IntelligencePanel = dynamic(() => import('./IntelligencePanel'), { ssr: false, loading: PanelLoading });
+const HolidaysPanel = dynamic(() => import('./HolidaysPanel'), { ssr: false, loading: PanelLoading });
+const RulesPanel = dynamic(() => import('./RulesPanel'), { ssr: false, loading: PanelLoading });
+const AnalyticsPanel = dynamic(() => import('./AnalyticsPanel'), { ssr: false, loading: PanelLoading });
+const SharePanel = dynamic(() => import('./SharePanel'), { ssr: false, loading: PanelLoading });
+const CommandPalette = dynamic(() => import('./CommandPalette'), { ssr: false });
+const Onboarding = dynamic(() => import('./Onboarding'), { ssr: false });
+const PostEditor = dynamic(
+  () => import('./calendar/PostEditor').then((m) => m.PostEditor),
+  { ssr: false },
+);
 import { LOCALES, type Locale } from '../_lib/i18n';
 import { useStore } from '../_lib/store';
 import { PLATFORMS } from '../_lib/platforms';

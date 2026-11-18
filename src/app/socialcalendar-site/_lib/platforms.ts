@@ -330,6 +330,38 @@ export const PLATFORM_IDS: string[] = PLATFORMS.map((p) => p.id);
 
 const BY_ID = new Map<string, PlatformSpec>(PLATFORMS.map((p) => [p.id, p]));
 
+/**
+ * Darken a brand colour until white text on it meets WCAG AA contrast
+ * (4.5:1). Brand colours are identity colours; chips that carry text
+ * must use this adjusted variant (axe gate, Phase 10).
+ */
+export function chipBackground(hex: string): string {
+  const match = /^#([0-9a-fA-F]{6})$/.exec(hex);
+  if (!match) return '#475569';
+  let [r, g, b] = [
+    parseInt(match[1].slice(0, 2), 16),
+    parseInt(match[1].slice(2, 4), 16),
+    parseInt(match[1].slice(4, 6), 16),
+  ];
+  const luminance = (rr: number, gg: number, bb: number) => {
+    const f = (c: number) => {
+      const s = c / 255;
+      return s <= 0.03928 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+    };
+    return 0.2126 * f(rr) + 0.7152 * f(gg) + 0.0722 * f(bb);
+  };
+  const contrastVsWhite = () => 1.05 / (luminance(r, g, b) + 0.05);
+  let guard = 0;
+  while (contrastVsWhite() < 4.5 && guard < 12) {
+    r = Math.floor(r * 0.85);
+    g = Math.floor(g * 0.85);
+    b = Math.floor(b * 0.85);
+    guard += 1;
+  }
+  const toHex = (c: number) => c.toString(16).padStart(2, '0');
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+
 export function getPlatform(id: string): PlatformSpec | undefined {
   return BY_ID.get(id);
 }
