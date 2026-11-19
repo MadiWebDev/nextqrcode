@@ -59,6 +59,37 @@ const IMAGE_RESIZER_SITE_HOST = 'imageresizer.freeqrcode.tools';
 const SOCIALCALENDAR_SITE_HOST = 'socialcalendar.freeqrcode.tools';
 
 /**
+ * Resume Builder site: resumebuilder.freeqrcode.tools serves the standalone
+ * privacy-first resume/CV builder (route /resumebuilder-site) as its own
+ * site, same pattern as the three above. See docs/resumebuilder/.
+ */
+const RESUMEBUILDER_SITE_HOST = 'resumebuilder.freeqrcode.tools';
+
+/**
+ * Internal route trees of the subdomain sites. These prefixes are an
+ * implementation detail (the proxy rewrites each host into its tree);
+ * a request that arrives on the WRONG host carrying another site's
+ * prefix is permanently redirected to the site that owns the prefix,
+ * with the prefix stripped — one hop, no chains (spec §4 for the
+ * resume host; applied symmetrically so no host serves another's tree).
+ */
+const SITE_TREE_HOSTS: Array<{ prefix: string; host: string }> = [
+  { prefix: '/invoice-site', host: INVOICE_SITE_HOST },
+  { prefix: '/imageresizer-site', host: IMAGE_RESIZER_SITE_HOST },
+  { prefix: '/socialcalendar-site', host: SOCIALCALENDAR_SITE_HOST },
+  { prefix: '/resumebuilder-site', host: RESUMEBUILDER_SITE_HOST },
+];
+
+/** The five production hosts; cross-host redirects apply only between them. */
+const SITE_HOSTS = new Set([
+  'freeqrcode.tools',
+  INVOICE_SITE_HOST,
+  IMAGE_RESIZER_SITE_HOST,
+  SOCIALCALENDAR_SITE_HOST,
+  RESUMEBUILDER_SITE_HOST,
+]);
+
+/**
  * Invoice-family tool pages that also live on the subdomain under their own
  * paths (e.g. invoicegenerator.freeqrcode.tools/quote-generator). On the
  * invoice host these are served as-is instead of being prefixed with
@@ -117,6 +148,36 @@ export function proxy(request: NextRequest) {
   // extensioned paths changes nothing for pages. robots.txt, sitemap.xml
   // and favicon.ico never reach this function at all (see the matcher).
   const isStaticAsset = /\.[a-z0-9]+$/i.test(request.nextUrl.pathname);
+  // Cross-host guard for internal site trees (see SITE_TREE_HOSTS):
+  // e.g. resumebuilder.freeqrcode.tools/invoice-site/… → 301 to the
+  // invoice host with the tree prefix stripped. Runs before the rewrite
+  // rules so a foreign prefix can never be rewritten into a local tree.
+  if (!isStaticAsset && SITE_HOSTS.has(host)) {
+    for (const tree of SITE_TREE_HOSTS) {
+      const p = request.nextUrl.pathname;
+      if ((p === tree.prefix || p.startsWith(tree.prefix + '/')) && host !== tree.host) {
+        const url = request.nextUrl.clone();
+        url.protocol = 'https:';
+        url.hostname = tree.host;
+        url.port = '';
+        url.pathname = p.slice(tree.prefix.length) || '/';
+        return NextResponse.redirect(url, 301);
+      }
+    }
+  }
+  if (
+    host === RESUMEBUILDER_SITE_HOST &&
+    !isStaticAsset &&
+    !request.nextUrl.pathname.startsWith('/resumebuilder-site')
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/resumebuilder-site' + (url.pathname === '/' ? '' : url.pathname);
+    const rewriteResponse = NextResponse.rewrite(url, {
+      request: { headers: requestHeaders },
+    });
+    rewriteResponse.headers.set('Content-Security-Policy', contentSecurityPolicy);
+    return rewriteResponse;
+  }
   if (
     host === IMAGE_RESIZER_SITE_HOST &&
     !isStaticAsset &&
