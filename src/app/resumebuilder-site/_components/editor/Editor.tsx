@@ -42,6 +42,10 @@ import { createDebouncedSaver, openTabChannel, isConflict, type SaveStatus } fro
 import { TextField } from './fields';
 import { SectionEditor } from './SectionEditor';
 import { ResumePreview } from './Preview';
+import { TemplateView } from '../TemplateView';
+import { loadTemplate, TEMPLATE_META } from '../../_lib/templates/registry';
+import type { TemplateDef } from '../../_lib/templates/types';
+import { PhotoStudio } from './PhotoStudio';
 
 const SENSITIVE_LABELS: Record<string, { label: string; note: string }> = {
   dateOfBirth: {
@@ -171,6 +175,17 @@ export function Editor(props: {
   const [conflict, setConflict] = useState<ResumeDoc | null>(null);
   const [showShortcuts, setShowShortcuts] = useState(false);
   const [photoUrl, setPhotoUrl] = useState<string | undefined>(undefined);
+  const [template, setTemplate] = useState<TemplateDef | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    void loadTemplate(doc.meta.templateId).then((def) => {
+      if (!cancelled) setTemplate(def);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [doc.meta.templateId]);
   const [tabId] = useState(() => uid('tab'));
   const docRef = useRef(doc);
   useEffect(() => {
@@ -526,6 +541,36 @@ export function Editor(props: {
   const designPanel = (
     <div className="space-y-3 rounded-lg border border-border bg-card p-3">
       <h2 className="text-sm font-semibold">Design basics</h2>
+      <label className="block space-y-1">
+        <span className="text-sm font-medium">Template</span>
+        <select
+          aria-label="Template"
+          value={doc.meta.templateId}
+          onChange={(e) => {
+            const id = e.target.value;
+            void loadTemplate(id).then((def) =>
+              patch((d) => ({
+                ...d,
+                meta: { ...d.meta, templateId: id },
+                theme: { ...d.theme, accent: def.tokens.accent },
+              })),
+            );
+          }}
+          className="min-h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+        >
+          {TEMPLATE_META.map((t) => (
+            <option key={t.id} value={t.id}>
+              {t.name} — {t.profession}
+            </option>
+          ))}
+        </select>
+      </label>
+      {template ? (
+        <p className="text-xs text-muted-foreground">
+          {template.atsSafe ? 'ATS-safe template. ' : 'Designed template (best for human readers). '}
+          {template.why}
+        </p>
+      ) : null}
       <div className="grid gap-3 sm:grid-cols-2">
         <label className="block space-y-1">
           <span className="text-sm font-medium">Regional mode</span>
@@ -802,6 +847,13 @@ export function Editor(props: {
           <div className="grid gap-4 lg:grid-cols-2">
             <div className={`space-y-3 ${mobileTab === 'preview' ? 'hidden lg:block' : ''}`}>
               {basicsForm}
+              <PhotoStudio
+                store={store}
+                resumeId={doc.id}
+                photo={doc.photo}
+                accent={doc.theme.accent}
+                onChange={(photo) => patch((d) => ({ ...d, photo }))}
+              />
               {sectionsList}
               {addSectionMenu}
               {sensitivePanel}
@@ -809,7 +861,11 @@ export function Editor(props: {
             </div>
             <div className={`${mobileTab === 'edit' ? 'hidden lg:block' : ''}`}>
               <div className="lg:sticky lg:top-20">
-                <ResumePreview doc={doc} photoUrl={photoUrl} />
+                {template ? (
+                  <TemplateView doc={doc} template={template} photoUrl={photoUrl} />
+                ) : (
+                  <ResumePreview doc={doc} photoUrl={photoUrl} />
+                )}
               </div>
             </div>
           </div>

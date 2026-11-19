@@ -16,7 +16,7 @@ describe('Editor', () => {
     const nameInput = screen.getByLabelText(/Full name/);
     await user.type(nameInput, 'Ayesha Khan');
     await waitFor(() => {
-      expect(screen.getByTestId('resume-preview')).toHaveTextContent('Ayesha Khan');
+      expect(screen.getByTestId('template-view')).toHaveTextContent('Ayesha Khan');
     });
     // Debounced autosave persists to the store.
     await waitFor(
