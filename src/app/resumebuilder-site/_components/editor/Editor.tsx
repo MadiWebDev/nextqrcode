@@ -900,7 +900,7 @@ export function Editor(props: {
   };
 
   return (
-    <div className="mx-auto max-w-[1600px] px-3 py-4 sm:px-5">
+    <div className="resume-editor-shell mx-auto max-w-[1600px] px-3 py-4 sm:px-5">
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <button type="button" className="inline-flex min-h-11 items-center gap-1.5 rounded-md border border-input px-3 text-sm font-medium" onClick={props.onBack}>
           <ArrowLeft className="h-4 w-4" aria-hidden /> All resumes
@@ -1005,8 +1005,8 @@ export function Editor(props: {
               Preview
             </button>
           </div>
-          <div className="grid gap-4 lg:grid-cols-2">
-            <div className={`space-y-3 ${mobileTab === 'preview' ? 'hidden lg:block' : ''}`}>
+          <div className="resume-editor-grid grid gap-4 lg:grid-cols-2">
+            <div className={`resume-editor-col space-y-3 ${mobileTab === 'preview' ? 'hidden lg:block' : ''}`}>
               {basicsForm}
               <PhotoStudio
                 store={store}
@@ -1027,7 +1027,7 @@ export function Editor(props: {
                 <ExportBar doc={doc} template={template} store={store} previewRootId="resume-preview-root" qrDataUrl={qrUrl || undefined} />
               </div>
             </div>
-            <div className={`${mobileTab === 'edit' ? 'hidden lg:block' : ''}`}>
+            <div className={`resume-preview-col ${mobileTab === 'edit' ? 'hidden lg:block' : ''}`}>
               <div id="resume-preview-root" className="resume-print-root lg:sticky lg:top-20">
                 {template ? (
                   <TemplateView doc={doc} template={template} photoUrl={photoUrl} qrUrl={qrUrl || undefined} />

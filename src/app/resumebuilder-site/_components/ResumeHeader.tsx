@@ -18,7 +18,7 @@ export function ResumeHeader() {
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center gap-4">
-          <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Resume Builder — home">
+          <Link href="/" className="flex shrink-0 items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element -- SVG brand mark served from /public */}
             <img src="/resumebuilder-logo.svg" alt="" width={40} height={40} className="h-10 w-10" />
             <span className="leading-tight">

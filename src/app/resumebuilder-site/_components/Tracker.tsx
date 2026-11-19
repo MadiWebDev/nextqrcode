@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { TRACKER_STATUSES, type ResumeDoc, type TrackerItem, type TrackerStatus } from '../_lib/schema';
 import { getStore, type ResumeStore } from '../_lib/db';
+import { isSafeLink } from '../_lib/validation';
 import { uid } from '../_lib/defaults';
 
 function stampNew(item: Omit<TrackerItem, 'updatedAt'>): TrackerItem {
@@ -133,7 +134,7 @@ export function Tracker() {
                   <article key={item.id} className="space-y-2 rounded-md border bg-card p-3 text-sm">
                     <p className="font-semibold">{item.role}</p>
                     <p className="text-muted-foreground">{item.company}</p>
-                    {item.url ? (
+                    {item.url && isSafeLink(item.url) ? (
                       <a href={item.url} target="_blank" rel="noreferrer" className="text-primary underline">
                         Job posting
                       </a>

@@ -413,4 +413,29 @@ div:has(> main .resumebuilder-site-root) > footer {
     break-after: auto;
     page-break-after: auto;
   }
+  /* Print layout (Phase 9 fix): printing lays out at paper width, where
+     the editor's two-column grid would push the preview off the page and
+     the lg: breakpoint would hide it entirely. Collapse to the resume
+     alone: no site chrome, no editor column, no shell padding. */
+  .resumebuilder-site-root > header,
+  .resumebuilder-site-root > footer {
+    display: none !important;
+  }
+  .resume-editor-shell {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .resume-editor-grid {
+    display: block !important;
+  }
+  .resume-editor-col {
+    display: none !important;
+  }
+  .resume-preview-col {
+    display: block !important;
+  }
+  .resume-print-root {
+    position: static !important;
+  }
 }

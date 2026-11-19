@@ -151,3 +151,38 @@ Append-only. Each entry: context, options, decision, consequences.
   step is named "Template".
 - **Consequences.** The guided flow ends with the choice beginners
   care about most, backed by the Phase 6 gallery data.
+
+## D-RB-11 — Print layout must collapse to the resume alone (Phase 9 fix)
+
+- **Context.** The Phase 9 acceptance test (Playwright `page.pdf()` +
+  pdf.js extraction, per D-RB-08) failed on the Phase 5 print pipeline:
+  printing lays out at paper width, where the editor's two-column grid
+  pushed the preview off the printable area and the `lg:` breakpoint
+  hid the preview column outright — the generated PDF was blank pages.
+  The on-screen preview and the print-media screenshot both looked
+  correct, which is why earlier gates missed it.
+- **Decision.** Print CSS now collapses the layout: site header/footer
+  are `display:none` in print, the editor shell loses its padding and
+  max-width, the grid becomes a block, the editor column is hidden and
+  the preview column is forced visible (marker classes
+  `resume-editor-shell/-grid/-col`, `resume-preview-col`). The export
+  bar's per-document `@page` injection is unchanged.
+- **Consequences.** `page.pdf()` produces a one-page, selectable-text
+  PDF whose first extracted line is the candidate's name (verified in
+  e2e). Any future editor layout change must keep the marker classes.
+
+## D-RB-12 — Unsafe link schemes are stripped at every render sink (Phase 9 security fix)
+
+- **Context.** `sanitiseRichText`/`isSafeLink` existed from Phase 2 but
+  were only exercised by tests; the renderer, the DOCX writer and the
+  job tracker all emitted user-supplied URLs as hrefs unchecked. A
+  resume arriving via import or a share link is untrusted data, so a
+  `javascript:` link mark would have become a clickable anchor.
+- **Decision.** Every href sink now checks `isSafeLink` (http/https/
+  mailto/tel only): TemplateView rich-text links, the DOCX
+  ExternalHyperlink writer, and tracker posting links. Unsafe values
+  render as plain text. A component regression test
+  (`link-safety.test.tsx`) locks the behaviour in.
+- **Consequences.** Defence at the sink, so every current and future
+  ingestion path (import, share, backup restore, manual edit) is
+  covered without a separate sanitising walker per path.

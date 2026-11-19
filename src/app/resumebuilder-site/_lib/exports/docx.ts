@@ -25,6 +25,7 @@ import {
   type ParagraphChild,
 } from 'docx';
 import type { ResumeDoc, RichSpan, RichText } from '../schema';
+import { isSafeLink } from '../validation';
 import type { TemplateDef, Block } from '../templates/types';
 import {
   buildBlocks,
@@ -41,7 +42,7 @@ export interface DocxAssets {
 function spanChildren(spans: RichSpan[]): ParagraphChild[] {
   return spans.map((span) => {
     const marks = span.marks ?? {};
-    if (marks.link) {
+    if (marks.link && isSafeLink(marks.link)) {
       return new ExternalHyperlink({
         link: marks.link,
         children: [

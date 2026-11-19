@@ -7,6 +7,7 @@ import { paginate, usableHeight } from '../_lib/templates/types';
 import { buildBlocks } from '../_lib/templates/build-blocks';
 import type { EntryPayload, HeaderPayload, SkillsPayload } from '../_lib/templates/build-blocks';
 import { fontPair } from '../_lib/fonts';
+import { isSafeLink } from '../_lib/validation';
 
 /**
  * Template renderer: consumes the shared block list (reading order is
@@ -26,7 +27,7 @@ function Rich({ blocks, bullet }: { blocks: RichText; bullet: string }) {
         b.type === 'paragraph' ? (
           <p key={i} className="whitespace-pre-wrap">
             {b.spans.map((s, j) =>
-              s.marks?.link ? (
+              s.marks?.link && isSafeLink(s.marks.link) ? (
                 <a key={j} href={s.marks.link} className="underline" target="_blank" rel="noreferrer">
                   {s.text}
                 </a>
