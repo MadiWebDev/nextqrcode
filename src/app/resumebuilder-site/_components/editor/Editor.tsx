@@ -46,6 +46,7 @@ import { TemplateView } from '../TemplateView';
 import { loadTemplate, TEMPLATE_META } from '../../_lib/templates/registry';
 import type { TemplateDef } from '../../_lib/templates/types';
 import { PhotoStudio } from './PhotoStudio';
+import { ExportBar } from './ExportBar';
 
 const SENSITIVE_LABELS: Record<string, { label: string; note: string }> = {
   dateOfBirth: {
@@ -858,9 +859,13 @@ export function Editor(props: {
               {addSectionMenu}
               {sensitivePanel}
               {designPanel}
+              <div className="rounded-lg border bg-card p-3">
+                <h3 className="mb-2 text-sm font-semibold">Download &amp; export</h3>
+                <ExportBar doc={doc} template={template} store={store} previewRootId="resume-preview-root" />
+              </div>
             </div>
             <div className={`${mobileTab === 'edit' ? 'hidden lg:block' : ''}`}>
-              <div className="lg:sticky lg:top-20">
+              <div id="resume-preview-root" className="resume-print-root lg:sticky lg:top-20">
                 {template ? (
                   <TemplateView doc={doc} template={template} photoUrl={photoUrl} />
                 ) : (

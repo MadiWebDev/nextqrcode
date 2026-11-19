@@ -384,3 +384,33 @@ div:has(> main .resumebuilder-site-root) > footer {
     font-size: 16px;
   }
 }
+
+/* ── Resume Builder: print pipeline (docs/resumebuilder/PDF_SPIKE.md) ──
+   Only the resume pages print; the app chrome, editor and other sites'
+   content are hidden. @page size is injected at print time by the
+   export bar (A4 or Letter per the resume's own setting). */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .resume-page,
+  .resume-page * {
+    visibility: visible;
+  }
+  .resume-print-root {
+    overflow: visible !important;
+    max-height: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  .resume-page {
+    box-shadow: none !important;
+    margin: 0 auto !important;
+    break-after: page;
+    page-break-after: always;
+  }
+  .resume-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}

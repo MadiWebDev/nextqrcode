@@ -112,3 +112,20 @@ Append-only. Each entry: context, options, decision, consequences.
   Phase 6 gallery ships, pointing at the same registry the gallery uses.
 - **Consequences.** No dead UI; one rename owed in Phase 6 (tracked in
   PROGRESS.md).
+
+## D-RB-08 — PDF pipeline: print-CSS from the shared page model
+
+- **Context.** Spec §10 requires a time-boxed spike: (a) HTML/CSS paged
+  layout via a robust client-side print method vs (b) @react-pdf/pdf-lib
+  over a shared layout schema, scored on parity, RTL shaping, fonts,
+  bundle, speed, links and tagging. Full write-up: PDF_SPIKE.md.
+- **Decision.** Option (a). pdf-lib performs no complex-script shaping,
+  so Urdu/Arabic resumes — a hard spec requirement — would render with
+  unjoined, mis-ordered letters. Print-CSS gives exact preview parity
+  from the one template source and browser-grade shaping. The print
+  dialog is the PDF route, with on-screen instructions.
+- **Consequences.** No direct-download PDF button (the DOCX is the
+  direct download); the all-formats ZIP documents this. Browser-print
+  PDFs are untagged — the limitation is stated in the spike, the UI
+  differences note and the final report. Acceptance is by Playwright
+  `page.pdf()` + pdf.js text-extraction order tests.
