@@ -37,6 +37,7 @@ import { getAllCountries } from '@/data/countries';
 import { getAllPaymentSchemes } from '@/data/payments';
 import { getAllLabelSheets } from '@/data/labels';
 import { isIndexable } from '@/lib/seo/indexing-policy';
+import { publishedSeoPages } from './resumebuilder-site/_lib/seo-pages';
 
 const BASE = siteConfig.url;
 
@@ -685,7 +686,16 @@ function socialcalendarSiteEntries(): MetadataRoute.Sitemap {
 // are never listed here.
 function resumebuilderSiteEntries(): MetadataRoute.Sitemap {
   const RB = 'https://resumebuilder.freeqrcode.tools';
-  const paths: Array<[string, number]> = [['/', 1.0]];
+  const paths: Array<[string, number]> = [
+    ['/', 1.0],
+    ['/templates', 0.9],
+  ];
+  // Phase 8: only SEO pages that PASS the quality gate are listed —
+  // publishedSeoPages() is the shipping filter (D-RB-01).
+  const segment = { role: 'resume-templates', country: 'cv-templates', guide: 'guides' } as const;
+  for (const page of publishedSeoPages()) {
+    paths.push([`/${segment[page.type]}/${page.slug}`, page.type === 'guide' ? 0.7 : 0.8]);
+  }
   return paths.map(([path, priority]) => ({
     url: `${RB}${path}`,
     changeFrequency: 'monthly',

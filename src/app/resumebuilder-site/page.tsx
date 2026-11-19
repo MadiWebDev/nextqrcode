@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { JsonLd } from '@/lib/seo/jsonld';
+import { publishedSeoPages } from './_lib/seo-pages';
 import { AdSlot } from '@/components/AdSlot';
 import {
   ShieldCheck,
@@ -184,6 +185,31 @@ export default function ResumeBuilderHomePage() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section id="guides" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+        <h2 className="text-2xl font-bold tracking-tight">Resume guides by job and country</h2>
+        <p className="mt-3 max-w-3xl text-muted-foreground">
+          Practical, specific guidance — what employers in each profession actually scan for, the
+          skills vocabulary they search, the mistakes that sink applications, and the country
+          conventions for photos, personal details and length.
+        </p>
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {publishedSeoPages().map((p) => {
+            const segment = p.type === 'role' ? 'resume-templates' : p.type === 'country' ? 'cv-templates' : 'guides';
+            return (
+              <li key={p.slug}>
+                <Link
+                  href={`/${segment}/${p.slug}`}
+                  className="block rounded-lg border border-border p-4 font-medium hover:bg-muted"
+                >
+                  {p.h1}
+                  <span className="mt-1 block text-sm font-normal text-muted-foreground">{p.description}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </section>
 
       <section id="privacy" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
