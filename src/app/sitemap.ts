@@ -81,6 +81,7 @@ export async function generateSitemaps() {
     { id: 8 }, // invoice-site (invoicegenerator subdomain, absolute URLs)
     { id: 9 }, // imageresizer-site (imageresizer subdomain, absolute URLs)
     { id: 10 }, // socialcalendar-site (socialcalendar subdomain, absolute URLs)
+    { id: 11 }, // resumebuilder-site (resumebuilder subdomain, absolute URLs)
   ];
 }
 
@@ -117,6 +118,8 @@ export default async function sitemap(props: {
       return imageresizerSiteEntries();
     case 10:
       return socialcalendarSiteEntries();
+    case 11:
+      return resumebuilderSiteEntries();
     default:
       return [];
   }
@@ -668,6 +671,23 @@ function socialcalendarSiteEntries(): MetadataRoute.Sitemap {
   ];
   return paths.map(([path, priority]) => ({
     url: `${SC}${path}`,
+    changeFrequency: 'monthly',
+    priority,
+  }));
+}
+
+// ── SECTION 11: Resume Builder site (resumebuilder subdomain) ───────────────
+// Absolute URLs on the resumebuilder host. Only genuinely published,
+// indexable pages are listed: the landing page in Phase 1; guides and
+// role/country pages are appended by the SEO phase as they pass the
+// content quality gate (docs/resumebuilder/DECISIONS.md D-RB-01). The
+// workspace (/app) and share viewer (/view) are noindex by design and
+// are never listed here.
+function resumebuilderSiteEntries(): MetadataRoute.Sitemap {
+  const RB = 'https://resumebuilder.freeqrcode.tools';
+  const paths: Array<[string, number]> = [['/', 1.0]];
+  return paths.map(([path, priority]) => ({
+    url: `${RB}${path}`,
     changeFrequency: 'monthly',
     priority,
   }));

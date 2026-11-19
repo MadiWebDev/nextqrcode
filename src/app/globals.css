@@ -261,6 +261,27 @@ div:has(> main .socialcalendar-site-root) > footer {
   display: none !important;
 }
 
+/*
+ * Resume Builder subdomain site (resumebuilder.freeqrcode.tools):
+ * same treatment — hide the main site's AppHeader / AppFooter on
+ * resumebuilder-site pages only (pages render .resumebuilder-site-root
+ * inside <main>). The resume site ships its own header/footer.
+ */
+div:has(> main .resumebuilder-site-root) > header,
+div:has(> main .resumebuilder-site-root) > footer {
+  display: none !important;
+}
+
+/* Resume Builder app: respect reduced-motion inside the workspace. */
+@media (prefers-reduced-motion: reduce) {
+  .resumebuilder-site-root *,
+  .resumebuilder-site-root *::before,
+  .resumebuilder-site-root *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Social Calendar app: respect reduced-motion inside the workspace. */
 @media (prefers-reduced-motion: reduce) {
   .socialcalendar-site-root *,
