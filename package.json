@@ -17,7 +17,8 @@
     "test:e2e": "playwright test",
     "prepare": "husky",
     "content:audit": "npx tsx scripts/content-audit.ts",
-    "lhci": "lhci autorun"
+    "lhci": "lhci autorun",
+    "new:template": "node scripts/new-resume-template.mjs"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.3",
@@ -57,6 +58,7 @@
     "cmdk": "^1.1.1",
     "date-fns": "^4.4.0",
     "dexie": "^4.4.7",
+    "docx": "^9.16.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^14.0.0",
     "gifenc": "1.0.3",
@@ -67,7 +69,9 @@
     "jspdf": "^4.2.1",
     "jsqr": "^1.4.0",
     "jszip": "^3.10.2",
+    "libphonenumber-js": "^1.13.17",
     "lucide-react": "^1.52.0",
+    "mammoth": "^1.13.0",
     "mongodb": "^6.21.0",
     "mongoose": "^9.11.2",
     "motion-dom": "^14.0.0",

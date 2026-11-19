@@ -87,3 +87,28 @@ Append-only. Each entry: context, options, decision, consequences.
 - **Consequences.** One less per-host control; no practical SEO loss
   for this product. Revisit if the platform ever moves robots into the
   proxy.
+
+## D-RB-06 — New dependencies: docx, libphonenumber-js, mammoth
+
+- **Context.** The spec requires a genuine editable DOCX (§10), phone
+  formatting by country (§6) and DOCX resume import (§12). None of the
+  three libraries existed in the repo.
+- **Decision.** Add `docx` (DOCX writer, Phase 5), `libphonenumber-js`
+  (lazy-loaded on phone-field blur in the editor, Phase 3) and `mammoth`
+  (DOCX text extraction for import, Phase 7). All are dynamically
+  imported at the point of use so none of them enters the initial
+  editor bundle. package-lock stays ~489 KB, within the push channel's
+  per-file comfort zone.
+- **Consequences.** Three more dependencies to keep patched; each is
+  the standard tool for its job and has no credible in-repo substitute.
+
+## D-RB-07 — Guided-mode step 8 is "Design" until the template gallery lands
+
+- **Context.** Spec §6's wizard step 8 is "template". Templates arrive
+  in Phase 4 and the gallery in Phase 6; a template step in Phase 3
+  would have exactly one entry.
+- **Decision.** The wizard's eighth step is "Design" (regional mode,
+  page size, accent) in Phase 3; it becomes the template step when the
+  Phase 6 gallery ships, pointing at the same registry the gallery uses.
+- **Consequences.** No dead UI; one rename owed in Phase 6 (tracked in
+  PROGRESS.md).
