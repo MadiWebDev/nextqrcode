@@ -1,4 +1,5 @@
 import type { TemplateDef, TemplateTokens } from './types';
+import { fontPair } from '../fonts';
 
 /** Fill token defaults so each template file states only what differs. */
 export function tokens(partial: Partial<TemplateTokens>): TemplateTokens {
@@ -29,9 +30,15 @@ type DefInput = Omit<TemplateDef, 'tokens' | 'supportsRtl' | 'pageSizes'> & {
 };
 
 export function defineTemplate(input: DefInput): TemplateDef {
+  const pair = fontPair(input.fontPair ?? 'georgia-arial');
+  const merged: Partial<TemplateTokens> = {
+    headingFont: pair.heading,
+    bodyFont: pair.body,
+    ...input.tokens,
+  };
   return {
     ...input,
-    tokens: tokens(input.tokens),
+    tokens: tokens(merged),
     supportsRtl: input.supportsRtl ?? true,
     pageSizes: input.pageSizes ?? ['a4', 'letter'],
   };

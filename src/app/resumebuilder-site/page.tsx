@@ -42,7 +42,7 @@ const FAQS = [
 const FEATURES = [
   {
     icon: LayoutTemplate,
-    title: '45+ profession templates',
+    title: '47 profession templates',
     body: 'Structurally different designs for teachers, engineers, medical staff, trades, business and more — not recolours of one layout. Each states plainly whether it is ATS-safe or designed.',
   },
   {
@@ -96,7 +96,7 @@ export default function ResumeBuilderHomePage() {
             url: 'https://resumebuilder.freeqrcode.tools/',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
             description:
-              'Free resume and CV builder with 45+ profession-specific templates, real PDF and DOCX export, profile photo and QR code support. All data stays in the browser.',
+              'Free resume and CV builder with 47 profession-specific templates, real PDF and DOCX export, profile photo and QR code support. All data stays in the browser.',
           },
           {
             '@context': 'https://schema.org',
@@ -116,7 +116,7 @@ export default function ResumeBuilderHomePage() {
             Free resume builder &amp; CV maker — no sign-up, no watermark
           </h1>
           <p className="mt-5 text-lg text-muted-foreground">
-            Pick from 45+ templates designed for real professions, add your photo and an optional
+            Pick from 47 templates designed for real professions, add your photo and an optional
             QR code, check your resume against an explainable ATS checklist, and download a real
             PDF or editable Word file. Everything happens in your browser: your data never leaves
             your device.

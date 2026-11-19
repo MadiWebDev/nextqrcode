@@ -129,3 +129,25 @@ Append-only. Each entry: context, options, decision, consequences.
   PDFs are untagged — the limitation is stated in the spike, the UI
   differences note and the final report. Acceptance is by Playwright
   `page.pdf()` + pdf.js text-extraction order tests.
+
+## D-RB-09 — Font pairs are the single font source; templates declare their pair
+
+- **Context.** Theme.fontPair existed in the schema from Phase 2 but
+  templates also carried heading/body stacks in their tokens — two
+  sources that could disagree.
+- **Decision.** The chosen font pair always wins in the renderer;
+  each template declares the pair it was designed with, and switching
+  templates adopts that pair (the user can then override it). Token
+  font stacks derive from the declared pair in defineTemplate.
+- **Consequences.** One predictable rule ("the picker shows what you
+  get"), and DOCX/PNG fallbacks inherit the same stacks.
+
+## D-RB-10 — Wizard step 8 is "Template" (Phase 6), closing D-RB-07
+
+- **Context.** D-RB-07 deferred the wizard's final step name until a
+  real gallery existed.
+- **Decision.** Step 8 is now a template picker (all templates with
+  ATS-safe/Designed labelling) followed by the design panel, and the
+  step is named "Template".
+- **Consequences.** The guided flow ends with the choice beginners
+  care about most, backed by the Phase 6 gallery data.

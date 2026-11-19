@@ -217,6 +217,8 @@ export const SectionSchema = z.object({
   /** Display title — renameable per resume. */
   title: z.string(),
   visible: z.boolean().default(true),
+  /** Manual page break before this section (spec §7). */
+  pageBreakBefore: z.boolean().optional(),
   /** Per-section layout options (e.g. skills display: tags|bars|columns). */
   layout: z.record(z.string(), z.string()).optional(),
   // Payloads — exactly one is meaningful per kind; all optional so a
