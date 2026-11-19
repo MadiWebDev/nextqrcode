@@ -1,5 +1,6 @@
 'use client';
 
+import { importFile, type ImportResult } from '../_lib/importers';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   AlertTriangle,
@@ -69,6 +70,8 @@ async function maybeAutoSnapshot(store: ResumeStore, doc: ResumeDoc): Promise<vo
 }
 
 export function Workspace() {
+  const [importReview, setImportReview] = useState<ImportResult | null>(null);
+  const [importError, setImportError] = useState<string | null>(null);
   const [store, setStore] = useState<ResumeStore | null>(null);
   const [health, setHealth] = useState<StorageHealth | null>(null);
   const [resumes, setResumes] = useState<ResumeDoc[]>([]);
@@ -210,7 +213,78 @@ export function Workspace() {
         >
           <FilePlus2 className="h-4 w-4" aria-hidden /> New resume
         </button>
+        <label className="inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-md border border-input px-4 text-sm font-medium">
+          Import a resume
+          <input
+            type="file"
+            accept=".pdf,.docx,.json,.zip"
+            className="sr-only"
+            aria-label="Import a resume from PDF, DOCX, JSON or a LinkedIn ZIP"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              e.target.value = '';
+              if (!file) return;
+              setImportError(null);
+              void importFile(file)
+                .then((result) => setImportReview(result))
+                .catch(() =>
+                  setImportError('That file could not be read as a resume. Supported files: PDF, DOCX, JSON (JSON Resume) and LinkedIn export ZIPs.'),
+                );
+            }}
+          />
+        </label>
       </div>
+      {importError ? (
+        <p role="alert" className="mt-4 rounded-lg border border-destructive p-3 text-sm text-destructive">
+          {importError}
+        </p>
+      ) : null}
+      {importReview ? (
+        <div className="mt-4 rounded-lg border border-border bg-card p-4" role="dialog" aria-label="Review imported resume">
+          <h2 className="font-semibold">Review your import ({importReview.source})</h2>
+          <p className="mt-1 text-sm">
+            Name found: <strong>{importReview.doc.basics.name || '—'}</strong>
+            {importReview.doc.basics.headline ? <> · {importReview.doc.basics.headline}</> : null}
+          </p>
+          <ul className="mt-2 list-disc pl-5 text-sm text-muted-foreground">
+            {importReview.doc.sections.map((sec) => (
+              <li key={sec.id}>
+                {sec.title}: {(sec.experience?.length ?? 0) + (sec.education?.length ?? 0)} entries
+                {sec.skillGroups?.length ? `, ${sec.skillGroups.reduce((n, g) => n + g.skills.length, 0)} skills` : ''}
+                {sec.text?.length ? ', text' : ''}
+              </li>
+            ))}
+          </ul>
+          {importReview.warnings.map((w) => (
+            <p key={w} className="mt-2 text-sm text-amber-700 dark:text-amber-300">{w}</p>
+          ))}
+          <p className="mt-2 text-sm text-muted-foreground">
+            Saving creates a NEW resume — your existing resumes are never overwritten by an import.
+          </p>
+          <div className="mt-3 flex gap-2">
+            <button
+              type="button"
+              className="min-h-11 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground"
+              onClick={() => {
+                void store.putResume(importReview.doc).then(() => {
+                  setImportReview(null);
+                  setMessage('Imported resume saved — open it to review and polish.');
+                  void refresh(store);
+                });
+              }}
+            >
+              Save as new resume
+            </button>
+            <button
+              type="button"
+              className="min-h-11 rounded-md border border-input px-4 text-sm font-medium"
+              onClick={() => setImportReview(null)}
+            >
+              Discard
+            </button>
+          </div>
+        </div>
+      ) : null}
 
       {health && !health.persistent && (
         <div role="alert" className="mt-4 flex gap-2 rounded-lg border border-amber-500 bg-amber-50 p-3 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-100">

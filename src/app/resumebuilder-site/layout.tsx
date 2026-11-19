@@ -10,6 +10,7 @@ import {
   Work_Sans,
 } from 'next/font/google';
 import { ResumeHeader } from './_components/ResumeHeader';
+import { ResumePwaSetup } from './_components/ResumePwaSetup';
 import { ResumeFooter } from './_components/ResumeFooter';
 
 // Self-hosted resume fonts (spec §7): loaded once for this site only,
@@ -58,6 +59,7 @@ export const metadata: Metadata = {
     icon: [{ url: '/resumebuilder-logo.svg', type: 'image/svg+xml' }],
     shortcut: '/resumebuilder-logo.svg',
   },
+  manifest: '/resumebuilder-manifest.webmanifest',
 };
 
 /**
@@ -72,6 +74,7 @@ export default function ResumeBuilderLayout({ children }: { children: ReactNode 
       <ResumeHeader />
       <div className="flex-1">{children}</div>
       <ResumeFooter />
+      <ResumePwaSetup />
     </div>
   );
 }

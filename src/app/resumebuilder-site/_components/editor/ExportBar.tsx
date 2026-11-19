@@ -17,21 +17,27 @@ import { buildDocx, type DocxAssets } from '../../_lib/exports/docx';
 import { toMarkdown, toPlainText, toStandaloneHtml } from '../../_lib/exports/text';
 import { exportPageImage } from '../../_lib/exports/image';
 import { buildAllFormatsZip, saveBlob } from '../../_lib/exports/download';
+import { encodeShareLink } from '../../_lib/share';
 
 export function ExportBar({
   doc,
   template,
   store,
   previewRootId,
+  qrDataUrl,
 }: {
   doc: ResumeDoc;
   template: TemplateDef | null;
   store: ResumeStore;
   previewRootId: string;
+  qrDataUrl?: string;
 }) {
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [shareNote, setShareNote] = useState<string | null>(null);
+  const [includeSensitive, setIncludeSensitive] = useState(false);
+  const hasSensitive = Object.values(doc.sensitive).some((f) => f?.include && f.value.trim());
   const titleBeforePrint = useRef<string>('');
 
   const filename = useCallback(
@@ -58,6 +64,15 @@ export function ExportBar({
     }
     return { photo: { data, widthPx, heightPx } };
   }, [doc.photo, store]);
+
+  const allAssets = useCallback(async (): Promise<DocxAssets> => {
+    const base = await photoAsset();
+    if (qrDataUrl) {
+      const buf = await (await fetch(qrDataUrl)).arrayBuffer();
+      return { ...base, qrPng: buf };
+    }
+    return base;
+  }, [photoAsset, qrDataUrl]);
 
   const printPdf = useCallback(() => {
     titleBeforePrint.current = document.title;
@@ -106,7 +121,7 @@ export function ExportBar({
         disabled={busy !== null}
         onClick={() =>
           void run('docx', async () => {
-            const blob = await buildDocx(doc, tpl, await photoAsset());
+            const blob = await buildDocx(doc, tpl, await allAssets());
             saveBlob(blob, filename('docx'));
           })
         }
@@ -186,6 +201,24 @@ export function ExportBar({
         type="button"
         size="sm"
         variant="outline"
+        onClick={() => {
+          void (async () => {
+            const link = await encodeShareLink(doc, includeSensitive, window.location.origin);
+            try {
+              await navigator.clipboard.writeText(link);
+              setShareNote('Share link copied. Anyone with the link can read this resume — the photo is never included.');
+            } catch {
+              setShareNote(link);
+            }
+          })();
+        }}
+      >
+        Copy share link
+      </Button>
+      <Button
+        type="button"
+        size="sm"
+        variant="outline"
         disabled={busy !== null}
         onClick={() =>
           void run('zip', async () => {
@@ -198,7 +231,7 @@ export function ExportBar({
                 pageImages.push({ name: `page-${i + 1}.png`, blob });
               }
             }
-            const zip = await buildAllFormatsZip(doc, tpl, { ...(await photoAsset()), pageImages });
+            const zip = await buildAllFormatsZip(doc, tpl, { ...(await allAssets()), pageImages });
             saveBlob(zip, filename('zip'));
           })
         }
@@ -238,6 +271,23 @@ export function ExportBar({
       {error ? (
         <p role="alert" className="text-sm text-destructive">
           {error}
+        </p>
+      ) : null}
+      {hasSensitive ? (
+        <label className="flex min-h-11 items-center gap-2 text-xs text-muted-foreground">
+          <input
+            type="checkbox"
+            className="h-4 w-4"
+            checked={includeSensitive}
+            onChange={(e) => setIncludeSensitive(e.target.checked)}
+          />
+          Include the sensitive fields I marked (ID numbers and similar) in the share link — anyone
+          with the link could read them
+        </label>
+      ) : null}
+      {shareNote ? (
+        <p className="break-all text-xs text-muted-foreground" role="status">
+          {shareNote}
         </p>
       ) : null}
 

@@ -44,6 +44,9 @@ import { TextField } from './fields';
 import { SectionEditor } from './SectionEditor';
 import { PhotoStudio } from './PhotoStudio';
 import { ExportBar } from './ExportBar';
+import { QrPanel } from './QrPanel';
+import { ReviewPanel } from './ReviewPanel';
+import { CoverLetterPanel } from './CoverLetterPanel';
 import { ResumePreview } from './Preview';
 import { TemplateView } from '../TemplateView';
 import { loadTemplate, TEMPLATE_META } from '../../_lib/templates/registry';
@@ -234,6 +237,7 @@ export function Editor(props: {
   const [showShortcuts, setShowShortcuts] = useState(false);
   const [photoUrl, setPhotoUrl] = useState<string | undefined>(undefined);
   const [template, setTemplate] = useState<TemplateDef | null>(null);
+  const [qrUrl, setQrUrl] = useState<string>('');
 
   useEffect(() => {
     let cancelled = false;
@@ -1011,19 +1015,22 @@ export function Editor(props: {
                 accent={doc.theme.accent}
                 onChange={(photo) => patch((d) => ({ ...d, photo }))}
               />
+              <QrPanel doc={doc} patch={patch} onQrReady={setQrUrl} />
+              <ReviewPanel doc={doc} template={template} patch={patch} />
+              <CoverLetterPanel doc={doc} store={store} />
               {sectionsList}
               {addSectionMenu}
               {sensitivePanel}
               {designPanel}
               <div className="rounded-lg border bg-card p-3">
                 <h3 className="mb-2 text-sm font-semibold">Download &amp; export</h3>
-                <ExportBar doc={doc} template={template} store={store} previewRootId="resume-preview-root" />
+                <ExportBar doc={doc} template={template} store={store} previewRootId="resume-preview-root" qrDataUrl={qrUrl || undefined} />
               </div>
             </div>
             <div className={`${mobileTab === 'edit' ? 'hidden lg:block' : ''}`}>
               <div id="resume-preview-root" className="resume-print-root lg:sticky lg:top-20">
                 {template ? (
-                  <TemplateView doc={doc} template={template} photoUrl={photoUrl} />
+                  <TemplateView doc={doc} template={template} photoUrl={photoUrl} qrUrl={qrUrl || undefined} />
                 ) : (
                   <ResumePreview doc={doc} photoUrl={photoUrl} />
                 )}

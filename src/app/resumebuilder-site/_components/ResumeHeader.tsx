@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
-  { href: '/#templates', label: 'Templates' },
+  { href: '/templates', label: 'Templates' },
+  { href: '/tracker', label: 'Job tracker' },
   { href: '/#features', label: 'Features' },
   { href: '/#privacy', label: 'Privacy' },
   { href: '/#faq', label: 'FAQ' },
