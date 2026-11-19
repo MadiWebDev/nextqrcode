@@ -6,6 +6,8 @@ import type { Block, TemplateDef } from '../_lib/templates/types';
 import { paginate, usableHeight } from '../_lib/templates/types';
 import { buildBlocks } from '../_lib/templates/build-blocks';
 import type { EntryPayload, HeaderPayload, SkillsPayload } from '../_lib/templates/build-blocks';
+import { fontPair } from '../_lib/fonts';
+import { isSafeLink } from '../_lib/validation';
 
 /**
  * Template renderer: consumes the shared block list (reading order is
@@ -25,7 +27,7 @@ function Rich({ blocks, bullet }: { blocks: RichText; bullet: string }) {
         b.type === 'paragraph' ? (
           <p key={i} className="whitespace-pre-wrap">
             {b.spans.map((s, j) =>
-              s.marks?.link ? (
+              s.marks?.link && isSafeLink(s.marks.link) ? (
                 <a key={j} href={s.marks.link} className="underline" target="_blank" rel="noreferrer">
                   {s.text}
                 </a>
@@ -363,8 +365,15 @@ export function TemplateView(props: {
   qrUrl?: string;
 }) {
   const { doc, template } = props;
-  const t = template.tokens;
-  const blocks = useMemo(() => buildBlocks(doc, template), [doc, template]);
+  // The user's chosen font pair overrides the template's designed
+  // stacks (spec §7); everything else about the tokens stays.
+  const pair = fontPair(doc.theme.fontPair);
+  const effTemplate = useMemo<TemplateDef>(
+    () => ({ ...template, tokens: { ...template.tokens, headingFont: pair.heading, bodyFont: pair.body } }),
+    [template, pair],
+  );
+  const t = effTemplate.tokens;
+  const blocks = useMemo(() => buildBlocks(doc, effTemplate), [doc, effTemplate]);
   const header = blocks.find((b) => b.kind === 'header');
   const content = blocks.filter((b) => b.kind !== 'header');
   const usable = usableHeight(doc.theme.pageSize, doc.theme.margin);
@@ -380,7 +389,7 @@ export function TemplateView(props: {
   const renderBlocks = (list: Block[], keyPrefix: string) =>
     list.map((b) => {
       if (b.kind === 'section-title') sectionCounter += 1;
-      return <BlockView key={`${keyPrefix}-${b.id}`} block={b} template={template} doc={doc} sectionIndex={sectionCounter} />;
+      return <BlockView key={`${keyPrefix}-${b.id}`} block={b} template={effTemplate} doc={doc} sectionIndex={sectionCounter} />;
     });
 
   const isLabelColumn = template.layout === 'label-column';
@@ -411,7 +420,7 @@ export function TemplateView(props: {
             }}
           >
             {pageIdx === 0 && header ? (
-              <HeaderBlock payload={header.payload as HeaderPayload} template={template} photoUrl={props.photoUrl} qrUrl={props.qrUrl} doc={doc} />
+              <HeaderBlock payload={header.payload as HeaderPayload} template={effTemplate} photoUrl={props.photoUrl} qrUrl={props.qrUrl} doc={doc} />
             ) : null}
             {template.columns === 2 ? (
               <div

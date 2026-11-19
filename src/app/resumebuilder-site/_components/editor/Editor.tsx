@@ -22,6 +22,7 @@ import {
   ArrowLeft,
   Eye,
   EyeOff,
+  FileSymlink,
   GripVertical,
   Plus,
   Redo2,
@@ -41,11 +42,18 @@ import type { ResumeStore } from '../../_lib/db';
 import { createDebouncedSaver, openTabChannel, isConflict, type SaveStatus } from '../../_lib/autosave';
 import { TextField } from './fields';
 import { SectionEditor } from './SectionEditor';
+import { PhotoStudio } from './PhotoStudio';
+import { ExportBar } from './ExportBar';
+import { QrPanel } from './QrPanel';
+import { ReviewPanel } from './ReviewPanel';
+import { CoverLetterPanel } from './CoverLetterPanel';
 import { ResumePreview } from './Preview';
 import { TemplateView } from '../TemplateView';
 import { loadTemplate, TEMPLATE_META } from '../../_lib/templates/registry';
+import { buildBlocks } from '../../_lib/templates/build-blocks';
+import { paginate, usableHeight } from '../../_lib/templates/types';
+import { FONT_PAIRS } from '../../_lib/fonts';
 import type { TemplateDef } from '../../_lib/templates/types';
-import { PhotoStudio } from './PhotoStudio';
 
 const SENSITIVE_LABELS: Record<string, { label: string; note: string }> = {
   dateOfBirth: {
@@ -82,13 +90,14 @@ const WIZARD_STEPS = [
   'Education',
   'Skills',
   'Extras',
-  'Design',
+  'Template',
 ] as const;
 
 function SortableSection(props: {
   section: Section;
   children: React.ReactNode;
   onToggleVisible: () => void;
+  onTogglePageBreak: () => void;
   onRename: (title: string) => void;
   onDelete: () => void;
 }) {
@@ -139,6 +148,16 @@ function SortableSection(props: {
         )}
         <button
           type="button"
+          aria-label={props.section.pageBreakBefore ? `Remove page break before ${props.section.title}` : `Start ${props.section.title} on a new page`}
+          aria-pressed={props.section.pageBreakBefore === true}
+          title="Start this section on a new page"
+          className={`flex h-11 w-11 items-center justify-center rounded border ${props.section.pageBreakBefore ? 'border-primary bg-primary/10' : 'border-input'}`}
+          onClick={props.onTogglePageBreak}
+        >
+          <FileSymlink className="h-4 w-4" aria-hidden />
+        </button>
+        <button
+          type="button"
           aria-label={props.section.visible ? `Hide ${props.section.title}` : `Show ${props.section.title}`}
           className="flex h-11 w-11 items-center justify-center rounded border border-input"
           onClick={props.onToggleVisible}
@@ -155,6 +174,48 @@ function SortableSection(props: {
         </button>
       </div>
       <div className="p-3">{props.children}</div>
+    </div>
+  );
+}
+
+function FitToPage(props: {
+  doc: ResumeDoc;
+  template: TemplateDef | null;
+  onScale: (fontScale: number) => void;
+}) {
+  const [note, setNote] = useState<string | null>(null);
+  const { doc, template } = props;
+  if (!template) return null;
+  const pages = paginate(buildBlocks(doc, template), usableHeight(doc.theme.pageSize, doc.theme.margin)).length;
+  const fit = () => {
+    // Shrink the font scale until the estimate fits one page, never
+    // below a ~9px effective body size (spec §7 readability floor).
+    const floor = Math.max(0.6, 9 / template.tokens.baseSize);
+    let scale = doc.theme.fontScale;
+    let count = pages;
+    while (count > 1 && scale > floor) {
+      scale = Math.max(floor, Math.round((scale - 0.03) * 100) / 100);
+      const scaled = { ...doc, theme: { ...doc.theme, fontScale: scale } };
+      count = paginate(buildBlocks(scaled, template), usableHeight(doc.theme.pageSize, doc.theme.margin)).length;
+    }
+    props.onScale(scale);
+    setNote(
+      count > 1
+        ? `Even at the smallest readable size this resume needs ${count} pages. Shortening the oldest or least relevant entries is better than shrinking further.`
+        : `Adjusted the text size to ${Math.round(scale * 100)}% so everything fits on one page.`,
+    );
+  };
+  return (
+    <div className="space-y-1">
+      <p className="text-sm">
+        Length: <strong>{pages} {pages === 1 ? 'page' : 'pages'}</strong>
+        {pages > 1 ? (
+          <button type="button" className="ml-2 min-h-11 rounded-md border border-input px-3 text-sm font-medium" onClick={fit}>
+            Fit to one page
+          </button>
+        ) : null}
+      </p>
+      {note ? <p className="text-xs text-muted-foreground">{note}</p> : null}
     </div>
   );
 }
@@ -176,6 +237,7 @@ export function Editor(props: {
   const [showShortcuts, setShowShortcuts] = useState(false);
   const [photoUrl, setPhotoUrl] = useState<string | undefined>(undefined);
   const [template, setTemplate] = useState<TemplateDef | null>(null);
+  const [qrUrl, setQrUrl] = useState<string>('');
 
   useEffect(() => {
     let cancelled = false;
@@ -552,7 +614,11 @@ export function Editor(props: {
               patch((d) => ({
                 ...d,
                 meta: { ...d.meta, templateId: id },
-                theme: { ...d.theme, accent: def.tokens.accent },
+                theme: {
+                  ...d.theme,
+                  accent: def.tokens.accent,
+                  ...(def.fontPair ? { fontPair: def.fontPair } : {}),
+                },
               })),
             );
           }}
@@ -615,6 +681,62 @@ export function Editor(props: {
           />
         </label>
       </div>
+      {template ? (
+        <div className="space-y-1">
+          <span className="text-sm font-medium">Colour palette for this template</span>
+          <div className="flex flex-wrap gap-2">
+            {template.tokens.palettes.map((hex) => (
+              <button
+                key={hex}
+                type="button"
+                aria-label={`Use colour ${hex}`}
+                aria-pressed={doc.theme.accent === hex}
+                onClick={() => patch((d) => ({ ...d, theme: { ...d.theme, accent: hex } }))}
+                className="h-9 w-9 rounded-full border border-input"
+                style={{ background: hex, outline: doc.theme.accent === hex ? '2px solid currentColor' : undefined }}
+              />
+            ))}
+          </div>
+        </div>
+      ) : null}
+      <div className="grid gap-3 sm:grid-cols-2">
+        <label className="block space-y-1">
+          <span className="text-sm font-medium">Font pair</span>
+          <select
+            aria-label="Font pair"
+            value={doc.theme.fontPair}
+            onChange={(e) => patch((d) => ({ ...d, theme: { ...d.theme, fontPair: e.target.value } }))}
+            className="min-h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+          >
+            {FONT_PAIRS.map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="block space-y-1">
+          <span className="text-sm font-medium">Section spacing</span>
+          <select
+            aria-label="Section spacing"
+            value={doc.theme.sectionSpacing}
+            onChange={(e) => patch((d) => ({ ...d, theme: { ...d.theme, sectionSpacing: e.target.value as ResumeDoc['theme']['sectionSpacing'] } }))}
+            className="min-h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+          >
+            <option value="compact">Compact</option>
+            <option value="normal">Normal</option>
+            <option value="relaxed">Relaxed</option>
+          </select>
+        </label>
+      </div>
+      <FitToPage doc={doc} template={template} onScale={(fontScale) => patch((d) => ({ ...d, theme: { ...d.theme, fontScale } }))} />
+      {template && !template.supportsPhoto && doc.photo.show ? (
+        <p role="note" className="rounded-md bg-amber-50 p-2 text-xs text-amber-900 dark:bg-amber-950 dark:text-amber-100">
+          This template does not show a photo (single-column ATS-safe designs skip photos so
+          applicant tracking systems read every word). Your photo is kept and will appear if you
+          switch to a photo template.
+        </p>
+      ) : null}
       <label className="block space-y-1">
         <span className="text-sm font-medium">Add a profession pack (sections & fields)</span>
         <span className="flex gap-2">
@@ -652,6 +774,7 @@ export function Editor(props: {
               key={section.id}
               section={section}
               onToggleVisible={() => patchSection({ ...section, visible: !section.visible })}
+              onTogglePageBreak={() => patchSection({ ...section, pageBreakBefore: !section.pageBreakBefore })}
               onRename={(title) => patchSection({ ...section, title })}
               onDelete={() => patch((d) => ({ ...d, sections: d.sections.filter((s) => s.id !== section.id) }))}
             >
@@ -731,15 +854,53 @@ export function Editor(props: {
             {sensitivePanel}
           </div>
         );
-      case 'Design':
-        return designPanel;
+      case 'Template':
+        return (
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground">
+              Pick a design. ATS-safe templates use a single column and standard headings, which
+              applicant tracking systems read most reliably. You can change this any time — your
+              words stay the same.
+            </p>
+            <div className="grid gap-2 sm:grid-cols-2" role="radiogroup" aria-label="Choose a template">
+              {TEMPLATE_META.map((t) => (
+                <button
+                  key={t.id}
+                  type="button"
+                  role="radio"
+                  aria-checked={doc.meta.templateId === t.id}
+                  onClick={() => {
+                    void loadTemplate(t.id).then((def) =>
+                      patch((d) => ({
+                        ...d,
+                        meta: { ...d.meta, templateId: t.id },
+                        theme: {
+                          ...d.theme,
+                          accent: def.tokens.accent,
+                          ...(def.fontPair ? { fontPair: def.fontPair } : {}),
+                        },
+                      })),
+                    );
+                  }}
+                  className={`rounded-md border p-3 text-left text-sm ${doc.meta.templateId === t.id ? 'border-primary bg-primary/5' : 'border-input'}`}
+                >
+                  <span className="font-medium">{t.name}</span>
+                  <span className="block text-xs text-muted-foreground">
+                    {t.profession} · {t.category}
+                  </span>
+                </button>
+              ))}
+            </div>
+            {designPanel}
+          </div>
+        );
       default:
         return null;
     }
   };
 
   return (
-    <div className="mx-auto max-w-[1600px] px-3 py-4 sm:px-5">
+    <div className="resume-editor-shell mx-auto max-w-[1600px] px-3 py-4 sm:px-5">
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <button type="button" className="inline-flex min-h-11 items-center gap-1.5 rounded-md border border-input px-3 text-sm font-medium" onClick={props.onBack}>
           <ArrowLeft className="h-4 w-4" aria-hidden /> All resumes
@@ -844,8 +1005,8 @@ export function Editor(props: {
               Preview
             </button>
           </div>
-          <div className="grid gap-4 lg:grid-cols-2">
-            <div className={`space-y-3 ${mobileTab === 'preview' ? 'hidden lg:block' : ''}`}>
+          <div className="resume-editor-grid grid gap-4 lg:grid-cols-2">
+            <div className={`resume-editor-col space-y-3 ${mobileTab === 'preview' ? 'hidden lg:block' : ''}`}>
               {basicsForm}
               <PhotoStudio
                 store={store}
@@ -854,15 +1015,22 @@ export function Editor(props: {
                 accent={doc.theme.accent}
                 onChange={(photo) => patch((d) => ({ ...d, photo }))}
               />
+              <QrPanel doc={doc} patch={patch} onQrReady={setQrUrl} />
+              <ReviewPanel doc={doc} template={template} patch={patch} />
+              <CoverLetterPanel doc={doc} store={store} />
               {sectionsList}
               {addSectionMenu}
               {sensitivePanel}
               {designPanel}
+              <div className="rounded-lg border bg-card p-3">
+                <h3 className="mb-2 text-sm font-semibold">Download &amp; export</h3>
+                <ExportBar doc={doc} template={template} store={store} previewRootId="resume-preview-root" qrDataUrl={qrUrl || undefined} />
+              </div>
             </div>
-            <div className={`${mobileTab === 'edit' ? 'hidden lg:block' : ''}`}>
-              <div className="lg:sticky lg:top-20">
+            <div className={`resume-preview-col ${mobileTab === 'edit' ? 'hidden lg:block' : ''}`}>
+              <div id="resume-preview-root" className="resume-print-root lg:sticky lg:top-20">
                 {template ? (
-                  <TemplateView doc={doc} template={template} photoUrl={photoUrl} />
+                  <TemplateView doc={doc} template={template} photoUrl={photoUrl} qrUrl={qrUrl || undefined} />
                 ) : (
                   <ResumePreview doc={doc} photoUrl={photoUrl} />
                 )}

@@ -70,6 +70,8 @@ export interface TemplateDef {
   header: HeaderStyle;
   heading: HeadingStyle;
   tokens: TemplateTokens;
+  /** The font pair this design was made with (id from _lib/fonts). */
+  fontPair?: string;
   /** Profession-aware default section order for new resumes. */
   sectionOrder: SectionKind[];
   /** For sidebar/two-column layouts: section kinds rendered in the side column. */
@@ -108,6 +110,8 @@ export interface Block {
   height: number;
   /** Keep this block on the same page as the next one (headings, entry heads). */
   keepWithNext?: boolean;
+  /** Manual page break: this block starts a new page (spec §7). */
+  breakBefore?: boolean;
   /** Sidebar blocks render in the sidebar column for 2-col layouts but
    * keep their logical position in the reading order. */
   column: 'main' | 'side';

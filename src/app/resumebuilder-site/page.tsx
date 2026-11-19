@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { JsonLd } from '@/lib/seo/jsonld';
+import { publishedSeoPages } from './_lib/seo-pages';
 import { AdSlot } from '@/components/AdSlot';
 import {
   ShieldCheck,
@@ -42,7 +43,7 @@ const FAQS = [
 const FEATURES = [
   {
     icon: LayoutTemplate,
-    title: '45+ profession templates',
+    title: '47 profession templates',
     body: 'Structurally different designs for teachers, engineers, medical staff, trades, business and more — not recolours of one layout. Each states plainly whether it is ATS-safe or designed.',
   },
   {
@@ -96,7 +97,7 @@ export default function ResumeBuilderHomePage() {
             url: 'https://resumebuilder.freeqrcode.tools/',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
             description:
-              'Free resume and CV builder with 45+ profession-specific templates, real PDF and DOCX export, profile photo and QR code support. All data stays in the browser.',
+              'Free resume and CV builder with 47 profession-specific templates, real PDF and DOCX export, profile photo and QR code support. All data stays in the browser.',
           },
           {
             '@context': 'https://schema.org',
@@ -116,7 +117,7 @@ export default function ResumeBuilderHomePage() {
             Free resume builder &amp; CV maker — no sign-up, no watermark
           </h1>
           <p className="mt-5 text-lg text-muted-foreground">
-            Pick from 45+ templates designed for real professions, add your photo and an optional
+            Pick from 47 templates designed for real professions, add your photo and an optional
             QR code, check your resume against an explainable ATS checklist, and download a real
             PDF or editable Word file. Everything happens in your browser: your data never leaves
             your device.
@@ -184,6 +185,31 @@ export default function ResumeBuilderHomePage() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section id="guides" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+        <h2 className="text-2xl font-bold tracking-tight">Resume guides by job and country</h2>
+        <p className="mt-3 max-w-3xl text-muted-foreground">
+          Practical, specific guidance — what employers in each profession actually scan for, the
+          skills vocabulary they search, the mistakes that sink applications, and the country
+          conventions for photos, personal details and length.
+        </p>
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {publishedSeoPages().map((p) => {
+            const segment = p.type === 'role' ? 'resume-templates' : p.type === 'country' ? 'cv-templates' : 'guides';
+            return (
+              <li key={p.slug}>
+                <Link
+                  href={`/${segment}/${p.slug}`}
+                  className="block rounded-lg border border-border p-4 font-medium hover:bg-muted"
+                >
+                  {p.h1}
+                  <span className="mt-1 block text-sm font-normal text-muted-foreground">{p.description}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </section>
 
       <section id="privacy" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">

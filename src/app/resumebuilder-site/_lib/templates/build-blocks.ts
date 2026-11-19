@@ -80,9 +80,12 @@ export function buildBlocks(doc: ResumeDoc, template: TemplateDef): Block[] {
   const mainWidth =
     template.columns === 2 ? width * (template.layout === 'label-column' ? 0.72 : 0.66) : width;
   const sideWidth = template.columns === 2 ? width - mainWidth - 24 : width;
-  const cplMain = Math.max(24, Math.floor(mainWidth / (t.baseSize * 0.52)));
-  const cplSide = Math.max(16, Math.floor(sideWidth / (t.baseSize * 0.52)));
-  const lh = t.baseSize * t.lineHeight;
+  const effBase = t.baseSize * doc.theme.fontScale;
+  const cplMain = Math.max(24, Math.floor(mainWidth / (effBase * 0.52)));
+  const cplSide = Math.max(16, Math.floor(sideWidth / (effBase * 0.52)));
+  const lh = effBase * t.lineHeight * (doc.theme.lineHeight / 1.45);
+  const spacingMult =
+    doc.theme.sectionSpacing === 'compact' ? 0.75 : doc.theme.sectionSpacing === 'relaxed' ? 1.3 : 1;
   const sideKinds = new Set(template.sideSections ?? []);
   const columnFor = (s: Section): 'main' | 'side' =>
     template.columns === 2 && sideKinds.has(s.kind) ? 'side' : 'main';
@@ -137,12 +140,13 @@ export function buildBlocks(doc: ResumeDoc, template: TemplateDef): Block[] {
       id: `title-${s.id}`,
       kind: 'section-title',
       sectionId: s.id,
-      height: t.headingSize * 1.9 + 6,
+      height: t.headingSize * doc.theme.fontScale * 1.9 + 6,
       keepWithNext: true,
+      breakBefore: s.pageBreakBefore === true,
       column,
       payload: { title: s.title },
     });
-    const entryGap = t.entryGap;
+    const entryGap = t.entryGap * spacingMult;
     const pushEntry = (payload: EntryPayload, bodyBlocks: RichText) => {
       blocks.push({
         id: `entry-${s.id}-${blocks.length}`,

@@ -112,3 +112,77 @@ Append-only. Each entry: context, options, decision, consequences.
   Phase 6 gallery ships, pointing at the same registry the gallery uses.
 - **Consequences.** No dead UI; one rename owed in Phase 6 (tracked in
   PROGRESS.md).
+
+## D-RB-08 — PDF pipeline: print-CSS from the shared page model
+
+- **Context.** Spec §10 requires a time-boxed spike: (a) HTML/CSS paged
+  layout via a robust client-side print method vs (b) @react-pdf/pdf-lib
+  over a shared layout schema, scored on parity, RTL shaping, fonts,
+  bundle, speed, links and tagging. Full write-up: PDF_SPIKE.md.
+- **Decision.** Option (a). pdf-lib performs no complex-script shaping,
+  so Urdu/Arabic resumes — a hard spec requirement — would render with
+  unjoined, mis-ordered letters. Print-CSS gives exact preview parity
+  from the one template source and browser-grade shaping. The print
+  dialog is the PDF route, with on-screen instructions.
+- **Consequences.** No direct-download PDF button (the DOCX is the
+  direct download); the all-formats ZIP documents this. Browser-print
+  PDFs are untagged — the limitation is stated in the spike, the UI
+  differences note and the final report. Acceptance is by Playwright
+  `page.pdf()` + pdf.js text-extraction order tests.
+
+## D-RB-09 — Font pairs are the single font source; templates declare their pair
+
+- **Context.** Theme.fontPair existed in the schema from Phase 2 but
+  templates also carried heading/body stacks in their tokens — two
+  sources that could disagree.
+- **Decision.** The chosen font pair always wins in the renderer;
+  each template declares the pair it was designed with, and switching
+  templates adopts that pair (the user can then override it). Token
+  font stacks derive from the declared pair in defineTemplate.
+- **Consequences.** One predictable rule ("the picker shows what you
+  get"), and DOCX/PNG fallbacks inherit the same stacks.
+
+## D-RB-10 — Wizard step 8 is "Template" (Phase 6), closing D-RB-07
+
+- **Context.** D-RB-07 deferred the wizard's final step name until a
+  real gallery existed.
+- **Decision.** Step 8 is now a template picker (all templates with
+  ATS-safe/Designed labelling) followed by the design panel, and the
+  step is named "Template".
+- **Consequences.** The guided flow ends with the choice beginners
+  care about most, backed by the Phase 6 gallery data.
+
+## D-RB-11 — Print layout must collapse to the resume alone (Phase 9 fix)
+
+- **Context.** The Phase 9 acceptance test (Playwright `page.pdf()` +
+  pdf.js extraction, per D-RB-08) failed on the Phase 5 print pipeline:
+  printing lays out at paper width, where the editor's two-column grid
+  pushed the preview off the printable area and the `lg:` breakpoint
+  hid the preview column outright — the generated PDF was blank pages.
+  The on-screen preview and the print-media screenshot both looked
+  correct, which is why earlier gates missed it.
+- **Decision.** Print CSS now collapses the layout: site header/footer
+  are `display:none` in print, the editor shell loses its padding and
+  max-width, the grid becomes a block, the editor column is hidden and
+  the preview column is forced visible (marker classes
+  `resume-editor-shell/-grid/-col`, `resume-preview-col`). The export
+  bar's per-document `@page` injection is unchanged.
+- **Consequences.** `page.pdf()` produces a one-page, selectable-text
+  PDF whose first extracted line is the candidate's name (verified in
+  e2e). Any future editor layout change must keep the marker classes.
+
+## D-RB-12 — Unsafe link schemes are stripped at every render sink (Phase 9 security fix)
+
+- **Context.** `sanitiseRichText`/`isSafeLink` existed from Phase 2 but
+  were only exercised by tests; the renderer, the DOCX writer and the
+  job tracker all emitted user-supplied URLs as hrefs unchecked. A
+  resume arriving via import or a share link is untrusted data, so a
+  `javascript:` link mark would have become a clickable anchor.
+- **Decision.** Every href sink now checks `isSafeLink` (http/https/
+  mailto/tel only): TemplateView rich-text links, the DOCX
+  ExternalHyperlink writer, and tracker posting links. Unsafe values
+  render as plain text. A component regression test
+  (`link-safety.test.tsx`) locks the behaviour in.
+- **Consequences.** Defence at the sink, so every current and future
+  ingestion path (import, share, backup restore, manual edit) is
+  covered without a separate sanitising walker per path.

@@ -13,6 +13,10 @@ export function ServiceWorkerRegister() {
     // load looks like an "update" to the other script, which looped
     // the app's "new version ready" prompt forever.
     if (window.location.hostname === 'socialcalendar.freeqrcode.tools') return;
+    // Same reasoning for the Resume Builder host: it registers its own
+    // worker (/resume-sw.js, via ResumePwaSetup) with its own update
+    // prompt, so the platform worker must stay off this origin.
+    if (window.location.hostname === 'resumebuilder.freeqrcode.tools') return;
     navigator.serviceWorker.register('/sw.js').catch(() => {
       // Offline support is best-effort; the app works fully without it.
     });
