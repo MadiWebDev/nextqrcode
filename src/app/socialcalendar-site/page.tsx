@@ -94,12 +94,6 @@ export default function LandingPage() {
           },
           {
             '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: 'Social Media Calendar',
-            url: BASE,
-          },
-          {
-            '@context': 'https://schema.org',
             '@type': 'FAQPage',
             mainEntity: FAQS.map((f) => ({
               '@type': 'Question',

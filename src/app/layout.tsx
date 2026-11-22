@@ -11,6 +11,7 @@ import { GoogleAdSense } from '@/components/GoogleAdSense';
 import { ConsentScripts } from '@/components/ConsentScripts';
 import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister';
 import { JsonLd } from '@/lib/seo/jsonld';
+import { WebSiteSchema } from '@/components/WebSiteSchema';
 import { siteConfig } from '@/config/site';
 import { adsenseClient } from '@/lib/adsense';
 import './globals.css';
@@ -74,6 +75,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${inter.variable} ${spaceGrotesk.variable}`}
     >
       <head>
+        {/* Organization only here: the WebSite entity is emitted by
+            <WebSiteSchema /> in <body> — it renders the apex entity on
+            every tree except invoice-site and socialcalendar-site,
+            whose layouts emit their own (see
+            src/components/WebSiteSchema.tsx). */}
         <JsonLd
           data={[
             {
@@ -84,24 +90,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               logo: `${siteConfig.url}/qrcodelogo.png`,
               sameAs: [siteConfig.social.github, siteConfig.social.twitter],
             },
-            {
-              '@context': 'https://schema.org',
-              '@type': 'WebSite',
-              name: siteConfig.name,
-              url: siteConfig.url,
-              potentialAction: {
-                '@type': 'SearchAction',
-                target: {
-                  '@type': 'EntryPoint',
-                  urlTemplate: `${siteConfig.url}/sitemap-page?q={search_term_string}`,
-                },
-                'query-input': 'required name=search_term_string',
-              },
-            },
           ]}
         />
       </head>
       <body className="font-sans antialiased">
+        <WebSiteSchema />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TooltipProvider delayDuration={300}>
             {/* Skip link for accessibility */}

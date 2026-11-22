@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import { JsonLd } from '@/lib/seo/jsonld';
 import { SocialFooter } from './_components/SocialFooter';
 import { SocialHeader } from './_components/SocialHeader';
 import PwaSetup from './_components/PwaSetup';
@@ -41,6 +42,19 @@ export const metadata: Metadata = {
 export default function SocialCalendarLayout({ children }: { children: ReactNode }) {
   return (
     <div className="socialcalendar-site-root flex min-h-screen flex-col">
+      {/* This site's own WebSite entity, on every socialcalendar-site
+          page. The shared apex WebSite is suppressed on this tree by
+          <WebSiteSchema /> in the root layout, so this is the only
+          WebSite entity these pages carry. Name/URL match the
+          homepage's previous inline entity exactly. */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'Social Media Calendar',
+          url: 'https://socialcalendar.freeqrcode.tools',
+        }}
+      />
       <SocialHeader />
       <div className="flex-1">{children}</div>
       <SocialFooter />

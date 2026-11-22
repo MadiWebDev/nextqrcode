@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import { JsonLd } from '@/lib/seo/jsonld';
 import { InvoiceFooter } from './_components/InvoiceFooter';
 import { InvoiceHeader } from './_components/InvoiceHeader';
 
@@ -40,6 +41,18 @@ export const metadata: Metadata = {
 export default function ToolLayout({ children }: { children: ReactNode }) {
   return (
     <div className="invoice-site-root">
+      {/* This site's own WebSite entity, on every invoice-site page.
+          The shared apex WebSite is suppressed on this tree by
+          <WebSiteSchema /> in the root layout, so this is the only
+          WebSite entity these pages carry. */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'Invoice Generator by QR Studio',
+          url: 'https://invoicegenerator.freeqrcode.tools/',
+        }}
+      />
       <InvoiceHeader />
       {children}
       <InvoiceFooter />
