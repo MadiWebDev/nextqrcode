@@ -40,10 +40,12 @@ import {
   Ruler,
   Library,
   GitCompare,
+  LayoutTemplate,
   HelpCircle,
   type LucideIcon,
 } from 'lucide-react';
 import { getAllArticles } from '@/lib/articles';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { getAllCountries } from '@/data/countries';
 import { getAllPaymentSchemes } from '@/data/payments';
 import { getAllLabelSheets } from '@/data/labels';
@@ -191,6 +193,18 @@ const CONTENT_HUB_META: HubMeta[] = [
     accent: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400',
     countKey: null,
   },
+  {
+    // Step 5 (2026-11-17): the templates hub was the only content hub
+    // missing here, which left it at click-depth 2 and every template
+    // page at depth 3 (seo-agent E-038). Appended last so the existing
+    // index-zip with locale copy cards (home.hubs.cards) is unchanged
+    // for indices 0–7; locales without a 9th card skip it via the
+    // `if (!copy) return null` guard until translated (R-013).
+    href: '/templates',
+    icon: LayoutTemplate,
+    accent: 'bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-400',
+    countKey: null,
+  },
 ];
 
 const VALUE_PROP_ICONS: { icon: LucideIcon; iconClass: string }[] = [
@@ -226,7 +240,10 @@ interface FaqItem {
 export async function HomePageContent() {
   const t = await getTranslations('home');
   const heroT = await getTranslations('hero');
-  const articles = getAllArticles().slice(0, 6);
+  // Step 5: never surface a policy-removed article as a homepage card,
+  // and keep the "view all" count consistent with what /blog now lists.
+  const visibleArticles = getAllArticles().filter((a) => !isRemoved(`/blog/${a.slug}`));
+  const articles = visibleArticles.slice(0, 6);
   const countries = getAllCountries();
   const payments = getAllPaymentSchemes();
   const labels = getAllLabelSheets();
@@ -235,19 +252,6 @@ export async function HomePageContent() {
   const toolCards = t.raw('tools.cards') as CopyCard[];
   const hubCards = t.raw('hubs.cards') as CopyCard[];
   const faqItems = t.raw('faq.items') as FaqItem[];
-
-  const websiteSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'QR Code Tools',
-    url: 'https://freeqrcode.tools',
-    description: 'Professional browser-based QR code generator and optical engineering platform.',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://freeqrcode.tools/sitemap-page?q={search_term_string}',
-      'query-input': 'required name=search_term_string',
-    },
-  };
 
   const softwareSchema = {
     '@context': 'https://schema.org',
@@ -278,10 +282,6 @@ export async function HomePageContent() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
       <JsonLd data={softwareSchema} />
 
       {/* Hero headline — the page's single <h1>. Copy comes from the existing
@@ -558,7 +558,7 @@ export async function HomePageContent() {
             href="/blog"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline shrink-0"
           >
-            <span>{t('guides.viewAll', { count: getAllArticles().length })}</span>
+            <span>{t('guides.viewAll', { count: visibleArticles.length })}</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

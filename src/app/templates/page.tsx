@@ -5,10 +5,11 @@ import { getAllTemplates } from '@/data/templates-gallery';
 import { siteConfig } from '@/config/site';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { BreadcrumbJsonLd, WebPageJsonLd } from '@/lib/seo/jsonld';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
-  title: 'QR Code Design Templates Gallery | QR Studio',
+  title: 'QR Code Design Templates Gallery',
   description:
     'Browse 30 professional QR code design templates — minimal, corporate, neon, luxury, wedding and more. Each with honest scanability guidance, palettes, and best-use advice.',
   alternates: { canonical: `${siteConfig.url}/templates` },
@@ -22,7 +23,8 @@ export const metadata: Metadata = {
 };
 
 export default async function TemplatesHubPage() {
-  const templates = getAllTemplates();
+  // Step 5: policy-removed entries are withdrawn from the hub listing.
+  const templates = getAllTemplates().filter((t) => !isRemoved(`/templates/${t.slug}`));
   const previews = await Promise.all(
     templates.map((t) =>
       QRCode.toString(`${siteConfig.url}/templates/${t.slug}`, {

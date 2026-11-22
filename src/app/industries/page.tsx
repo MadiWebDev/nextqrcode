@@ -3,10 +3,11 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { loadIndustries } from '@/content/families/industries';
 import { BreadcrumbJsonLd } from '@/lib/seo/jsonld';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
-  title: 'QR Codes by Industry — QR Studio',
+  title: 'QR Codes by Industry',
   description:
     'Explore QR code use cases by industry: retail, restaurants, healthcare, education, logistics, real estate, events, hospitality, manufacturing, and fitness.',
   alternates: { canonical: `${siteConfig.url}/industries` },
@@ -32,7 +33,8 @@ function industryOf(slug: string): string {
 }
 
 export default function IndustriesHubPage() {
-  const entries = loadIndustries();
+  // Step 5: policy-removed entries are withdrawn from the hub listing.
+  const entries = loadIndustries().filter((e) => !isRemoved(`/industries/${e.slug}`));
 
   // Group entries by industry, preserving data order.
   const ordered: { industry: string; items: typeof entries }[] = [];

@@ -14,7 +14,7 @@ import { BreadcrumbJsonLd } from '@/lib/seo/jsonld';
 import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
-  title: 'All QR Code Tools & Generators Directory — QR Studio',
+  title: 'All QR Code Tools & Generators Directory',
   description:
     'Browse every free QR tool on QR Studio: 40+ generators, 30+ bulk tools, 25+ industry suites, print calculators, safety checkers, and design tools. No sign-up needed.',
   alternates: { canonical: `${siteConfig.url}/tools` },

@@ -7,10 +7,11 @@ import {
   type GlossaryEntry,
 } from '@/data/glossary';
 import { BreadcrumbJsonLd } from '@/lib/seo/jsonld';
+import { isRemoved } from '@/lib/seo/indexing-policy';
 import { AdSlot } from '@/components/AdSlot';
 
 export const metadata: Metadata = {
-  title: 'QR Code Glossary: 40 Technical Terms Explained | QR Studio',
+  title: 'QR Code Glossary: 40 Technical Terms Explained',
   description:
     'A complete glossary of QR code terminology: finder patterns, error correction levels, encoding modes, versions, payments, printing, and security — each term explained in depth.',
   alternates: { canonical: `${siteConfig.url}/glossary` },
@@ -78,7 +79,7 @@ export default function GlossaryHubPage() {
       <div className="space-y-12">
         {GLOSSARY_CATEGORIES.map((category) => {
           const entries = getGlossaryEntriesByCategory(category).filter(
-            (e) => e.status === 'approved'
+            (e) => e.status === 'approved' && !isRemoved(`/glossary/${e.slug}`)
           );
           if (entries.length === 0) return null;
           return (

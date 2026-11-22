@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { ImageFooter } from './_components/ImageFooter';
 import { ImageHeader } from './_components/ImageHeader';
 
-const TITLE = 'Free Online Image Resizer – Resize, Compress & Convert Images | Free QR Code Tools';
+const TITLE = 'Free Online Image Resizer – Resize, Compress & Convert Images';
 const DESCRIPTION =
   'Resize, compress, crop and convert images online for free. Optimize JPG, PNG, WebP and more, process images in bulk, and create social media and passport photos privately in your browser.';
 

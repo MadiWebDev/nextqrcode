@@ -15,7 +15,7 @@ const DESCRIPTION =
   'Meet the free Invoice Generator by QR Studio: why we built it, why it is free, and the principles behind it — private by design, no sign-up, pro results.';
 
 export const metadata: Metadata = {
-  title: 'About — Invoice Generator by QR Studio',
+  title: 'About — Invoice Generator',
   description: DESCRIPTION,
   alternates: { canonical: 'https://invoicegenerator.freeqrcode.tools/about' },
   openGraph: {
