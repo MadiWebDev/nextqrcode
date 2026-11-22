@@ -38,10 +38,13 @@ const COLUMNS: { heading: string; links: { href: string; label: string }[] }[] =
     ],
   },
   {
-    heading: 'About',
+    heading: 'Company',
     links: [
+      { href: '/about', label: 'About' },
+      { href: '/contact', label: 'Contact' },
+      { href: '/privacy', label: 'Privacy' },
+      { href: '/terms', label: 'Terms' },
       { href: '/guides', label: 'Guides & Tutorials' },
-      { href: '/#privacy', label: 'Privacy — how it works' },
       { href: '/#faq', label: 'FAQ' },
     ],
   },
