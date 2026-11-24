@@ -1,0 +1,6 @@
+npm notice run qr-code-tools@0.1.0 npx
+npm notice run ^"wrangler^" deploy
+
+ ⛅️ wrangler 4.166.0 (update available 4.167.0)
+───────────────────────────────────────────────
+OpenNext project detected, calling `opennextjs-cloudflare deploy`

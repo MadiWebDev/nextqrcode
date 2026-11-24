@@ -3,11 +3,45 @@
   "name": "nextqrcode",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-11-23",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "upload_source_maps": false,
+
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+
+  "services": [
+    { "binding": "WORKER_SELF_REFERENCE", "service": "nextqrcode" }
+  ],
+
+  // Domain + subdomains (each hostname listed gets DNS + SSL automatically)
+  "routes": [
+    { "pattern": "freeqrcode.tools", "custom_domain": true },
+    { "pattern": "imageresizer.freeqrcode.tools", "custom_domain": true },
+    { "pattern": "invoicegenerator.freeqrcode.tools", "custom_domain": true },
+  ],
+
+  "vars": {
+    // URLs
+    "NEXT_PUBLIC_SITE_URL": "https://freeqrcode.tools",
+    "AUTH_URL": "https://freeqrcode.tools",
+    "AUTH_TRUST_HOST": "true",
+
+   
+
+    // Email (sender must be verified with your SMTP provider)
+    "EMAIL_FROM": "noreply@freeqrcode.tools",
+    "CONTACT_EMAIL": "contact@freeqrcode.tools",
+
+    // Cloudinary (the API secret stays in wrangler secrets)
+    "CLOUDINARY_CLOUD_NAME": "dpho9mktd",
+    "CLOUDINARY_API_KEY": "583151786612987",
+
+
+    // Ads
+    "ADSENSE_PUBLISHER_ID": "pub-4860681021797211"
+  },
+
   "observability": { "enabled": true }
 }

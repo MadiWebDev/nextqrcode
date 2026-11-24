@@ -1,0 +1,27 @@
+lib	wallMs	cpuMs	error
+noop	0.1	0	
+next-intl	252.8	78	
+next-auth	-	-	Cannot find module 'D:\My-Projects\NEXT\qrcode\nextapp\node_modules\next\server' imported from D:\My-Projects\NEXT\qrcode\nextapp\node_modules\next-auth\lib\env
+@auth/mongodb-adapter	666.8	157	
+mongoose	1182.9	78	
+mongodb	481.6	110	
+nodemailer	165.4	31	
+cloudinary	573.8	94	
+Warning: Please use the `legacy` build in Node.js environments.
+pdfjs-dist	31.8	0	
+jspdf	275.4	78	
+docx	44.6	0	
+mammoth	381.7	16	
+jszip	130.2	16	
+libphonenumber-js	326.2	109	
+chrono-node	647.4	62	
+qrcode	146.5	15	
+jsbarcode	161	78	
+jsqr	64.6	15	
+@napi-rs/canvas	611.3	31	
+heic2any	-	-	window is not defined
+utif	80.3	62	
+gifenc	13	0	
+gifuct-js	28.2	0	
+recharts	3201.1	297	
+framer-motion	1397.6	156	
