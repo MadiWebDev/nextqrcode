@@ -4,7 +4,13 @@
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-11-23",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public", "no_handle_cross_request_promise_resolution"],
-  "upload_source_maps": false,
+  "upload_source_maps": true,
+
+  // Raise CPU ceiling (Workers Paid only — ignored on Free, which is hard-capped at 10 ms)
+  "limits": { "cpu_ms": 30000 },
+
+  // Run the Worker close to your MongoDB origin to cut connection latency/drops
+  "placement": { "mode": "smart" },
 
   "assets": {
     "directory": ".open-next/assets",
@@ -17,7 +23,6 @@
 
   "workers_dev": true,
 
-  // Domain + subdomains (each hostname listed gets DNS + SSL automatically)
   "routes": [
     { "pattern": "freeqrcode.tools", "custom_domain": true },
     { "pattern": "imageresizer.freeqrcode.tools", "custom_domain": true },
@@ -26,25 +31,32 @@
     { "pattern": "resumebuilder.freeqrcode.tools", "custom_domain": true }
   ],
 
+  // Declare secrets so deploys fail loudly if one is missing
+  "secrets": {
+    "required": [
+      "AUTH_SECRET",
+      "MONGODB_URI",
+      "CLOUDINARY_API_SECRET",
+      "NEXT_PUBLIC_ADSENSE_CLIENT",
+      "NEXT_PUBLIC_ADSENSE_CLIENT_ID",
+      "NEXT_PUBLIC_ADSENSE_SLOT_IN_CONTENT",
+      "NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR",
+      "NEXT_PUBLIC_GA_MEASUREMENT_ID",
+      "NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION"
+    ]
+  },
+
   "vars": {
-    // URLs
     "NEXT_PUBLIC_SITE_URL": "https://freeqrcode.tools",
     "AUTH_URL": "https://freeqrcode.tools",
     "AUTH_TRUST_HOST": "true",
-    "AUTH_SECRET": "cfc895f57a5b5617f76f4cfb2e884638f147bffab3848996c77fadfad379f086",
 
-   
-
-    // Email (sender must be verified with your SMTP provider)
     "EMAIL_FROM": "noreply@freeqrcode.tools",
     "CONTACT_EMAIL": "contact@freeqrcode.tools",
 
-    // Cloudinary (the API secret stays in wrangler secrets)
     "CLOUDINARY_CLOUD_NAME": "dpho9mktd",
     "CLOUDINARY_API_KEY": "583151786612987",
 
-
-    // Ads
     "ADSENSE_PUBLISHER_ID": "pub-4860681021797211"
   },
 
