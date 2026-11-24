@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 import { HomePageContent } from '@/components/home/HomePage';
 import { localizedLanguages } from '@/i18n/metadata';
 import { siteConfig } from '@/config/site';
 import { AdSlot } from '@/components/AdSlot';
 import { AdInContent } from '@/components/ads/AdInContent';
+
+export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: 'Free QR Code Generator — No Sign-Up, PNG, SVG & PDF',
@@ -27,7 +30,8 @@ export const metadata: Metadata = {
  * default locale unprefixed). Shared body lives in
  * `src/components/home/HomePage.tsx` so `/[locale]` renders the same content.
  */
-export default function HomePage() {
+export default async function HomePage() {
+  setRequestLocale('en');
   return (
     <>
       <HomePageContent />

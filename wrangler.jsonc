@@ -3,7 +3,7 @@
   "name": "nextqrcode",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-11-23",
-  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public", "no_handle_cross_request_promise_resolution"],
   "upload_source_maps": false,
 
   "assets": {
@@ -15,11 +15,15 @@
     { "binding": "WORKER_SELF_REFERENCE", "service": "nextqrcode" }
   ],
 
+  "workers_dev": true,
+
   // Domain + subdomains (each hostname listed gets DNS + SSL automatically)
   "routes": [
     { "pattern": "freeqrcode.tools", "custom_domain": true },
     { "pattern": "imageresizer.freeqrcode.tools", "custom_domain": true },
     { "pattern": "invoicegenerator.freeqrcode.tools", "custom_domain": true },
+    { "pattern": "socialcalendar.freeqrcode.tools", "custom_domain": true },
+    { "pattern": "resumebuilder.freeqrcode.tools", "custom_domain": true }
   ],
 
   "vars": {
@@ -27,6 +31,7 @@
     "NEXT_PUBLIC_SITE_URL": "https://freeqrcode.tools",
     "AUTH_URL": "https://freeqrcode.tools",
     "AUTH_TRUST_HOST": "true",
+    "AUTH_SECRET": "cfc895f57a5b5617f76f4cfb2e884638f147bffab3848996c77fadfad379f086",
 
    
 
