@@ -156,7 +156,7 @@ function extractInternalLinks(markdown: string): string[] {
 }
 
 async function auditBlog(staticRoutes: Set<string>) {
-  const { getAllArticles } = await import('../src/lib/articles.js');
+  const { getAllArticles } = await import('../src/lib/articles-full.js');
   const articles = getAllArticles() as {
     slug: string;
     title: string;

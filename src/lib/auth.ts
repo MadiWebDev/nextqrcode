@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import Google from 'next-auth/providers/google';
 import Nodemailer from 'next-auth/providers/nodemailer';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import { getMongoClient, isMongoConfigured } from '@/lib/mongodb';
+import { getMongoClientLazy, isMongoConfigured } from '@/lib/mongodb';
 
 /**
  * Auth.js v5 configuration: Google OAuth + email magic link.
@@ -41,7 +41,10 @@ export function isAuthConfigured(): boolean {
 export const { handlers, auth, signIn, signOut } = NextAuth({
   // Adapter only when MongoDB is configured; without it, auth is disabled
   // gracefully (see isAuthConfigured) instead of crashing at import time.
-  ...(isMongoConfigured() ? { adapter: MongoDBAdapter(getMongoClient()) } : {}),
+  // The client promise is LAZY (see getMongoClientLazy): no connection is
+  // opened at module-evaluation time — the adapter first awaits it inside
+  // a per-request method. This keeps Worker startup free of DB work.
+  ...(isMongoConfigured() ? { adapter: MongoDBAdapter(getMongoClientLazy()) } : {}),
   providers: buildProviders(),
   secret: process.env.AUTH_SECRET,
   session: { strategy: 'jwt' },

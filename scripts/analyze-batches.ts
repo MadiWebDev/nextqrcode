@@ -61,9 +61,10 @@ function buildSourceMap(): Map<string, { source: string; file: string }> {
     };
     visit(sf);
   }
-  // Legacy ARTICLES in src/lib/articles.ts
-  const artText = readFileSync(join(ROOT, 'src', 'lib', 'articles.ts'), 'utf8');
-  const asf = ts.createSourceFile('articles.ts', artText, ts.ScriptTarget.Latest, true);
+  // Legacy ARTICLES in src/lib/articles-seed.ts (split out of articles.ts
+  // on 2026-11-24; the seed array lives there now)
+  const artText = readFileSync(join(ROOT, 'src', 'lib', 'articles-seed.ts'), 'utf8');
+  const asf = ts.createSourceFile('articles-seed.ts', artText, ts.ScriptTarget.Latest, true);
   const visit2 = (node: ts.Node) => {
     if (
       ts.isPropertyAssignment(node) &&
@@ -71,7 +72,7 @@ function buildSourceMap(): Map<string, { source: string; file: string }> {
       ts.isStringLiteralLike(node.initializer)
     ) {
       const slug = node.initializer.text;
-      if (!map.has(slug)) map.set(slug, { source: 'legacy', file: 'src/lib/articles.ts' });
+      if (!map.has(slug)) map.set(slug, { source: 'legacy', file: 'src/lib/articles-seed.ts' });
     }
     ts.forEachChild(node, visit2);
   };
@@ -82,7 +83,7 @@ function buildSourceMap(): Map<string, { source: string; file: string }> {
 async function main() {
   const staticRoutes = collectStaticRoutes();
   const sourceMap = buildSourceMap();
-  const { getAllArticles } = await import('../src/lib/articles.js');
+  const { getAllArticles } = await import('../src/lib/articles-full.js');
   const articles = getAllArticles() as {
     slug: string;
     title: string;

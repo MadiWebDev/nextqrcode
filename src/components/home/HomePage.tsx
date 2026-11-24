@@ -44,7 +44,7 @@ import {
   HelpCircle,
   type LucideIcon,
 } from 'lucide-react';
-import { getAllArticles } from '@/lib/articles';
+import { getAllArticleMeta } from '@/lib/articles';
 import { isRemoved } from '@/lib/seo/indexing-policy';
 import { getAllCountries } from '@/data/countries';
 import { getAllPaymentSchemes } from '@/data/payments';
@@ -242,7 +242,7 @@ export async function HomePageContent() {
   const heroT = await getTranslations('hero');
   // Step 5: never surface a policy-removed article as a homepage card,
   // and keep the "view all" count consistent with what /blog now lists.
-  const visibleArticles = getAllArticles().filter((a) => !isRemoved(`/blog/${a.slug}`));
+  const visibleArticles = getAllArticleMeta().filter((a) => !isRemoved(`/blog/${a.slug}`));
   const articles = visibleArticles.slice(0, 6);
   const countries = getAllCountries();
   const payments = getAllPaymentSchemes();
