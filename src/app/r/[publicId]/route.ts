@@ -113,7 +113,15 @@ async function logScan(qrId: unknown, req: NextRequest): Promise<void> {
     await ScanEvent.create({
       qrId: objectId,
       ts: new Date(),
-      country: req.headers.get('x-vercel-ip-country') ?? 'unknown',
+      // Geolocation header is host-specific: Cloudflare sends
+      // `CF-IPCountry`, Vercel sends `x-vercel-ip-country`. Read the
+      // Cloudflare header first so scan logging keeps working after the
+      // migration, and fall back to the Vercel header while both hosts
+      // are in play.
+      country:
+        req.headers.get('cf-ipcountry') ??
+        req.headers.get('x-vercel-ip-country') ??
+        'unknown',
       deviceType: parsed.deviceType,
       os: parsed.os,
       browser: parsed.browser,

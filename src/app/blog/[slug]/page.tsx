@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getAllArticles, getArticleBySlug } from '@/lib/articles';
+import { getAllArticleMeta, getArticleMetaBySlug, getArticleBySlugAsync } from '@/lib/articles';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { AdSlot } from '@/components/ads/AdSlot';
 import { AdInContent } from '@/components/ads/AdInContent';
@@ -14,7 +14,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const articles = getAllArticles();
+  const articles = getAllArticleMeta();
   return articles.map((article) => ({
     slug: article.slug,
   }));
@@ -22,7 +22,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = getArticleMetaBySlug(slug);
 
   if (!article) {
     return { title: 'Article Not Found | QR Code Tools' };
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = await getArticleBySlugAsync(slug);
 
   if (!article) {
     notFound();

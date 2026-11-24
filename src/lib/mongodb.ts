@@ -37,6 +37,43 @@ export async function getMongoClient(): Promise<MongoClient> {
   }
 }
 
+let lazyClientPromise: Promise<MongoClient> | null = null;
+
+/**
+ * A Promise<MongoClient> that does not call getMongoClient() — and
+ * therefore does not open a network connection — until it is first
+ * awaited. Used by the Auth.js adapter in src/lib/auth.ts: previously
+ * `MongoDBAdapter(getMongoClient())` ran at module-evaluation time, so
+ * merely importing the auth module (which happens when the auth route
+ * chunk is loaded) started a MongoDB connection. On Cloudflare Workers
+ * that is exactly the kind of module-level work the startup-CPU budget
+ * (error 10021) penalises. The adapter only awaits the client inside
+ * its per-request methods, so deferring the first await defers the
+ * connection to the first real auth operation — no behaviour change
+ * for sign-in/session flows.
+ */
+export function getMongoClientLazy(): Promise<MongoClient> {
+  if (!lazyClientPromise) {
+    const deferred = {
+      then(onFulfilled: unknown, onRejected: unknown) {
+        return getMongoClient().then(
+          onFulfilled as (v: MongoClient) => unknown,
+          onRejected as (e: unknown) => unknown
+        );
+      },
+      catch(onRejected: unknown) {
+        return getMongoClient().catch(onRejected as (e: unknown) => unknown);
+      },
+      finally(onFinally: unknown) {
+        return getMongoClient().finally(onFinally as () => void);
+      },
+      [Symbol.toStringTag]: 'Promise',
+    };
+    lazyClientPromise = deferred as Promise<MongoClient>;
+  }
+  return lazyClientPromise;
+}
+
 export async function getDatabase(dbName = 'qrcode_tools') {
   const client = await getMongoClient();
   return client.db(dbName);

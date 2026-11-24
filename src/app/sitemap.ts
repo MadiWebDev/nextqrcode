@@ -32,7 +32,7 @@
  */
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/site';
-import { getAllArticles } from '@/lib/articles';
+import { getAllArticleMeta } from '@/lib/articles';
 import { getAllCountries } from '@/data/countries';
 import { getAllPaymentSchemes } from '@/data/payments';
 import { getAllLabelSheets } from '@/data/labels';
@@ -449,7 +449,7 @@ function suiteEntries(): MetadataRoute.Sitemap {
 
 async function blogEntries(): Promise<MetadataRoute.Sitemap> {
   try {
-    const articles = getAllArticles();
+    const articles = getAllArticleMeta();
     const seen = new Set<string>();
     const out: MetadataRoute.Sitemap = [];
     for (const art of articles) {
