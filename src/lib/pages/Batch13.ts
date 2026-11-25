@@ -8,69 +8,160 @@ export const batch13: Article[] = [
     'qr code prescription medication label',
     'Pharmacy QR codes give patients extended drug information without cluttering the vial label.',
     'Business & Regional',
-    '6 min read',
+    '13 min read',
     '2026-11-12',
     `
-### 1. What a QR Adds to a Label
+### 1. A small label, a lot to explain
 
-The vial label carries the minimum required information. A QR links to: full prescribing information, common side effects, food and drug interaction warnings, and a patient information leaflet in the patients language.
+A dispensing label must carry the legally required details, stay readable on a curved vial, and leave the patient knowing how to take the medicine safely. Print can only hold so much. The fuller leaflet inside the box is easy to lose and hard to read in small print.
 
-### 2. Adherence Support
+This article is for pharmacy teams and dispensary managers adding a QR code to the label on the vial, bottle, or box handed to the patient. Nothing on that label is replaced. Everything legally required stays printed, as your local labelling rules require. The code carries only the extended layer: leaflet, refill route, reminder help, and trusted links that do not fit in print.
 
-A QR can open a dosing reminder setup page. The patient enters their phone number, and the pharmacy system sends a daily SMS at the scheduled dose time.
+Used this way, the patient leaves with a direct way back to clear information on the container itself, without searching the web or guessing which site to trust.
 
-### 3. Privacy
+### 2. What the QR code on a label should carry
 
-The QR must not contain the patient's name or diagnosis in plain text. Link to a page requiring authentication, or limit the page to public drug information only.
+General information only: nothing in this article is medical advice, and the pharmacist and the official product information are always the authority for an individual patient.
 
-### 4. Regulatory Compliance
+Start with what must not move. Patient name, medicine name and strength, directions, pharmacy details, and any other items your local rules require belong in print. A patient who cannot scan must lose nothing essential. The code is a supplement, never a substitute.
 
-Check your national drug labelling regulations before adding QR. In some markets, the required information on a printed label cannot be moved behind a QR only.
-    
+The most common payload is a link to the full patient information leaflet, as a readable web page or PDF. On a phone, the patient can enlarge the text, search for a word such as storage, and return to it without keeping a folded sheet.
 
-### Putting this into practice
+A second payload is a refill route. The code opens the pharmacy refill page, where the patient follows your normal request process. It holds only the link, not the prescription, dose, or any personal record.
 
-Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+A third use is dosage-reminder setup. The code opens a short page explaining how to set phone reminders for the times already printed on the label. It does not set or change the dose; it helps the patient follow the given directions.
 
-### Common mistakes to avoid
+How-to videos help where words are weak. Inhaler technique, eye drops, insulin pens, and nasal sprays are easier to learn by watching, and a trusted demonstration can be replayed at home when needed.
 
-The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+Finally, a code can link to the pharmacy own interaction checker page, or a page explaining how to ask about interactions. A general link is fine, but a printed code cannot give personalised advice, because a static code holds the same fixed link for everyone. Personal questions belong with the pharmacist.
 
-### Quick checklist
+Keep each label to one clear job. One code opening a well organised page for that medicine, with leaflet, refill, reminder, and video sections, beats three tiny codes on a vial.
 
-- Keep the payload as short as practical so modules stay large.
-- Keep dark modules on a light background with strong contrast.
-- Leave a clear quiet zone on all four sides of the symbol.
-- Test the printed code at the real viewing distance and lighting.
-- Confirm the destination page loads fast on a phone.
-- Recheck the code after any change to the link, design, or placement.
+### 3. Step-by-step: create the codes with our tools
 
-Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+1. Decide the single destination for each medicine line. This is usually your pharmacy page for that medicine, or the official leaflet page you already direct patients to. Check it opens on a phone without a login.
+2. Shorten the path where you can. A short, clean link makes a simpler code that prints better at small sizes. Avoid long tracking strings and link shorteners you do not control, because the printed code cannot be changed later.
+3. Open the [URL QR code generator](/url-qr-code-generator) and paste the destination link. Use this when the code should open a web page, such as a leaflet, refill, or video page.
+4. If the leaflet is a hosted PDF, use the [PDF QR code generator](/pdf-qr-code-generator) instead. The code carries the link to the PDF, not the file itself, so the PDF must stay hosted at that address while those labels are in use.
+5. For a dedicated refill destination, use the [prescription refill QR generator](/prescription-refill-qr-generator) to build that code as its own label version.
+6. Choose error correction M or Q for vial labels, as explained next, and keep the design plain: dark modules on a white or very light background, with no logo over the centre.
+7. Download the code at the largest file size offered, so your label printer receives a sharp source image.
+8. Print a test batch on real label stock, apply the labels to the actual vials and boxes, and scan every version with the [QR scanner](/qr-scanner) and ordinary phone cameras.
+9. Run the printed results through the [printed QR tester](/printed-qr-tester) as a final check, then record which code version belongs to which medicine.
+10. Mention the [medical ID QR](/medical-id-qr) only as a separate, patient controlled tool, never as part of the label code.
 
-### Related tools and guides
+All these generators run in your browser, with no account needed, and the code is created locally.
 
-- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
-- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
-- The [medical ID QR](/medical-id-qr) page explains how emergency information codes should be structured.
-- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
-- Check print proofs with the [printed QR tester](/printed-qr-tester) so problems show up before a full run.
-- The [QR placement guide](/qr-placement-guide) covers height, lighting, glare, and surfaces that affect scan success.
+### 4. Sizes, contrast and error correction on a curved vial
+
+Vial labels are the hardest print surface in the pharmacy: small, curved, often glossy, and near a fold or seam. Plan for that, not for a flat poster.
+
+Treat about 15 mm square as the practical floor, and go larger when the label allows. Below that, a code with a long link becomes dense and fragile. If the flat area cannot fit 15 mm plus its quiet zone, do not shrink it in. Use a larger box label, a flat label on the outer carton, or a shorter link.
+
+The quiet zone is the clear border around the code. Keep it at least four modules wide on all sides. A module is one small square of the code. Text, label edges, and coloured panels must not crowd into that border, because scanners need the clear margin to find the code.
+
+Error correction lets a code scan when part is scuffed. Levels L, M, Q, and H tolerate roughly 7 percent, 15 percent, 25 percent, and 30 percent damage. For labels, M or Q is sensible. Q protects better against scratches and condensation, but is denser. H is rarely worth it on a tiny vial.
+
+Contrast is non-negotiable. Print dark modules, ideally black, on a white or very light background. Never invert the code into light modules on a dark background, because many scanners struggle with reversed codes. Avoid placing the code over photos, patterns, coloured bands, or transparent film over a coloured bottle.
+
+Place the code on the flattest area, away from the seam, tightest curve, caps, and ridges. Test on the filled, capped vial, not a flat sheet.
+
+### 5. Real-world use cases in the dispensary
+
+In a community pharmacy, the leaflet link earns its place on repeat medicines. A patient collecting the same inhaler each month may have thrown away earlier leaflets, but the link on the new label is there again, on the container they keep beside them.
+
+In a dispensary serving older patients, the reminder page helps without changing any clinical decision. The pharmacist counsels as usual, and the code opens a page that walks a family member through setting daily alarms matching the printed directions.
+
+For outpatient dispensing of a medicine with a device, such as a spacer or pen, staff demonstrate once and the patient can replay the same trusted video at home.
+
+For refill heavy lines, a refill code on the outer box gives regular patients a direct route to the request page, without a long address to mistype.
+
+### 6. Testing before any label goes live
+
+Build a routine and repeat it for every new medicine, label size, and printer change.
+
+First, print at least ten labels on real stock, with the real printer, at real size. Apply them to actual vials and boxes, including the smallest vial, and handle them normally.
+
+Second, scan with a range of phones, including an older phone, in bright and dim light and at a slight angle. Every code should open the correct page on the first or second attempt.
+
+Third, follow the link through. Check the leaflet is the right medicine and strength, the video shows the right device, and the refill page is live, works without an account, and reads clearly on a small screen.
+
+Fourth, lightly scuff one label and try again. With M or Q it should still scan. If not, increase size, shorten the link, or move the code to a flatter label.
+
+Fifth, ask a colleague who did not make the code to test it cold, and a volunteer to try the caption, such as Scan for your leaflet and refill. If they hesitate, rewrite it before a full run.
+
+Record date, medicine, version, destination, size, and error correction for each approved label, so you can reprint confidently and retire old versions cleanly.
+
+### 7. Common mistakes and how to fix them
+
+**Putting essential directions only in the QR code.** This leaves out anyone who cannot scan. Fix it by keeping every required detail and essential direction in print, using the code only for the extended leaflet, video, refill, and reminder layer.
+
+**Using a long, messy link on a tiny vial.** Long links make dense codes that fail at 15 mm, especially on a curve. Fix it by using a short, stable pharmacy address, removing tracking strings, and testing the printed vial rather than the screen preview.
+
+**Printing the code across the curve or the seam.** A bent code distorts, and a seam through the modules can stop scanning. Fix it by placing the code on the flattest panel, enlarging the label, or moving the code to the outer box.
+
+**Inverting the colours to match branding.** White modules on a dark background look neat and scan badly. Fix it by giving the code its own white box with a four module quiet zone, black modules, and no brand colour inside the code area.
+
+**Linking to a general search or unofficial leaflet copy.** Patients land in a maze of similar medicines and strengths. Fix it by linking only to pages your pharmacy has checked for that exact product, and rechecking the destination when the supplier or leaflet version changes.
+
+**Claiming the code checks interactions for that patient.** A static code opens the same page for everyone and knows nothing about the individual. Fix the wording to say it links to general information and the pharmacy checker page, and that personal questions must go to the pharmacist.
+
+### 8. Privacy and security notes for label codes
+
+This section is general information, not medical advice. The pharmacist and the official product information remain the authority for any individual question.
+
+Keep personal information out of the code. Our generators produce static codes only, so the payload is fixed and cannot be updated or personalised after printing. That is a safety feature here: put only a public link in the code, never a patient name, address, date of birth, prescription number, or medical history. Anyone who can see the label could scan it, so treat its contents as public.
+
+The generators on freeqrcode.tools run entirely in the visitor browser. No account is needed, codes are created locally, and nothing you type is uploaded to create the code. Choose destinations you trust and recheck them regularly, because a printed static code keeps pointing to that address.
+
+Our site does not track scans. Once printed, a static code works offline as a printed pattern; the phone opens the link only when the patient chooses to scan. Make clear that scanning is optional, the printed label stands alone, and help is available without a phone.
+
+Finally, a leaflet page should not demand extra personal details just to read general information. Keep reading open, and keep request forms behind your normal safeguards.
+
+### 9. Related tools and guides
+
+- [prescription refill QR generator](/prescription-refill-qr-generator) — Build a dedicated code for your pharmacy refill request page.
+- [URL QR code generator](/url-qr-code-generator) — Turn a leaflet, video, or pharmacy information link into a label code.
+- [PDF QR code generator](/pdf-qr-code-generator) — Link a label code to a hosted patient information leaflet in PDF form.
+- [medical ID QR](/medical-id-qr) — A separate, patient controlled code for personal emergency information.
+- [QR scanner](/qr-scanner) — Check your own label codes in the browser before a print run.
+- [printed QR tester](/printed-qr-tester) — Test printed labels on real vials and boxes.
 `,
     [
       {
-        question: 'Can a pharmacy put all label info behind a QR?',
+        question: 'Can a QR code replace the printed information on a dispensing label?',
         answer:
-          'Generally no. Regulations require key information in print. QR is supplementary for extended detail.',
+          'No. Patient name, medicine name and strength, directions, pharmacy details, and anything else your local rules require must stay printed on the label. The code only adds the extended layer, such as the full leaflet, a refill page, reminder help, or a trusted how-to video.',
       },
       {
-        question: 'What language should the QR-linked information be in?',
+        question: 'What should a QR code on a prescription label link to?',
         answer:
-          'Ideally the patients preferred language. Offer a language selector on the landing page.',
+          'Link to one clear pharmacy destination for that medicine: the full patient information leaflet, a refill request page, a reminder setup guide, a trusted technique video, or the pharmacy interaction checker page. Keep it to one organised page rather than crowding several small codes onto the vial.',
       },
       {
-        question: 'What size should a printed QR code be?',
+        question: 'How small can a QR code be on a vial label?',
         answer:
-          'Size depends on scan distance and module count. As a starting point, keep the printed code at least as wide as the distance-to-scan ratio your generator recommends, then test a print at full size before ordering a full run.',
+          'Treat about 15 mm square as the practical floor, plus a quiet zone of four modules on all sides. Place it on the flattest area, away from the seam and tight curve. If that space is not available, use the outer box or a larger flat label instead.',
+      },
+      {
+        question: 'Which error correction level works best for vial labels?',
+        answer:
+          'Use M or Q for dispensing labels. M tolerates roughly 15 percent damage and Q roughly 25 percent, which helps with scratches and condensation marks. Q is slightly denser, so test the printed vial at the real size before choosing it for very small labels.',
+      },
+      {
+        question: 'Can the label code give a patient personalised interaction advice?',
+        answer:
+          'No. A static code opens the same fixed page for everyone and knows nothing about an individual, their other medicines, supplements, or conditions. It can link to general information and the pharmacy checker page, but personal interaction questions must always go to the pharmacist.',
+      },
+      {
+        question: 'Should any personal information be put inside the label QR code?',
+        answer:
+          'Never. Put only a public link in the code. Do not encode a patient name, address, date of birth, prescription number, or medical history, because anyone who can see the label could scan it. Treat everything inside a printed code as public information.',
+      },
+      {
+        question: 'How should a pharmacy test label codes before a full print run?',
+        answer:
+          'Print on real stock, apply labels to real filled vials and boxes, and scan with several phones in bright and dim light. Follow the link fully, test a lightly scuffed label, and record the medicine, version, destination, size, and error correction level for every approved code.',
       },
     ]
   ),

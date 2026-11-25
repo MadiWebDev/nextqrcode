@@ -302,73 +302,139 @@ Codes that stay in circulation need occasional attention. Links change, pages mo
     'qr code access control visitor management',
     'Issue time-limited QR passes for visitors, contractors, and events with server-side validation.',
     'Security & Scanning',
-    '7 min read',
+    '13 min read',
     '2026-10-07',
     `
-### 1. The Core Pattern
+### 1. The visitor queue is a security problem and a courtesy problem
 
-The server issues a signed QR containing: visitor name (optional), allowed zones, valid-from and valid-until timestamps, and a random unique ID. The gate reader validates the signature and expiry offline or with a quick server ping.
+Every building with a front desk knows the same morning scene. A visitor arrives early, another arrives late, a delivery driver needs a signature, and the receptionist is trying to check photo ID, find the host, print a badge and answer the phone at the same time.
 
-### 2. One-Time vs Multi-Use
+QR codes look like an obvious answer, and in the right role they genuinely help.
 
-* One-time: invalidated after first use, ideal for single-visit guests.
-* Multi-use with expiry: valid for a contractor working for one week, checked each entry against the server.
+This guide is for facilities managers, office managers, event organisers and security staff, and it starts with the limit that shapes everything else. A static QR code is just printed data. It can be photographed, screenshotted and forwarded, so on its own it is not a secure credential and should never be treated as a key. What follows separates the jobs a static code can safely do from the jobs needing validation against a live list, so you can build a quicker desk without pretending it is stronger than it is.
 
-### 3. Revocation
+### 2. What a visitor pass should carry, and how a validated pass actually works
 
-Server-side revocation works only when the reader has connectivity. For offline or low-connectivity gates, use short expiry windows so revoked passes expire quickly.
+A well-designed visitor pass carries one thing: an opaque, random token. Opaque means the code contains no readable information about the person at all. It should never encode a name, company, email address, phone number, appointment time or host. Anyone who photographs the pass can read whatever is inside it with any free scanner, so the pass must be treated as public paper.
 
-### 4. Display
+The details live elsewhere, in your visitor list. When a token is scanned, staff check it against that list: present, unused and in date means entry can proceed, and the token is then marked used. Expiry and revocation live in the list, not the print, which is why the model works: a pass can be cancelled when a meeting is called off, even though the paper or screenshot is still out in the world.
 
-Send the QR to the visitor by email before arrival. Display it on their phone or print it, and include name and date so security can cross-check visually.
+This validated-pass model is the honest version of QR access. The code is a reference number, the list is the authority, and the check happens live at entry.
 
-### 5. Audit Log
+Now the plain limit. Our free generators produce static codes only, and a static code by itself performs none of that checking. It does not know if it has been used, it cannot expire, and it cannot tell a copy from an original, because a copy carries identical data. Static codes are fine for low-risk visitor passes where a receptionist also checks photo ID, and for wayfinding and information. They are not, on their own, an access control system for anywhere that genuinely needs one.
 
-Every scan event creates an immutable audit entry. This is valuable for investigating incidents or satisfying health-and-safety requirements.
-    
+### 3. Step-by-step: create the codes with our tools
 
-### Putting this into practice
+Decide first which job each code is doing: speeding up a staffed check-in, or carrying information.
 
-Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+1. For a staffed reception, open the [visitor badge QR generator](/visitor-badge-qr-generator) and create a badge code for each booked visitor. Use a random token as the payload if your process supports looking tokens up, and keep names and details in your own visitor list, not in the code.
+2. For events, open the [ticket QR code generator](/ticket-qr-code-generator) to produce a code per ticket. Treat each code as a reference to check at the door against your attendee list, not as proof by itself.
+3. For a group arrival, training day or contractor induction, the [bulk check-in QR generator](/bulk-check-in-qr-generator) produces a set of codes for a prepared list in one batch, so the desk is not generating passes one by one while a queue forms.
+4. Where your process runs from a booking page, use the [URL QR code generator](/url-qr-code-generator) to make codes that open that page.
+5. At the desk, scan incoming passes with the [QR scanner](/qr-scanner) or your usual device, and check the result against the visitor list before issuing anything, such as a lanyard or directions.
+6. For sites with poor connectivity, plan around the [QR offline verifier](/qr-offline-verifier) approach: a downloaded, current copy of the expected visitor list on the door device, checked locally and reconciled with the main list afterwards.
+7. Before launch, test the full journey with sample passes, including a deliberately copied pass, and confirm your desk procedure catches what the code cannot.
 
-### Common mistakes to avoid
+The generators run in your browser with no account and nothing uploaded, so tokens and lists stay on your own machines.
 
-The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+### 4. Sizes, contrast and error correction for badges, tickets and posters
 
-### Quick checklist
+A pass that will not scan holds up the queue it was meant to shorten, so print for the device and the distance. For a badge worn on a lanyard and scanned at a desk, print the code at least 25 to 30 mm square. For a ticket scanned at arm's length, 30 to 40 mm is safer. For a poster code, size it for reading distance: allow roughly 10 mm of code width for every 100 mm of distance, so a code read from a metre away needs to be around 100 mm square.
 
-- Keep the payload as short as practical so modules stay large.
-- Keep dark modules on a light background with strong contrast.
-- Leave a clear quiet zone on all four sides of the symbol.
-- Test the printed code at the real viewing distance and lighting.
-- Confirm the destination page loads fast on a phone.
-- Recheck the code after any change to the link, design, or placement.
+Protect the quiet zone on every print: a clear border on all four sides equal to the width of four of the code's small squares, called modules.
 
-Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+Contrast is non-negotiable. Print dark on light, ideally black on white, and never invert a code to white on a dark background, because many scanners handle reversed codes badly. Do not place codes over photographs, textured patterns or coloured tints.
 
-### Related tools and guides
+Error correction is built-in spare data letting a code scan when part is damaged: level L tolerates about 7 percent damage, M about 15 percent, Q about 25 percent, and H about 30 percent. Badges get creased and tickets get folded and rained on, so Q or H suits passes living in pockets and wallets. A clean, protected poster can use M or Q.
 
-- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
-- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
-- Use the [QR size calculator](/qr-size-calculator) to match the printed size to the expected scan distance before you commit to a print run.
-- The [error correction simulator](/error-correction-simulator) shows how damage tolerance changes the density of the symbol at each level.
-- Create a fresh code with the [URL QR code generator](/url-qr-code-generator) when the destination is a web page.
-- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+### 5. Real-world use cases, matched to the right level of trust
+
+In a small office with a staffed reception, static visitor codes work well in their proper role. A guest books ahead, receives a pass carrying a token, and arrives to a quick scan plus a photo ID check by the receptionist, who confirms the host and issues a dated badge.
+
+On a construction or facilities site, the same routine helps manage contractors. Pre-booked trades arrive with a pass, reception checks it against the day's expected list, and confirms identity and induction status in the site system before issuing access. The code speeds up finding the booking.
+
+At a conference, training day or open evening, ticket codes checked against an attendee list keep entry moving and give organisers a reliable count of who arrived.
+
+Static codes also earn their place away from entry points. A code on a reception poster can open a map of the building, a code in a meeting room can open reporting instructions for a faulty projector, and a code on a visitor card can open Wi-Fi guidance or evacuation information.
+
+What is missing here is deliberate. Server rooms, pharmacies, data halls, cash-handling areas and any door that must resist a determined attempt need properly engineered access control: credentials validated against a live system, managed by specialists, with hardware designed for the job.
+
+### 6. Testing: prove the process, not just the print
+
+Test in two layers: whether the codes scan, and whether the procedure holds up when someone misuses one.
+
+Start with scan testing. Print samples on the actual badge stock, ticket paper and poster material you will use, in the actual holders and lanyards. Scan each with several phones, including an older one, at the real desk and door, under the real lighting. Confirm each code reads first time, returns only the token or link intended, and that nothing personal appears in the result.
+
+Next, test the list check. Arrive with a valid pass and confirm the desk finds the booking quickly. Arrive with a pass for the wrong day, one already used, and one for a cancelled visit, and confirm each is stopped politely and consistently.
+
+Then test copying, because passes will be copied in real life, innocently or otherwise. Photograph a pass, screenshot it, and forward it to a second phone. Present the copy after the original has been used. The procedure passes only if the used token is refused or flagged and staff know what to say next.
+
+Finally, rehearse the human cases. A visitor with a dead phone, one who lost their pass, and a small group arriving together behind one legitimate pass all need a calm, known answer.
+
+### 7. Common mistakes and how to fix them
+
+**Treating a static code as a secure credential.** This is the mistake the whole article warns against. A static code can be photographed, screenshotted and forwarded, and every copy works identically. Fix it by demoting the code to a reference: validate it against a live list, make it single-use with a short expiry held in that list, and keep a person checking ID at any entry point that matters.
+
+**Encoding personal data in the pass.** Names, emails, company details and appointment information are sometimes placed in the code to make the badge feel complete. Fix it by regenerating passes with an opaque random token only, and holding every personal detail in your own visitor system instead.
+
+**Forgetting expiry and revocation.** A pass never checked against a list stays valid forever in practice, including after a meeting is cancelled or a contractor's engagement ends. Fix it by keeping expiry and revocation in the list: short arrival windows, tokens marked used at entry, and a same-day routine for cancelling passes that should no longer work.
+
+**Ignoring tailgating and the social side of the door.** The neatest pass system fails if visitors hold doors for strangers, prop open a side entrance, or staff wave through a familiar face without a check. Fix it with the unglamorous basics: one person per pass, doors that close properly, friendly staff scripts for challenging politely, and a culture where checking is normal rather than rude.
+
+**Letting an information code become an entry code.** A poster code linking to a check-in page can quietly start being treated as proof of booking by busy staff. Fix it by labelling information codes clearly in procedures, training desk staff on the difference, and keeping the list check as the only route to entry, whatever code a visitor shows.
+
+### 8. Privacy and security notes, stated plainly
+
+The generators on this site run entirely in your browser. The work happens on your own computer, nothing is uploaded, and no account or sign-up is required. The site does not track scans, so there is no record here of who used a pass or when. Your visitor list, with names, hosts and arrival times, stays in your own systems under your own retention rules.
+
+The codes are static, meaning the payload fixed inside them never changes, they never expire by themselves, and they keep working offline once printed. Nothing about a static pass can be updated, withdrawn or made single-use after printing. All that control must live in the list you check against, or it does not exist at all.
+
+Be honest with visitors too. A short notice explaining that the pass holds only a reference number, that staff will check ID, and how long visit records are kept, builds more confidence than any claim that a printed code is secure.
+
+### 9. Related tools and guides
+
+- [visitor badge QR generator](/visitor-badge-qr-generator) — Create a badge code for each booked visitor, ready for a staffed desk check.
+- [ticket QR code generator](/ticket-qr-code-generator) — Produce one code per ticket to check against your attendee list at the door.
+- [bulk check-in QR generator](/bulk-check-in-qr-generator) — Generate check-in codes for a whole group, training day or contractor list in one batch.
+- [QR offline verifier](/qr-offline-verifier) — Plan door checks against a downloaded visitor list where connectivity is poor.
+- [URL QR code generator](/url-qr-code-generator) — Make information codes that open booking pages, maps and visitor guidance.
+- [QR scanner](/qr-scanner) — Scan and inspect any pass in the browser to confirm exactly what it contains.
 `,
     [
       {
-        question: 'Can a visitor print their QR pass?',
+        question: 'Is a static QR code secure enough for access control on its own?',
         answer:
-          'Yes. A signed pass is equally valid on paper as on screen, provided the signature check occurs at the gate.',
+          'No. A static code is just printed data: it can be photographed, screenshotted and forwarded, and every copy works identically. It is acceptable for low-risk visitor passes where reception also checks photo ID. Anywhere that genuinely needs access control needs codes validated against a live system, managed properly, not print alone.',
       },
       {
-        question: 'How do I handle a visitor arriving without their code?',
-        answer: 'Require manual reception check-in as a fallback. Never bypass the access check.',
+        question: 'What should a visitor pass QR code contain?',
+        answer:
+          'Only an opaque, random token that means nothing on its own. Never encode a name, company, email, phone number or appointment details, because anyone can read a code with a free scanner. Hold all personal details in your own visitor list, where access can be controlled and records properly retained.',
       },
       {
-        question: 'How do I test a QR code before sharing it?',
+        question: 'How does a validated visitor pass work?',
         answer:
-          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
+          'The code carries a random token, and your visitor list connects that token to a booking, host and arrival window. At the desk, staff scan the token, check it against the list, confirm photo ID, and mark the token used. Expiry and revocation live in the list, not the printed pass.',
+      },
+      {
+        question: 'Can a static visitor pass be cancelled or made single-use?',
+        answer:
+          'Not by itself. A static code never changes and never expires, so it cannot be withdrawn or made single-use after printing. Cancellation and single use only exist if your team checks every scan against a list and updates that list: cancelling the token there is what stops the pass working.',
+      },
+      {
+        question: 'What happens when a visitor forwards their pass to someone else?',
+        answer:
+          'The forwarded copy contains identical data, so a scanner alone cannot tell it from the original. If the token has already been used, your list check should flag it. If it has not, the first presentation wins, which is exactly why staff must check photo ID alongside every scan.',
+      },
+      {
+        question: 'How big should the code on a visitor badge be?',
+        answer:
+          'Print badge codes at least 25 to 30 mm square, and 30 to 40 mm for tickets scanned at arm\'s length. Leave a quiet zone of four modules on all sides, print dark on light and never inverted, and use error correction level Q or H for passes that get folded or creased.',
+      },
+      {
+        question: 'Are visitor details uploaded when we create passes on this site?',
+        answer:
+          'No. The generators run entirely in your browser, nothing is uploaded, and no account or sign-up is required. The site does not track scans. You should not be putting visitor details in the codes anyway: keep names and visit records in your own system, under your own retention policy.',
       },
     ]
   ),

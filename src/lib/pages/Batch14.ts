@@ -675,73 +675,144 @@ Codes that stay in circulation need occasional attention. Links change, pages mo
     'qr code university campus wayfinding',
     'Deploy QR codes across a university campus for building navigation, lecture resources, and student services.',
     'Business & Regional',
-    '6 min read',
+    '13 min read',
     '2026-12-01',
     `
-### 1. Campus Wayfinding
+### 1. The problem this solves and who it is for
 
-QR codes on campus maps and building entrances link to an interactive map pre-centred on the scanned location. Students and visitors navigate to their destination with one scan.
+A new student arrives on campus with a timetable listing a room code and a building they have never heard of, starting in ten minutes. Returning students face moved lectures, visitors cannot find admissions, and staff spend the first weeks of term answering the same direction questions.
 
-### 2. Course Material Links
+This article is for university IT, student services, and estates teams who plan signs, cards, and course pages. It shows where QR codes help, where they do not, and how to run them so they still work in year two.
 
-QR codes in lecture theatres and on printed syllabi link to the current module's reading list, lecture slides, and assignment portal. One code per module, updated each semester.
+A QR code is a shortcut to a page, a map point, a network, or a record. It removes typing and searching. It does not replace clear signs, staffed help points, or printed directions. Alongside those, it saves time. As the only option, it excludes people.
 
-### 3. Student ID and Services
+### 2. What each campus code should carry or open
 
-Student ID QR codes authenticate at the library, recreation centre, cafeteria, and event access. Use an opaque token with the campus identity system, not a student number in plain text.
+Wayfinding codes should open a location, not a homepage. An entrance sign can link to a campus map centred on that entrance, so the student starts from where they are. A sign outside a lecture theatre can open the map pin for that building. For a single point, a code can carry map coordinates and open in the visitor's map app.
 
-### 4. Information Boards
+Lecture-room codes should open the live timetable page for that room, showing today's sessions and any room change notice. The code stays the same all year because it only holds the page address. When the timetable changes, the page changes, and the sign stays correct. The same pattern works for library floors and study spaces, with opening hours and booking rules on the page.
 
-Campus events, job boards, and club notices carry QR codes instead of tearaway tabs. Scan the code to add the event to a calendar or submit an application.
+Service point codes should open the specific service, not a general portal. A code at the library desk can open library hours and contacts. A code at a print station can open that building's printing guide. A code on a society stall can open that society's sign-up form, so a student can join while the conversation is fresh.
 
-### 5. IT and Support
+Student ID codes need care. A code printed on a student card is an identifier, carrying the student number or a reference that library and access systems check against their own records. It works alongside the photo on the card. It is not proof of identity on its own, because a printed code can be copied like any printed number. The real check happens in the system behind the reader.
 
-QR codes near IT equipment link to the service desk ticket form pre-filled with the room and equipment number. Fast fault reporting reduces equipment downtime.
-    
+WiFi codes belong where a network is offered for quick joining, such as halls and libraries. The code carries the network name and password, and most phones join after one scan and one tap. Only use this on a network you are happy to share with everyone who can see the sign, and reprint when the password changes.
 
-### Putting this into practice
+### 3. Step-by-step: create the codes with our tools
 
-Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+1. List every location needing a code, and write down the exact page each should open, before you generate anything. Fixing a destination after printing is the expensive part.
+2. For entrance and building signs, open the [geo QR code generator](/geo-qr-code-generator), enter the coordinates for that exact spot, and generate one code per sign, not one for the whole campus.
+3. For room timetables, society sign-ups, and open-day forms, copy the stable page address, open the [URL QR code generator](/url-qr-code-generator), paste the address, and create the code.
+4. For group study rooms, use the [room booking QR generator](/room-booking-qr-generator) so the door code opens the booking view for that specific room.
+5. For seating guidance at graduations, use the [seat finder QR generator](/seat-finder-qr-generator) at entrances where people pause.
+6. For course sign-up points, use the [course enrollment QR generator](/course-enrollment-qr-generator) at department desks and stands.
+7. For the student network, open the [WiFi QR code generator](/wifi-qr-code-generator), enter the network name and password exactly as configured, and print fresh copies for each location.
+8. For student cards, design the card with the [student ID card generator](/student-id-card-generator). For a full cohort, use the [bulk student ID QR generator](/bulk-student-id-qr-generator) from your prepared list, checking names and numbers against the source file first.
+9. Download each code at high resolution, name the file after its location, and keep a master list pairing every file with its display place and destination.
 
-### Common mistakes to avoid
+All these generators run in your browser. No account is needed, codes are created locally; nothing you type is uploaded.
 
-The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+### 4. Sizes, contrast and error correction for campus signs and cards
 
-### Quick checklist
+Size depends on viewing distance. A student card code is scanned from a hand's length away and can be around 20 to 25 mm square, if the identifier is short. A door code is scanned from about an arm's length and should be at least 30 to 40 mm square. An entrance board code may be scanned from one or two metres, so make it 80 mm square or more. Shorten the destination where you can, because shorter content makes larger, easier-to-scan modules.
 
-- Keep the payload as short as practical so modules stay large.
-- Keep dark modules on a light background with strong contrast.
-- Leave a clear quiet zone on all four sides of the symbol.
-- Test the printed code at the real viewing distance and lighting.
-- Confirm the destination page loads fast on a phone.
-- Recheck the code after any change to the link, design, or placement.
+Every code needs a quiet zone, a clear border around it equal to four modules, the small squares that make up the code. Do not place text, logos, or the edge of the sign inside that border. Crowding it is a common reason a good code fails in real corridors.
 
-Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+Use dark modules on a light background, with strong contrast. Black on white is safest. Never invert a code to light modules on a dark background, because many scanners handle inverted codes poorly or not at all. Apply brand colour around the code, not to the code itself.
 
-### Related tools and guides
+Error correction lets a code survive damage. Levels L, M, Q, and H tolerate roughly 7, 15, 25, and 30 percent damage or covering. For indoor door signs, M is usually enough. For outdoor signs, busy noticeboards, and cards in wallets, choose Q or H. Higher correction makes the code denser, so balance it against size. Use the highest-resolution download, keep the code a sharp square without stretching, and prefer matte finishes, because glossy reflections can block a scan.
 
-- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
-- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
-- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
-- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
-- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
-- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+### 5. Real-world use cases on a working campus
+
+At a main entrance during open day, a family scans the board code and gets the campus map centred on that gate. They walk a direct route to admissions instead of circling the site, and welcome staff can help people who truly need personal guidance.
+
+Outside a first-year lecture theatre, the door code opens that room's timetable. A student who finds the room empty scans it and sees the session was moved that morning, with the new room named on the page. No sign had to be replaced, because only the page changed.
+
+In the library, codes at the end of each shelving floor open the floor guide, and a code beside the printers opens the printing instructions. Students get the answer at the point of need, including in the evening when the help desk is closed.
+
+On the student card, the library reader scans the code, checks the identifier against the library system, and admits the student if the record is valid. If a card is reported lost, the record is blocked, and the code on the lost card stops working at the reader even though the print has not changed. The system does the security work, as it should.
+
+
+### 6. Testing: a concrete routine before term starts
+
+Test with real phones, not just the phone of the person who made the codes. Gather a recent iPhone, a mid-range Android, and an older or budget phone. Budget phones are the honest test of size and contrast.
+
+Walk the actual route. Stand where a new student would stand, in the actual light, including bright sun through entrance glass and dim corridors. Scan every sign from a natural distance. If anyone must step closer, crouch, or shade the code repeatedly, enlarge or move it before term starts.
+
+Check mounting height and reach. Codes should sit where both a seated wheelchair user and a standing person can reach them with a phone. If a sign must be high for visibility, repeat the code lower down. Never place the only copy behind reflective glass or at the top of a tall banner.
+
+Open every destination and read it as a stranger. Does the map start at the right entrance? Does the room page show today, not last term? Does the form name the right society? Check each link on mobile data with WiFi off.
+
+Test ID codes against the real readers. Scan sample new cards at the library and access readers, including a card for a blocked test record, to confirm the system refuses it. Test a scuffed sample to check your error-correction level.
+
+Finally, confirm the non-QR alternative on every sign: a short printed address, plus staffed desks and phone routes for essential services. Record the date, tester, and fixes in your master list.
+
+### 7. Common mistakes and how to fix them
+
+**Making the QR code the only route to an essential service.** This shuts out anyone whose phone is dead or unable to scan. Fix: keep a non-QR alternative on the same sign, such as a short printed address, and keep staffed desks and phone routes in place.
+
+**Linking signs to pages that move every term.** Timetable pages often get new addresses, and every sign pointing at an old address quietly breaks. Fix: link to stable addresses your web team commits to keeping, redirect old addresses when systems change, and audit every code each term.
+
+**Treating the printed ID code as proof of identity.** A copied code looks identical to the original, so checking the print proves nothing. Fix: train staff that the photo and live system check establish identity, validate every scan against your records, and block lost cards at once.
+
+**Placing codes too high, behind glass, or in poor light.** A code nobody can reach or photograph clearly might as well not exist. Fix: mount at a reachable height, avoid reflective covers, repeat important codes lower down, and test in real light.
+
+**Printing a full cohort of ID cards without a sample check.** One wrong column in a source file can put the wrong identifier on hundreds of cards. Fix: generate and scan a small sample first, check each against the source records and a real reader, then produce the full run.
+
+### 8. Privacy and security notes for campus use
+
+Our generators produce static codes only. The content is fixed inside the code when you create it, whether that is an address, coordinates, network details, or an identifier. Static codes never expire, and once printed they work offline, which is right for signs and cards. You cannot change what a printed code holds, so if a destination must change, change the page at the same address instead.
+
+Because the tools run in your browser, the lists used for student ID codes never need to leave your device. Handle them under your normal student-data rules anyway: store them securely, limit who can open them, and delete working copies when printing is finished.
+
+The site does not track scans, so you will not get scan counts from the code itself. If you need usage figures, measure visits on your own pages with your own analytics, under your own privacy notice.
+
+Keep personal information off pages that public signs open, because anyone can scan them. Student records belong behind your normal login. For WiFi codes, anyone who can photograph the sign has the password, so use them only on networks meant for broad sharing, separate from staff systems.
+
+### 9. Related tools and guides
+
+- [bulk student ID QR generator](/bulk-student-id-qr-generator) — create ID codes for a whole cohort from one prepared list.
+- [student ID card generator](/student-id-card-generator) — lay out individual student cards with a photo space and code.
+- [course enrollment QR generator](/course-enrollment-qr-generator) — link desks and stands straight to the right enrolment page.
+- [geo QR code generator](/geo-qr-code-generator) — make codes that open an exact map location for signs and entrances.
+- [room booking QR generator](/room-booking-qr-generator) — put the booking view for a specific room on its own door.
+- [WiFi QR code generator](/wifi-qr-code-generator) — let students and guests join a shared network with one scan.
 `,
     [
       {
-        question: 'Should student ID QR codes contain the student number?',
+        question: 'What should a campus wayfinding code open?',
         answer:
-          'Use an opaque token. Student numbers are often used in other systems; exposing them in plain text increases risk.',
+          'It should open a location, not a general homepage. Use a campus map centred on that exact entrance or building, or a code carrying map coordinates that opens in the visitor\'s map app. The student starts from where they are and follows a direct route.',
       },
       {
-        question: 'Can a single QR code serve the whole campus?',
+        question: 'Is a student ID QR code proof of identity?',
         answer:
-          'No. Wayfinding requires a unique QR per location to deliver location-specific content.',
+          'No. A printed code is an identifier, not proof of identity, because it can be copied like any printed number. It works alongside the photo card. Library and access systems should check the identifier against their own records and confirm it is valid and current before granting entry or services.',
       },
       {
-        question: 'How can teachers use QR codes in class?',
+        question: 'How large should campus QR codes be?',
         answer:
-          'Teachers can link codes to readings, worksheets, polls, or submission forms so students reach the right resource without typing a long address. Test each code on student devices before the lesson.',
+          'Match size to scanning distance. A student card code can be about 20 to 25 millimetres square. A door sign code should be at least 30 to 40 millimetres. An entrance board scanned from one or two metres needs 80 millimetres or more, with a clear quiet zone around it.',
+      },
+      {
+        question: 'What if a student cannot scan codes?',
+        answer:
+          'Never make a QR code the only route to an essential service. Print a short web address on the same sign that can be typed instead, keep codes at a reachable height, and keep staffed help desks and phone routes in place so every student can get help.',
+      },
+      {
+        question: 'How do timetable signs stay accurate each term?',
+        answer:
+          'Link each room sign to a stable timetable page address, and update the page rather than the printed code. Pages move when systems change, so commit to keeping those addresses, redirect old ones properly, and audit every code on your master list at the start of each term.',
+      },
+      {
+        question: 'Are the campus generators private to use?',
+        answer:
+          'Yes. The generators run entirely in your browser, need no account, and create codes locally, so student lists used for ID cards are not uploaded. The site does not track scans either. You should still store source lists securely and delete working copies once printing is finished.',
+      },
+      {
+        question: 'Which error correction level suits student cards?',
+        answer:
+          'Choose Q or H for student cards and outdoor signs. The levels tolerate roughly 7, 15, 25, and 30 percent damage for L, M, Q, and H. Cards live in wallets and get scuffed, so higher correction helps, balanced against size so the code stays scannable.',
       },
     ]
   ),

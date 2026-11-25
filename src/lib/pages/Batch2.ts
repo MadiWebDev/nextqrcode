@@ -584,62 +584,156 @@ The most common mistakes are easy to avoid once you know them. Long payloads mak
     'qr code size packaging',
     'Calculate packaging QR sizes from module width, substrate, and print process.',
     'Printing & Sizing',
-    '6 min read',
+    '13 min read',
     '2026-08-03',
     `
-### 1. Start From the Module
+### 1. A code that prints well and still will not scan
 
-Packaging QR sizing begins with module width, not overall size. Use at least 0.5 mm per module on coated stock and more on corrugated. Our [QR size calculator](/qr-size-calculator) helps determine the total symbol dimensions based on payload and module size.
+A label can look perfect on screen and then fail on the shelf, at the till, or in a customer's kitchen. The usual cause is not the artwork. It is size: the code was made too small for the data inside it, for the material it was printed on, or for the distance it must be scanned from.
 
-### 2. Worked Example
+This article is for packaging designers, brand and production staff, and small producers printing their own labels. It explains how QR size is decided, starting from the module, the small square every QR code is built from. It gives worked examples you can check with a ruler, practical floors for different materials and print processes, and rules for curved surfaces such as bottles and jars.
 
-A Version 2 code has 25 modules. Add an 8-module total quiet zone (4 on each side) and you have 33 modules across. At 0.5 mm per module:
-$$33 \\times 0.5 = 16.5\\text{ mm}$$
-A Version 3 code needs (29 + 8) x 0.5 = 18.5 mm. Generate and test with our [URL QR code generator](/url-qr-code-generator).
+Treat every number here as practical guidance, not a compliance rule for any industry scheme. Prove it on your real packaging before a full print run.
 
-### 3. Surface Considerations
+### 2. What the code should carry, and why shorter is smaller
 
-* Flexo on kraft or corrugated: 0.85 mm modules or larger.
-* Curved or shrink-sleeve surfaces: place on the flattest area using our [QR placement guide](/qr-placement-guide).
-* Avoid placing across folds, seams, or glue flaps.
-* Verify scannability with our [printed QR tester](/printed-qr-tester) on actual product samples.
+Size begins with content. A QR code stores its payload in a grid, and more data needs more rows and columns. On packaging the payload is usually a link: a product page, instruction page, allergen page, reorder page, or support page. It can also be plain text, such as a short product identifier, readable without an internet connection.
 
-### 4. Verify
+Keep the payload as short as you honestly can. A short, clean link needs far fewer modules than a long link full of tracking parameters and campaign codes. If you need tracking, do it on the page the link opens, where you can change it later. Every extra character can push the code to a higher version, meaning more modules in the same printed space, or a bigger code to keep modules readable.
 
-Run a print proof and grade it, or at minimum scan on an older budget phone with a [QR scanner](/qr-scanner). Understand how print processes affect quality using our [error correction simulator](/error-correction-simulator).
-    
+Do not fit a full manual or long ingredients list inside the code. Put that on the page the code opens.
 
-### Putting this into practice
+Our generators produce static codes only, so the payload is fixed once printed. You cannot shorten or correct a printed link later. That makes checking before files go to print the most important stage of all.
 
-Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+### 3. Step-by-step: create the codes with our tools
 
-### Common mistakes to avoid
+Work in this order: fix the payload, work out the version and module count, set the module size for your material, then check the finished size before designing around it.
 
-The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+1. Write the final payload exactly as printed, ideally a short link. Open the [QR size calculator](/qr-size-calculator) and enter it to see the size implications before committing to artwork.
+2. Use the [QR module size calculator](/qr-module-size-calculator) to work from the module up. Enter the version or module count and your planned module width, and confirm the total width including quiet zone. Reserve that total on the pack.
+3. Run the result through the [QR minimum size checker](/qr-minimum-size-checker). If it warns the code is below a practical minimum, shorten the payload or increase the size, and check again.
+4. Check artwork resolution with the [QR DPI calculator](/qr-dpi-calculator) so module edges land cleanly at final output size, rather than being scaled by a fraction at the printer.
+5. For bottles, jars, and tubes, enter the container diameter and label width in the [QR curved surface calculator](/qr-curved-surface-calculator) and keep the code within its recommended width for that curve.
+6. For uncoated or corrugated material, or a process that spreads ink, check the allowance with the [QR dot gain tolerance checker](/qr-dot-gain-tolerance-checker) and increase module size if it advises.
+7. Check a proof with the [QR contrast checker](/qr-contrast-checker), using the exact ink and background colours of the final pack.
+8. For a label run, generate the set with the [bulk shelf label QR generator](/bulk-shelf-label-qr-generator), keeping the same module size across the set.
 
-### Quick checklist
+### 4. Sizes, contrast and error correction
 
-- Keep the payload as short as practical so modules stay large.
-- Keep dark modules on a light background with strong contrast.
-- Leave a clear quiet zone on all four sides of the symbol.
-- Test the printed code at the real viewing distance and lighting.
-- Confirm the destination page loads fast on a phone.
-- Recheck the code after any change to the link, design, or placement.
+A QR grid is measured in modules across. Version 1 has 21 modules. Each higher version adds 4 modules, so Version 2 has 25 and Version 3 has 29. Around the grid add a quiet zone of 4 modules on every side: plain empty space that helps a scanner find the code.
+
+To work out any printed size, add 8 modules to the grid width for both quiet zones, then multiply by the width of one module.
+
+Example one: a short link fits Version 2, at 25 modules. With quiet zones you need 33 modules across. At 0.5 mm per module, total width is 33 multiplied by 0.5 mm, which is 16.5 mm. The code alone is 12.5 mm, but you must reserve the full 16.5 mm on the pack.
+
+Example two: a longer link needs Version 3, at 29 modules, or 37 including quiet zones. At 0.5 mm per module that is 18.5 mm total. At 0.75 mm per module, suiting a rougher material, it needs 27.75 mm. A longer payload and a rougher material both push size up, and they multiply together.
+
+Example three: shorten the link to fit Version 1, at 29 modules including quiet zones. At 0.5 mm per module that is 14.5 mm total.
+
+For module width floors, smooth coated stock can go smaller, around 0.33 mm to 0.5 mm per module in careful print conditions, because edges stay sharp. Uncoated paper, kraft board, and corrugated board spread ink, so start nearer 0.5 mm to 0.75 mm per module, and larger for coarse corrugated board. These are starting points for a proof, not guarantees.
+
+Match size to scan distance: code width should be roughly one tenth of the intended scan distance. Scanned from about 20 cm, use roughly 20 mm wide; from about 50 cm, roughly 50 mm wide.
+
+Error correction lets a code survive damage. Levels L, M, Q, and H recover roughly 7, 15, 25, and 30 percent of the code. Higher correction adds modules, so it can increase version and size. For clean, flat, indoor packaging, M is often enough. For codes that may be scuffed or damp, Q is safer. Use H only when needed, and recheck size afterwards.
+
+Keep contrast dark on light, ideally black on white or a very pale panel. Never invert the code to light on dark. Do not use a colour close in tone to the background: a camera reads brightness more than hue. Keep gloss varnish, foil, and heavy lamination off the code area, because reflections can hide modules even when the print underneath is perfect.
+
+Leave bleed and safe margins so cutting shifts cannot trim the quiet zone. Print processes differ: thermal is sharp but can fade, inkjet spreads on uncoated stock, flexo gains on films, offset is sharpest on coated board. Proof with your actual process.
+
+### 5. Real-world use cases
+
+A jam maker prints jar labels linking to ingredients and a reorder form. Because the jar curves, the code is kept small relative to the curve and placed on the flat label panel.
+
+A coffee roaster uses coated bags with a flat back panel. A short link fits a low version, so the code prints modestly on the back, on a white panel that guarantees contrast.
+
+A soap producer wraps bars in uncoated kraft paper. Ink spreads there, so the producer uses a larger module width and a short link, keeps strong brightness contrast, and proofs each new paper batch before a full run.
+
+An electronics brand puts a code on a corrugated outer box. The board is rough and scanning distance is longer in a warehouse, so the code is much larger, away from folds and tape.
+
+### 6. Testing
+
+Always proof on the real substrate at final size. A screen proof or a print on office paper tells you almost nothing about ink spread, contrast, or glare on the actual pack.
+
+Print a test sheet on the production material, using the production process where possible. Include the code at your planned size, one size larger, and one size smaller, to see where scanning starts to fail.
+
+Scan each proof with several phones, including an older phone, in the light where the product will be used. Scan at the intended distance, at an angle, and through any film. Use the [printed QR tester](/printed-qr-tester) routine to check size, quiet zone, and contrast.
+
+Test the worst case: a label from the start and end of a run, and a code after handling, chilling, or stacking. If any proof needs several attempts, do not ship it. Increase module size, shorten the payload, improve contrast, or move the code, then proof again.
+
+Keep one approved proof with its settings recorded: payload, version, module width, total width, material, process, and error-correction level. When anything changes, proof again.
+
+### 7. Common mistakes and how to fix them
+
+**Shrinking the code to fit the layout instead of sizing the layout to fit the code.** This squeezes modules below what the material can hold. Fix it by calculating total width including quiet zones first, reserving that space, and shortening the payload if the space cannot grow.
+
+**Forgetting the quiet zone in the calculation.** A correct grid still fails if artwork, text, or a pack edge crowds it. Fix it by adding 4 modules of clear space on every side to every size figure, and keeping all other elements outside it.
+
+**Using a long link with tracking parameters.** Extra characters raise the version and shrink modules at a fixed print size. Fix it by using the shortest clean link you control, and handling tracking on the landing page instead.
+
+**Printing the same small size on every material.** A size that works on coated board can fail on corrugated or kraft paper because of dot gain, where printed dots grow and fill the gaps between modules. Fix it by setting module width per substrate and proofing each material separately.
+
+**Placing a wide code around a tight curve.** Edge modules wrap away from the camera and distort, so the scanner sees a warped grid. Fix it by keeping the code small relative to the curve, using the curved surface calculator, or moving it to the flat label panel.
+
+**Covering the code with gloss varnish.** A sharp code under a reflective layer can disappear at common angles. Fix it by leaving the code unvarnished where possible and testing the sealed pack.
+
+**Approving the design on screen without a physical proof.** Screens hide ink spread, low contrast, and cutting drift. Fix it by requiring a final size proof on the real substrate before releasing a run.
+
+### 8. Privacy and security notes
+
+A packaging code is public by design: anyone can scan, photograph, and share it. Never encode anything you would not print in plain text on the pack: no internal links, admin pages, single-customer discount codes, or staff personal details.
+
+These generators run entirely in your browser, with no account or sign-up. Codes are created locally and nothing you type is uploaded, so drafts stay on your machine until you publish them.
+
+The site does not track scans, so you will not see a scan count from the code itself. Measure visits on the product page with your normal website tools, and explain in your privacy notice what that page collects.
+
+Static codes never expire and work offline once printed. For a link code, the page must stay live while packaging is in circulation, which can be years. Before a large run, check the link goes to a page you control and that a future redesign will keep it working.
+
+Check the link as a customer would, on a phone with no login.
+
+### 9. Related tools and guides
+
+- [QR module size calculator](/qr-module-size-calculator) — Total width from version, module width, and quiet zone.
+- [QR size calculator](/qr-size-calculator) — Printed size a given payload will need.
+- [QR minimum size checker](/qr-minimum-size-checker) — Whether a planned size is below a practical minimum.
+- [QR DPI calculator](/qr-dpi-calculator) — Match artwork resolution to final module size.
+- [QR curved surface calculator](/qr-curved-surface-calculator) — Sizing for bottles, jars, and curved packs.
+- [QR contrast checker](/qr-contrast-checker) — Check ink and background colours for readable contrast.
 `,
     [
       {
-        question: 'What is the minimum QR size on packaging?',
+        question: 'How do I calculate the printed size of a QR code for packaging?',
         answer:
-          'Around 16 to 20 mm total for low-density codes on smooth stock, larger for dense payloads or rough surfaces.',
+          'Take the modules across for the version, add eight modules for the quiet zones on both sides, then multiply by your module width. A Version 2 code is 25 modules, so 33 modules across at 0.5 millimetres per module gives a total printed width of 16.5 millimetres including quiet zones.',
       },
       {
-        question: 'Does shrink film hurt scanning?',
-        answer: 'It can distort and add glare. Test on filled, finished packs.',
+        question: 'What is the smallest module size I should use on packaging?',
+        answer:
+          'On smooth coated stock, modules around 0.33 to 0.5 millimetres can work in careful print conditions. On uncoated paper, kraft board, or corrugated board, start nearer 0.5 to 0.75 millimetres because ink spreads. Treat these as starting points and always proof on the real material at final size.',
       },
       {
-        question: 'How do I calculate module size for my printer?',
+        question: 'Why does a longer link make a packaging QR code harder to scan?',
         answer:
-          'Divide your desired total QR size by (modules per side + 8 for quiet zone). For a 20mm code at Version 2: 20/(25+8) = 0.606mm per module.',
+          'More data needs a higher version, which means more modules in the grid. If the printed size stays the same, each module gets smaller and harder to print and read cleanly. Shorten the link, handle tracking on the landing page, and the code can stay larger, simpler, and more reliable.',
+      },
+      {
+        question: 'How large should a QR code be for its scanning distance?',
+        answer:
+          'Use the rough guide that code width should be about one tenth of the intended scan distance. For scanning from about 20 centimetres, make the code roughly 20 millimetres wide. For about 50 centimetres, on a shelf edge or outer case, make it roughly 50 millimetres wide.',
+      },
+      {
+        question: 'Can I print a QR code on a curved bottle or jar?',
+        answer:
+          'Yes, if you keep the code small relative to the curve or place it on the flat label panel. Wide codes wrap around the curve, distorting edge modules so scanners struggle. Check the diameter and label width with a curved surface calculator, then test the filled container before production.',
+      },
+      {
+        question: 'What contrast and finish work best for packaging QR codes?',
+        answer:
+          'Use dark modules on a light background, ideally black on white or a very pale panel, and never invert the code. Avoid colours close in tone, and keep gloss varnish, foil, or heavy lamination off the code area where possible, because reflections can hide modules from a phone camera.',
+      },
+      {
+        question: 'How should I test a packaging QR code before a print run?',
+        answer:
+          'Proof on the real substrate, at final size, using the real print process. Scan with several phones, including an older one, at the intended distance and in real lighting. Test start and end of run samples and handled packs. If any proof needs repeated attempts, resize and proof again.',
       },
     ]
   ),

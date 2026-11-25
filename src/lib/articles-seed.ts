@@ -1596,6 +1596,66 @@ const META_OVERRIDES: Record<string, { metaTitle: string; metaDescription: strin
     metaDescription:
       'How hotels use QR codes for guest information, WiFi, menus, service requests and reviews: placements, sizes, languages, and the next-guest privacy rule.',
   },
+  'qr-code-school-attendance-system': {
+    metaTitle: 'QR Code Attendance for Schools: A Setup Guide',
+    metaDescription:
+      'Set up QR code attendance in school: pupil ID cards, classroom check-in codes, register flows, print sizes, and child-data privacy rules that matter.',
+  },
+  'qr-code-for-healthcare-prescription-labels': {
+    metaTitle: 'QR Codes on Prescription Labels: A Clear Guide',
+    metaDescription:
+      'QR codes on prescription labels: what must stay printed on the label, what the code can carry — leaflets, refills, reminders — vial sizes, and testing.',
+  },
+  'qr-code-for-access-control': {
+    metaTitle: 'QR Codes for Access Control: Honest Security',
+    metaDescription:
+      'QR codes for access control and visitor passes: what static codes can and cannot secure, validated single-use passes, badge printing, sizes and testing.',
+  },
+  'qr-code-for-university-campus': {
+    metaTitle: 'QR Codes on University Campuses: Setup Guide',
+    metaDescription:
+      'QR codes across a university campus: wayfinding signs, room timetables, library points, student ID cards and open days — setup, sizes, accessibility.',
+  },
+  'qr-code-for-professional-development': {
+    metaTitle: 'QR Codes for CPD Records and Certificates',
+    metaDescription:
+      'QR codes for CPD and professional development: verifiable certificates, course sign-in, feedback and portfolio links — the registry behind the code.',
+  },
+  'qr-code-for-pharmacies': {
+    metaTitle: 'QR Codes in Pharmacies: Collection & Queues',
+    metaDescription:
+      'QR codes in pharmacies: prescription collection check-in, waiting-time pages, repeat ordering, service booking and counter cards — setup and privacy.',
+  },
+  'how-to-create-a-qr-code-for-a-luggage-tag': {
+    metaTitle: 'How to Create a QR Code for a Luggage Tag',
+    metaDescription:
+      'Make a QR code for your luggage tag: what contact details to encode, what never to share, the contact-page option, tag sizes, waterproofing and testing.',
+  },
+  'qr-code-size-for-product-packaging': {
+    metaTitle: 'QR Code Size for Product Packaging: Rules',
+    metaDescription:
+      'QR code sizes for product packaging from module width: version maths, substrates, dot gain, curved bottles, scan distance, and proofing on real packs.',
+  },
+  'qr-payments-with-mobilepay': {
+    metaTitle: 'QR Payments with MobilePay: A Merchant Guide',
+    metaDescription:
+      'Accepting MobilePay QR payments as a merchant: how the official code is issued, till setup, verifying payment safely, fees, and sticker-swap fraud.',
+  },
+  'qr-code-for-workplace-wellness': {
+    metaTitle: 'QR Codes for Workplace Wellness Programmes',
+    metaDescription:
+      'QR codes for workplace wellness: EAP and mindfulness resources, sign-ups and anonymous surveys — placement, voluntary use, and privacy staff can trust.',
+  },
+  'qr-code-for-healthcare-prescription': {
+    metaTitle: 'QR Codes on Prescriptions & Medicine Packs',
+    metaDescription:
+      'QR codes on prescriptions and medicine packs: electronic leaflets, recall pages, adherence aids, side-effect reporting — what a code may never replace.',
+  },
+  'how-to-make-a-qr-code-for-an-instagram-profile': {
+    metaTitle: 'How to Make a QR Code for an Instagram Profile',
+    metaDescription:
+      "Make a QR code for your Instagram profile: the exact link to use, Instagram's own code vs a custom one, print placements, sizes, and pre-print testing.",
+  },
 };
 
 export function applyMetaOverrides(a: Article): Article {
