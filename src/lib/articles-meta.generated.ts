@@ -444,8 +444,10 @@ export const ARTICLE_META: ArticleMeta[] = [
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2026-08-03",
   "updatedAt": "2026-10-05",
-  "readTime": "6 min read",
-  "category": "Printing & Sizing"
+  "readTime": "13 min read",
+  "category": "Printing & Sizing",
+  "metaTitle": "QR Code Size for Product Packaging: Rules",
+  "metaDescription": "QR code sizes for product packaging from module width: version maths, substrates, dot gain, curved bottles, scan distance, and proofing on real packs."
  },
  {
   "slug": "qr-code-size-for-trade-show-banners",
@@ -1163,8 +1165,10 @@ export const ARTICLE_META: ArticleMeta[] = [
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2026-10-07",
   "updatedAt": "2026-10-05",
-  "readTime": "7 min read",
-  "category": "Security & Scanning"
+  "readTime": "13 min read",
+  "category": "Security & Scanning",
+  "metaTitle": "QR Codes for Access Control: Honest Security",
+  "metaDescription": "QR codes for access control and visitor passes: what static codes can and cannot secure, validated single-use passes, badge printing, sizes and testing."
  },
  {
   "slug": "qr-code-outdoor-signage-durability",
@@ -1559,8 +1563,10 @@ export const ARTICLE_META: ArticleMeta[] = [
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2026-11-12",
   "updatedAt": "2026-10-05",
-  "readTime": "6 min read",
-  "category": "Business & Regional"
+  "readTime": "13 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Codes on Prescription Labels: A Clear Guide",
+  "metaDescription": "QR codes on prescription labels: what must stay printed on the label, what the code can carry — leaflets, refills, reminders — vial sizes, and testing."
  },
  {
   "slug": "qr-code-for-supermarket-pricing",
@@ -1768,8 +1774,10 @@ export const ARTICLE_META: ArticleMeta[] = [
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2026-12-01",
   "updatedAt": "2026-10-05",
-  "readTime": "6 min read",
-  "category": "Business & Regional"
+  "readTime": "13 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Codes on University Campuses: Setup Guide",
+  "metaDescription": "QR codes across a university campus: wayfinding signs, room timetables, library points, student ID cards and open days — setup, sizes, accessibility."
  },
  {
   "slug": "qr-code-for-street-art-and-murals",
@@ -1966,8 +1974,10 @@ export const ARTICLE_META: ArticleMeta[] = [
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2026-12-19",
   "updatedAt": "2026-10-05",
-  "readTime": "5 min read",
-  "category": "Business & Regional"
+  "readTime": "13 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Codes in Pharmacies: Collection & Queues",
+  "metaDescription": "QR codes in pharmacies: prescription collection check-in, waiting-time pages, repeat ordering, service booking and counter cards — setup and privacy."
  },
  {
   "slug": "qr-code-for-children-books",
@@ -3943,8 +3953,10 @@ export const ARTICLE_META: ArticleMeta[] = [
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2027-06-16",
   "updatedAt": "2026-10-05",
-  "readTime": "5 min read",
-  "category": "Business & Regional"
+  "readTime": "13 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Codes for CPD Records and Certificates",
+  "metaDescription": "QR codes for CPD and professional development: verifiable certificates, course sign-in, feedback and portfolio links — the registry behind the code."
  },
  {
   "slug": "qr-code-for-outdoor-furniture",
@@ -4009,8 +4021,10 @@ export const ARTICLE_META: ArticleMeta[] = [
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2027-06-22",
   "updatedAt": "2026-10-05",
-  "readTime": "5 min read",
-  "category": "Business & Regional"
+  "readTime": "13 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Codes for Workplace Wellness Programmes",
+  "metaDescription": "QR codes for workplace wellness: EAP and mindfulness resources, sign-ups and anonymous surveys — placement, voluntary use, and privacy staff can trust."
  },
  {
   "slug": "qr-code-for-ferry-and-marine-transport",
@@ -4858,8 +4872,10 @@ export const ARTICLE_META: ArticleMeta[] = [
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2026-12-21",
   "updatedAt": "2026-10-05",
-  "readTime": "5 min read",
-  "category": "Business & Regional"
+  "readTime": "13 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Codes on Prescriptions & Medicine Packs",
+  "metaDescription": "QR codes on prescriptions and medicine packs: electronic leaflets, recall pages, adherence aids, side-effect reporting — what a code may never replace."
  },
  {
   "slug": "qr-code-for-concerts-and-live-music",
@@ -5474,8 +5490,10 @@ export const ARTICLE_META: ArticleMeta[] = [
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2027-03-05",
   "updatedAt": "2026-10-05",
-  "readTime": "5 min read",
-  "category": "Business & Regional"
+  "readTime": "13 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Code Attendance for Schools: A Setup Guide",
+  "metaDescription": "Set up QR code attendance in school: pupil ID cards, classroom check-in codes, register flows, print sizes, and child-data privacy rules that matter."
  },
  {
   "slug": "qr-code-student-assignment-submission",
@@ -7322,8 +7340,10 @@ export const ARTICLE_META: ArticleMeta[] = [
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2027-01-28",
   "updatedAt": "2026-10-05",
-  "readTime": "6 min read",
-  "category": "Business & Regional"
+  "readTime": "13 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Payments with MobilePay: A Merchant Guide",
+  "metaDescription": "Accepting MobilePay QR payments as a merchant: how the official code is issued, till setup, verifying payment safely, fees, and sticker-swap fraud."
  },
  {
   "slug": "qr-payments-with-bizum",
@@ -10930,8 +10950,10 @@ export const ARTICLE_META: ArticleMeta[] = [
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2027-05-17",
   "updatedAt": "2026-10-05",
-  "readTime": "7 min read",
-  "category": "Fundamentals"
+  "readTime": "13 min read",
+  "category": "Fundamentals",
+  "metaTitle": "How to Make a QR Code for an Instagram Profile",
+  "metaDescription": "Make a QR code for your Instagram profile: the exact link to use, Instagram's own code vs a custom one, print placements, sizes, and pre-print testing."
  },
  {
   "slug": "how-to-make-a-qr-code-for-a-tiktok-profile",
@@ -11878,8 +11900,10 @@ export const ARTICLE_META: ArticleMeta[] = [
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2027-06-15",
   "updatedAt": "2026-10-05",
-  "readTime": "6 min read",
-  "category": "Fundamentals"
+  "readTime": "13 min read",
+  "category": "Fundamentals",
+  "metaTitle": "How to Create a QR Code for a Luggage Tag",
+  "metaDescription": "Make a QR code for your luggage tag: what contact details to encode, what never to share, the contact-page option, tag sizes, waterproofing and testing."
  },
  {
   "slug": "how-to-create-a-qr-code-for-a-plant-label",
