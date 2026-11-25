@@ -161,77 +161,156 @@ The most common mistakes are easy to avoid once you know them. Long payloads mak
     'qr code prescription medication patient safety adherence',
     'Use QR codes on prescription labels and medication packaging to improve patient safety, medication adherence, and pharmacovigilance.',
     'Business & Regional',
-    '5 min read',
+    '13 min read',
     '2026-12-21',
     `
-### 1. Prescription Label QR
+### 1. Paper and packaging that patients cannot easily check
 
-A QR on the pharmacy dispensing label links to:
-- Plain-language instructions for the specific patient (not the generic leaflet).
-- Side effect information personalised to the patient's known conditions and other medications.
-- "What to do if I miss a dose" guidance.
-- Contact number for the dispensing pharmacy.
+A prescription and a medicine carton carry trusted information, but they are hard to enlarge and hard to search. A patient cannot make a blister-pack leaflet bigger, and losing the paper leaflet means losing the storage advice with it. When a leaflet is revised, the printed pack in a cupboard does not change.
 
-Accessible, specific information at the point of dispensing significantly improves medication adherence.
+This article is for pharmacy teams, clinic staff, and patient-safety and packaging staff. It covers the prescription itself and manufacturer packaging: codes on medicine cartons, blister-pack leaflets, and paper prescriptions. The code supplements printed information, never replaces it, and the pharmacist remains the authority.
 
-### 2. Interaction Checker QR
+Used well, a pack code gives the patient a route to the official electronic leaflet, dosage and storage guidance, batch and recall pages, adherence aids, and official side effect reporting.
 
-A QR on each dispensed medication links to the drug interaction checker pre-loaded with that drug's name. Patients with multiple medications can check for interactions themselves, supplementing the pharmacist's review.
+### 2. What codes on prescriptions and packaging should open
 
-### 3. Adherence Reminder QR
+General information only: nothing here is medical advice; the pharmacist and official product information are the authority.
 
-A QR on the medication box links to the adherence reminder setup page: the patient sets a daily alarm on their phone for the dosing time. Adherence reminder apps linked via QR (e.g., Medisafe, NHS app medication tracker) show consistent 15–20% improvement in adherence rates.
+On manufacturer packaging, the main payload is the official electronic patient leaflet for that exact product and strength. The printed leaflet stays in the box. The code lets the patient read the same text on a phone, enlarge it, search it, and find it again after the paper copy is lost.
 
-### 4. Patient Information Leaflet QR
+Dosage and storage guidance is the second payload. A carton code can open the official section on how the medicine is normally taken in general terms, how to store it, and general missed dose information. Present that official text, not a marketing rewrite, and do not turn general guidance into personal instructions.
 
-A QR on the packaging replaces or supplements the paper Patient Information Leaflet (PIL). For visually impaired patients, the QR page must be screen-reader accessible and offer an audio version. MHRA guidance on electronic PILs is evolving — confirm current requirements.
+Batch and recall information is the third use. A code can link to a page where patients check batch news and recall notices for that product. Keep wording honest: the code opens the page; it does not confirm that a specific pack is safe or affected. Anyone unsure should ask the pharmacist and follow the notice.
 
-### 5. Pharmacovigilance Adverse Reaction QR
+Adherence aids are the fourth use. A code can open a dose-reminder calendar link, or a page explaining refill timing in general terms, such as planning a repeat request before a pack runs out. These aids support prescriber and pharmacist directions; they do not change dose, timing, or duration.
 
-A QR links to the MHRA Yellow Card reporting scheme (UK) for adverse drug reactions. Patients who experience unexpected effects scan and report directly. Patient reporting of adverse reactions is a critical pharmacovigilance input that is consistently under-used — QR significantly lowers the reporting barrier.
-    
+Reporting side effects is the fifth use. A code can link to a page explaining how to report through your national reporting scheme, routing the reader to that official channel. Describe the route generically, link only to a checked official page, and do not promise any outcome from a report.
 
-### Putting this into practice
+On a paper prescription, the job is narrower. A code can link to collection instructions: where and when to collect, what identification is normally asked for, and how to contact the pharmacy. It should not carry prescription details, diagnosis, or personal health information.
 
-Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+### 3. Step-by-step: create the codes with our tools
 
-### Common mistakes to avoid
+1. List each surface separately: carton, blister-pack leaflet, and paper prescription. Give each one job and one destination, and note who owns checking it.
+2. Use only official or organisation checked destinations. For a leaflet, that is the official electronic leaflet page. For reporting, that is the official reporting page. Check each link on a phone without a login where possible.
+3. Open the [URL QR code generator](/url-qr-code-generator) and paste the leaflet, batch information, or collection instructions link. Use this for most packaging and prescription codes.
+4. If the official leaflet is hosted as a PDF, use the [PDF QR code generator](/pdf-qr-code-generator). The code carries the link to the PDF, not the file itself, so that address must stay live for the life of the pack.
+5. For a refill timing or repeat request page, use the [prescription refill QR generator](/prescription-refill-qr-generator) to build a dedicated code rather than mixing that job into the leaflet code.
+6. For a dose-reminder aid, use the [calendar event QR code generator](/calendar-event-qr-code-generator) to create a code that adds a general reminder event. Check wording so it does not present itself as a prescriber instruction.
+7. Keep the payload short. A short link prints as a simpler code, which matters on small cartons and folded leaflets. Avoid extra tracking strings.
+8. Choose error correction for the surface, as explained next, and keep the code plain black on white, with no logo or brand art inside it.
+9. Download the largest file size offered, print proofs on the real carton stock and leaflet paper, and test every version with the [printed QR tester](/printed-qr-tester) before approving artwork.
+10. Mention the [medical ID QR](/medical-id-qr) only as a separate, patient controlled option. Do not merge it with a pack code.
 
-The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+These generators run in your browser, with no account needed, locally.
 
-### Quick checklist
+### 4. Sizes, contrast and error correction for cartons and leaflets
 
-- Keep the payload as short as practical so modules stay large.
-- Keep dark modules on a light background with strong contrast.
-- Leave a clear quiet zone on all four sides of the symbol.
-- Test the printed code at the real viewing distance and lighting.
-- Confirm the destination page loads fast on a phone.
-- Recheck the code after any change to the link, design, or placement.
+Packaging gives more flat space than a vial, but brings glossy carton board, foil, folds, and daily handling.
 
-### Related tools and guides
+On a carton, aim for at least 20 mm square where design allows, and never plan below about 15 mm for a leaflet or small panel with a normal link. Larger helps older phones and poor light at home. If a panel cannot fit the code, move it rather than shrinking it.
 
-- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
-- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
-- The [medical ID QR](/medical-id-qr) page explains how emergency information codes should be structured.
-- The [pet tag QR](/pet-tag-qr) page covers codes that help a finder reach the owner.
-- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
-- Check print proofs with the [printed QR tester](/printed-qr-tester) so problems show up before a full run.
+On a blister-pack leaflet, place the code on a flat section clear of folds, creases, and perforations. Keep it on the first panel the patient sees, beside a caption such as Scan for the official leaflet.
+
+Keep a quiet zone of at least four modules on all sides. A module is one small square of the code. No text, logos, or panel edges should enter that border.
+
+Error correction levels L, M, Q, and H tolerate roughly 7 percent, 15 percent, 25 percent, and 30 percent damage. For handled cartons, Q is practical. For a flat prescription or leaflet, M can be enough, though Q helps with creases. H suits high wear, if its extra density prints cleanly at your size.
+
+Contrast must stay dark on light. Print black modules on a white panel. Never invert the code to white on a dark background, and never print it on silver foil, a photo, or a busy pattern. Foil reflections change with light angle, so give the code its own white panel on foil or coloured surfaces.
+
+### 5. Real-world use cases on packs and prescriptions
+
+In a manufacturer print run, a carton code to the official electronic leaflet helps patients who need large text. The paper leaflet remains in every box, but the official wording can be read on a tablet at home, in the size needed.
+
+In a clinic issuing paper prescriptions, a code to collection instructions reduces confusion. The patient can check opening hours, collection point, and contact details from the sheet, while clinical details stay in the normal process.
+
+For adherence support, a calendar code on packaging material lets the patient add a reminder agreed with the pharmacist, using the times discussed. The pack does not instruct; it helps the patient keep to instructions already given.
+
+On a leaflet where storage matters, such as items needing a cool place or protection from light, a code to the official storage section lets a patient recheck the wording at home.
+
+### 6. Testing packs and prescriptions before release
+
+Test the finished item, not the artwork on a screen. Print proofs on real carton board, leaflet paper, and prescription paper, folded exactly as the patient will receive them.
+
+First, scan every code with several phones, including an older model, in bright and dim light and at an angle. Scan cartons on a shelf, leaflets on a table, and a prescription sheet in the hand. Each should open the right page promptly.
+
+Second, check the destination like a patient. Is the leaflet for the right product and strength? Does the batch page show a clear date? Does the reporting route reach the official channel without extra forms? Does the calendar event say what the patient expects?
+
+Third, damage the sample realistically. Rub the carton, crease the leaflet near the code, and scan again. With Q, normal wear should not stop it. If foil glare or a fold causes failures, move the code or enlarge its panel.
+
+Fourth, test the no-phone path. Confirm the printed leaflet is present, essential printed information is complete, and a patient who never scans loses nothing required. Check the caption for any claim the code cannot support, such as promising a safety check.
+
+Fifth, record product, surface, destination, size, error correction, and approval date for each code, so a later team knows which packs point where.
+
+### 7. Common mistakes and how to fix them
+
+**Treating the code as a replacement leaflet.** Removing or shrinking printed information because a code exists leaves out patients without a phone and undermines trust. Fix it by keeping the full printed leaflet and required pack information, and using the code as an extra, easier to read copy.
+
+**Linking to an unofficial leaflet or a similar product.** A wrong strength or an old version can mislead a worried patient. Fix it by linking only to the official leaflet your organisation has checked for that exact product, and rechecking it whenever the leaflet is revised.
+
+**Printing on foil or across a fold.** Reflections and creases are common causes of failed scans on blister packaging. Fix it by placing the code on its own flat white panel, away from folds, perforations, and foil glare.
+
+**Promising that a batch code proves a pack is safe.** A code opens an information page; it cannot inspect the pack in the patient hand. Fix the wording to say the code links to batch and recall information, and that anyone unsure should ask the pharmacist and follow the official notice.
+
+**Putting prescription or personal details in the code.** A printed code can be read by anyone who sees the sheet or pack. Fix it by encoding only a public link to collection or product information, never names, addresses, prescription details, or medical history.
+
+**Turning a reminder aid into a dose instruction.** A calendar code set up carelessly can look like medical direction. Fix it by using only wording the patient and pharmacist have agreed as a reminder, and by making clear that prescriber and pharmacist directions control.
+
+### 8. Privacy and security notes for packaging and prescriptions
+
+This section is general information, not medical advice. The pharmacist and the official product information remain the authority for any individual question, including side effects, interactions, and whether a medicine is right for a person.
+
+Our generators produce static codes only. The payload is fixed, cannot be changed after printing, and is the same for every pack in a run. That suits packaging, provided the payload is only a public link. Never encode personal data or prescription details.
+
+The generators on freeqrcode.tools run entirely in the visitor browser. No account or sign-up is needed, codes are created locally, and nothing you type is uploaded by the tool to create the code. Our site does not track scans of codes you create. Static codes never expire and, once printed, work offline as a printed pattern; the phone needs a connection only to open the linked page.
+
+That permanence needs care. A carton may sit in a home for months, so the destination must be stable, official, and maintained. Check links before a print run, monitor them while packs circulate, and keep an old address working if a page moves. A broken link on a printed pack cannot be patched.
+
+For side effect reporting, link only to the verified official route, describe it as your national reporting scheme, and do not collect reports or personal details through the destination yourself.
+
+### 9. Related tools and guides
+
+- [prescription refill QR generator](/prescription-refill-qr-generator) — Build a dedicated code for refill timing and repeat request pages.
+- [URL QR code generator](/url-qr-code-generator) — Turn an official leaflet, batch, or collection link into a pack code.
+- [PDF QR code generator](/pdf-qr-code-generator) — Link a carton or leaflet code to a hosted official leaflet PDF.
+- [medical ID QR](/medical-id-qr) — A separate, patient controlled code, distinct from packaging codes.
+- [calendar event QR code generator](/calendar-event-qr-code-generator) — Create a scannable dose-reminder calendar aid for patients.
+- [printed QR tester](/printed-qr-tester) — Test codes on real cartons, leaflets, and prescription paper before release.
 `,
     [
       {
-        question: 'Can a QR on prescription medication replace the paper information leaflet?',
+        question: 'Can a QR code on a medicine carton replace the printed leaflet?',
         answer:
-          'In most markets, no — the paper PIL is still legally required for dispensed medicines. A QR is an accessible supplement. The EU is piloting QR-first PILs for certain categories under the pharmaceutical legislation review.',
+          'No. The full printed leaflet and all required packaging information stay in and on the box. The code is an extra route to the same official electronic leaflet, so patients can enlarge, search, and refind the text on a phone after the paper copy is lost.',
       },
       {
-        question: 'Are prescription label QRs subject to patient data protection law?',
+        question: 'What can packaging and prescription QR codes link to?',
         answer:
-          'The QR itself is not patient data. If the QR encodes a URL that includes a patient identifier (to personalise the instructions page), the linked system processes patient data and must comply with UK GDPR and NHS data security standards.',
+          'They can link to the official electronic patient leaflet, dosage and storage guidance, batch and recall information pages, dose-reminder calendar aids, refill timing pages, and official side effect reporting routes. On a paper prescription, a code can link to collection instructions from the pharmacy.',
       },
       {
-        question: 'What size should a printed QR code be?',
+        question: 'Does scanning a batch code prove that a pack is safe?',
         answer:
-          'Size depends on scan distance and module count. As a starting point, keep the printed code at least as wide as the distance-to-scan ratio your generator recommends, then test a print at full size before ordering a full run.',
+          'No. The code only opens a batch and recall information page. It cannot inspect the pack in your hand or confirm its status. Read the official notice carefully, and if you are unsure about a pack, ask the pharmacist before using the medicine.',
+      },
+      {
+        question: 'How should a side effect be reported through a packaging code?',
+        answer:
+          'Follow the code to the checked page that explains reporting through your national reporting scheme, then use that official channel directly. The packaging code should route you there, not collect symptoms or personal details itself, and it cannot promise any particular outcome from a report.',
+      },
+      {
+        question: 'What size should a QR code be on a carton or leaflet?',
+        answer:
+          'Aim for at least 20 mm square on a carton where space allows, and about 15 mm as a floor for smaller panels and leaflets. Keep a four module quiet zone, place the code flat away from folds and foil, and use dark modules on white.',
+      },
+      {
+        question: 'Why should prescription details never be encoded in the code?',
+        answer:
+          'A printed code can be scanned by anyone who sees the prescription sheet or pack, and a static code cannot be changed after printing. Encode only a public link to collection or product information, never names, addresses, prescription details, diagnoses, or medical history.',
+      },
+      {
+        question: 'How long must a packaging QR code destination stay live?',
+        answer:
+          'For as long as packs remain in homes, which can be many months. Use a stable official address, check it before printing, monitor it while packs circulate, and keep the old address working if a page moves, because printed codes cannot be updated afterwards.',
       },
     ]
   ),

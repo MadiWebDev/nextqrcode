@@ -152,73 +152,153 @@ Codes that stay in circulation need occasional attention. Links change, pages mo
     'qr code workplace wellness eap mental health',
     'Use QR codes in workplace wellness programmes for EAP access, self-help tools, and manager guides.',
     'Business & Regional',
-    '5 min read',
+    '13 min read',
     '2027-06-22',
     `
-### 1. Employee Assistance Programme Access
+### 1. The problem this solves, and who it is for
 
-A QR on a wellness poster links to the company's EAP: counselling, financial advice, and legal support. Fast, private access without asking HR or a manager.
+Most workplaces have more wellbeing support than employees ever find: an employee assistance programme nobody can remember the name of, a mindfulness library buried in the intranet, a flu clinic form in a skimmed email. The support exists. The path to it, when someone needs it, does not.
 
-### 2. Self-Help Toolkit
+This guide is for HR teams, wellbeing leads, and office managers who want to shorten that path without turning wellbeing into surveillance. It shows how simple QR codes can point people to generic, voluntary resources where they might actually use them: a break room wall, a payslip insert, an intranet page, a lift noticeboard.
 
-A QR links to a curated self-help toolkit: breathing exercises, sleep guidance, and workload management tips. Available at any time from the office, home, or in transit.
+Sensitivity shapes everything below. A code that helps someone quietly open a support page on their own phone is useful. A code that makes someone feel watched or singled out is harmful, however good the intention. So privacy and placement are the main design work here. Start with everyday resources, make them easy to reach unobserved, and only then use codes for sign-ups and events.
 
-### 3. Mental Health First Aider Directory
+### 2. What each code should carry or open
 
-A QR on the wellness noticeboard links to the directory of Mental Health First Aiders: names, departments, and how to contact them discreetly.
+Every code in a wellness setting should open a generic resource that is the same for everyone who scans it. It must never identify the person scanning, route them to a personal record, or open anything that assumes something about their health.
 
-### 4. Manager Conversation Guide
+The most important destination is your employee assistance programme page. That page should state what the programme offers, that it is confidential, how to contact it by phone and online, and that using it is not reported to a manager. Print the phone number beside the code too.
 
-A QR on manager development materials links to a guide for having mental health conversations with direct reports: how to start, what to say, and what to avoid.
+Next, link to a small set of mindfulness, breathing, and sleep resources. Fewer, better resources beat a long directory. Choose material that works on a phone, needs no account, and takes a few minutes. Remove anything making medical claims.
 
-### 5. Wellbeing Survey
+Add sign-up pages where a code saves effort: a step challenge, flu clinic, lunchtime walk, or workshop. Open the form directly, state that taking part is voluntary, and explain what the form collects and why.
 
-A QR links to the quarterly wellbeing survey. Anonymous responses feed the HR team's wellbeing strategy. Post a QR in the lift, kitchen, and toilets to maximise response rates.
-    
+For managers, use a separate code linking to a manager guide: how to have a supportive conversation, how to signpost the assistance programme, and what not to do, such as diagnosing or asking for medical details.
 
-### Putting this into practice
+For feedback, link to anonymous wellbeing surveys. The opening page must say whether responses are anonymous, who reads results, and that results are reported only in aggregate. If a survey tool collects identifying details by default, change that before printing.
 
-Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+Finally, the page behind any mental-health code should include crisis and support lines relevant to your country, displayed prominently, plus a clear note that these resources support wellbeing but never replace professional help. If someone is in crisis, a poster is not the intervention. Signposting to real help is.
 
-### Common mistakes to avoid
+### 3. Step-by-step: create the codes with our tools
 
-The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+Our generators run entirely in your browser, with no account and no upload. The codes they produce are static and untracked, which suits this topic well, as section 8 explains. Work through these steps for each resource.
 
-### Quick checklist
+1. Prepare the destination page first. Check it on a phone, confirm general resources need no login, or that any login step is clearly explained, and confirm the crisis and support information on the page is current.
+2. Create resource codes with the [URL QR code generator](/url-qr-code-generator). Use this for the assistance programme page, mindfulness and sleep resources, and manager guides. Paste the full page address, generate the code, and download it.
+3. Create survey codes with the [survey QR code generator](/survey-qr-code-generator) for your anonymous wellbeing survey. Check the survey from the link the code opens, not from your admin view, so you see exactly what an employee sees.
+4. Create a general feedback code with the [feedback QR code generator](/feedback-qr-code-generator) for open comments about facilities, general workload pressures, and ideas for future wellbeing activities.
+5. Create event codes with the [calendar event QR code generator](/calendar-event-qr-code-generator) so staff can add a wellbeing day, workshop, or flu clinic session to their own calendar in one scan, with time and place already filled in.
+6. Create joining codes with the [webinar join QR generator](/webinar-join-qr-generator) for online sessions such as a mindfulness webinar or an assistance programme introduction, so people can join from a poster or handout without hunting for a link.
+7. Check every printed proof with the [printed QR tester](/printed-qr-tester) before a print run, and scan each final poster yourself in its real location once it is up.
+8. Keep a register of live codes: the resource each opens, every place it is displayed, and a review date. When a provider changes a page address, replace printed codes at the same time, because a static code cannot be edited afterwards.
 
-- Keep the payload as short as practical so modules stay large.
-- Keep dark modules on a light background with strong contrast.
-- Leave a clear quiet zone on all four sides of the symbol.
-- Test the printed code at the real viewing distance and lighting.
-- Confirm the destination page loads fast on a phone.
-- Recheck the code after any change to the link, design, or placement.
 
-Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+### 4. Sizes, contrast and error correction
 
-### Related tools and guides
+Wellness posters are read in passing, in soft break-room light. Print for those conditions.
 
-- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
-- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
-- The [medical ID QR](/medical-id-qr) page explains how emergency information codes should be structured.
-- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
-- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
-- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+For a poster or noticeboard sheet read from about a metre, make the code at least 40 to 50 mm wide. For a payslip insert, desk card, or leaflet held in the hand, 25 to 30 mm is a sensible minimum. On a shared screen or intranet page, display the code large enough for a phone camera to focus from a normal sitting distance, and always show the plain web address beside it for anyone who prefers to type.
+
+Leave a quiet zone around every code: a clear blank border equal to four modules, the small squares of the pattern. Do not place text, logos, coloured shapes, or the edge of the poster inside that border, and do not crop a design so tightly that the border is lost.
+
+Choose error correction for real wear. Levels L, M, Q, and H tolerate roughly 7, 15, 25, and 30 percent damage. Posters get splashed and faded, so choose Q or H for anything displayed more than a few days. M suits a short-lived handout.
+
+Use dark-on-light contrast and never invert a code. Black on white scans most reliably. Do not print white codes on dark colours, place codes over photographs, or use glossy finishes under strip lighting. A calm design can still have a plain white box for the code.
+
+### 5. Real-world use cases
+
+In a large office, the assistance programme code works best when it is ordinary. Put it on the general resources poster in every break room, alongside the mindfulness library and staff discount page. When support sits among everyday items, scanning it says nothing about the person scanning.
+
+In a warehouse where many staff have no desk or work email, a poster by the clocking-in area and in the canteen may be the only reliable route to digital resources. Pair codes with printed phone numbers, so nobody needs a smartphone for the core help.
+
+In a hybrid organisation, payslip inserts and intranet tiles carry the same codes to people who rarely see a poster. A payslip is a private document opened alone, exactly the setting where someone is most likely to save the details.
+
+For a flu clinic or step challenge, codes on noticeboards make sign-up a ten-second task. Keep language light, state participation is voluntary, and never publish individual participation in a way that pressures others.
+
+For managers, a code inside the HR guidance pack opens the conversation guide when a manager prepares for a difficult meeting, supporting the employee without the employee seeing a code aimed at them.
+
+### 6. Testing: a concrete pre-launch routine
+
+Test the journey, wording, and setting.
+
+First, scan every code with at least three phones, including an older model, using the normal camera. Follow each link fully: open the resource, start the survey, add the calendar event, join the test webinar. Confirm each destination is the generic page intended, with nothing personal pre-filled.
+
+Second, test in place. Fix the proof where it will live and scan from a passer-by's distance, under real lighting. Check that pins and reflections do not intrude on the quiet zone.
+
+Third, read the destination as a worried employee would. Is confidentiality stated near the top? Are support lines visible without scrolling far? Does the survey submit without asking for a name? If any answer is no, fix the page before printing.
+
+Fourth, ask trusted colleagues from outside HR whether scanning in that location would feel exposed. If it feels watched, move the poster. Finally, diarise a monthly check: a static code cannot be updated, so a changed destination means reprinting.
+
+### 7. Common mistakes and how to fix them
+
+**Putting mental-health codes only outside the HR office.** That placement labels everyone who stops to scan. Fix: place resource codes in unobserved, normal settings such as break rooms, intranet pages, and payslip inserts, and include them on general resources posters alongside everyday links.
+
+**Using scans to guess individual interests.** Trying to work out who used a wellbeing resource, or treating interest as a health signal, destroys trust. Fix: use only static, untracked codes for resources, look at survey results in aggregate only, and never attempt to link a scan to a person.
+
+**Making participation feel compulsory.** Sign-up codes wrapped in language about expectations or manager follow-up will suppress honest participation. Fix: state plainly that every activity and survey is voluntary, that declining needs no reason, and that managers will not be told who took part.
+
+**Linking to a cluttered or clinical page.** A dense policy document or a page full of medical language will close down the people you want to reach. Fix: link to a short, warm landing page written for staff, with the phone number, support lines, and one clear next step, keeping formal policy one click further on.
+
+**Forgetting the non-scanning route.** Some staff have no smartphone, an older phone, or simply do not want to scan a code at work. Fix: print the short web address and the assistance programme phone number beside every code, large enough to read, so the resource is reachable by everyone.
+
+**Letting posters quietly expire.** A faded poster linking to last year's provider helps nobody. Fix: keep the register from section 3, review locations monthly, and replace damaged posters promptly.
+
+### 8. Privacy and security notes
+
+Privacy is not a footnote on this topic; it is the reason the approach works. Our generators produce static codes only. The destination is fixed inside the code when you create it, the code is made locally in your browser with no sign-up and nothing uploaded, and we do not track scans. There is no scan history to inspect or leak, and no way to infer an individual's health interests from a poster scan. Say this plainly in staff communications, because it is a genuine advantage and people are right to ask.
+
+Static codes never expire, though the page they open still needs a connection and maintenance. Choose stable addresses your organisation controls, and remove posters if a destination is retired.
+
+Keep the boundary between resources and records absolute. Codes here open generic information and voluntary forms only, never personal health or absence records. Configure surveys for anonymity, with results reported in aggregate.
+
+Add the support note wherever mental-health resources are linked: these resources support everyday wellbeing and never replace professional help, and anyone in crisis should use the support lines on the page or contact emergency services.
+
+Check displayed posters for tampering: a sticker over your code could divert staff to a fake page. Replace any poster that looks altered.
+
+### 9. Related tools and guides
+
+- [URL QR code generator](/url-qr-code-generator) — Link assistance programme pages, mindfulness resources, and manager guides.
+- [survey QR code generator](/survey-qr-code-generator) — Open anonymous wellbeing surveys that report results in aggregate.
+- [feedback QR code generator](/feedback-qr-code-generator) — Collect general, voluntary feedback about wellbeing at work.
+- [calendar event QR code generator](/calendar-event-qr-code-generator) — Let staff add wellbeing days, clinics, and workshops to their calendars.
+- [webinar join QR generator](/webinar-join-qr-generator) — Give staff one-scan joining for online wellbeing sessions.
+- [printed QR tester](/printed-qr-tester) — Check printed posters and inserts before and after they go on display.
 `,
     [
       {
-        question: 'Should EAP QR codes be behind any authentication?',
+        question: 'Can our organisation see who scanned a wellbeing QR code?',
         answer:
-          'No. EAP access must be frictionless. Any barrier reduces the likelihood of a struggling employee reaching help.',
+          'No. Our generators produce static codes and we do not track scans, so there is no scan history for anyone to inspect. That is a genuine advantage for wellbeing resources, because neither managers nor HR can use a poster scan to infer an individual employee\'s health interests or concerns.',
       },
       {
-        question: 'Can a workplace wellness QR reduce long-term sickness absence?',
+        question: 'Where is the best place to put mental health resource codes?',
         answer:
-          'Early access to EAP and self-help tools is correlated with reduced absence duration. QR lowers the barrier to that early access.',
+          'Put them where scanning is unobserved and normal: break rooms, intranet pages, and payslip inserts, ideally on general resources posters alongside everyday links. Avoid placing them only outside the HR office, because that labels anyone who stops to scan and will deter the people the resources are meant to help.',
       },
       {
-        question: 'What belongs on a medical ID QR code?',
+        question: 'Should wellbeing surveys linked by QR code be anonymous?',
         answer:
-          'Include only the details a responder needs, such as conditions, allergies, medications, and an emergency contact. Avoid full medical histories, and review the information with the person it belongs to before printing.',
+          'Yes, wherever possible. Configure the survey so it does not collect names, email addresses, or other identifying fields, state clearly on the opening page that responses are anonymous, explain who reads the results, and report findings only in aggregate so no individual answer can be traced back to a person.',
+      },
+      {
+        question: 'Do employees have to take part in activities promoted by code?',
+        answer:
+          'No. Every wellbeing activity and survey promoted this way must be genuinely voluntary. Say so plainly beside the code and on the sign-up page, make clear that declining needs no explanation, and ensure managers are not told who chose to take part in wellbeing activities or complete surveys.',
+      },
+      {
+        question: 'What should the page behind a mental health code include?',
+        answer:
+          'Include what the support offers, a clear statement that the service is confidential, a phone number as well as online contact, and prominent crisis and support lines for your country. Add a note that these resources support everyday wellbeing but never replace professional help, and check the details regularly.',
+      },
+      {
+        question: 'What if an employee does not have a smartphone?',
+        answer:
+          'Always print the short web address and the assistance programme phone number beside every code, in type large enough to read easily. Some staff have older phones, no phone, or simply prefer not to scan at work, and the core support should be reachable by everyone without scanning anything.',
+      },
+      {
+        question: 'How often should workplace wellness posters be checked?',
+        answer:
+          'Check every location monthly. Scan each code in place, confirm the destination page still works and support details are current, and look for damage, fading, or stickers placed over the code. Because static codes cannot be edited, a changed page address means printing and displaying a replacement poster.',
       },
     ]
   ),
