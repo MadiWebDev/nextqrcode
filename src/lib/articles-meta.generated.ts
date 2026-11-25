@@ -249,14 +249,16 @@ export const ARTICLE_META: ArticleMeta[] = [
  },
  {
   "slug": "qr-code-vs-data-matrix",
-  "title": "QR Code vs Data Matrix: Which 2D Symbology Should You Use?",
+  "title": "QR Code vs Data Matrix: Which 2D Code Should You Use?",
   "primaryKeyword": "qr code vs data matrix",
-  "description": "Compare QR Code and Data Matrix across capacity, minimum size, finder structure, and industry use.",
+  "description": "A practical comparison of QR codes and Data Matrix: structure, capacity, minimum size, damage tolerance, what scans them, and where each is the right choice.",
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2026-07-17",
   "updatedAt": "2026-10-05",
-  "readTime": "6 min read",
-  "category": "Fundamentals"
+  "readTime": "12 min read",
+  "category": "Fundamentals",
+  "metaTitle": "QR Code vs Data Matrix: Which Should You Use?",
+  "metaDescription": "QR code vs Data Matrix compared: capacity, minimum size, damage tolerance, phone scanning, and the industries where each is the established choice."
  },
  {
   "slug": "qr-code-model-1-vs-model-2",
@@ -944,12 +946,14 @@ export const ARTICLE_META: ArticleMeta[] = [
   "slug": "kenya-mpesa-qr-code",
   "title": "Kenya M-Pesa QR Codes: Merchant Payments and Lipa na M-Pesa",
   "primaryKeyword": "mpesa qr code kenya",
-  "description": "How M-Pesa QR codes work for Kenyan merchants, including the Lipa na M-Pesa till and paybill flows.",
+  "description": "How Kenyan merchants use a displayed M-Pesa QR code for till and paybill payments, with printing guidance and the daily checks that stop sticker-swap fraud.",
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2026-09-18",
   "updatedAt": "2026-10-05",
-  "readTime": "6 min read",
-  "category": "Business & Regional"
+  "readTime": "12 min read",
+  "category": "Business & Regional",
+  "metaTitle": "M-Pesa QR Codes in Kenya: Merchant Payment Guide",
+  "metaDescription": "How Kenyan merchants display an M-Pesa QR code for till and paybill payments: setup, print sizes, and the daily checks that stop sticker-swap fraud."
  },
  {
   "slug": "saudi-arabia-stc-pay-qr-code",
@@ -1041,14 +1045,16 @@ export const ARTICLE_META: ArticleMeta[] = [
  },
  {
   "slug": "qr-code-for-food-labelling",
-  "title": "QR Codes on Food Labels: Ingredients, Allergens, and Country-Specific Rules",
+  "title": "QR Codes on Food Labels: Ingredients, Allergens and Rules",
   "primaryKeyword": "qr code food labelling",
-  "description": "Use QR codes on food packaging to extend label space with ingredient details, allergen info, and sustainability data.",
+  "description": "How to use QR codes on food packaging for ingredients, allergen context, traceability and recipes — and what must legally stay printed on the pack itself.",
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2026-09-27",
   "updatedAt": "2026-10-05",
-  "readTime": "6 min read",
-  "category": "Business & Regional"
+  "readTime": "13 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Codes on Food Labels: Ingredients & Allergens",
+  "metaDescription": "QR codes on food labels: what must stay on the pack, what the code can carry, sizes and print standards, testing, and mistakes with legal consequences."
  },
  {
   "slug": "qr-code-for-pharmaceutical-packaging",
@@ -2141,14 +2147,16 @@ export const ARTICLE_META: ArticleMeta[] = [
  },
  {
   "slug": "qr-code-for-outdoor-billboards",
-  "title": "QR Codes on Outdoor Billboards: Sizing, Campaign Tracking, and Driver Safety",
+  "title": "QR Codes on Outdoor Billboards: Sizing, Safety and Tracking",
   "primaryKeyword": "qr code billboard outdoor advertising",
-  "description": "Best practices for large-format outdoor QR codes that pedestrians can actually scan safely.",
+  "description": "How to use QR codes on outdoor billboards that pedestrians can actually scan: the one-tenth sizing rule, placement, testing at the site, and driver safety.",
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2027-01-05",
   "updatedAt": "2026-10-05",
-  "readTime": "6 min read",
-  "category": "Business & Regional"
+  "readTime": "12 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Codes on Billboards: Sizes, Safety, Tracking",
+  "metaDescription": "QR codes on billboards: the one-tenth sizing rule, pedestrian placement, site testing, honest tracking, and why drivers must never be the audience."
  },
  {
   "slug": "qr-code-for-school-report-cards",
@@ -2350,14 +2358,16 @@ export const ARTICLE_META: ArticleMeta[] = [
  },
  {
   "slug": "qr-code-for-travel-agencies",
-  "title": "QR Codes for Travel Agencies: Itinerary Access, Visa Requirements, and Emergency Contacts",
+  "title": "QR Codes for Travel Agencies: Itineraries, Visa Info and Emergency Contacts",
   "primaryKeyword": "qr code travel agency itinerary",
-  "description": "Use QR codes in travel packages for live itinerary access, destination guides, and 24-hour support.",
+  "description": "How travel agencies use QR codes for live itineraries, visa and entry information, destination guides and 24-hour emergency contacts.",
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2027-01-24",
   "updatedAt": "2026-10-05",
-  "readTime": "5 min read",
-  "category": "Business & Regional"
+  "readTime": "13 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Codes for Travel Agencies: A Practical Guide",
+  "metaDescription": "How travel agencies use QR codes for live itineraries, visa information, destination guides and emergency contacts — setup, print sizes and testing."
  },
  {
   "slug": "qr-code-for-plumbing-and-heating",
@@ -2779,14 +2789,16 @@ export const ARTICLE_META: ArticleMeta[] = [
  },
  {
   "slug": "qr-code-for-airport-luggage",
-  "title": "QR Codes on Airline Luggage Tags: Bag Tracing, Delayed Baggage Reports, and Owner Contact",
+  "title": "QR Codes on Luggage Tags: Lost Bag Contact, Tracing and Privacy",
   "primaryKeyword": "qr code airline luggage tag baggage",
-  "description": "How QR codes on luggage tags help reunite lost bags with owners and support self-service baggage tracing.",
+  "description": "How a personal QR code on your luggage tag helps finders contact you, what to put on it, what never to put on it, and how it fits airline baggage tracing.",
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2027-03-04",
   "updatedAt": "2026-10-05",
-  "readTime": "5 min read",
-  "category": "Business & Regional"
+  "readTime": "12 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Codes on Luggage Tags: Setup, Size and Privacy",
+  "metaDescription": "How a QR code on your luggage tag helps finders reach you: what to encode, tag size and durability, privacy rules, and how it fits airline tracing."
  },
  {
   "slug": "qr-code-for-boat-safety-equipment",
@@ -2988,14 +3000,16 @@ export const ARTICLE_META: ArticleMeta[] = [
  },
  {
   "slug": "qr-code-for-car-dealerships",
-  "title": "QR Codes for Car Dealerships: Vehicle Specs, Finance Calculators, and Test Drive Booking",
+  "title": "QR Codes for Car Dealerships: Specs, Finance and Test Drives",
   "primaryKeyword": "qr code car dealership vehicle specs",
-  "description": "Use QR codes on forecourt vehicles for instant specification access, finance quotes, and booking.",
+  "description": "How car dealerships use QR codes on windscreens for vehicle specs, video walkarounds, finance illustrations and test drive booking, plus sold-car discipline.",
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2027-03-23",
   "updatedAt": "2026-10-05",
-  "readTime": "5 min read",
-  "category": "Business & Regional"
+  "readTime": "12 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Codes for Car Dealerships: A Practical Guide",
+  "metaDescription": "How dealerships use windscreen QR codes for specs, video walkarounds, finance illustrations and test drive booking — sizes, materials, sold-car rules."
  },
  {
   "slug": "qr-code-for-school-canteens",
@@ -4297,14 +4311,16 @@ export const ARTICLE_META: ArticleMeta[] = [
  },
  {
   "slug": "qr-code-for-hotels-and-hospitality",
-  "title": "QR Codes for Hotels: Digital Check-In, Room Service, and Guest Experience",
+  "title": "QR Codes for Hotels: Check-In, Menus and Guest Services",
   "primaryKeyword": "qr code hotel digital check-in room service",
-  "description": "Transform the hotel guest experience with QR codes for mobile check-in, digital room service menus, and concierge services.",
+  "description": "How hotels use QR codes for guest information, WiFi, menus, service requests and reviews — placements, sizes, languages and the next-guest privacy rule.",
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2026-10-21",
   "updatedAt": "2026-10-05",
-  "readTime": "6 min read",
-  "category": "Business & Regional"
+  "readTime": "12 min read",
+  "category": "Business & Regional",
+  "metaTitle": "QR Codes for Hotels: A Practical Setup Guide",
+  "metaDescription": "How hotels use QR codes for guest information, WiFi, menus, service requests and reviews: placements, sizes, languages, and the next-guest privacy rule."
  },
  {
   "slug": "qr-code-for-museums-and-heritage-sites",
@@ -11359,14 +11375,16 @@ export const ARTICLE_META: ArticleMeta[] = [
  },
  {
   "slug": "how-to-print-a-qr-code-on-a-business-card",
-  "title": "How to Print a QR code on a business card",
+  "title": "How to Print a QR Code on a Business Card",
   "primaryKeyword": "how to print a qr code on a business card",
-  "description": "Learn how to print a QR code on a business card so it scans reliably, from sizing and contrast to a proof copy checked in the real lighting.",
+  "description": "How to print a QR code on a business card that actually scans: vCard or link, exact sizes for standard cards, finishes to avoid, and a proof routine.",
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2027-05-31",
   "updatedAt": "2026-10-05",
-  "readTime": "6 min read",
-  "category": "Fundamentals"
+  "readTime": "12 min read",
+  "category": "Fundamentals",
+  "metaTitle": "How to Print a QR Code on a Business Card",
+  "metaDescription": "How to print a QR code on a business card: vCard vs link, exact sizes (25 mm for vCard, 20 mm for links), finishes that break scans, and proofing."
  },
  {
   "slug": "how-to-print-a-qr-code-on-a-flyer",
@@ -16223,14 +16241,16 @@ export const ARTICLE_META: ArticleMeta[] = [
  },
  {
   "slug": "printing-bulk-shipping-labels-qr-codes",
-  "title": "Printing Bulk Shipping Labels QR Codes",
+  "title": "Printing Bulk Shipping Labels with QR Codes",
   "primaryKeyword": "printing bulk shipping labels qr codes",
-  "description": "Print bulk shipping labels with the right size, material, and print setup, plus a proof stage that catches failures before the full run.",
+  "description": "How to print bulk shipping labels with QR codes: carrier labels versus your own, printer settings, label sizes, proofing, and the mistakes that break scans.",
   "author": "Codexengr, QR Systems Engineer",
   "publishedAt": "2027-10-25",
   "updatedAt": "2026-10-05",
-  "readTime": "7 min read",
-  "category": "Business & Regional"
+  "readTime": "12 min read",
+  "category": "Business & Regional",
+  "metaTitle": "Printing Bulk Shipping Labels with QR Codes",
+  "metaDescription": "Print bulk shipping labels that scan: carrier labels vs your own QR labels, sizes, thermal printer settings, proofing, and the mistakes that break runs."
  },
  {
   "slug": "cost-of-bulk-shipping-labels-qr-codes",
