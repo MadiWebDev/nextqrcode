@@ -4,7 +4,7 @@
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-11-23",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public", "no_handle_cross_request_promise_resolution"],
-  "upload_source_maps": true,
+  "upload_source_maps": false,
 
   // Raise CPU ceiling (Workers Paid only — ignored on Free, which is hard-capped at 10 ms)
   "limits": { "cpu_ms": 30000 },
