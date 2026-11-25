@@ -4,77 +4,130 @@ import { art } from './helper';
 export const batch38: Article[] = [
   art(
     'qr-code-for-hotels-and-hospitality',
-    'QR Codes for Hotels: Digital Check-In, Room Service, and Guest Experience',
+    'QR Codes for Hotels: Check-In, Menus and Guest Services',
     'qr code hotel digital check-in room service',
-    'Transform the hotel guest experience with QR codes for mobile check-in, digital room service menus, and concierge services.',
+    'How hotels use QR codes for guest information, WiFi, menus, service requests and reviews — placements, sizes, languages and the next-guest privacy rule.',
     'Business & Regional',
-    '6 min read',
+    '12 min read',
     '2026-10-21',
     `
-### 1. Mobile Check-In and Digital Key
+### 1. The front desk cannot be everywhere
 
-A QR in the booking confirmation email links to the mobile check-in flow: ID verification (upload via phone camera), payment confirmation, and digital room key delivery to Apple Wallet or Google Wallet. Guests bypass the front desk entirely.
+A hotel guest's questions arrive at the worst times for staffing: the WiFi password at midnight, the breakfast hours at dawn, a taxi at checkout, a complaint that should have been a request an hour ago. QR codes have become hospitality's quiet answer — not as a gimmick, but as a way of putting the hotel's information and services in the guest's hand, in the guest's language, at the moment of need, without an app download and without a queue at reception.
 
-The digital key QR or NFC token is scanned at the room door. This is now standard in major hotel chains and increasingly expected in premium independent properties.
+This guide covers the deployments that earn their place: the in-room information code, the WiFi code, digital menus and room service, service requests, local guidance, and the review and feedback codes that shape a property's reputation. It includes the sizes and placements that work in rooms and lobbies, the multilingual discipline international guests need, and the privacy rules for codes that live in private spaces — because a hotel room code is scanned by this week's guest and next week's, and the page behind it must be built for both.
 
-### 2. In-Room QR Menu
+### 2. The core deployments
 
-A QR on the room service card or bedside tablet links to the full room service menu. Guests browse, customise, and order without calling the front desk. In-room QR ordering increases average order value by 15–25% vs phone ordering, primarily because guests browse the full menu rather than ordering the first item they remember.
+**The in-room information code.** One code on the desk or bedside opens the hotel's guest page: WiFi details, breakfast and restaurant hours, spa and gym times, laundry, parking, checkout time, and how to reach reception. This single code replaces the ageing printed directory and can be updated the day anything changes.
 
-### 3. Housekeeping Request QR
+**The WiFi code.** A separate code that connects the guest's phone to the network in one scan — our [WiFi QR code generator](/wifi-qr-code-generator) builds it from the network name and password. Guests judge a hotel's competence by its WiFi within minutes of arrival; removing the password phone call is the cheapest goodwill in this guide. Use the guest network, never the staff or operations network.
 
-A QR on the door hanger or in-room card links to a housekeeping request form: towel top-up, pillow type, turn-down time preference. Requests are queued and assigned automatically without front desk mediation.
+**Menus and room service.** A code on the restaurant table and the in-room card opens the current menu — seasonal, priced correctly, in several languages — and, where the hotel supports it, ordering. Our [menu QR code generator](/menu-qr-code-generator) covers the code itself. Menus change; print should not have to.
 
-### 4. Local Experiences and Concierge
+**Service requests.** A code that opens a simple request form — extra towels, a pillow, housekeeping timing, maintenance — gives the guest a silent channel (valued at 11 p.m. with a sleeping child) and gives the hotel a written, time-stamped request instead of a missed call.
 
-A QR on the welcome card links to a curated local guide: restaurant recommendations, walking routes, and bookable experiences (taxi, spa, tours). Commission-trackable links in the guide generate hotel revenue. Dynamic content means the guide updates daily without reprinting.
+**Local guidance.** The concierge's greatest hits as a page: transport to the airport, nearby restaurants the hotel genuinely recommends, attractions with honest timing advice, emergency numbers and the nearest pharmacy and hospital. Updated by the people who answer these questions daily.
 
-### 5. Check-Out and Feedback
+**Feedback and reviews.** A code at checkout and in the follow-up email opens the feedback form first and the public review page second — our [Google review QR generator](/google-review-qr-generator) builds the review code, and the [feedback QR code generator](/feedback-qr-code-generator) covers the private form. The order matters: a guest with a problem should meet the hotel's own form before the public review site, so the hotel gets the chance to fix it.
 
-A QR on the departure reminder slip links to the express check-out flow and a brief feedback survey (3 questions, under 60 seconds). Post-stay feedback via QR achieves 3–6x higher response rates than email surveys because it is completed in context, before the guest leaves the hotel mindset.
-    
+### 3. Step-by-step: set up a property's codes
 
-### Putting this into practice
+**Step 1 — Build the guest pages first.** One page per job: the guest information page, the menu, the request form, the local guide. Each must load fast on hotel WiFi (test it on the guest network, not the office one), need no login, and open with the most-needed item at the top.
 
-Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+**Step 2 — Decide the code set per location.** Room: information code + WiFi code on one well-designed card. Restaurant: menu code per table. Reception: local guide + review code. Spa/gym: hours and booking. A [hotel QR suite](/hotel-qr-suite) approach — a planned set, one design language — beats a year of ad-hoc additions.
 
-### Common mistakes to avoid
+**Step 3 — Generate the codes.** Use the generators for each payload: the URL generator for pages, the WiFi generator for the network, the vCard generator if a code should save the hotel's contact (useful on the key-card wallet: reception's number in the guest's phone). Test every code on screen before designing around it.
 
-The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+**Step 4 — Design for the room.** The in-room card is handled daily and read in bedside light. Codes at **30–40 mm**, dark on light, matte finish (bedside lamps and glossy cards are enemies), and a line of instruction in the guest's languages: 'Scan for hotel information & WiFi'. Multilingual instruction lines matter more than multilingual everything else.
 
-### Quick checklist
+**Step 5 — Place with intent.** Information card by the bed or desk where guests charge their phones; WiFi code beside it; menu code standing on the table, not flat under plates; request code inside the bathroom mirror cabinet door is clever but hidden — the desk card is where requests live. Walk the guest journey and put each code where the question occurs.
 
-- Keep the payload as short as practical so modules stay large.
-- Keep dark modules on a light background with strong contrast.
-- Leave a clear quiet zone on all four sides of the symbol.
-- Test the printed code at the real viewing distance and lighting.
-- Confirm the destination page loads fast on a phone.
-- Recheck the code after any change to the link, design, or placement.
+**Step 6 — Proof in a real room.** Print the set, place it in an actual room, and test as a guest: scan from the bed, from the desk, in evening light, on the guest network, in airplane-mode-off arrival conditions. Then have a colleague who did not design it do the same.
 
-### Related tools and guides
+### 4. Sizes, materials and placement specifics
 
-- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
-- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
-- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
-- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
-- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
-- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+- **In-room tent cards and desk cards:** codes **30–40 mm**. Scanned at arm's length, often in warm dim light — bigger and higher-contrast than you would choose at a desk in an office.
+- **Key-card wallets:** the wallet is small; a **20–25 mm** code for the hotel contact or the information page is the practical size, with a short payload.
+- **Restaurant table cards:** **30 mm** and up, standing upright. Flat table tents lying under glass tabletops pick up reflections from every light in the room.
+- **Lobby and lift posters:** **80–120 mm**, scanned from a step or two away while waiting — the lift lobby is one of the best placements in the building for the local guide and the review code, because the audience is captive and unhurried.
+- **Materials:** rooms are cleaned daily with sprays and cloths. Laminated or synthetic cards survive; bare card does not. Matte lamination, always — gloss plus a bedside lamp is a reflection machine.
+- **Error correction:** **M** for clean placements, **Q** for anything handled constantly (menus, in-room cards) and anywhere a logo joins the design.
+
+### 5. Multilingual discipline
+
+International guests are the audience least able to ask reception and most dependent on the codes. The landing pages should detect or offer language choice on the first screen, with the property's top guest languages professionally translated — machine translation is acceptable for the long tail, not for safety-relevant content like emergency and evacuation information, which should be checked by a human. Keep the printed instruction line on each card in at least the top three guest languages plus a small 'scan me' camera icon language cannot garble. Numbers, times and dates on the guest pages should be written to survive translation: 'Breakfast 6:30–10:00, ground floor' beats an idiom in every language.
+
+### 6. Privacy and the next-guest rule
+
+Hotel codes live in private space and are inherited by strangers, which creates rules of their own:
+
+- **Pages behind in-room codes must be generic to the room or property — never to the guest.** No names, no stay dates, no booking details, no folio information. If a service needs the guest's identity (a personalised itinerary, a bill), it belongs behind the guest's own login or booking link sent to them directly, not behind a code printed on the desk.
+- **Request forms should ask for the room number, not the person.** The room number routes the towels; the guest's name adds nothing and collects personal data into a form that does not need it.
+- **WiFi codes and password rotation.** Rotating the guest WiFi password means reprinting the room cards; not rotating means the password drifts into permanent public knowledge. Properties solve this differently — a password that changes on a schedule the cards can keep up with, or a stable guest network password treated as a public amenity while staff and payment systems sit on separate networks. Either is defensible; an operations network sharing the guest password is not.
+- **What the codes themselves hold.** Codes made with our tools are static and created in your browser: a WiFi code holds the network credentials, a page code holds an address. Nothing is sent to or stored by us, there are no accounts and no scan tracking. Control of a code is control of its page — when a page is retired, the printed cards for it come out of the rooms the same week.
+
+### 7. Common mistakes and how to fix them
+
+**The code opens a PDF of the old printed directory.** A 40-page PDF on a phone is where good intentions go to die — and it is usually out of date anyway. Fix: a real web page, built for phones, owned by someone who updates it.
+
+**Menus as blurry photo uploads.** A photographed menu is unreadable, untranslatable and inaccessible. Fix: a text menu page — which also lets prices change without reprinting a single card.
+
+**One code for everything, linked to the homepage.** The guest wanted breakfast hours and got the booking engine. Fix: one code per job, opening the page that answers the question being asked at that spot.
+
+**Cards that never change.** The spa hours changed in March; the card still says otherwise in November. Fix: the page is the truth and can change daily — but review the printed layer quarterly too, and date every card design so stale stock is visible.
+
+**Review codes that skip the private step.** Sending every guest straight to a public review page exports your service recovery to the internet. Fix: feedback form first (it is also where you learn the fixable problems), public review link second.
+
+**Glossy cards by the bed.** Lamplight reflections at exactly reading distance. Fix: matte finish, and proof the card in the room's evening light, not under office fluorescents.
+
+### 8. Small properties: the minimum set that still works
+
+A six-room B&B does not need a suite of codes, and should not imitate a resort's deployment. The minimum set that delivers most of the value is three: the **WiFi code** on a card in each room, **one information page** behind a second code (breakfast times, parking, checkout, the owner's recommendations for the area, emergency numbers), and a **review code** offered at departure and in the thank-you message. Everything in this guide about sizes, matte finishes, generic pages and quarterly checks applies unchanged at that scale — the disciplines are what make codes trustworthy, and they cost a small property an afternoon, not a budget. Add the menu and request codes only when guests actually start asking the questions those codes answer; a small property's advantage is personal service, and the codes should handle the repetitive questions so the humans can handle the rest.
+
+### 9. Related tools and guides
+
+- The [hotel QR suite](/hotel-qr-suite) plans a property-wide set of codes.
+- The [WiFi QR code generator](/wifi-qr-code-generator) connects guests in one scan.
+- The [menu QR code generator](/menu-qr-code-generator) builds table and in-room menu codes.
+- The [Google review QR generator](/google-review-qr-generator) and [feedback QR generator](/feedback-qr-code-generator) handle reputation in the right order.
+- Our [WiFi QR code guide](/blog/how-to-make-wifi-qr-code) covers guest-network setup in depth.
 `,
     [
       {
-        question: 'Do guests need to download an app for mobile hotel check-in?',
+        question: 'Which QR codes should a hotel set up first?',
         answer:
-          'No. Web-based mobile check-in via QR requires no app. Digital keys require Apple Wallet or Google Wallet, which are pre-installed on all recent smartphones.',
+          'Start with the in-room information code and the WiFi code on one card: together they answer most guest questions. Then the menu code in the restaurant, a service-request code in the room, and feedback and review codes at checkout.',
       },
       {
-        question: 'What is the best placement for an in-room QR menu?',
+        question: 'How big should in-room QR codes be?',
         answer:
-          'The bedside table is highest engagement (guests use it before sleeping). The desk is second. Avoid the bathroom — moisture and distance from the sleeping area reduce usage.',
+          '30 to 40 mm on desk and tent cards, scanned at arm\'s length in warm, dim light. Key-card wallets take 20 to 25 mm with a short payload, and lobby or lift posters need 80 to 120 mm. Use a matte finish — bedside lamps reflect badly off gloss.',
       },
       {
-        question: 'How do I test a QR code before sharing it?',
+        question: 'How do we handle guests who do not speak the local language?',
         answer:
-          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
+          'Offer language choice on the first screen of every guest page, with the property\'s main guest languages professionally translated. Keep the printed instruction line on each card in at least the top three guest languages. Safety information should always be human-checked.',
+      },
+      {
+        question: 'Is it safe to print the WiFi password as a QR code in rooms?',
+        answer:
+          'Use the guest network, never the staff or operations network. Properties either rotate the guest password on a schedule the printed cards can keep up with, or keep a stable guest password treated as a public amenity while staff and payment systems use separate networks.',
+      },
+      {
+        question: 'What information should an in-room QR code never open?',
+        answer:
+          'It must be generic to the room or property — never the guest. No names, stay dates or booking details behind an in-room code. Request forms should ask for the room number, not personal details. Anything personalised belongs behind the guest\'s own booking link.',
+      },
+      {
+        question: 'Should the review code go straight to Google reviews?',
+        answer:
+          'Offer the hotel\'s own feedback form first, so a fixable problem reaches the hotel while it can still be fixed, then the public review page. A code at checkout and a link in the follow-up message cover both moments.',
+      },
+      {
+        question: 'How often should hotel QR codes be checked?',
+        answer:
+          'The pages can change daily — that is the point of linking instead of printing details. Review the printed layer itself quarterly: check every code still opens the right page, the designs are current, and cards for retired pages have been removed from rooms.',
       },
     ]
   ),

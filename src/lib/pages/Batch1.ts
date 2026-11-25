@@ -128,63 +128,151 @@ The most common mistakes are easy to avoid once you know them. Long payloads mak
   ),
   art(
     'qr-code-vs-data-matrix',
-    'QR Code vs Data Matrix: Which 2D Symbology Should You Use?',
+    'QR Code vs Data Matrix: Which 2D Code Should You Use?',
     'qr code vs data matrix',
-    'Compare QR Code and Data Matrix across capacity, minimum size, finder structure, and industry use.',
+    'A practical comparison of QR codes and Data Matrix: structure, capacity, minimum size, damage tolerance, what scans them, and where each is the right choice.',
     'Fundamentals',
-    '6 min read',
+    '12 min read',
     '2026-07-17',
     `
-### 1. Structural Differences
+### 1. Two codes that look alike and work very differently
 
-QR Code uses three square finder patterns and a quiet zone of four modules. Data Matrix (ISO/IEC 16022, ECC 200) uses an L-shaped solid finder on two edges and an alternating clock track on the other two, with a quiet zone of one module. You can generate both types using specialized tools, though our [barcode generator](/barcode-generator) focuses on the more widely-adopted formats.
+From a distance, a QR code and a Data Matrix code look like cousins: black and white squares in a square. Underneath, they are different standards, designed in different decades for different jobs, and choosing the wrong one is a quiet, expensive mistake — a consumer campaign printed in Data Matrix that phones cannot read, or a tiny component label printed as a QR code that physically cannot fit the data at that size.
 
-### 2. Capacity and Size
+This guide compares the two across the things that decide real projects: how each code is structured, how much each holds, how small each can go, how much damage each survives, what scans them, and where each is the established choice. It ends with a simple decision path. Both codes are open standards with no licence fee for use; the choice is about fit, not cost.
 
-| Feature | QR Code | Data Matrix |
+### 2. Structure: finder patterns tell them apart
+
+A **QR code** (standardised as ISO/IEC 18004) announces itself with three large square finder patterns in three corners. Those squares are why any phone camera can spot a QR code at an angle, upside down, on a poster across a room. Around them sit timing patterns, alignment patterns (in larger versions), format and version information, and then the data itself with Reed-Solomon error correction. QR sizes run from Version 1 (21 × 21 modules) to Version 40 (177 × 177).
+
+A **Data Matrix code** (ISO/IEC 16022) has no finder squares. Instead, two adjacent edges form a solid L-shaped border, and the other two edges carry an alternating black-and-white 'clock track'. That border design is why Data Matrix can work at very small sizes: it spends far less of its area on finding itself. Sizes run from 10 × 10 up to 144 × 144 modules in the square format, with rectangular formats available too — useful on narrow components. The current version, ECC 200, uses Reed-Solomon error correction like QR, and can typically survive around 25% of the symbol being damaged.
+
+The structural difference drives everything else in this guide: QR spends area on being findable by any camera anywhere; Data Matrix spends area on data in the smallest possible footprint.
+
+### 3. Capacity: QR holds more, Data Matrix holds enough in less space
+
+At maximum size, the numbers are:
+
+| | QR code (Version 40) | Data Matrix (144 × 144) |
 |---|---|---|
-| Max numeric | 7,089 | 3,116 |
-| Max alphanumeric | 4,296 | 2,335 |
-| Smallest symbol | 21x21 | 10x10 |
-| Quiet zone | 4 modules | 1 module |
+| Numeric characters | 7,089 | 3,116 |
+| Alphanumeric characters | 4,296 | 2,335 |
+| Binary data | 2,953 bytes | 1,556 bytes |
 
-### 3. Where Each Wins
+QR wins on raw capacity, and it is not close. But capacity per project is rarely the real constraint. The real constraint is usually *capacity at a given physical size*. A serial number, a part number plus batch, or a short identifier is a few dozen characters — both codes hold that easily. At small sizes (under about 10 mm), Data Matrix encodes those few dozen characters in a symbol that stays readable, where a QR code carrying the same data becomes a dense, fragile pattern. At large sizes with long content — a URL with tracking parameters, a full vCard, WiFi credentials — QR is the only sensible choice of the two, because consumer scanning, not capacity, becomes the deciding factor (see section 5).
 
-Data Matrix is preferred for tiny parts, such as electronics, medical devices, and pharmaceutical packaging, because of its small footprint and thin quiet zone. QR Code is preferred for consumer scanning because every smartphone [QR scanner](/qr-scanner) app recognizes it. Choose QR for people, Data Matrix for machines and tight spaces. Our [QR size calculator](/qr-size-calculator) can help determine if QR Code is feasible for your space constraints. For consumer-facing applications like [URL encoding](/url-qr-code-generator) or [WiFi sharing](/wifi-qr-code-generator), QR Code is almost always the right choice. When planning printed implementations, check our [placement guide](/qr-placement-guide) for best practices.
-    
+One more capacity nuance: QR offers four error correction levels (L, M, Q, H — roughly 7%, 15%, 25% and 30% recovery), so you can trade capacity for toughness per project. ECC 200 Data Matrix has a fixed error correction scheme at roughly the 25% level. If your application needs a logo embedded in the code — only really a QR practice — level H is the setting that makes it survivable.
 
-### Putting this into practice
+### 4. Minimum size and marking method
 
-Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+**Data Matrix owns the small end.** It is routinely laser-etched or dot-peened directly onto metal and plastic parts a few millimetres across — direct part marking (DPM) on surgical instruments, circuit boards, aerospace and automotive components. The L-border reads reliably at sizes where a QR code's finder patterns alone would consume the whole label. If your symbol must live on a 5 mm component, the comparison is over before it starts.
 
-### Common mistakes to avoid
+**QR owns everything the public touches.** For print at normal sizes — packaging, labels, posters, receipts, table cards — QR's finder patterns make detection fast and forgiving, at angles and distances where a Data Matrix symbol of the same size is harder for a general-purpose camera to lock onto.
 
-The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+Print quality matters to both, differently. Data Matrix's small modules punish low-resolution printing at tiny sizes; thermal transfer and laser marking are its natural partners. QR tolerates ordinary office and commercial printing well at sensible sizes, which is part of why it spread.
 
-### Quick checklist
+### 5. What scans them: the deciding factor for most projects
 
-- Keep the payload as short as practical so modules stay large.
-- Keep dark modules on a light background with strong contrast.
-- Leave a clear quiet zone on all four sides of the symbol.
-- Test the printed code at the real viewing distance and lighting.
-- Confirm the destination page loads fast on a phone.
-- Recheck the code after any change to the link, design, or placement.
+This is the section that settles most real-world choices.
+
+**Every modern phone camera reads QR codes natively.** iPhones and Android phones have done so for years, no app needed, and the whole public has learned the gesture. If your audience is consumers, patients, passengers, shoppers or guests, QR is the only choice of the two — full stop.
+
+**Phone cameras do not, in general, read Data Matrix natively.** Dedicated scanner apps can, and industrial handheld and fixed-mount scanners read Data Matrix as a matter of course — on production lines, in warehouses, in hospitals. If your audience is staff with proper scanners, Data Matrix is fully in play. If your audience is the public, a Data Matrix code is, to most of them, an unscannable picture.
+
+Be honest about which audience you have. Projects fail here more than anywhere else: a technically elegant Data Matrix programme whose users turn out to be members of the public with ordinary phones.
+
+### 6. Where each is the established choice
+
+**Data Matrix territory:**
+- **Pharmaceutical and medical device marking.** GS1 DataMatrix is the established carrier for product identification on medicines and medical devices, including unique device identification (UDI) marking, where space is tiny and the readers are professional.
+- **Electronics and manufacturing.** Component-level traceability — boards, chips, assemblies — marked directly on the part.
+- **Automotive and aerospace parts.** Direct part marking that must survive the life of the component, including heat, fluids and abrasion.
+- **Small labels generally**, where the data is short and the label is under roughly 10–15 mm.
+
+**QR territory:**
+- **Anything consumer-facing:** payments, menus, WiFi, product information, packaging engagement, ticketing, reviews, registration.
+- **Print and outdoor:** posters, billboards, vehicle livery, signage — anywhere the scanner is a phone at an uncontrolled distance and angle.
+- **Documents and logistics hand-offs to the public:** boarding passes, delivery notes customers scan, warranty registration.
+- **Longer payloads:** URLs, vCards, calendar events, WiFi credentials — content types phones recognise and act on automatically, which Data Matrix does not offer in consumer software.
+
+The grey zone is internal logistics. Carton and pallet labels read by staff scanners can be either; choose Data Matrix if space is tight or the same symbol must serve small-item marking, and QR if any link in the chain — a customer, a driver with only a phone, a returns desk — might need to scan with a phone.
+
+### 7. Making each one well
+
+For QR, our generators create codes in your browser with your choice of error correction level, and the supporting tools on this site — the [QR size calculator](/qr-size-calculator), the [QR data capacity calculator](/qr-data-capacity-calculator) and the [printed QR tester](/printed-qr-tester) — exist to size and verify the result. The rules that matter: keep the payload short so modules stay large, keep dark-on-light contrast, preserve the 4-module quiet zone, and test the printed piece with the devices your audience actually has.
+
+For Data Matrix, generation and verification belong with your labelling or marking software and, in regulated industries, with the GS1 application standards for your sector. Verification in industry is done with graded verifiers against the ISO print quality standards, not by eye — if your symbols are contractual or regulatory, budget for proper verification rather than phone tests.
+
+A hybrid worth knowing: some packaging carries both — a Data Matrix for the supply chain and a QR for the consumer. That is not indecision; it is two audiences being served properly, and it is increasingly common on regulated products that also run consumer engagement.
+
+### 8. The decision, in one pass
+
+Ask four questions in order:
+
+1. **Will the public scan it with their own phones?** Yes → QR. No → continue.
+2. **Must it fit under about 10 mm, or be marked directly onto a part?** Yes → Data Matrix. No → continue.
+3. **Is it a regulated identification mark in pharma, medical or similar?** Yes → GS1 DataMatrix, almost certainly. No → continue.
+4. **Is the payload long (a URL with parameters, a vCard, WiFi credentials)?** Yes → QR. No → either works; pick QR for maximum scanner compatibility, Data Matrix for label compactness.
+
+If you reached the end undecided, choose QR: its scanner base is the largest on earth, and the cost of that safety is a little label space.
+
+### 9. GS1 and the retail move to 2D codes
+
+Standards work is quietly pushing both symbols into new territory. GS1 — the organisation behind the world's barcodes — runs an industry programme often called 'Sunrise 2027', under which retailers aim for point-of-sale scanners to read 2D codes as routinely as they read the classic product barcode. The two carriers in that programme are QR codes carrying a GS1 Digital Link (a web address structured around the product's GTIN) and GS1 DataMatrix. The practical meaning for packaging teams: in the coming years the same pack may serve the checkout with a 2D code and the consumer with the same symbol, because a Digital Link QR is both machine-readable product identification and a phone-scannable web link. That convergence is another reason the choice in this guide is increasingly 'which 2D code for which audience on the same pack', rather than a single winner. If you print product packaging, ask your GS1 member organisation which carrier your category and markets are moving toward before committing a print run.
+
+### 10. Common misconceptions
+
+**'Data Matrix is the newer, better QR.'** They are contemporaries with different design goals. Neither replaces the other; each dominates where its design goals match the job.
+
+**'A QR code is just a barcode.'** One-dimensional barcodes and both of these 2D symbols differ in structure, capacity and error correction. The distinction matters when you specify a symbol for a supplier.
+
+**'More error correction is always better.'** In QR, higher correction means a denser symbol at the same data — harder to print small and, past a point, harder to scan. Match the level to the environment: M for clean print, Q or H for damage, dirt or a logo.
+
+**'If it scans on my phone, it is fine.'** For Data Matrix in industry, the standard is graded verification, not a phone. For QR aimed at the public, your phone is one sample of thousands — test on several, including an older one.
+
+### 11. Related tools and guides
+
+- The [URL QR code generator](/url-qr-code-generator) creates consumer-ready QR codes in your browser.
+- The [barcode generator](/barcode-generator) covers the classic 1D formats for retail and inventory.
+- The [QR data capacity calculator](/qr-data-capacity-calculator) shows which version a payload needs.
+- Our [how QR codes work](/blog/how-qr-codes-work) guide explains the structure in depth.
+- The [QR code error correction](/blog/qr-code-error-correction) guide covers the L/M/Q/H trade-off.
 `,
     [
       {
-        question: 'Can a phone scan Data Matrix codes?',
+        question: 'Which is better, QR code or Data Matrix?',
         answer:
-          'Many dedicated scanner apps can, but default camera apps are built primarily around QR Code. Test your target devices.',
+          'It depends on the job. QR is better for anything the public scans, longer payloads and larger capacities. Data Matrix is better for very small labels and direct part marking on components, where its border design keeps short data readable in a few millimetres.',
       },
       {
-        question: 'Which is more damage tolerant?',
+        question: 'Can a phone camera scan a Data Matrix code?',
         answer:
-          'Both use Reed-Solomon error correction. QR Code offers four selectable levels, while Data Matrix ECC 200 sets correction according to symbol size.',
+          'Not natively. iPhone and Android camera apps read QR codes, but Data Matrix generally needs a dedicated scanner app or an industrial scanner. That single fact decides most consumer-facing projects in favour of QR.',
       },
       {
-        question: 'When should I definitely choose Data Matrix over QR?',
+        question: 'How much data does each code hold?',
         answer:
-          'When space is extremely limited (under 5mm), when the quiet zone requirement is prohibitive, or when you need maximum data density on tiny electronic components.',
+          'A QR code at maximum size (Version 40) holds up to 7,089 numeric or 2,953 binary characters. The largest Data Matrix (144 x 144) holds up to 3,116 numeric or 1,556 binary characters. QR wins on capacity; Data Matrix wins on capacity in very small symbols.',
+      },
+      {
+        question: 'Which code works at the smallest sizes?',
+        answer:
+          'Data Matrix, comfortably. It is designed for small footprints and direct part marking, reading reliably at a few millimetres across. A QR code spends much of a tiny symbol just on its three finder patterns, leaving too little room for data.',
+      },
+      {
+        question: 'How much damage can each code survive?',
+        answer:
+          'Both use Reed-Solomon error correction. ECC 200 Data Matrix typically survives around 25% damage. QR lets you choose: roughly 7% at level L, 15% at M, 25% at Q and 30% at H — H is the level to use with a centre logo.',
+      },
+      {
+        question: 'Why is Data Matrix used on medicines and medical devices?',
+        answer:
+          'Yes — GS1 DataMatrix is the established carrier for medicines and medical device identification, including UDI marking, because space is small and the readers are professional scanners. It is a regulated choice, not just a preference.',
+      },
+      {
+        question: 'Can a package carry both a QR code and a Data Matrix?',
+        answer:
+          'Often, yes, and it is not indecision: a Data Matrix serves the supply chain and professional scanners, while a QR serves consumers with phones. Regulated products that also run consumer engagement commonly carry both.',
       },
     ]
   ),

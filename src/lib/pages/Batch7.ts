@@ -372,76 +372,133 @@ Codes that stay in circulation need occasional attention. Links change, pages mo
     'kenya-mpesa-qr-code',
     'Kenya M-Pesa QR Codes: Merchant Payments and Lipa na M-Pesa',
     'mpesa qr code kenya',
-    'How M-Pesa QR codes work for Kenyan merchants, including the Lipa na M-Pesa till and paybill flows.',
+    'How Kenyan merchants use a displayed M-Pesa QR code for till and paybill payments, with printing guidance and the daily checks that stop sticker-swap fraud.',
     'Business & Regional',
-    '6 min read',
+    '12 min read',
     '2026-09-18',
     `
-### 1. Overview
+### 1. The problem at the till
 
-M-Pesa is Safaricom's mobile money service, widely used in Kenya and other East African markets. The QR code standard encodes either a Lipa na M-Pesa (till number or paybill) or a personal phone number.
+Every Kenyan merchant who takes M-Pesa knows the small frictions by heart. A customer types the till number from memory and sends money to the wrong business. A queue builds while someone reads a long paybill number and account reference aloud, digit by digit. A new cashier gives out the wrong number on a busy Saturday. None of these are technology failures — they are transcription failures, and a printed QR code at the payment point is a simple way to remove most of them.
 
-### 2. Payload Format
+An M-Pesa QR code displayed at your till, counter or market stall carries your payment details in a form the customer's phone can read in one scan, so the number goes into the payment flow without being typed. This guide explains how Lipa na M-Pesa payments work with a displayed code, how to create one with our free payment tools, how to print and place it so it survives a shop counter, and — most importantly — the verification habits that keep both merchant and customer safe, because a QR code helps money go to the right place only when the person paying checks the name on the confirmation screen before entering a PIN.
 
-M-Pesa uses a proprietary payload format within a QR code or a structured link. The typical merchant flow encodes:
-* Business name.
-* Till number or paybill number.
-* Optional account reference.
-* Optional amount.
+### 2. Lipa na M-Pesa: the three ways customers pay you
 
-Safaricom provides a merchant portal and API to generate valid QR payloads. Do not construct payloads manually outside Safaricom's tools, as the format may change.
+M-Pesa is Safaricom's mobile money service, and most merchant payments in Kenya run through one of three Lipa na M-Pesa arrangements:
 
-### 3. Consumer Experience
+- **Till Number (Buy Goods and Services).** The standard choice for shops, eateries, stalls and service businesses. The customer enters the till number and the amount; the payment lands in the business's M-Pesa account and both sides get a confirmation message.
+- **Paybill.** Used by organisations that need an account reference as well as a number — schools, utilities, landlords, churches, suppliers collecting invoice payments. The customer enters the paybill number, then an account number that identifies them or the invoice.
+- **Pochi la Biashara.** A till arrangement tied to a personal M-Pesa line, widely used by sole traders and small sellers who receive business payments on their own number while keeping those payments separate from personal transfers.
 
-The customer scans with the M-Pesa app or the Safaricom app. The app pre-fills the merchant details; the customer enters the amount if not preset and confirms with their PIN.
+Whichever arrangement you use, the customer's side of the payment follows the same shape: open M-Pesa (the app, the SIM toolkit menu, or the USSD service), choose Lipa na M-Pesa, enter the number and amount, review the confirmation screen that shows the registered name of the business or number, then authorise with the M-Pesa PIN. A QR code improves the middle of that flow — the number entry — and the confirmation screen remains the customer's safety check.
 
-### 4. Display Tips
+### 3. What a displayed QR code does in that flow
 
-Print the till number and paybill in plain text beside the code so customers who prefer to type can still pay.
-    
+A printed QR code at the payment point can carry your till or paybill details as scannable text. The customer scans it with their phone camera or the scanner in their banking or M-Pesa app, and the details are captured without typing. What the code cannot do is complete or authorise a payment: the customer still enters the amount, still sees the confirmation screen with the registered name, and still enters their own PIN. No legitimate payment code can skip those steps, and any code or person suggesting otherwise should be treated with suspicion.
 
-### Putting this into practice
+That division of labour is exactly right. The code removes the typing errors; the human keeps the verification. For the merchant, the benefit compounds across hundreds of small transactions: fewer wrong-number payments to unwind, faster queues, and no dependence on a customer hearing a number correctly in a noisy shop.
 
-Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+Merchants with several payment points — a supermarket with six tills, a petrol station with several pumps, a restaurant where customers pay at the table — use one code per point only if the points genuinely have different till numbers. Most small businesses have one till number, and one well-placed code design, printed several times, serves the whole premises.
 
-### Common mistakes to avoid
+### 4. Step-by-step: create your M-Pesa payment code
 
-The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+**Step 1 — Confirm your official details first.** Before generating anything, confirm your till number (or paybill number and the account format you give customers) from your own M-Pesa records or a recent transaction message. The code will faithfully reproduce whatever you type — including a mistake — so this check is the whole ballgame.
 
-### Quick checklist
+**Step 2 — Open the payment QR tools.** Start from our [payment QR hub](/payment-qr), which covers the regional payment schemes, or build the code with the [URL QR code generator](/url-qr-code-generator) if your payment page or instructions live at a web address. Enter the till details exactly as customers should use them.
 
-- Keep the payload as short as practical so modules stay large.
-- Keep dark modules on a light background with strong contrast.
-- Leave a clear quiet zone on all four sides of the symbol.
-- Test the printed code at the real viewing distance and lighting.
-- Confirm the destination page loads fast on a phone.
-- Recheck the code after any change to the link, design, or placement.
+**Step 3 — Add a clear label in the design.** The printed piece should say, in words, what the code is for: the business name, 'Lipa na M-Pesa', and the till number printed as readable text beneath the code. The text is the fallback for a customer whose phone cannot scan, and it lets your staff verify at a glance that the right code is on display.
 
-Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+**Step 4 — Generate and scan it yourself.** Scan the preview with your own phone and confirm the details it captures match your till exactly — number, and business name where shown. Then make a tiny test payment from a personal line, or have a trusted customer do the first live scan, and confirm the payment arrives in the right account before the code goes on public display.
 
-### Related tools and guides
+**Step 5 — Download for print.** Choose SVG or the largest PNG. Counter cards get printed, reprinted and resized by copy shops; a crisp master file keeps every copy scannable.
 
-- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
-- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
-- The [UPI QR code generator](/upi-qr-code-generator) builds payment codes for UPI-based transfers.
-- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
-- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
-- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+**Step 6 — Print and mount.** Follow the sizing and material guidance in section 5, and keep a dated master copy so a damaged or faded display can be replaced identically.
+
+### 5. Printing and placing the code in a real shop
+
+- **Size:** at least **30 × 30 mm** for a counter card scanned across a till, and **40 × 40 mm or more** for a wall or window sign scanned from a step or two away. Payment codes are scanned by every kind of phone, including older and cheaper models with modest cameras — size is your insurance.
+- **Error correction:** use **Q or H**. Counter cards get wiped, splashed and sun-faded; the higher levels keep a worn code working. If your design includes a logo, H is the right default.
+- **Contrast:** black on white. Brand colours are for the card around the code, not the code itself.
+- **Material:** laminate the card or print on synthetic stock. Behind the counter glass is fine if the glass is clean and the code still scans through it — test it in place, at night as well as in daylight, because reflections change.
+- **Placement:** where the customer naturally stands to pay, at about chest height, with the till number in text beside it. One obvious code at the payment point beats three codes in three places, which invite doubt about which is current.
+- **One current version.** When a till number changes, replace every displayed copy the same day and destroy the old ones. Two different payment codes on display is an invitation to error and to fraud.
+
+### 6. Safety: the checks that make QR payments trustworthy
+
+Payment codes attract a specific crime: **sticker swapping**. A fraudster prints their own code and sticks it over the merchant's, so customer payments flow to the fraudster's till until someone notices. It is simple, it is known, and it is defeated by simple habits:
+
+- **Inspect your displayed codes daily.** Run a fingertip over the code — a sticker on top of your card has an edge you can feel. Check the printed till number in the text matches yours.
+- **Do a tiny test payment** after any reprint, replacement, or suspicion, and confirm it lands in your account.
+- **Mount codes where staff can see them** and prefer rigid, sealed displays over loose paper that is easy to cover.
+- **Teach the confirmation habit.** The strongest protection in the whole system is the customer's confirmation screen: it shows the registered name the money is going to before the PIN is entered. A small line on your counter card — 'Check the name on your phone matches our shop name before you pay' — protects your customers and your reputation at the same time.
+- **Customers: never pay from a code sent by a stranger** asking you to 'confirm' or 'receive' money. Receiving money never requires you to scan a code and enter your PIN. Anyone saying otherwise is running a scam, in Kenya and everywhere else.
+
+For merchants, a daily glance and a weekly test scan should be part of opening routine, like checking the float.
+
+### 7. Privacy and data notes
+
+A payment QR code of this kind is a static code: it carries the till details you put into it, and nothing else. It does not track who scans it, it does not collect customer data, and it does not expire. The codes our tools create are generated in your browser — the till details you enter are not sent to or stored by us, there is no account, and there is no scan analytics. The transaction record itself lives where it always lives: in M-Pesa, in the confirmation messages both sides receive. If your till number changes, the old code keeps pointing at the old number forever, which is why replacing displayed copies promptly matters.
+
+One more boundary worth stating: a QR code is a display convenience, not a payment service. Disputes, reversals and wrong payments are handled through M-Pesa's own processes, and a merchant's records — the confirmation messages — are what support those cases. Keep them.
+
+### 8. Common mistakes and how to fix them
+
+**Generating the code from memory.** One transposed digit routes every payment to a stranger. Fix: copy the till number from an official source, then test with a real small payment before displaying the code.
+
+**A code with no text label.** Customers cannot tell what it is for, and staff cannot verify it at a glance. Fix: business name, 'Lipa na M-Pesa' and the till number in readable text on the same card.
+
+**Old and new codes both on display.** After a till change, a leftover card at a second entrance keeps collecting to the old number. Fix: same-day replacement everywhere, and destroy old prints.
+
+**Tiny code on a big sign.** A 20 mm code on a shopfront sign cannot be scanned from the pavement. Fix: size for the scanning distance — 40 mm minimum for signs, more for window displays.
+
+**Laminated glare.** A glossy card under a spotlight reflects instead of scanning. Fix: matte lamination, a slight tilt, or a different position; test at night under shop lighting.
+
+**Assuming the code verifies the payment.** It does not — it only carries the number. Fix: check the confirmation message for each payment as you normally would; the code changes nothing about settlement.
+
+### 9. Related tools and guides
+
+- The [payment QR hub](/payment-qr) covers regional payment code schemes and how customers use them.
+- The [Pakistan payment QR](/pakistan-payment-qr) page explains a neighbouring market's payment code flow.
+- The [printed QR tester](/printed-qr-tester) checks a counter card before it goes on display.
+- The [QR size calculator](/qr-size-calculator) gives a size for any scanning distance.
+- Our [QR code security best practices](/blog/qr-code-security-best-practices) guide covers safe scanning for merchants and customers.
 `,
     [
       {
-        question: 'Can I scan an M-Pesa QR with a generic QR reader?',
+        question: 'How does an M-Pesa QR code work for a customer?',
         answer:
-          'The code is technically a standard QR, but the payload is processed only by M-Pesa-compatible apps.',
+          'The customer scans the displayed code so the till or paybill details are captured without typing, then enters the amount, checks the registered business name on the confirmation screen, and authorises with their M-Pesa PIN. The code removes typing errors; it never skips the confirmation or the PIN.',
       },
       {
-        question: 'Do I need to register to get a merchant QR?',
-        answer: 'Yes. Register as a Lipa na M-Pesa merchant through Safaricom or your bank.',
+        question: 'Is it safe to display a QR code for my till number?',
+        answer:
+          'Yes, if the code faithfully carries your correct till details and you have tested it with a real small payment. Always copy the number from an official source, print the till number as readable text beside the code, and confirm the first live payment lands in your account.',
       },
       {
-        question: 'Do payment QR codes expire?',
+        question: 'What is the difference between a till number, paybill and Pochi la Biashara?',
         answer:
-          'Static payment codes stay valid until the account or merchant details change. Dynamic codes created for a single order can carry an expiry, so confirm with your provider whether a code is meant for one payment or repeated use.',
+          'A till number serves one business location or operation. A paybill number is used with an account reference that identifies the payer or invoice, which suits schools, utilities, landlords and suppliers. Pochi la Biashara suits sole traders receiving business payments on a personal line.',
+      },
+      {
+        question: 'How big should a printed M-Pesa QR code be?',
+        answer:
+          'At least 30 x 30 mm for a counter card, and 40 x 40 mm or more for wall or window signs. Use error correction Q or H, black on white, and test the mounted card in day and night lighting before relying on it.',
+      },
+      {
+        question: 'How do I protect my payment code from sticker swapping?',
+        answer:
+          'Inspect it daily — a fraudulent sticker stuck over your code has a feelable edge — do a small test payment after any reprint, mount codes where staff can see them, and remind customers to check that the name on their confirmation screen matches your business before they enter a PIN.',
+      },
+      {
+        question: 'Does the QR code store my till details or track customers?',
+        answer:
+          'No. The code our tools create is generated in your browser and simply carries the till details you enter. Nothing is sent to or stored by us, there is no account, and the transaction record itself stays in M-Pesa as usual.',
+      },
+      {
+        question: 'What happens to my printed codes if my till number changes?',
+        answer:
+          'Immediately. Replace every displayed copy on the same day and destroy the old prints. A static code keeps pointing at the old number forever, so a leftover card at a second entrance would keep collecting payments to the wrong till.',
       },
     ]
   ),
