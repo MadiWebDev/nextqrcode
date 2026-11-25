@@ -1546,6 +1546,56 @@ const META_OVERRIDES: Record<string, { metaTitle: string; metaDescription: strin
     metaDescription:
       'QR code scans to a 404 page? Find the cause — moved page, deleted page, typo or broken redirect — test each in order, and fix it before reprinting.',
   },
+  'qr-code-for-travel-agencies': {
+    metaTitle: 'QR Codes for Travel Agencies: A Practical Guide',
+    metaDescription:
+      'How travel agencies use QR codes for live itineraries, visa information, destination guides and emergency contacts — setup, print sizes and testing.',
+  },
+  'qr-code-for-airport-luggage': {
+    metaTitle: 'QR Codes on Luggage Tags: Setup, Size and Privacy',
+    metaDescription:
+      'How a QR code on your luggage tag helps finders reach you: what to encode, tag size and durability, privacy rules, and how it fits airline tracing.',
+  },
+  'kenya-mpesa-qr-code': {
+    metaTitle: 'M-Pesa QR Codes in Kenya: Merchant Payment Guide',
+    metaDescription:
+      'How Kenyan merchants display an M-Pesa QR code for till and paybill payments: setup, print sizes, and the daily checks that stop sticker-swap fraud.',
+  },
+  'qr-code-for-car-dealerships': {
+    metaTitle: 'QR Codes for Car Dealerships: A Practical Guide',
+    metaDescription:
+      'How dealerships use windscreen QR codes for specs, video walkarounds, finance illustrations and test drive booking — sizes, materials, sold-car rules.',
+  },
+  'qr-code-vs-data-matrix': {
+    metaTitle: 'QR Code vs Data Matrix: Which Should You Use?',
+    metaDescription:
+      'QR code vs Data Matrix compared: capacity, minimum size, damage tolerance, phone scanning, and the industries where each is the established choice.',
+  },
+  'printing-bulk-shipping-labels-qr-codes': {
+    metaTitle: 'Printing Bulk Shipping Labels with QR Codes',
+    metaDescription:
+      'Print bulk shipping labels that scan: carrier labels vs your own QR labels, sizes, thermal printer settings, proofing, and the mistakes that break runs.',
+  },
+  'qr-code-for-food-labelling': {
+    metaTitle: 'QR Codes on Food Labels: Ingredients & Allergens',
+    metaDescription:
+      'QR codes on food labels: what must stay on the pack, what the code can carry, sizes and print standards, testing, and mistakes with legal consequences.',
+  },
+  'how-to-print-a-qr-code-on-a-business-card': {
+    metaTitle: 'How to Print a QR Code on a Business Card',
+    metaDescription:
+      'How to print a QR code on a business card: vCard vs link, exact sizes (25 mm for vCard, 20 mm for links), finishes that break scans, and proofing.',
+  },
+  'qr-code-for-outdoor-billboards': {
+    metaTitle: 'QR Codes on Billboards: Sizes, Safety, Tracking',
+    metaDescription:
+      'QR codes on billboards: the one-tenth sizing rule, pedestrian placement, site testing, honest tracking, and why drivers must never be the audience.',
+  },
+  'qr-code-for-hotels-and-hospitality': {
+    metaTitle: 'QR Codes for Hotels: A Practical Setup Guide',
+    metaDescription:
+      'How hotels use QR codes for guest information, WiFi, menus, service requests and reviews: placements, sizes, languages, and the next-guest privacy rule.',
+  },
 };
 
 export function applyMetaOverrides(a: Article): Article {

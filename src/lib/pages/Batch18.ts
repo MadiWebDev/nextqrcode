@@ -296,77 +296,144 @@ Codes that stay in circulation need occasional attention. Links change, pages mo
   ),
   art(
     'qr-code-for-outdoor-billboards',
-    'QR Codes on Outdoor Billboards: Sizing, Campaign Tracking, and Driver Safety',
+    'QR Codes on Outdoor Billboards: Sizing, Safety and Tracking',
     'qr code billboard outdoor advertising',
-    'Best practices for large-format outdoor QR codes that pedestrians can actually scan safely.',
+    'How to use QR codes on outdoor billboards that pedestrians can actually scan: the one-tenth sizing rule, placement, testing at the site, and driver safety.',
     'Business & Regional',
-    '6 min read',
+    '12 min read',
     '2027-01-05',
     `
-### 1. Who Actually Scans a Billboard
+### 1. The honest starting point: most billboards should not carry a QR code
 
-Drivers do not safely scan while moving. Billboards with QR codes work for pedestrians near the sign, people in stationary traffic, and passengers. Size and placement must reflect this.
+Outdoor advertising loves the idea of the QR code: a poster the size of a house that a passer-by can act on. The physics and the safety rules are less romantic. A code on a motorway bulletin cannot be scanned by the people passing it — they are driving, at speed, and must not try — and a code sized for a building's wall fails completely when the audience is a pavement twenty metres below it.
 
-### 2. Sizing for Distance
+So this guide starts with placement honesty. QR codes outdoors work brilliantly in the places where people are stationary or walking: bus shelters, station and airport posters, pedestrian high streets, queue barriers, building hoardings at street level, forecourt and parking signage, event fencing. They fail — and can be dangerous — anywhere the audience is driving. Everything that follows assumes a pedestrian audience with time to stop, aim and scan. If your site does not have that audience, spend the space on a short, memorable web address instead; a good outdoor campaign often carries both, each doing the job it is suited to.
 
-Using the 10:1 rule, a pedestrian at 3 metres needs a 30 cm code minimum. A person in a car at 5 metres needs 50 cm. Most practical billboard QR codes run 40 to 80 cm for pedestrian-focused locations.
+### 2. Sizing: the one-tenth rule, applied without mercy
 
-### 3. Keep the Payload Small
+The governing rule for all QR sizing is simple: **the code needs to be roughly one tenth of the scanning distance.** Outdoor work is where that rule stops being a guideline and becomes the whole design.
 
-A short URL ensures the code is a low version with large modules at the physical size used. Test scanning at the maximum intended distance before production.
+- **Bus shelter and street furniture** (audience 1–3 m away): code **200–300 mm**.
+- **Station posters and hoardings** (2–5 m): code **300–500 mm**.
+- **Large pedestrian billboards** (5–10 m of pavement in front): code **600 mm–1 m**.
+- **Beyond 10 m:** you are at a metre-plus of code and relying on phone zoom; test ruthlessly or do not do it.
 
-### 4. Call to Action
+Phone cameras have improved — many now use a telephoto lens or digital zoom when scanning — but zoom costs light and steadiness, and the audience includes every older phone in the crowd. Size for the median phone, not the flagship. Our [QR billboard size calculator](/qr-billboard-size-calculator) turns a planned viewing distance into a code size, and the [QR size calculator](/qr-size-calculator) covers the general rule.
 
-"Scan while you wait" acknowledges the context and gives permission. Place the CTA adjacent to the code in large, readable text.
+Payload discipline is the other half of size. At these distances the code must be as coarse as possible: the shortest address you own, no tracking strings pasted raw into the code (put the campaign parameters on a short redirect instead — our [UTM builder](/utm-builder) helps structure them on the destination side), and error correction no higher than the environment demands, because higher correction means smaller modules at the same code size.
 
-### 5. Campaign Tracking
+### 3. Step-by-step: build an outdoor campaign code
 
-Use a unique short URL per billboard location and campaign. Scan events from outdoor placements are a direct, attributable channel signal.
-    
+**Step 1 — Fix the destination.** A mobile page that loads in under a couple of seconds on a street connection, with the campaign's single action at the top: the offer, the booking, the trailer, the store page. A person standing on a pavement gives a slow page about five seconds.
 
-### Putting this into practice
+**Step 2 — Shorten the address.** Use a short domain or a short path you control, dedicated to this campaign. It is simultaneously the scannable payload, the typed fallback printed beside the code, and the thing that keeps the code's modules large.
 
-Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+**Step 3 — Generate the code.** Use the [URL QR code generator](/url-qr-code-generator) with the short address. Error correction **M** is usually right outdoors at proper sizes; step up to **Q** where the site is dirty, coastal or long-duration. Avoid logos in outdoor codes — at distance, the logo is a hole in the data.
 
-### Common mistakes to avoid
+**Step 4 — Produce it as vector.** SVG into the artwork workflow. A billboard is printed in sections at large scale; a raster code scaled up will soften at the module edges, and at twenty metres nobody can tell — but the camera can. Vector, always.
 
-The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+**Step 5 — Brief the site, not just the printer.** The artwork includes the code's quiet zone as part of the design: a clean border of at least 4 modules, scaled — at a 500 mm code that is a visible margin, and it must survive the site's frame, fixings and any lighting rig. Confirm with the media owner where frames and clips fall, so nothing crosses the code.
 
-### Quick checklist
+**Step 6 — Proof at scale.** Section 5. Nobody signs off a billboard code from a screen.
 
-- Keep the payload as short as practical so modules stay large.
-- Keep dark modules on a light background with strong contrast.
-- Leave a clear quiet zone on all four sides of the symbol.
-- Test the printed code at the real viewing distance and lighting.
-- Confirm the destination page loads fast on a phone.
-- Recheck the code after any change to the link, design, or placement.
+**Step 7 — Keep a site register.** Outdoor campaigns run across many sites, often with a different code per site for measurement. Keep a simple register — site, code file, destination address, install date — from the first site to the last. When a site is re-posted with the next campaign, the register is how you prove no site is still carrying last month's code, and when a destination needs to change mid-campaign, it is how you know exactly which codes are affected.
 
-Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+### 4. Design and environment
 
-### Related tools and guides
+**Contrast at distance.** Black on white or a full-strength dark brand colour on a pale ground. At twenty metres in flat light, mid-tones merge; the code must read as a hard-edged pattern, not a brand texture. Never place the code over photography, gradients or the product shot — give it its own panel.
 
-- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
-- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
-- Run unfamiliar destinations through the [QR safety checker](/qr-safety-checker) before you share a code widely.
-- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
-- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
-- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
+**Light, day and night.** Outdoor sites live in two worlds. Test both. A code that scans at noon may sit in shadow at 4 p.m. or under a sodium streetlight at night; backlit sites change the balance again. Glossy protective finishes and rain-wet surfaces add reflections — matte finishes scan better in almost every outdoor condition.
+
+**Weather and duration.** For long campaigns, print durability is scanning durability: UV fade turns black modules grey, and grey modules at distance are gone. Specify UV-stable inks and check the site mid-campaign with a scan, not a glance.
+
+**Height and angle.** A code centred for a standing adult at the natural stopping point — where the pavement widens, where the queue forms, where the shelter bench is — outperforms a code placed for the artwork's symmetry. People scan where they stand; put the code where standing happens.
+
+### 5. Testing at the site
+
+The proof routine for outdoor is a site visit with phones:
+
+1. Print one panel or a full-size section proof and mount it in the real position, at the real height.
+2. Scan from the natural stopping points with at least three phones, including an older mid-range model.
+3. Test at midday and after dark if the campaign runs at night.
+4. Test in rain or after wetting the surface if the site is exposed — water changes everything.
+5. Follow the scan to the page and time the load on mobile data.
+
+If any phone fails at the main stopping point, the code gets bigger or the site gets a different treatment. There is no third option; a campaign cannot be re-aimed once it is up.
+
+### 6. Tracking the campaign honestly
+
+A static code cannot count its own scans — it is a printed link, nothing more. Campaign measurement belongs on the destination side: a dedicated short address per site, campaign parameters on the redirect, and your normal web analytics separating the sites. That gives you scans-that-became-visits per location, which is the number that matters, and it keeps every site comparable. Our tools create the codes in your browser and collect nothing: no scan data is sent to or stored by us, and there are no accounts. If a media package promises per-scan data from a printed code, it is selling a dynamic redirect service — legitimate, but understand that the redirect provider then sits between your audience and your page, and the code dies if that service does.
+
+### 7. Safety and responsibility
+
+- **Never design for drivers.** No 'scan me' call to action on any site whose audience is in moving vehicles — not on motorway gantries, not on roundabout signage, not on the back of buses in traffic. Apart from the ethics, a code that cannot be reached safely cannot be scanned at all, so it fails as advertising too.
+- **Passenger and parked contexts are different** — a code inside a taxi, at a charging station or in a car park where people are stationary is a normal pedestrian placement.
+- **Do not obstruct.** Codes on hoardings and street furniture must not cover safety information, sightlines or accessibility signage, and the installation follows the media owner's and the local authority's rules for the site.
+- **Mind the pavement.** If your code works, people will stop to scan it. Place it where stopping is safe and does not block a crossing, a doorway or a cycle path.
+
+### 8. Dwell time: the hidden variable
+
+Distance decides whether a code *can* be scanned; dwell time decides whether it *will* be. A person walking past a hoarding at pace has perhaps two seconds of attention for it — enough to register a headline and a short web address, rarely enough to stop, unlock a phone, aim and scan. A person waiting at a bus shelter has minutes, a phone already in hand, and nothing else to look at. The same code, at the same size, is a failure at the first site and a workhorse at the second.
+
+Plan placements by dwell, not just by footfall. Shelters, station platforms, ticket queues, taxi ranks, charging points and venue fencing — anywhere the audience waits — are QR territory, and the page behind the code can afford to ask for a minute of engagement: a trailer, a configurator, a competition entry, a booking flow. Pure pass-by sites earn a glance, so treat them as brand media carrying a short address for later typing, and judge them on recall, not scans. Campaigns that mix the two — pass-by sites for reach, dwell sites for response — use each site honestly and measure each by what it can actually deliver.
+
+### 9. Common mistakes and how to fix them
+
+**A code on a highway bulletin.** Unscannable and irresponsible. Fix: replace it with a short memorable address and voice the call to action there; move the code to the pedestrian sites in the same campaign.
+
+**Sized for the artwork, not the distance.** A 300 mm code on a site read from 15 m. Fix: the one-tenth rule, the billboard size calculator, and a full-size site proof.
+
+**A long URL straight in the code.** Dense modules, tiny at scale, dead at distance. Fix: short dedicated address; campaign parameters behind a redirect.
+
+**Code over the hero image.** The campaign photograph eats the quiet zone and the contrast. Fix: a dedicated clean panel — it also makes the code more noticeable, not less.
+
+**No night test.** Half the campaign's life is after dark. Fix: test under the site's actual night lighting before sign-off.
+
+**Faded mid-campaign.** UV does its work in weeks. Fix: UV-stable print specification and a mid-campaign scan check written into the site contract.
+
+### 10. Related tools and guides
+
+- The [QR billboard size calculator](/qr-billboard-size-calculator) converts viewing distance into code size.
+- The [URL QR code generator](/url-qr-code-generator) creates the campaign code.
+- The [QR placement guide](/qr-placement-guide) covers positioning across outdoor sites.
+- The [UTM builder](/utm-builder) structures campaign tracking on the destination.
+- Our [QR code sizes for printing](/blog/qr-code-sizes-for-printing) guide gives the full distance table.
 `,
     [
       {
-        question: 'Is it legal to include a QR code on a highway billboard?',
+        question: 'How big does a QR code on a billboard need to be?',
         answer:
-          'In most markets yes, but do not design it for scanning while driving. Position and context must discourage unsafe phone use.',
+          'Roughly one tenth of the scanning distance. A shelter poster scanned from 2 metres needs about 200-300 mm; a hoarding read from 5 metres needs around 500 mm; beyond 10 metres you are past a metre of code and relying on phone zoom, so test at the site or choose a different treatment.',
       },
       {
-        question: 'What minimum module size works for a 1-metre billboard code?',
+        question: 'Can drivers scan a QR code on a motorway billboard?',
         answer:
-          'At 1 metre total size for a Version 3 code (29 modules plus 8 quiet zone = 37 modules), each module is about 27 mm — comfortably readable from 10+ metres.',
+          'No — and it should not try. Drivers must not scan, and at motorway speed and distance it is physically impossible anyway. Use a short, memorable web address for driver-facing sites, and reserve QR codes for places where people are standing or walking.',
       },
       {
-        question: 'How can I tell whether a QR code is safe to scan?',
+        question: 'What should an outdoor QR code link to?',
         answer:
-          'Preview the destination before opening it, confirm the domain matches the expected business, and avoid codes that ask for passwords or payment details on an unfamiliar page. When in doubt, type the address yourself instead of scanning.',
+          'A short dedicated campaign address you control, opening a fast mobile page with one clear action. Keep the payload short so the modules stay large, and put campaign tracking parameters behind a redirect rather than in the code itself.',
+      },
+      {
+        question: 'How do we track scans from an outdoor campaign?',
+        answer:
+          'On the destination side: a unique short address per site plus campaign parameters, measured in your normal web analytics. A static printed code cannot count its own scans — anything claiming per-scan counts is a dynamic redirect service sitting between the audience and your page.',
+      },
+      {
+        question: 'Which error correction level suits outdoor codes?',
+        answer:
+          'M is usually right at proper outdoor sizes. Step up to Q for dirty, coastal or long-duration sites. Avoid centre logos outdoors — at distance a logo is simply missing data — and always keep at least 4 modules of quiet zone, scaled to the code size.',
+      },
+      {
+        question: 'How should we test a billboard code before the campaign runs?',
+        answer:
+          'Mount a full-size proof in the real position and scan it from the natural stopping points with at least three phones, including an older model — at midday and after dark, and wet if the site is exposed. If any phone fails at the main stopping point, enlarge the code.',
+      },
+      {
+        question: 'Where do outdoor QR codes work best?',
+        answer:
+          'Bus shelters, station and airport posters, pedestrian high streets, hoardings at street level, queue barriers, event fencing and car parks — anywhere people are stationary or walking with time to stop and aim. If the audience is in moving vehicles, the answer is nowhere on that site.',
       },
     ]
   ),

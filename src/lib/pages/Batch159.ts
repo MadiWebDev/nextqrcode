@@ -209,69 +209,144 @@ The most common mistakes in bulk shipping labels are easy to avoid once they are
   ),
   art(
     'printing-bulk-shipping-labels-qr-codes',
-    'Printing Bulk Shipping Labels QR Codes',
+    'Printing Bulk Shipping Labels with QR Codes',
     'printing bulk shipping labels qr codes',
-    'Print bulk shipping labels with the right size, material, and print setup, plus a proof stage that catches failures before the full run.',
+    'How to print bulk shipping labels with QR codes: carrier labels versus your own, printer settings, label sizes, proofing, and the mistakes that break scans.',
     'Business & Regional',
-    '7 min read',
+    '12 min read',
     '2027-10-25',
     `
+### 1. Two kinds of shipping label, two different rules
 
-### Choosing size, material, and finish
+Bulk shipping label printing goes wrong in a predictable place: a warehouse treats every label as if it were the same kind of object. It is not. There are two, and they obey different rules.
 
-Printing bulk shipping labels starts with three choices that shape everything else: size, material, and finish. Size follows scan distance, so a code scanned at arm's length can be smaller than one scanned across a room, and labels stuck to parcels and scanned in transit needs a size tested in the real setting. Material follows the environment, including moisture, sunlight, handling, and cleaning, so short-lived indoor items can use plain paper while handled or outdoor items need laminated or synthetic stock. Finish affects glare, so a matte finish often scans more reliably than a glossy one under bright lights. Agree these three choices in writing before artwork is built, because changing material or size after layout means rebuilding the file.
+**Carrier labels** — the ones your courier issues for each parcel, with their barcode, routing codes and your account details — are the carrier's document. You print them exactly as issued, at the size issued, unedited. Shrink one to fit smaller stock, crop it, or 'tidy it up' and you risk a parcel that cannot be scanned at a depot, gets hand-keyed at best, and comes back at worst.
 
-### Setting up the print file
+**Your own QR labels** — internal labels you generate: order references, bin and shelf locations, returns codes, asset tags, pallet and carton identifiers for your own operation — are yours to design, and our bulk tools exist to generate them by the hundred from a spreadsheet. These obey the rules in this guide: size, contrast, error correction, and a proof stage before the full run.
 
-Build the print file from the checked source data, not from a hand-edited copy, so the printed codes match the approved batch. Keep the quiet zone clear on all four sides of every symbol, and keep text, borders, and cut marks out of that margin. Use high-resolution exports for print, and avoid stretching or resampling the code image, because distortion blurs the module edges that scanners rely on. Place the human-readable details, such as the name and reference, where they stay visible after cutting, folding, or lamination. If the run uses sheets, check the sheet layout for alignment, margins, and cut guides before the full run, and confirm that the first and last positions on the sheet are correct, since alignment drift shows up at the edges first.
+This guide covers bulk printing for both: the setup that keeps carrier labels valid, the generation and print discipline for your own QR labels, the materials that survive a supply chain, and the mistakes that turn a thousand-label run into a thousand-label problem.
 
-### Checking the first sheets
+### 2. The bulk workflow, end to end
 
-Print a small proof run on the final stock, at the final size, and inspect it before the full run. Scan every code on the proof with two different phones, and compare each scanned destination with the source row. Look at the print itself for ink spread, faint modules, banding, or misalignment, and check that the quiet zone survived cutting and trimming. If anything fails, stop and fix the file, the settings, or the material, rather than hoping the rest of the run will improve. Once the proof passes, approve it in writing, keep a copy as the reference, and spot-check sheets during the run, especially after any paper change, ink change, or pause. A short proof stage is the cheapest insurance a print run has.
+**Step 1 — Start from clean data.** Every bulk label run is a spreadsheet before it is a print job. One row per label, one column per field: order number, destination reference, internal code content. Check the data before anything is generated — duplicates, blanks and stale rows in the sheet become physical labels on physical boxes, where they are much harder to fix.
 
-### Putting this into practice
+**Step 2 — Generate the codes in bulk.** Use our [bulk shipping label QR generator](/bulk-shipping-label-qr-generator) (or the general [bulk generator](/bulk-generator)) to turn the spreadsheet into one code per row, with the label text that belongs with it. Each code should contain a short, unique reference — an order or item ID — not a paragraph. Short payloads keep modules large and scans fast at arm's length in a warehouse.
 
-Start with a small, real test. Build the batch from a handful of rows, generate the codes, and print them at the exact size and on the exact material you plan to use. Scan each code with two different phones in the lighting where the shipping label will live, and confirm that the destination, the printed text, and the layout all match the brief. Fix anything that fails in the source file or the layout, then re-test, because a fix that is not re-tested is only a guess. Once the small test passes, run the full batch from the same checked inputs, and keep the source file, the proof, and the print file together so a reprint uses the same approved version.
+**Step 3 — Choose the label and code size together.** The standard shipping label in much of the world is 4 × 6 inches (roughly 100 × 150 mm), which suits carrier labels and generous internal labels alike. On a label that size, make your QR code **25–35 mm**. On smaller stock (for example 2 × 1 inch bin labels), the code can go down to about **15 mm** only if the payload is very short and the printer resolution is up to it — see section 3.
 
-### Common mistakes to avoid
+**Step 4 — Proof a single sheet.** Print one sheet or the first label of the roll, exactly as the run will print, and scan every code on it with the devices your operation actually uses — the warehouse scanner and a phone. Check that each code returns the right reference for its row. This proof stage is the cheapest quality control in the entire process; section 6 lists what it catches.
 
-The most common mistakes in bulk shipping labels are easy to avoid once they are named. Generating codes from an uncleaned file produces duplicates, broken destinations, and wrong names. Crowding the quiet zone with text, borders, or cut marks makes codes fail even when the print is otherwise good. Printing the full run before testing a proof turns a small fix into a large reprint. Using a long payload on a small shipping label makes modules tiny and hard to read. Skipping a second phone test hides failures that only appear on some devices. Review each of these points on the proof copy, and treat any failure as a reason to adjust the file, the size, or the material.
+**Step 5 — Print the run with the right settings.** Thermal settings in section 3. Print the batch in one session with one set of settings; a run that changes darkness or speed halfway through is a run with two quality levels.
 
-### Quick checklist
+**Step 6 — Sample the finished run.** Pull labels from the start, middle and end of the run and scan them. Print quality drifts — a fading thermal head or a low toner cartridge announces itself gradually, and sampling is how you hear it early.
 
-- Confirm every row has the right destination and a unique identifier where one is needed.
-- Keep payloads short and put readable details in the printed text around the code.
-- Leave a clear quiet zone on all four sides of every symbol.
-- Print a proof at the final size on the final material and scan it on two phones.
-- Check the first and last items on every sheet or batch for alignment and drift.
-- File the source data, the proof, and the print file together with a dated note.
+**Step 7 — Apply with placement discipline.** Section 5. A perfect label in a bad position is a failed label.
 
-### Related tools and guides
+### 3. Printer and print-quality rules that decide scannability
 
-- Generate the batch with the [warehouse QR suite](/warehouse-qr-suite) and check the output before printing.
-- Validate every destination with the [QR batch validator](/qr-batch-validator) so broken or duplicate URLs are caught early.
-- Package the finished files with the [QR ZIP packager](/qr-zip-packager) so print gets one tidy handoff with a manifest.
-- Build the source list with the [bulk generator](/bulk-generator) when the batch starts from pasted rows.
-- Size the printed code with the [QR size calculator](/qr-size-calculator) for the real scan distance.
-- Test every proof with the [QR scanner](/qr-scanner) on more than one phone.
-- Check proofs on paper with the [printed QR tester](/printed-qr-tester) before the full run.
+**Thermal printers are the warehouse standard for a reason.** Direct thermal and thermal transfer printers produce the crisp module edges scanners love. Know which you have: direct thermal labels fade with heat and time (fine for a parcel's journey, wrong for a shelf label meant to last two years); thermal transfer with a resin ribbon is the durable option for long-life labels.
 
+**Resolution sets your minimum code size.** A 203 dpi thermal printer puts a dot every 0.125 mm; a QR module should span at least 3–4 printer dots to print cleanly, which puts a practical floor under module size and therefore under code size for a given payload. A 300 dpi printer earns smaller labels. If small labels are scanning badly, the honest fixes are a shorter payload, a bigger label, or a higher-resolution printer — in that order.
+
+**Darkness/heat settings.** Too light and modules print grey and broken; too hot and modules bleed into each other, closing up the light spaces. Both fail scans. The proof sheet exists to find the middle setting for your stock; once found, write it on the printer for the next operator.
+
+**Never scale a carrier label.** Print carrier PDFs at 100%. 'Fit to page' on the wrong stock rescales the carrier's barcode and can push it below the carrier's scanning tolerance. If the label does not fit your stock, the stock is wrong, not the label.
+
+**Inkjet and laser** are acceptable for low-volume internal labels on suitable stock, with two warnings: inkjet smears when wet unless the stock and ink are rated for it, and a laser printer low on toner produces the same grey, low-contrast codes as a fading thermal head. Warehouses are damp, dusty places; choose stock for the environment, not the office.
+
+### 4. Label stock and placement
+
+**Stock.** Paper labels are fine for parcels that travel indoors through a normal delivery network. For cold, damp, outdoor or long-storage use, synthetic (polypropylene or polyester) labels with the right adhesive are worth their cost — a label that peels in a cold store takes its information with it.
+
+**Adhesive and surface.** Labels stick to clean, dry, flat cardboard. They fail on dusty, damp, frozen or heavily textured surfaces, and over box seams and tape edges, where they lift and wrinkle — and a wrinkled code often will not scan. One label per face, flat, away from edges and corners that take the knocks.
+
+**Placement for carrier labels** follows the carrier's own guidance: on the largest flat face, not over a seam, not under strapping. For your own codes, consistency is the rule — the same position on every carton means staff stop hunting for the code, and scan time per parcel drops.
+
+**Quiet zone and neighbours.** Keep the clear border around your QR codes, and keep your label's code away from the carrier barcode and any other printed codes. Two codes close together confuse both scanners and people about which one to scan.
+
+### 5. Error correction and payload discipline for internal labels
+
+Internal QR labels live rough lives: forklift scuffs, shrink-wrap glare, rain on loading bays. Set error correction to **Q or H** as standard for warehouse labels — the payload is short, so the density cost is affordable. Keep payloads to the shortest unique reference that does the job (an order ID beats a URL; a URL with tracking parameters is the worst of both). If a label must carry a URL — for example a returns code the customer scans — use a short address you control and keep it alive for the returns window plus margin.
+
+For bin and shelf location labels, the code content can simply be the location ID as plain text; your warehouse system does the lookup. Print the same ID in large human-readable text under the code — people work faster when they do not have to scan to read.
+
+### 6. What the proof stage catches
+
+Every bulk run should pass a proof before the full print, because bulk printing multiplies whatever it touches:
+
+- **Wrong mapping** — codes that open the wrong row's reference, from a shifted spreadsheet column. Caught by scanning the proof against the sheet.
+- **Duplicates** — the same reference generated twice, from a duplicated row. Caught by the duplicate check in your data pass and by scanning samples.
+- **Unscannable quality** — wrong darkness, low resolution, scaled output. Caught by scanning the proof with the real devices, in the real lighting, at the real distance.
+- **Stock mismatch** — labels that overhang the box face or a carrier label squeezed onto small stock. Caught by applying the proof to an actual box.
+- **Stale data** — yesterday's orders in today's run. Caught by checking the sheet's date range before generating.
+
+Five minutes of proofing against a one-hour reprint is the best trade in the warehouse.
+
+### 7. Common mistakes and how to fix them
+
+**Shrinking carrier labels to fit smaller stock.** The carrier's barcode leaves its tolerance and depots hand-process or reject. Fix: stock that fits the label as issued; print at 100%.
+
+**Generating from an unchecked spreadsheet.** Every data error becomes a physical label. Fix: deduplicate, fill blanks, and sort the sheet before generation; keep the sheet as the run's record.
+
+**Codes packed with data.** A label code carrying a full address or a long URL prints as a dense block that fails at distance. Fix: short unique reference in the code; the system holds the details.
+
+**One darkness setting for every stock.** Glossy synthetic and matte paper need different heat. Fix: proof per stock, and note the setting on the printer.
+
+**Labels over seams, tape and corners.** They lift, wrinkle and stop scanning. Fix: flat face, clear of seams — retrain the pack bench, not the printer.
+
+**Reprinting a damaged label run without voiding the first.** Two live labels with the same reference in the building is a stock error waiting to happen. Fix: destroy spoiled labels from a reprint, physically, as part of the reprint job.
+
+**Direct thermal for long-life labels.** Shelf and asset labels fade to blank in heat and sunlight. Fix: thermal transfer with resin ribbon, or synthetic stock rated for the life you need.
+
+### 8. Privacy and security notes
+
+Your internal codes usually carry only a reference ID, which is the right instinct: the code itself reveals nothing useful to anyone outside your system, and the data stays in the system where it belongs. Customer-facing returns codes deserve one more thought — the page they open should show the customer their return, and only their return, so use unguessable references rather than sequential order numbers a stranger could step through.
+
+The codes our bulk tools create are static and generated in your browser from the data you paste in: that data is not sent to or stored by us, there is no account, and there is no scan tracking. Keep your source spreadsheets under your normal business data care — they are the master copy of everything the labels say. Carrier labels, of course, contain names and addresses by necessity; handle spoiled carrier labels as the personal data they are, and destroy them rather than binning them whole.
+
+### 9. Related tools and guides
+
+- The [bulk shipping label QR generator](/bulk-shipping-label-qr-generator) turns a spreadsheet into label codes.
+- The [bulk generator](/bulk-generator) covers the other bulk code types.
+- The [QR label count calculator](/qr-label-count-calculator) works out how many labels a sheet or roll holds.
+- The [printed QR tester](/printed-qr-tester) verifies the proof sheet before the run.
+- Our guide to [QR code sizes for printing](/blog/qr-code-sizes-for-printing) gives sizes for every placement.
 `,
     [
       {
-        question: 'What size should QR codes be on shipping labels?',
+        question: 'Can I shrink a carrier shipping label to fit smaller label stock?',
         answer:
-          "Size depends on scan distance, so start from how far away a person will stand when scanning. A code scanned at arm's length can be much smaller than one scanned across a room or from a doorway. Print a test at the size you plan to use, scan it in the real lighting, and only then approve the run, rather than trusting a size that looked fine on screen.",
+          'No. A carrier label is the carrier\'s document, with their barcode and routing information. Shrinking or cropping it can take the barcode outside scanning tolerance and get the parcel hand-processed or returned. Print carrier labels at 100% on stock that fits them.',
       },
       {
-        question: 'Which material works best for shipping labels?',
+        question: 'How big should the QR code be on a shipping label?',
         answer:
-          'Choose the material from the environment the item will live in, including moisture, sunlight, handling, and cleaning. Paper suits short-lived indoor items, while laminated or synthetic stock suits items that are handled, wiped, or used outdoors. The right choice is the one that keeps contrast and edges intact for the whole life of the shipping label, not just the day it is printed.',
+          'On a standard 4 x 6 inch label, 25 to 35 mm scans reliably at warehouse distances. Very small labels can go down to about 15 mm only with a short payload and a higher-resolution printer — and only after a scanned proof proves it works.',
       },
       {
-        question: 'Why do printed QR codes fail when the on-screen version scans?',
+        question: 'What should the proof stage check before a bulk run?',
         answer:
-          'Printing changes the code in ways a screen preview hides, including ink spread on absorbent stock, glare on glossy stock, and colour shifts on a press. A proof printed on the final stock, at the final size, and scanned with real phones is the only reliable check. If the proof fails, adjust size, contrast, or material before the full run, and keep the proof as the reference for the batch.',
+          'Print one sheet exactly as the run will print, apply it to a real box, and scan every code with the devices you actually use. Check each code returns the right reference for its spreadsheet row. The proof catches wrong mappings, duplicates and quality problems while they are still cheap.',
+      },
+      {
+        question: 'Which error correction level suits warehouse labels?',
+        answer:
+          'Use error correction Q or H. Warehouse labels get scuffed, wrapped and rained on, and a short reference payload makes the density cost of high error correction affordable.',
+      },
+      {
+        question: 'Why did my printed labels fade after a few months?',
+        answer:
+          'Direct thermal fades with heat and time, which is fine for a parcel label and wrong for a shelf or asset label meant to last. For long-life labels use thermal transfer with a resin ribbon or rated synthetic stock.',
+      },
+      {
+        question: 'What data should a bulk shipping label QR code contain?',
+        answer:
+          'Only a short, unique reference — an order or item ID. The system holds the details. Long payloads and full addresses make dense codes that scan slowly and fail at distance, and they print information on the box that does not need to be there.',
+      },
+      {
+        question: 'Does the bulk generator store the data from my spreadsheet?',
+        answer:
+          'No. Codes are generated in your browser from the data you paste in; nothing is uploaded, stored or tracked, and there is no account. Keep the source spreadsheet safe — it is the master copy of everything the labels say.',
       },
     ]
   ),

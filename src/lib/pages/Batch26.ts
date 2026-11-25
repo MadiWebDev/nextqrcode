@@ -76,73 +76,141 @@ Codes that stay in circulation need occasional attention. Links change, pages mo
   ),
   art(
     'qr-code-for-car-dealerships',
-    'QR Codes for Car Dealerships: Vehicle Specs, Finance Calculators, and Test Drive Booking',
+    'QR Codes for Car Dealerships: Specs, Finance and Test Drives',
     'qr code car dealership vehicle specs',
-    'Use QR codes on forecourt vehicles for instant specification access, finance quotes, and booking.',
+    'How car dealerships use QR codes on windscreens for vehicle specs, video walkarounds, finance illustrations and test drive booking, plus sold-car discipline.',
     'Business & Regional',
-    '5 min read',
+    '12 min read',
     '2027-03-23',
     `
-### 1. Vehicle Specification Page
+### 1. The forecourt is open when the showroom is not
 
-A QR on the windscreen card links to the full vehicle spec: engine, transmission, fuel type, WLTP range (for EVs), service history, MOT expiry, and number of previous owners.
+A large share of car buying now happens at odd hours and at a distance: a shopper walking the forecourt on a Sunday morning, a commuter photographing a car through the fence after work, a buyer comparing three similar models from their sofa. In every case, the windscreen is the shop window, and the question the shopper has is specific — what exactly is this car, what has it done, and what will it cost me each month?
 
-### 2. Finance Calculator
+A QR code on the windscreen answers at the moment of interest. One scan opens that car's own page: full specification, mileage, service history summary, more photos and a video walkaround, the dealer's finance illustration for that vehicle, and a button to book a test drive. This guide covers what to put on the vehicle page, how to create the codes with our free generators, the print sizes and materials that survive a forecourt, and the two disciplines that make or break the whole scheme: every code must open its own car, and a sold car's page must never pretend the car is still available.
 
-A QR links to a pre-filled finance calculator for that vehicle's price. Customers model monthly payments at different deposit and term combinations before speaking to a sales advisor.
+### 2. What the vehicle page should contain
 
-### 3. Test Drive Booking
+The scan happens standing next to the car, so the page is a closer look, not a brochure:
 
-A QR links to a booking form for that specific model. The customer selects a date and time. The dealership receives a structured booking without a phone call.
+- **The essentials, fast.** Model and trim, year, mileage, fuel or battery type, transmission, and the price — the facts a shopper came for, at the top, loading quickly on a forecourt connection.
+- **The evidence.** Service history summary, number of owners where you state it elsewhere, MOT or inspection status as applicable in your market, and any warranty the car is sold with. Match the page to what your adverts say; the page is part of the advert.
+- **More media.** Interior and detail photos the windscreen cannot show, and a video walkaround. Video does the work of a salesperson's first tour for a shopper who arrived out of hours.
+- **The money.** A finance illustration for this car at this price, or a link into your own finance calculator with the vehicle's price already filled in. Keep examples accurate and labelled as illustrations — the regulated wording your finance partner requires belongs on that page, not paraphrased by a QR guide.
+- **The next step.** Book a test drive, request a callback, reserve the car, or value a part-exchange — one clear action, with a phone number for people who would rather just call.
+- **The salesperson's card.** A separate vCard code on the desk or the car's document pack lets a shopper who did speak to someone keep that person's direct details.
 
-### 4. Comparison Tool
+### 3. Step-by-step: build the codes for a forecourt
 
-A QR on one vehicle links to a comparison page showing similar models in stock. Customers shortlist options without wandering the forecourt.
-    
+**Step 1 — Give every car a page with a stable address.** The scheme stands or falls on this. Each vehicle's page address must stay fixed from the day the car is stocked to the day it is sold. If your stock system already generates a page per vehicle, use those addresses.
 
-### Putting this into practice
+**Step 2 — Open the car listing generator.** Our [car listing QR generator](/car-listing-qr-generator) is built for exactly this job; for a plain link code, the [URL QR code generator](/url-qr-code-generator) does the same thing. Paste the vehicle's own page address — not the stock list, not the homepage.
 
-Start with the smallest real test you can run. Generate the code, print it at the exact size you plan to use, and scan it with two different phones in the lighting where it will live. Check that the destination page loads quickly on a mobile connection and that the call to action next to the code tells people what they will get. If anything feels slow or unclear, fix it before you print a full batch, because reprints cost more than a short test. Keep a note of the size, material, and placement that worked so the next batch starts from a proven setup.
+**Step 3 — Work in a batch, with a register.** Dealerships prepare cars in batches, so use the register discipline: a simple list of registration number, page address, and code file name. Generate, then immediately scan each code and read the registration on the page it opens. Code swaps between two similar cars are the classic forecourt error, and this thirty-second check is the only reliable cure.
 
-### Common mistakes to avoid
+**Step 4 — Add the supporting codes.** A [vCard QR code](/vcard-qr-code-generator) for each salesperson, a [Google review QR code](/google-review-qr-generator) at the handover desk and in the service waiting area, and a code on the service reception linking to booking. Each code has one job.
 
-The most common mistakes are easy to avoid once you know them. Long payloads make modules tiny, low contrast makes edges hard to read, and text placed too close to the border eats the quiet zone the scanner needs. Covering a corner finder pattern with a logo or a sticker breaks detection entirely, and a code placed behind glare or on a curved surface fails even when the print is perfect. Review each of these points on a proof copy, and treat any failure as a reason to adjust the design rather than a reason to blame the scanner.
+**Step 5 — Customise within the rules.** Dealer branding around the code is good marketing; the code itself stays dark on light with strong contrast, error correction Q or H if a logo sits in the centre, and no inverted colours. A windscreen sheet is read through glass, in sun and rain — this is not the place for pale brand tints.
 
-### Quick checklist
+**Step 6 — Download and print.** SVG or the largest PNG. Print the windscreen sheet at A5 or A4 as your holders require; the code size guidance is in section 4.
 
-- Keep the payload as short as practical so modules stay large.
-- Keep dark modules on a light background with strong contrast.
-- Leave a clear quiet zone on all four sides of the symbol.
-- Test the printed code at the real viewing distance and lighting.
-- Confirm the destination page loads fast on a phone.
-- Recheck the code after any change to the link, design, or placement.
+**Step 7 — Fit and verify in place.** Put the sheet in the car, close the door, and scan it from outside, through the glass, at a shopper's distance. Then scan it again in low sun if the forecourt faces the evening. Only then is the car ready.
 
-Codes that stay in circulation need occasional attention. Links change, pages move, and printed materials fade, so review each live code on a regular schedule and confirm it still opens the right destination. When a destination changes, update a dynamic code or reprint a static one on the same day, and remove old codes from circulation so nobody scans a dead link. Keep a simple register of where each code appears, what it points to, and when it was last tested, because a code nobody owns is a code nobody fixes.
+### 4. Sizes and materials for outdoor vehicle displays
 
-### Related tools and guides
+- **Windscreen sheets (A5/A4):** the code should be **50–80 mm** square. The shopper scans from a step or two away, through glass that may be wet, dusty or reflective. Bigger is genuinely better here; there is plenty of room on the sheet.
+- **Mirror hangers and headrest cards:** **40 mm** minimum, scanned at arm's length once the shopper is beside or inside the car.
+- **Error correction:** **H**. Forecourt sheets fade, get rained on inside leaky holders, and pick up dust. The highest level buys real tolerance.
+- **Materials:** UV-stable printing or lamination is not optional for a car that may sit outside for weeks. A code that fades to grey in a month of sun is worse than no code — it advertises carelessness. Weatherproof holders with the opening at the bottom keep water off the sheet.
+- **Glass and glare:** angle matters more than print quality at noon on a bright day. If a row of cars faces low sun, test at that hour; sometimes moving the sheet from windscreen to side window fixes a reflection problem completely.
+- **Quiet zone:** keep the printed border around the code clear of price banners and stickers. Forecourt sheets are visually busy; the code needs its own calm space.
 
-- For local payments, the [Pakistan payment QR](/pakistan-payment-qr) page explains the regional flow and what customers see.
-- The [regional payment QR](/regional-payment-qr) guide covers payment codes used across different markets.
-- The [bulk generator](/bulk-generator) builds many codes from a table when one-off generation would take too long.
-- Test every code with the [QR scanner](/qr-scanner) on more than one phone before you publish or print it.
-- The [UTM builder](/utm-builder) adds campaign parameters so scans show up separately in your analytics.
-- The [blog](/blog) collects more guides on sizing, printing, security, and payments for QR codes.
+### 5. Where dealerships get value from the codes
+
+**Out-of-hours forecourt browsing.** The original and still the best use. A shopper at 7 a.m. on a Sunday gets the full picture and books a test drive for Monday; without the code, they get a price in the window and a competitor's website on their phone.
+
+**Comparing similar stock.** Three near-identical models in a row become easy to tell apart when each windscreen opens its own page — mileage, trim and history differences are right there, and the shopper stops confusing which car had what.
+
+**Part-exchange and finance starts.** A shopper who begins a part-exchange valuation or a finance illustration from the car's own page has done half the paperwork before a salesperson is involved, and the enquiry arrives attached to the right vehicle.
+
+**Handover and aftercare.** A code in the document pack opening the car's service booking page, warranty summary and the dealer's contact turns one sale into the service relationship. A review code offered at handover — while the experience is good — is where the five-star reviews actually come from.
+
+**Service and parts reception.** Codes for booking, for courtesy-car or collection information, and for seasonal offers keep the phones quieter and the queue shorter. Keep these pages ruthlessly current; a code that opens last winter's offer undermines all the others.
+
+### 6. The sold-car discipline
+
+The scheme's credibility depends on what happens at the moment of sale. When a car sells:
+
+1. **Update its page the same day.** The page should state clearly that the car is sold and offer similar available stock. A shopper who scans a sold car's code and finds 'SOLD — here are three like it' has a good experience; a shopper who enquires about a car that sold last week has a bad one, and tells people.
+2. **Remove or replace the windscreen sheet** as the car leaves stock, so the next car in that space never wears the wrong code.
+3. **Keep the page alive.** Do not delete it. The buyer may scan their own document-pack code later, and a page that turns into an error makes the dealership look sloppy. Sold status plus links onward is the correct end state.
+
+The same register from section 3 closes the loop: car sold, page updated, sheet removed — three ticks, same day.
+
+### 7. Common mistakes and how to fix them
+
+**Every code opens the stock list or homepage.** The shopper scanned for this car and got forty cars. Fix: one code per vehicle page, verified against the registration at fitting time.
+
+**Two cars wearing each other's codes.** Similar models, hurried prep. Fix: the register-and-scan check in section 3 — scan every fitted code and read the registration on the page.
+
+**Faded, unscannable sheets.** Sun and weather win against office printing in weeks. Fix: UV-stable print or lamination, weatherproof holders, and a monthly walk of the forecourt scanning a sample from each row.
+
+**Codes too small for through-glass scanning.** A neat 25 mm code on the dash cannot be read from outside. Fix: 50–80 mm on windscreen sheets, tested from outside the closed car.
+
+**Sold cars still advertised by their own windscreens.** The fastest way to burn trust. Fix: the sold-car discipline above, owned by a named person.
+
+**Finance pages that open blank or generic.** If the finance illustration does not reflect the car's price, the shopper does the maths elsewhere — possibly on a competitor's site. Fix: link into your calculator with the vehicle price carried over, and keep the regulated wording on that page intact and current.
+
+### 8. Privacy and security notes
+
+Vehicle pages are public marketing pages, so the privacy exposure is modest — but not zero. Never put a previous owner's details anywhere a QR code can reach: service history should be summarised (dates, mileages, dealer stamps) without names or addresses from old invoices. Buyer details collected through test-drive and valuation forms are ordinary business data — handle them under your normal privacy policy, and say on the form what they will be used for.
+
+The codes themselves are static and created in your browser with our tools: they hold the page address, nothing is uploaded or stored by us, there are no accounts and no scan tracking. That means the dealership cannot see how often a windscreen code is scanned — if scan counts matter to you, measure them in your own website analytics on the vehicle pages, which is where that data properly lives. And because a static code cannot be edited, the page discipline in section 6 is not housekeeping; it is the whole control system.
+
+### 9. Related tools and guides
+
+- The [car listing QR generator](/car-listing-qr-generator) builds per-vehicle codes for the forecourt.
+- The [URL QR code generator](/url-qr-code-generator) covers any other page link.
+- The [vCard QR code generator](/vcard-qr-code-generator) builds salesperson contact codes.
+- The [Google review QR generator](/google-review-qr-generator) turns handovers into reviews.
+- The [printed QR tester](/printed-qr-tester) checks a windscreen sheet before it goes out.
+- Our [QR placement guide](/qr-placement-guide) covers positioning for outdoor displays.
 `,
     [
       {
-        question: 'Should every vehicle on the forecourt have its own QR?',
+        question: 'What should a windscreen QR code open?',
         answer:
-          'Yes. Each vehicle has unique history, spec, and pricing. A per-vehicle QR avoids customer confusion and enables accurate analytics per unit.',
+          'That car\'s own page: price, mileage, year, fuel and transmission at the top, then specification, service history summary, more photos and a video walkaround, a finance illustration for that vehicle, and one clear action such as booking a test drive.',
       },
       {
-        question: 'Can a QR help sell used cars faster?',
+        question: 'How big should a QR code on a car windscreen be?',
         answer:
-          'Yes. Customers who can access full history and finance options before engaging a salesperson are warmer leads and convert at higher rates.',
+          '50 to 80 mm on an A5 or A4 windscreen sheet, because shoppers scan through glass, sometimes wet or reflective, from a step or two away. Use error correction H, UV-stable printing or lamination, and test the fitted sheet from outside the closed car.',
       },
       {
-        question: 'How do I test a QR code before sharing it?',
+        question: 'How do we stop codes getting mixed up between cars?',
         answer:
-          'Scan it with at least two different phones, in the lighting where it will be used, and confirm the destination opens correctly. Test the printed size too, since a code that works on screen can fail once printed small.',
+          'Keep a simple register of registration number, page address and code file. Generate the code, fit it, then scan it and read the registration on the page that opens. That thirty-second check, done for every car, is the reliable cure for swapped codes.',
+      },
+      {
+        question: 'What should happen to a car\'s QR code when the car is sold?',
+        answer:
+          'Update its page the same day to show it is sold, with links to similar available stock, and remove the windscreen sheet. Do not delete the page — the buyer may scan the code in their document pack later, and an error page looks careless.',
+      },
+      {
+        question: 'Can the code show finance figures for the car?',
+        answer:
+          'The code should open your finance illustration or calculator with the vehicle\'s price already filled in, so the shopper sees figures for the car in front of them. Keep the required regulated wording on that finance page itself, accurate and current.',
+      },
+      {
+        question: 'Can we see how many times a windscreen code is scanned?',
+        answer:
+          'The codes are static links created in your browser; nothing is uploaded or tracked by us, so scan counts are not collected. Measure interest through your own website analytics on the vehicle pages instead.',
+      },
+      {
+        question: 'What is the benefit for out-of-hours forecourt visitors?',
+        answer:
+          'Out-of-hours shoppers can still get the full specification, history, video and finance illustration, and can book a test drive or start a part-exchange valuation. The enquiry arrives attached to the right vehicle, ready for the team in the morning.',
       },
     ]
   ),
